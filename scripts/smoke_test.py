@@ -1,10 +1,10 @@
 """Start the server the way a user would, from a checkout or a built artifact, and check it answers.
 
-- `--checkout DIR`: run the command README's "Try it locally" gives for a checkout.
+- `--checkout DIR`: run the command CONTRIBUTING's "Try it locally" gives for a checkout.
 - `--wheel PATH`: install the wheel into a fresh venv and run its console script.
 - `--sdist PATH`: the same from the sdist, which builds it first, as an installer without a
   matching wheel would.
-- `--uvx PATH`: run the wheel with `uvx --from`, as README's "Try it locally" does.
+- `--uvx PATH`: run the wheel with `uvx --from`, as CONTRIBUTING's "Try it locally" does.
 - `--bundle PATH`: unpack the .mcpb and run the command its manifest gives the host, with the
   app token left as the unexpanded placeholder a host passes when the user leaves it blank.
 
