@@ -33,22 +33,31 @@ def _version() -> str:
     ]
 
 
-def _tree(root: Path) -> dict[str, bytes]:
-    return {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+def _frontmatter(path: Path) -> dict:
+    return yaml.safe_load(path.read_text(encoding="utf-8").split("---\n")[1])
 
 
-def test_plugin_skill_matches_repository_skill():
-    repository = _tree(ROOT / SKILL)
-    assert {"SKILL.md", "agents/openai.yaml"} <= set(repository), "known positive"
-    assert _tree(PLUGIN / SKILL) == repository, (
-        f"plugins/opendata-atlas/{SKILL} differs from {SKILL}: edit the repository copy, "
-        f"then copy it (cp -R {SKILL}/. plugins/opendata-atlas/{SKILL}/)"
-    )
+def test_plugin_skill_follows_the_clones_skill():
+    """A copy would freeze at the plugin's release; the stub reads the clone's file instead."""
+    stub = PLUGIN / SKILL / "SKILL.md"
+    assert _frontmatter(stub)["name"] == _frontmatter(ROOT / SKILL / "SKILL.md")["name"]
+    text = stub.read_text(encoding="utf-8")
+    assert f"`{SKILL}/SKILL.md`" in text
+    assert 'name = "opendata-atlas"' in (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    assert '`name = "opendata-atlas"`' in text
+    assert sorted(
+        p.relative_to(PLUGIN / SKILL).as_posix() for p in (PLUGIN / SKILL).rglob("*")
+    ) == [
+        "SKILL.md",
+        "agents",
+        "agents/openai.yaml",
+    ]
 
 
 def test_codex_starts_curate_portal_only_when_named():
     """It commits and can start paid eval runs, so Codex must not pick it on its own."""
-    config = yaml.safe_load((ROOT / SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8"))
+    path = PLUGIN / SKILL / "agents" / "openai.yaml"
+    config = yaml.safe_load(path.read_text(encoding="utf-8"))
     assert config["policy"]["allow_implicit_invocation"] is False
     assert "$curate-portal" in config["interface"]["default_prompt"]
 

@@ -1,6 +1,0 @@
-interface:
-  display_name: "Curate a Portal"
-  short_description: "Draft and review a portal's knowledge pack"
-  default_prompt: "Use $curate-portal to curate <portal>."
-policy:
-  allow_implicit_invocation: false
