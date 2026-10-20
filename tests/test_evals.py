@@ -31,7 +31,7 @@ eval_run = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(eval_run)
 
 REQUIRED = {"id", "prompt", "expect"}
-OPTIONAL = {"env", "server_args", "covers"}
+OPTIONAL = {"env", "server_args", "covers", "targets"}
 COVERS = {"in_area", "relative_date", "misleading_field", "not_published"}
 
 
@@ -71,6 +71,26 @@ def test_task_fields_allowed():
             value = task.get(key, [])
             assert isinstance(value, list), (task["id"], key)
             assert all(isinstance(v, str) for v in value), (task["id"], key)
+
+
+def test_targets_shape():
+    """`targets` names what an `in_area` or `relative_date` task's answer must use; those kinds
+    require it (the tier check confirms each target is reviewed)."""
+    for path, task in _all_tasks():
+        covers = set(task.get("covers", []))
+        targets = task.get("targets")
+        if covers & {"in_area", "relative_date"}:
+            assert isinstance(targets, dict), (path.name, task["id"], "needs targets")
+        if targets is None:
+            continue
+        assert set(targets) <= {"dataset", "place", "time"}, (task["id"], set(targets))
+        assert isinstance(targets.get("dataset"), str) and targets["dataset"], task["id"]
+        if "in_area" in covers:
+            place = targets.get("place")
+            assert isinstance(place, list) and place, (task["id"], "in_area needs targets.place")
+            assert all(isinstance(c, str) and c for c in place), task["id"]
+        if "relative_date" in covers:
+            assert isinstance(targets.get("time"), str), (task["id"], "relative_date needs time")
 
 
 def test_covers_values_known():

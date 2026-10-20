@@ -47,11 +47,11 @@ def primary_time(
     portal: PortalContext, dataset_id: str, time_columns: Sequence[str], *, today: date
 ) -> list[str]:
     """The primary time column(s): those with a reviewed timezone, else the first one."""
-    reviewed = [c for c in time_columns if _timezone_reviewed(portal, dataset_id, c, today)]
+    reviewed = [c for c in time_columns if timezone_reviewed(portal, dataset_id, c, today)]
     return reviewed or list(time_columns[:1])
 
 
-def _timezone_reviewed(portal: PortalContext, dataset_id: str, column: str, today: date) -> bool:
+def timezone_reviewed(portal: PortalContext, dataset_id: str, column: str, today: date) -> bool:
     claim = portal.pack.column_timezone(dataset_id, column)
     return bool(
         claim
@@ -151,7 +151,7 @@ def dataset_knowledge(
     ]
     validation = _validation(portal, claims, today)
     places = all(_reviewed(portal, dataset_id, c, layers.get(c), today) for c in knowledge_bearing)
-    time = primary_time is None or _timezone_reviewed(portal, dataset_id, primary_time, today)
+    time = primary_time is None or timezone_reviewed(portal, dataset_id, primary_time, today)
     if _has_unit(portal, dataset_id, today) and places and time:
         return Knowledge(level="reviewed", validation=validation)
     # A degraded claim is neither reviewed nor an observation: it can lower, never raise.
@@ -212,7 +212,7 @@ def knowledge_notice(
         for c in time_columns
         if (
             ((rule_gaps and c in primary) or c in used)
-            and not _timezone_reviewed(portal, dataset_id, c, today)
+            and not timezone_reviewed(portal, dataset_id, c, today)
         )
         or (c in used and stale(c))
     ]

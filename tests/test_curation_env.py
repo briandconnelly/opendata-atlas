@@ -2,14 +2,118 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from tests.test_curation_skill import (
     ALLOWED_TOOLS,
+    CLAUDE_HOME,
+    EVAL_RUNS,
     RUN_VAR,
+    SERVED_CHECK,
     child_env,
     claude_command,
+    codex_command,
+    outcome_failures,
     path_violations,
     tier_failure,
 )
+
+PACK = "data.example.gov"
+DIGEST = "sha256:aaaa"
+TASKS = ["01-a", "02-b"]
+
+
+def _healthy(wt: Path, runs=EVAL_RUNS, tasks=TASKS) -> None:
+    for run in runs:
+        (wt / run).mkdir(parents=True, exist_ok=True)
+        for tid in tasks:
+            event = {"type": "result", "subtype": "success", "result": "an answer"}
+            (wt / run / f"{tid}.transcript.jsonl").write_text(json.dumps(event) + "\n")
+    (wt / SERVED_CHECK).write_text(json.dumps([{"column": "city", "matches": True}]))
+
+
+def _completed(**over) -> dict:
+    return {"outcome": "completed", "pack": PACK, "pack_digest": DIGEST, **over}
+
+
+def _check(outcome, wt: Path) -> list[str]:
+    return outcome_failures(outcome, pack=PACK, digest_now=DIGEST, wt=wt, task_ids=TASKS)
+
+
+def test_completed_outcome_with_its_evidence_passes(tmp_path):
+    _healthy(tmp_path)
+    assert _check(_completed(), tmp_path) == []
+
+
+def test_pack_changed_after_step_11_3_is_flagged(tmp_path):
+    """Rule 13: King County run 2's formatter wrap would have shown here."""
+    _healthy(tmp_path)
+    (failure,) = _check(_completed(pack_digest="sha256:bbbb"), tmp_path)
+    assert "changed after the eval runs began" in failure
+
+
+def test_completed_without_a_full_eval_run_is_flagged(tmp_path):
+    _healthy(tmp_path, runs=EVAL_RUNS[:2])
+    (failure,) = _check(_completed(), tmp_path)
+    assert failure.startswith(EVAL_RUNS[2])
+
+
+def test_completed_with_a_missing_transcript_is_flagged(tmp_path):
+    _healthy(tmp_path)
+    (tmp_path / EVAL_RUNS[0] / "02-b.transcript.jsonl").unlink()
+    (failure,) = _check(_completed(), tmp_path)
+    assert EVAL_RUNS[0] in failure and "02-b" in failure
+
+
+def test_an_unhealthy_transcript_is_a_grade_not_a_failure(tmp_path):
+    """A session over its budget grades FAIL (skill step 11.3); the run itself is complete."""
+    _healthy(tmp_path)
+    bad = {"type": "result", "subtype": "error_max_budget_usd"}
+    (tmp_path / EVAL_RUNS[0] / "02-b.transcript.jsonl").write_text(json.dumps(bad) + "\n")
+    assert _check(_completed(), tmp_path) == []
+
+
+def test_completed_without_the_served_check_is_flagged(tmp_path):
+    _healthy(tmp_path)
+    (tmp_path / SERVED_CHECK).unlink()
+    (failure,) = _check(_completed(), tmp_path)
+    assert SERVED_CHECK in failure
+
+
+def test_blocked_run_that_made_eval_runs_is_flagged(tmp_path):
+    """Rule 12: a stopped run skips step 11.3, so no paid eval run exists."""
+    blocked = {"outcome": "blocked_engine", "pack": PACK, "reason": "engine gap: bundle list"}
+    assert _check(blocked, tmp_path) == []
+    _healthy(tmp_path, runs=EVAL_RUNS[:1])
+    (failure,) = _check(blocked, tmp_path)
+    assert "eval runs were made" in failure
+
+
+def test_outcome_states_and_reason_are_required(tmp_path):
+    assert _check(None, tmp_path) == ["outcome.json: missing or not an object"]
+    assert "not one of" in _check({"outcome": "done", "pack": PACK}, tmp_path)[0]
+    no_reason = {"outcome": "profiled_without_review", "pack": PACK}
+    assert _check(no_reason, tmp_path) == ["outcome.json: profiled_without_review needs a reason"]
+    other = {"outcome": "profiled_without_review", "pack": "x.gov", "reason": "none found"}
+    assert "the branch adds" in _check(other, tmp_path)[0]
+
+
+def test_codex_command_confines_writes_and_allows_network(tmp_path):
+    git_dir, last = tmp_path / "repo" / ".git", tmp_path / "last.txt"
+    command = codex_command("data.honolulu.gov", tmp_path / "wt", git_dir, last)
+    assert command[:2] == ["codex", "exec"]
+    assert command[-1] == "Curate data.honolulu.gov by following skills/curate-portal/SKILL.md."
+    assert command[command.index("-C") + 1] == str(tmp_path / "wt")
+    assert command[command.index("-s") + 1] == "workspace-write"
+    assert "--dangerously-bypass-approvals-and-sandbox" not in command
+    configs = [command[i + 1] for i, v in enumerate(command) if v == "-c"]
+    assert 'approval_policy="never"' in configs
+    assert "sandbox_workspace_write.network_access=true" in configs
+    roots = [c for c in configs if c.startswith("sandbox_workspace_write.writable_roots=")]
+    assert len(roots) == 1
+    assert json.loads(roots[0].split("=", 1)[1]) == [str(git_dir), str(CLAUDE_HOME)]
+    assert command[command.index("-o") + 1] == str(last)
 
 
 def test_child_env_drops_the_opt_in_variable():
@@ -76,3 +180,9 @@ def test_tier_check_allows_at_most_profiled():
     assert tier_failure("profiled") is None
     assert tier_failure("generic") is None
     assert tier_failure("curated") is not None  # known positive: run 2 declared this
+    assert tier_failure("curated", "profiled") is not None
+
+
+def test_tier_check_lets_an_existing_pack_keep_its_tier():
+    """Re-curating a curated pack (King County, 2026-10-20) neither raises nor lowers it."""
+    assert tier_failure("curated", "curated") is None

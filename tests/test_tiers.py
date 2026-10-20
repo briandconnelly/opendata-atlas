@@ -152,6 +152,43 @@ def test_profiled_with_claims_holds(tmp_path):
     assert tier_violations(load_portal(pack), pack, empty, today=freshness.today()) == []
 
 
+def _seattle_tasks_with(tmp_path: Path, **targets: object) -> Path:
+    """Seattle's eval file with task 03's `targets` replaced, in a fresh evals directory."""
+    evals = tmp_path / "evals"
+    evals.mkdir()
+    tasks = json.loads((EVALS_DIR / "seattle.json").read_text())
+    (task,) = [t for t in tasks if "in_area" in t.get("covers", [])]
+    task["targets"] = {**task["targets"], **targets}
+    (evals / "seattle.json").write_text(json.dumps(tasks))
+    return evals
+
+
+def test_in_area_target_on_an_unreviewed_column_violates(tmp_path):
+    pack = _copy_seattle(tmp_path)
+    evals = _seattle_tasks_with(tmp_path, place=["address"])
+    violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
+    assert len(violations) == 1, violations
+    assert "in_area" in violations[0] and "`address`" in violations[0]
+
+
+def test_relative_date_target_without_a_reviewed_timezone_violates(tmp_path):
+    pack = _copy_seattle(tmp_path)
+    evals = _seattle_tasks_with(tmp_path, time="type")
+    violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
+    assert len(violations) == 1, violations
+    assert "relative_date" in violations[0] and "`type`" in violations[0]
+
+
+def test_profiled_pack_eval_targets_are_checked(tmp_path):
+    """A profiled pack needs no eval file, but one it has must not label unreviewed columns
+    `in_area` (King County run 1, review finding m1)."""
+    pack = _copy_seattle(tmp_path)
+    _set_tier(pack, "profiled")
+    evals = _seattle_tasks_with(tmp_path, place=["address"])
+    violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
+    assert len(violations) == 1 and violations[0].startswith("profiled:"), violations
+
+
 def test_registry_only_portals_are_generic():
     registry = load_registry()
     pack_ids = {load_portal(d).identity.id for d in _packs()}
