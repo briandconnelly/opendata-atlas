@@ -1,6 +1,7 @@
 # opendata-atlas
 
 [![CI](https://github.com/briandconnelly/opendata-atlas/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/briandconnelly/opendata-atlas/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/opendata-atlas)](https://pypi.org/project/opendata-atlas/)
 [![Python](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fbriandconnelly%2Fopendata-atlas%2Fmain%2Fpyproject.toml)](pyproject.toml)
 [![License: MIT](https://img.shields.io/github/license/briandconnelly/opendata-atlas)](LICENSE)
 
