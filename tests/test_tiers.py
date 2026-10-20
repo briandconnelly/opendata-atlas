@@ -1,6 +1,7 @@
 """Declared tiers hold the conditions decidable from pack contents (docs/design.md, Knowledge
-levels). Identity verification, the smoke test and the eval runs are live; the promotion PR's
-CI runs them."""
+levels). Identity verification, the smoke test and the eval runs are live, so offline PR CI never
+runs them: whoever promotes the portal runs them (CONTRIBUTING-portals.md steps 2 and 11) and
+records their outcomes in the PR."""
 
 from __future__ import annotations
 

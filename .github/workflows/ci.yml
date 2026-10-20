@@ -29,6 +29,8 @@ jobs:
             python-version: "3.14"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python ${{ matrix.python-version }}
         uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
@@ -64,10 +66,22 @@ jobs:
     with:
       cache: true
 
+  # Flags dependency changes (uv.lock, workflow actions) that add known vulnerabilities.
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+
   # One stable required-check name for branch protection; the matrix names vary.
   ci-success:
     name: CI success
-    needs: [test, build]
+    needs: [test, build, dependency-review]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -75,8 +89,11 @@ jobs:
         env:
           TEST_RESULT: ${{ needs.test.result }}
           BUILD_RESULT: ${{ needs.build.result }}
+          REVIEW_RESULT: ${{ needs.dependency-review.result }}
+        # Dependency review runs only on pull requests, so a push to main skips it.
         run: |
-          if [ "$TEST_RESULT" != "success" ] || [ "$BUILD_RESULT" != "success" ]; then
-            echo "required jobs failed: test=$TEST_RESULT build=$BUILD_RESULT"
+          if [ "$TEST_RESULT" != "success" ] || [ "$BUILD_RESULT" != "success" ] \
+            || { [ "$REVIEW_RESULT" != "success" ] && [ "$REVIEW_RESULT" != "skipped" ]; }; then
+            echo "required jobs failed: test=$TEST_RESULT build=$BUILD_RESULT review=$REVIEW_RESULT"
             exit 1
           fi

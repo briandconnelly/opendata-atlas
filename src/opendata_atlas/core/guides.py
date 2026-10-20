@@ -1,4 +1,4 @@
-"""Curated dataset guide types (docs/design.md: Primitives). Each portal pack ships its own
+"""Curated dataset guide types (docs/design.md: Knowledge packs). Each portal pack ships its own
 `GUIDES` in `guides.py`; the engine reads them from `PortalContext.guides`."""
 
 from __future__ import annotations

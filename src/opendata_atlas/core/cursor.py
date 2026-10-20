@@ -1,4 +1,4 @@
-"""Stateless, HMAC-signed cursors (docs/design.md: Query engine).
+"""Stateless, HMAC-signed cursors (docs/design.md: Continuation).
 
 The key lives in process memory only. Each cursor names the portal that issued it.
 """

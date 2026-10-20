@@ -3,9 +3,9 @@ name: Drift checks
 # Re-run every pack assertion live each week, and open (or update) one issue per portal
 # whose claims are contradicted or could not be checked.
 #
-# UNEXERCISED: this repository has no remote yet, so this workflow has never run on GitHub.
-# tests/test_workflows.py checks its shape and runs its issue loop against a stub `gh`; the
-# first real run is the first real test. Check the first run by hand.
+# UNEXERCISED: this workflow has not yet run on GitHub. tests/test_workflows.py checks its
+# shape and runs its issue loop against a stub `gh`; the first real run is the first real
+# test. Check the first scheduled run by hand.
 
 on:
   schedule:

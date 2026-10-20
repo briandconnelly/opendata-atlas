@@ -1,4 +1,4 @@
-"""Success output shapes for the four tools (docs/design.md: Primitives).
+"""Success output shapes for the four tools (docs/design.md: Tools).
 
 Top-level results are open (`extra="allow"`): the documented extension point for
 minor-release additions [9.additive-direction]. Nested objects are closed.
@@ -24,7 +24,8 @@ from opendata_atlas.portals.model import (  # noqa: TC001
 Detail = Literal["summary", "full"]
 Queryability = Literal["supported", "external", "unsupported", "unknown"]
 Origin = Literal["live_query", "cached_metadata"]
-#: `unknown`: a reviewed `ok` whose checks are stale (docs/design.md: Validation state).
+#: `unknown`: a reviewed `ok` whose checks are stale (docs/design.md: Validation state and
+#: freshness).
 Reliability = Literal["ok", "partial", "unreliable", "unknown"]
 #: The one `validation` value entry-level fields carry; they are omitted otherwise.
 Stale = Literal["stale"]

@@ -1,5 +1,7 @@
 # Release checklist
 
+> **Status: complete.** This checklist was carried out for `v0.1.0`, published 2026-10-20, and is kept as history. Its branch and push steps describe the repository before it had a remote; do not follow them. Release with [releasing.md](releasing.md).
+
 The maintainer's steps before and through the first release, `v0.1.0`. Milestone 5 built everything release-ready and published nothing; each step below is one the builders were not allowed to take, or a decision only the maintainer can make. Each step names who acts, what to run or decide, why, and where the result is recorded.
 
 ## Rules

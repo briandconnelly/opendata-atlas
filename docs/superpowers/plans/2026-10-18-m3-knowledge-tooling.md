@@ -1,5 +1,7 @@
 # opendata-atlas Milestone 3: Knowledge Tooling — Implementation Plan
 
+> **Status: complete.** Historical plan, kept for provenance; do not execute it. Current design: [docs/design.md](../../design.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Make portal knowledge checkable and self-maintaining. This milestone adds typed checkers, a drift run that writes `validation.json`, runtime freshness, a release gate, a profiler, a contribution path and a curation skill an agent can follow, and the knowledge-gap rule. It also fixes three knowledge failures found in milestone 2's evals.

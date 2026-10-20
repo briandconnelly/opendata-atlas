@@ -1,4 +1,4 @@
-"""King County's dataset guides (docs/design.md: Primitives). Facts were probed live on 2026-10-20."""
+"""King County's dataset guides (docs/design.md: Knowledge packs). Facts were probed live on 2026-10-20."""
 
 from __future__ import annotations
 

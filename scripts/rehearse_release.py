@@ -121,6 +121,18 @@ def head_tag() -> str | None:
     return out[0] if out else None
 
 
+def tag_exists(name: str) -> bool:
+    """Whether the tag ``name`` exists anywhere in the repository."""
+    out = subprocess.run(
+        ["git", "tag", "--list", name],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    ).stdout
+    return bool(out.strip())
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--version", help="default: pyproject's version")
@@ -137,6 +149,13 @@ def main(argv: list[str] | None = None) -> int:
             or tomllib.loads((REPO_ROOT / "pyproject.toml").read_text())["project"]["version"]
         )
         tag = head_tag()
+        # A tagged HEAD may still be verified read-only, but never cut again.
+        if (tag is None or args.apply) and tag_exists(f"v{version}"):
+            print(
+                f"FAIL: v{version} is already tagged; bump the version in pyproject.toml, "
+                "then run scripts/gen_manifest.py"
+            )
+            return 1
         with tempfile.TemporaryDirectory() as tmp:
             result = rehearse(REPO_ROOT, version, args.date, Path(tmp), tag)
     except (ValueError, OSError, KeyError, subprocess.CalledProcessError) as error:

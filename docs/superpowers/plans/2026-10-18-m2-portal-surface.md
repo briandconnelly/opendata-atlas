@@ -1,5 +1,7 @@
 # opendata-atlas Milestone 2: Portal Surface — Implementation Plan
 
+> **Status: complete.** Historical plan, kept for provenance; do not execute it. Current design: [docs/design.md](../../design.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Serve every registered public Socrata portal from one server: a generated registry, a required `portal` argument on every data tool, a new `atlas_find_portals` tool, per-dataset knowledge reporting, and served text that is portal-aware. Seattle keeps its behavior apart from the differences this design specifies.

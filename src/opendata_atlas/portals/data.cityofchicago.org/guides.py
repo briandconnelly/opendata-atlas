@@ -1,4 +1,4 @@
-"""Chicago's dataset guides (docs/design.md: Primitives). Facts were probed live on 2026-10-19;
+"""Chicago's dataset guides (docs/design.md: Knowledge packs). Facts were probed live on 2026-10-19;
 each example was run once with `atlas_query_dataset` on that date."""
 
 from __future__ import annotations

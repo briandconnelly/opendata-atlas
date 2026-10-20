@@ -1,4 +1,4 @@
-"""Catalog search over the Socrata Discovery API (docs/design.md: tool 1)."""
+"""Catalog search over the Socrata Discovery API (docs/design.md: Tools 2)."""
 
 from __future__ import annotations
 
@@ -246,7 +246,7 @@ def _attach_discovery(
     category: str | None,
     first_page: bool,
 ) -> None:
-    """Match evidence, external leads, and the no-match suggestion (docs/design.md: tool 1)."""
+    """Match evidence, external leads, and the no-match suggestion (docs/design.md: Tools 2)."""
     terms = _terms(query)
     result.match_evidence = [
         _evidence(summary.dataset_id, item, via, terms) for summary, item, via in folded

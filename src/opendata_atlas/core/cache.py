@@ -1,4 +1,4 @@
-"""Per-process caches of upstream metadata (docs/design.md: Implicit state).
+"""Per-process caches of upstream metadata (docs/design.md: Engine isolation).
 
 Only metadata is cached here: dataset schemas and region-layer labels. Rows,
 counts, and coverage are always live. Every key starts with the portal id: two portals
