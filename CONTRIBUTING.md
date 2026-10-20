@@ -68,7 +68,7 @@ uv run python evals/report.py evals-out --answers
 
 ## Pull requests
 
-Work on a branch with a type prefix (`feat/`, `fix/`, `docs/`, ...), use [Conventional Commits](https://www.conventionalcommits.org/), and add a `CHANGELOG.md` entry under `## [Unreleased]` for every user-visible change.
+Follow the branch, commit and changelog rules in [AGENTS.md](AGENTS.md) (Branching and commits); they apply to people and agents alike. The pull request template lists the checks a PR states. The maintainer reviews and merges.
 
 ## Releasing
 

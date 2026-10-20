@@ -1,4 +1,4 @@
-"""Seattle's curated dataset guides (docs/design.md: Primitives). Facts were probed live on 2026-10-15; every example runs in
+"""Seattle's curated dataset guides (docs/design.md: Knowledge packs). Facts were probed live on 2026-10-15; every example runs in
 `tests/test_live.py::test_guide_examples_run`."""
 
 from __future__ import annotations

@@ -4,11 +4,12 @@ On a `v<version>` tag, `.github/workflows/release.yml` verifies, builds, publish
 
 ## Rules
 
+- Before cutting, set the new version in `pyproject.toml`, run `uv lock` and `uv run python scripts/gen_manifest.py`, and commit all three. The rehearsal fails while `v<version>` already exists as a tag.
 - Before tagging, run `uv run pytest --run-integration -m integration` and commit the regenerated `src/opendata_atlas/portals/validation.json`; `tests/test_release_gate.py` must pass.
 - Before tagging, cut the CHANGELOG with `uv run python scripts/rehearse_release.py --apply --date <YYYY-MM-DD>`, then commit. It first rehearses on a temp copy with the workflow's own version check and notes extraction (extracted from `release.yml`, not copied), then renames `## [Unreleased]` to `## [<version>] - <date>`. Without `--apply` it only rehearses and changes nothing.
 - Keep `## [seattle-open-data history]` as the heading above seattle-open-data's entries. It is not a version, and it ends the release notes before the parent's history. `tests/test_versioning.py` runs the workflow's extraction on a cut CHANGELOG and checks this.
-- Tag the commit that carries the renamed heading as `v<version>`, matching `pyproject.toml`.
+- Land the bump and the cut on `main` through a pull request, then tag the resulting `main` commit as `v<version>`, matching `pyproject.toml`. Only the maintainer tags. The workflow refuses a tag whose commit is not on `main`.
 
 ## Context
 
-- A manual run of the workflow before `## [Unreleased]` is renamed fails the "pyproject, manifest, CHANGELOG (and the tag, if any) agree" step, because the CHANGELOG has no versioned heading yet. That failure is expected.
+- A manual run of the workflow after the version bump but before `## [Unreleased]` is renamed fails the "pyproject, manifest, CHANGELOG (and the tag, if any) agree" step, because the first versioned CHANGELOG heading still names the previous release. That failure is expected.

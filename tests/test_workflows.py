@@ -1,5 +1,5 @@
-"""Workflow shape. The weekly drift workflow cannot run without a GitHub remote, so this file is
-its only check: it parses the YAML strictly and runs the issue loop against a stub `gh`."""
+"""Workflow shape. The weekly drift workflow has not yet run on GitHub, so this file is its only
+check so far: it parses the YAML strictly and runs the issue loop against a stub `gh`."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""The five tools (docs/design.md: Primitives).
+"""The five tools (docs/design.md: Tools).
 
 Handlers raise `AtlasError`; `mcp/server.py` turns every failure, including framework
 argument validation, into the error envelope."""

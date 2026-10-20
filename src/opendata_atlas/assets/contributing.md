@@ -8,7 +8,7 @@ A portal's `tier` summarizes it for discovery and contribution. It never stands 
 - `profiled`: a knowledge pack holds profiler observations; nobody has reviewed enough of them for `curated`.
 - `curated`: identity verified, at least one `reviewed` dataset with a guide, and the live smoke test and the portal's eval tasks passing.
 
-`tests/test_tiers.py` checks the conditions a pack's contents decide: `profiled` needs at least one claim; `curated` needs a dataset that is `reviewed` and has a guide, and an eval file whose tasks' `covers` include all four kinds (step 9). Identity verification, the smoke test and the eval runs are live, so the promotion PR's CI runs them. A registered portal without a pack is `generic`.
+`tests/test_tiers.py` checks the conditions a pack's contents decide: `profiled` needs at least one claim; `curated` needs a dataset that is `reviewed` and has a guide, and an eval file whose tasks' `covers` include all four kinds (step 9). Identity verification, the smoke test and the eval runs are live, so ordinary PR CI, which is offline, never runs them: the contributor or maintainer runs them as part of the promotion (the profiler verifies identity in step 2; the drift run and the paid eval runs are step 11) and records their outcomes in the PR description (step 13). A registered portal without a pack is `generic`.
 
 ## Knowledge levels
 Reported per dataset and per column in `knowledge`, and as the dataset's level in `knowledge_notice`.

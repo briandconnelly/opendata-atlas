@@ -1,5 +1,7 @@
 # opendata-atlas Milestone 4: Chicago Through the Front Door — Implementation Plan
 
+> **Status: complete.** Historical plan, kept for provenance; do not execute it. Current design: [docs/design.md](../../design.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Take `data.cityofchicago.org` from `generic` to `curated` purely through `skills/curate-portal/SKILL.md`. The skill's output commit is merged after review. A reviewer other than the curating agent promotes the portal. The milestone opens with one engine fix, `pack_levels` region-layer mapping, and runs a bounded loop for any engine gap the curation exposes.

@@ -1,5 +1,7 @@
 # opendata-atlas Milestones 0–1: Feasibility Gates, Fork and Isolate — Implementation Plan
 
+> **Status: complete.** Historical plan, kept for provenance; do not execute it. Current design: [docs/design.md](../../design.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Fork `seattle-open-data` into `opendata-atlas`, make every engine path take an explicit portal context with Seattle's knowledge loaded from a data pack, and run the feasibility probes that decide whether the multi-portal design holds — with Seattle behavior unchanged.

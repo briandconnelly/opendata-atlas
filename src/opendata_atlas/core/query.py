@@ -1,4 +1,4 @@
-"""Bounded reads and aggregates (docs/design.md: tool 3, Query engine)."""
+"""Bounded reads and aggregates (docs/design.md: Tools 4)."""
 
 from __future__ import annotations
 
@@ -778,7 +778,7 @@ def _referenced(direct: str, aliased: str) -> set[str]:
 
 
 def _warnings(used: set[str], places: list[dict[str, Any]]) -> list[CoverageWarning]:
-    """Warn on place fields the agent's text reads (docs/design.md: coverage warnings)."""
+    """Warn on place fields the agent's text reads (docs/design.md: Tools 4)."""
     return [
         CoverageWarning(
             column=p["column"],
