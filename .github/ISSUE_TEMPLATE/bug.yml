@@ -1,0 +1,31 @@
+name: Bug report
+description: A tool returns a wrong result, an unhelpful error, or fails.
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The version in the title of `atlas_get_reference(topic="capabilities")`, e.g. `0.1.0`.
+    validations:
+      required: true
+  - type: input
+    id: portal
+    attributes:
+      label: Portal
+      description: The `portal` argument, e.g. `seattle` or `data.cityofchicago.org`.
+  - type: textarea
+    id: call
+    attributes:
+      label: Tool call
+      description: The tool name and arguments, as JSON.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened, and what you expected
+      description: Paste the response or error envelope (`code`, `message`, `repair`).
+    validations:
+      required: true
