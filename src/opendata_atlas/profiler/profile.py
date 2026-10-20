@@ -43,6 +43,10 @@ MAX_TIME_COLUMNS = 3
 FILL_MARGIN = 0.05
 #: The diurnal-peak assertion's window around the observed peak hour.
 PEAK_HALF_WIDTH = 2
+#: At least this share of a window's rows at exactly 00:00:00 reads as an unknown-time default,
+#: so the diurnal probe leaves them out (decisions row "Profiler reads default-midnight rows as a
+#: diurnal peak"). A real time of day puts about 1 row in 86,400 on that exact second.
+MIDNIGHT_MIN_SHARE = 0.02
 #: A label candidate has at least this share of the layer's features as distinct values.
 LABEL_MIN_DISTINCT = 0.9
 #: GIS bookkeeping columns, never a label: row ids, GUIDs and geometry measures.
@@ -74,7 +78,8 @@ class ProfileReport(BaseModel):
     flagship_basis: str
     datasets: list[DatasetProfile]
     profiled_at: date
-    #: Set when identity, the asset mix or the flagships failed upstream: `<step>: <code>`.
+    #: Set when identity, the asset mix or the flagships failed upstream (`<step>: <code>`), or
+    #: when a `--dataset` id is not on the portal (`datasets: not on this portal: <ids>`).
     error: str | None = None
     #: Every emitted value not in `SHARED_PLACEHOLDERS`, for review before committing.
     review_values: list[ReviewValue] = []
@@ -322,31 +327,39 @@ def _hour_counts(rows: list[dict]) -> dict[int, float]:
 def observe_time(
     dataset_id: str,
     column: str,
-    gap: tuple[str, list[dict]],
+    gap: tuple[str, list[dict]] | None,
     day: tuple[str, list[dict]],
     today: date,
     *,
     gap_hour: int = 2,
+    midnight: tuple[str, float, float] | None = None,
 ) -> Claim | None:
     """A column-timezone observation from a spring-forward-day probe and a year-by-hour probe.
 
-    `gap` and `day` are each (query, rows of `h`, `n`). None when both probes returned no rows.
+    `gap` and `day` are each (query, rows of `h`, `n`); `gap` is None in a zone with no
+    spring-forward day in range. `midnight` is (query, rows in the window, rows at exactly
+    00:00:00) when `day` leaves those rows out. None when every probe returned no rows.
     The claim names no timezone: it records what the hours show.
     """
-    (gap_query, gap_rows), (day_query, day_rows) = gap, day
+    gap_query, gap_rows = gap if gap is not None else ("", [])
+    day_query, day_rows = day
     if not gap_rows and not day_rows:
         return None
-    by_hour = _hour_counts(gap_rows)
-    before, after = (gap_hour - 1) % 24, (gap_hour + 1) % 24
-    gap_obs = (
-        f"On the spring-forward day probed, hour {gap_hour} has {by_hour.get(gap_hour, 0):,.0f} "
-        f"rows; hours {before} and {after} have {by_hour.get(before, 0):,.0f} and "
-        f"{by_hour.get(after, 0):,.0f}."
-    )
-    year = _hour_counts(day_rows)
+    evidence: list[SoqlProbe] = []
     assertions: list[Assertion] = []
-    if a := _passing("dst_gap", {"gap_hour": gap_hour}, 0, gap_rows):
-        assertions.append(a)
+    if gap is not None:
+        by_hour = _hour_counts(gap_rows)
+        before, after = (gap_hour - 1) % 24, (gap_hour + 1) % 24
+        gap_obs = (
+            f"On the spring-forward day probed, hour {gap_hour} has "
+            f"{by_hour.get(gap_hour, 0):,.0f} rows; hours {before} and {after} have "
+            f"{by_hour.get(before, 0):,.0f} and {by_hour.get(after, 0):,.0f}."
+        )
+        evidence.append(_probe(gap_query, gap_obs, today))
+        if a := _passing("dst_gap", {"gap_hour": gap_hour}, 0, gap_rows):
+            assertions.append(a)
+    day_probe = len(evidence)
+    year = _hour_counts(day_rows)
     if year:
         peak = min(year, key=lambda h: (-year[h], h))
         total = sum(year.values())
@@ -358,15 +371,28 @@ def observe_time(
             "peak_from": max(peak - PEAK_HALF_WIDTH, 0),
             "peak_to": min(peak + PEAK_HALF_WIDTH, 23),
         }
-        if a := _passing("diurnal_peak", params, 1, day_rows):
+        if a := _passing("diurnal_peak", params, day_probe, day_rows):
             assertions.append(a)
     else:
         day_obs = "No rows by hour in the window."
+    if midnight is not None:
+        day_obs += " Rows at exactly 00:00:00 are left out (next probe)."
+    evidence.append(_probe(day_query, day_obs, today))
+    if midnight is not None:
+        m_query, m_total, m_count = midnight
+        evidence.append(
+            _probe(
+                m_query,
+                f"{_share(m_count, m_total)} in the window are at exactly 00:00:00, which may be "
+                "a default for an unknown time.",
+                today,
+            )
+        )
     return Claim(
         id=f"{dataset_id}-{column}-timezone",
         kind="column_timezone",
         scope=Scope(dataset=dataset_id, column=column),
-        evidence=[_probe(gap_query, gap_obs, today), _probe(day_query, day_obs, today)],
+        evidence=evidence,
         assertion=assertions,
     )
 
@@ -451,6 +477,24 @@ async def _flagships(
         f"top {len(picked)}."
     )
     return picked, basis
+
+
+async def _requested(
+    client: SodaClient, portal: PortalContext, entry: RegistryEntry, ids: list[str]
+) -> tuple[list[dict], str, list[str]]:
+    """The datasets named by `--dataset`, in the order given, and the ids not on this portal."""
+    params = {**entry.identity.catalog_query, "only": "dataset", "ids": ids, "limit": len(ids)}
+    results = _results(await client.get_json(_discovery(entry), params, portal=portal))
+    own = {
+        r["resource"]["id"]: r
+        for r in results
+        if (r.get("metadata") or {}).get("domain") == entry.identity.result_domain
+        and isinstance((r.get("resource") or {}).get("id"), str)
+    }
+    picked = [own[i] for i in ids if i in own]
+    missing = [i for i in ids if i not in own]
+    basis = f"Requested by --dataset: {', '.join(ids)} (Discovery only=dataset&ids=...)."
+    return picked, basis, missing
 
 
 def _code(e: AtlasError) -> str:
@@ -571,48 +615,93 @@ class _Dataset:
                 continue
             await self.time(col, ZoneInfo(zone_name))
 
-    async def time(self, col: str, zone: ZoneInfo) -> None:
+    async def window(self, col: str) -> tuple[date, date] | None:
+        """The column's min and max dates, the max capped at today; None, noted, if unusable."""
         rows = await self.rows(f"SELECT min({col}) AS lo, max({col}) AS hi", col)
         if rows is None:
-            return
+            return None
         row = rows[0] if len(rows) == 1 else {}
         try:
             lo = datetime.fromisoformat(str(row["lo"])).date()
             hi = datetime.fromisoformat(str(row["hi"])).date()
         except (KeyError, ValueError):
             self.notes.append(f"{col}: no readable min and max; no timezone probes.")
+            return None
+        if hi > self.today:
+            self.notes.append(
+                f"{col}: max {hi} is after today ({self.today}); the probe window ends today."
+            )
+            hi = self.today
+        if hi < lo:
+            self.notes.append(f"{col}: every row is dated after today; no timezone probes.")
+            return None
+        return lo, hi
+
+    async def time(self, col: str, zone: ZoneInfo) -> None:
+        if (bounds := await self.window(col)) is None:
             return
+        lo, hi = bounds
         day = spring_forward(zone, lo, hi)
         hour = gap_hour(zone, day) if day else None
         if day is None or hour is None:
+            day = hour = None
             self.notes.append(
                 f"{col}: no spring-forward day in {zone.key} between {lo} and {hi}; "
-                "no timezone probes."
+                "by-hour probe only."
             )
-            return
-        by_hour = f"SELECT date_extract_hh({col}) AS h, count(*) AS n WHERE {col} >= "
-        gap_query = f"{by_hour}'{_ts(day)}' AND {col} < '{_ts(day + timedelta(days=1))}' GROUP BY h"
+        by_hour = f"SELECT date_extract_hh({col}) AS h, count(*) AS n WHERE"
         start = max(hi - timedelta(days=365), lo)
-        day_query = (
-            f"{by_hour}'{_ts(start)}' AND {col} < '{_ts(hi + timedelta(days=1))}' GROUP BY h"
-        )
-        gap_rows = await self.rows(gap_query, col)
-        if gap_rows is None:
+        window = f"{col} >= '{_ts(start)}' AND {col} < '{_ts(hi + timedelta(days=1))}'"
+        day_query = f"{by_hour} {window} GROUP BY h"
+        gap: tuple[str, list[dict]] | None = None
+        if day is not None:
+            gap_query = (
+                f"{by_hour} {col} >= '{_ts(day)}' AND {col} < '{_ts(day + timedelta(days=1))}' "
+                "GROUP BY h"
+            )
+            if (gap_rows := await self.rows(gap_query, col)) is None:
+                return
+            gap = (gap_query, gap_rows)
+        if (day_rows := await self.rows(day_query, col)) is None:
             return
-        day_rows = await self.rows(day_query, col)
-        if day_rows is None:
-            return
-        hours = set(_hour_counts(gap_rows)) | set(_hour_counts(day_rows))
-        if hours == {0}:
+        if set(_hour_counts(gap[1] if gap else [])) | set(_hour_counts(day_rows)) == {0}:
             self.notes.append(f"{col}: date-only; no timezone test applies.")
             return
+        midnight = await self.midnight(col, window)
+        if midnight is not None:
+            day_query = (
+                f"{by_hour} {window} AND (date_extract_hh({col}) != 0 OR "
+                f"date_extract_mm({col}) != 0 OR date_extract_ss({col}) != 0) GROUP BY h"
+            )
+            if (day_rows := await self.rows(day_query, col)) is None:
+                return
         claim = observe_time(
-            self.id, col, (gap_query, gap_rows), (day_query, day_rows), self.today, gap_hour=hour
+            self.id,
+            col,
+            gap,
+            (day_query, day_rows),
+            self.today,
+            gap_hour=hour or 2,
+            midnight=midnight,
         )
         if claim is None:
-            self.notes.append(f"{col}: no rows on {day} or in the last year; no timezone claim.")
+            self.notes.append(f"{col}: no rows in the probes; no timezone claim.")
         else:
             self.claims.append(claim)
+
+    async def midnight(self, col: str, window: str) -> tuple[str, float, float] | None:
+        """(query, rows, rows at exactly 00:00:00) when those rows reach `MIDNIGHT_MIN_SHARE`."""
+        query = (
+            f"SELECT count(*) AS n, sum(case(date_extract_hh({col}) = 0 AND "
+            f"date_extract_mm({col}) = 0 AND date_extract_ss({col}) = 0, 1, true, 0)) AS midnight "
+            f"WHERE {window}"
+        )
+        rows = await self.rows(query, col)
+        row = rows[0] if rows and len(rows) == 1 else {}
+        total, count = _num(row.get("n")), _num(row.get("midnight"))
+        if not total or count is None or count / total < MIDNIGHT_MIN_SHARE:
+            return None
+        return query, total, count
 
 
 def _has_surrogate(v: Any) -> bool:
@@ -624,12 +713,19 @@ def _ts(d: date) -> str:
 
 
 async def profile_portal(
-    client: SodaClient, entry: RegistryEntry, *, datasets: int, today: date
+    client: SodaClient,
+    entry: RegistryEntry,
+    *,
+    datasets: int,
+    today: date,
+    dataset_ids: list[str] | None = None,
 ) -> tuple[ProfileReport, list[Claim]]:
-    """Profile the portal's top `datasets` datasets. Requests run one at a time.
+    """Profile the portal's top `datasets` datasets, or exactly `dataset_ids` when given.
+    Requests run one at a time.
 
     An unverified identity, or an upstream failure in identity, the asset mix or the flagships,
     stops the run: the report says why (`error` for a failure), with no datasets and no claims.
+    So does a requested dataset that is not on the portal (`error` names it).
     """
     portal = context_for(entry.identity, None)
     report = ProfileReport(
@@ -649,7 +745,15 @@ async def profile_portal(
         step = "asset mix"
         report.asset_mix = await _asset_mix(client, portal, entry)
         step = "flagships"
-        picked, report.flagship_basis = await _flagships(client, portal, entry, datasets)
+        if dataset_ids:
+            picked, report.flagship_basis, missing = await _requested(
+                client, portal, entry, dataset_ids
+            )
+            if missing:
+                report.error = f"datasets: not on this portal: {', '.join(missing)}"
+                return report, []
+        else:
+            picked, report.flagship_basis = await _flagships(client, portal, entry, datasets)
     except AtlasError as e:
         report.error = f"{step}: {_code(e)}"
         return report, []

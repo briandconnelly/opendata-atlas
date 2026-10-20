@@ -1,9 +1,10 @@
-"""`atlas-profile <host> [--datasets N] [--out DIR] [--report PATH]`: write a draft pack.
+"""`atlas-profile <host> [--datasets N | --dataset ID ...] [--out DIR] [--report PATH]`.
 
-A developer CLI, not an MCP tool (docs/design.md: The profiler). Exit codes: 0 written; 2 a
-usage error (unknown host, `--out` exists or is missing); 3 the catalog identity did not
-verify; 4 identity, the asset mix or the flagships failed upstream; 5 the rendered pack did not
-load. For 3, 4 and 5 the report is written and no pack is.
+Writes a draft pack. A developer CLI, not an MCP tool (docs/design.md: The profiler). Exit
+codes: 0 written; 2 a usage error (unknown host, `--out` exists or is missing, `--datasets`
+with `--dataset`); 3 the catalog identity did not verify; 4 identity, the asset mix or the
+flagships failed upstream; 5 the rendered pack did not load; 6 a `--dataset` id is not on the
+portal. For 3 to 6 the report is written and no pack is.
 """
 
 from __future__ import annotations
@@ -30,7 +31,16 @@ EXIT_USAGE = 2
 EXIT_UNVERIFIED = 3
 EXIT_UPSTREAM = 4
 EXIT_INVALID_PACK = 5
+EXIT_UNKNOWN_DATASET = 6
+DEFAULT_DATASETS = 10
 REVIEW_HEADING = "Review these values before committing; drop any that identify a person"
+
+
+def _at_least_1(value: str) -> int:
+    n = int(value)
+    if n < 1:
+        raise argparse.ArgumentTypeError("must be at least 1")
+    return n
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -40,8 +50,19 @@ def _parser() -> argparse.ArgumentParser:
         "only, with no interpretation, reliability or tier.",
     )
     p.add_argument("host", help="portal id, alias or public host, as in the registry")
-    p.add_argument(
-        "--datasets", type=int, default=10, help="flagship datasets to profile (default 10)"
+    pick = p.add_mutually_exclusive_group()
+    pick.add_argument(
+        "--datasets",
+        type=_at_least_1,
+        default=DEFAULT_DATASETS,
+        help=f"flagship datasets to profile, most viewed first (default {DEFAULT_DATASETS})",
+    )
+    pick.add_argument(
+        "--dataset",
+        action="append",
+        dest="dataset_ids",
+        metavar="ID",
+        help="profile this dataset instead of the flagships; repeat for more",
     )
     p.add_argument(
         "--out",
@@ -56,10 +77,6 @@ def _parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:  # noqa: PLR0911 (one return per exit code)
     parser = _parser()
     args = parser.parse_args(argv)
-    if args.datasets < 1:
-        parser.print_usage(sys.stderr)
-        print("atlas-profile: --datasets must be at least 1", file=sys.stderr)
-        return EXIT_USAGE
     registry = load_registry()
     entry = registry.by_alias(args.host) or next(
         (
@@ -87,7 +104,11 @@ def main(argv: list[str] | None = None) -> int:  # noqa: PLR0911 (one return per
         client = SodaClient()
         try:
             return await profile_portal(
-                client, entry, datasets=args.datasets, today=freshness.today()
+                client,
+                entry,
+                datasets=args.datasets,
+                dataset_ids=args.dataset_ids,
+                today=freshness.today(),
             )
         finally:
             await client.aclose()
@@ -99,6 +120,9 @@ def main(argv: list[str] | None = None) -> int:  # noqa: PLR0911 (one return per
     else:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(text)
+    if report.error is not None and report.error.startswith("datasets:"):
+        print(f"atlas-profile: no pack written: {report.error}", file=sys.stderr)
+        return EXIT_UNKNOWN_DATASET
     if report.error is not None:
         print(f"atlas-profile: upstream failure, no pack written: {report.error}", file=sys.stderr)
         return EXIT_UPSTREAM
