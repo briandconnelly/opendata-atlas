@@ -1,0 +1,19 @@
+uv run pytest --run-integration -m integration tests/test_drift.py -k data.everettwa.gov --ignore=tests/test_curation_skill.py -rA
+16 PASSED lines (no FAILED, ERROR, XFAIL, XPASS or SKIPPED: 0 such lines)
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:region-cx6t-gkq3]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:f6vp-3svh-unit-incident]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:f6vp-3svh-:@computed_region_psyp_nrnc-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:f6vp-3svh-:@computed_region_cx6t_gkq3-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:f6vp-3svh-neighborhood-place-field]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:f6vp-3svh-datetimereceived-timezone]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:qvfa-2v26-:@computed_region_psyp_nrnc-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:qvfa-2v26-:@computed_region_cx6t_gkq3-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:qvfa-2v26-:@computed_region_wamu_3gk7-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:szww-y224-:@computed_region_psyp_nrnc-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:szww-y224-:@computed_region_cx6t_gkq3-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:szww-y224-gangrelated-placeholders]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:szww-y224-datetimereceived-timezone]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:w35j-83t3-:@computed_region_psyp_nrnc-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:w35j-83t3-:@computed_region_cx6t_gkq3-fill]
+PASSED tests/test_drift.py::test_claim_still_holds[data.everettwa.gov:w35j-83t3-startdatetime-timezone]
+====================== 16 passed, 72 deselected in 22.16s ======================

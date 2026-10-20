@@ -1,0 +1,185 @@
+{
+ "call": "atlas_describe_dataset {portal: chicago, dataset_id: ijzp-q8t2, detail: full}, in-process, m5 worktree at 9659749 plus the uncommitted Task 4 diff, 2026-10-19; two sequential runs minutes apart",
+ "note": "Statuses, counts and timings only; no values. value_count is the number of distinct groups returned (null when the grouping timed out or exceeded 100).",
+ "runs": [
+  {
+   "run": "new budget: place phase runs until deadline - label fetch (5 s) - 1 s margin",
+   "seconds": 24.9,
+   "isError": false,
+   "ok": 4,
+   "total": 11,
+   "place_fields": [
+    {
+     "column": "ward",
+     "kind": "ward",
+     "stats_status": "ok",
+     "value_count": 51,
+     "labels_available": null
+    },
+    {
+     "column": "community_area",
+     "kind": "community_area",
+     "stats_status": "ok",
+     "value_count": 77,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_awaf_s7ux",
+     "kind": "ward",
+     "stats_status": "ok",
+     "value_count": 53,
+     "labels_available": true
+    },
+    {
+     "column": ":@computed_region_6mkv_f3dw",
+     "kind": "zip",
+     "stats_status": "ok",
+     "value_count": 83,
+     "labels_available": true
+    },
+    {
+     "column": ":@computed_region_vrxf_vc4k",
+     "kind": "community_area",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_bdys_3d7i",
+     "kind": "census_tract",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_43wa_7qmu",
+     "kind": "ward",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_rpca_8um6",
+     "kind": "zip",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_d9mm_jgwp",
+     "kind": "police_district",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_d3ds_rm58",
+     "kind": "beat",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_8hcu_yrd4",
+     "kind": "ward",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    }
+   ]
+  },
+  {
+   "run": "baseline: place phase pinned to the old fixed 10 s (DESCRIBE_AGGREGATE_TIMEOUT_SECONDS)",
+   "seconds": 17.0,
+   "isError": false,
+   "ok": 6,
+   "total": 11,
+   "place_fields": [
+    {
+     "column": "ward",
+     "kind": "ward",
+     "stats_status": "ok",
+     "value_count": 51,
+     "labels_available": null
+    },
+    {
+     "column": "community_area",
+     "kind": "community_area",
+     "stats_status": "ok",
+     "value_count": 77,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_awaf_s7ux",
+     "kind": "ward",
+     "stats_status": "ok",
+     "value_count": 53,
+     "labels_available": true
+    },
+    {
+     "column": ":@computed_region_6mkv_f3dw",
+     "kind": "zip",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_vrxf_vc4k",
+     "kind": "community_area",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_bdys_3d7i",
+     "kind": "census_tract",
+     "stats_status": "ok",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_43wa_7qmu",
+     "kind": "ward",
+     "stats_status": "ok",
+     "value_count": 50,
+     "labels_available": true
+    },
+    {
+     "column": ":@computed_region_rpca_8um6",
+     "kind": "zip",
+     "stats_status": "ok",
+     "value_count": 61,
+     "labels_available": true
+    },
+    {
+     "column": ":@computed_region_d9mm_jgwp",
+     "kind": "police_district",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_d3ds_rm58",
+     "kind": "beat",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    },
+    {
+     "column": ":@computed_region_8hcu_yrd4",
+     "kind": "ward",
+     "stats_status": "timeout",
+     "value_count": null,
+     "labels_available": null
+    }
+   ]
+  }
+ ],
+ "size_if_every_field_ok": {
+  "source": "replay of a live recording in which all 11 groupings completed (deadline 120 s, aggregate timeout 60 s); RESULT_LIMIT lifted to measure",
+  "result_limit_bytes": 23552,
+  "place_field_section_no_columns_bytes": 24385,
+  "full_result_bytes": 31747,
+  "outcome_at_real_limit": "describe_too_large"
+ }
+}

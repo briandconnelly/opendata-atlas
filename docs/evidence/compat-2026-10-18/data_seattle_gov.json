@@ -1,0 +1,923 @@
+{
+ "portal": "data.seattle.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 9
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 41,
+   "row_count": 193745
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 5,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 5
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "76t5-zqzr",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=cos-data.seattle.gov&search_context=data.seattle.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "81,265 bytes, over the 65,536-byte cap",
+    "sha256": "b19296cd15f25b3cd7596f4f23d2a18c907080ca2b219b2a77d279c675e41fee",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=cos-data.seattle.gov&search_context=data.seattle.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "SDOT.V SU PERMITS",
+       "id": "9r94-65xb",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "An updated Permit Data Model that includes relationships between the component feature classes.  The Dissolved Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACT_DISS) feature class is derived from dissolving the Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACTS) feature class by Permit Number.  The Impacts feature class is the Use Impact street line segments that are associated with any give Permit point (V_SU_PERMITS).  The relationships connect the Permit points to the Dissolved Use Impacts and then the Dissolved Use Impacts to the component Use Impacts.  This data model allows you to see all impacted street line segments associated with any given Permit easily, while also being able to drill down to any specific Use Impact for a given Permit.  <div><br /></div><div>Service is constructed for use in the Right of Way Map.  </div><div><br /></div><div>Data set to Nightly Refresh.  </div><div><br /></div><div>Any Questions or Concerns contact the SDOT Street Use Data and GIS Team:  Craig Moore/Bryan Bommersbach</div>",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2026-10-16T19:18:32.000Z",
+       "createdAt": "2025-02-06T19:07:11.000Z",
+       "metadata_updated_at": "2026-10-16T19:18:32.000Z",
+       "data_updated_at": "2025-02-06T19:07:11.000Z",
+       "page_views": {
+        "page_views_last_week": 854,
+        "page_views_last_month": 1228,
+        "page_views_total": 8539,
+        "page_views_last_week_log": 9.73978060977326,
+        "page_views_last_month_log": 10.263269200372662,
+        "page_views_total_log": 13.060020354507854
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-02-06T19:07:11.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "sdot",
+        "permit data model",
+        "street use",
+        "seattle gis open data"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "2026-10-16T17:17:37.455Z"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "The City of Seattle makes no representation or warranty as to its accuracy, and in particular, its accuracy as to labeling, dimensions, contours, property boundaries, or placement or location of any map feature thereof."
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Geographic-Coverage",
+         "value": "-122.4163,47.4512,-122.2252,47.7788"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "https://www.arcgis.com/home/item.html?id=bdacbaee95f549b59561dd6d93bfca7e&sublayer=0"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "City of Seattle ArcGIS Online"
+        },
+        {
+         "key": "Common-Core_Homepage",
+         "value": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permits"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "geospatial"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "2023-12-07T23:44:33.000Z"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.seattle.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permits"
+         },
+         "title": "ArcGIS Hub Dataset"
+        },
+        {
+         "urls": {
+          "application/json": "https://services.arcgis.com/ZOyb2t4B0UYuYNYH/arcgis/rest/services/SU_Permit_Data_Model_Relationships/FeatureServer/0"
+         },
+         "title": "ArcGIS GeoService"
+        },
+        {
+         "urls": {
+          "text/csv": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/csv?layers=0"
+         },
+         "title": "CSV"
+        },
+        {
+         "urls": {
+          "application/zip": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/shapefile?layers=0"
+         },
+         "title": "Shapefile"
+        },
+        {
+         "urls": {
+          "application/vnd.geo+json": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/geojson?layers=0"
+         },
+         "title": "GeoJSON"
+        },
+        {
+         "urls": {
+          "application/vnd.google-earth.kml+xml": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/kml?layers=0"
+         },
+         "title": "KML"
+        },
+        {
+         "urls": {
+          "application/zip": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/filegdb?layers=0"
+         },
+         "title": "File Geodatabase"
+        },
+        {
+         "urls": {
+          "text/plain": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/featureCollection?layers=0"
+         },
+         "title": "Feature Collection"
+        },
+        {
+         "urls": {
+          "application/vnd.ms-excel": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/excel?layers=0"
+         },
+         "title": "Excel"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/geoPackage?layers=0"
+         },
+         "title": "GeoPackage"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/sqlite?layers=0"
+         },
+         "title": "SQLite Geodatabase"
+        }
+       ],
+       "access_points": {
+        "text/html": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permits"
+       }
+      },
+      "permalink": "https://data.seattle.gov/d/9r94-65xb",
+      "link": "https://data.seattle.gov/dataset/SDOT-V-SU-PERMITS/9r94-65xb",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "SDOT.V SU PERMIT USE IMPACTS",
+       "id": "7kuu-i5w2",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "An updated Permit Data Model that includes relationships between the component feature classes.  The Dissolved Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACT_DISS) feature class is derived from dissolving the Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACTS) feature class by Permit Number.  The Impacts feature class is the Use Impact street line segments that are associated with any give Permit point (V_SU_PERMITS).  The relationships connect the Permit points to the Dissolved Use Impacts and then the Dissolved Use Impacts to the component Use Impacts.  This data model allows you to see all impacted street line segments associated with any given Permit easily, while also being able to drill down to any specific Use Impact for a given Permit.  <div><br /></div><div>Service is constructed for use in the Right of Way Map.  </div><div><br /></div><div>Data set to Nightly Refresh.  </div><div><br /></div><div>Any Questions or Concerns contact the SDOT Street Use Data and GIS Team:  Craig Moore/Bryan Bommersbach</div>",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2026-10-16T19:18:13.000Z",
+       "createdAt": "2025-02-03T18:37:31.000Z",
+       "metadata_updated_at": "2026-10-16T19:18:13.000Z",
+       "data_updated_at": "2025-02-03T18:37:31.000Z",
+       "page_views": {
+        "page_views_last_week": 836,
+        "page_views_last_month": 1192,
+        "page_views_total": 8272,
+        "page_views_last_week_log": 9.709083812550345,
+        "page_views_last_month_log": 10.220378327695228,
+        "page_views_total_log": 13.014194866814499
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-02-03T18:37:31.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "street use",
+        "seattle gis open data",
+        "permit data model",
+        "sdot"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "2026-10-16T17:37:10.550Z"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "The City of Seattle makes no representation or warranty as to its accuracy, and in particular, its accuracy as to labeling, dimensions, contours, property boundaries, or placement or location of any map feature thereof."
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Geographic-Coverage",
+         "value": "-122.4256,47.4934,-122.2433,47.7357"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "https://www.arcgis.com/home/item.html?id=bdacbaee95f549b59561dd6d93bfca7e&sublayer=2"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "City of Seattle ArcGIS Online"
+        },
+        {
+         "key": "Common-Core_Homepage",
+         "value": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permit-use-impacts"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "geospatial"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "2023-12-07T23:44:33.000Z"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.seattle.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permit-use-impacts"
+         },
+         "title": "ArcGIS Hub Dataset"
+        },
+        {
+         "urls": {
+          "application/json": "https://services.arcgis.com/ZOyb2t4B0UYuYNYH/arcgis/rest/services/SU_Permit_Data_Model_Relationships/FeatureServer/2"
+         },
+         "title": "ArcGIS GeoService"
+        },
+        {
+         "urls": {
+          "text/csv": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/csv?layers=2"
+         },
+         "title": "CSV"
+        },
+        {
+         "urls": {
+          "application/zip": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/shapefile?layers=2"
+         },
+         "title": "Shapefile"
+        },
+        {
+         "urls": {
+          "application/vnd.geo+json": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/geojson?layers=2"
+         },
+         "title": "GeoJSON"
+        },
+        {
+         "urls": {
+          "application/vnd.google-earth.kml+xml": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/kml?layers=2"
+         },
+         "title": "KML"
+        },
+        {
+         "urls": {
+          "application/zip": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/filegdb?layers=2"
+         },
+         "title": "File Geodatabase"
+        },
+        {
+         "urls": {
+          "text/plain": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/featureCollection?layers=2"
+         },
+         "title": "Feature Collection"
+        },
+        {
+         "urls": {
+          "application/vnd.ms-excel": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/excel?layers=2"
+         },
+         "title": "Excel"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/geoPackage?layers=2"
+         },
+         "title": "GeoPackage"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://data-seattlecitygis.opendata.arcgis.com/api/download/v1/items/bdacbaee95f549b59561dd6d93bfca7e/sqlite?layers=2"
+         },
+         "title": "SQLite Geodatabase"
+        }
+       ],
+       "access_points": {
+        "text/html": "https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::sdot-v-su-permit-use-impacts"
+       }
+      },
+      "permalink": "https://data.seattle.gov/d/7kuu-i5w2",
+      "link": "https://data.seattle.gov/dataset/SDOT-V-SU-PERMIT-USE-IMPACTS/7kuu-i5w2",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "SU Permit Data Model Relationships",
+       "id": "wk8g-eqzf",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "An updated Permit Data Model that includes relationships between the component feature classes.  The Dissolved Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACT_DISS) feature class is derived from dissolving the Use Impacts (SDOT.V_SU_PERMIT_USE_IMPACTS) feature class by Permit Number.  The Impacts feature class is the Use Impact street line segments that are associated with any give Permit point (V_SU_PERMITS).  The relationships connect the Permit points to the Dissolved Use Impacts and then the Dissolved Use Impacts to the component Use Impacts.  This data model allows you to see all impacted street line segments associated with any given Permit easily, while also being able to drill down to any specific Use Impact for a given Permit.  <div><br /></div><div>Service is constructed for use in the Right of Way Map.  </div><div><br /></div><div>Data set to Nightly Refresh.  </div><div><br /></div><div>Any Questions or Concerns contact the SDOT Street Use Data and GIS Team:  Craig Moore/Bryan Bommersbach</div>",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2026-10-16T19:18:26.000Z",
+       "createdAt": "2025-02-03T18:37:25.000Z",
+       "metadata_updated_at": "2026-10-16T19:18:26.000Z",
+       "data_updated_at": "2025-02-03T18:37:25.000Z",
+       "page_views": {
+        "page_views_last_week": 832,
+        "page_views_last_month": 1174,
+        "page_views_total": 8260,
+        "page_views_last_week_log": 9.702172685365548,
+        "page_views_last_month_log": 10.198445041452363,
+        "page_views_total_log": 13.01210071615157
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-02-03T18:37:25.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "street use",
+        "seattle gis open data",
+        "sdot",
+        "permit data model"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "2026-10-16T17:37:33.000Z"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "The City of Seattle makes no representation or warranty as to its accuracy, and in particular, its accuracy as to labeling, dimensions, contours, property boundaries, or placement or location of any map feature thereof."
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Geographic-Coverage",
+         "value": "-122.4243,47.4511,-122.2252,47.7788"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "https://www.arcgis.com/home/item.html?id=bdacbaee95f549b59561dd6d93bfca7e"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "City of Seattle ArcGIS Online"
+        },
+        {
+         "key": "Common-Core_Homepage",
+         "value": "https://data-seattlecitygis.opendata.arcgis.com/maps/SeattleCityGIS::su-permit-data-model-relationships"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "geospatial"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "2023-12-07T23:44:33.000Z"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.seattle.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://data-seattlecitygis.opendata.arcgis.com/maps/SeattleCityGIS::su-permit-data-model-relationships"
+         },
+         "title": "ArcGIS Hub Dataset"
+        },
+        {
+         "urls": {
+          "application/json": "https://services.arcgis.com/ZOyb2t4B0UYuYNYH/arcgis/rest/services/SU_Permit_Data_Model_Relationships/FeatureServer"
+         },
+         "title": "ArcGIS GeoService"
+        }
+       ],
+       "access_points": {
+        "text/html": "https://data-seattlecitygis.opendata.arcgis.com/maps/SeattleCityGIS::su-permit-data-model-relationships"
+       }
+      },
+      "permalink": "https://data.seattle.gov/d/wk8g-eqzf",
+      "link": "https://data.seattle.gov/dataset/SU-Permit-Data-Model-Relationships/wk8g-eqzf",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 43,
+    "timings": {
+     "serviceMillis": 43,
+     "searchMillis": [
+      6,
+      30
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.seattle.gov/api/views/76t5-zqzr.json",
+   "status": 200,
+   "body": {
+    "summarized": "74,692 bytes, over the 65,536-byte cap",
+    "sha256": "1fa4ce4e2a8d7f969d96efd5347ad8435b12789902f591ce9600529e2f497804",
+    "keys": [
+     "approvals",
+     "assetType",
+     "attribution",
+     "attributionLink",
+     "averageRating",
+     "category",
+     "clientContext",
+     "columns",
+     "createdAt",
+     "description",
+     "diciBackend",
+     "displayType",
+     "domainCName",
+     "downloadCount",
+     "flags",
+     "grants",
+     "hideFromCatalog",
+     "hideFromDataJson",
+     "id",
+     "license",
+     "licenseId",
+     "locked",
+     "metadata",
+     "name",
+     "newBackend",
+     "numberOfComments",
+     "oid",
+     "owner",
+     "provenance",
+     "publicationAppendEnabled",
+     "publicationDate",
+     "publicationGroup",
+     "publicationStage",
+     "query",
+     "rights",
+     "rowsUpdatedAt",
+     "rowsUpdatedBy",
+     "tableAuthor",
+     "tableId",
+     "tags",
+     "totalTimesRated",
+     "viewCount",
+     "viewLastModified",
+     "viewType"
+    ],
+    "column_count": 41,
+    "column_field_names": [
+     "permitnum",
+     "permitclass",
+     "permitclassmapped",
+     "permittypemapped",
+     "permittypedesc",
+     "description",
+     "housingunits",
+     "housingunitsremoved",
+     "housingunitsadded",
+     "estprojectcost",
+     "applieddate",
+     "issueddate",
+     "expiresdate",
+     "completeddate",
+     "statuscurrent",
+     "relatedmup",
+     "originaladdress1",
+     "originalcity",
+     "originalstate",
+     "originalzip",
+     "contractorcompanyname",
+     "link",
+     "latitude",
+     "longitude",
+     "location1",
+     "totaldaysplanreview",
+     "daysinitialplanreview",
+     "daysplanreviewcity",
+     "daysoutcorrections",
+     "numberreviewcycles",
+     "initialreviewcompletedate",
+     "planreviewcompletedate",
+     "daysissuepermitcity",
+     "readytoissuedate",
+     "zoning",
+     "dwellingunittype",
+     "standardplan",
+     "dependentbuilding",
+     "parentpermitnum",
+     "housingcategory",
+     "development_site"
+    ],
+    "id": "76t5-zqzr",
+    "name": "Building Permits",
+    "rowsUpdatedAt": 1792286095
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.seattle.gov/resource/76t5-zqzr.json?%24select=min%28applieddate%29+AS+lo%2C+max%28applieddate%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1900-01-01T00:00:00.000",
+     "hi": "2026-10-16T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.seattle.gov/resource/76t5-zqzr.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "193745"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.seattle.gov/resource/76t5-zqzr.json?%24select=originalzip+AS+v%2C+count%28%2A%29+AS+n&%24group=originalzip&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "98103",
+     "n": "13118"
+    },
+    {
+     "v": "98115",
+     "n": "12660"
+    },
+    {
+     "v": "98118",
+     "n": "10545"
+    },
+    {
+     "n": "10163"
+    },
+    {
+     "v": "98105",
+     "n": "9763"
+    },
+    {
+     "v": "98117",
+     "n": "9362"
+    },
+    {
+     "v": "98122",
+     "n": "9138"
+    },
+    {
+     "v": "98109",
+     "n": "8961"
+    },
+    {
+     "v": "98144",
+     "n": "8646"
+    },
+    {
+     "v": "98125",
+     "n": "7848"
+    },
+    {
+     "v": "98112",
+     "n": "7795"
+    },
+    {
+     "v": "98101",
+     "n": "7611"
+    },
+    {
+     "v": "98116",
+     "n": "7365"
+    },
+    {
+     "v": "98107",
+     "n": "7012"
+    },
+    {
+     "v": "98199",
+     "n": "7011"
+    },
+    {
+     "v": "98108",
+     "n": "6731"
+    },
+    {
+     "v": "98119",
+     "n": "6656"
+    },
+    {
+     "v": "98104",
+     "n": "6016"
+    },
+    {
+     "v": "98106",
+     "n": "5373"
+    },
+    {
+     "v": "98126",
+     "n": "5228"
+    },
+    {
+     "v": "98102",
+     "n": "5069"
+    },
+    {
+     "v": "98136",
+     "n": "4874"
+    },
+    {
+     "v": "98133",
+     "n": "4181"
+    },
+    {
+     "v": "98121",
+     "n": "3578"
+    },
+    {
+     "v": "98134",
+     "n": "3193"
+    },
+    {
+     "v": "98177",
+     "n": "2329"
+    },
+    {
+     "v": "98146",
+     "n": "1275"
+    },
+    {
+     "v": "98178",
+     "n": "1184"
+    },
+    {
+     "v": "98195",
+     "n": "955"
+    },
+    {
+     "v": "98155",
+     "n": "34"
+    },
+    {
+     "v": "0",
+     "n": "17"
+    },
+    {
+     "v": "98154",
+     "n": "17"
+    },
+    {
+     "v": "98164",
+     "n": "14"
+    },
+    {
+     "v": "90",
+     "n": "5"
+    },
+    {
+     "v": "98168",
+     "n": "5"
+    },
+    {
+     "v": "78",
+     "n": "2"
+    },
+    {
+     "v": "83",
+     "n": "1"
+    },
+    {
+     "v": "100",
+     "n": "1"
+    },
+    {
+     "v": "92",
+     "n": "1"
+    },
+    {
+     "v": "98004",
+     "n": "1"
+    },
+    {
+     "v": "98019",
+     "n": "1"
+    },
+    {
+     "v": "35",
+     "n": "1"
+    },
+    {
+     "v": "98124",
+     "n": "1"
+    },
+    {
+     "v": "70",
+     "n": "1"
+    },
+    {
+     "v": "74",
+     "n": "1"
+    },
+    {
+     "v": "76",
+     "n": "1"
+    },
+    {
+     "v": "46",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.seattle.gov/resource/76t5-zqzr.json?%24select=permitnum%2C+permitclass%2C+permitclassmapped%2C+permittypemapped%2C+permittypedesc%2C+description%2C+housingunits%2C+housingunitsremoved%2C+housingunitsadded%2C+estprojectcost%2C+applieddate%2C+issueddate%2C+expiresdate%2C+completeddate%2C+statuscurrent%2C+relatedmup%2C+originaladdress1%2C+originalcity%2C+originalstate%2C+originalzip%2C+contractorcompanyname%2C+link%2C+latitude%2C+longitude%2C+location1%2C+totaldaysplanreview%2C+daysinitialplanreview%2C+daysplanreviewcity%2C+daysoutcorrections%2C+numberreviewcycles%2C+initialreviewcompletedate%2C+planreviewcompletedate%2C+daysissuepermitcity%2C+readytoissuedate%2C+zoning%2C+dwellingunittype%2C+standardplan%2C+dependentbuilding%2C+parentpermitnum%2C+housingcategory%2C+development_site%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "contractorcompanyname",
+     "daysoutcorrections",
+     "dependentbuilding",
+     "description",
+     "housingcategory",
+     "housingunits",
+     "latitude",
+     "link",
+     "location1",
+     "longitude",
+     "numberreviewcycles",
+     "originaladdress1",
+     "originalcity",
+     "originalstate",
+     "originalzip",
+     "permitclass",
+     "permitclassmapped",
+     "permitnum",
+     "permittypedesc",
+     "permittypemapped",
+     "relatedmup",
+     "statuscurrent"
+    ],
+    "sha256": "0d0a91832cf4743744789ea34d064459308ba44dcea5518c98cdbfbf3a26d76d"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.seattle.gov/resource/76t5-zqzr.json?%24select=permitnum%2C+permitclass%2C+permitclassmapped%2C+permittypemapped%2C+permittypedesc%2C+description%2C+housingunits%2C+housingunitsremoved%2C+housingunitsadded%2C+estprojectcost%2C+applieddate%2C+issueddate%2C+expiresdate%2C+completeddate%2C+statuscurrent%2C+relatedmup%2C+originaladdress1%2C+originalcity%2C+originalstate%2C+originalzip%2C+contractorcompanyname%2C+link%2C+latitude%2C+longitude%2C+location1%2C+totaldaysplanreview%2C+daysinitialplanreview%2C+daysplanreviewcity%2C+daysoutcorrections%2C+numberreviewcycles%2C+initialreviewcompletedate%2C+planreviewcompletedate%2C+daysissuepermitcity%2C+readytoissuedate%2C+zoning%2C+dwellingunittype%2C+standardplan%2C+dependentbuilding%2C+parentpermitnum%2C+housingcategory%2C+development_site%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-tah6_nmmc~s3ih%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "daysoutcorrections",
+     "dependentbuilding",
+     "description",
+     "housingcategory",
+     "housingunits",
+     "latitude",
+     "link",
+     "location1",
+     "longitude",
+     "numberreviewcycles",
+     "originaladdress1",
+     "originalcity",
+     "originalstate",
+     "originalzip",
+     "permitclass",
+     "permitclassmapped",
+     "permitnum",
+     "permittypedesc",
+     "permittypemapped",
+     "relatedmup",
+     "statuscurrent"
+    ],
+    "sha256": "881cc0fda4dedfb2f98da1801552314ed23cfc2e1cbeadc97fd85c66cf7913d7"
+   }
+  }
+ ]
+}

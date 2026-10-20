@@ -1,0 +1,4 @@
+<tmp>/curation.transcript.jsonl 2.9315290000000003
+<tmp>/evals/01-delta-last-month.transcript.jsonl 0.1823534
+<tmp>/evals/02-westmont-2024.transcript.jsonl 0.140479
+<tmp>/evals/03-restaurant-inspections.transcript.jsonl 0.08728179999999999

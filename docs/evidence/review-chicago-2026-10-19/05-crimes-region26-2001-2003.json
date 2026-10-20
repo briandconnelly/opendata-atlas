@@ -1,0 +1,18 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=year%2C+count%28%2A%29+AS+n&%24where=%3A%40computed_region_vrxf_vc4k+%3D+%2226%22+AND+year+in+%282001%2C+2002%2C+2003%29&%24group=year&%24order=year",
+ "status": 200,
+ "body": [
+  {
+   "year": "2001",
+   "n": "29277"
+  },
+  {
+   "year": "2002",
+   "n": "28289"
+  },
+  {
+   "year": "2003",
+   "n": "30238"
+  }
+ ]
+}

@@ -1,0 +1,1223 @@
+{
+ "portal": "data.sf.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 9
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 55,
+   "row_count": 1297058
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 4,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 4
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "i98e-djp9",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?search_context=data.sf.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Building, Plumbing and Electrical Permit Inquiry",
+       "id": "gnti-6wm5",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This link sends you to a the Department of Building Inspections permit search engineYou can also find permit info here: http://sfdbi.org/index.aspx?page=214",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2024-03-13T18:21:09.000Z",
+       "createdAt": "2013-11-18T22:43:26.000Z",
+       "metadata_updated_at": "2024-03-13T18:21:09.000Z",
+       "data_updated_at": "2013-11-18T22:43:26.000Z",
+       "page_views": {
+        "page_views_last_week": 23,
+        "page_views_last_month": 159,
+        "page_views_total": 2130,
+        "page_views_last_week_log": 4.584962500721157,
+        "page_views_last_month_log": 7.321928094887362,
+        "page_views_total_log": 11.057314877782703
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 181,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2013-11-18T22:50:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing and Buildings",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Department-Metrics_Publishing-Department",
+         "value": "Building Inspection"
+        },
+        {
+         "key": "Internal-Management_Inventory-ID",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Publishing-Details_Geographic-unit",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Program-link",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Multiple times per hour"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.sf.gov",
+       "license": "Open Data Commons Public Domain Dedication and License",
+       "access_points": {
+        "aspx?page=keywordsearch": "https://dbiweb.sfgov.org/dbipts/Default2.aspx?page=KeywordSearch"
+       }
+      },
+      "permalink": "https://data.sf.gov/d/gnti-6wm5",
+      "link": "https://data.sf.gov/Housing-and-Buildings/Building-Plumbing-and-Electrical-Permit-Inquiry/gnti-6wm5",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "San Francisco Property Information Map",
+       "id": "i8ew-h6z7",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "map of all SF properties with associated, zoning, permits, complaints and appeals history\n\nSee the Data Downloads section of the websites help page for links to individual DataSF datasets used to create the Property Information Map\nhttps://sfplanninggis.org/pim/help.html",
+       "attribution": "San Francisco Planning Department",
+       "attribution_link": "http://www.sf-planning.org/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2024-03-13T18:51:11.000Z",
+       "createdAt": "2012-09-26T17:53:35.000Z",
+       "metadata_updated_at": "2024-03-13T18:51:11.000Z",
+       "data_updated_at": "2012-09-26T17:53:35.000Z",
+       "page_views": {
+        "page_views_last_week": 594,
+        "page_views_last_month": 2733,
+        "page_views_total": 92679,
+        "page_views_last_week_log": 9.216745858195306,
+        "page_views_last_month_log": 11.41679752760606,
+        "page_views_total_log": 16.499970423752185
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1597,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2012-09-26T17:53:46.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing and Buildings",
+       "domain_tags": [
+        "planning",
+        "gis",
+        "pim"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Department-Metrics_Publishing-Department",
+         "value": "Planning"
+        },
+        {
+         "key": "Internal-Management_Inventory-ID",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Streaming"
+        },
+        {
+         "key": "Publishing-Details_Geographic-unit",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Program-link",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Multiple times per hour"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.sf.gov",
+       "license": "Open Data Commons Public Domain Dedication and License",
+       "additional_access_points": [
+        {
+         "urls": {
+          "URL": "https://sfplanninggis.org/pim"
+         },
+         "title": "San Francisco Property Information Map"
+        }
+       ],
+       "access_points": {
+        "URL": "https://sfplanninggis.org/pim"
+       }
+      },
+      "permalink": "https://data.sf.gov/d/i8ew-h6z7",
+      "link": "https://data.sf.gov/Housing-and-Buildings/San-Francisco-Property-Information-Map/i8ew-h6z7",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "US Census Bureau Data",
+       "id": "d53k-r35r",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The Census Bureau conducts nearly one hundred surveys and censuses every year. By law, no one is permitted to reveal information from these censuses and surveys that could identify any person, household, or business. The Decennial Census collects data every 10 years about households, income, education, homeownership, and more. NOTE: Follow the link and search for SAN FRANCISCO data.",
+       "attribution": "US Census Bureau",
+       "attribution_link": "http://www.census.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2024-03-13T18:29:47.000Z",
+       "createdAt": "2011-11-12T15:53:07.000Z",
+       "metadata_updated_at": "2024-03-13T18:29:47.000Z",
+       "data_updated_at": "2011-11-12T15:53:07.000Z",
+       "page_views": {
+        "page_views_last_week": 21,
+        "page_views_last_month": 103,
+        "page_views_total": 19888,
+        "page_views_last_week_log": 4.459431618637297,
+        "page_views_last_month_log": 6.700439718141092,
+        "page_views_total_log": 14.27968312021035
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1733,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2011-11-12T15:53:28.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Economy and Community",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Department-Metrics_Publishing-Department",
+         "value": "Other"
+        },
+        {
+         "key": "Internal-Management_Inventory-ID",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Not updated (historical only)"
+        },
+        {
+         "key": "Publishing-Details_Geographic-unit",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Program-link",
+         "value": ""
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Not updated (historical only)"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.sf.gov",
+       "license": "Open Data Commons Public Domain Dedication and License",
+       "additional_access_points": [
+        {
+         "urls": {
+          "gov": "https://data.census.gov"
+         }
+        }
+       ],
+       "access_points": {
+        "gov": "https://data.census.gov"
+       }
+      },
+      "permalink": "https://data.sf.gov/d/d53k-r35r",
+      "link": "https://data.sf.gov/Economy-and-Community/US-Census-Bureau-Data/d53k-r35r",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 3,
+    "timings": {
+     "serviceMillis": 39,
+     "searchMillis": [
+      25,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?search_context=data.sf.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "115,788 bytes, over the 65,536-byte cap",
+    "sha256": "daa4dd5db27f922eec761dc2a752c410f24094e75420edfb75518580817afe2a",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?search_context=data.sf.gov&ids=jyk9-z8rn&limit=1",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 26,
+     "searchMillis": [
+      18,
+      2
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.sf.gov/api/views/i98e-djp9.json",
+   "status": 200,
+   "body": {
+    "id": "i98e-djp9",
+    "name": "Building Permits",
+    "assetType": "filter",
+    "averageRating": 0,
+    "category": "Housing and Buildings",
+    "createdAt": 1738013735,
+    "description": "<strong>Note: Starting on 12/10/2024 this dataset will only publish new records (rows) that are added and update any existing records that have updated information. New and updated records can be identified by using the data_as_of and data_loaded_at fields. To identify the most recent date when the dataset was last updated, use the maximum data_as_of or data_loaded_at value. </strong>\n\n<strong>A. SUMMARY</strong>\nThe dataset includes details of all building permit applications filed with the Department of Building Inspection. Permit numbers and associated information may be repeated in multiple rows if there are multiple addresses associated with the permit. To view the deduplicated building permits dataset with just the primary address, <u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Building-Permits-Deduplicated-on-Primary-Address/f2jc-ivnc\">click here</a></u>. Data is uploaded nightly by DBI. Users can view associated addenda, routing, and inspection information for each permit in the dataset online through DBI’s Permit Tracking System <u><a href=\"https://dbiweb02.sfgov.org/dbipts/\">here</a></u>.\n\n<b> A full data dictionary for this dataset is available by <u><a href=\"https://sfdigitalservices.gitbook.io/dataset-explainers/dbi-building-permits-and-permit-addenda-data/building-permits-data-dictionary\">clicking here.</a></u> </b>\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nThe dataset is created by extracting permit characteristics and key dates (including permit filing, issuance, and completion dates) from DBI’s Permit Tracking System.\n\n<strong>C. UPDATE PROCESS</strong>\nThe process that builds this dataset will run nightly and include all permits entered into the system up to the time of the refresh (see the “data as of” column in the dataset).\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nUsers can use this dataset to search for all permits associated with a specific address or parcel number and view characteristics like addresses, permit descriptions of work, unit counts, valuations, etc. If the analytical objective is to measure permitting trends for all addresses, we recommend using the primary address building permits dataset.\n\n<b>Note:</b> if you need to open this dataset in Excel, use one of the pre-filtered datasets. Opening the main dataset in Excel will cause some data to be lost as there are more than one million rows in the full dataset.\n\n1. <u><a href=\"https://data.sfgov.org/d/p4e4-a5a7\">Building Permits filed on or after January 1, 2013</a></u>\n2. <u><a href=\"https://data.sfgov.org/d/4jpb-z4kk\">Building Permits filed before January 1, 2013</a></u> \n\n<strong>E. RELATED DATASETS</strong>\n<b>Department of Building Inspections Permits Data</b>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Building-Permits/i98e-djp9\">Building Permits (Unique)</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Department-of-Building-Inspection-Permit-Addenda-w/87xy-gk8d\">Building Permit Addenda with Routing</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Building-Permits-Contacts/3pee-9qhc\">Building Permits Contacts</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Electrical-Permits/ftty-kx6y\">Electrical Permits</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Plumbing-Permits/a6aw-rudh\">Plumbing Permits</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Boiler-Permits/5dp4-gtxk\">Boiler Permits</a></u>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Dwelling-Unit-Completion-Counts-by-Building-Permit/j67f-aayr\">Dwelling Unit Completion Counts by Building Permit</a></u>\n\n<b>Planning Department Permits</b>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/SF-Planning-Permitting-Data/kncr-c6jw\">Planning Department Permits</a></u>\n\n<b>Public Works Construction Permits</b>\n<u><a href=\"https://data.sfgov.org/City-Infrastructure/Street-Use-Permits/b6tj-gt35\">Department of Public Works Street Use Permits</a></u>\n<u><a href=\"https://data.sfgov.org/City-Infrastructure/Large-Utility-Excavation-Permits/i926-ujnc\">Department of Public Works Large Utility Excavation Permits</a></u>\n\n<b>Fire Department Permits</b>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Fire-Permits/893e-xam6\">Fire Department Permits</a></u>\n\n<b>Other housing/ construction related datasets related to building permits</b>\n<u><a href=\"https://data.sfgov.org/browse?q=SF%20Development%20Pipeline&sortBy=newest&utf8=%E2%9C%93\">Planning Department Housing Development Pipeline Quarterly datasets</a></u>\n\n<b>Mayor’s Office of Housing and Community Development: Affordable Housing Pipeline</b>\n<u><a href=\"https://data.sfgov.org/Housing-and-Buildings/Affordable-Housing-Pipeline/aaxw-2cb8\">Affordable Housing Pipeline</a></u>\n\nFor even more permit datasets, <u><a href=\"https://datasf.org/opendata/\">click this link</a></u> and search “Permits.”",
+    "diciBackend": false,
+    "displayType": "table",
+    "domainCName": "data.sf.gov",
+    "downloadCount": 94114,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "PDDL",
+    "locked": false,
+    "modifyingViewUid": "jyk9-z8rn",
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 41516451,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1738014592,
+    "publicationGroup": 19049372,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1792327267,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 20008432,
+    "totalTimesRated": 0,
+    "viewCount": 113074,
+    "viewLastModified": 1790199063,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 615594090,
+      "name": "Permit Number",
+      "dataTypeName": "text",
+      "description": "Permit Number. Permits that start with 'M' are miscellaneous permits for this like street use or address creation.",
+      "fieldName": "permit_number",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 145679846,
+      "format": {}
+     },
+     {
+      "id": 615594091,
+      "name": "Permit Type",
+      "dataTypeName": "text",
+      "description": "Type of permit (i.e. Permit Application Form number)",
+      "fieldName": "permit_type",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 156543632,
+      "format": {}
+     },
+     {
+      "id": 615594092,
+      "name": "Permit Type Definition",
+      "dataTypeName": "text",
+      "description": "Definition of each permit type",
+      "fieldName": "permit_type_definition",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 145679878,
+      "format": {}
+     },
+     {
+      "id": 615594093,
+      "name": "Permit Creation Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date that application is created in permit tracking system.",
+      "fieldName": "permit_creation_date",
+      "position": 4,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679833,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594094,
+      "name": "Block",
+      "dataTypeName": "text",
+      "description": "Block",
+      "fieldName": "block",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 145679842,
+      "format": {}
+     },
+     {
+      "id": 615594095,
+      "name": "Lot",
+      "dataTypeName": "text",
+      "description": "Lot",
+      "fieldName": "lot",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 145679848,
+      "format": {}
+     },
+     {
+      "id": 615594096,
+      "name": "Street Number",
+      "dataTypeName": "text",
+      "description": "Street Number",
+      "fieldName": "street_number",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 145679834,
+      "format": {}
+     },
+     {
+      "id": 615594097,
+      "name": "Street Number Suffix",
+      "dataTypeName": "text",
+      "description": "Street Number Suffix",
+      "fieldName": "street_number_suffix",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 145721266,
+      "format": {}
+     },
+     {
+      "id": 615594098,
+      "name": "Street Name",
+      "dataTypeName": "text",
+      "description": "Street Name",
+      "fieldName": "street_name",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 145679826,
+      "format": {}
+     },
+     {
+      "id": 615594099,
+      "name": "Street Suffix",
+      "dataTypeName": "text",
+      "description": "Street Suffix",
+      "fieldName": "street_suffix",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 145679883,
+      "format": {}
+     },
+     {
+      "id": 615594100,
+      "name": "Unit",
+      "dataTypeName": "text",
+      "description": "Unit",
+      "fieldName": "unit",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 145679867,
+      "format": {}
+     },
+     {
+      "id": 615594101,
+      "name": "Unit Suffix",
+      "dataTypeName": "text",
+      "description": "Unit Suffix",
+      "fieldName": "unit_suffix",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 145679869,
+      "format": {}
+     },
+     {
+      "id": 615594102,
+      "name": "Description",
+      "dataTypeName": "text",
+      "description": "Description of permit scope of work",
+      "fieldName": "description",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 145679863,
+      "format": {}
+     },
+     {
+      "id": 646932554,
+      "name": "primary_priority",
+      "dataTypeName": "text",
+      "description": "Indicates the primary priority to be used for SLA",
+      "fieldName": "primary_priority",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 156494558,
+      "format": {}
+     },
+     {
+      "id": 646932555,
+      "name": "all_priority_types",
+      "dataTypeName": "text",
+      "description": "List all priorities assigned to the permit",
+      "fieldName": "all_priority_types",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 156494557,
+      "format": {}
+     },
+     {
+      "id": 615594103,
+      "name": "Current Status",
+      "dataTypeName": "text",
+      "description": "Current Status. Note: this column should be in combination with the Approved, Issued, Completed dates.",
+      "fieldName": "status",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 145679839,
+      "format": {}
+     },
+     {
+      "id": 615594104,
+      "name": "Current Status Date",
+      "dataTypeName": "calendar_date",
+      "description": "Current Status Date",
+      "fieldName": "status_date",
+      "position": 17,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679837,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594105,
+      "name": "Filed Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date permit was filed in permit tracking system",
+      "fieldName": "filed_date",
+      "position": 18,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679828,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594106,
+      "name": "Issued Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date permit was issued (i.e. permit fees paid)",
+      "fieldName": "issued_date",
+      "position": 19,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679841,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594107,
+      "name": "Completed Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date that completed work was finaled by inspection staff",
+      "fieldName": "completed_date",
+      "position": 20,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679835,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594108,
+      "name": "First Construction Document Date",
+      "dataTypeName": "calendar_date",
+      "description": "For site permits, this is the date when the addenda marked as the first construction document (usually the first addenda) is issued.",
+      "fieldName": "first_construction_document_date",
+      "position": 21,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679830,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594109,
+      "name": "approved_date",
+      "dataTypeName": "calendar_date",
+      "description": "Date permit was approved",
+      "fieldName": "approved_date",
+      "position": 22,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 157756229,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594110,
+      "name": "Structural Notification",
+      "dataTypeName": "text",
+      "description": "Structural Notification",
+      "fieldName": "structural_notification",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 145679858,
+      "format": {}
+     },
+     {
+      "id": 615594111,
+      "name": "Number of Existing Stories",
+      "dataTypeName": "text",
+      "description": "Number of Existing Stories",
+      "fieldName": "number_of_existing_stories",
+      "position": 24,
+      "renderTypeName": "text",
+      "tableColumnId": 145679845,
+      "format": {}
+     },
+     {
+      "id": 615594112,
+      "name": "Number of Proposed Stories",
+      "dataTypeName": "text",
+      "description": "Number of Proposed Stories",
+      "fieldName": "number_of_proposed_stories",
+      "position": 25,
+      "renderTypeName": "text",
+      "tableColumnId": 145679870,
+      "format": {}
+     },
+     {
+      "id": 615594113,
+      "name": "Voluntary Soft-Story Retrofit",
+      "dataTypeName": "text",
+      "description": "Voluntary Soft-Story Retrofit",
+      "fieldName": "voluntary_soft_story_retrofit",
+      "position": 26,
+      "renderTypeName": "text",
+      "tableColumnId": 145679866,
+      "format": {}
+     },
+     {
+      "id": 615594114,
+      "name": "Fire Only Permit",
+      "dataTypeName": "text",
+      "description": "Fire Only Permit - i.e. permits where SFFD is is the only reviewing agency.",
+      "fieldName": "fire_only_permit",
+      "position": 27,
+      "renderTypeName": "text",
+      "tableColumnId": 145679860,
+      "format": {}
+     },
+     {
+      "id": 615594115,
+      "name": "Estimated Cost",
+      "dataTypeName": "text",
+      "description": "Estimated project cost",
+      "fieldName": "estimated_cost",
+      "position": 28,
+      "renderTypeName": "text",
+      "tableColumnId": 156543631,
+      "format": {}
+     },
+     {
+      "id": 615594116,
+      "name": "Revised Cost",
+      "dataTypeName": "text",
+      "description": "Revised project cost after project review",
+      "fieldName": "revised_cost",
+      "position": 29,
+      "renderTypeName": "text",
+      "tableColumnId": 156543630,
+      "format": {}
+     },
+     {
+      "id": 615594117,
+      "name": "Existing Use",
+      "dataTypeName": "text",
+      "description": "Existing Use",
+      "fieldName": "existing_use",
+      "position": 30,
+      "renderTypeName": "text",
+      "tableColumnId": 145679872,
+      "format": {}
+     },
+     {
+      "id": 615594118,
+      "name": "Existing Units",
+      "dataTypeName": "text",
+      "description": "Existing number of units on site",
+      "fieldName": "existing_units",
+      "position": 31,
+      "renderTypeName": "text",
+      "tableColumnId": 156543629,
+      "format": {}
+     },
+     {
+      "id": 615594119,
+      "name": "Proposed Use",
+      "dataTypeName": "text",
+      "description": "Proposed use",
+      "fieldName": "proposed_use",
+      "position": 32,
+      "renderTypeName": "text",
+      "tableColumnId": 145679857,
+      "format": {}
+     },
+     {
+      "id": 615594120,
+      "name": "Proposed Units",
+      "dataTypeName": "text",
+      "description": "Proposed number of units on site (after construction)",
+      "fieldName": "proposed_units",
+      "position": 33,
+      "renderTypeName": "text",
+      "tableColumnId": 156543628,
+      "format": {}
+     },
+     {
+      "id": 615594121,
+      "name": "Plansets",
+      "dataTypeName": "text",
+      "description": "Number of plan copies/ \"plansets\" submitted with application)",
+      "fieldName": "plansets",
+      "position": 34,
+      "renderTypeName": "text",
+      "tableColumnId": 145679831,
+      "format": {}
+     },
+     {
+      "id": 615594122,
+      "name": "TIDF Compliance",
+      "dataTypeName": "text",
+      "description": "Permit is required to pay the Transit Impact Development Fee. This fee is based on the square footage of commercial space being developed.",
+      "fieldName": "tidf_compliance",
+      "position": 35,
+      "renderTypeName": "text",
+      "tableColumnId": 145679873,
+      "format": {}
+     },
+     {
+      "id": 615594123,
+      "name": "Existing Occupancy",
+      "dataTypeName": "text",
+      "description": "Existing building occupancy code or codes",
+      "fieldName": "existing_occupancy",
+      "position": 36,
+      "renderTypeName": "text",
+      "tableColumnId": 145679840,
+      "format": {}
+     },
+     {
+      "id": 615594125,
+      "name": "Proposed Occupancy",
+      "dataTypeName": "text",
+      "description": "Proposed building occupancy code or codes",
+      "fieldName": "proposed_occupancy",
+      "position": 37,
+      "renderTypeName": "text",
+      "tableColumnId": 145679829,
+      "format": {}
+     },
+     {
+      "id": 615594126,
+      "name": "Existing Construction Type",
+      "dataTypeName": "text",
+      "description": "Existing Construction Type. See full definitions here: https://sf.gov/information/building-construction-type-definitions",
+      "fieldName": "existing_construction_type",
+      "position": 38,
+      "renderTypeName": "text",
+      "tableColumnId": 145679825,
+      "format": {}
+     },
+     {
+      "id": 615594127,
+      "name": "Existing Construction Type Description",
+      "dataTypeName": "text",
+      "description": "Existing Construction Type description. See full definitions here: https://sf.gov/information/building-construction-type-definitions",
+      "fieldName": "existing_construction_type_description",
+      "position": 39,
+      "renderTypeName": "text",
+      "tableColumnId": 145679881,
+      "format": {}
+     },
+     {
+      "id": 615594128,
+      "name": "Proposed Construction Type",
+      "dataTypeName": "text",
+      "description": "Proposed Construction Type. See full definitions here: https://sf.gov/information/building-construction-type-definitions",
+      "fieldName": "proposed_construction_type",
+      "position": 40,
+      "renderTypeName": "text",
+      "tableColumnId": 145679865,
+      "format": {}
+     },
+     {
+      "id": 615594129,
+      "name": "Proposed Construction Type Description",
+      "dataTypeName": "text",
+      "description": "Proposed Construction Type description. See full definitions here: https://sf.gov/information/building-construction-type-definitions",
+      "fieldName": "proposed_construction_type_description",
+      "position": 41,
+      "renderTypeName": "text",
+      "tableColumnId": 145679827,
+      "format": {}
+     },
+     {
+      "id": 615594130,
+      "name": "Site Permit",
+      "dataTypeName": "text",
+      "description": "Site Permit",
+      "fieldName": "site_permit",
+      "position": 42,
+      "renderTypeName": "text",
+      "tableColumnId": 145679880,
+      "format": {}
+     },
+     {
+      "id": 615594131,
+      "name": "Last Permit Activity Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date of most recent activity on permit (or associated addenda for site permits) at any routing station.",
+      "fieldName": "last_permit_activity_date",
+      "position": 43,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145721264,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594132,
+      "name": "Application Submission Method",
+      "dataTypeName": "text",
+      "description": "Indicates how the permit application was submitted to DBI, i.e. via DBI's permit web application form, SF.gov form, or in person. (Auto-generated by MIS based on other PTS data fields)",
+      "fieldName": "application_submission_method",
+      "position": 44,
+      "renderTypeName": "text",
+      "tableColumnId": 145679882,
+      "format": {}
+     },
+     {
+      "id": 615594133,
+      "name": "ADU",
+      "dataTypeName": "text",
+      "description": "NOTE - this column was deprecated on 2/1/25, use primary_priority instead.Permit for an accessory dwelling unit (ADU)",
+      "fieldName": "adu",
+      "position": 45,
+      "renderTypeName": "text",
+      "tableColumnId": 145679868,
+      "format": {}
+     },
+     {
+      "id": 615594134,
+      "name": "Primary Address Flag",
+      "dataTypeName": "text",
+      "description": "Indicates whether the address for the permit is the primary address identified by DBI",
+      "fieldName": "primary_address_flag",
+      "position": 46,
+      "renderTypeName": "text",
+      "tableColumnId": 145721265,
+      "format": {}
+     },
+     {
+      "id": 615594135,
+      "name": "supervisor_district",
+      "dataTypeName": "text",
+      "description": "Supervisor district the permit falls within",
+      "fieldName": "supervisor_district",
+      "position": 47,
+      "renderTypeName": "text",
+      "tableColumnId": 145685227,
+      "format": {}
+     },
+     {
+      "id": 615594136,
+      "name": "neighborhoods_analysis_boundaries",
+      "dataTypeName": "text",
+      "description": "Analysis neighborhood the permit falls within",
+      "fieldName": "neighborhoods_analysis_boundaries",
+      "position": 48,
+      "renderTypeName": "text",
+      "tableColumnId": 145685228,
+      "format": {}
+     },
+     {
+      "id": 615594137,
+      "name": "Zipcode",
+      "dataTypeName": "text",
+      "description": "Zip code the permit falls within",
+      "fieldName": "zipcode",
+      "position": 49,
+      "renderTypeName": "text",
+      "tableColumnId": 145679836,
+      "format": {}
+     },
+     {
+      "id": 615594138,
+      "name": "Location",
+      "dataTypeName": "point",
+      "description": "The latitude and longitude associated with the permit (based on block and lot, i.e. APN)",
+      "fieldName": "location",
+      "position": 50,
+      "renderTypeName": "point",
+      "tableColumnId": 145679874,
+      "format": {}
+     },
+     {
+      "id": 615594139,
+      "name": "point_source",
+      "dataTypeName": "text",
+      "description": "Data source for the coordinate point data, i.e. parcel centroid or EAS Address point.",
+      "fieldName": "point_source",
+      "position": 51,
+      "renderTypeName": "text",
+      "tableColumnId": 145910797,
+      "format": {}
+     },
+     {
+      "id": 616087039,
+      "name": "reroof",
+      "dataTypeName": "text",
+      "description": "A value of “Y” in the Re-roofing field indicates that the permit is for an re-roofing project",
+      "fieldName": "reroof",
+      "position": 52,
+      "renderTypeName": "text",
+      "tableColumnId": 160753821,
+      "format": {}
+     },
+     {
+      "id": 615594140,
+      "name": "Record ID",
+      "dataTypeName": "text",
+      "description": "Unique ID created from concatenating P_ADDR_ID & AVS_ADDRESSES_ID",
+      "fieldName": "record_id",
+      "position": 53,
+      "renderTypeName": "text",
+      "tableColumnId": 145679885,
+      "format": {}
+     },
+     {
+      "id": 615594141,
+      "name": "data_as_of",
+      "dataTypeName": "calendar_date",
+      "description": "Timestamp when the record (row) was last updated in the source system",
+      "fieldName": "data_as_of",
+      "position": 54,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679864,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     },
+     {
+      "id": 615594142,
+      "name": "data_loaded_at",
+      "dataTypeName": "calendar_date",
+      "description": "Timestamp when the record (row) was was last updated/ loaded into DataSF data portal",
+      "fieldName": "data_loaded_at",
+      "position": 55,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 145679853,
+      "format": {
+       "view": "date_ymd_time"
+      }
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Open Data Commons Public Domain Dedication and License",
+     "termsLink": "http://opendatacommons.org/licenses/pddl/1.0/"
+    },
+    "metadata": {
+     "custom_fields": {
+      "Department Metrics": {
+       "Publishing Department": "Building Inspection"
+      },
+      "Internal Management": {
+       "Inventory ID": "DBI-0002"
+      },
+      "Detailed Descriptive": {
+       "Geographic unit": "Street address"
+      },
+      "Publishing Details": {
+       "Data change frequency": "Multiple times per hour",
+       "Publishing frequency": "Daily"
+      }
+     },
+     "rowLabel": "Permit at an address",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "construction permits",
+     "permit",
+     "permits",
+     "building safety",
+     "housing"
+    ],
+    "flags": [
+     "calculatedView",
+     "federated",
+     "internalToPublicFederatedView",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType",
+     "soqlBasedView"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=min%28permit_creation_date%29+AS+lo%2C+max%28permit_creation_date%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1901-03-10T00:07:00.000",
+     "hi": "2026-10-17T14:17:00.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "1297058"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=permit_number%2C+permit_type%2C+permit_type_definition%2C+permit_creation_date%2C+block%2C+lot%2C+street_number%2C+street_number_suffix%2C+street_name%2C+street_suffix%2C+unit%2C+unit_suffix%2C+description%2C+primary_priority%2C+all_priority_types%2C+status%2C+status_date%2C+filed_date%2C+issued_date%2C+completed_date%2C+first_construction_document_date%2C+approved_date%2C+structural_notification%2C+number_of_existing_stories%2C+number_of_proposed_stories%2C+voluntary_soft_story_retrofit%2C+fire_only_permit%2C+estimated_cost%2C+revised_cost%2C+existing_use%2C+existing_units%2C+proposed_use%2C+proposed_units%2C+plansets%2C+tidf_compliance%2C+existing_occupancy%2C+proposed_occupancy%2C+existing_construction_type%2C+existing_construction_type_description%2C+proposed_construction_type%2C+proposed_construction_type_description%2C+site_permit%2C+last_permit_activity_date%2C+application_submission_method%2C+adu%2C+primary_address_flag%2C+supervisor_district%2C+neighborhoods_analysis_boundaries%2C+zipcode%2C+location%2C+point_source%2C+reroof%2C+record_id%2C+data_as_of%2C+data_loaded_at%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "adu",
+     "application_submission_method",
+     "approved_date",
+     "block",
+     "completed_date",
+     "data_as_of",
+     "data_loaded_at",
+     "description",
+     "estimated_cost",
+     "existing_construction_type",
+     "existing_construction_type_description",
+     "existing_occupancy",
+     "existing_units",
+     "existing_use",
+     "filed_date",
+     "fire_only_permit",
+     "first_construction_document_date",
+     "issued_date",
+     "last_permit_activity_date",
+     "location",
+     "lot",
+     "neighborhoods_analysis_boundaries",
+     "number_of_existing_stories",
+     "number_of_proposed_stories",
+     "permit_creation_date",
+     "permit_number",
+     "permit_type",
+     "permit_type_definition",
+     "plansets",
+     "point_source",
+     "primary_address_flag",
+     "proposed_construction_type",
+     "proposed_construction_type_description",
+     "proposed_occupancy",
+     "proposed_units",
+     "proposed_use",
+     "record_id",
+     "reroof",
+     "revised_cost",
+     "site_permit",
+     "status",
+     "status_date",
+     "street_name",
+     "street_number",
+     "street_suffix",
+     "structural_notification",
+     "supervisor_district",
+     "unit",
+     "zipcode"
+    ],
+    "sha256": "2b5abb80c7b42af5f7d4837ca5e82c54cc97b9fef3bf1b49eda4772cdfd8594c"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=permit_number%2C+permit_type%2C+permit_type_definition%2C+permit_creation_date%2C+block%2C+lot%2C+street_number%2C+street_number_suffix%2C+street_name%2C+street_suffix%2C+unit%2C+unit_suffix%2C+description%2C+primary_priority%2C+all_priority_types%2C+status%2C+status_date%2C+filed_date%2C+issued_date%2C+completed_date%2C+first_construction_document_date%2C+approved_date%2C+structural_notification%2C+number_of_existing_stories%2C+number_of_proposed_stories%2C+voluntary_soft_story_retrofit%2C+fire_only_permit%2C+estimated_cost%2C+revised_cost%2C+existing_use%2C+existing_units%2C+proposed_use%2C+proposed_units%2C+plansets%2C+tidf_compliance%2C+existing_occupancy%2C+proposed_occupancy%2C+existing_construction_type%2C+existing_construction_type_description%2C+proposed_construction_type%2C+proposed_construction_type_description%2C+site_permit%2C+last_permit_activity_date%2C+application_submission_method%2C+adu%2C+primary_address_flag%2C+supervisor_district%2C+neighborhoods_analysis_boundaries%2C+zipcode%2C+location%2C+point_source%2C+reroof%2C+record_id%2C+data_as_of%2C+data_loaded_at%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-ketu~y35y~ap3b%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "adu",
+     "application_submission_method",
+     "approved_date",
+     "block",
+     "completed_date",
+     "data_as_of",
+     "data_loaded_at",
+     "description",
+     "estimated_cost",
+     "existing_construction_type",
+     "existing_construction_type_description",
+     "existing_occupancy",
+     "existing_units",
+     "existing_use",
+     "filed_date",
+     "fire_only_permit",
+     "first_construction_document_date",
+     "issued_date",
+     "last_permit_activity_date",
+     "location",
+     "lot",
+     "neighborhoods_analysis_boundaries",
+     "number_of_existing_stories",
+     "number_of_proposed_stories",
+     "permit_creation_date",
+     "permit_number",
+     "permit_type",
+     "permit_type_definition",
+     "plansets",
+     "point_source",
+     "primary_address_flag",
+     "proposed_construction_type",
+     "proposed_construction_type_description",
+     "proposed_occupancy",
+     "proposed_units",
+     "proposed_use",
+     "record_id",
+     "reroof",
+     "revised_cost",
+     "site_permit",
+     "status",
+     "status_date",
+     "street_name",
+     "street_number",
+     "street_suffix",
+     "structural_notification",
+     "supervisor_district",
+     "unit",
+     "zipcode"
+    ],
+    "sha256": "69730b8ced14a972057719c3e04a79a7170e300e4b24a4ebadd1668c469ad42d"
+   }
+  }
+ ]
+}

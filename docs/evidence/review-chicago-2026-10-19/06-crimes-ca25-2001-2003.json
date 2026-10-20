@@ -1,0 +1,18 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=year%2C+count%28%2A%29+AS+n&%24where=community_area+%3D+%2225%22+AND+year+in+%282001%2C+2002%2C+2003%29&%24group=year&%24order=year",
+ "status": 200,
+ "body": [
+  {
+   "year": "2001",
+   "n": "296"
+  },
+  {
+   "year": "2002",
+   "n": "21120"
+  },
+  {
+   "year": "2003",
+   "n": "30841"
+  }
+ ]
+}

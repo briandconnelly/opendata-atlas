@@ -1,0 +1,4 @@
+modern base 24560 headroom 16
+enum + 400
+enum, no type + 320
+unchanged (known zero) + 0

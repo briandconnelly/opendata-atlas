@@ -1,0 +1,1712 @@
+{
+  "tools": [
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "annotations": {
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "description": "Find portals by place name; the portal id it returns goes in every other tool's `portal`.\n\nCall this before any tool that takes `portal` when you lack its id.\nIt never picks a portal for you: an ambiguous place returns every candidate, told apart\nby jurisdiction.level (a city portal and its county portal can both match).\nWhen candidates differ in jurisdiction.level, ask the user which they mean, unless the\nrequest already says.\nCandidates are ordered by match (alias, name, place_name, host), then tier, then id.\nNo match is an empty candidates list, not an error.\nWith cursor, send only cursor and optionally page_size.\nExample: {\"query\": \"Chicago\"}. Reads the shipped registry; no network call.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "description": "ISO 3166-1 alpha-2 country code, e.g. US (any case); omit for all.",
+            "pattern": "^[A-Za-z]{2}$",
+            "type": "string"
+          },
+          "cursor": {
+            "description": "next_cursor from the previous page; omit for page one.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "level": {
+            "description": "Only portals of this jurisdiction level; omit for all.",
+            "enum": [
+              "city",
+              "county",
+              "region",
+              "state",
+              "national",
+              "other"
+            ],
+            "type": "string"
+          },
+          "page_size": {
+            "description": "Default 10.",
+            "maximum": 50,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "description": "Place, portal name, alias or host label, e.g. Chicago. Every word must appear in one name; drop extra words if nothing matches. Omit, with no other argument, to page through every portal, curated first.",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "tier": {
+            "description": "Only portals of this tier; omit for all tiers.",
+            "enum": [
+              "generic",
+              "profiled",
+              "curated"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "atlas_find_portals",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "candidates": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "aliases": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "dataset_count": {
+                  "type": "integer"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "jurisdiction": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "country": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "enum": [
+                        "city",
+                        "county",
+                        "region",
+                        "state",
+                        "national",
+                        "other"
+                      ],
+                      "type": "string"
+                    },
+                    "region": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "country"
+                  ],
+                  "type": "object"
+                },
+                "match": {
+                  "enum": [
+                    "alias",
+                    "name",
+                    "place_name",
+                    "host"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "tier": {
+                  "enum": [
+                    "generic",
+                    "profiled",
+                    "curated"
+                  ],
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "aliases",
+                "name",
+                "tier"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "registry_version": {
+            "type": "string"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "now_local": {
+                "type": "string"
+              },
+              "now_local_reason": {
+                "enum": [
+                  "multi_zone",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "now_weekday": {
+                "type": "string"
+              },
+              "portal": {
+                "additionalProperties": false,
+                "properties": {
+                  "alias": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "enum": [
+                      "generic",
+                      "profiled",
+                      "curated"
+                    ],
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "request_id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "candidates",
+          "has_more",
+          "registry_version",
+          "source"
+        ],
+        "type": "object"
+      },
+      "title": "Atlas Find Portals"
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "annotations": {
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Find a portal's datasets by topic. Call when you lack a dataset id.\n\nResults are candidates: match_evidence lists the query words each one's metadata\nlacks. Only queryability \"supported\" can be described or queried; a tabular search\nalso returns up to 3 external_matches, which cannot.\nIllustrative example: {\"portal\": \"example-city\", \"query\": \"fire 911\"}. Typically 1-3 s.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_scope": {
+            "description": "tabular (default): queryable datasets and filter views. all: adds federated ArcGIS and external links, which cannot be queried.",
+            "enum": [
+              "tabular",
+              "all"
+            ],
+            "type": "string"
+          },
+          "category": {
+            "description": "Exact category name, e.g. Public Safety; omit for all.",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cursor": {
+            "description": "next_cursor from the previous page; omit for page one.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "detail": {
+            "description": "summary (default) or full: adds descriptions.",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "type": "string"
+          },
+          "page_size": {
+            "description": "Default 10.",
+            "maximum": 50,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "portal": {
+            "description": "Portal id (its hostname) or alias, from atlas_find_portals. Repeat it on every page of a paged call.",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$",
+            "type": "string"
+          },
+          "query": {
+            "description": "Words to match; omit to list the most-viewed.",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "portal"
+        ],
+        "type": "object"
+      },
+      "name": "atlas_search_datasets",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "datasets": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "asset_type": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "dataset_id": {
+                  "type": "string"
+                },
+                "derived_from": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_url": {
+                  "type": "string"
+                },
+                "guide_uri": {
+                  "type": "string"
+                },
+                "portal_url": {
+                  "type": "string"
+                },
+                "queryability": {
+                  "enum": [
+                    "supported",
+                    "external",
+                    "unsupported",
+                    "unknown"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dataset_id",
+                "title",
+                "asset_type",
+                "queryability",
+                "portal_url"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "external_matches": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "asset_type": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "dataset_id": {
+                  "type": "string"
+                },
+                "derived_from": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "external_url": {
+                  "type": "string"
+                },
+                "guide_uri": {
+                  "type": "string"
+                },
+                "portal_url": {
+                  "type": "string"
+                },
+                "queryability": {
+                  "enum": [
+                    "supported",
+                    "external",
+                    "unsupported",
+                    "unknown"
+                  ],
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dataset_id",
+                "title",
+                "asset_type",
+                "queryability",
+                "portal_url"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "external_search_status": {
+            "enum": [
+              "completed",
+              "unavailable"
+            ],
+            "type": "string"
+          },
+          "foreign_results_dropped": {
+            "type": "integer"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "match_evidence": {
+            "items": {
+              "additionalProperties": false,
+              "description": "Which query words a result's catalog metadata visibly contains; never a relevance verdict.",
+              "properties": {
+                "dataset_id": {
+                  "type": "string"
+                },
+                "matched_fields": {
+                  "items": {
+                    "enum": [
+                      "title",
+                      "tags",
+                      "columns",
+                      "description"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "matched_terms": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "matched_via": {
+                  "type": "string"
+                },
+                "unmatched_terms": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "dataset_id",
+                "matched_terms",
+                "unmatched_terms",
+                "matched_fields"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "now_local": {
+                "type": "string"
+              },
+              "now_local_reason": {
+                "enum": [
+                  "multi_zone",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "now_weekday": {
+                "type": "string"
+              },
+              "portal": {
+                "additionalProperties": false,
+                "properties": {
+                  "alias": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "enum": [
+                      "generic",
+                      "profiled",
+                      "curated"
+                    ],
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "request_id"
+            ],
+            "type": "object"
+          },
+          "suggestion": {
+            "additionalProperties": false,
+            "properties": {
+              "alternative": {
+                "type": "string"
+              },
+              "arguments": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "next_step": {
+                "type": "string"
+              },
+              "tool": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "next_step",
+              "tool",
+              "arguments"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "datasets",
+          "has_more",
+          "source"
+        ],
+        "type": "object"
+      },
+      "title": "Atlas Search Datasets"
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "annotations": {
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Decide whether and how to query a dataset: columns, live row count, data_coverage\n(actual time range), place fields for \"in <area>\" questions (with reliability),\nand geo columns for `near`.\n\nCall before querying a dataset whose columns you do not know.\nFor area questions, use detail=\"full\".\nFilter a place field on its `value`, never its label; an area may span several values.\nIllustrative example: {\"portal\": \"example-city\", \"dataset_id\": \"abcd-1234\", \"detail\": \"full\"}.\nWith column_cursor, send only portal, dataset_id, column_query, detail, column_cursor.\nTypically 1-3 s; fails with query_timeout after 30 s.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "column_cursor": {
+            "description": "next_column_cursor from the previous page; omit for page one.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "column_query": {
+            "description": "Only columns whose name or description contains this; omit for all.",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "dataset_id": {
+            "description": "Socrata dataset id, e.g. abcd-1234 (from atlas_search_datasets).",
+            "pattern": "^[a-z0-9]{4}-[a-z0-9]{4}$",
+            "type": "string"
+          },
+          "detail": {
+            "description": "summary (default) or full: adds place-field values and column stats.",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "type": "string"
+          },
+          "portal": {
+            "description": "Portal id (its hostname) or alias, from atlas_find_portals. Repeat it on every page of a paged call.",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$",
+            "type": "string"
+          },
+          "sample_rows": {
+            "description": "Example rows to include. Default 0.",
+            "maximum": 5,
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "portal",
+          "dataset_id"
+        ],
+        "type": "object"
+      },
+      "name": "atlas_describe_dataset",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "columns": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "description": {
+                  "type": "string"
+                },
+                "knowledge": {
+                  "additionalProperties": false,
+                  "description": "Level none (nothing recorded), profiled (observations only) or reviewed (interpretations).",
+                  "properties": {
+                    "level": {
+                      "enum": [
+                        "none",
+                        "profiled",
+                        "reviewed"
+                      ],
+                      "type": "string"
+                    },
+                    "validation": {
+                      "enum": [
+                        "unchecked",
+                        "passed",
+                        "stale",
+                        "contradicted",
+                        "inconclusive"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "validation"
+                  ],
+                  "type": "object"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "stats": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "largest": {
+                      "type": "string"
+                    },
+                    "null": {
+                      "type": "integer"
+                    },
+                    "origin": {
+                      "const": "cached_metadata",
+                      "default": "cached_metadata",
+                      "type": "string"
+                    },
+                    "smallest": {
+                      "type": "string"
+                    },
+                    "top": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "columns_total": {
+            "description": "Columns matching column_query, across all pages.",
+            "type": "integer"
+          },
+          "data_coverage": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "column": {
+                  "type": "string"
+                },
+                "max": {
+                  "type": "string"
+                },
+                "min": {
+                  "type": "string"
+                },
+                "origin": {
+                  "enum": [
+                    "live_query",
+                    "cached_metadata"
+                  ],
+                  "type": "string"
+                },
+                "status": {
+                  "default": "ok",
+                  "enum": [
+                    "ok",
+                    "timeout",
+                    "unavailable"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "column"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "dataset_id": {
+            "type": "string"
+          },
+          "example_queries": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "arguments": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "question": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "question",
+                "arguments"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "geo_columns": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "column": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "column",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "geo_unusable": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "column": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "column",
+                "reason"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "guide_uri": {
+            "type": "string"
+          },
+          "has_more_columns": {
+            "type": "boolean"
+          },
+          "knowledge": {
+            "additionalProperties": false,
+            "description": "Level none (nothing recorded), profiled (observations only) or reviewed (interpretations).",
+            "properties": {
+              "level": {
+                "enum": [
+                  "none",
+                  "profiled",
+                  "reviewed"
+                ],
+                "type": "string"
+              },
+              "validation": {
+                "enum": [
+                  "unchecked",
+                  "passed",
+                  "stale",
+                  "contradicted",
+                  "inconclusive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "level",
+              "validation"
+            ],
+            "type": "object"
+          },
+          "next_column_cursor": {
+            "description": "Send as column_cursor for the next columns; omitted on the last.",
+            "type": "string"
+          },
+          "place_fields": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "assigned_fraction": {
+                  "type": "number"
+                },
+                "boundary_vintage": {
+                  "type": "string"
+                },
+                "candidate_placeholders": {
+                  "description": "Common placeholder values found here but not declared; still counted in values and assigned_fraction.",
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "rows": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "rows"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "column": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "neighborhood",
+                    "precinct",
+                    "sector",
+                    "beat",
+                    "zip",
+                    "council_district",
+                    "census_tract",
+                    "ward",
+                    "community_area",
+                    "borough",
+                    "community_district",
+                    "county",
+                    "police_district",
+                    "school_district",
+                    "other"
+                  ],
+                  "type": "string"
+                },
+                "kind_label": {
+                  "type": "string"
+                },
+                "label_column": {
+                  "type": "string"
+                },
+                "labels_available": {
+                  "type": "boolean"
+                },
+                "layer_id": {
+                  "type": "string"
+                },
+                "non_null_rows": {
+                  "type": "integer"
+                },
+                "null_rows": {
+                  "type": "integer"
+                },
+                "placeholder_values": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "rows": {
+                        "type": "integer"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "rows"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "reliability": {
+                  "enum": [
+                    "ok",
+                    "partial",
+                    "unreliable",
+                    "unknown"
+                  ],
+                  "type": "string"
+                },
+                "reliability_reason": {
+                  "type": "string"
+                },
+                "source": {
+                  "enum": [
+                    "column",
+                    "computed_region"
+                  ],
+                  "type": "string"
+                },
+                "stats_status": {
+                  "enum": [
+                    "ok",
+                    "timeout",
+                    "unavailable"
+                  ],
+                  "type": "string"
+                },
+                "validation": {
+                  "const": "stale",
+                  "type": "string"
+                },
+                "value_count": {
+                  "type": "integer"
+                },
+                "values": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "label": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "label",
+                      "value"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "column",
+                "kind",
+                "source",
+                "reliability"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "queryability": {
+            "enum": [
+              "supported",
+              "external",
+              "unsupported",
+              "unknown"
+            ],
+            "type": "string"
+          },
+          "row_count": {
+            "additionalProperties": false,
+            "properties": {
+              "origin": {
+                "enum": [
+                  "live_query",
+                  "cached_metadata"
+                ],
+                "type": "string"
+              },
+              "status": {
+                "default": "ok",
+                "enum": [
+                  "ok",
+                  "timeout",
+                  "unavailable"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "sample_rows": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "now_local": {
+                "type": "string"
+              },
+              "now_local_reason": {
+                "enum": [
+                  "multi_zone",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "now_weekday": {
+                "type": "string"
+              },
+              "portal": {
+                "additionalProperties": false,
+                "properties": {
+                  "alias": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "enum": [
+                      "generic",
+                      "profiled",
+                      "curated"
+                    ],
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "request_id"
+            ],
+            "type": "object"
+          },
+          "stats_available": {
+            "type": "boolean"
+          },
+          "time_semantics": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "column": {
+                  "type": "string"
+                },
+                "evidence": {
+                  "type": "string"
+                },
+                "timezone": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "validation": {
+                  "const": "stale",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "column",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unit_of_observation": {
+            "additionalProperties": false,
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "unit"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "dataset_id",
+          "title",
+          "queryability",
+          "row_count",
+          "data_coverage",
+          "columns",
+          "columns_total",
+          "has_more_columns",
+          "stats_available",
+          "place_fields",
+          "geo_columns",
+          "time_semantics",
+          "knowledge",
+          "source"
+        ],
+        "type": "object"
+      },
+      "title": "Atlas Describe Dataset"
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "annotations": {
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "description": "Run a bounded read or aggregate on one dataset; paging stops at 10,000 rows.\n\nFor counts and breakdowns, use count(*) with group_by, not row paging.\nWith cursor, send only portal, dataset_id, cursor, and optionally page_size or detail.\nFor all rows, give the user download_url (detail=\"full\") instead of paging.\nIllustrative example: {\"portal\": \"example-city\", \"dataset_id\": \"abcd-1234\",\n\"select\": [\"type\", \"count(*) AS n\"], \"group_by\": [\"type\"], \"order_by\": [\"n DESC\"]}.\nTypically 1-5 s; fails with query_timeout after 30 s.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "cursor": {
+            "description": "next_cursor from the previous page; omit for page one.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "dataset_id": {
+            "description": "Socrata dataset id, e.g. abcd-1234 (from atlas_search_datasets).",
+            "pattern": "^[a-z0-9]{4}-[a-z0-9]{4}$",
+            "type": "string"
+          },
+          "detail": {
+            "description": "summary (default) or full: adds query_url and download_url (CSV of all matching rows).",
+            "enum": [
+              "summary",
+              "full"
+            ],
+            "type": "string"
+          },
+          "group_by": {
+            "description": "e.g. [\"type\"]; omit for no grouping.",
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "having": {
+            "description": "Predicate on aggregated rows, e.g. \"n > 10\"; omit for none.",
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "mode": {
+            "description": "clauses (default): built from the clause arguments, paged by cursor. soql: run `soql` verbatim, one page.",
+            "enum": [
+              "clauses",
+              "soql"
+            ],
+            "type": "string"
+          },
+          "near": {
+            "additionalProperties": false,
+            "description": "Rows within radius_m meters of a point; omit for no distance filter.",
+            "properties": {
+              "column": {
+                "description": "A column listed in describe's geo_columns.",
+                "minLength": 1,
+                "type": "string"
+              },
+              "latitude": {
+                "maximum": 90,
+                "minimum": -90,
+                "type": "number"
+              },
+              "longitude": {
+                "maximum": 180,
+                "minimum": -180,
+                "type": "number"
+              },
+              "radius_m": {
+                "description": "Radius in meters.",
+                "exclusiveMinimum": 0,
+                "maximum": 50000,
+                "type": "number"
+              }
+            },
+            "required": [
+              "column",
+              "latitude",
+              "longitude",
+              "radius_m"
+            ],
+            "type": "object"
+          },
+          "order_by": {
+            "description": "e.g. [\"n DESC\"]; omit for arbitrary order. DESC lists nulls first: for most recent, add `col IS NOT NULL` to where.",
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "page_size": {
+            "description": "Most rows to return (default 100; wide rows may return fewer). Omit on a continuation to keep the first page's size.",
+            "maximum": 500,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "portal": {
+            "description": "Portal id (its hostname) or alias, from atlas_find_portals. Repeat it on every page of a paged call.",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$",
+            "type": "string"
+          },
+          "search_text": {
+            "description": "Full-text search across text columns; omit for none.",
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "select": {
+            "description": "Columns or expressions, e.g. [\"type\", \"count(*) AS n\"]. Omit for all data columns.",
+            "items": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "soql": {
+            "description": "Full SoQL statement; set mode='soql' and no clause arguments. Not paged: use LIMIT <= page_size and advance OFFSET.",
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          },
+          "where": {
+            "description": "SoQL predicate, e.g. \"datetime >= '2026-09-01T00:00:00'\". Never append Z or call now(); both fail. Omit for all rows.",
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "portal",
+          "dataset_id"
+        ],
+        "type": "object"
+      },
+      "name": "atlas_query_dataset",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "columns": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "consistency": {
+            "enum": [
+              "stable",
+              "best_effort",
+              "single_page"
+            ],
+            "type": "string"
+          },
+          "coverage_warnings": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "column": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "reliability": {
+                  "enum": [
+                    "ok",
+                    "partial",
+                    "unreliable",
+                    "unknown"
+                  ],
+                  "type": "string"
+                },
+                "validation": {
+                  "const": "stale",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "column",
+                "reliability",
+                "reason"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "dataset_id": {
+            "type": "string"
+          },
+          "download_url": {
+            "type": "string"
+          },
+          "download_url_omitted": {
+            "type": "boolean"
+          },
+          "effective_query": {
+            "type": "string"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "hints": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "alternative": {
+                  "type": "string"
+                },
+                "arguments": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "next_step": {
+                  "type": "string"
+                },
+                "tool": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "next_step",
+                "tool",
+                "arguments"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "knowledge_notice": {
+            "additionalProperties": false,
+            "description": "What this result relies on that no reviewed claim covers; level is the dataset's.",
+            "properties": {
+              "level": {
+                "enum": [
+                  "none",
+                  "profiled",
+                  "reviewed"
+                ],
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "level",
+              "message"
+            ],
+            "type": "object"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "query_url": {
+            "type": "string"
+          },
+          "query_url_omitted": {
+            "type": "boolean"
+          },
+          "returned_rows": {
+            "type": "integer"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "now_local": {
+                "type": "string"
+              },
+              "now_local_reason": {
+                "enum": [
+                  "multi_zone",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "now_weekday": {
+                "type": "string"
+              },
+              "portal": {
+                "additionalProperties": false,
+                "properties": {
+                  "alias": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "enum": [
+                      "generic",
+                      "profiled",
+                      "curated"
+                    ],
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "request_id"
+            ],
+            "type": "object"
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "truncation_hint": {
+            "type": "string"
+          },
+          "truncation_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dataset_id",
+          "columns",
+          "rows",
+          "returned_rows",
+          "has_more",
+          "truncated",
+          "consistency",
+          "source"
+        ],
+        "type": "object"
+      },
+      "title": "Atlas Query Dataset"
+    },
+    {
+      "_meta": {
+        "fastmcp": {
+          "tags": []
+        }
+      },
+      "annotations": {
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "description": "Read the server's reference: capability summary, portals, dataset guides, SoQL help,\nerror catalog, and tier definitions. Call with no arguments for the index.\n\nExample: {\"topic\": \"soql\", \"item_id\": \"dates\"}.\nWith cursor, repeat only topic and, for guides, portal.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "cursor": {
+            "description": "next_cursor from the previous page; omit for page one.",
+            "minLength": 1,
+            "type": "string"
+          },
+          "item_id": {
+            "description": "An item from the topic's entries, or for portals a portal id or alias; omit for the index.",
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "portal": {
+            "description": "Portal id or alias. Required for topic guides; rejected on other topics.",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$",
+            "type": "string"
+          },
+          "topic": {
+            "description": "Default index.",
+            "enum": [
+              "index",
+              "capabilities",
+              "portals",
+              "guides",
+              "soql",
+              "errors",
+              "contributing"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "name": "atlas_get_reference",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "entries": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "dataset_id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "item_id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "uri": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "item_id",
+                "title",
+                "description",
+                "uri"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "next_cursor": {
+            "type": "string"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "now_local": {
+                "type": "string"
+              },
+              "now_local_reason": {
+                "enum": [
+                  "multi_zone",
+                  "unknown"
+                ],
+                "type": "string"
+              },
+              "now_weekday": {
+                "type": "string"
+              },
+              "portal": {
+                "additionalProperties": false,
+                "properties": {
+                  "alias": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "tier": {
+                    "enum": [
+                      "generic",
+                      "profiled",
+                      "curated"
+                    ],
+                    "type": "string"
+                  },
+                  "timezone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "tier"
+                ],
+                "type": "object"
+              },
+              "request_id": {
+                "type": "string"
+              },
+              "retrieved_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "request_id"
+            ],
+            "type": "object"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "topic": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "topic",
+          "uri",
+          "title",
+          "summary",
+          "version",
+          "source"
+        ],
+        "type": "object"
+      },
+      "title": "Atlas Get Reference"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/rpca-8um6.json",
+ "status": 200,
+ "name": "Boundaries - ZIP Codes",
+ "columns": [
+  {
+   "fieldName": "objectid",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "zip",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "59",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_len",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  }
+ ]
+}

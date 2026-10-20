@@ -1,0 +1,207 @@
+{
+  "task_id": "03-fire-capitol-hill",
+  "note": "Excerpts copied from the five task 03 transcripts (Claude Code stream-json). Per run: the MCP server name from the system/init event, every tool_use name and input in order, the final result text, and the result subtype. Tool results and thinking are omitted. Source directories are the run directories at collection time; the transcripts themselves are not committed.",
+  "runs": [
+    {
+      "run": "baseline (original run)",
+      "source": "scratchpad/clean-seattle/03-fire-capitol-hill.transcript.jsonl",
+      "mcp_servers": [
+        "seattle-open-data"
+      ],
+      "tool_calls": [
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_describe_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "detail": "full"
+          }
+        },
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              ":@computed_region_ru88_fbhk AS area",
+              "count(*) AS calls"
+            ],
+            "where": "datetime between '2026-09-01T00:00:00' and '2026-09-30T23:59:59' AND :@computed_region_ru88_fbhk in ('8', '44')",
+            "group_by": [
+              ":@computed_region_ru88_fbhk"
+            ]
+          }
+        },
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              "type",
+              "count(*) AS calls"
+            ],
+            "where": "datetime between '2026-09-01T00:00:00' and '2026-09-30T23:59:59' AND :@computed_region_ru88_fbhk = '8'",
+            "group_by": [
+              "type"
+            ],
+            "order_by": [
+              "calls DESC"
+            ],
+            "page_size": 8
+          }
+        }
+      ],
+      "final_answer": "Seattle Fire responded to **526 calls in Capitol Hill in September 2026**, per the Seattle Real Time Fire 911 Calls dataset.\n\n| Area | Calls, Sept 2026 |\n|---|---|\n| Capitol Hill | 526 |\n| North Capitol Hill | 30 |\n| Combined | 556 |\n\nThe boundaries come from the Seattle Police Department's Micro Community Policing Plan areas, which split the hill into two zones. Pick whichever matches your definition of the neighborhood.\n\nMost common call types in Capitol Hill proper:\n\n- **Aid Response** led by a wide margin with 302 calls, over half the total.\n- **Medic Response** had 38, **Auto Fire Alarm** 32, and **Aid Response Yellow** 23.\n- **Illegal Burn** had 17 and **Rescue Elevator** 14. Everything else was in single digits.\n\nOne caveat: about half a percent of calls citywide have no neighborhood assigned, so a handful of Capitol Hill calls may be missing from these counts.",
+      "result_subtype": "success",
+      "is_error": false
+    },
+    {
+      "run": "baseline re-run 1",
+      "source": "scratchpad/baseline-03-rerun1/03-fire-capitol-hill.transcript.jsonl",
+      "mcp_servers": [
+        "seattle-open-data"
+      ],
+      "tool_calls": [
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_describe_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "detail": "full"
+          }
+        },
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              ":@computed_region_ru88_fbhk AS area",
+              "count(*) AS calls"
+            ],
+            "where": "datetime >= '2026-09-01T00:00:00' AND datetime < '2026-10-01T00:00:00' AND :@computed_region_ru88_fbhk IN ('8','44')",
+            "group_by": [
+              ":@computed_region_ru88_fbhk"
+            ]
+          }
+        }
+      ],
+      "final_answer": "The Seattle Fire Department had **526 calls in Capitol Hill in September 2026.**\n\nThat count is from the city's \"Seattle Real Time Fire 911 Calls\" dataset. I treated \"last month\" as September 1–30, since the portal's current date is October 17, 2026.\n\n- **How Capitol Hill is defined:** I used the dataset's neighborhood field, which follows the Seattle Police Department's 2016 neighborhood boundaries. In that map, North Capitol Hill is a separate area, and it had another **30 calls**. If you count both together, the total is **556**.\n- **Missing locations:** About 0.4% of all calls in the dataset aren't assigned to any neighborhood, so the true number may be very slightly higher.",
+      "result_subtype": "success",
+      "is_error": false
+    },
+    {
+      "run": "baseline re-run 2",
+      "source": "scratchpad/baseline-03-rerun2/03-fire-capitol-hill.transcript.jsonl",
+      "mcp_servers": [
+        "seattle-open-data"
+      ],
+      "tool_calls": [
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_search_datasets",
+          "input": {
+            "query": "fire 911 calls"
+          }
+        },
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_describe_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "detail": "full"
+          }
+        },
+        {
+          "tool": "mcp__seattle-open-data__seattle_data_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              ":@computed_region_ru88_fbhk AS area",
+              "count(*) AS calls"
+            ],
+            "where": "datetime >= '2026-09-01T00:00:00' AND datetime < '2026-10-01T00:00:00' AND :@computed_region_ru88_fbhk IN ('8','44')",
+            "group_by": [
+              ":@computed_region_ru88_fbhk"
+            ]
+          }
+        }
+      ],
+      "final_answer": "There were **526 Seattle Fire Department 911 calls in Capitol Hill in September 2026**.\n\n- **Where the area comes from:** The fire 911 dataset (`kzjm-xkqj`) has no neighborhood field of its own. The portal assigns each call to a neighborhood by matching its location to SPD's community policing area boundaries, which were last updated in 2016. That field is marked reliable, and 99.6% of calls have a neighborhood assigned.\n- **North Capitol Hill is counted separately.** Those boundaries treat it as its own area, and it had **30** calls in September. If you count it as part of Capitol Hill, the total is **556**.\n- **Dates:** \"Last month\" means September 1–30, 2026, since today is October 17. The data runs through October 17, so September is complete.\n- **What counts as a call:** Every dispatch counts, including aid, medic and fire alarm responses. A few calls have no location, so they can't be assigned to any neighborhood and aren't in these numbers.",
+      "result_subtype": "success",
+      "is_error": false
+    },
+    {
+      "run": "fork",
+      "source": "evals/results/2026-10-17-fork/03-fire-capitol-hill.transcript.jsonl",
+      "mcp_servers": [
+        "opendata-atlas"
+      ],
+      "tool_calls": [
+        {
+          "tool": "mcp__opendata-atlas__atlas_search_datasets",
+          "input": {
+            "query": "fire 911 calls"
+          }
+        },
+        {
+          "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "detail": "full"
+          }
+        },
+        {
+          "tool": "mcp__opendata-atlas__atlas_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              ":@computed_region_ru88_fbhk AS area",
+              "count(*) AS calls"
+            ],
+            "where": "datetime >= '2026-09-01T00:00:00' AND datetime < '2026-10-01T00:00:00' AND :@computed_region_ru88_fbhk IN ('8', '44')",
+            "group_by": [
+              ":@computed_region_ru88_fbhk"
+            ]
+          }
+        }
+      ],
+      "final_answer": "There were **526** Seattle Fire Department 911 calls in Capitol Hill in September 2026.\n\n- **Source:** \"Seattle Real Time Fire 911 Calls\" (`kzjm-xkqj`). The data runs through today, Oct 17, so September is complete.\n- **Area:** This uses the SPD \"CAPITOL HILL\" neighborhood boundary (2016 version). The field is filled in for 99.6% of rows. It isn't the city's official neighborhood map, so the edges may not match how you'd draw Capitol Hill.\n- **North Capitol Hill:** That's a separate area in this boundary set and had **30** calls. If you count it as part of Capitol Hill, the total is **556**.\n- **Time window:** Sept 1 00:00 up to Oct 1 00:00, Pacific time.\n\nI can also break the 526 calls down by type, such as aid, medic or fire alarm.",
+      "result_subtype": "success",
+      "is_error": false
+    },
+    {
+      "run": "fork re-run",
+      "source": "evals/results/2026-10-17-fork-rerun/03-fire-capitol-hill.transcript.jsonl",
+      "mcp_servers": [
+        "opendata-atlas"
+      ],
+      "tool_calls": [
+        {
+          "tool": "mcp__opendata-atlas__atlas_search_datasets",
+          "input": {
+            "query": "Seattle Fire Department 911 calls"
+          }
+        },
+        {
+          "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "detail": "full"
+          }
+        },
+        {
+          "tool": "mcp__opendata-atlas__atlas_query_dataset",
+          "input": {
+            "dataset_id": "kzjm-xkqj",
+            "select": [
+              ":@computed_region_ru88_fbhk AS area",
+              "count(*) AS calls"
+            ],
+            "where": "datetime >= '2026-09-01T00:00:00' AND datetime < '2026-10-01T00:00:00' AND :@computed_region_ru88_fbhk IN ('8','44')",
+            "group_by": [
+              ":@computed_region_ru88_fbhk"
+            ]
+          }
+        }
+      ],
+      "final_answer": "Seattle Fire Department had **556 calls in Capitol Hill in September 2026**: 526 in \"Capitol Hill\" and 30 in \"North Capitol Hill.\" If you only mean the core Capitol Hill area, the number is **526**.\n\n- **Source:** Seattle Real Time Fire 911 Calls (`kzjm-xkqj`). It has data up to today (Oct 17, 2026), so September is complete.\n- **Date range:** Sept 1 through Sept 30, 2026, in Pacific time.\n- **How the area is defined:** The dataset doesn't name neighborhoods itself. Each call is mapped onto Seattle Police community-policing areas, whose boundaries date from 2016. Those areas don't exactly match how people usually draw \"Capitol Hill.\" This mapping is rated reliable, and about 99.6% of calls have an area assigned. The other 0.4% aren't in either count.\n- **What counts as a call:** Every dispatch is included: medical aid, fire, alarms and other types.",
+      "result_subtype": "success",
+      "is_error": false
+    }
+  ]
+}

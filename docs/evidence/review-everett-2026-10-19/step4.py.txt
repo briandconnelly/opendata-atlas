@@ -1,0 +1,59 @@
+"""Task 5 Step 4 [LIVE] checks for the everett pack, in process. Run from the review worktree."""
+
+import asyncio
+import json
+from datetime import date
+from pathlib import Path
+
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.portals import freshness
+from opendata_atlas.portals.knowledge import pack_levels
+from opendata_atlas.portals.loader import load_portal
+
+PD = Path("src/opendata_atlas/portals/data.everettwa.gov")
+
+
+async def call(c, name, args):
+    r = await c.call_tool_mcp(name, args)
+    return r.model_dump(mode="json", by_alias=True, exclude_none=True)
+
+
+async def main():
+    out = {}
+    t = freshness.today()
+    portal = load_portal(PD)
+    levels = pack_levels(portal, today=t)
+    out["today"] = str(t)
+    out["pack_levels"] = levels
+    # Date check: levels the same on the local date and the UTC date.
+    out["pack_levels_2026_10_19"] = pack_levels(portal, today=date(2026, 10, 19))
+    out["pack_levels_2026_10_20"] = pack_levels(portal, today=date(2026, 10, 20))
+    async with Client(build_server()) as c:
+        out["find"] = {}
+        for q in ("Everett", "Everett, WA", "everett", "Seattle"):
+            r = await call(c, "atlas_find_portals", {"query": q})
+            s = r.get("structuredContent") or {}
+            cands = s.get("candidates") or s.get("portals") or []
+            out["find"][q] = {"isError": r.get("isError"), "ids": [x["id"] for x in cands[:3]]}
+        out["describe"] = {}
+        for ds in levels:
+            r = await call(c, "atlas_describe_dataset", {"portal": "everett", "dataset_id": ds})
+            sc = r.get("structuredContent") or {}
+            k = sc.get("knowledge") or {}
+            out["describe"][ds] = {
+                "isError": r.get("isError"),
+                "level": k.get("level"),
+                "expected": levels[ds],
+                "match": k.get("level") == levels[ds],
+                "data_coverage": sc.get("data_coverage"),
+            }
+        r = await call(c, "atlas_get_reference", {"topic": "portals", "item_id": "everett"})
+        sc = r.get("structuredContent") or {}
+        out["reference_isError"] = r.get("isError")
+        out["reference_tier_lines"] = [ln for ln in sc.get("body", "").splitlines() if "tier" in ln.lower()][:5]
+        out["reference_keys"] = sorted(sc)
+    print(json.dumps(out, indent=1))
+
+
+asyncio.run(main())

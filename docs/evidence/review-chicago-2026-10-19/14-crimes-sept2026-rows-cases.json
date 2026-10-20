@@ -1,0 +1,11 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=count%28%2A%29+AS+n%2C+count%28distinct+case_number%29+AS+cases%2C+max%28date%29+AS+newest&%24where=date+between+%222026-09-01T00%3A00%3A00%22+and+%222026-09-30T23%3A59%3A59%22",
+ "status": 200,
+ "body": [
+  {
+   "n": "19747",
+   "cases": "19745",
+   "newest": "2026-09-30T23:55:00.000"
+  }
+ ]
+}

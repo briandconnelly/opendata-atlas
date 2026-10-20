@@ -1,0 +1,81 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "r5kz-chrr-:@computed_region_vrxf_vc4k-fill"
+kind = "place_field"
+scope = {dataset = "r5kz-chrr", column = ":@computed_region_vrxf_vc4k"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_vrxf_vc4k) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,114,551 of 1,209,458 rows (0.922) have a value; computed-region layer vrxf-vc4k, candidate label column `area_numbe`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.87}
+
+[[claim]]
+id = "r5kz-chrr-:@computed_region_awaf_s7ux-fill"
+kind = "place_field"
+scope = {dataset = "r5kz-chrr", column = ":@computed_region_awaf_s7ux"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_awaf_s7ux) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,114,669 of 1,209,458 rows (0.922) have a value; computed-region layer awaf-s7ux, candidate label column `ward`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.87}
+
+[[claim]]
+id = "r5kz-chrr-:@computed_region_6mkv_f3dw-fill"
+kind = "place_field"
+scope = {dataset = "r5kz-chrr", column = ":@computed_region_6mkv_f3dw"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_6mkv_f3dw) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,116,155 of 1,209,458 rows (0.923) have a value; computed-region layer 6mkv-f3dw, candidate label column `zcta5ce10`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.87}
+
+[[claim]]
+id = "r5kz-chrr-:@computed_region_bdys_3d7i-fill"
+kind = "place_field"
+scope = {dataset = "r5kz-chrr", column = ":@computed_region_bdys_3d7i"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_bdys_3d7i) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,115,080 of 1,209,458 rows (0.922) have a value; computed-region layer bdys-3d7i, candidate label column `statefp10`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.87}
+
+[[claim]]
+id = "r5kz-chrr-:@computed_region_43wa_7qmu-fill"
+kind = "place_field"
+scope = {dataset = "r5kz-chrr", column = ":@computed_region_43wa_7qmu"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_43wa_7qmu) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,114,551 of 1,209,458 rows (0.922) have a value; computed-region layer 43wa-7qmu, candidate label column `ward`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.87}

@@ -1,0 +1,111 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/bdys-3d7i.json",
+ "status": 200,
+ "name": "Census Tracts",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "statefp10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "countyfp10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "tractce10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "geoid10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "name10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "namelsad10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "801",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "commarea",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "commarea_n",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "801",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "notes",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "8",
+    "non_null": "801",
+    "null": "0"
+   }
+  }
+ ]
+}

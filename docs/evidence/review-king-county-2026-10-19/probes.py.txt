@@ -1,0 +1,39 @@
+"""Live re-probes of the king-county pack's and eval file's figures, in process. Prints only aggregates."""
+import asyncio, json
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+
+J = "j56h-zgnm"
+U = "u6ig-5qm8"
+Q = [
+ ("01 Sept rows/bookings", J, {"select": ["count(*) AS rows", "count(distinct book_of_arrest_number) AS bookings"], "where": "booking_date_time >= '2026-09-01T00:00:00' AND booking_date_time < '2026-10-01T00:00:00'"}),
+ ("all rows/bookings, min/max booking, max release", J, {"select": ["count(*) AS rows", "count(distinct book_of_arrest_number) AS bookings", "min(booking_date_time) AS bmin", "max(booking_date_time) AS bmax", "max(release_date_time) AS rmax"]}),
+ ("02 no release: rows/bookings", J, {"select": ["count(*) AS rows", "count(distinct book_of_arrest_number) AS bookings"], "where": "release_date_time IS NULL"}),
+ ("02 no release by facility", J, {"select": ["current_facility", "count(distinct book_of_arrest_number) AS bookings", "count(*) AS rows"], "where": "release_date_time IS NULL", "group_by": ["current_facility"], "order_by": ["bookings DESC"]}),
+ ("02 facility filled with release date: rows/bookings", J, {"select": ["count(*) AS rows", "count(distinct book_of_arrest_number) AS bookings"], "where": "release_date_time IS NOT NULL AND current_facility IS NOT NULL"}),
+ ("02 facility filled: rows (8,584?)", J, {"select": ["count(*) AS rows"], "where": "current_facility IS NOT NULL"}),
+ ("tz booking spring-forward", J, {"select": ["date_extract_hh(booking_date_time) AS h", "count(*) AS n"], "where": "booking_date_time >= '2026-03-08T00:00:00' AND booking_date_time < '2026-03-08T05:00:00'", "group_by": ["h"], "order_by": ["h"]}),
+ ("tz release spring-forward", J, {"select": ["date_extract_hh(release_date_time) AS h", "count(*) AS n"], "where": "release_date_time >= '2026-03-08T00:00:00' AND release_date_time < '2026-03-08T05:00:00'", "group_by": ["h"], "order_by": ["h"]}),
+ ("tz booking diurnal top", J, {"select": ["date_extract_hh(booking_date_time) AS h", "count(*) AS n"], "where": "booking_date_time >= '2025-10-01T00:00:00' AND booking_date_time < '2026-10-01T00:00:00'", "group_by": ["h"], "order_by": ["n DESC"]}),
+ ("tz release diurnal top", J, {"select": ["date_extract_hh(release_date_time) AS h", "count(*) AS n"], "where": "release_date_time >= '2025-10-01T00:00:00' AND release_date_time < '2026-10-02T00:00:00'", "group_by": ["h"], "order_by": ["n DESC"]}),
+ ("03 races like President", U, {"select": ["race", "count(*) AS n"], "where": "upper(race) like '%PRESIDENT%'", "group_by": ["race"]}),
+ ("03 LD43 president by countertype", U, {"select": ["countertype", "party", "sum(sumofcount) AS votes"], "where": "leg = 43 AND upper(race) like '%PRESIDENT%'", "group_by": ["countertype", "party"], "order_by": ["votes DESC"]}),
+ ("03 LD43 precincts", U, {"select": ["count(distinct precinct) AS precincts"], "where": "leg = 43 AND upper(race) like '%PRESIDENT%'"}),
+ ("03 leg null rows", U, {"select": ["count(*) AS n"], "where": "leg IS NULL"}),
+]
+
+async def main():
+    out = {}
+    async with Client(build_server()) as c:
+        for label, ds, args in Q:
+            r = (await c.call_tool_mcp("atlas_query_dataset", {"portal": "king-county", "dataset_id": ds, **args})).model_dump(mode="json", by_alias=True, exclude_none=True)
+            sc = r.get("structuredContent") or {}
+            out[label] = {"isError": r.get("isError"), "rows": sc.get("rows"), "error": sc.get("error")}
+        for q in ("jail booking", "traffic collision", "collision", "crash"):
+            r = (await c.call_tool_mcp("atlas_search_datasets", {"portal": "king-county", "query": q})).model_dump(mode="json", by_alias=True, exclude_none=True)
+            sc = r.get("structuredContent") or {}
+            res = sc.get("results") or sc.get("datasets") or []
+            out[f"search {q}"] = {"isError": r.get("isError"), "n": len(res), "titles": [x.get("title") or x.get("name") for x in res][:8], "keys": sorted(sc)}
+    print(json.dumps(out, indent=1))
+
+asyncio.run(main())

@@ -1,0 +1,30 @@
+import asyncio, copy, json
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from tests.conftest import wire, framed_size
+LIMIT = 24576
+ICON_SAVING = 496 - 432  # minified SVG, base64, measured in icon.py
+async def main():
+    async with Client(build_server()) as c:
+        tl = wire(await c.list_tools_mcp())
+    base = framed_size(tl)
+    print("modern base", base, "headroom", LIMIT - base, "after icon", LIMIT - base + ICON_SAVING)
+    def add_source_field(name, schema):
+        t = copy.deepcopy(tl)
+        for tool in t["tools"]:
+            tool["outputSchema"]["properties"]["source"]["properties"][name] = schema
+        return framed_size(t) - base
+    for n in ("now_local_weekday", "now_weekday", "weekday"):
+        print("source field", n, "+", add_source_field(n, {"type": "string"}))
+    t = copy.deepcopy(tl)
+    for tool in t["tools"]:
+        tool["_meta"] = {"io.github.briandconnelly/lifecycle": {"stability": "preview"}}
+    print("F8 lifecycle _meta on 5 tools +", framed_size(t) - base)
+    t = copy.deepcopy(tl)
+    for tool in t["tools"]:
+        tool["inputSchema"] = {"$schema": "https://json-schema.org/draft/2020-12/schema", **tool["inputSchema"]}
+    print("F10 $schema on 5 inputSchemas +", framed_size(t) - base)
+    for tool in t["tools"]:
+        tool["outputSchema"] = {"$schema": "https://json-schema.org/draft/2020-12/schema", **tool["outputSchema"]}
+    print("F10 $schema on inputs+outputs +", framed_size(t) - base)
+asyncio.run(main())

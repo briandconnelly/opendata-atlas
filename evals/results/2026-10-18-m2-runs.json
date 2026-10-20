@@ -1,0 +1,1535 @@
+{
+  "note": "Excerpts from the milestone 2 eval transcripts (Claude Code stream-json) used in rulings: tasks 01 and 24 (main run plus two re-runs) and new tasks 25-29 (three runs each). Per run: MCP server name from system/init, every tool_use name and input in order, the final result text, and the result subtype. Tool results and thinking are omitted. Emails and phone numbers are redacted; establishment-level rows in task 24 answers are summarized as counts. Transcripts are not committed.",
+  "tasks": [
+    {
+      "task_id": "01-cold-start",
+      "runs": [
+        {
+          "run": "main",
+          "source": "evals/results/2026-10-18-m2/01-cold-start.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "fire 911"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "kzjm-xkqj"
+              }
+            }
+          ],
+          "final_answer": "It's the **Seattle Real Time Fire 911 Calls** dataset on the City of Seattle open data portal:\n\n- **Link:** https://data.seattle.gov/d/kzjm-xkqj (dataset ID `kzjm-xkqj`, Public Safety category)\n- **Size:** 2,216,753 calls, from November 7, 2003 to today\n\n**How current it is:** I checked live at 9:24 AM Pacific on October 18, 2026. The newest call was logged at **9:07 AM Pacific today**, about 17 minutes earlier. The portal shows the dataset was last updated at 9:09 AM Pacific. Times in the `datetime` column are Pacific local time.\n\n**What each record has:** address, call type (for example \"Aid Response\" or \"Medic Response\"), date and time, latitude and longitude plus a mapped point, and incident number.\n\n**Location filters:** The dataset has extra location fields the portal adds automatically. Neighborhood and ZIP code are reliable for filtering. Police beat uses 2015 boundaries, so it's only partly reliable. Avoid census tract and council district: they're mostly empty, and the council districts use pre-2022 boundaries.\n\nI can pull recent calls, break them down by type, or filter to a neighborhood or ZIP if you'd like.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "rerun1",
+          "source": "evals/results/2026-10-18-m2-rerun1/01-cold-start.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "fire 911 calls real-time"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "kzjm-xkqj"
+              }
+            }
+          ],
+          "final_answer": "The dataset you want is **Seattle Real Time Fire 911 Calls** on the City of Seattle open data portal.\n\n- **Link:** https://data.seattle.gov/d/kzjm-xkqj (dataset id `kzjm-xkqj`, under Public Safety)\n- **Size:** 2,216,760 rows, counted live just now.\n- **Date range:** from 2003-11-07 to today.\n\n**How current it is:** very. I checked at 09:37 Pacific on 2026-10-18, and the newest call was timestamped **09:34:00**, about 4 minutes earlier. The portal also shows the dataset was last updated at 09:37 Pacific, so new calls are arriving every few minutes. Times are in Seattle local time (Pacific), not UTC.\n\n**What each row has:** address, call type (for example \"Aid Response\" or \"Medic Response\"), date and time, latitude and longitude, a map point column, and an incident number.\n\n**Things to know if you filter by area:**\n- Filtering by **neighborhood** or **ZIP code** works well.\n- **Police beat** uses 2015 boundaries, which no longer match current beats.\n- **Council district** and **census tract** are mostly empty and not usable.\n\nI can pull something from it if you'd like, such as call types for the past day or recent calls near a particular address.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "rerun2",
+          "source": "evals/results/2026-10-18-m2-rerun2/01-cold-start.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "real time fire 911 calls"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "kzjm-xkqj"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_get_reference",
+              "input": {
+                "topic": "guides",
+                "portal": "data.seattle.gov",
+                "item_id": "fire-911"
+              }
+            }
+          ],
+          "final_answer": "It's on the City of Seattle's open data portal, and it's very current: the newest record was about 5 minutes old when I checked.\n\n**Dataset:** Seattle Real Time Fire 911 Calls (`kzjm-xkqj`), https://data.seattle.gov/d/kzjm-xkqj (Public Safety category)\n\n**How current it is** (checked 2026-10-18 at 09:39 Pacific):\n- **Newest dispatch:** 2026-10-18 09:34:00 Pacific, about 5 minutes before I checked.\n- **Last refresh:** the portal says the dataset was last updated at 09:37 Pacific (16:37 UTC).\n- **Update schedule:** the server's guide says it refreshes every 5 minutes. I only checked it once, so I haven't confirmed that schedule myself, but what I saw fits it.\n- **History:** goes back to 2003-11-07, with about 2.2 million records in total.\n\n**What's in it:** each row is one Seattle Fire Department dispatch. The columns are:\n- `incident_number`\n- `type`: the response type\n- `datetime`: dispatch time in Pacific local time, with no timezone suffix\n- `address`\n- `latitude` and `longitude`\n- `report_location`: a map point\n\nMost rows aren't fires. \"Aid Response\" and \"Medic Response\" make up about two-thirds of all calls.\n\n**If you filter by area:**\n- **Reliable:** neighborhood (SPD MCPP areas) and ZIP code.\n- **Avoid:** the council district and census tract fields. They're mostly empty and use boundaries from before 2022.\n\nI can pull something from it if you want, like the last hour's calls or a breakdown by call type.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "24-restaurant-inspections",
+      "runs": [
+        {
+          "run": "main",
+          "source": "evals/results/2026-10-18-m2/24-restaurant-inspections.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "restaurant food inspection",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "health inspection",
+                "asset_scope": "all"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "King County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "query": "food establishment inspection"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "permits",
+                "page_size": 3
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "detail": "full",
+                "sample_rows": 2
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "city",
+                  "count(*) AS n"
+                ],
+                "group_by": [
+                  "city"
+                ],
+                "where": "upper(city) like '%SEA%' OR upper(city) like '%SEATL%'",
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_date",
+                  "name",
+                  "address",
+                  "inspection_type",
+                  "inspection_result",
+                  "inspection_score",
+                  "grade",
+                  "inspection_closed_business",
+                  "inspection_serial_num",
+                  "count(violation_type) AS violations",
+                  "sum(case(violation_type='RED',1,true,0)) AS red"
+                ],
+                "where": "city in ('SEATTLE','Seattle','seattle','WEST SEATTLE','Seattle,') AND inspection_date >= '2026-10-09T00:00:00'",
+                "group_by": [
+                  "inspection_date",
+                  "name",
+                  "address",
+                  "inspection_type",
+                  "inspection_result",
+                  "inspection_score",
+                  "grade",
+                  "inspection_closed_business",
+                  "inspection_serial_num"
+                ],
+                "order_by": [
+                  "inspection_date DESC",
+                  "inspection_score DESC"
+                ],
+                "page_size": 60,
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_result",
+                  "inspection_closed_business",
+                  "count(distinct inspection_serial_num) AS inspections"
+                ],
+                "where": "city in ('SEATTLE','Seattle','seattle','WEST SEATTLE','Seattle,') AND inspection_date >= '2026-10-09T00:00:00'",
+                "group_by": [
+                  "inspection_result",
+                  "inspection_closed_business"
+                ],
+                "order_by": [
+                  "inspections DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_date",
+                  "name",
+                  "address",
+                  "inspection_score",
+                  "violation_type",
+                  "violation_description"
+                ],
+                "where": "city in ('SEATTLE','Seattle','seattle','WEST SEATTLE','Seattle,') AND inspection_date >= '2026-10-09T00:00:00' AND inspection_closed_business = 'Yes'"
+              }
+            }
+          ],
+          "final_answer": "# Recent food inspections in Seattle (Oct 9–16, 2026)\n\nThe City of Seattle's portal doesn't publish inspection data. I searched it for \"restaurant food inspection\" and \"health inspection\" and got nothing, though the same search does find other datasets like permits. Food inspections in Seattle are done by Public Health – Seattle & King County, so these results come from King County's **[Food Establishment Inspection Data](https://data.kingcounty.gov/d/r878-4sxa)**. Its newest inspection date is Oct 16, 2026.\n\n## Summary: 163 inspections since Oct 9\n\n| Result | Inspections |\n|---|---|\n| Satisfactory | 81 |\n| Unsatisfactory | 50 |\n| Complete (educational visits, no pass/fail) | 32 |\n\n[sentence naming individual establishments omitted]\n\n## Latest results (Oct 15), highest-scoring first\n\nHigher scores are worse: the score is the total violation points.\n\n[table of individual establishments omitted: 16 rows]\n\nThat's the first 16 of the Oct 15 inspections. For the full window, here's a [CSV download](https://data.kingcounty.gov/resource/r878-4sxa.csv?%24select=inspection_date%2C+name%2C+address%2C+inspection_type%2C+inspection_result%2C+inspection_score%2C+grade%2C+inspection_closed_business%2C+inspection_serial_num%2C+count%28violation_type%29+AS+violations%2C+sum%28case%28violation_type%3D%27RED%27%2C1%2Ctrue%2C0%29%29+AS+red&%24group=inspection_date%2C+name%2C+address%2C+inspection_type%2C+inspection_result%2C+inspection_score%2C+grade%2C+inspection_closed_business%2C+inspection_serial_num&%24order=inspection_date+DESC%2C+inspection_score+DESC&%24where=%28city+in+%28%27SEATTLE%27%2C%27Seattle%27%2C%27seattle%27%2C%27WEST+SEATTLE%27%2C%27Seattle%2C%27%29+AND+inspection_date+%3E%3D+%272026-10-09T00%3A00%3A00%27%29&%24limit=1000000000).\n\n## Caveats\n- **How I picked \"Seattle\":** the dataset has no verified location field, so I matched the free-text `city` column on the spellings I found in the data: SEATTLE, Seattle, seattle, \"Seattle,\" and WEST SEATTLE. SeaTac is a separate city, so I left it out. Any Seattle rows with a misspelled or missing city aren't included.\n- **Not just restaurants:** the counts include every food establishment type, such as grocery stores, caterers and school lunch programs. You can filter by `classification` (e.g., \"General Food Services\") if you want only restaurants.\n- **What a row is:** each row in the dataset appears to be one violation, so I grouped rows by inspection ID to get one line per inspection. The publisher doesn't document this, so it's my reading of the data. Samra Cafe also has a second inspection on Oct 15 under a different business record (score 5).\n- **Grades don't match single results:** the `grade` field (Excellent, Good, etc.) often disagrees with a single result. Le Coin is rated \"Excellent\" despite this Unsatisfactory inspection, so the grade is probably based on more than one visit. I left it out of the table for that reason.\n\nI can narrow this to one neighborhood or ZIP code, look up a specific restaurant's history, or list the violation details for any of these.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "rerun1",
+          "source": "evals/results/2026-10-18-m2-rerun1/24-restaurant-inspections.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "King County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "restaurant inspection"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "query": "food establishment inspection"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "detail": "full",
+                "sample_rows": 2
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "city",
+                  "count(*) AS n"
+                ],
+                "where": "upper(city) like '%SEATTLE%' OR upper(city) like '%SEATAC%' OR upper(city) like '%SEA%'",
+                "group_by": [
+                  "city"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_date",
+                  "name",
+                  "address",
+                  "inspection_type",
+                  "inspection_result",
+                  "max(inspection_score) AS score",
+                  "sum(case(violation_type='RED',1,true,0)) AS red",
+                  "sum(case(violation_type='BLUE',1,true,0)) AS blue",
+                  "max(grade) AS grade"
+                ],
+                "where": "upper(city) in ('SEATTLE','WEST SEATTLE','SEATTLE,') AND classification = 'General Food Services' AND inspection_date >= '2026-10-05T00:00:00'",
+                "group_by": [
+                  "inspection_serial_num",
+                  "inspection_date",
+                  "name",
+                  "address",
+                  "inspection_type",
+                  "inspection_result"
+                ],
+                "order_by": [
+                  "inspection_date DESC",
+                  "score DESC"
+                ],
+                "page_size": 200
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_result",
+                  "count(distinct inspection_serial_num) AS inspections"
+                ],
+                "where": "upper(city) in ('SEATTLE','WEST SEATTLE','SEATTLE,') AND classification = 'General Food Services' AND inspection_date >= '2026-10-05T00:00:00'",
+                "group_by": [
+                  "inspection_result"
+                ],
+                "order_by": [
+                  "inspections DESC"
+                ]
+              }
+            }
+          ],
+          "final_answer": "## Seattle restaurant inspections, Oct 5–16, 2026\n\nThe City of Seattle's portal doesn't publish this data. Public Health – Seattle & King County does, in the [Food Establishment Inspection Data](https://data.kingcounty.gov/d/r878-4sxa) dataset on data.kingcounty.gov. It was updated today, and its most recent inspection is dated **Oct 16, 2026**.\n\n**Summary:** 248 inspections at Seattle \"General Food Services\" businesses since Oct 5:\n\n| Result | Inspections |\n|---|---|\n| Satisfactory | 115 |\n| Unsatisfactory | 86 |\n| Complete (educational visits, not scored) | 47 |\n\n**Highest-scoring unsatisfactory inspections** (more points means more violations; red violations are the serious food-safety ones):\n\n[table of individual establishments omitted: 10 rows]\n\n[sentence naming individual establishments omitted]\n\n**How I got these numbers:**\n- **What counts as Seattle:** the dataset has no checked location field, so I matched the free-text `city` column on \"Seattle\", \"West Seattle\" and spelling variants. SeaTac is excluded because it's a separate city. Businesses with a typo in their city won't be included.\n- **What counts as a restaurant:** I used the \"General Food Services\" category, which also includes some grocery delis (e.g., Safeway) and fraternity/sorority kitchens.\n- **Counting inspections:** each row in the dataset seems to be one violation, so I grouped rows by inspection serial number to count each inspection once. The publisher doesn't document this, so I haven't confirmed it.\n- **Dates:** inspection dates are plain dates with no time zone.\n- **What's not covered:** the high-score table only includes Oct 14–15. My listing query stopped partway through Oct 14 (it returned results newest first), so Oct 5–13 isn't in that table, though it is in the summary counts. Oct 16 had no inspections in this category.\n\nI can also show the full list, the specific violations for any of these businesses, or one neighborhood or ZIP code.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "rerun2",
+          "source": "evals/results/2026-10-18-m2-rerun2/24-restaurant-inspections.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "King County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "restaurant inspection"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "query": "food establishment inspection"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "detail": "full",
+                "sample_rows": 2
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "city",
+                  "count(*) AS n"
+                ],
+                "where": "upper(city) like '%SEATTLE%'",
+                "group_by": [
+                  "city"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_serial_num",
+                  "max(inspection_date) AS date",
+                  "max(name) AS name",
+                  "max(address) AS address",
+                  "max(classification) AS class",
+                  "max(inspection_type) AS type",
+                  "max(inspection_result) AS result",
+                  "max(inspection_score) AS score",
+                  "max(grade) AS grade",
+                  "max(inspection_closed_business) AS closed",
+                  "sum(case(violation_type='RED',1,true,0)) AS red",
+                  "sum(case(violation_type='BLUE',1,true,0)) AS blue"
+                ],
+                "where": "upper(city) in ('SEATTLE','WEST SEATTLE','SEATTLE,') AND inspection_date >= '2026-10-05T00:00:00' AND classification = 'General Food Services'",
+                "group_by": [
+                  "inspection_serial_num"
+                ],
+                "order_by": [
+                  "date DESC",
+                  "score DESC"
+                ],
+                "page_size": 100,
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.kingcounty.gov",
+                "dataset_id": "r878-4sxa",
+                "select": [
+                  "inspection_type",
+                  "inspection_result",
+                  "count(distinct inspection_serial_num) AS inspections"
+                ],
+                "where": "upper(city) in ('SEATTLE','WEST SEATTLE','SEATTLE,') AND inspection_date >= '2026-10-05T00:00:00' AND classification = 'General Food Services'",
+                "group_by": [
+                  "inspection_type",
+                  "inspection_result"
+                ],
+                "order_by": [
+                  "inspections DESC"
+                ]
+              }
+            }
+          ],
+          "final_answer": "Seattle's restaurant inspections are done by **Public Health – Seattle & King County**, so the data comes from King County's portal, not the City of Seattle's. The city portal has no inspection dataset. I used the [Food Establishment Inspection Data](https://data.kingcounty.gov/d/r878-4sxa) dataset, which was updated today. The latest inspection in it is dated **Oct 16, 2026**.\n\n## Summary: Seattle restaurants, Oct 5–16, 2026\n\n| Inspection type | Result | Inspections |\n|---|---|---|\n| Routine | Satisfactory | 98 |\n| Routine | **Unsatisfactory** | **81** |\n| Educational | Complete | 47 |\n| Return (follow-up) | Satisfactory | 16 |\n| Return (follow-up) | Unsatisfactory | 5 |\n| Educational | Satisfactory | 1 |\n\nNo inspection in this period closed a business.\n\n## Most recent day with Seattle results (Oct 15), by inspection score\n\nA higher score means more violation points. RED violations are the serious ones that can directly cause foodborne illness. BLUE violations are about maintenance and sanitation.\n\n[table of individual establishments omitted: 15 rows]\n\nOn the same day, two Safeway food-service counters got routine inspections and passed with low scores. Seven other businesses, including Wendy's on Rainier Ave S, had educational visits with no score.\n\nThese are the routine inspections from the first ~23 inspections returned for that day. More Oct 15 results may exist. The full Oct 5–16 list is about 248 inspections. You can [download it as a CSV](https://data.kingcounty.gov/resource/r878-4sxa.csv?%24select=inspection_serial_num%2C+max%28inspection_date%29+AS+date%2C+max%28name%29+AS+name%2C+max%28address%29+AS+address%2C+max%28classification%29+AS+class%2C+max%28inspection_type%29+AS+type%2C+max%28inspection_result%29+AS+result%2C+max%28inspection_score%29+AS+score%2C+max%28grade%29+AS+grade%2C+max%28inspection_closed_business%29+AS+closed%2C+sum%28case%28violation_type%3D%27RED%27%2C1%2Ctrue%2C0%29%29+AS+red%2C+sum%28case%28violation_type%3D%27BLUE%27%2C1%2Ctrue%2C0%29%29+AS+blue&%24group=inspection_serial_num&%24order=date+DESC%2C+score+DESC%2C+inspection_serial_num&%24where=%28upper%28city%29+in+%28%27SEATTLE%27%2C%27WEST+SEATTLE%27%2C%27SEATTLE%2C%27%29+AND+inspection_date+%3E%3D+%272026-10-05T00%3A00%3A00%27+AND+classification+%3D+%27General+Food+Services%27%29&%24limit=1000000000).\n\n## How I filtered (some of this is unverified)\n- **\"Seattle\"**: the dataset has no checked location field, so I matched the free-text city column. I included the spellings \"SEATTLE\", \"Seattle\", \"seattle\", \"Seattle,\" and \"WEST SEATTLE\". I left out one \"Seattle tacoma\" record. Addresses with a Seattle mailing address outside city limits could be included.\n- **\"Restaurant\"**: I limited results to the \"General Food Services\" category. That category also covers cafés and grocery-store food counters such as Safeway delis. It leaves out mobile food trucks, school lunchrooms and markets.\n- **What a row is**: the source has one row per violation, so I grouped rows by inspection ID to count each inspection once. The portal hasn't confirmed that this is how the data is structured. The dates have no time or timezone.\n- **Score vs. grade**: the dataset's \"grade\" (Excellent/Good/Okay) is the business's overall food safety rating, built from several past inspections. That's why a place can fail an inspection and still be rated \"Good\", so I didn't use grade here.\n\nI can drill into the specific violations at any of these places, go back further in time, or look at a particular neighborhood or ZIP code.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "25-wrong-portal",
+      "runs": [
+        {
+          "run": "run1",
+          "source": "evals/results/2026-10-18-m2/25-wrong-portal.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Chicago"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "query": "crimes"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2",
+                "select": [
+                  "count(*) AS n"
+                ],
+                "where": "date >= '2026-09-01T00:00:00' AND date < '2026-10-01T00:00:00'",
+                "detail": "full"
+              }
+            }
+          ],
+          "final_answer": "Chicago had **19,743 crimes reported in September 2026**.\n\n- **Source:** City of Chicago Data Portal, *Crimes – 2001 to Present* (`ijzp-q8t2`). [Query link](https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=count%28%2A%29+AS+n&%24where=%28date+%3E%3D+%272026-09-01T00%3A00%3A00%27+AND+date+%3C+%272026-10-01T00%3A00%3A00%27%29&%24limit=101)\n- **Dates:** \"Last month\" means September 1–30, 2026, since the portal's local date is October 18, 2026. I counted rows by the `date` column. The dataset doesn't say what timezone that column uses, so I've taken it as Chicago local time. The server hasn't checked this.\n- **What a row is:** I counted each row as one reported incident, but that hasn't been checked either. If a row actually stands for something else, like one offense or one victim, the total would mean something different.\n- **The number may still go up:** The newest record is from October 10, and the city updates this data as cases are entered and reclassified. September's total could still change a little.\n\nI can also split this by crime type (`primary_type`), arrests or domestic cases, or compare it with September 2025.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run2",
+          "source": "evals/results/2026-10-18-m2-run2/25-wrong-portal.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Chicago"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "query": "crimes 2001 to present"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2",
+                "select": [
+                  "count(*) AS n"
+                ],
+                "where": "date >= '2026-09-01T00:00:00' AND date < '2026-10-01T00:00:00'",
+                "detail": "full"
+              }
+            }
+          ],
+          "final_answer": "The City of Chicago's open data portal lists **19,743 crime incidents for September 2026** (September 1–30).\n\n- **Source:** \"Crimes - 2001 to Present\" (`ijzp-q8t2`) from the Chicago Police Department, queried at 11:25 AM Chicago time on 2026-10-18.\n- **Time zone:** The `date` column doesn't say which time zone it uses. I treated it as Chicago local time, since that's the portal's zone, but I couldn't confirm it. If it's wrong, a few incidents near the start or end of the month could fall in a different month.\n- **What one row is:** I assumed each row is one reported incident. That's the dataset's usual meaning, but this tool's metadata doesn't confirm it. One incident with several offenses may count as one row.\n- **Not final:** The newest record is from 2026-10-10, so the data runs about a week behind. Records are also often reclassified or added after the fact, so the September total may change a little.\n- **City only:** This is CPD-reported crime within Chicago. It doesn't include the rest of Cook County.\n\nQuery used: `SELECT count(*) WHERE date >= '2026-09-01T00:00:00' AND date < '2026-10-01T00:00:00'` ([query URL](https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=count%28%2A%29+AS+n&%24where=%28date+%3E%3D+%272026-09-01T00%3A00%3A00%27+AND+date+%3C+%272026-10-01T00%3A00%3A00%27%29&%24limit=101)).\n\nI can also break this down by crime type, police district or arrest status.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run3",
+          "source": "evals/results/2026-10-18-m2-run3/25-wrong-portal.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Chicago"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "query": "crimes 2001 to present"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2",
+                "select": [
+                  "count(*) AS n"
+                ],
+                "where": "date >= '2026-09-01T00:00:00' AND date < '2026-10-01T00:00:00'"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.cityofchicago.org",
+                "dataset_id": "ijzp-q8t2",
+                "select": [
+                  "primary_type",
+                  "count(*) AS n"
+                ],
+                "where": "date >= '2026-09-01T00:00:00' AND date < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "primary_type"
+                ],
+                "order_by": [
+                  "n DESC"
+                ],
+                "page_size": 5
+              }
+            }
+          ],
+          "final_answer": "**19,743 crimes were reported in Chicago in September 2026.** That comes from the City of Chicago's \"Crimes – 2001 to Present\" dataset (`ijzp-q8t2`), counting September 1–30, 2026.\n\n| Top types | Count |\n|---|---|\n| Theft | 4,229 |\n| Battery | 3,722 |\n| Criminal damage | 2,152 |\n| Assault | 1,975 |\n| Motor vehicle theft | 1,479 |\n\nThings to keep in mind:\n- **Which month I used:** It's October 18, 2026 in Chicago, so I took \"last month\" to mean September.\n- **Time zone isn't confirmed:** The dataset's `date` field has no time zone. I assumed it's Chicago local time (Central) and counted midnight Sept 1 up to midnight Oct 1. If it's actually a different zone, a few incidents near the month boundaries could shift.\n- **What a row is isn't confirmed:** I counted each row as one reported incident. The tool hasn't reviewed this dataset to confirm that's what a row means.\n- **The number may still change:** The data goes up to October 10, so September is fully included. But Chicago adds and reclassifies recent cases over time, so this total could move a little.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "26-ambiguous-place",
+      "runs": [
+        {
+          "run": "run1",
+          "source": "evals/results/2026-10-18-m2/26-ambiguous-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Cook County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "query": "building permits",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "detail": "full",
+                "sample_rows": 3
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "select": [
+                  "fiscal_year",
+                  "sum(building) AS building",
+                  "sum(electrical) AS electrical",
+                  "sum(plumbing) AS plumbing",
+                  "sum(totals) AS total",
+                  "count(*) AS townships"
+                ],
+                "group_by": [
+                  "fiscal_year"
+                ],
+                "order_by": [
+                  "fiscal_year"
+                ],
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "select": [
+                  "township_name",
+                  "sum(building) AS building",
+                  "sum(totals) AS total"
+                ],
+                "group_by": [
+                  "township_name"
+                ],
+                "order_by": [
+                  "total DESC"
+                ],
+                "page_size": 10
+              }
+            }
+          ],
+          "final_answer": "The Cook County portal (datacatalog.cookcountyil.gov) has no current dataset of building permits. The closest match is old and has counts only, with no individual permits.\n\n**Dataset:** [Building and Zoning – Building, Plumbing, and Electrical Permits Applied For, FY2005 through part of FY2011](https://datacatalog.cookcountyil.gov/d/6myv-3m4t), last updated in 2014. It has 210 rows, one per fiscal year and township, holding permit-application counts. It has no addresses, dates or permit details. The portal doesn't define exactly what each count covers, so I haven't been able to verify that.\n\n**Permits applied for, by fiscal year (30 townships each year):**\n\n| FY | Building | Electrical | Plumbing | Total |\n|---|---|---|---|---|\n| 2005 | 1,381 | 710 | 333 | 2,424 |\n| 2006 | 1,348 | 1,031 | 272 | 2,651 |\n| 2007 | 989 | 754 | 596 | 2,339 |\n| 2008 | 947 | 573 | 308 | 1,828 |\n| 2009 | 896 | 416 | 491 | 1,803 |\n| 2010 | 1,189 | 568 | 365 | 2,122 |\n| 2011* | 862 | 444 | 369 | 1,675 |\n\n\\*FY2011 covers only part of the year.\n\n**Townships with the most permits over the whole period:** Maine (2,444), Northfield (2,400), Proviso (1,455), Leyden (1,234), Elk Grove (949), Stickney (755), Lyons (693), Lemont (622), Palos (608) and Palatine (568).\n\n**Limitations:**\n- **Coverage:** As far as I know, Cook County's Department of Building and Zoning issues permits only in unincorporated areas. Chicago and the other towns issue their own. That would explain why some townships, like Berwyn, show 0. This comes from my general knowledge, not from the dataset.\n- **Other current permit data:** The portal does have an up-to-date [Asbestos & Demolition Permits](https://datacatalog.cookcountyil.gov/d/gpmj-6p9q) dataset, updated 2026-10-17. It has individual records, but it doesn't include general building permits.\n- **Download:** You can get the yearly table above as a [CSV](https://datacatalog.cookcountyil.gov/resource/6myv-3m4t.csv?%24select=fiscal_year%2C+sum%28building%29+AS+building%2C+sum%28electrical%29+AS+electrical%2C+sum%28plumbing%29+AS+plumbing%2C+sum%28totals%29+AS+total%2C+count%28%2A%29+AS+townships&%24group=fiscal_year&%24order=fiscal_year&%24limit=1000000000).\n\nFor current permits with addresses, you'd need a city's own portal. For example, Chicago publishes its permits on its own portal. Should I look there, or break down the old Cook County counts by township and year?",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run2",
+          "source": "evals/results/2026-10-18-m2-run2/26-ambiguous-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Cook County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "query": "building permits",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "detail": "full",
+                "sample_rows": 3
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "select": [
+                  "fiscal_year",
+                  "sum(building) AS building",
+                  "sum(electrical) AS electrical",
+                  "sum(plumbing) AS plumbing",
+                  "sum(totals) AS total",
+                  "count(*) AS townships"
+                ],
+                "group_by": [
+                  "fiscal_year"
+                ],
+                "order_by": [
+                  "fiscal_year"
+                ],
+                "detail": "full"
+              }
+            }
+          ],
+          "final_answer": "The Cook County open data portal (datacatalog.cookcountyil.gov) has no current building permits dataset. The only general one is a summary table that stops in 2011: **\"Building and Zoning – Building, Plumbing, and Electrical Permits Applied For, FY2005 through part of FY2011\"** (`6myv-3m4t`). It has 210 rows, one per township per fiscal year, with permit counts. It has no individual permits, addresses or dates.\n\n**Permits applied for, all 30 townships combined:**\n\n| Fiscal year | Building | Electrical | Plumbing | Total |\n|---|---|---|---|---|\n| 2005 | 1,381 | 710 | 333 | 2,424 |\n| 2006 | 1,348 | 1,031 | 272 | 2,651 |\n| 2007 | 989 | 754 | 596 | 2,339 |\n| 2008 | 947 | 573 | 308 | 1,828 |\n| 2009 | 896 | 416 | 491 | 1,803 |\n| 2010 | 1,189 | 568 | 365 | 2,122 |\n| 2011* | 862 | 444 | 369 | 1,675 |\n\n\\*The title says FY2011 is only partial (data last updated September 2011).\n\n**Limits of this data:**\n- These are permit **applications**, not permits issued.\n- The numbers are low for a county of about 5 million people. That's probably because the county's Building & Zoning department mostly handles permits for unincorporated areas, while cities like Chicago and Evanston issue their own. Many townships show 0 (Berwyn in 2005, for example), which fits that explanation. The portal hasn't confirmed what a row counts, though, so this is my reading, not documented fact.\n- The building, electrical and plumbing columns add up to the total in each year.\n\n**Other permit datasets on the portal that are current but narrower:**\n- **Asbestos & Demolition Permits** (`gpmj-6p9q`), updated 2026-10-17\n- **Solid Waste Permits** (`9ui4-wwkp`), for recycling and fill operations\n\n**Next steps I can take:**\n- Break the 2005–2011 table down by township.\n- Query the asbestos and demolition permits.\n- Check whether the City of Chicago portal is in the registry. Chicago publishes its own permit-level building permits dataset, which is probably what you want for anything recent inside the city.\n\nCSV of the table above: https://datacatalog.cookcountyil.gov/resource/6myv-3m4t.csv",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run3",
+          "source": "evals/results/2026-10-18-m2-run3/26-ambiguous-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Cook County"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "query": "building permits",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "detail": "full",
+                "sample_rows": 3
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "datacatalog.cookcountyil.gov",
+                "dataset_id": "6myv-3m4t",
+                "select": [
+                  "fiscal_year",
+                  "sum(building) AS building",
+                  "sum(electrical) AS electrical",
+                  "sum(plumbing) AS plumbing",
+                  "sum(totals) AS total",
+                  "count(*) AS townships"
+                ],
+                "group_by": [
+                  "fiscal_year"
+                ],
+                "order_by": [
+                  "fiscal_year"
+                ],
+                "detail": "full"
+              }
+            }
+          ],
+          "final_answer": "The Cook County portal has no current building permit records. The only general building permits dataset is old: **\"Building and Zoning – Building, Plumbing, and Electrical Permits Applied For\"** ([6myv-3m4t](https://datacatalog.cookcountyil.gov/d/6myv-3m4t)). It covers fiscal years 2005 to part of 2011 and was last updated in September 2011.\n\nIt has 210 rows, one per township per fiscal year, with permit application counts by type. It doesn't list individual permits, addresses or dates. Here are the totals by year across the 30 townships:\n\n| Fiscal year | Building | Electrical | Plumbing | Total |\n|---|---|---|---|---|\n| 2005 | 1,381 | 710 | 333 | 2,424 |\n| 2006 | 1,348 | 1,031 | 272 | 2,651 |\n| 2007 | 989 | 754 | 596 | 2,339 |\n| 2008 | 947 | 573 | 308 | 1,828 |\n| 2009 | 896 | 416 | 491 | 1,803 |\n| 2010 | 1,189 | 568 | 365 | 2,122 |\n| 2011 (partial) | 862 | 444 | 369 | 1,675 |\n\n**Things to keep in mind:**\n- The numbers count permits **applied for**, not permits issued.\n- The portal doesn't confirm exactly what each row counts. I'm reading each row as one township's applications for one fiscal year, based on the columns and the title.\n- Some townships show zero across the board (for example, Berwyn in 2005). Most likely, those are places where the county's Building and Zoning department doesn't issue permits, such as Chicago and other incorporated towns. The dataset doesn't say this, so I haven't confirmed it.\n- Building permits for the City of Chicago aren't on this portal. They're published on the City of Chicago's own data portal.\n\n**Current, but narrower:** the county also publishes **Asbestos & Demolition Permits** ([gpmj-6p9q](https://datacatalog.cookcountyil.gov/d/gpmj-6p9q)), which was updated yesterday (2026-10-17).\n\nYou can download this table as a CSV [here](https://datacatalog.cookcountyil.gov/resource/6myv-3m4t.csv?%24select=fiscal_year%2C+sum%28building%29+AS+building%2C+sum%28electrical%29+AS+electrical%2C+sum%28plumbing%29+AS+plumbing%2C+sum%28totals%29+AS+total%2C+count%28%2A%29+AS+townships&%24group=fiscal_year&%24order=fiscal_year&%24limit=1000000000).\n\nI can also break the old data down by township, look up recent demolition permits, or check whether the Chicago portal is available here. Which would help most?",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "27-unreviewed-on-curated",
+      "runs": [
+        {
+          "run": "run1",
+          "source": "evals/results/2026-10-18-m2/27-unreviewed-on-curated.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "Terry stops"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "select": [
+                  "precinct",
+                  "count(*) AS n",
+                  "count(distinct terry_stop_id) AS stops"
+                ],
+                "where": "occurred_date >= '2025-01-01T00:00:00' AND occurred_date < '2026-01-01T00:00:00'",
+                "group_by": [
+                  "precinct"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            }
+          ],
+          "final_answer": "Seattle police recorded about **3,670 Terry stop rows in 2025**. Here they are by precinct:\n\n| Precinct | Rows | Distinct stop IDs |\n|---|---:|---:|\n| West | 1,473 | 1,471 |\n| North | 623 | 622 |\n| East | 615 | 612 |\n| South | 456 | 454 |\n| Southwest | 281 | 279 |\n| `-` (no precinct recorded) | 194 | 192 |\n| OOJ (out of jurisdiction) | 28 | 28 |\n| **Total** | **3,670** | **3,658** (sum of the column) |\n\nWest precinct had about 40% of all stops, more than twice as many as any other precinct.\n\n**How I counted:**\n- **Source:** Seattle's open-data \"Terry Stops\" dataset (`28ny-9ts8`, data.seattle.gov), queried today (2026-10-18).\n- **Date range:** I counted stops where `occurred_date` falls between 2025-01-01 and 2025-12-31. The dataset doesn't say what timezone its dates use. I assumed Seattle local time, which is how the city usually publishes. A different dataset field, `reported_date` (when the report was filed), can be about a day later, so counting by that field would shift a few stops at the year boundaries.\n- **What a row is:** The dataset doesn't confirm whether each row is one stop or one person stopped. Most rows have their own stop ID, but a few stop IDs appear more than once. That's why I gave both counts.\n- **Precinct field:** The precinct is that of the address on the original dispatch call. The dataset notes this isn't always where the stop happened. The precinct values haven't been checked against an official list, so treat the per-precinct split as approximate. The `-` row means no precinct was recorded.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run2",
+          "source": "evals/results/2026-10-18-m2-run2/27-unreviewed-on-curated.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "Terry stops"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "select": [
+                  "precinct",
+                  "count(*) AS n",
+                  "count(distinct terry_stop_id) AS stops"
+                ],
+                "where": "occurred_date >= '2025-01-01T00:00:00' AND occurred_date < '2026-01-01T00:00:00'",
+                "group_by": [
+                  "precinct"
+                ],
+                "order_by": [
+                  "n DESC"
+                ],
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "select": [
+                  "count(*) AS n",
+                  "count(distinct terry_stop_id) AS stops"
+                ],
+                "where": "occurred_date >= '2025-01-01T00:00:00' AND occurred_date < '2026-01-01T00:00:00'"
+              }
+            }
+          ],
+          "final_answer": "Seattle police recorded **3,658 Terry stops in 2025**, based on the date each stop occurred. The dataset has 3,670 rows for that year; a few stop reports appear on more than one row, which is why the two numbers differ.\n\n| Precinct | Unique stops | Rows |\n|---|---:|---:|\n| West | 1,471 | 1,473 |\n| North | 622 | 623 |\n| East | 612 | 615 |\n| South | 454 | 456 |\n| Southwest | 279 | 281 |\n| `-` (no precinct recorded) | 192 | 194 |\n| OOJ (out of jurisdiction) | 28 | 28 |\n| **Total** | **3,658** | **3,670** |\n\nWest Precinct accounts for about 40% of all stops.\n\n**Caveats:**\n- **What a row counts:** The publisher's description doesn't say exactly what one row is. It looks like one row per subject per stop. I counted unique stop IDs (`terry_stop_id`) as the number of stops.\n- **What \"precinct\" means:** It's the precinct of the address on the 911 dispatch record, which isn't necessarily where the stop happened. I grouped on the dataset's own precinct labels; the tool hasn't verified this as a place field.\n- **Dates:** I counted stops that occurred from 1 January to 31 December 2025, Seattle time. The timestamps have no timezone attached, so local time is my assumption. Counting by the date the report was filed instead could move a few stops at the year boundaries.\n- **The data may still change:** It's a live dataset, last updated 18 October 2026, so 2025 counts can shift slightly if records are added or corrected.\n\nSource: [Terry Stops](https://data.seattle.gov/d/28ny-9ts8) on data.seattle.gov. You can [download this breakdown as a CSV](https://data.seattle.gov/resource/28ny-9ts8.csv?%24select=precinct%2C+count%28%2A%29+AS+n%2C+count%28distinct+terry_stop_id%29+AS+stops&%24group=precinct&%24order=n+DESC%2C+precinct&%24where=%28occurred_date+%3E%3D+%272025-01-01T00%3A00%3A00%27+AND+occurred_date+%3C+%272026-01-01T00%3A00%3A00%27%29&%24limit=1000000000).",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run3",
+          "source": "evals/results/2026-10-18-m2-run3/27-unreviewed-on-curated.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Seattle"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.seattle.gov",
+                "query": "Terry stops"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "select": [
+                  "precinct",
+                  "count(*) AS n",
+                  "count(distinct terry_stop_id) AS stops"
+                ],
+                "where": "occurred_date >= '2025-01-01T00:00:00' AND occurred_date < '2026-01-01T00:00:00'",
+                "group_by": [
+                  "precinct"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.seattle.gov",
+                "dataset_id": "28ny-9ts8",
+                "select": [
+                  "precinct",
+                  "count(*) AS n"
+                ],
+                "where": "reported_date >= '2025-01-01T00:00:00' AND reported_date < '2026-01-01T00:00:00'",
+                "group_by": [
+                  "precinct"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            }
+          ],
+          "final_answer": "Seattle's Terry Stops dataset (`28ny-9ts8` on data.seattle.gov) has **3,670 rows with a 2025 occurred date**. Those rows carry 3,658 distinct Terry Stop report IDs.\n\n| Precinct | Rows | Distinct stop IDs |\n|---|---:|---:|\n| West | 1,473 | 1,471 |\n| North | 623 | 622 |\n| East | 615 | 612 |\n| South | 456 | 454 |\n| Southwest | 281 | 279 |\n| `-` (no precinct) | 194 | 192 |\n| OOJ (out of jurisdiction) | 28 | 28 |\n| **Total** | **3,670** | **3,658** |\n\nWest precinct had about 40% of stops, more than twice the next precinct (North).\n\nThings to keep in mind:\n- **What a row is hasn't been checked.** The row count and the count of distinct stop IDs are close but not the same, so a few stops appear more than once (possibly one row per subject or per linked report). The distinct-ID column is the closer count of separate stops. Its total adds up the per-precinct counts, which assumes no stop ID shows up in two precincts.\n- **The precinct isn't always where the stop happened.** The publisher says it's the precinct of the address on the related 911/dispatch event. Nobody has reviewed this field, so the precinct breakdown is unverified.\n- **Which date I used:** I counted by `occurred_date` from Jan 1, 2025 up to (not including) Jan 1, 2026. The dataset doesn't say what timezone its dates are in; I assumed Seattle local time. Counting by `reported_date` (when the report was filed) instead gives 3,663 rows with almost the same split by precinct (West 1,468, East 614, South 455, others the same).\n- The dataset is updated daily, so these numbers are as of 2026-10-18 and late-filed 2025 reports could still change them a little.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "28-generic-text-place",
+      "runs": [
+        {
+          "run": "run1",
+          "source": "evals/results/2026-10-18-m2/28-generic-text-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Los Angeles"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.lacity.org",
+                "query": "crime data"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "area_name",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "date_rptd >= '2026-09-01T00:00:00' AND date_rptd < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "area_name"
+                ],
+                "order_by": [
+                  "area_name"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "date_trunc_ym(date_rptd) AS month",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "area_name = 'Hollywood' AND date_rptd >= '2026-01-01T00:00:00'",
+                "group_by": [
+                  "month"
+                ],
+                "order_by": [
+                  "month"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "date_trunc_ym(date_rptd) AS month",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "area_name = 'Hollywood           ' AND date_rptd >= '2026-01-01T00:00:00'",
+                "group_by": [
+                  "month"
+                ],
+                "order_by": [
+                  "month"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "area_name = 'Hollywood           ' AND date_occ >= '2026-09-01T00:00:00' AND date_occ < '2026-10-01T00:00:00'"
+              }
+            }
+          ],
+          "final_answer": "The LAPD's **Hollywood Area recorded 1,004 offenses in September 2026, which came from 920 separate cases.** These are counted by the date each crime was reported.\n\n| Count | Offenses | Distinct cases |\n|---|---|---|\n| By date reported (Sept 1–30, 2026) | **1,004** | **920** |\n| By date occurred (Sept 1–30, 2026) | 937 | 853 |\n\n**Caveats:**\n\n- **\"Hollywood\" here is the LAPD's Hollywood police division, not the neighborhood.** The data has no neighborhood field. I used the department's area field, whose values include \"Hollywood\". The division covers more ground than the Hollywood neighborhood, taking in parts of places like Los Feliz and the Hollywood Hills, so this overstates the neighborhood's count. The portal also doesn't mark this field as a checked place field. And note that \"N Hollywood\" is a different division, which I left out.\n- **What a row means isn't confirmed.** One case can include several offenses, so I gave both counts. In the data, each row looks like one offense and the case number repeats across rows, but the portal doesn't document this.\n- **Time zone:** The dates carry no time zone. I took them as Los Angeles local time, since that's the portal's zone.\n- **The numbers could still change.** The data runs to Oct 12, so September should be fully loaded. But reports keep arriving, and the count by date occurred is lower partly because late reports for September crimes are still coming in.\n\n**Is September normal?** Yes. Hollywood has logged about 1,000–1,060 offenses a month in 2026, with February lowest at 875. Among the 21 divisions in September, Hollywood ranked in the upper middle. Central had the most, at 1,613.\n\nThe source is the [LAPD NIBRS Offenses Dataset](https://data.lacity.org/d/k7nn-b2ep) on data.lacity.org. It replaced the older \"Crime Data from 2020 to 2024\" dataset, which hasn't been updated since March 2026.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run2",
+          "source": "evals/results/2026-10-18-m2-run2/28-generic-text-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Los Angeles"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.lacity.org",
+                "query": "crime data"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "area",
+                  "area_name",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "date_rptd >= '2026-09-01T00:00:00' AND date_rptd < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "area",
+                  "area_name"
+                ],
+                "order_by": [
+                  "area"
+                ]
+              }
+            }
+          ],
+          "final_answer": "In September 2026, the LAPD's Hollywood area had **920 crime cases reported**, covering **1,004 offenses**.\n\n**How I got this:**\n- **Source:** the LAPD NIBRS Offenses dataset (`k7nn-b2ep`) on data.lacity.org. It's the only current LAPD crime dataset there; the older \"Crime Data\" sets stop at 2024.\n- **Area:** I filtered on `area_name = \"Hollywood\"` (area code 06). This is the LAPD's Hollywood patrol division, not the neighborhood itself. Division boundaries don't match neighborhood boundaries, so the division may take in parts of nearby areas. North Hollywood is a separate division (area 15, 821 cases) and isn't included. The portal has no checked place field, so I took this value from the dataset itself rather than a reviewed list.\n- **Dates:** I counted by date reported (`date_rptd`), from Sept 1 up to but not including Oct 1, 2026. The timestamps have no stated timezone, so I treated them as Los Angeles local time. The data runs to Oct 12, so September should be complete, but late reports could still raise the count a little.\n- **Cases vs. offenses:** each row appears to be one offense, and one case can include several. That's why I gave both counts: 920 distinct case numbers and 1,004 offense rows. The dataset doesn't document what a row is, so treat that reading as unconfirmed.\n\nFor context, Hollywood's 920 cases put it among the busier divisions that month. Central had the most, with 1,453.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run3",
+          "source": "evals/results/2026-10-18-m2-run3/28-generic-text-place.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Los Angeles"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.lacity.org",
+                "query": "crime data"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "area_name",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "date_rptd >= '2026-09-01T00:00:00' AND date_rptd < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "area_name"
+                ],
+                "order_by": [
+                  "offenses DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "date_trunc_ym(date_rptd) AS m",
+                  "count(*) AS offenses"
+                ],
+                "where": "date_rptd >= '2026-05-01T00:00:00' AND area_name = 'Hollywood'",
+                "group_by": [
+                  "m"
+                ],
+                "order_by": [
+                  "m"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.lacity.org",
+                "dataset_id": "k7nn-b2ep",
+                "select": [
+                  "date_trunc_ym(date_rptd) AS m",
+                  "count(*) AS offenses",
+                  "count(distinct caseno) AS cases"
+                ],
+                "where": "date_rptd >= '2026-05-01T00:00:00' AND area_name = 'Hollywood           '",
+                "group_by": [
+                  "m"
+                ],
+                "order_by": [
+                  "m"
+                ]
+              }
+            }
+          ],
+          "final_answer": "In September 2026, LAPD's **Hollywood Area** had **920 reported crime cases**, which together include **1,004 offenses**. Each case can list more than one offense.\n\n**What I counted**\n- **Source:** the LAPD NIBRS Offenses dataset on data.lacity.org (`k7nn-b2ep`). It has data through Oct 12, 2026.\n- **Dates:** reports dated Sept 1 through Sept 30, 2026, using the date each crime was reported. The dataset doesn't say what time zone its dates use, so I'm assuming LA local time.\n- **What a row is:** the portal doesn't confirm this. Each row appears to be one offense within a case: the row ID combines the case number, the offense code and a sequence number. So 1,004 is the offense count, and 920 is the number of distinct case numbers.\n\n**Things to keep in mind**\n- **Hollywood here is a police area, not the neighborhood.** I filtered on the dataset's `area_name` column, which holds LAPD's 21 geographic areas. The Hollywood Area is a police division. It covers more than the Hollywood neighborhood, including parts of nearby places like Los Feliz and West Hollywood-adjacent areas. The portal hasn't reviewed this column as a place field, so treat the area match as unverified. North Hollywood is a separate area (\"N Hollywood\", 821 cases) and isn't included.\n- **The number looks stable.** Monthly Hollywood counts from May to September 2026 were steady at about 910–960 cases. September doesn't look like it's still missing reports, but late reports could still change it a little.\n- **Area values have trailing spaces.** My first filter on `'Hollywood'` returned nothing, because the values are stored as `'Hollywood           '`. The figures above use the exact stored value, and they match the citywide breakdown by area.\n\nIf you want the neighborhood itself rather than the police area, I can filter by latitude/longitude using a boundary you give me.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    },
+    {
+      "task_id": "29-multi-zone",
+      "runs": [
+        {
+          "run": "run1",
+          "source": "evals/results/2026-10-18-m2/29-multi-zone.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Texas"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.texas.gov",
+                "query": "TABC license"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "kguh-7q9z",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-09-01T00:00:00' AND original_issue_date < '2026-10-01T00:00:00'"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "state",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-09-01T00:00:00' AND original_issue_date < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "state"
+                ],
+                "order_by": [
+                  "n DESC"
+                ],
+                "page_size": 20
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "date_trunc_ym(original_issue_date) AS m",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-05-01T00:00:00'",
+                "group_by": [
+                  "m"
+                ],
+                "order_by": [
+                  "m"
+                ]
+              }
+            }
+          ],
+          "final_answer": "**912 new TABC licenses were issued in September 2026**, counted by original issue date between 2026-09-01 and 2026-09-30.\n\nThis comes from the **TABC License Information** dataset on data.texas.gov (`7hf9-qc9f`, updated 2026-10-16). I counted rows whose `original_issue_date` falls in that range. I used `original_issue_date` rather than `current_issued_date` so that renewals and reissues aren't counted as new.\n\n**Where the licensed locations are:** TABC licenses some businesses outside Texas, mostly out-of-state and foreign manufacturers and importers. If you only want locations inside Texas:\n- **856** of the 912 list `state = TX`.\n- The other 56 are spread out: California has 16, then a long tail of other states and foreign places such as Alberta, Gironde and Marsala.\n- The `state` field is free text and hasn't been reviewed, so this split is unverified. Some foreign rows have a city or region in that field instead of a state code.\n\n**How September compares:** it was the highest month since at least May.\n\n| Month (2026) | New licenses |\n|---|---|\n| May | 758 |\n| Jun | 816 |\n| Jul | 837 |\n| Aug | 725 |\n| **Sep** | **912** |\n| Oct (through the 16th) | 451 |\n\n**Limits on these numbers:**\n- **What one row means isn't confirmed.** I've assumed each row is one license, which matches the `license_id` column's description, but the portal doesn't document it.\n- **Timezone:** the dates are date-only values with no timezone given. The tool reported no single local \"now\" for Texas because the state spans two time zones, so I took \"last month\" as September 2026 from today's date, 2026-10-18.\n- **The dataset is a current snapshot, not an issuance log.** A license issued in September and later removed may not be listed anymore, so 912 could be slightly low. TABC's own reports would be the authoritative count.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run2",
+          "source": "evals/results/2026-10-18-m2-run2/29-multi-zone.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Texas",
+                "level": "state"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.texas.gov",
+                "query": "TABC license",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "detail": "full",
+                "sample_rows": 2
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "state = 'TX' AS in_tx",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-09-01T00:00:00' AND original_issue_date < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "in_tx"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "date_trunc_ym(original_issue_date) AS month",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-05-01T00:00:00'",
+                "group_by": [
+                  "month"
+                ],
+                "order_by": [
+                  "month"
+                ]
+              }
+            }
+          ],
+          "final_answer": "**912 new primary TABC licenses were issued in September 2026.** I took \"last month\" as September 1–30, 2026, because today is October 18, 2026.\n\n| | Count |\n|---|---|\n| Location in Texas (`state = 'TX'`) | 856 |\n| Location outside Texas (e.g., out-of-state manufacturers) | 56 |\n| **Total** | **912** |\n\n**How I counted:** The data comes from TABC License Information (`7hf9-qc9f`) on data.texas.gov. I counted licenses whose `original_issue_date` falls in September. I used that column instead of `current_issued_date` because the current date also changes when a license is renewed, so it would count renewals as new licenses.\n\nFor comparison, recent months were:\n\n| Month (2026) | Count |\n|---|---|\n| May | 758 |\n| June | 816 |\n| July | 837 |\n| August | 725 |\n| September | 912 |\n\n**Caveats:**\n- **What it covers:** Only the 28 primary license types are included. Subordinate certificates and permits (like Late Hours or Food & Beverage) are left out.\n- **Snapshot:** The dataset shows licenses as they stand today, so any license issued in September and later deleted might not appear.\n- **Unverified details:** The server hasn't reviewed what one row stands for or what timezone the dates use. It doesn't matter much here because `original_issue_date` is date-only.",
+          "result_subtype": "success",
+          "is_error": false
+        },
+        {
+          "run": "run3",
+          "source": "evals/results/2026-10-18-m2-run3/29-multi-zone.transcript.jsonl",
+          "mcp_servers": [
+            "opendata-atlas"
+          ],
+          "tool_calls": [
+            {
+              "tool": "mcp__opendata-atlas__atlas_find_portals",
+              "input": {
+                "query": "Texas"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_search_datasets",
+              "input": {
+                "portal": "data.texas.gov",
+                "query": "TABC license"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_describe_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "kguh-7q9z",
+                "detail": "full"
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "tier",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-09-01T00:00:00' AND original_issue_date < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "tier"
+                ],
+                "order_by": [
+                  "n DESC"
+                ]
+              }
+            },
+            {
+              "tool": "mcp__opendata-atlas__atlas_query_dataset",
+              "input": {
+                "portal": "data.texas.gov",
+                "dataset_id": "7hf9-qc9f",
+                "select": [
+                  "state = 'TX' AS in_tx",
+                  "count(*) AS n"
+                ],
+                "where": "original_issue_date >= '2026-09-01T00:00:00' AND original_issue_date < '2026-10-01T00:00:00'",
+                "group_by": [
+                  "in_tx"
+                ]
+              }
+            }
+          ],
+          "final_answer": "The data shows **912 new TABC licenses** with an original issue date in September 2026. The portal didn't give a local \"today,\" so I took \"last month\" to mean 1–30 September 2026.\n\n**By industry tier:**\n\n| Tier | New licenses |\n|---|---|\n| Retail | 831 |\n| Manufacturing | 60 |\n| Other | 19 |\n| Distribution | 2 |\n| **Total** | **912** |\n\n**By location:** 856 of the licensed businesses have a Texas address. The other 56 are outside Texas, mostly out-of-state producers and shippers that need a TABC license to sell into Texas. If you only want businesses physically in Texas, the answer is **856**.\n\n**Things to know about this number:**\n- **Source:** \"TABC License Information\" on data.texas.gov (dataset `7hf9-qc9f`, last updated 16 Oct 2026). I counted licenses whose `original_issue_date` falls in September. Renewals were left out because they only change `current_issued_date`.\n- **Current-state list:** The dataset is a snapshot of license records as they stand now, not a log of when each license was issued. A license issued in September and later deleted from the records won't be counted, so the true figure could be a little higher.\n- **Not verified:** The portal doesn't confirm that each row is exactly one license or what timezone the dates use. Because these are plain calendar dates, the timezone shouldn't change the monthly total.",
+          "result_subtype": "success",
+          "is_error": false
+        }
+      ]
+    }
+  ]
+}

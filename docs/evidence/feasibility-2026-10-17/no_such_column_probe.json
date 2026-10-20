@@ -1,0 +1,134 @@
+{
+  "data.lacity.org": {
+    "dataset_id": "k5qd-jg2c",
+    "engine_outcome": "soql_syntax_error",
+    "engine_requests": [
+      {
+        "url": "https://data.lacity.org/api/views/k5qd-jg2c.json",
+        "status": 200,
+        "body": "{\n  \"id\" : \"k5qd-jg2c\",\n  \"name\" : \"Electrical Permits\",\n  \"assetType\" : \"filter\",\n  \"attribution\" : \"LADBS\",\n  \"attributionLink\" : \"https://creativecommons.org/licenses/by/4.0/\",\n  \"averageRating\" : 0,\n  \"category\" : \"A Prosperous City\",\n  \"createdAt\" : 1448396407,\n  \"description\" : \"The Department of Building and Safety issues permits for the construction, remodeling, and repair of buildings and",
+        "errorCode": null
+      },
+      {
+        "url": "https://data.lacity.org/resource/k5qd-jg2c.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=6",
+        "status": 400,
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}",
+        "errorCode": "query.soql.invalid"
+      }
+    ],
+    "probes": {
+      "select_bad_only": {
+        "url": "https://data.lacity.org/resource/k5qd-jg2c.json?%24select=no_such_column_xyz&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"foxtrot.7932\"}}"
+      },
+      "select_bad_plus_id": {
+        "url": "https://data.lacity.org/resource/k5qd-jg2c.json?%24select=no_such_column_xyz%2C+%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"foxtrot.7932\"}}"
+      },
+      "order_id_only": {
+        "url": "https://data.lacity.org/resource/k5qd-jg2c.json?%24select=no_such_column_xyz&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      },
+      "select_and_order_id": {
+        "url": "https://data.lacity.org/resource/k5qd-jg2c.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      }
+    }
+  },
+  "data.wa.gov": {
+    "dataset_id": "yccr-zbpr",
+    "engine_outcome": "soql_syntax_error",
+    "engine_requests": [
+      {
+        "url": "https://data.wa.gov/api/views/yccr-zbpr.json",
+        "status": 200,
+        "body": "{\n  \"id\" : \"yccr-zbpr\",\n  \"name\" : \"Permit Timeliness - Permit Application Processing Times (Washington State)\",\n  \"assetType\" : \"filter\",\n  \"attribution\" : \"Governor's Office for Regulatory Innovation and Assistance (ORIA) (Washington State)\",\n  \"attributionLink\" : \"https://www.oria.wa.gov/site/alias__oria/696/permit-timeliness.aspx\",\n  \"averageRating\" : 0,\n  \"category\" : \"Performance Measures\",\n",
+        "errorCode": null
+      },
+      {
+        "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=6",
+        "status": 400,
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}",
+        "errorCode": "query.soql.invalid"
+      }
+    ],
+    "probes": {
+      "select_bad_only": {
+        "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=no_such_column_xyz&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"foxtrot.48943\"}}"
+      },
+      "select_bad_plus_id": {
+        "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=no_such_column_xyz%2C+%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"foxtrot.48943\"}}"
+      },
+      "order_id_only": {
+        "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=no_such_column_xyz&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      },
+      "select_and_order_id": {
+        "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      }
+    }
+  },
+  "data.sf.gov": {
+    "dataset_id": "i98e-djp9",
+    "engine_outcome": "soql_syntax_error",
+    "engine_requests": [
+      {
+        "url": "https://data.sf.gov/api/views/i98e-djp9.json",
+        "status": 200,
+        "body": "{\n  \"id\" : \"i98e-djp9\",\n  \"name\" : \"Building Permits\",\n  \"assetType\" : \"filter\",\n  \"averageRating\" : 0,\n  \"category\" : \"Housing and Buildings\",\n  \"createdAt\" : 1738013735,\n  \"description\" : \"<strong>Note: Starting on 12/10/2024 this dataset will only publish new records (rows) that are added and update any existing records that have updated information. New and updated records can be identified by",
+        "errorCode": null
+      },
+      {
+        "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=6",
+        "status": 400,
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}",
+        "errorCode": "query.soql.invalid"
+      }
+    ],
+    "probes": {
+      "select_bad_only": {
+        "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=no_such_column_xyz&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"india.16444\"}}"
+      },
+      "select_bad_plus_id": {
+        "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=no_such_column_xyz%2C+%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.no-such-column",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.no-such-column\",\"data\":{\"column\":\"no_such_column_xyz\",\"dataset\":\"india.16444\"}}"
+      },
+      "order_id_only": {
+        "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=no_such_column_xyz&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      },
+      "select_and_order_id": {
+        "url": "https://data.sf.gov/resource/i98e-djp9.json?%24select=no_such_column_xyz%2C+%3Aid&%24order=%3Aid&%24limit=5",
+        "status": 400,
+        "errorCode": "query.soql.invalid",
+        "body": "{\"message\":\"Invalid SoQL query\",\"errorCode\":\"query.soql.invalid\",\"data\":{}}"
+      }
+    }
+  }
+}

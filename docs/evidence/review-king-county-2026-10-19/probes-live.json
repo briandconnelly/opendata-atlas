@@ -1,0 +1,493 @@
+{
+ "01 Sept rows/bookings": {
+  "isError": false,
+  "rows": [
+   {
+    "rows": "2888",
+    "bookings": "1388"
+   }
+  ],
+  "error": null
+ },
+ "all rows/bookings, min/max booking, max release": {
+  "isError": false,
+  "rows": [
+   {
+    "rows": "39852",
+    "bookings": "17897",
+    "bmin": "2025-10-01T00:08:07.000",
+    "bmax": "2026-09-30T23:52:04.000",
+    "rmax": "2026-10-01T06:37:03.000"
+   }
+  ],
+  "error": null
+ },
+ "02 no release: rows/bookings": {
+  "isError": false,
+  "rows": [
+   {
+    "rows": "6219",
+    "bookings": "1444"
+   }
+  ],
+  "error": null
+ },
+ "02 no release by facility": {
+  "isError": false,
+  "rows": [
+   {
+    "current_facility": "King County Correctional Facility",
+    "bookings": "596",
+    "rows": "2591"
+   },
+   {
+    "current_facility": "Maleng Regional Justice Center",
+    "bookings": "446",
+    "rows": "2241"
+   },
+   {
+    "current_facility": "Electronic Home Detention",
+    "bookings": "400",
+    "rows": "1383"
+   },
+   {
+    "current_facility": "Community Correction Division",
+    "bookings": "1",
+    "rows": "2"
+   },
+   {
+    "current_facility": null,
+    "bookings": "1",
+    "rows": "2"
+   }
+  ],
+  "error": null
+ },
+ "02 facility filled with release date: rows/bookings": {
+  "isError": false,
+  "rows": [
+   {
+    "rows": "2367",
+    "bookings": "905"
+   }
+  ],
+  "error": null
+ },
+ "02 facility filled: rows (8,584?)": {
+  "isError": false,
+  "rows": [
+   {
+    "rows": "8584"
+   }
+  ],
+  "error": null
+ },
+ "tz booking spring-forward": {
+  "isError": false,
+  "rows": [
+   {
+    "h": "0",
+    "n": "1"
+   },
+   {
+    "h": "1",
+    "n": "3"
+   },
+   {
+    "h": "2",
+    "n": "2"
+   },
+   {
+    "h": "4",
+    "n": "3"
+   }
+  ],
+  "error": null
+ },
+ "tz release spring-forward": {
+  "isError": false,
+  "rows": [
+   {
+    "h": "1",
+    "n": "3"
+   },
+   {
+    "h": "2",
+    "n": "13"
+   },
+   {
+    "h": "3",
+    "n": "9"
+   },
+   {
+    "h": "4",
+    "n": "2"
+   }
+  ],
+  "error": null
+ },
+ "tz booking diurnal top": {
+  "isError": false,
+  "rows": [
+   {
+    "h": "19",
+    "n": "2124"
+   },
+   {
+    "h": "6",
+    "n": "2089"
+   },
+   {
+    "h": "20",
+    "n": "1950"
+   },
+   {
+    "h": "7",
+    "n": "1945"
+   },
+   {
+    "h": "23",
+    "n": "1943"
+   },
+   {
+    "h": "18",
+    "n": "1863"
+   },
+   {
+    "h": "9",
+    "n": "1856"
+   },
+   {
+    "h": "8",
+    "n": "1842"
+   },
+   {
+    "h": "22",
+    "n": "1761"
+   },
+   {
+    "h": "5",
+    "n": "1744"
+   },
+   {
+    "h": "2",
+    "n": "1701"
+   },
+   {
+    "h": "21",
+    "n": "1695"
+   },
+   {
+    "h": "17",
+    "n": "1665"
+   },
+   {
+    "h": "1",
+    "n": "1652"
+   },
+   {
+    "h": "4",
+    "n": "1636"
+   },
+   {
+    "h": "16",
+    "n": "1630"
+   },
+   {
+    "h": "10",
+    "n": "1625"
+   },
+   {
+    "h": "0",
+    "n": "1614"
+   },
+   {
+    "h": "3",
+    "n": "1577"
+   },
+   {
+    "h": "15",
+    "n": "1453"
+   },
+   {
+    "h": "11",
+    "n": "1424"
+   },
+   {
+    "h": "12",
+    "n": "1126"
+   },
+   {
+    "h": "14",
+    "n": "1046"
+   },
+   {
+    "h": "13",
+    "n": "891"
+   }
+  ],
+  "error": null
+ },
+ "tz release diurnal top": {
+  "isError": false,
+  "rows": [
+   {
+    "h": "20",
+    "n": "4101"
+   },
+   {
+    "h": "0",
+    "n": "3223"
+   },
+   {
+    "h": "1",
+    "n": "3185"
+   },
+   {
+    "h": "2",
+    "n": "2693"
+   },
+   {
+    "h": "19",
+    "n": "2632"
+   },
+   {
+    "h": "3",
+    "n": "2257"
+   },
+   {
+    "h": "17",
+    "n": "2139"
+   },
+   {
+    "h": "16",
+    "n": "1963"
+   },
+   {
+    "h": "21",
+    "n": "1726"
+   },
+   {
+    "h": "18",
+    "n": "1615"
+   },
+   {
+    "h": "15",
+    "n": "1502"
+   },
+   {
+    "h": "23",
+    "n": "1458"
+   },
+   {
+    "h": "4",
+    "n": "1427"
+   },
+   {
+    "h": "14",
+    "n": "675"
+   },
+   {
+    "h": "7",
+    "n": "622"
+   },
+   {
+    "h": "22",
+    "n": "507"
+   },
+   {
+    "h": "8",
+    "n": "467"
+   },
+   {
+    "h": "5",
+    "n": "379"
+   },
+   {
+    "h": "6",
+    "n": "281"
+   },
+   {
+    "h": "9",
+    "n": "232"
+   },
+   {
+    "h": "10",
+    "n": "213"
+   },
+   {
+    "h": "11",
+    "n": "141"
+   },
+   {
+    "h": "12",
+    "n": "107"
+   },
+   {
+    "h": "13",
+    "n": "88"
+   }
+  ],
+  "error": null
+ },
+ "03 races like President": {
+  "isError": false,
+  "rows": [
+   {
+    "race": "President and Vice President of the United States  partisan office",
+    "n": "32487"
+   }
+  ],
+  "error": null
+ },
+ "03 LD43 president by countertype": {
+  "isError": false,
+  "rows": [
+   {
+    "countertype": "Registered Voters",
+    "party": "NP",
+    "votes": "95811"
+   },
+   {
+    "countertype": "Times Counted",
+    "party": "NP",
+    "votes": "83076"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "DPN",
+    "votes": "70768"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "RPN",
+    "votes": "8747"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "GPN",
+    "votes": "1253"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "LPN",
+    "votes": "1124"
+   },
+   {
+    "countertype": "Write-in",
+    "party": "NP",
+    "votes": "387"
+   },
+   {
+    "countertype": "Times Blank Voted",
+    "party": "NP",
+    "votes": "335"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "JPN",
+    "votes": "235"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "SPN",
+    "votes": "68"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "CPN",
+    "votes": "55"
+   },
+   {
+    "countertype": "Times Over Voted",
+    "party": "NP",
+    "votes": "53"
+   },
+   {
+    "countertype": "<candidate ticket, redacted>",
+    "party": "SWN",
+    "votes": "51"
+   }
+  ],
+  "error": null
+ },
+ "03 LD43 precincts": {
+  "isError": false,
+  "rows": [
+   {
+    "precincts": "207"
+   }
+  ],
+  "error": null
+ },
+ "03 leg null rows": {
+  "isError": false,
+  "rows": [
+   {
+    "n": "188"
+   }
+  ],
+  "error": null
+ },
+ "search jail booking": {
+  "isError": false,
+  "n": 5,
+  "titles": [
+   "Adult Jail Booking Oct 1, 2025 to Sep 2, 2026 as of Oct 2, 2026",
+   "Names, dates, charges",
+   "jail data, grouped by charge and release",
+   "dui, dwi, d.w.i., by date",
+   "jail test"
+  ],
+  "keys": [
+   "datasets",
+   "external_matches",
+   "external_search_status",
+   "has_more",
+   "match_evidence",
+   "source"
+  ]
+ },
+ "search traffic collision": {
+  "isError": false,
+  "n": 0,
+  "titles": [],
+  "keys": [
+   "datasets",
+   "external_matches",
+   "external_search_status",
+   "has_more",
+   "match_evidence",
+   "source",
+   "suggestion"
+  ]
+ },
+ "search collision": {
+  "isError": false,
+  "n": 0,
+  "titles": [],
+  "keys": [
+   "datasets",
+   "external_matches",
+   "external_search_status",
+   "has_more",
+   "match_evidence",
+   "source",
+   "suggestion"
+  ]
+ },
+ "search crash": {
+  "isError": false,
+  "n": 0,
+  "titles": [],
+  "keys": [
+   "datasets",
+   "external_matches",
+   "external_search_status",
+   "has_more",
+   "match_evidence",
+   "source",
+   "suggestion"
+  ]
+ }
+}

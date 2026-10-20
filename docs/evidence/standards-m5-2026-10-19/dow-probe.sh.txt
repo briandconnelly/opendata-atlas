@@ -1,0 +1,9 @@
+# Live probe of date_extract_dow numbering, run once on 2026-10-19 (no token).
+# Output: dow-probe.json (one row per day, 2026-10-11 Sunday to 2026-10-17 Saturday).
+curl -sS -G "https://data.seattle.gov/resource/kzjm-xkqj.json" \
+  --data-urlencode "\$select=date_trunc_ymd(datetime) AS d, date_extract_dow(datetime) AS dow, count(*) AS n" \
+  --data-urlencode "\$where=datetime between '2026-10-11T00:00:00' and '2026-10-17T23:59:59'" \
+  --data-urlencode "\$group=d, dow" \
+  --data-urlencode "\$order=d" -o dow-probe.json
+# Check: each d's calendar weekday (Python date.strftime('%A')) against dow:
+# 2026-10-11 Sunday 0, 10-12 Monday 1, ... 10-17 Saturday 6.

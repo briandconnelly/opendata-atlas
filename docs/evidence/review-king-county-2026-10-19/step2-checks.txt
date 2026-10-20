@@ -1,0 +1,54 @@
+
+## path rule
+known positive ['README.md'] -> ['README.md']
+6 paths: ['docs/decisions.md', 'evals/portals/data.kingcounty.gov.json', 'src/opendata_atlas/portals/data.kingcounty.gov/facts/j56h-zgnm.toml', 'src/opendata_atlas/portals/data.kingcounty.gov/portal.toml', 'src/opendata_atlas/portals/registry_overrides.toml', 'src/opendata_atlas/portals/validation.json']
+-> []
+
+## evidence
+known positive (Everett copy, neighborhood reason deleted) -> ['f6vp-3svh.toml:f6vp-3svh-neighborhood-place-field: reliability without reason', 'f6vp-3svh.toml:f6vp-3svh-neighborhood-place-field: interpretation without reason']
+pack -> []
+claims: [('j56h-zgnm-booking_date_time-timezone', 'column_timezone', False, None), ('j56h-zgnm-release_date_time-timezone', 'column_timezone', False, None)]
+files in pack: ['facts/j56h-zgnm.toml', 'portal.toml']
+claim_summary -> {'by_kind': {'column_timezone': 2}, 'reviewed': 0, 'with_interpretation_reason_and_probe': 0}
+
+## identity
+tier profiled | timezone America/Los_Angeles
+  name: pack='King County' override='King County' equal=True
+  aliases: pack=['king-county'] override=['king-county'] equal=True
+  place_names: pack=['King County', 'King County, WA'] override=['King County', 'King County, WA'] equal=True
+  jurisdiction: pack={'level': 'county', 'country': 'US', 'region': 'WA'} override={'level': 'county', 'country': 'US', 'region': 'WA'} equal=True
+  timezone: pack='America/Los_Angeles' override='America/Los_Angeles' equal=True
+override table gone at HEAD: True
+comment lines above [jurisdiction]: 3
+# Moved from registry_overrides.toml (entry 59). The publisher's home page,
+# https://kingcounty.gov/, titles itself "Home - King County, Washington".
+# timezone is the calendar assignment for single-zone Washington.
+base override block with comments:
+
+
+# 59. titles.json["data.kingcounty.gov"]: site_title="King County | Open Data", site_company="King County", html_title="King County | Open Data"
+# aliases and place names for curation (milestone 6)
+# source: country US, region WA: geography (the named place lies there), not the title
+["data.kingcounty.gov"]
+name = "
+
+## isolation: registry_overrides.toml
+known positive (datahub.hhs.gov changed) -> ['data.kingcounty.gov', 'datahub.hhs.gov']
+HEAD -> ['data.kingcounty.gov']
+raw diff: added 0 removed 10
+
+## isolation: validation.json
+known positive (a Seattle outcome changed) -> ['portals[data.kingcounty.gov]', 'portals[data.seattle.gov]']
+HEAD -> ['portals[data.kingcounty.gov]']
+king county entries: {"j56h-zgnm-booking_date_time-timezone": {"assertion_digest": "b2c372b7a71c", "checked_at": "2026-10-20", "outcome": "passed", "previous_outcome": null}, "j56h-zgnm-release_date_time-timezone": {"assertion_digest": "d2bc4b757fdc", "checked_at": "2026-10-20", "outcome": "passed", "previous_outcome": null}}
+
+## eval file
+covers: ['in_area', 'misleading_field', 'not_published', 'relative_date'] missing: []
+known positive ('PASS: x. FAIL: y.') has all three: False
+01-jail-bookings-last-month ['relative_date'] PASS/PARTIAL/FAIL: True
+02-still-in-custody ['misleading_field'] PASS/PARTIAL/FAIL: True
+  known positive scan of 'What is the current_facility in j56h-zgnm?' -> ['current_facility', 'facility', 'j56h-zgnm']
+  misleading_field prompt: Of the people booked into King County jail over the past year, how many are still in custody, and where are they held? | names: []
+03-ld43-2012-republican-president ['in_area'] PASS/PARTIAL/FAIL: True
+04-traffic-collisions ['not_published'] PASS/PARTIAL/FAIL: True
+reviewed datasets: [] -> rule 23 applies: False

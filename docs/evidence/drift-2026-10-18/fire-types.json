@@ -1,0 +1,192 @@
+[
+ {
+  "claim": "kzjm-xkqj-unit",
+  "dataset": "kzjm-xkqj",
+  "query": "SELECT type, count(*) AS n GROUP BY type ORDER BY n DESC LIMIT 20",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "type": "Aid Response",
+    "n": "1078085"
+   },
+   {
+    "type": "Medic Response",
+    "n": "349671"
+   },
+   {
+    "type": "Auto Fire Alarm",
+    "n": "126703"
+   },
+   {
+    "type": "Trans to AMR",
+    "n": "83163"
+   },
+   {
+    "type": "Aid Response Yellow",
+    "n": "46020"
+   },
+   {
+    "type": "Automatic Fire Alarm Resd",
+    "n": "32134"
+   },
+   {
+    "type": "Triaged Incident",
+    "n": "31821"
+   },
+   {
+    "type": "MVI - Motor Vehicle Incident",
+    "n": "30180"
+   },
+   {
+    "type": "Motor Vehicle Accident",
+    "n": "28959"
+   },
+   {
+    "type": "1RED 1 Unit",
+    "n": "25032"
+   },
+   {
+    "type": "Low Acuity Response",
+    "n": "24197"
+   },
+   {
+    "type": "Rescue Elevator",
+    "n": "23495"
+   },
+   {
+    "type": "Nurseline/AMR",
+    "n": "22258"
+   },
+   {
+    "type": "Illegal Burn",
+    "n": "21053"
+   },
+   {
+    "type": "Investigate Out Of Service",
+    "n": "20003"
+   },
+   {
+    "type": "Automatic Medical Alarm",
+    "n": "19954"
+   },
+   {
+    "type": "Medic Response, 7 per Rule",
+    "n": "17313"
+   },
+   {
+    "type": "Alarm Bell",
+    "n": "13907"
+   },
+   {
+    "type": "Rubbish Fire",
+    "n": "13345"
+   },
+   {
+    "type": "Automatic Fire Alarm False",
+    "n": "10868"
+   }
+  ],
+  "error": null
+ },
+ {
+  "claim": "kzjm-xkqj-unit",
+  "dataset": "kzjm-xkqj",
+  "query": "SELECT date_extract_y(datetime) AS y, sum(case(type IN ('Aid Response', 'Medic Response'), 1, true, 0)) AS med, count(*) AS n WHERE datetime >= '2020-01-01T00:00:00' GROUP BY y",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "y": "2026",
+    "med": "54651",
+    "n": "89972"
+   },
+   {
+    "y": "2024",
+    "med": "71102",
+    "n": "129629"
+   },
+   {
+    "y": "2025",
+    "med": "68403",
+    "n": "119299"
+   },
+   {
+    "y": "2021",
+    "med": "60760",
+    "n": "107037"
+   },
+   {
+    "y": "2022",
+    "med": "69701",
+    "n": "119931"
+   },
+   {
+    "y": "2023",
+    "med": "72812",
+    "n": "125678"
+   },
+   {
+    "y": "2020",
+    "med": "53057",
+    "n": "93495"
+   }
+  ],
+  "error": null
+ },
+ {
+  "claim": "kzjm-xkqj-unit",
+  "dataset": "kzjm-xkqj",
+  "query": "SELECT date_extract_y(datetime) AS y, sum(case(type IN ('Aid Response', 'Aid Response Yellow', 'Medic Response', 'Medic Response, 7 per Rule', 'Automatic Medical Alarm'), 1, true, 0)) AS med, count(*) AS n WHERE datetime >= '2020-01-01T00:00:00' GROUP BY y",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "y": "2026",
+    "med": "59487",
+    "n": "89973"
+   },
+   {
+    "y": "2024",
+    "med": "73513",
+    "n": "129629"
+   },
+   {
+    "y": "2025",
+    "med": "74316",
+    "n": "119299"
+   },
+   {
+    "y": "2021",
+    "med": "61644",
+    "n": "107037"
+   },
+   {
+    "y": "2022",
+    "med": "70784",
+    "n": "119931"
+   },
+   {
+    "y": "2023",
+    "med": "73855",
+    "n": "125678"
+   },
+   {
+    "y": "2020",
+    "med": "55548",
+    "n": "93495"
+   }
+  ],
+  "error": null
+ },
+ {
+  "claim": "kzjm-xkqj-unit",
+  "dataset": "kzjm-xkqj",
+  "query": "SELECT sum(case(type IN ('Aid Response', 'Aid Response Yellow', 'Medic Response', 'Medic Response, 7 per Rule', 'Automatic Medical Alarm'), 1, true, 0)) AS med, count(*) AS n",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "med": "1511044",
+    "n": "2216831"
+   }
+  ],
+  "error": null
+ }
+]

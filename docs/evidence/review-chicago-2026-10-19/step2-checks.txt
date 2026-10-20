@@ -1,0 +1,21 @@
+## Path rule
+known positive: ['README.md']
+changed: 15 violations: []
+
+## Evidence for every reliability (rules 1, 18)
+known positive: [('<tmp>/kp.toml', 'ijzp-q8t2-ward-place-field', 'reliability without reason')]
+files: 9 problems: []
+claim_summary: {'by_kind': {'column_timezone': 5, 'padded_values': 2, 'place_field': 39, 'placeholder_share': 8, 'region_layer': 9, 'unit_of_observation': 1}, 'reviewed': 19, 'with_interpretation_reason_and_probe': 17}
+claims setting reliability: 16
+
+## Shared-file isolation (ruling 82)
+known positive validation.json: ['portals[data.seattle.gov]']
+known positive overrides: ['datahub.hhs.gov']
+overrides: base has pack table: True head has: False violations: []
+validation.json top keys base/head: ['portals'] ['portals']
+validation.json: base has pack: False violations: []
+chicago entries in head: 62
+
+## Guide examples (summary.json)
+known positive: ['is_error: How many crimes of each type were reported in September 2026?']
+summary guide_examples problems: [] n examples: 3

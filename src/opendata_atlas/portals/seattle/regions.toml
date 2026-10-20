@@ -1,0 +1,67 @@
+# Computed-region layers seen on Seattle datasets (portal-level: any dataset may use them).
+# Converted from the fork's REGION_LAYERS; label columns and dates verified 2026-10-15.
+
+[[claim]]
+id = "region-ru88-fbhk"
+kind = "region_layer"
+scope = {layer = "ru88-fbhk"}
+interpretation = {kind = "neighborhood", label_column = "name", vintage = "SPD Micro Community Policing Plan Areas, updated 2016-03-03", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+observed_at = 2026-10-15
+note = "seattle-open-data@26c6628 constants.py REGION_LAYERS (comment: \"label columns and dates verified 2026-10-15\"): label_column `name`, vintage \"SPD Micro Community Policing Plan Areas, updated 2016-03-03\". seattle-open-data docs/upstream-facts.md@26c6628, \"Verified (milestone 2): region-layer label columns\": ru88 (MCPP) | `name`. Same file: Verified: on Fire 911, `ru88-fbhk` name like `%CAPITOL%` returns `_feature_id` 8 (CAPITOL HILL) and 44 (NORTH CAPITOL HILL). (review) Region layers were last updated in 2015\u201316."
+
+[[claim]]
+id = "region-kuhn-3gp2"
+kind = "region_layer"
+scope = {layer = "kuhn-3gp2"}
+interpretation = {kind = "beat", label_column = "name", vintage = "SPD Beats, updated 2015-07-17 (51 beats; current SPD beats differ)", reliability = "partial", reason = "2015 beat boundaries; current SPD beats differ."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+observed_at = 2026-10-15
+note = "seattle-open-data@26c6628 constants.py REGION_LAYERS (comment: \"label columns and dates verified 2026-10-15\"): label_column `name`, vintage \"SPD Beats, updated 2015-07-17 (51 beats; current SPD beats differ)\". seattle-open-data docs/upstream-facts.md@26c6628, \"Verified (milestone 2): region-layer label columns\": kuhn (beats) | `name`. Same file: (review) Region layers were last updated in 2015\u201316."
+
+[[claim]]
+id = "region-q256-3sug"
+kind = "region_layer"
+scope = {layer = "q256-3sug"}
+interpretation = {kind = "zip", label_column = "zcta5ce10", vintage = "2010 ZIP Code Tabulation Areas (national), updated 2015-02-19", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+observed_at = 2026-10-15
+note = "seattle-open-data@26c6628 constants.py REGION_LAYERS (comment: \"label columns and dates verified 2026-10-15\"): label_column `zcta5ce10`, vintage \"2010 ZIP Code Tabulation Areas (national), updated 2015-02-19\". seattle-open-data docs/upstream-facts.md@26c6628, \"Verified (milestone 2): region-layer label columns\": q256 (zips) | `zcta5ce10`. Same file: (review) `q256-3sug` holds national 2010 ZCTAs. (review) Region layers were last updated in 2015\u201316."
+
+[[claim]]
+id = "region-cyqu-gs94"
+kind = "region_layer"
+scope = {layer = "cyqu-gs94"}
+interpretation = {kind = "council_district", label_column = "c_district", vintage = "City Council Districts, updated 2015-07-20 (predates 2022 redistricting)", reliability = "unreliable", reason = "Mostly null, only districts 1-3 appear, and the boundaries predate 2022."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+observed_at = 2026-10-15
+note = "seattle-open-data@26c6628 constants.py REGION_LAYERS (comment: \"label columns and dates verified 2026-10-15\"): label_column `c_district`, vintage \"City Council Districts, updated 2015-07-20 (predates 2022 redistricting)\". seattle-open-data docs/upstream-facts.md@26c6628, \"Verified (milestone 2): region-layer label columns\": cyqu (council) | `c_district`, a number; `_feature_id` \u2260 district number. Same file: Verified: on Fire 911, the council-district layer `cyqu-gs94` is mostly null. Over all time it has district 1 = 107,991, district 2 = 57,522, district 3 = 1, null = 2,050,366; districts 4\u20137 never appear. (review) The council layer likely predates the 2022 redistricting. (review) Region layers were last updated in 2015\u201316."
+
+[[claim]]
+id = "region-2day-rhn5"
+kind = "region_layer"
+scope = {layer = "2day-rhn5"}
+interpretation = {kind = "census_tract", label_column = "name10", vintage = "2010 Census Tracts, updated 2015-05-16", reliability = "unreliable", reason = "Mostly null on Seattle datasets; 2010 tracts."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+observed_at = 2026-10-15
+note = "seattle-open-data@26c6628 constants.py REGION_LAYERS (comment: \"label columns and dates verified 2026-10-15\"): label_column `name10`, vintage \"2010 Census Tracts, updated 2015-05-16\". seattle-open-data docs/upstream-facts.md@26c6628, \"Verified (milestone 2): region-layer label columns\": 2day (tracts) | `name10`. Same file: (review) In September 2026 the MCPP, beat, and zip region layers were about 99% filled, against about 8% for the tract and council layers. (review) Region layers were last updated in 2015\u201316."

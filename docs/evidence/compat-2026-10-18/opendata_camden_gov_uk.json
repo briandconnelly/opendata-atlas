@@ -1,0 +1,3146 @@
+{
+ "portal": "opendata.camden.gov.uk",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 6
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 26,
+   "row_count": 8848
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 6,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 6
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "eqq9-intm",
+   "left_because": "empty or one page"
+  },
+  {
+   "result": 2,
+   "dataset_id": "7hiv-3r9k",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.eu.socrata.com/api/catalog/v1?domains=opendata.camden.gov.uk&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 21,
+     "searchMillis": [
+      3,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.eu.socrata.com/api/catalog/v1?domains=opendata.camden.gov.uk&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Basement applications permitted in Swiss Cottage from 01.01.2015",
+       "id": "eqq9-intm",
+       "resource_name": null,
+       "parent_fxf": [
+        "2eiu-s2cw"
+       ],
+       "description": "This dataset contains planning applications in the London Borough of Camden dating back to 01/01/2010. Planning application extents are captured against the OS MasterMap product, due to licensing restrictions with this product, this dataset is represented as point geometry, located to the nearest postcode (derived from the OS Code-Point Open product). Attribution includes application number, development address, development description, registered date, decision date and case officer.",
+       "attribution": "London Borough of Camden",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2026-10-17T01:33:32.000Z",
+       "createdAt": "2016-01-24T21:59:48.000Z",
+       "metadata_updated_at": "2025-02-03T23:28:33.000Z",
+       "data_updated_at": "2026-10-17T01:33:32.000Z",
+       "page_views": {
+        "page_views_last_week": 8,
+        "page_views_last_month": 24,
+        "page_views_total": 2262,
+        "page_views_last_week_log": 3.1699250014423126,
+        "page_views_last_month_log": 4.643856189774724,
+        "page_views_total_log": 11.144020869266893
+       },
+       "columns_name": [
+        "Development Address",
+        "Application Type",
+        "Development Description",
+        "Decision Type",
+        "Ward",
+        "Applicant Name",
+        "System Status Change Date",
+        "System Status",
+        "Earliest Decision Date",
+        "Decision Level",
+        "Registered In Last 28 Working Days",
+        "ID",
+        "Last Uploaded",
+        "Spatial Accuracy",
+        "Decision Date",
+        "Registered In Last 7 Working Days",
+        "Registered Date",
+        "Latitude",
+        "Longitude",
+        "Northing",
+        "Easting",
+        "Full Application",
+        "Comment",
+        "Responsibility Type",
+        "Socrata ID",
+        "Case Officer Team",
+        "Case Officer",
+        "Conservation Areas",
+        "Application Number"
+       ],
+       "columns_field_name": [
+        "development_address",
+        "application_type",
+        "development_description",
+        "decision_type",
+        "ward",
+        "applicant_name",
+        "system_status_change_date",
+        "system_status",
+        "earliest_decision_date",
+        "decison_level",
+        "registered_in_last_28_working_days",
+        "pk",
+        "last_uploaded",
+        "spatial_accuracy",
+        "decision_date",
+        "registered_in_last_7_working_days",
+        "registered_date",
+        "latitude",
+        "longitude",
+        "northing",
+        "easting",
+        "full_application",
+        "comment",
+        "responsibility_type",
+        "socrata_id",
+        "case_officer_team",
+        "case_officer",
+        "conservation_areas",
+        "application_number"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Calendar date",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "URL",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {
+         "view": "date_dmy",
+         "rdf": "",
+         "align": "left"
+        },
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {},
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {},
+        {
+         "align": "left"
+        }
+       ],
+       "download_count": 987,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2017-06-12T08:18:35.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "planning",
+        "applications"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Daily"
+        },
+        {
+         "key": "Publication_Spatial-Reference-System",
+         "value": "EPSG:27700"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Culture and Environment"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        },
+        {
+         "key": "OS-Licence-Detail_Licence-URL",
+         "value": "http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html"
+        },
+        {
+         "key": "OS-Licence-Detail_Licence-Type",
+         "value": "OS OpenData"
+        },
+        {
+         "key": "OS-Licence-Detail_Licence-Information",
+         "value": "Data derived from OS products which is free to use under the Open Government Licence. The following statement MUST be included when using this data: Contains OS data © Crown copyright and database right [year]"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/eqq9-intm",
+      "link": "https://opendata.camden.gov.uk/Environment/Basement-applications-permitted-in-Swiss-Cottage-f/eqq9-intm",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Parking Bays",
+       "id": "7hiv-3r9k",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This dataset contains the parking bays location in the London Borough of Camden. A parking bay consists of a number of parking spaces, therefore individual parking spaces cannot be identified in this dataset, however the attribution includes the approximate length of the parking bay in metres, and the approximate number of spaces in the parking bay. Other attribution includes restriction type, times of operation, maximum stay, tariff, road name and CPZ (Controlled Parking Zone). The Easting and Northing (and Longitude and Latitude) attributes are automatically calculated based on an arbitrary node along the polyline geometry of the parking bay; the WKT (Well Known Text) attributes can be used to redraw the full extent of each parking bay using a GIS (Geographic Information System).",
+       "attribution": "London Borough of Camden Council",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T22:01:07.000Z",
+       "createdAt": "2015-09-17T15:02:00.000Z",
+       "metadata_updated_at": "2026-10-17T22:01:04.000Z",
+       "data_updated_at": "2026-10-17T22:01:07.000Z",
+       "page_views": {
+        "page_views_last_week": 87,
+        "page_views_last_month": 354,
+        "page_views_total": 11703,
+        "page_views_last_week_log": 6.459431618637298,
+        "page_views_last_month_log": 8.471675214392045,
+        "page_views_total_log": 13.514714054138487
+       },
+       "columns_name": [
+        "Parking Bay Length Metres",
+        "Nearest Machine",
+        "Disclaimer",
+        "Easting",
+        "Northing",
+        "Longitude",
+        "Latitude",
+        "EPSG:27700 Well Known Text Geometry",
+        "EPSG:4326 Well Known Text Geometry",
+        "EPSG:27700 GeoJSON Geometry",
+        "EPSG:4326 GeoJSON Geometry",
+        "Unique Identifier",
+        "Spatial Accuracy",
+        "Last Uploaded",
+        "Location",
+        "Organisation URI",
+        "Cashless Identifier",
+        "Tariff",
+        "Maximum Stay",
+        "Times Of Operation",
+        "Parking Spaces",
+        "Restriction Type",
+        "Postcode",
+        "Controlled Parking Zone",
+        "Valid Parking Permits",
+        "Road Name"
+       ],
+       "columns_field_name": [
+        "parking_bay_length_metres",
+        "nearest_machine",
+        "disclaimer",
+        "easting",
+        "northing",
+        "longitude",
+        "latitude",
+        "epsg_27700_well_known_text_geometry",
+        "epsg_4326_well_known_text_geometry",
+        "epsg_27700_geojson_geometry",
+        "epsg_4326_geojson_geometry",
+        "unique_identifier",
+        "spatial_accuracy",
+        "last_uploaded",
+        "location",
+        "organisation_uri",
+        "cashless_identifier",
+        "tariff",
+        "maximum_stay",
+        "times_of_operation",
+        "parking_spaces",
+        "restriction_type",
+        "postcode",
+        "controlled_parking_zone",
+        "valid_parking_permits",
+        "road_name"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Point",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "The length of this parking bay, with a nominal 4 metres removed to take into account the markings each end of the bay to mark the extent. Known issues with echelon shaped parking bays",
+        "",
+        "The disclaimer for this dataset",
+        "The British National Grid (EPSG:27700) X coordinate along the line of a parking bay - not the centre of a parking bay",
+        "The British National Grid (EPSG:27700) Y coordinate along the line of a parking bay - not the centre of a parking bay",
+        "The WGS84 (EPSG:4326) X coordinate along the line of a parking bay - not the centre of a parking bay",
+        "The WGS84 (EPSG:4326) Y coordinate along the line of a parking bay - not the centre of a parking bay",
+        "The OGC (Open Geospatial Consortium) mark-up language for describing the shape of the parking bay in the British National Grid (EPSG:27700) projection",
+        "The OGC (Open Geospatial Consortium) mark-up language for describing the shape of the parking bay in the WGS84 (EPSG:4326) projection",
+        "",
+        "",
+        "The unique ID of the parking bay.",
+        "How the data is captured",
+        "The date and time when this record was uploaded to Socrata - Camden's open data platform",
+        "",
+        "",
+        "Location ID for cashless payment",
+        "The cost of parking in this parking bay",
+        "The length of time allowed in this parking bay",
+        "The days and hours the parking restriction is in operation",
+        "The number of parking spaces in this parking bay. Known issues with echelon shaped parking bays",
+        "The type of vehicle or permit accepted in this parking bay",
+        "The nearest OS Code-Point Open postcode to this parking bay",
+        "Defined geographical areas of restricted parking. Parking is restricted by appropriate orders in accordance with the signs on entry to the area",
+        "",
+        "The name of the road this parking bay is located on"
+       ],
+       "columns_format": [
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {
+         "align": "left"
+        },
+        {
+         "view": "date_dmy_time",
+         "align": "left"
+        },
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {
+         "align": "left"
+        },
+        {},
+        {
+         "align": "left"
+        }
+       ],
+       "download_count": 15445,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-10-17T14:53:00.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transport",
+       "domain_tags": [
+        "parking",
+        "permits",
+        "cpz"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Daily"
+        },
+        {
+         "key": "Publication_Spatial-Reference-System",
+         "value": "EPSG:27700"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Culture and Environment"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/7hiv-3r9k",
+      "link": "https://opendata.camden.gov.uk/Transport/Parking-Bays/7hiv-3r9k",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Forecast Model LU",
+       "id": "jhmn-jawk",
+       "resource_name": null,
+       "parent_fxf": [
+        "7hiv-3r9k"
+       ],
+       "description": "This dataset contains the parking bays location in the London Borough of Camden. A parking bay consists of a number of parking spaces, therefore individual parking spaces cannot be identified in this dataset, however the attribution includes the approximate length of the parking bay in metres, and the approximate number of spaces in the parking bay. Other attribution includes restriction type, times of operation, maximum stay, tariff, road name and CPZ (Controlled Parking Zone). The Easting and Northing (and Longitude and Latitude) attributes are automatically calculated based on an arbitrary node along the polyline geometry of the parking bay; the WKT (Well Known Text) attributes can be used to redraw the full extent of each parking bay using a GIS (Geographic Information System).",
+       "attribution": "London Borough of Camden Council",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2026-10-17T22:01:07.000Z",
+       "createdAt": "2017-05-04T08:47:32.000Z",
+       "metadata_updated_at": "2025-01-27T23:13:04.000Z",
+       "data_updated_at": "2026-10-17T22:01:07.000Z",
+       "page_views": {
+        "page_views_last_week": 21,
+        "page_views_last_month": 343,
+        "page_views_total": 3923,
+        "page_views_last_week_log": 4.459431618637297,
+        "page_views_last_month_log": 8.426264754702098,
+        "page_views_total_log": 11.938109326219239
+       },
+       "columns_name": [
+        "Nearest Machine",
+        "Tariff",
+        "Cashless Identifier"
+       ],
+       "columns_field_name": [
+        "nearest_machine",
+        "tariff",
+        "cashless_identifier"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "The cost of parking in this parking bay",
+        "Location ID for cashless payment"
+       ],
+       "columns_format": [
+        {},
+        {
+         "align": "left"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        }
+       ],
+       "download_count": 856,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-06-22T13:00:37.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transport",
+       "domain_tags": [
+        "parking",
+        "permits",
+        "cpz"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Daily"
+        },
+        {
+         "key": "Publication_Spatial-Reference-System",
+         "value": "EPSG:27700"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Culture and Environment"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/jhmn-jawk",
+      "link": "https://opendata.camden.gov.uk/Transport/Forecast-Model-LU/jhmn-jawk",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "HMO Licensing Register Map",
+       "id": "up77-qhjq",
+       "resource_name": null,
+       "parent_fxf": [
+        "x43g-c2rf"
+       ],
+       "description": "WARNING: This register is intended for the purpose of identifying licensed HMOs and management arrangements in the London Borough of Camden. It is not intended for marketing purposes and none of the individuals or organisations mentioned within this register have given their consent for such use. If you receive unsolicited direct marketing from agencies, please contact them directly and ask them to stop. \r\n\r\nThe maximum permitted number of persons has been determined following an inspection. Other background data relating to number of bedrooms, amenities etc. has been populated according to the application as submitted. This may not represent the actual number of usable bedrooms and facilities permitted under the final licence subsequently granted.",
+       "attribution": "London Borough Of Camden",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "map",
+       "updatedAt": "2026-10-17T07:35:36.000Z",
+       "createdAt": "2024-11-26T16:39:13.000Z",
+       "metadata_updated_at": "2024-11-26T16:39:20.000Z",
+       "data_updated_at": "2026-10-17T07:35:36.000Z",
+       "page_views": {
+        "page_views_last_week": 7,
+        "page_views_last_month": 57,
+        "page_views_total": 2907,
+        "page_views_last_week_log": 3.0,
+        "page_views_last_month_log": 5.857980995127572,
+        "page_views_total_log": 11.505811553919594
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_map",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2024-11-26T16:39:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Weekly"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Housing and Adult Social Care"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/up77-qhjq",
+      "link": "https://opendata.camden.gov.uk/Housing/HMO-Licensing-Register-Map/up77-qhjq",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "HMO Licensing Register",
+       "id": "x43g-c2rf",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "WARNING: This register is intended for the purpose of identifying licensed HMOs and management arrangements in the London Borough of Camden. It is not intended for marketing purposes and none of the individuals or organisations mentioned within this register have given their consent for such use. If you receive unsolicited direct marketing from agencies, please contact them directly and ask them to stop. \r\n\r\nThe maximum permitted number of persons has been determined following an inspection. Other background data relating to number of bedrooms, amenities etc. has been populated according to the application as submitted. This may not represent the actual number of usable bedrooms and facilities permitted under the final licence subsequently granted.",
+       "attribution": "London Borough Of Camden",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T07:35:36.000Z",
+       "createdAt": "2016-01-22T12:08:49.000Z",
+       "metadata_updated_at": "2026-10-17T07:35:34.000Z",
+       "data_updated_at": "2026-10-17T07:35:36.000Z",
+       "page_views": {
+        "page_views_last_week": 313,
+        "page_views_last_month": 1183,
+        "page_views_total": 97319,
+        "page_views_last_week_log": 8.294620748891626,
+        "page_views_last_month_log": 10.20945336562895,
+        "page_views_total_log": 16.57044869982579
+       },
+       "columns_name": [
+        "Type Of Licence",
+        "Number Of Shared Sinks",
+        "Name Of Person Managing",
+        "Commencement Date",
+        "Location",
+        "Easting",
+        "Number Of Self-contained Flats",
+        "Number Of Rooms",
+        "Northing",
+        "Number Of Bedrooms",
+        "End Date",
+        "Address Of Licence Holder",
+        "Longitude",
+        "Number Of Living Rooms",
+        "Status",
+        "Maximum Number Of Persons",
+        "Notice",
+        "Number Of Shared WCs",
+        "Last Uploaded",
+        "Name Of Licence Holder",
+        "Spatial Accuracy",
+        "Number Of Shared Baths",
+        "Number Of Shared Showers",
+        "Number Of Kitchens",
+        "Number Of Shared WHBs",
+        "Latitude",
+        "Storeys Of HMO",
+        "Address Of Manager",
+        "Licence Number",
+        "Number Of Non Self-contained Flats",
+        "Property Address",
+        "Duration In Years",
+        "Lower Layer Super Output Area (LSOA) 2",
+        "Ward 2",
+        "Organisation URI"
+       ],
+       "columns_field_name": [
+        "type_of_licence",
+        "number_of_shared_sinks",
+        "name_of_person_managing",
+        "commencement_date",
+        "location",
+        "easting",
+        "number_of_self_contained_flats",
+        "number_of_rooms",
+        "northing",
+        "number_of_bedrooms",
+        "end_date",
+        "address_of_licence_holder",
+        "longitude",
+        "number_of_living_rooms",
+        "status",
+        "maximum_number_of_persons",
+        "notice",
+        "number_of_shared_wcs",
+        "last_uploaded",
+        "name_of_licence_holder",
+        "spatial_accuracy",
+        "number_of_shared_baths",
+        "number_of_shared_showers",
+        "number_of_kitchens",
+        "number_of_shared_whbs",
+        "latitude",
+        "storeys_of_hmo",
+        "address_of_manager",
+        "licence_number",
+        "number_of_non_self_contained_flats",
+        "property_address",
+        "duration_in_years",
+        ":@computed_region_6i9a_26nj",
+        ":@computed_region_hxwp_gyfc",
+        "organisation_uri"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Point",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Calendar date",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "URL"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "This column was automatically created in order to record in what polygon from the dataset 'Lower Layer Super Output Area (LSOA)' (6i9a-26nj) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Ward' (hxwp-gyfc) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "view": "date_dmy_time",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 52951,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-10-03T14:59:18.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing",
+       "domain_tags": [
+        "tenant",
+        "landlord"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Weekly"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Housing and Adult Social Care"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/x43g-c2rf",
+      "link": "https://opendata.camden.gov.uk/Housing/HMO-Licensing-Register/x43g-c2rf",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "HMO Licensing Register NW6 1XL filter",
+       "id": "mzn3-cnds",
+       "resource_name": null,
+       "parent_fxf": [
+        "x43g-c2rf"
+       ],
+       "description": "WARNING: This register is intended for the purpose of identifying licensed HMOs and management arrangements in the London Borough of Camden. It is not intended for marketing purposes and none of the individuals or organisations mentioned within this register have given their consent for such use. If you receive unsolicited direct marketing from agencies, please contact them directly and ask them to stop. \r\n\r\nThe maximum permitted number of persons has been determined following an inspection. Other background data relating to number of bedrooms, amenities etc. has been populated according to the application as submitted. This may not represent the actual number of usable bedrooms and facilities permitted under the final licence subsequently granted.",
+       "attribution": "London Borough Of Camden",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2026-10-17T07:35:36.000Z",
+       "createdAt": "2022-04-20T10:56:07.000Z",
+       "metadata_updated_at": "2025-01-16T18:25:39.000Z",
+       "data_updated_at": "2026-10-17T07:35:36.000Z",
+       "page_views": {
+        "page_views_last_week": 13,
+        "page_views_last_month": 66,
+        "page_views_total": 1503,
+        "page_views_last_week_log": 3.8073549220576037,
+        "page_views_last_month_log": 6.066089190457772,
+        "page_views_total_log": 10.554588851677638
+       },
+       "columns_name": [
+        "Last Uploaded",
+        "Type Of Licence",
+        "Property Address",
+        "Easting",
+        "Status",
+        "Number Of Living Rooms",
+        "Number Of Bedrooms",
+        "Number Of Kitchens",
+        "Number Of Self-contained Flats",
+        "Number Of Non Self-contained Flats",
+        "Number Of Shared Sinks",
+        "Number Of Shared WHBs",
+        "Number Of Shared Showers",
+        "Number Of Shared WCs",
+        "Number Of Shared Baths",
+        "Northing",
+        "Longitude",
+        "Latitude",
+        "Spatial Accuracy",
+        "Organisation URI",
+        "Storeys Of HMO",
+        "Duration In Years",
+        "End Date",
+        "Commencement Date",
+        "Maximum Number Of Persons",
+        "Address Of Manager",
+        "Name Of Person Managing",
+        "Address Of Licence Holder",
+        "Name Of Licence Holder",
+        "Notice",
+        "Licence Number",
+        "Number Of Rooms"
+       ],
+       "columns_field_name": [
+        "last_uploaded",
+        "type_of_licence",
+        "property_address",
+        "easting",
+        "status",
+        "number_of_living_rooms",
+        "number_of_bedrooms",
+        "number_of_kitchens",
+        "number_of_self_contained_flats",
+        "number_of_non_self_contained_flats",
+        "number_of_shared_sinks",
+        "number_of_shared_whbs",
+        "number_of_shared_showers",
+        "number_of_shared_wcs",
+        "number_of_shared_baths",
+        "northing",
+        "longitude",
+        "latitude",
+        "spatial_accuracy",
+        "organisation_uri",
+        "storeys_of_hmo",
+        "duration_in_years",
+        "end_date",
+        "commencement_date",
+        "maximum_number_of_persons",
+        "address_of_manager",
+        "name_of_person_managing",
+        "address_of_licence_holder",
+        "name_of_licence_holder",
+        "notice",
+        "licence_number",
+        "number_of_rooms"
+       ],
+       "columns_datatype": [
+        "Calendar date",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "URL",
+        "Number",
+        "Number",
+        "Calendar date",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Number"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {
+         "view": "date_dmy_time",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        },
+        {}
+       ],
+       "download_count": 200,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2022-04-20T11:03:18.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing",
+       "domain_tags": [
+        "tenant",
+        "landlord"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Weekly"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Housing and Adult Social Care"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/mzn3-cnds",
+      "link": "https://opendata.camden.gov.uk/Housing/HMO-Licensing-Register-NW6-1XL-filter/mzn3-cnds",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "nw6 1xl",
+       "id": "9m2w-7u6z",
+       "resource_name": null,
+       "parent_fxf": [
+        "x43g-c2rf"
+       ],
+       "description": "WARNING: This register is intended for the purpose of identifying licensed HMOs and management arrangements in the London Borough of Camden. It is not intended for marketing purposes and none of the individuals or organisations mentioned within this register have given their consent for such use. If you receive unsolicited direct marketing from agencies, please contact them directly and ask them to stop. \r\n\r\nThe maximum permitted number of persons has been determined following an inspection. Other background data relating to number of bedrooms, amenities etc. has been populated according to the application as submitted. This may not represent the actual number of usable bedrooms and facilities permitted under the final licence subsequently granted.",
+       "attribution": "London Borough Of Camden",
+       "attribution_link": "http://www.camden.gov.uk",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2026-10-17T07:35:36.000Z",
+       "createdAt": "2022-04-20T11:24:07.000Z",
+       "metadata_updated_at": "2025-01-16T18:24:57.000Z",
+       "data_updated_at": "2026-10-17T07:35:36.000Z",
+       "page_views": {
+        "page_views_last_week": 4,
+        "page_views_last_month": 18,
+        "page_views_total": 800,
+        "page_views_last_week_log": 2.321928094887362,
+        "page_views_last_month_log": 4.247927513443585,
+        "page_views_total_log": 9.64565843240871
+       },
+       "columns_name": [
+        "Number Of Rooms",
+        "Organisation URI",
+        "Status",
+        "Easting",
+        "Notice",
+        "Licence Number",
+        "Type Of Licence",
+        "Property Address",
+        "Name Of Licence Holder",
+        "Address Of Licence Holder",
+        "Name Of Person Managing",
+        "Address Of Manager",
+        "Maximum Number Of Persons",
+        "Commencement Date",
+        "End Date",
+        "Duration In Years",
+        "Storeys Of HMO",
+        "Number Of Living Rooms",
+        "Number Of Bedrooms",
+        "Number Of Kitchens",
+        "Number Of Self-contained Flats",
+        "Number Of Non Self-contained Flats",
+        "Number Of Shared Sinks",
+        "Number Of Shared WHBs",
+        "Number Of Shared Showers",
+        "Number Of Shared WCs",
+        "Number Of Shared Baths",
+        "Northing",
+        "Longitude",
+        "Latitude",
+        "Spatial Accuracy",
+        "Last Uploaded"
+       ],
+       "columns_field_name": [
+        "number_of_rooms",
+        "organisation_uri",
+        "status",
+        "easting",
+        "notice",
+        "licence_number",
+        "type_of_licence",
+        "property_address",
+        "name_of_licence_holder",
+        "address_of_licence_holder",
+        "name_of_person_managing",
+        "address_of_manager",
+        "maximum_number_of_persons",
+        "commencement_date",
+        "end_date",
+        "duration_in_years",
+        "storeys_of_hmo",
+        "number_of_living_rooms",
+        "number_of_bedrooms",
+        "number_of_kitchens",
+        "number_of_self_contained_flats",
+        "number_of_non_self_contained_flats",
+        "number_of_shared_sinks",
+        "number_of_shared_whbs",
+        "number_of_shared_showers",
+        "number_of_shared_wcs",
+        "number_of_shared_baths",
+        "northing",
+        "longitude",
+        "latitude",
+        "spatial_accuracy",
+        "last_uploaded"
+       ],
+       "columns_datatype": [
+        "Number",
+        "URL",
+        "Text",
+        "Number",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Calendar date",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Calendar date"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {
+         "view": "date_dmy",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date_dmy_time",
+         "align": "left"
+        }
+       ],
+       "download_count": 144,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2022-04-20T11:25:48.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing",
+       "domain_tags": [
+        "tenant",
+        "landlord"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Publication_Dataset-Language",
+         "value": "English"
+        },
+        {
+         "key": "Publication_Frequency-of-Update",
+         "value": "Weekly"
+        },
+        {
+         "key": "Point-of-Contact_Role-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Organisation-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Address",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Directorate",
+         "value": "Housing and Adult Social Care"
+        },
+        {
+         "key": "Point-of-Contact_Postcode",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_Telephone",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Point-of-Contact_City/Town",
+         "value": "London"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "opendata.camden.gov.uk",
+       "license": "UK Open Government Licence v3"
+      },
+      "permalink": "https://opendata.camden.gov.uk/d/9m2w-7u6z",
+      "link": "https://opendata.camden.gov.uk/Housing/nw6-1xl/9m2w-7u6z",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 7,
+    "timings": {
+     "serviceMillis": 37,
+     "searchMillis": [
+      4,
+      18
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/api/views/eqq9-intm.json",
+   "status": 200,
+   "body": {
+    "id": "eqq9-intm",
+    "name": "Basement applications permitted in Swiss Cottage from 01.01.2015",
+    "assetType": "filter",
+    "attribution": "London Borough of Camden",
+    "attributionLink": "http://www.camden.gov.uk",
+    "averageRating": 0,
+    "category": "Environment",
+    "createdAt": 1453672788,
+    "description": "This dataset contains planning applications in the London Borough of Camden dating back to 01/01/2010. Planning application extents are captured against the OS MasterMap product, due to licensing restrictions with this product, this dataset is represented as point geometry, located to the nearest postcode (derived from the OS Code-Point Open product). Attribution includes application number, development address, development description, registered date, decision date and case officer.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 987,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "UK_OGLV3.0",
+    "locked": false,
+    "modifyingViewUid": "2eiu-s2cw",
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 3078056,
+    "provenance": "community",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1497255515,
+    "publicationGroup": 19355,
+    "publicationStage": "published",
+    "queryString": "SELECT `pk`, `application_number`, `development_address`, `development_description`, `decision_type`, `registered_date`, `registered_in_last_7_working_days`, `registered_in_last_28_working_days`, `earliest_decision_date`, `decision_date`, `decison_level`, `system_status`, `system_status_change_date`, `applicant_name`, `ward`, `conservation_areas`, `case_officer`, `case_officer_team`, `responsibility_type`, `comment`, `full_application`, `application_type`, `easting`, `northing`, `longitude`, `latitude`, `spatial_accuracy`, `last_uploaded`, `location`, `socrata_id` WHERE (`registered_date` > \"2015-01-01T00:00:00\") and (contains(upper(`decision_type`), \"GRANTED\")) and (contains(upper(`development_description`), \"BASEMENT\")) and (upper(`ward`) = \"SWISS COTTAGE\") ORDER BY `decision_type` DESC NULL LAST",
+    "rowsUpdatedAt": 1792200812,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 2068717,
+    "totalTimesRated": 0,
+    "viewCount": 2262,
+    "viewLastModified": 1738625313,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 27121827,
+      "name": "ID",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "pk",
+      "position": 1,
+      "renderTypeName": "number",
+      "tableColumnId": 200930,
+      "width": 50,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27121828,
+      "name": "Application Number",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "application_number",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 200913,
+      "width": 169,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121829,
+      "name": "Development Address",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "development_address",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 200914,
+      "width": 328,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121830,
+      "name": "Development Description",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "development_description",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 200915,
+      "width": 376,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121831,
+      "name": "Decision Type",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "decision_type",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 200916,
+      "width": 256,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121832,
+      "name": "Registered Date",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "registered_date",
+      "position": 6,
+      "rdfProperties": "",
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 200917,
+      "width": 280,
+      "format": {
+       "view": "date_dmy",
+       "rdf": "",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121833,
+      "name": "Registered In Last 7 Working Days",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "registered_in_last_7_working_days",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 217097,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121834,
+      "name": "Registered In Last 28 Working Days",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "registered_in_last_28_working_days",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 291124,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121835,
+      "name": "Earliest Decision Date",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "earliest_decision_date",
+      "position": 9,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 200919,
+      "width": 364,
+      "format": {
+       "view": "date_dmy",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121836,
+      "name": "Decision Date",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "decision_date",
+      "position": 10,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 200918,
+      "width": 256,
+      "format": {
+       "view": "date_dmy",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121837,
+      "name": "Decision Level",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "decison_level",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 200920,
+      "width": 256,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121838,
+      "name": "System Status",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "system_status",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 200921,
+      "width": 256,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121839,
+      "name": "System Status Change Date",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "system_status_change_date",
+      "position": 13,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 257996,
+      "width": 100,
+      "format": {
+       "view": "date_dmy",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121840,
+      "name": "Applicant Name",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "applicant_name",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 200922,
+      "width": 268,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121841,
+      "name": "Ward",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "ward",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 200923,
+      "width": 148,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121842,
+      "name": "Conservation Areas",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "conservation_areas",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 257997,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121843,
+      "name": "Case Officer",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "case_officer",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 200926,
+      "width": 244,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121844,
+      "name": "Case Officer Team",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "case_officer_team",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 200927,
+      "width": 304,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121845,
+      "name": "Responsibility Type",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "responsibility_type",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 200928,
+      "width": 316,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121846,
+      "name": "Comment",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "comment",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 200934,
+      "width": 184,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121847,
+      "name": "Full Application",
+      "dataTypeName": "url",
+      "description": "",
+      "fieldName": "full_application",
+      "position": 21,
+      "renderTypeName": "url",
+      "tableColumnId": 200931,
+      "width": 316,
+      "format": {
+       "align": "left"
+      },
+      "subColumnTypes": [
+       "url",
+       "description"
+      ]
+     },
+     {
+      "id": 27121848,
+      "name": "Application Type",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "application_type",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 200932,
+      "width": 148,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121849,
+      "name": "Easting",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "easting",
+      "position": 23,
+      "renderTypeName": "number",
+      "tableColumnId": 200924,
+      "width": 196,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27121850,
+      "name": "Northing",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "northing",
+      "position": 24,
+      "renderTypeName": "number",
+      "tableColumnId": 200925,
+      "width": 208,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27121851,
+      "name": "Longitude",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "longitude",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 217095,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121852,
+      "name": "Latitude",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "latitude",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 217096,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121853,
+      "name": "Spatial Accuracy",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "spatial_accuracy",
+      "position": 27,
+      "renderTypeName": "text",
+      "tableColumnId": 217088,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27121854,
+      "name": "Last Uploaded",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "last_uploaded",
+      "position": 28,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 217089,
+      "width": 100,
+      "format": {
+       "view": "date_dmy",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27121856,
+      "name": "Socrata ID",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "socrata_id",
+      "position": 30,
+      "renderTypeName": "number",
+      "tableColumnId": 217090,
+      "width": 100,
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "UK Open Government Licence v3",
+     "logoUrl": "images/licenses/ogl.png",
+     "termsLink": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "richRendererConfigs": {
+      "page": {
+       "columns": [
+        {
+         "styles": {
+          "width": "100%"
+         },
+         "rows": [
+          {
+           "fields": [
+            {
+             "tableColumnId": 200913,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200913,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200914,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200914,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200915,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200915,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200916,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200916,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200917,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200917,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200918,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200918,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200919,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200919,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200920,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200920,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200921,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200921,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200922,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200922,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200923,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200923,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200924,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200924,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200925,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200925,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200926,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200926,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200927,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200927,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200928,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200928,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200929,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200929,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200930,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200930,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200931,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200931,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200932,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200932,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200933,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200933,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200934,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200934,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 200935,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 200935,
+             "type": "columnData"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "custom_fields": {
+      "Point of Contact": "<identity redacted>",
+      "OS Licence Detail": {
+       "Licence Type": "OS OpenData",
+       "Licence Information": "Data derived from OS products which is free to use under the Open Government Licence. The following statement MUST be included when using this data: Contains OS data © Crown copyright and database right [year]",
+       "Licence URL": "http://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html"
+      },
+      "Publication": {
+       "Dataset Language": "English",
+       "Spatial Reference System": "EPSG:27700",
+       "Frequency of Update": "Daily"
+      }
+     },
+     "sidebar": {
+      "width": 300.2
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "Row",
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "planning",
+     "applications"
+    ],
+    "flags": [
+     "calculatedView",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType",
+     "soqlBasedView"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/resource/eqq9-intm.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "0"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/resource/eqq9-intm.json?%24select=min%28registered_date%29+AS+lo%2C+max%28registered_date%29+AS+hi",
+   "status": 200,
+   "body": [
+    {}
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://opendata.camden.gov.uk/resource/eqq9-intm.json?%24select=pk%2C+application_number%2C+development_address%2C+development_description%2C+decision_type%2C+registered_date%2C+registered_in_last_7_working_days%2C+registered_in_last_28_working_days%2C+earliest_decision_date%2C+decision_date%2C+decison_level%2C+system_status%2C+system_status_change_date%2C+applicant_name%2C+ward%2C+conservation_areas%2C+case_officer%2C+case_officer_team%2C+responsibility_type%2C+comment%2C+full_application%2C+application_type%2C+easting%2C+northing%2C+longitude%2C+latitude%2C+spatial_accuracy%2C+last_uploaded%2C+socrata_id%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 0,
+    "keys": [],
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/api/views/7hiv-3r9k.json",
+   "status": 200,
+   "body": {
+    "id": "7hiv-3r9k",
+    "name": "Parking Bays",
+    "assetType": "dataset",
+    "attribution": "London Borough of Camden Council",
+    "attributionLink": "http://www.camden.gov.uk",
+    "averageRating": 0,
+    "category": "Transport",
+    "createdAt": 1442502120,
+    "description": "This dataset contains the parking bays location in the London Borough of Camden. A parking bay consists of a number of parking spaces, therefore individual parking spaces cannot be identified in this dataset, however the attribution includes the approximate length of the parking bay in metres, and the approximate number of spaces in the parking bay. Other attribution includes restriction type, times of operation, maximum stay, tariff, road name and CPZ (Controlled Parking Zone). The Easting and Northing (and Longitude and Latitude) attributes are automatically calculated based on an arbitrary node along the polyline geometry of the parking bay; the WKT (Well Known Text) attributes can be used to redraw the full extent of each parking bay using a GIS (Geographic Information System).",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 15445,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "UK_OGLV3.0",
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 3069043,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1760712780,
+    "publicationGroup": 25867,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1792274467,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 2061889,
+    "totalTimesRated": 0,
+    "viewCount": 11703,
+    "viewLastModified": 1792274464,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 27078540,
+      "name": "Restriction Type",
+      "dataTypeName": "text",
+      "description": "The type of vehicle or permit accepted in this parking bay",
+      "fieldName": "restriction_type",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 275388,
+      "width": 184,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078541,
+      "name": "Parking Spaces",
+      "dataTypeName": "number",
+      "description": "The number of parking spaces in this parking bay. Known issues with echelon shaped parking bays",
+      "fieldName": "parking_spaces",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 275391,
+      "width": 268,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078542,
+      "name": "Times Of Operation",
+      "dataTypeName": "text",
+      "description": "The days and hours the parking restriction is in operation",
+      "fieldName": "times_of_operation",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 275393,
+      "width": 316,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078543,
+      "name": "Maximum Stay",
+      "dataTypeName": "text",
+      "description": "The length of time allowed in this parking bay",
+      "fieldName": "maximum_stay",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 275394,
+      "width": 244,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078544,
+      "name": "Tariff",
+      "dataTypeName": "text",
+      "description": "The cost of parking in this parking bay",
+      "fieldName": "tariff",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 275395,
+      "width": 172,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078545,
+      "name": "Cashless Identifier",
+      "dataTypeName": "text",
+      "description": "Location ID for cashless payment",
+      "fieldName": "cashless_identifier",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 275396,
+      "width": 328,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078546,
+      "name": "Nearest Machine",
+      "dataTypeName": "text",
+      "fieldName": "nearest_machine",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 491016,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27078547,
+      "name": "Road Name",
+      "dataTypeName": "text",
+      "description": "The name of the road this parking bay is located on",
+      "fieldName": "road_name",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 275397,
+      "width": 208,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078548,
+      "name": "Postcode",
+      "dataTypeName": "text",
+      "description": "The nearest OS Code-Point Open postcode to this parking bay",
+      "fieldName": "postcode",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 318330,
+      "width": 100,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078549,
+      "name": "Controlled Parking Zone",
+      "dataTypeName": "text",
+      "description": "Defined geographical areas of restricted parking. Parking is restricted by appropriate orders in accordance with the signs on entry to the area",
+      "fieldName": "controlled_parking_zone",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 275398,
+      "width": 376,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078550,
+      "name": "Valid Parking Permits",
+      "dataTypeName": "text",
+      "fieldName": "valid_parking_permits",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 275400,
+      "width": 352,
+      "format": {}
+     },
+     {
+      "id": 27078551,
+      "name": "Parking Bay Length Metres",
+      "dataTypeName": "number",
+      "description": "The length of this parking bay, with a nominal 4 metres removed to take into account the markings each end of the bay to mark the extent. Known issues with echelon shaped parking bays",
+      "fieldName": "parking_bay_length_metres",
+      "position": 12,
+      "renderTypeName": "number",
+      "tableColumnId": 275403,
+      "width": 316,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078552,
+      "name": "Disclaimer",
+      "dataTypeName": "text",
+      "description": "The disclaimer for this dataset",
+      "fieldName": "disclaimer",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 362410,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27078553,
+      "name": "Easting",
+      "dataTypeName": "number",
+      "description": "The British National Grid (EPSG:27700) X coordinate along the line of a parking bay - not the centre of a parking bay",
+      "fieldName": "easting",
+      "position": 14,
+      "renderTypeName": "number",
+      "tableColumnId": 275401,
+      "width": 184,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078554,
+      "name": "Northing",
+      "dataTypeName": "number",
+      "description": "The British National Grid (EPSG:27700) Y coordinate along the line of a parking bay - not the centre of a parking bay",
+      "fieldName": "northing",
+      "position": 15,
+      "renderTypeName": "number",
+      "tableColumnId": 275402,
+      "width": 196,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078555,
+      "name": "Longitude",
+      "dataTypeName": "number",
+      "description": "The WGS84 (EPSG:4326) X coordinate along the line of a parking bay - not the centre of a parking bay",
+      "fieldName": "longitude",
+      "position": 16,
+      "renderTypeName": "number",
+      "tableColumnId": 275410,
+      "width": 208,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078556,
+      "name": "Latitude",
+      "dataTypeName": "number",
+      "description": "The WGS84 (EPSG:4326) Y coordinate along the line of a parking bay - not the centre of a parking bay",
+      "fieldName": "latitude",
+      "position": 17,
+      "renderTypeName": "number",
+      "tableColumnId": 275411,
+      "width": 196,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 27078557,
+      "name": "EPSG:27700 Well Known Text Geometry",
+      "dataTypeName": "text",
+      "description": "The OGC (Open Geospatial Consortium) mark-up language for describing the shape of the parking bay in the British National Grid (EPSG:27700) projection",
+      "fieldName": "epsg_27700_well_known_text_geometry",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 275404,
+      "width": 520,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078558,
+      "name": "EPSG:4326 Well Known Text Geometry",
+      "dataTypeName": "text",
+      "description": "The OGC (Open Geospatial Consortium) mark-up language for describing the shape of the parking bay in the WGS84 (EPSG:4326) projection",
+      "fieldName": "epsg_4326_well_known_text_geometry",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 275405,
+      "width": 508,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078559,
+      "name": "EPSG:27700 GeoJSON Geometry",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "epsg_27700_geojson_geometry",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 14991751,
+      "format": {}
+     },
+     {
+      "id": 27078560,
+      "name": "EPSG:4326 GeoJSON Geometry",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "epsg_4326_geojson_geometry",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 14991752,
+      "format": {}
+     },
+     {
+      "id": 27078561,
+      "name": "Unique Identifier",
+      "dataTypeName": "number",
+      "description": "The unique ID of the parking bay.",
+      "fieldName": "unique_identifier",
+      "position": 22,
+      "renderTypeName": "number",
+      "tableColumnId": 375406,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 27078562,
+      "name": "Spatial Accuracy",
+      "dataTypeName": "text",
+      "description": "How the data is captured",
+      "fieldName": "spatial_accuracy",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 275408,
+      "width": 292,
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078563,
+      "name": "Last Uploaded",
+      "dataTypeName": "calendar_date",
+      "description": "The date and time when this record was uploaded to Socrata - Camden's open data platform",
+      "fieldName": "last_uploaded",
+      "position": 24,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 275407,
+      "width": 256,
+      "format": {
+       "view": "date_dmy_time",
+       "align": "left"
+      }
+     },
+     {
+      "id": 27078564,
+      "name": "Location",
+      "dataTypeName": "point",
+      "description": "",
+      "fieldName": "location",
+      "position": 25,
+      "renderTypeName": "point",
+      "tableColumnId": 16354168,
+      "format": {}
+     },
+     {
+      "id": 27078566,
+      "name": "Organisation URI",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "organisation_uri",
+      "position": 26,
+      "renderTypeName": "text",
+      "tableColumnId": 16354195,
+      "width": 100,
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "UK Open Government Licence v3",
+     "logoUrl": "images/licenses/ogl.png",
+     "termsLink": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "custom_fields": {
+      "Point of Contact": "<identity redacted>",
+      "Publication": {
+       "Dataset Language": "English",
+       "Spatial Reference System": "EPSG:27700",
+       "Frequency of Update": "Daily"
+      }
+     },
+     "rowLabel": "Row",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "parking",
+     "permits",
+     "cpz"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/resource/7hiv-3r9k.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "8848"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://opendata.camden.gov.uk/resource/7hiv-3r9k.json?%24select=min%28last_uploaded%29+AS+lo%2C+max%28last_uploaded%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2026-10-17T23:00:35.000",
+     "hi": "2026-10-17T23:00:37.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://opendata.camden.gov.uk/resource/7hiv-3r9k.json?%24select=restriction_type%2C+parking_spaces%2C+times_of_operation%2C+maximum_stay%2C+tariff%2C+cashless_identifier%2C+nearest_machine%2C+road_name%2C+postcode%2C+controlled_parking_zone%2C+valid_parking_permits%2C+parking_bay_length_metres%2C+disclaimer%2C+easting%2C+northing%2C+longitude%2C+latitude%2C+epsg_27700_well_known_text_geometry%2C+epsg_4326_well_known_text_geometry%2C+epsg_27700_geojson_geometry%2C+epsg_4326_geojson_geometry%2C+unique_identifier%2C+spatial_accuracy%2C+last_uploaded%2C+location%2C+organisation_uri%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "cashless_identifier",
+     "controlled_parking_zone",
+     "disclaimer",
+     "easting",
+     "epsg_27700_geojson_geometry",
+     "epsg_27700_well_known_text_geometry",
+     "epsg_4326_geojson_geometry",
+     "epsg_4326_well_known_text_geometry",
+     "last_uploaded",
+     "latitude",
+     "location",
+     "longitude",
+     "maximum_stay",
+     "nearest_machine",
+     "northing",
+     "organisation_uri",
+     "parking_bay_length_metres",
+     "parking_spaces",
+     "postcode",
+     "restriction_type",
+     "road_name",
+     "spatial_accuracy",
+     "tariff",
+     "times_of_operation",
+     "unique_identifier",
+     "valid_parking_permits"
+    ],
+    "sha256": "33820c7a21b8e309a5dd36630ffef5796d3bdf95a39495e653fdf975f9afe1ea"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://opendata.camden.gov.uk/resource/7hiv-3r9k.json?%24select=restriction_type%2C+parking_spaces%2C+times_of_operation%2C+maximum_stay%2C+tariff%2C+cashless_identifier%2C+nearest_machine%2C+road_name%2C+postcode%2C+controlled_parking_zone%2C+valid_parking_permits%2C+parking_bay_length_metres%2C+disclaimer%2C+easting%2C+northing%2C+longitude%2C+latitude%2C+epsg_27700_well_known_text_geometry%2C+epsg_4326_well_known_text_geometry%2C+epsg_27700_geojson_geometry%2C+epsg_4326_geojson_geometry%2C+unique_identifier%2C+spatial_accuracy%2C+last_uploaded%2C+location%2C+organisation_uri%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-zitc-5mia~ydww%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "cashless_identifier",
+     "controlled_parking_zone",
+     "disclaimer",
+     "easting",
+     "epsg_27700_geojson_geometry",
+     "epsg_27700_well_known_text_geometry",
+     "epsg_4326_geojson_geometry",
+     "epsg_4326_well_known_text_geometry",
+     "last_uploaded",
+     "latitude",
+     "location",
+     "longitude",
+     "maximum_stay",
+     "nearest_machine",
+     "northing",
+     "organisation_uri",
+     "parking_bay_length_metres",
+     "parking_spaces",
+     "postcode",
+     "restriction_type",
+     "road_name",
+     "spatial_accuracy",
+     "tariff",
+     "times_of_operation",
+     "unique_identifier",
+     "valid_parking_permits"
+    ],
+    "sha256": "e11c28d413f3bf32569c33ae4440d5c21291c50556084ef9d1b48d6c93549654"
+   }
+  }
+ ]
+}

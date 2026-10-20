@@ -1,0 +1,8 @@
+$ uv run python repro.py <worktree> <temp tree with portals/data.everettwa.gov/portal.toml from curate/everett-run1>
+pack dir with portal.toml in temp tree: ['data.everettwa.gov']
+old REQUIRED lists it: False
+
+# after the fix, same temp tree
+pack dir with portal.toml in temp tree: ['data.everettwa.gov']
+old REQUIRED lists it: False
+required_files(tree) lists it: True

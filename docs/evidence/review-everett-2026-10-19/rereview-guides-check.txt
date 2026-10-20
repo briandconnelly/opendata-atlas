@@ -1,0 +1,4 @@
+known positive (one is_error: true) -> ['police-incidents: What were the most common incident types in September 2026?: is_error']
+summary.json -> [] 2 examples
+live: What were the most common incident types in September 2026? isError False rows 10 [{'incidenttype': 'TRAFFIC', 'incidents': '2065'}, {'incidenttype': 'SUSPICIOUS EVENT', 'incidents': '960'}, {'incidenttype': 'FOLLOW-UP', 'incidents': '739'}]
+live: How many incidents were there in each neighborhood in September 2026? isError False rows 19 [{'neighborhood': 'PORT GARDNER', 'incidents': '1640'}, {'neighborhood': 'DELTA', 'incidents': '775'}, {'neighborhood': 'BAYSIDE', 'incidents': '679'}]

@@ -1,0 +1,11 @@
+# Probe: time one describe-shaped value grouping on one column, alone. Usage: python group_timing.py HOST DATASET COLUMN OUT
+import json, sys, time, httpx
+host, ds, col, out = sys.argv[1:5]
+params = {"$select": f"{col} AS v, count(*) AS n", "$group": col, "$order": "n DESC", "$limit": "101"}
+t0 = time.monotonic()
+r = httpx.get(f"https://{host}/resource/{ds}.json", params=params, timeout=120)
+dt = time.monotonic() - t0
+body = r.json() if r.status_code == 200 else r.text[:500]
+rec = {"url": str(r.request.url), "status": r.status_code, "seconds": round(dt, 2),
+       "groups": len(body) if isinstance(body, list) else None, "first": body[:3] if isinstance(body, list) else body}
+open(out, "w").write(json.dumps(rec, indent=1) + "\n"); print(json.dumps(rec))

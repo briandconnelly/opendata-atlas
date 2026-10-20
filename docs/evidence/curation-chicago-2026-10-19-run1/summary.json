@@ -1,0 +1,132 @@
+{
+ "portal": "data.cityofchicago.org",
+ "branch": "curate/test-2026-10-19",
+ "base": "064d8199fed55c37dcd6d50689562fc446bfb657",
+ "curation": {
+  "exit_code": 0,
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 105,
+  "duration_ms": 2103136,
+  "total_cost_usd": 4.281282599999999,
+  "final_message": "I've committed the Chicago knowledge pack (`5a2a9c8`, on `curate/test-2026-10-19`) as `profiled`. It passed the live drift run (62/62) and all 9 eval sessions graded PASS. One offline test now fails: it uses Chicago as its example of a portal without a pack, and the fix belongs in `tests/`, which a pack PR can't touch. Nothing was pushed and no PR was opened.\n\n**PR title**\n\n```\nfeat: add the data.cityofchicago.org knowledge pack (profiled)\n```\n\n**PR body**\n\n```markdown\n## Summary\n\nAdds the knowledge pack for **data.cityofchicago.org** (City of Chicago, alias `chicago`), produced by the curate-portal skill.\n\n- **Declared tier:** `profiled`\n- **Curated proposal:** I propose `curated`, conditional on the test-fixture fix below. The grades are my own; a reviewer other than me must re-grade the eval answers before promoting.\n\n## What the pack contains\n\n- **Identity moved into the pack.** `portal.toml` now defines the portal's identity, and its entry in `registry_overrides.toml` is deleted.\n  - `jurisdiction` (city, US, IL) and `timezone` (`America/Chicago`) came over from the registry entry; none was missing.\n  - Because the timezone was already set, the profiler emitted timezone claims on its first run, so no second timezone profile was needed.\n- **Profiler:** exit 0, 52 draft claims over 8 of the 10 most-viewed datasets.\n- **Claims deleted for personal data (step 3):** 0. The only review values were two single-space paddings on `i6bp-fvbx`.\n\n### Dataset reviewed: Crimes - 2001 to Present (`ijzp-q8t2`)\n\n`atlas_describe_dataset` reports `knowledge.level: reviewed`. The dataset has:\n\n- **Unit of observation:** one reported crime incident, one row per victim for homicides, last seven days withheld. Evidence is the publisher's description, quoted from https://data.cityofchicago.org/d/ijzp-q8t2.\n- **`date` timezone:** `America/Chicago`. No rows at 02:00 on the 2026 spring-forward day. The midnight peak is a default-time artifact: 8,333 of the 15,415 hour-0 rows are stamped exactly 00:00.\n- **Reported `ward` and `community_area` columns:** `partial`. Each is under 2% filled for 2001 and 73% for 2002, and at least 99.9% filled from 2003. `community_area` value `'0'` is declared a placeholder.\n- **Computed regions:**\n  - Current wards (`8hcu-yrd4`): `ok`, agrees with the reported ward on 97% of sampled rows.\n  - Community areas (`vrxf-vc4k`): `ok`, 98% agreement, and 99.3% / 96.6% filled for 2001 / 2002.\n  - Police districts (`d9mm-jgwp`): `ok`, 99% agreement.\n  - 2015\u20132023 wards (`43wa-7qmu`): `partial`.\n  - Police beats (`d3ds-rm58`): `partial`, 91\u201394% agreement in two sampled beats.\n- **`regions.toml`:** reviews all 9 computed-region layers seen on the portal (kind, label column, vintage, reliability), each backed by a metadata probe. The historical 2003\u20132015 wards layer (`awaf-s7ux`) is rated `unreliable`.\n- **Guide:** `guides.py` has a `crimes` guide with 3 examples. Each was run once with `atlas_query_dataset`, and all returned `\"isError\": false`.\n\nThe other 7 profiled datasets keep their claims as observations.\n\n## Checks\n\n- **11.1 Drift run** (`tests/test_drift.py -k data.cityofchicago.org`): 62 passed, exit 0.\n  - The first run had 4 failures. Three were transient `query_timeout`s that passed on rerun.\n  - The fourth was a per-year GROUP BY over 8.6M rows that timed out twice. I replaced it on both `ward` and `community_area` with single-year probes. The final two runs were 62/62.\n- **11.2 Offline suite:** 1153 passed, 1 failed. `prek run --all-files` passed every hook.\n  - The failure is `tests/test_reference_topics.py::test_portals_item_for_a_portal_without_a_pack`.\n  - It uses `item_id=\"chicago\"` as its portal without a pack and asserts tier `generic`, knowledge `none` and no guides. With this pack the output is correctly `profiled` with one guide.\n  - The test needs another registered portal that has no pack. That change is in `tests/`, outside the pack path rule, so it is not in this PR.\n  - Logged in `docs/decisions.md` (\"Test fixture assumes Chicago has no pack\").\n- **Other packs:** no claim of another pack failed a check.\n\n## Eval grades (3 runs, my own grading)\n\n| Task | covers | Run 1 | Run 2 | Run 3 |\n|---|---|---|---|---|\n| 01-hyde-park-last-month | in_area, relative_date | PASS | PASS | PASS |\n| 02-austin-2001-2003 | misleading_field | PASS | PASS | PASS |\n| 03-crimes-yesterday | not_published | PASS | PASS | PASS |\n\n- **01:** every run answered 202 (computed region `'8'`, September 2026) and cross-checked 201 against `community_area = '41'`.\n- **02:** every run reported about 29,277 \u2192 30,238 (+3%) from the computed region and avoided the near-empty reported field. Reading that field instead would have shown a false rise from 296.\n- **03:** every run said the last seven days are not published (newest `date` 2026-10-11) and gave no count for yesterday. Run 1 mislabels weekdays in a side table (it calls Oct 10, a Saturday, a Friday); that table is outside what the task grades.\n\nAll 9 transcripts end with `subtype: \"success\"`. Total eval cost: about $1.68.\n\n## Knowledge gaps and engine defects\n\nBoth are logged in `docs/decisions.md`:\n\n- **Profiler's candidate label column.** `Profiler.label_column` picks the layer's first text column. On this portal that gives `globalid` for Wards 2023- (`8hcu-yrd4`) and `statefp10` for Census Tracts (`bdys-3d7i`), which are wrong. The pack sets `ward` and `name10` by hand. Row: \"Profiler's candidate label column\".\n- **Test fixture assumes Chicago has no pack.** This causes the 11.2 failure above. Row: \"Test fixture assumes Chicago has no pack\".\n\n## Not set\n\nNothing: `jurisdiction` and `timezone` are both set.\n\n\ud83e\udd16 Generated with Claude Code\n```",
+  "transcript": "<tmp>/curation.transcript.jsonl"
+ },
+ "checks": {
+  "offline_gate": {
+   "exit_code": 0,
+   "tail": "............................................                             [100%]\n44 passed in 0.24s\n"
+  },
+  "drift": {
+   "exit_code": 0,
+   "tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.7.0\nrootdir: <tmp>/wt\nconfigfile: pyproject.toml\nplugins: cov-7.1.0, asyncio-1.4.0, platformdirs-4.13.3, anyio-4.15.1\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollected 70 items / 8 deselected / 62 selected\n\ntests/test_drift.py .................................................... [ 83%]\n..........                                                               [100%]\n\n================= 62 passed, 8 deselected in 256.10s (0:04:16) =================\n"
+  },
+  "guide_examples": {
+   "exit_code": 0,
+   "examples": [
+    {
+     "guide": "crimes",
+     "question": "How many crimes of each type were reported in September 2026?",
+     "is_error": false,
+     "code": null
+    },
+    {
+     "guide": "crimes",
+     "question": "How many crimes occurred in Hyde Park (community area feature 8) in September 2026?",
+     "is_error": false,
+     "code": null
+    },
+    {
+     "guide": "crimes",
+     "question": "How many crimes were reported in each community area in 2001 and 2002?",
+     "is_error": false,
+     "code": null
+    }
+   ],
+   "stderr_tail": ""
+  },
+  "evals": {
+   "exit_code": 0,
+   "out": "<tmp>/evals"
+  }
+ },
+ "commits": 1,
+ "changed_paths": [
+  "docs/decisions.md",
+  "evals/portals/data.cityofchicago.org.json",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/22u3-xenr.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/4ijn-s7e5.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/85ca-t3if.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/i6bp-fvbx.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/ijzp-q8t2.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/r5kz-chrr.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/s6ha-ppgi.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/facts/ydr8-5enu.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/guides.py",
+  "src/opendata_atlas/portals/data.cityofchicago.org/portal.toml",
+  "src/opendata_atlas/portals/data.cityofchicago.org/regions.toml",
+  "src/opendata_atlas/portals/registry_overrides.toml",
+  "src/opendata_atlas/portals/validation.json"
+ ],
+ "pack": "data.cityofchicago.org",
+ "path_violations": [],
+ "pack_dir": "src/opendata_atlas/portals/data.cityofchicago.org",
+ "portal_id": "data.cityofchicago.org",
+ "declared_tier": "profiled",
+ "jurisdiction": {
+  "level": "city",
+  "country": "US",
+  "region": "IL"
+ },
+ "timezone": "America/Chicago",
+ "claims": {
+  "by_kind": {
+   "column_timezone": 5,
+   "padded_values": 2,
+   "place_field": 39,
+   "placeholder_share": 8,
+   "region_layer": 9,
+   "unit_of_observation": 1
+  },
+  "reviewed": 19,
+  "with_interpretation_reason_and_probe": 17
+ },
+ "eval_covers_missing": [],
+ "eval_answers": [
+  {
+   "id": "01-hyde-park-last-month",
+   "covers": [
+    "in_area",
+    "relative_date"
+   ],
+   "prompt": "How many crimes were reported in Chicago's Hyde Park community area last month?",
+   "expect": "Reference (probed 2026-10-19, so last month is September 2026 via now_local): Crimes - 2001 to Present (ijzp-q8t2), date bounded to 2026-09-01..2026-09-30; Hyde Park is :@computed_region_vrxf_vc4k = '8' (202 crimes) or community_area = '41' (201). PASS: uses ijzp-q8t2, resolves last month to September 2026, filters Hyde Park by either field, and answers 201 or 202 (or a figure within a few of them, naming the field). PARTIAL: right dataset and area but the wrong month or an unbounded period, or a right count with no stated period. FAIL: wrong area (e.g. a feature id taken as the area number, such as community_area = '8' or the computed region = '41'), another dataset, or an invented number.",
+   "subtype": "success",
+   "total_cost_usd": 0.19378300000000004,
+   "answer": "Chicago's data shows **202 crimes reported in Hyde Park in September 2026.**\n\n- **Source:** the City of Chicago's \"Crimes \u2013 2001 to Present\" dataset (ijzp-q8t2). There is one row per reported incident, except homicides, which get one row per victim.\n- **Period:** September 1\u201330, 2026, Chicago local time. Today is October 19, so \"last month\" means September.\n- **How Hyde Park was matched:** each incident's location was checked against the city's community-area boundaries. In that boundary layer Hyde Park's ID is 8, not its usual community-area number, 41.\n- **Cross-check:** filtering instead on the community-area number recorded with each police report (41 for Hyde Park) gives 201. The two methods differ by one incident, likely one report placed just over the boundary.\n\nSome caveats:\n- Dates are when the incident happened, not when it was reported, and the police sometimes estimate them.\n- This is a snapshot from today. Records can still be added or reclassified, so the September count may change a little."
+  },
+  {
+   "id": "02-austin-2001-2003",
+   "covers": [
+    "misleading_field"
+   ],
+   "prompt": "How did the number of reported crimes in Chicago's Austin neighborhood change from 2001 to 2003?",
+   "expect": "Reference (probed 2026-10-19): the reported community area number for Austin (25) is almost empty in 2001, giving 296 (2001), 21,120 (2002), 30,841 (2003), a false hundredfold rise. The computed community-area region (:@computed_region_vrxf_vc4k = '26', AUSTIN) gives 29,277 (2001), 28,289 (2002), 30,238 (2003): roughly flat, up about 3%. PASS: reports roughly flat (about 29,000 to 30,000) from the computed region, or flags that the reported area field is mostly empty for 2001 and does not present the rise as real. PARTIAL: notices the 2001 figure is suspicious but gives no usable comparison. FAIL: reports a rise from a few hundred to about 30,000 as real, or invents numbers.",
+   "subtype": "success",
+   "total_cost_usd": 0.2036996,
+   "answer": "Reported crimes in Austin rose by about 3% from 2001 to 2003, after a small dip in 2002.\n\n| Year | Reported crimes | Change from previous year |\n|---|---|---|\n| 2001 | 29,277 | \u2014 |\n| 2002 | 28,289 | \u2212988 (\u22123.4%) |\n| 2003 | 30,238 | +1,949 (+6.9%) |\n\n**2001 to 2003: an increase of 961 crimes (+3.3%).**\n\nHow I got these numbers:\n- **Source:** the City of Chicago's \"Crimes \u2013 2001 to Present\" dataset (`ijzp-q8t2`) on data.cityofchicago.org. Each row is one reported incident, except homicides, which get one row per victim.\n- **How I picked out Austin:** the dataset's own `community_area` column is almost empty for 2001 (about 1% filled) and only 73% filled for 2002. Using it would have badly undercounted those years. Instead I used the portal's boundary-based community-area field, which is about 98.6% filled across all years.\n- **Matching that field to Austin:** the city's community-area boundary data lists Austin as area 25. That field labels areas with internal codes rather than area numbers. Of the 2003 crimes whose own column says area 25, 30,196 have code 26, 620 have no code and 25 have code 27. So I counted code 26 as Austin.\n- **Small gap:** about 1.4% of all crimes have no location and can't be placed in any area, so the true totals may be slightly higher.\n\nThese are reported crimes, not crime rates; I didn't adjust for population."
+  },
+  {
+   "id": "03-crimes-yesterday",
+   "covers": [
+    "not_published"
+   ],
+   "prompt": "How many crimes were reported in Chicago yesterday?",
+   "expect": "Reference (probed 2026-10-19): Crimes - 2001 to Present (ijzp-q8t2) withholds the most recent seven days; on 2026-10-19 the newest date was 2026-10-11. PASS: says yesterday's crimes are not published yet (seven-day lag, data_coverage ends about a week ago), does not report zero or a partial count as yesterday's total, and may offer the latest available day instead. PARTIAL: reports the data ends earlier but still gives a number for yesterday with a caveat. FAIL: reports 0 or any number as yesterday's count without saying the data is not published yet.",
+   "subtype": "success",
+   "total_cost_usd": 0.1241612,
+   "answer": "I can't tell you that yet. Chicago's open data portal doesn't have any crimes for yesterday, Sunday, October 18, 2026 (Chicago time).\n\nThe city's crime dataset (\"Crimes \u2013 2001 to Present\") holds back the most recent seven days on purpose. Its latest record is from just after midnight on October 11. The smaller \"Crimes \u2013 One Year Prior to Present\" dataset stops at the same point, so it doesn't help either.\n\nHere are the most recent days in the data, counted by when the crime happened:\n\n| Date (Chicago time) | Crimes |\n|---|---|\n| Thu Oct 8, 2026 | 629 |\n| Fri Oct 9, 2026 | 644 |\n| Sat Oct 10, 2026 | 651 |\n| Sun Oct 11, 2026 | 21 (partial day, where the cutoff falls) |\n\nA normal recent day has roughly 630\u2013650 reported crimes, but that's only a typical range, not a count for yesterday. Recent days may also go up a little as late reports and reclassifications come in. If you want, I can rerun this for October 18 once the data reaches it, which should be around October 25\u201326."
+  }
+ ],
+ "failures": []
+}

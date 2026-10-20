@@ -1,0 +1,39 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/d9mm-jgwp.json",
+ "status": 200,
+ "name": "Police Districts",
+ "columns": [
+  {
+   "fieldName": "dist_label",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "23",
+    "non_null": "25",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "dist_num",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "23",
+    "non_null": "25",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "25",
+    "non_null": "25",
+    "null": "0"
+   }
+  }
+ ]
+}

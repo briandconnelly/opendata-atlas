@@ -1,0 +1,63 @@
+{
+ "requested_at": "2026-10-19T00:56:04.865184+00:00",
+ "tool": "atlas_query_dataset",
+ "arguments": {
+  "portal": "seattle",
+  "dataset_id": "tazs-3rd5",
+  "detail": "full",
+  "select": [
+   "count(*) AS n"
+  ],
+  "where": "sector = 'E' AND offense_date >= '2026-09-01T00:00:00' AND offense_date < '2026-10-01T00:00:00'"
+ },
+ "server_args": [
+  "--validation",
+  "evals/fixtures/validation-stale.json"
+ ],
+ "is_error": false,
+ "structuredContent": {
+  "dataset_id": "tazs-3rd5",
+  "columns": [
+   {
+    "name": "n",
+    "type": "number"
+   }
+  ],
+  "rows": [
+   {
+    "n": "535"
+   }
+  ],
+  "returned_rows": 1,
+  "has_more": false,
+  "truncated": false,
+  "consistency": "best_effort",
+  "coverage_warnings": [
+   {
+    "column": "sector",
+    "reliability": "unknown",
+    "reason": "Reviewed as ok, but its checks last ran on 2026-01-01, over 180 days ago; treat its coverage as unknown.",
+    "validation": "stale"
+   }
+  ],
+  "knowledge_notice": {
+   "level": "none",
+   "message": "No reviewed claim covers time columns `report_date_time`, `offense_date`, and the checks on place field `sector` are stale (last run over 180 days ago); say in the answer that area breakdowns and timestamp timezones are unverified."
+  },
+  "query_url": "https://data.seattle.gov/resource/tazs-3rd5.json?%24select=count%28%2A%29+AS+n&%24where=%28sector+%3D+%27E%27+AND+offense_date+%3E%3D+%272026-09-01T00%3A00%3A00%27+AND+offense_date+%3C+%272026-10-01T00%3A00%3A00%27%29&%24limit=101",
+  "download_url": "https://data.seattle.gov/resource/tazs-3rd5.csv?%24select=count%28%2A%29+AS+n&%24where=%28sector+%3D+%27E%27+AND+offense_date+%3E%3D+%272026-09-01T00%3A00%3A00%27+AND+offense_date+%3C+%272026-10-01T00%3A00%3A00%27%29&%24limit=1000000000",
+  "effective_query": "SELECT count(*) AS n WHERE (sector = 'E' AND offense_date >= '2026-09-01T00:00:00' AND offense_date < '2026-10-01T00:00:00') LIMIT 101",
+  "source": {
+   "request_id": "793eec7bef224dee",
+   "portal": {
+    "id": "data.seattle.gov",
+    "alias": "seattle",
+    "name": "City of Seattle",
+    "tier": "curated",
+    "timezone": "America/Los_Angeles"
+   },
+   "now_local": "2026-10-18T17:56:04-07:00",
+   "retrieved_at": "2026-10-19T00:56:04Z"
+  }
+ }
+}

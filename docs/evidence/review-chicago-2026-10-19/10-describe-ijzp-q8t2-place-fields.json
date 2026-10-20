@@ -1,0 +1,115 @@
+{
+ "call": "atlas_describe_dataset {portal: chicago, dataset_id: ijzp-q8t2, detail: full} (in-process, review worktree, 2026-10-19)",
+ "knowledge": {
+  "level": "reviewed",
+  "validation": "unchecked"
+ },
+ "place_fields": [
+  {
+   "column": "ward",
+   "kind": "ward",
+   "reliability": "partial",
+   "label_column": null,
+   "stats_status": "ok",
+   "value_count": 51
+  },
+  {
+   "column": "community_area",
+   "kind": "community_area",
+   "reliability": "partial",
+   "label_column": null,
+   "stats_status": "ok",
+   "value_count": 77
+  },
+  {
+   "column": ":@computed_region_awaf_s7ux",
+   "kind": "ward",
+   "reliability": "unreliable",
+   "label_column": "ward",
+   "stats_status": "ok",
+   "value_count": 53
+  },
+  {
+   "column": ":@computed_region_6mkv_f3dw",
+   "kind": "zip",
+   "reliability": "ok",
+   "label_column": "zcta5ce10",
+   "stats_status": "ok",
+   "value_count": 83
+  },
+  {
+   "column": ":@computed_region_vrxf_vc4k",
+   "kind": "community_area",
+   "reliability": "ok",
+   "label_column": "community",
+   "stats_status": "ok",
+   "value_count": 77,
+   "selected_values": [
+    {
+     "label": "AUSTIN",
+     "value": "26"
+    },
+    {
+     "label": "AVALON PARK",
+     "value": "41"
+    },
+    {
+     "label": "DOUGLAS",
+     "value": "1"
+    },
+    {
+     "label": "HYDE PARK",
+     "value": "8"
+    }
+   ]
+  },
+  {
+   "column": ":@computed_region_bdys_3d7i",
+   "kind": "census_tract",
+   "reliability": "partial",
+   "label_column": "name10",
+   "stats_status": "ok",
+   "value_count": null
+  },
+  {
+   "column": ":@computed_region_43wa_7qmu",
+   "kind": "ward",
+   "reliability": "partial",
+   "label_column": "ward",
+   "stats_status": "timeout",
+   "value_count": null
+  },
+  {
+   "column": ":@computed_region_rpca_8um6",
+   "kind": "zip",
+   "reliability": "ok",
+   "label_column": "zip",
+   "stats_status": "timeout",
+   "value_count": null
+  },
+  {
+   "column": ":@computed_region_d9mm_jgwp",
+   "kind": "police_district",
+   "reliability": "ok",
+   "label_column": "dist_num",
+   "stats_status": "timeout",
+   "value_count": null
+  },
+  {
+   "column": ":@computed_region_d3ds_rm58",
+   "kind": "beat",
+   "reliability": "partial",
+   "label_column": "beat_num",
+   "stats_status": "timeout",
+   "value_count": null
+  },
+  {
+   "column": ":@computed_region_8hcu_yrd4",
+   "kind": "ward",
+   "reliability": "ok",
+   "label_column": "ward",
+   "stats_status": "timeout",
+   "value_count": null
+  }
+ ]
+}

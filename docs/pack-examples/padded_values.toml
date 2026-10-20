@@ -1,0 +1,15 @@
+# Illustrative ids. Values carry trailing whitespace, so an unpadded equality matches nothing.
+[[claim]]
+id = "inspections-grade-padded"
+scope = {dataset = "abcd-1234", column = "grade"}
+kind = "padded_values"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT grade, count(*) AS n WHERE grade = 'A ' GROUP BY grade"
+observed_at = 2026-10-16
+observation = "'A ' (with a trailing space) matches 41,000 rows; 'A' matches none"
+
+[[claim.assertion]]
+checker = "value_present"
+params = {column = "grade", value = "A ", count = "n", min_count = 1}

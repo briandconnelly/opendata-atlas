@@ -1,0 +1,45 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "j56h-zgnm-booking_date_time-timezone"
+kind = "column_timezone"
+scope = {dataset = "j56h-zgnm", column = "booking_date_time"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(booking_date_time) AS h, count(*) AS n WHERE booking_date_time >= '2026-03-08T00:00:00' AND booking_date_time < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 2 rows; hours 1 and 3 have 3 and 0."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(booking_date_time) AS h, count(*) AS n WHERE booking_date_time >= '2025-10-01T00:00:00' AND booking_date_time < '2026-10-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 19 (2,124 of 39,852); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 17, peak_to = 21}
+
+[[claim]]
+id = "j56h-zgnm-release_date_time-timezone"
+kind = "column_timezone"
+scope = {dataset = "j56h-zgnm", column = "release_date_time"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(release_date_time) AS h, count(*) AS n WHERE release_date_time >= '2026-03-08T00:00:00' AND release_date_time < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 13 rows; hours 1 and 3 have 3 and 9."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(release_date_time) AS h, count(*) AS n WHERE release_date_time >= '2025-10-01T00:00:00' AND release_date_time < '2026-10-02T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 20 (4,101 of 33,633); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 18, peak_to = 22}

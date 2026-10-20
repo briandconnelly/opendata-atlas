@@ -1,0 +1,33 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "i6bp-fvbx-suffix-padded"
+kind = "padded_values"
+scope = {dataset = "i6bp-fvbx", column = "suffix"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT suffix AS v, count(*) AS n GROUP BY suffix ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "1 of 23 groups have leading or trailing whitespace, 70 of 2,582 rows (0.027); most common \" \" has 70 rows."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = " ", count = "n"}
+
+[[claim]]
+id = "i6bp-fvbx-suffix_direction-padded"
+kind = "padded_values"
+scope = {dataset = "i6bp-fvbx", column = "suffix_direction"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT suffix_direction AS v, count(*) AS n GROUP BY suffix_direction ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "1 of 12 groups have leading or trailing whitespace, 2,457 of 2,582 rows (0.952); most common \" \" has 2,457 rows."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = " ", count = "n"}

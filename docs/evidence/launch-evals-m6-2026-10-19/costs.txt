@@ -1,0 +1,17 @@
+evals/results/2026-10-19-m6/cross/no-such.transcript.jsonl UNRESOLVED: missing
+evals/results/2026-10-19-m6/cross/25-wrong-portal.transcript.jsonl 0.1319274
+evals/results/2026-10-19-m6/cross/26-ambiguous-place.transcript.jsonl 0.1193304
+evals/results/2026-10-19-m6/cross/28-generic-text-place.transcript.jsonl 0.13503300000000001
+evals/results/2026-10-19-m6/cross/29-multi-zone.transcript.jsonl 0.1157102
+evals/results/2026-10-19-m6/cross/31-knowledge-gap-offer.transcript.jsonl 0.13198700000000002
+evals/results/2026-10-19-m6/cross/32-city-data-at-county.transcript.jsonl 0.1627872
+evals/results/2026-10-19-m6/seattle/01-cold-start.transcript.jsonl 0.08102400000000001
+evals/results/2026-10-19-m6/seattle/03-fire-capitol-hill.transcript.jsonl 0.1303676
+evals/results/2026-10-19-m6/seattle/14-crime-capitol-hill.transcript.jsonl 0.1851512
+evals/results/2026-10-19-m6/seattle/30-stale-claim.transcript.jsonl 0.1760606
+evals/results/2026-10-19-m6/chicago/01-hyde-park-last-month.transcript.jsonl 0.1884324
+evals/results/2026-10-19-m6/chicago/02-austin-2001-2003.transcript.jsonl 0.1557584
+evals/results/2026-10-19-m6/chicago/03-crimes-yesterday.transcript.jsonl 0.15659119999999999
+evals/results/2026-10-19-m6-rerun1/cross/32-city-data-at-county.transcript.jsonl 0.12895479999999998
+evals/results/2026-10-19-m6-rerun2/cross/32-city-data-at-county.transcript.jsonl 0.1449036
+total 2.1441

@@ -1,0 +1,109 @@
+{
+ "portal": "data.kingcounty.gov",
+ "branch": "curate/test-2026-10-19",
+ "base": "4b769dc0d18fd3eeb7899cf04788b835731c5a83",
+ "curation": {
+  "exit_code": 0,
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 52,
+  "duration_ms": 649474,
+  "total_cost_usd": 1.7477596,
+  "final_message": "I curated data.kingcounty.gov and committed the pack as `a3f48d1` on `curate/test-2026-10-19`. It's declared `profiled` and nothing has been pushed. The pack holds only 2 unreviewed claims and no reviewed dataset, so I'm not proposing `curated`. The drift run, the full test suite and prek all passed, and all 12 eval sessions graded PASS by my own grading.\n\n**PR title:** `feat: add the data.kingcounty.gov knowledge pack (profiled)`\n\n**PR body:**\n\n---\n\nAdds the knowledge pack for **King County** (`data.kingcounty.gov`, alias `king-county`).\n\n**Declared tier:** `profiled`\n\n**Proposing `curated`:** No. No dataset is `reviewed` and none has a guide, so the first condition in step 12 fails. The other conditions would pass: the eval tasks cover all four kinds, and every task graded PASS in all 3 runs.\n\n**Datasets reviewed:** None. Step 5 needs a profiled dataset with both a place field and a time column, and none of the 10 has both:\n- Adult Jail Booking (`j56h-zgnm`) has time columns but no place fields.\n- The 9 election-results-by-precinct datasets have no time columns.\n\nSo the skill skipped from step 5 to step 9. The 2 profiler claims stay as unreviewed observations: the timezone claims on `booking_date_time` and `release_date_time`.\n\n**Identity:**\n- I moved the `registry_overrides.toml` entry (59) into `portal.toml`.\n- `jurisdiction` (county, US, WA) and `timezone` (`America/Los_Angeles`) were already set by the override, so nothing was left unset.\n- The comment above `[jurisdiction]` cites https://kingcounty.gov/, which titles itself \"Home - King County, Washington\".\n\n**Review values:** The report listed no review values, so step 3 deleted 0 claims. The jail-booking name columns were skipped by the profiler and produced no claims.\n\n**Drift outcomes:** `tests/test_drift.py -k data.kingcounty.gov` had 2 passed.\n- `j56h-zgnm-booking_date_time-timezone`: passed\n- `j56h-zgnm-release_date_time-timezone`: passed\n\n**Offline gate:**\n- `pytest -q --ignore=tests/test_curation_skill.py`: 1243 passed, 125 skipped.\n- `prek run --all-files`: every hook passed.\n- No other pack's claims failed a check.\n\n**Eval grades** (my own; a reviewer other than me should re-grade):\n\n| Task | covers | Run 1 | Run 2 | Run 3 |\n|---|---|---|---|---|\n| 01-jail-bookings-last-month | relative_date | PASS | PASS | PASS |\n| 02-still-in-custody | misleading_field | PASS | PASS | PASS |\n| 03-ld43-2012-republican-president | in_area | PASS | PASS | PASS |\n| 04-traffic-collisions | not_published | PASS | PASS | PASS |\n\n- **Task 03:** the `in_area` task filters on the election dataset's `leg` column, which is not a reviewed place field, because the pack has none.\n- **Task 02:** the runs disagreed on how many bookings with a release date still list a facility (about 900, 1,503 and 905). The rubric doesn't grade that count.\n\n**Knowledge gaps:**\n- `j56h-zgnm` has one row per charge (39,852 rows, 17,897 bookings), but the pack has no `unit_of_observation` claim to say so. Every eval agent inferred it from the data and flagged it as unverified.\n- `current_facility` is filled on 2,367 rows that have a release date, and no claim covers that.\n- Both timezone claims are unreviewed.\n- The dataset title says \"to Sep 2, 2026\", but the bookings run through Sep 30.\n\n**Engine defect:** If an agent calls a tool name that doesn't exist, the server returns `internal_error` (\"The server failed unexpectedly.\") with no `repair`. That tells the agent the server broke rather than that the name is wrong. The cause is in `mcp/server.py`: `EnvelopeMiddleware.on_call_tool` doesn't map FastMCP's `NotFoundError`. It's logged as a new row in `docs/decisions.md` (\"Unknown tool name answers `internal_error`\"). It doesn't affect the pack.\n\n\ud83e\udd16 Generated with Claude Code",
+  "transcript": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/curation.transcript.jsonl"
+ },
+ "checks": {
+  "offline_gate": {
+   "exit_code": 0,
+   "tail": ".............................................                            [100%]\n45 passed in 0.28s\n"
+  },
+  "drift": {
+   "exit_code": 0,
+   "tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.7.0\nrootdir: /private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/wt\nconfigfile: pyproject.toml\nplugins: cov-7.1.0, asyncio-1.4.0, platformdirs-4.13.3, anyio-4.15.1\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollected 88 items / 86 deselected / 2 selected\n\ntests/test_drift.py ..                                                   [100%]\n\n======================= 2 passed, 86 deselected in 3.04s =======================\n"
+  },
+  "guide_examples": {
+   "exit_code": 0,
+   "examples": [],
+   "stderr_tail": ""
+  },
+  "evals": {
+   "exit_code": 0,
+   "out": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/evals"
+  }
+ },
+ "commits": 1,
+ "changed_paths": [
+  "docs/decisions.md",
+  "evals/portals/data.kingcounty.gov.json",
+  "src/opendata_atlas/portals/data.kingcounty.gov/facts/j56h-zgnm.toml",
+  "src/opendata_atlas/portals/data.kingcounty.gov/portal.toml",
+  "src/opendata_atlas/portals/registry_overrides.toml",
+  "src/opendata_atlas/portals/validation.json"
+ ],
+ "pack": "data.kingcounty.gov",
+ "path_violations": [],
+ "pack_dir": "src/opendata_atlas/portals/data.kingcounty.gov",
+ "portal_id": "data.kingcounty.gov",
+ "declared_tier": "profiled",
+ "jurisdiction": {
+  "level": "county",
+  "country": "US",
+  "region": "WA"
+ },
+ "timezone": "America/Los_Angeles",
+ "claims": {
+  "by_kind": {
+   "column_timezone": 2
+  },
+  "reviewed": 0,
+  "with_interpretation_reason_and_probe": 0
+ },
+ "eval_covers_missing": [],
+ "eval_answers": [
+  {
+   "id": "01-jail-bookings-last-month",
+   "covers": [
+    "relative_date"
+   ],
+   "prompt": "How many jail bookings were there in King County last month?",
+   "expect": "Uses Adult Jail Booking (j56h-zgnm) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on booking_date_time in Pacific wall-clock time without Z, and counts distinct book_of_arrest_number, since the dataset has one row per charge. PASS: gives the booking count for that month (reference, probed 2026-10-20 for September 2026: 1,388 distinct bookings over 2,888 rows) and says the rows are charges, so bookings are counted by booking number. PARTIAL: the right booking count with no word on the row-per-charge structure, or a month boundary off by one day. FAIL: presents the row count (2,888) as the number of bookings, uses the wrong month, or invents a number.",
+   "subtype": "success",
+   "total_cost_usd": 0.11160219999999998,
+   "answer": "King County's jail data shows about **1,388 adult jail bookings in September 2026** (Sept 1\u201330).\n\nThe dataset has **2,888 rows** for that month, but that isn't the number of bookings. It looks like there's one row per charge, so one booking can show up several times. Counting unique booking numbers (`book_of_arrest_number`) gives 1,388. That field was filled in on every September row.\n\nThings to keep in mind:\n- **What a row means hasn't been confirmed.** The one-row-per-charge reading comes from the column layout (charge, court case number and statute are row-level fields). The dataset's documentation doesn't say so. If each booking number is really one booking, 1,388 is the right figure.\n- **The timezone isn't stated.** The booking times don't come with a timezone. I took them as Pacific time, the portal's local zone, and counted from 2026-09-01 00:00 up to but not including 2026-10-01 00:00. If that's wrong, a few bookings near midnight on either end could move between months.\n- **The title is out of date.** It says the data ends Sep 2, 2026, but the records actually run through Sep 30, 2026 at 23:52, so all of September is covered. The data was last updated Oct 2, so a booking that was entered late might be missing.\n- **Scope:** this is adult bookings only, from King County's dataset \"Adult Jail Booking\" (`j56h-zgnm`) on data.kingcounty.gov.\n\nThe portal doesn't say what each row stands for or what timezone the timestamps use. I can file a knowledge-gap issue about that if you'd like."
+  },
+  {
+   "id": "02-still-in-custody",
+   "covers": [
+    "misleading_field"
+   ],
+   "prompt": "Of the people booked into King County jail over the past year, how many are still in custody, and where are they held?",
+   "expect": "Uses Adult Jail Booking (j56h-zgnm), a snapshot titled 'as of Oct 2, 2026' that covers bookings from 2025-10-01 (latest release 2026-10-01). The facility column looks like a custody status but is filled on 2,367 rows that have a release date, so custody is read from bookings with no release date. PASS: gives the distinct bookings with no release date (reference, probed 2026-10-20: 1,444 bookings over 6,219 rows; by facility 596 King County Correctional Facility, 446 Maleng Regional Justice Center, 400 Electronic Home Detention, 1 Community Correction Division, 1 blank), and says the figure is as of the early-October 2026 snapshot, not today, and covers only bookings since October 2025. PARTIAL: the right count without the snapshot caveat, or a count from the facility column that says it disagrees with release dates. FAIL: presents a row count (6,219 or 8,584) or the count of rows with a facility as the people in custody with no caveat, presents the figure as current today, or invents a number.",
+   "subtype": "success",
+   "total_cost_usd": 0.1655726,
+   "answer": "**1,444 of the 17,897 bookings in King County's jail booking data had no release date.** That was as of the dataset's snapshot on October 2, 2026, not today.\n\n| Current facility | Bookings | Share |\n|---|---|---|\n| King County Correctional Facility (Seattle) | 596 | 41% |\n| Maleng Regional Justice Center (Kent) | 446 | 31% |\n| Electronic Home Detention | 400 | 28% |\n| Community Correction Division | 1 | <1% |\n| (no facility listed) | 1 | <1% |\n| **Total** | **1,444** | |\n\nAbout 1,042 are physically held in one of the two jails. The other 400 are on electronic home monitoring, which counts as custody but not as being behind bars.\n\n**Things to know before using these numbers:**\n- **This is a snapshot, not live.** The dataset is \"Adult Jail Booking Oct 1, 2025 to Sep 2, 2026 as of Oct 2, 2026\" (`j56h-zgnm`). Bookings run from Oct 1, 2025 to Sep 30, 2026, so it roughly covers the past year but misses the last ~3 weeks. Anyone released since Oct 2 still shows as in custody, and anyone booked since then isn't included.\n- **These are bookings, not people.** Each row is one charge (39,852 rows). I counted unique booking numbers, but there's no person ID, so someone booked twice in the year counts twice. Many in-custody bookings have a lot of charges (one has 32), so counting rows would roughly triple the total.\n- **\"In custody\" means the release date is blank.** I checked that no booking has some charges released and others not. I also confirmed that this check does find bookings when they exist, so the empty result is real.\n- **Some meanings aren't documented.** The portal hasn't confirmed what one row represents, what timezone the timestamps use, or whether `current_facility` is complete. My reading of each is a reasonable guess, not documented fact. I can draft an issue for the dataset tool to fill in these gaps if you'd like; I haven't filed one.\n\nIf you need anything more current, the King County Department of Adult and Juvenile Detention publishes a daily jail population count."
+  },
+  {
+   "id": "03-ld43-2012-republican-president",
+   "covers": [
+    "in_area"
+   ],
+   "prompt": "In the November 2012 general election, how many votes did the Republican presidential ticket get in King County's 43rd Legislative District?",
+   "expect": "Uses 2012 General - Election Results by precinct (u6ig-5qm8), filtered on leg = 43, the presidential race and the Republican ticket's countertype row, summing sumofcount over the district's 207 precincts. PASS: gives 8,747 votes (reference, probed 2026-10-20; the district's Times Counted total for the race is 83,076). PARTIAL: the right count with a wrong or missing statement of which dataset or filter it came from. FAIL: a count from another election, from the whole county, one that sums non-candidate countertype rows (Registered Voters, Times Counted), or an invented number.",
+   "subtype": "success",
+   "total_cost_usd": 0.1142336,
+   "answer": "The Republican ticket, **Mitt Romney and Paul Ryan, got 8,747 votes** in the 43rd Legislative District in the November 2012 general election.\n\nThis comes from King County's precinct-level results dataset, \"2012 General \u2013 Election Results by precinct\" (`u6ig-5qm8`). I added up the presidential race across the 207 precincts where `leg = 43`:\n\n| Ticket | Votes |\n|---|---|\n| Obama / Biden (Democratic) | 70,768 |\n| **Romney / Ryan (Republican)** | **8,747** |\n| Stein / Honkala (Green) | 1,253 |\n| Johnson / Gray (Libertarian) | 1,124 |\n| Other tickets and write-ins | 796 |\n| **Ballots counted** | **83,076** (of 95,811 registered voters) |\n\nRomney and Ryan got about 10.5% of ballots counted.\n\n**Check:** All candidate votes plus blank votes (335) and overvotes (53) add up to exactly 83,076, the district's \"Times Counted\" figure.\n\n**Caveats:**\n- The portal hasn't reviewed what each row counts or whether the `leg` field (legislative district) is complete. The internal totals match, but treat the district assignment as unverified.\n- 188 rows in the dataset have no district number, so any of those that belong to the 43rd aren't counted here.\n- These are the county's certified figures from December 2012. I didn't compare them with the Secretary of State's official canvass.\n\nI can open a knowledge-gap issue asking for these fields to be documented if you'd like."
+  },
+  {
+   "id": "04-traffic-collisions",
+   "covers": [
+    "not_published"
+   ],
+   "prompt": "How many traffic collisions were there in King County, WA last year?",
+   "expect": "Searches the King County portal (data.kingcounty.gov); on 2026-10-20 searches for 'traffic collision' and 'collision' returned no datasets. PASS: says the King County portal does not publish traffic collision data, gives no collision count, and at most suggests another publisher without inventing a dataset id or figures. PARTIAL: says it found nothing but presents an unverified dataset id or URL as a source. FAIL: answers from an unrelated dataset (such as Adult Jail Booking charges) or invents a collision count.",
+   "subtype": "success",
+   "total_cost_usd": 0.166267,
+   "answer": "I can't give you a number. Neither King County's open data portal nor Washington State's has a dataset I could query for King County traffic collisions.\n\n**What I checked:**\n- **King County portal (data.kingcounty.gov):** Searches for \"traffic collisions,\" \"crash,\" \"collision,\" and \"accident\" found no collision datasets. The search itself is working, because a \"sheriff incidents\" search did return results.\n- **Sheriff's Office offense reports (2020 to present):** I listed all 57 offense categories. None is a traffic collision; it only covers crimes. The closest is \"Driving Under the Influence,\" which isn't a collision count. This dataset also only covers areas the Sheriff's Office patrols, not the whole county.\n- **Washington State portal (data.wa.gov):** The only collision dataset is for Asotin County. There's a \"State Crash Data\" entry, but it's just a link to WSDOT's site, so I can't query it.\n\n**Where to get the number:**\n- **WSDOT Crash Data Portal** (https://remoteapps.wsdot.wa.gov/HighwaySafety/Collision/Data/Portal/Public/): This is the official statewide source, using data from the Washington State Patrol, WSDOT and the Traffic Safety Commission. You can filter it to King County and 2025. Recent-year counts there are usually labelled preliminary.\n- **Seattle's SDOT Collisions dataset:** This covers Seattle only, which is part of the county."
+  }
+ ],
+ "failures": []
+}

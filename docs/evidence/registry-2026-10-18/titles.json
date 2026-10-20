@@ -1,0 +1,2422 @@
+{
+ "al-amcc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:42+00:00",
+  "site_theme_url": "https://al-amcc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://al-amcc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "albany.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:28+00:00",
+  "site_theme_url": "https://albany.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://albany.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | City of Albany"
+ },
+ "alpharetta.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:17+00:00",
+  "site_theme_url": "https://alpharetta.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://alpharetta.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "analisi.transparenciacatalunya.cat": {
+  "fetched_at": "2026-10-18T03:52:19+00:00",
+  "site_theme_url": "https://analisi.transparenciacatalunya.cat/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Transpar\u00e8ncia Catalunya",
+  "home_url": "https://analisi.transparenciacatalunya.cat/",
+  "home_status": 200,
+  "html_title": "Cat\u00e0leg | Dades obertes de Catalunya"
+ },
+ "anokamn.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:56+00:00",
+  "site_theme_url": "https://anokamn.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://anokamn.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "atlanta.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:04+00:00",
+  "site_theme_url": "https://atlanta.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://atlanta.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "bernalillocountynm.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:44+00:00",
+  "site_theme_url": "https://bernalillocountynm.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://bernalillocountynm.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "boulderco.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:38+00:00",
+  "site_theme_url": "https://boulderco.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://boulderco.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "bridgeportct.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:05:56+00:00",
+  "site_theme_url": "https://bridgeportct.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://bridgeportct.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "bronx.lehman.cuny.edu": {
+  "fetched_at": "2026-10-20T00:58:57+00:00",
+  "site_theme_url": "https://bronx.lehman.cuny.edu/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Bronx Information Portal | Lehman College",
+  "site_company": "Lehman College",
+  "home_url": "https://bronx.lehman.cuny.edu/",
+  "home_status": 200,
+  "html_title": "Lehman College Community Connect: Bronx Information Portal | Bronx Information Portal | Lehman College"
+ },
+ "bythenumbers.sco.ca.gov": {
+  "fetched_at": "2026-10-20T01:00:24+00:00",
+  "site_theme_url": "https://bythenumbers.sco.ca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://bythenumbers.sco.ca.gov/",
+  "home_status": 200,
+  "html_title": "Government Financial Reports - California State Controller\u2019s Office | CA Local Government Financial Data"
+ },
+ "capecoral.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:39+00:00",
+  "site_theme_url": "https://capecoral.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://capecoral.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "carsoncity.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:19+00:00",
+  "site_theme_url": "https://carsoncity.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Performance Carson City Dashboard",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://carsoncity.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Performance Carson City Dashboard | Performance Carson City Dashboard"
+ },
+ "casagrandeaz.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:58+00:00",
+  "site_theme_url": "https://casagrandeaz.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://casagrandeaz.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "celebratingcities.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:02:58+00:00",
+  "site_theme_url": "https://celebratingcities.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://celebratingcities.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Data | Celebrating Cities | Open Data Portal"
+ },
+ "citydata.mesaaz.gov": {
+  "fetched_at": "2026-10-18T03:52:33+00:00",
+  "site_theme_url": "https://citydata.mesaaz.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "CityData",
+  "home_url": "https://citydata.mesaaz.gov/",
+  "home_status": 200,
+  "html_title": "City of Mesa Employee Data Portal"
+ },
+ "cityofchesapeake.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:44+00:00",
+  "site_theme_url": "https://cityofchesapeake.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityofchesapeake.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "cityofcudahy.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:16+00:00",
+  "site_theme_url": "https://cityofcudahy.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityofcudahy.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "cityoffairfaxpd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:41+00:00",
+  "site_theme_url": "https://cityoffairfaxpd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityoffairfaxpd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "cityoflaramie.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:34+00:00",
+  "site_theme_url": "https://cityoflaramie.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityoflaramie.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "cityofnampa.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:29+00:00",
+  "site_theme_url": "https://cityofnampa.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityofnampa.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "cityofrockisland.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:24+00:00",
+  "site_theme_url": "https://cityofrockisland.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityofrockisland.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "cityoftulare.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:13+00:00",
+  "site_theme_url": "https://cityoftulare.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cityoftulare.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "clatsop.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:42+00:00",
+  "site_theme_url": "https://clatsop.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://clatsop.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "cohesiondata.ec.europa.eu": {
+  "fetched_at": "2026-10-18T03:52:21+00:00",
+  "site_theme_url": "https://cohesiondata.ec.europa.eu/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cohesiondata.ec.europa.eu/",
+  "home_status": 200,
+  "html_title": "Open Data Portal for the European Structural Investment Funds - European Commission | Cohesion Open Data"
+ },
+ "collin-county-tx-ja.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:15+00:00",
+  "site_theme_url": "https://collin-county-tx-ja.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://collin-county-tx-ja.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "columbiasc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:32+00:00",
+  "site_theme_url": "https://columbiasc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://columbiasc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "controllerdata.lacity.org": {
+  "fetched_at": "2026-10-20T00:59:43+00:00",
+  "site_theme_url": "https://controllerdata.lacity.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://controllerdata.lacity.org/",
+  "home_status": 200,
+  "html_title": "Open Data"
+ },
+ "conyersga.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:35+00:00",
+  "site_theme_url": "https://conyersga.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://conyersga.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "cookcounty.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:00:26+00:00",
+  "site_theme_url": "https://cookcounty.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cookcounty.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Cook County Open Data"
+ },
+ "corstat.coronaca.gov": {
+  "fetched_at": "2026-10-20T00:59:51+00:00",
+  "site_theme_url": "https://corstat.coronaca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://corstat.coronaca.gov/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | Corona Open Performance"
+ },
+ "covid19.buffalony.gov": {
+  "fetched_at": "2026-10-20T01:03:26+00:00",
+  "site_theme_url": "https://covid19.buffalony.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://covid19.buffalony.gov/",
+  "home_status": 200,
+  "html_title": "COVID-19 | Buffalo, NY"
+ },
+ "cthru.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:49+00:00",
+  "site_theme_url": "https://cthru.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cthru.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | CTHRU"
+ },
+ "cumberlandcounty.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:17+00:00",
+  "site_theme_url": "https://cumberlandcounty.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://cumberlandcounty.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "dashboard.plano.gov": {
+  "fetched_at": "2026-10-20T01:03:01+00:00",
+  "site_theme_url": "https://dashboard.plano.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://dashboard.plano.gov/",
+  "home_status": 200,
+  "html_title": "City of Plano | Open Data Portal"
+ },
+ "data.auburnwa.gov": {
+  "fetched_at": "2026-10-20T01:04:43+00:00",
+  "site_theme_url": "https://data.auburnwa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Auburn Open Data\n",
+  "site_company": "City of Auburn",
+  "home_url": "https://data.auburnwa.gov/",
+  "home_status": 200,
+  "html_title": "Auburn Open Data | Auburn Open Data"
+ },
+ "data.bayareametro.gov": {
+  "fetched_at": "2026-10-18T03:51:55+00:00",
+  "site_theme_url": "https://data.bayareametro.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.bayareametro.gov/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "data.bloomington.in.gov": {
+  "fetched_at": "2026-10-20T00:59:06+00:00",
+  "site_theme_url": "https://data.bloomington.in.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.bloomington.in.gov/",
+  "home_status": 200,
+  "html_title": "City of Bloomington Open Data"
+ },
+ "data.brla.gov": {
+  "fetched_at": "2026-10-18T03:53:15+00:00",
+  "site_theme_url": "https://data.brla.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data BR",
+  "site_company": "City of Baton Rouge",
+  "home_url": "https://data.brla.gov/",
+  "home_status": 200,
+  "html_title": "City of Baton Rouge - Open Data Portal | Open Data BR"
+ },
+ "data.bts.gov": {
+  "fetched_at": "2026-10-18T03:53:09+00:00",
+  "site_theme_url": "https://data.bts.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.bts.gov/",
+  "home_status": 200,
+  "html_title": "BTS Data Inventory"
+ },
+ "data.buffalony.gov": {
+  "fetched_at": "2026-10-20T01:03:10+00:00",
+  "site_theme_url": "https://data.buffalony.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Rally - Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.buffalony.gov/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | OpenData Buffalo"
+ },
+ "data.calgary.ca": {
+  "fetched_at": "2026-10-18T03:52:38+00:00",
+  "site_theme_url": "https://data.calgary.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Calgary",
+  "site_company": "Open Calgary",
+  "home_url": "https://data.calgary.ca/",
+  "home_status": 200,
+  "html_title": "Open Calgary | Open Calgary"
+ },
+ "data.cambridgema.gov": {
+  "fetched_at": "2026-10-20T00:59:00+00:00",
+  "site_theme_url": "https://data.cambridgema.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of Cambridge",
+  "site_company": "City of Cambridge",
+  "home_url": "https://data.cambridgema.gov/",
+  "home_status": 200,
+  "html_title": "Open Data | City of Cambridge | Open Data Portal | City of Cambridge"
+ },
+ "data.cdc.gov": {
+  "fetched_at": "2026-10-18T03:52:24+00:00",
+  "site_theme_url": "https://data.cdc.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data | Centers for Disease Control and Prevention",
+  "site_company": "Data.CDC.gov",
+  "home_url": "https://data.cdc.gov/",
+  "home_status": 200,
+  "html_title": "Data | Centers for Disease Control and Prevention"
+ },
+ "data.cdp.net": {
+  "fetched_at": "2026-10-18T03:53:12+00:00",
+  "site_theme_url": "https://data.cdp.net/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "CDP Open Data Portal",
+  "site_company": "CDP Open Data Portal",
+  "home_url": "https://data.cdp.net/",
+  "home_status": 200,
+  "html_title": "CDP Open Data Portal | CDP Open Data Portal"
+ },
+ "data.cincinnati-oh.gov": {
+  "fetched_at": "2026-10-20T01:02:45+00:00",
+  "site_theme_url": "https://data.cincinnati-oh.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.cincinnati-oh.gov/",
+  "home_status": 200,
+  "html_title": "Cincinnati Open Data Portal | Tyler Data & Insights"
+ },
+ "data.cityofberkeley.info": {
+  "fetched_at": "2026-10-20T01:04:21+00:00",
+  "site_theme_url": "https://data.cityofberkeley.info/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of Berkeley",
+  "site_company": "City of Berkeley",
+  "home_url": "https://data.cityofberkeley.info/",
+  "home_status": 200,
+  "html_title": "City of Berkeley - Open Data Portal | Open Data | City of Berkeley"
+ },
+ "data.cityofchicago.org": {
+  "fetched_at": "2026-10-18T03:52:09+00:00",
+  "site_theme_url": "https://data.cityofchicago.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Chicago | Data Portal",
+  "site_company": "Chicago",
+  "home_url": "https://data.cityofchicago.org/",
+  "home_status": 200,
+  "html_title": "City of Chicago | Data Portal | City of Chicago | Data Portal"
+ },
+ "data.cityofgainesville.org": {
+  "fetched_at": "2026-10-20T01:00:17+00:00",
+  "site_theme_url": "https://data.cityofgainesville.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "City of Gainesville",
+  "home_url": "https://data.cityofgainesville.org/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | dataGNV | Open Data"
+ },
+ "data.cityofnewyork.us": {
+  "fetched_at": "2026-10-18T03:51:56+00:00",
+  "site_theme_url": "https://data.cityofnewyork.us/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "NYC Open Data",
+  "site_company": "NYC Open Data",
+  "home_url": "https://data.cityofnewyork.us/",
+  "home_status": 200,
+  "html_title": "Explore data about NYC - NYC Open Data"
+ },
+ "data.cityoforlando.net": {
+  "fetched_at": "2026-10-20T01:04:12+00:00",
+  "site_theme_url": "https://data.cityoforlando.net/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Orlando Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.cityoforlando.net/",
+  "home_status": 200,
+  "html_title": "City of Orlando Open Data Portal | City of Orlando Open Data Portal"
+ },
+ "data.colorado.gov": {
+  "fetched_at": "2026-10-18T03:52:06+00:00",
+  "site_theme_url": "https://data.colorado.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Colorado Information Marketplace | data.colorado.gov",
+  "site_company": "Colorado Information Marketplace",
+  "home_url": "https://data.colorado.gov/",
+  "home_status": 200,
+  "html_title": "Colorado Information Marketplace | Colorado Information Marketplace | data.colorado.gov"
+ },
+ "data.coloradosprings.gov": {
+  "fetched_at": "2026-10-20T01:06:34+00:00",
+  "site_theme_url": "https://data.coloradosprings.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.coloradosprings.gov/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "data.countyofriverside.us": {
+  "fetched_at": "2026-10-20T01:05:05+00:00",
+  "site_theme_url": "https://data.countyofriverside.us/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Riverside County Open Data\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.countyofriverside.us/",
+  "home_status": 200,
+  "html_title": "Riverside County Open Data | Riverside County Open Data"
+ },
+ "data.cstx.gov": {
+  "fetched_at": "2026-10-20T01:05:53+00:00",
+  "site_theme_url": "https://data.cstx.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.cstx.gov/",
+  "home_status": 200,
+  "html_title": "College Station - Open Data | CSTX Open Data"
+ },
+ "data.ct.gov": {
+  "fetched_at": "2026-10-18T03:52:13+00:00",
+  "site_theme_url": "https://data.ct.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | State of Connecticut",
+  "site_company": "CT Open Data Portal",
+  "home_url": "https://data.ct.gov/",
+  "home_status": 200,
+  "html_title": "Connecticut | Open Data | Connecticut Data"
+ },
+ "data.datacenterresearch.org": {
+  "fetched_at": "2026-10-20T01:04:58+00:00",
+  "site_theme_url": "https://data.datacenterresearch.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.datacenterresearch.org/",
+  "home_status": 200,
+  "html_title": "The Data Center"
+ },
+ "data.delaware.gov": {
+  "fetched_at": "2026-10-20T00:59:44+00:00",
+  "site_theme_url": "https://data.delaware.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Delaware Data - Delaware.gov: Official Website of the State of Delaware",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.delaware.gov/",
+  "home_status": 200,
+  "html_title": "Delaware Data - Delaware.gov: Official Website of the State of Delaware | Delaware Open Data Portal"
+ },
+ "data.dumfriesva.gov": {
+  "fetched_at": "2026-10-20T01:03:06+00:00",
+  "site_theme_url": "https://data.dumfriesva.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.dumfriesva.gov/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "data.edmonton.ca": {
+  "fetched_at": "2026-10-18T03:52:07+00:00",
+  "site_theme_url": "https://data.edmonton.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Edmonton - Open Data Portal\n",
+  "site_company": "Edmonton's Open Data Portal\n",
+  "home_url": "https://data.edmonton.ca/",
+  "home_status": 200,
+  "html_title": "Edmonton - Open Data Portal"
+ },
+ "data.energystar.gov": {
+  "fetched_at": "2026-10-20T01:03:53+00:00",
+  "site_theme_url": "https://data.energystar.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "ENERGY STAR Certified Products | US Environmental Protection Agency",
+  "site_company": "data.energystar.gov",
+  "home_url": "https://data.energystar.gov/",
+  "home_status": 200,
+  "html_title": "ENERGY STAR Product Finder API & Datasets | EPA ENERGY STAR"
+ },
+ "data.everettwa.gov": {
+  "fetched_at": "2026-10-20T00:59:46+00:00",
+  "site_theme_url": "https://data.everettwa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.everettwa.gov/",
+  "home_status": 200,
+  "html_title": "City of Everett Open Data"
+ },
+ "data.framinghamma.gov": {
+  "fetched_at": "2026-10-20T01:05:21+00:00",
+  "site_theme_url": "https://data.framinghamma.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Rally - Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.framinghamma.gov/",
+  "home_status": 200,
+  "html_title": "Rally | Open Data Portal | Open Data Framingham"
+ },
+ "data.fultoncountyga.gov": {
+  "fetched_at": "2026-10-20T01:00:00+00:00",
+  "site_theme_url": "https://data.fultoncountyga.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.fultoncountyga.gov/",
+  "home_status": 200,
+  "html_title": "Fulton County Open Data"
+ },
+ "data.honolulu.gov": {
+  "fetched_at": "2026-10-20T00:58:58+00:00",
+  "site_theme_url": "https://data.honolulu.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Honolulu - Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.honolulu.gov/",
+  "home_status": 200,
+  "html_title": "Honolulu - Open Data Portal | Honolulu - Open Data Portal"
+ },
+ "data.kcmo.org": {
+  "fetched_at": "2026-10-20T00:59:04+00:00",
+  "site_theme_url": "https://data.kcmo.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | data.kcmo.org",
+  "site_company": "City of Kansas City, Mo.",
+  "home_url": "https://data.kcmo.org/",
+  "home_status": 200,
+  "html_title": "Open Data KC | data.kcmo.org"
+ },
+ "data.kingcounty.gov": {
+  "fetched_at": "2026-10-18T03:53:10+00:00",
+  "site_theme_url": "https://data.kingcounty.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "King County | Open Data",
+  "site_company": "King County",
+  "home_url": "https://data.kingcounty.gov/",
+  "home_status": 200,
+  "html_title": "King County | Open Data"
+ },
+ "data.lacity.org": {
+  "fetched_at": "2026-10-18T03:52:40+00:00",
+  "site_theme_url": "https://data.lacity.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Los Angeles - Open Data Portal",
+  "site_company": "City of Los Angeles",
+  "home_url": "https://data.lacity.org/",
+  "home_status": 200,
+  "html_title": "DataLA: Information, Insights, and Analysis from the City of Angels | Los Angeles Open Data Portal"
+ },
+ "data.macoupincountyil.gov": {
+  "fetched_at": "2026-10-20T01:04:29+00:00",
+  "site_theme_url": "https://data.macoupincountyil.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Macoupin County, IL",
+  "home_url": "https://data.macoupincountyil.gov/",
+  "home_status": 200,
+  "html_title": "Macoupin Open Data Portal | Open Data | Macoupin County"
+ },
+ "data.marincounty.gov": {
+  "fetched_at": "2026-10-20T01:03:09+00:00",
+  "site_theme_url": "https://data.marincounty.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "County of Marin | Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.marincounty.gov/",
+  "home_status": 200,
+  "html_title": "County of Marin - Open Data Portal | County of Marin Open Data Portal"
+ },
+ "data.mesaaz.gov": {
+  "fetched_at": "2026-10-18T03:52:32+00:00",
+  "site_theme_url": "https://data.mesaaz.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "City of Mesa",
+  "home_url": "https://data.mesaaz.gov/",
+  "home_status": 200,
+  "html_title": "Data Portal | City of Mesa Data Hub"
+ },
+ "data.michigan.gov": {
+  "fetched_at": "2026-10-18T03:53:00+00:00",
+  "site_theme_url": "https://data.michigan.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.michigan.gov/",
+  "home_status": 200,
+  "html_title": "Michigan | Open Data | Michigan | Open Data"
+ },
+ "data.mmcp.ms.gov": {
+  "fetched_at": "2026-10-20T01:04:08+00:00",
+  "site_theme_url": "https://data.mmcp.ms.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.mmcp.ms.gov/",
+  "home_status": 200,
+  "html_title": "Mississippi Medical Cannabis Program"
+ },
+ "data.mo.gov": {
+  "fetched_at": "2026-10-20T00:59:47+00:00",
+  "site_theme_url": "https://data.mo.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "data.mo.gov | State of Missouri Data Portal",
+  "site_company": "data.mo.gov",
+  "home_url": "https://data.mo.gov/",
+  "home_status": 200,
+  "html_title": "Catalog | data.mo.gov | State of Missouri Data Portal"
+ },
+ "data.modestogov.com": {
+  "fetched_at": "2026-10-20T01:00:27+00:00",
+  "site_theme_url": "https://data.modestogov.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.modestogov.com/",
+  "home_status": 200,
+  "html_title": "Modesto City View"
+ },
+ "data.montgomerycountymd.gov": {
+  "fetched_at": "2026-10-18T03:52:36+00:00",
+  "site_theme_url": "https://data.montgomerycountymd.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.montgomerycountymd.gov/",
+  "home_status": 200,
+  "html_title": "Montgomery County Data | Open Data Portal"
+ },
+ "data.montgomeryschoolsmd.org": {
+  "fetched_at": "2026-10-20T01:00:10+00:00",
+  "site_theme_url": "https://data.montgomeryschoolsmd.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "MCPS - Open Data Portal\r\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.montgomeryschoolsmd.org/",
+  "home_status": 200,
+  "html_title": "MCPS - Open Data Portal | MCPS - Open Data Portal"
+ },
+ "data.napacounty.gov": {
+  "fetched_at": "2026-10-20T00:59:58+00:00",
+  "site_theme_url": "https://data.napacounty.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.napacounty.gov/",
+  "home_status": 200,
+  "html_title": "Napa County HHSA Open Data Portal"
+ },
+ "data.nhitc.org": {
+  "fetched_at": "2026-10-20T01:02:28+00:00",
+  "site_theme_url": "https://data.nhitc.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 0,
+  "site_title": null,
+  "site_company": null,
+  "home_url": "https://data.nhitc.org/",
+  "home_status": 0,
+  "html_title": null
+ },
+ "data.nj.gov": {
+  "fetched_at": "2026-10-18T03:53:03+00:00",
+  "site_theme_url": "https://data.nj.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Rally - Open Data Portal",
+  "site_company": "New Jersey's Open Data Center",
+  "home_url": "https://data.nj.gov/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | NJOIT Open Data Center"
+ },
+ "data.nola.gov": {
+  "fetched_at": "2026-10-20T00:59:52+00:00",
+  "site_theme_url": "https://data.nola.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data.NOLA.gov | Enabling New Orleans",
+  "site_company": "Data.NOLA.gov",
+  "home_url": "https://data.nola.gov/",
+  "home_status": 200,
+  "html_title": "Home - DataDriven - City of New Orleans"
+ },
+ "data.norfolk.gov": {
+  "fetched_at": "2026-10-20T01:00:04+00:00",
+  "site_theme_url": "https://data.norfolk.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.norfolk.gov/",
+  "home_status": 200,
+  "html_title": "City of Norfolk Data | Open Data Portal - City of Norfolk, VA Open Data"
+ },
+ "data.novascotia.ca": {
+  "fetched_at": "2026-10-18T03:52:29+00:00",
+  "site_theme_url": "https://data.novascotia.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Nova Scotia Government - Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.novascotia.ca/",
+  "home_status": 200,
+  "html_title": "Nova Scotia Government - Open Data Portal | Open Data | Nova Scotia"
+ },
+ "data.ny.gov": {
+  "fetched_at": "2026-10-18T03:52:16+00:00",
+  "site_theme_url": "https://data.ny.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "State of New York | Open Data\n",
+  "site_company": "State of New York",
+  "home_url": "https://data.ny.gov/",
+  "home_status": 200,
+  "html_title": "State of New York | Open Data | State of New York"
+ },
+ "data.oaklandca.gov": {
+  "fetched_at": "2026-10-18T03:52:52+00:00",
+  "site_theme_url": "https://data.oaklandca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.oaklandca.gov/",
+  "home_status": 200,
+  "html_title": "City of Oakland Open Data Portal | Open Data Portal"
+ },
+ "data.oce.pr.gov": {
+  "fetched_at": "2026-10-20T01:04:56+00:00",
+  "site_theme_url": "https://data.oce.pr.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "OCEPR - Open Data\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.oce.pr.gov/",
+  "home_status": 200,
+  "html_title": "OCEPR - Open Data | OCE Open Data"
+ },
+ "data.ohiocourtofclaims.gov": {
+  "fetched_at": "2026-10-20T01:06:09+00:00",
+  "site_theme_url": "https://data.ohiocourtofclaims.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.ohiocourtofclaims.gov/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "data.orcities.org": {
+  "fetched_at": "2026-10-20T01:04:19+00:00",
+  "site_theme_url": "https://data.orcities.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "League of Oregon Cities",
+  "home_url": "https://data.orcities.org/",
+  "home_status": 200,
+  "html_title": "LOC Open Data Portal | Open Data Portal"
+ },
+ "data.oregon.gov": {
+  "fetched_at": "2026-10-18T03:52:17+00:00",
+  "site_theme_url": "https://data.oregon.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Oregon Data | Opening Oregon's Data",
+  "site_company": "Oregon Data",
+  "home_url": "https://data.oregon.gov/",
+  "home_status": 200,
+  "html_title": "Oregon | Open Data | data.oregon.gov | Oregon's Open Data Portal | Oregon.gov"
+ },
+ "data.pa.gov": {
+  "fetched_at": "2026-10-18T03:52:46+00:00",
+  "site_theme_url": "https://data.pa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "data.pa.gov",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.pa.gov/",
+  "home_status": 200,
+  "html_title": "data.pa.gov | PA Open Data Portal"
+ },
+ "data.princegeorgescountymd.gov": {
+  "fetched_at": "2026-10-20T00:59:57+00:00",
+  "site_theme_url": "https://data.princegeorgescountymd.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.princegeorgescountymd.gov/",
+  "home_status": 200,
+  "html_title": "OpenPGC | Open Data | Tyler Data & Insights"
+ },
+ "data.providenceri.gov": {
+  "fetched_at": "2026-10-20T00:59:54+00:00",
+  "site_theme_url": "https://data.providenceri.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.providenceri.gov/",
+  "home_status": 200,
+  "html_title": "Open Data | City of Providence | Open Data | City of Providence"
+ },
+ "data.ramseycountymn.gov": {
+  "fetched_at": "2026-10-18T03:51:59+00:00",
+  "site_theme_url": "https://data.ramseycountymn.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.ramseycountymn.gov/",
+  "home_status": 200,
+  "html_title": "Data | Ramsey County"
+ },
+ "data.readingpa.gov": {
+  "fetched_at": "2026-10-20T01:05:06+00:00",
+  "site_theme_url": "https://data.readingpa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Reading - Open Data Portal\r\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.readingpa.gov/",
+  "home_status": 200,
+  "html_title": "Open Reading | Open Data Reading"
+ },
+ "data.richmondgov.com": {
+  "fetched_at": "2026-10-20T01:04:38+00:00",
+  "site_theme_url": "https://data.richmondgov.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Richmond | Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.richmondgov.com/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | City of Richmond, Virginia | Open Data Portal | City of Richmond, Virginia"
+ },
+ "data.roseville.ca.us": {
+  "fetched_at": "2026-10-20T01:00:14+00:00",
+  "site_theme_url": "https://data.roseville.ca.us/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of Roseville",
+  "site_company": "City of Roseville",
+  "home_url": "https://data.roseville.ca.us/",
+  "home_status": 200,
+  "html_title": "Roseville | Open Data | Open Roseville - City of Roseville"
+ },
+ "data.sandiegocounty.gov": {
+  "fetched_at": "2026-10-18T03:53:04+00:00",
+  "site_theme_url": "https://data.sandiegocounty.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal",
+  "site_company": "San Diego County Data Portal",
+  "home_url": "https://data.sandiegocounty.gov/",
+  "home_status": 200,
+  "html_title": "County of San Diego | Open Data Portal | Open Data Portal"
+ },
+ "data.sccgov.org": {
+  "fetched_at": "2026-10-18T03:52:12+00:00",
+  "site_theme_url": "https://data.sccgov.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.sccgov.org/",
+  "home_status": 200,
+  "html_title": "County of Santa Clara"
+ },
+ "data.sf.gov": {
+  "fetched_at": "2026-10-18T03:52:31+00:00",
+  "site_theme_url": "https://data.sf.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data | San Francisco",
+  "site_company": "San Francisco Data",
+  "home_url": "https://data.sf.gov/",
+  "home_status": 200,
+  "html_title": "SF OpenData | DataSF"
+ },
+ "data.smcgov.org": {
+  "fetched_at": "2026-10-20T01:03:56+00:00",
+  "site_theme_url": "https://data.smcgov.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | San Mateo County",
+  "site_company": "San Mateo County Open Data",
+  "home_url": "https://data.smcgov.org/",
+  "home_status": 200,
+  "html_title": "San Mateo | Open Data | Open San Mateo County"
+ },
+ "data.somervillema.gov": {
+  "fetched_at": "2026-10-20T01:04:44+00:00",
+  "site_theme_url": "https://data.somervillema.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Somerville, MA",
+  "site_company": "City of Somerville, MA",
+  "home_url": "https://data.somervillema.gov/",
+  "home_status": 200,
+  "html_title": "City of Somerville, MA"
+ },
+ "data.sonomacounty.ca.gov": {
+  "fetched_at": "2026-10-20T01:02:59+00:00",
+  "site_theme_url": "https://data.sonomacounty.ca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | Sonoma County",
+  "site_company": "Sonoma County",
+  "home_url": "https://data.sonomacounty.ca.gov/",
+  "home_status": 200,
+  "html_title": "County of Sonoma | Open Data | Open Data | Sonoma County"
+ },
+ "data.sustainablesm.org": {
+  "fetched_at": "2026-10-20T00:59:49+00:00",
+  "site_theme_url": "https://data.sustainablesm.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Santa Monica Sustainable City Plan\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.sustainablesm.org/",
+  "home_status": 200,
+  "html_title": "Santa Monica Sustainable City Plan | Santa Monica Sustainable City"
+ },
+ "data.texas.gov": {
+  "fetched_at": "2026-10-18T03:52:22+00:00",
+  "site_theme_url": "https://data.texas.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "State of Texas Open Data Portal\n",
+  "home_url": "https://data.texas.gov/",
+  "home_status": 200,
+  "html_title": "State of Texas | Open Data Portal | Open Data Portal"
+ },
+ "data.tompsc.com": {
+  "fetched_at": "2026-10-20T01:06:04+00:00",
+  "site_theme_url": "https://data.tompsc.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Mount Pleasant, SC | eMPower\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.tompsc.com/",
+  "home_status": 200,
+  "html_title": "Mount Pleasant, SC | eMPower | Mount Pleasant, SC | eMPower"
+ },
+ "data.transportation.gov": {
+  "fetched_at": "2026-10-20T01:09:19+00:00",
+  "site_theme_url": "https://data.transportation.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Department of Transportation - Data Portal",
+  "site_company": "Data.Transportation.gov",
+  "home_url": "https://data.transportation.gov/",
+  "home_status": 200,
+  "html_title": "Department of Transportation - Open Data Portal | Department of Transportation - Data Portal"
+ },
+ "data.vermont.gov": {
+  "fetched_at": "2026-10-20T00:59:55+00:00",
+  "site_theme_url": "https://data.vermont.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | State of Vermont",
+  "site_company": "State of Vermont",
+  "home_url": "https://data.vermont.gov/",
+  "home_status": 200,
+  "html_title": "Vermont | Open Data | Open Data | State of Vermont"
+ },
+ "data.wa.gov": {
+  "fetched_at": "2026-10-18T03:52:02+00:00",
+  "site_theme_url": "https://data.wa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data.WA | Washington State's Open Data Site",
+  "site_company": "Data.WA",
+  "home_url": "https://data.wa.gov/",
+  "home_status": 200,
+  "html_title": "Data.WA | State of Washington Open Data Platform | Data.WA | State of Washington"
+ },
+ "data.waterpointdata.org": {
+  "fetched_at": "2026-10-20T01:05:55+00:00",
+  "site_theme_url": "https://data.waterpointdata.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.waterpointdata.org/",
+  "home_status": 200,
+  "html_title": "Water Point Data Exchange - Data | WPDx | The Water Point Data Exchange is the global platform for sharing water point data"
+ },
+ "data.wcad.org": {
+  "fetched_at": "2026-10-20T01:03:48+00:00",
+  "site_theme_url": "https://data.wcad.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://data.wcad.org/",
+  "home_status": 200,
+  "html_title": "WCAD Open Data"
+ },
+ "data.weho.org": {
+  "fetched_at": "2026-10-20T01:04:15+00:00",
+  "site_theme_url": "https://data.weho.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of West Hollywood",
+  "site_company": "City of West Hollywood",
+  "home_url": "https://data.weho.org/",
+  "home_status": 200,
+  "html_title": "Open Data | West Hollywood | Open Data | City of West Hollywood"
+ },
+ "data.winnipeg.ca": {
+  "fetched_at": "2026-10-18T03:53:14+00:00",
+  "site_theme_url": "https://data.winnipeg.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of Winnipeg",
+  "site_company": "City of Winnipeg",
+  "home_url": "https://data.winnipeg.ca/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | Open Data | City of Winnipeg"
+ },
+ "dataacademy.maryland.gov": {
+  "fetched_at": "2026-10-20T01:06:15+00:00",
+  "site_theme_url": "https://dataacademy.maryland.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://dataacademy.maryland.gov/",
+  "home_status": 200,
+  "html_title": "Data Academy"
+ },
+ "datacatalog.cookcountyil.gov": {
+  "fetched_at": "2026-10-18T03:52:47+00:00",
+  "site_theme_url": "https://datacatalog.cookcountyil.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data | Cook County, Illinois",
+  "site_company": "Cook County",
+  "home_url": "https://datacatalog.cookcountyil.gov/",
+  "home_status": 200,
+  "html_title": "Cook County Open Data"
+ },
+ "datadiscovery.nlm.nih.gov": {
+  "fetched_at": "2026-10-20T01:02:37+00:00",
+  "site_theme_url": "https://datadiscovery.nlm.nih.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "National Library of Medicine | National Institutes of Health | Open Data Portal",
+  "site_company": "National Library of Medicine",
+  "home_url": "https://datadiscovery.nlm.nih.gov/",
+  "home_status": 200,
+  "html_title": "Catalog | National Library of Medicine | National Institutes of Health | Open Data Portal"
+ },
+ "datahub.austintexas.gov": {
+  "fetched_at": "2026-10-18T03:52:00+00:00",
+  "site_theme_url": "https://datahub.austintexas.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://datahub.austintexas.gov/",
+  "home_status": 200,
+  "html_title": "City Data Hub | City of Austin"
+ },
+ "datahub.hhs.gov": {
+  "fetched_at": "2026-10-18T03:51:47+00:00",
+  "site_theme_url": "https://datahub.hhs.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "HHS Data Hub",
+  "home_url": "https://datahub.hhs.gov/",
+  "home_status": 200,
+  "html_title": "HHS Data Hub"
+ },
+ "datahub.smcgov.org": {
+  "fetched_at": "2026-10-18T03:52:25+00:00",
+  "site_theme_url": "https://datahub.smcgov.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://datahub.smcgov.org/",
+  "home_status": 200,
+  "html_title": "SMC Datahub"
+ },
+ "datahub.transportation.gov": {
+  "fetched_at": "2026-10-18T03:52:28+00:00",
+  "site_theme_url": "https://datahub.transportation.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "USDOT Open Data",
+  "site_company": "DOT DataHub",
+  "home_url": "https://datahub.transportation.gov/",
+  "home_status": 200,
+  "html_title": "USDOT Open Data"
+ },
+ "datahub.usac.org": {
+  "fetched_at": "2026-10-20T01:04:11+00:00",
+  "site_theme_url": "https://datahub.usac.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://datahub.usac.org/",
+  "home_status": 200,
+  "html_title": "USAC | Data Hub"
+ },
+ "datainsights.encinitasca.gov": {
+  "fetched_at": "2026-10-20T01:03:38+00:00",
+  "site_theme_url": "https://datainsights.encinitasca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://datainsights.encinitasca.gov/",
+  "home_status": 200,
+  "html_title": "Encinitas Data & Insights | City of Encinitas"
+ },
+ "datamgmt.nassaucountyny.gov": {
+  "fetched_at": "2026-10-20T01:04:32+00:00",
+  "site_theme_url": "https://datamgmt.nassaucountyny.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://datamgmt.nassaucountyny.gov/",
+  "home_status": 200,
+  "html_title": "Open Nassau (Internal)"
+ },
+ "dcsheriff.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:39+00:00",
+  "site_theme_url": "https://dcsheriff.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://dcsheriff.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "dedhamma.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:43+00:00",
+  "site_theme_url": "https://dedhamma.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://dedhamma.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "douglasco.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:02+00:00",
+  "site_theme_url": "https://douglasco.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://douglasco.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "dubuque.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:45+00:00",
+  "site_theme_url": "https://dubuque.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://dubuque.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | Open Data Portal | Dubuque, IA"
+ },
+ "edinamn-pd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:25+00:00",
+  "site_theme_url": "https://edinamn-pd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://edinamn-pd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "edinburgtx.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:48+00:00",
+  "site_theme_url": "https://edinburgtx.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://edinburgtx.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "edmondok.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:19+00:00",
+  "site_theme_url": "https://edmondok.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://edmondok.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "educationtocareer.data.mass.gov": {
+  "fetched_at": "2026-10-20T01:00:02+00:00",
+  "site_theme_url": "https://educationtocareer.data.mass.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "E2C Hub",
+  "home_url": "https://educationtocareer.data.mass.gov/",
+  "home_status": 200,
+  "html_title": "E2C Hub"
+ },
+ "elkhartcountyin.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:50+00:00",
+  "site_theme_url": "https://elkhartcountyin.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://elkhartcountyin.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "erieco.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:14+00:00",
+  "site_theme_url": "https://erieco.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://erieco.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "fiscalfocus.pittsburghpa.gov": {
+  "fetched_at": "2026-10-20T01:00:23+00:00",
+  "site_theme_url": "https://fiscalfocus.pittsburghpa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://fiscalfocus.pittsburghpa.gov/",
+  "home_status": 200,
+  "html_title": "Fiscal Focus Pittsburgh"
+ },
+ "flaglercofl.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:52+00:00",
+  "site_theme_url": "https://flaglercofl.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://flaglercofl.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "fortlauderdale.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:00:19+00:00",
+  "site_theme_url": "https://fortlauderdale.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Fort Lauderdale Police Department\n",
+  "site_company": "City of Fort Lauderdale Police Department\n",
+  "home_url": "https://fortlauderdale.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "City of Fort Lauderdale Police Department | Performance Management | City of Fort Lauderdale Police Department"
+ },
+ "fusioncenter.nhit.org": {
+  "fetched_at": "2026-10-20T01:02:35+00:00",
+  "site_theme_url": "https://fusioncenter.nhit.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "NHIT Data Fusion Center",
+  "home_url": "https://fusioncenter.nhit.org/",
+  "home_status": 200,
+  "html_title": "NHIT Data Fusion Center\u00ae"
+ },
+ "gnb.socrata.com": {
+  "fetched_at": "2026-10-18T03:52:55+00:00",
+  "site_theme_url": "https://gnb.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://gnb.socrata.com/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | New Brunswick Open Data"
+ },
+ "goochlandva.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:05+00:00",
+  "site_theme_url": "https://goochlandva.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://goochlandva.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "grandjunctionco.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:53+00:00",
+  "site_theme_url": "https://grandjunctionco.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://grandjunctionco.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "grovecityohpd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:59+00:00",
+  "site_theme_url": "https://grovecityohpd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://grovecityohpd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "health.data.ny.gov": {
+  "fetched_at": "2026-10-18T03:53:07+00:00",
+  "site_theme_url": "https://health.data.ny.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "State of New York | Open Data",
+  "site_company": "New York State Department of Health | Health Data NY",
+  "home_url": "https://health.data.ny.gov/",
+  "home_status": 200,
+  "html_title": "State of New York | Open Data Health | State of New York"
+ },
+ "healthdata.nj.gov": {
+  "fetched_at": "2026-10-20T01:02:47+00:00",
+  "site_theme_url": "https://healthdata.nj.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Socrata | Making Data Social",
+  "site_company": "Socrata",
+  "home_url": "https://healthdata.nj.gov/",
+  "home_status": 200,
+  "html_title": "Catalog | Socrata | Making Data Social"
+ },
+ "healthdata.tn.gov": {
+  "fetched_at": "2026-10-18T03:52:58+00:00",
+  "site_theme_url": "https://healthdata.tn.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://healthdata.tn.gov/",
+  "home_status": 200,
+  "html_title": "TDH Health Data"
+ },
+ "henrycoga.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:35+00:00",
+  "site_theme_url": "https://henrycoga.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://henrycoga.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "hickorync.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:21+00:00",
+  "site_theme_url": "https://hickorync.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://hickorync.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "hicscdata.hawaii.gov": {
+  "fetched_at": "2026-10-20T01:04:36+00:00",
+  "site_theme_url": "https://hicscdata.hawaii.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://hicscdata.hawaii.gov/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "hidot-contracts.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:55+00:00",
+  "site_theme_url": "https://hidot-contracts.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://hidot-contracts.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "State of Hawaii Department of Transportation"
+ },
+ "highlandsranch.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:13+00:00",
+  "site_theme_url": "https://highlandsranch.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://highlandsranch.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Highlands Ranch Metro Area | Socrata Data Cloud"
+ },
+ "highways.hidot.hawaii.gov": {
+  "fetched_at": "2026-10-18T03:52:14+00:00",
+  "site_theme_url": "https://highways.hidot.hawaii.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://highways.hidot.hawaii.gov/",
+  "home_status": 200,
+  "html_title": "State of Hawaii Department of Transportation"
+ },
+ "hub.dati.lombardia.it": {
+  "fetched_at": "2026-10-18T03:52:50+00:00",
+  "site_theme_url": "https://hub.dati.lombardia.it/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://hub.dati.lombardia.it/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "humboldtgov.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:05:00+00:00",
+  "site_theme_url": "https://humboldtgov.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://humboldtgov.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "illinois-edp.data.socrata.com": {
+  "fetched_at": "2026-10-20T00:59:01+00:00",
+  "site_theme_url": "https://illinois-edp.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://illinois-edp.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "impact.stlouisco.com": {
+  "fetched_at": "2026-10-20T01:03:18+00:00",
+  "site_theme_url": "https://impact.stlouisco.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Rally - Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://impact.stlouisco.com/",
+  "home_status": 200,
+  "html_title": "Impact STLCO | Rally - Open Data Portal"
+ },
+ "indio.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:13+00:00",
+  "site_theme_url": "https://indio.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://indio.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "insights.cincinnati-oh.gov": {
+  "fetched_at": "2026-10-20T01:04:25+00:00",
+  "site_theme_url": "https://insights.cincinnati-oh.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://insights.cincinnati-oh.gov/",
+  "home_status": 200,
+  "html_title": "CincyInsights"
+ },
+ "iop.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:42+00:00",
+  "site_theme_url": "https://iop.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://iop.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "janesville.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:05:11+00:00",
+  "site_theme_url": "https://janesville.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://janesville.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Park Place Performs! - City of Janesville"
+ },
+ "jerseyvillagetx.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:46+00:00",
+  "site_theme_url": "https://jerseyvillagetx.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://jerseyvillagetx.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "johnstonia.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:15+00:00",
+  "site_theme_url": "https://johnstonia.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://johnstonia.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "kirklandwa-scgc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:46+00:00",
+  "site_theme_url": "https://kirklandwa-scgc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://kirklandwa-scgc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "kirklandwa.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:31+00:00",
+  "site_theme_url": "https://kirklandwa.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://kirklandwa.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "lacoso.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:57+00:00",
+  "site_theme_url": "https://lacoso.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://lacoso.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "laramiecounty.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:48+00:00",
+  "site_theme_url": "https://laramiecounty.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://laramiecounty.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "metroairports.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:06+00:00",
+  "site_theme_url": "https://metroairports.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "MAC Sustainability",
+  "site_company": "MAC Sustainability",
+  "home_url": "https://metroairports.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "MAC Sustainability | Sustainability - Metro Airports"
+ },
+ "mi-treasury.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:04+00:00",
+  "site_theme_url": "https://mi-treasury.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://mi-treasury.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | MICommunity Financial Dashboard"
+ },
+ "mischooldata.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:05:44+00:00",
+  "site_theme_url": "https://mischooldata.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Rally - Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://mischooldata.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | Rally - Open Data Portal"
+ },
+ "moreno-valley.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:52+00:00",
+  "site_theme_url": "https://moreno-valley.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | City of Moreno Valley",
+  "site_company": "City of Moreno Valley",
+  "home_url": "https://moreno-valley.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Open Data | City of Moreno Valley"
+ },
+ "newcastle.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:25+00:00",
+  "site_theme_url": "https://newcastle.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://newcastle.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "nih-ncats.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:21+00:00",
+  "site_theme_url": "https://nih-ncats.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://nih-ncats.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "nnps-odp.data.socrata.com": {
+  "fetched_at": "2026-10-18T03:52:26+00:00",
+  "site_theme_url": "https://nnps-odp.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://nnps-odp.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "nvof-open.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:42+00:00",
+  "site_theme_url": "https://nvof-open.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://nvof-open.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "nyc-scgc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:18+00:00",
+  "site_theme_url": "https://nyc-scgc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://nyc-scgc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "NYC SCGC"
+ },
+ "olmsteadcountymn.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:27+00:00",
+  "site_theme_url": "https://olmsteadcountymn.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://olmsteadcountymn.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "open.piercecountywa.gov": {
+  "fetched_at": "2026-10-18T03:51:57+00:00",
+  "site_theme_url": "https://open.piercecountywa.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://open.piercecountywa.gov/",
+  "home_status": 200,
+  "html_title": "Open Pierce County"
+ },
+ "opendata-augusta.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:11+00:00",
+  "site_theme_url": "https://opendata-augusta.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://opendata-augusta.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "opendata.camden.gov.uk": {
+  "fetched_at": "2026-10-18T03:52:42+00:00",
+  "site_theme_url": "https://opendata.camden.gov.uk/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "London Borough of Camden",
+  "home_url": "https://opendata.camden.gov.uk/",
+  "home_status": 200,
+  "html_title": "Camden Council | Open Data | Open Data Portal"
+ },
+ "opendata.cityofmesquite.com": {
+  "fetched_at": "2026-10-20T01:08:32+00:00",
+  "site_theme_url": "https://opendata.cityofmesquite.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Mesquite Texas | Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://opendata.cityofmesquite.com/",
+  "home_status": 200,
+  "html_title": "Mesquite Texas | Open Data Portal | Mesquite Texas | Open Data Portal"
+ },
+ "opendata.clermontauditor.org": {
+  "fetched_at": "2026-10-20T00:59:03+00:00",
+  "site_theme_url": "https://opendata.clermontauditor.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://opendata.clermontauditor.org/",
+  "home_status": 200,
+  "html_title": "Open Data | Clermont Auditor"
+ },
+ "opendata.fcc.gov": {
+  "fetched_at": "2026-10-20T01:03:32+00:00",
+  "site_theme_url": "https://opendata.fcc.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Data | Federal Communications Commission",
+  "site_company": "opendata.fcc.gov",
+  "home_url": "https://opendata.fcc.gov/",
+  "home_status": 200,
+  "html_title": "Catalog | Data | Federal Communications Commission"
+ },
+ "opendata.fcgov.com": {
+  "fetched_at": "2026-10-20T01:00:09+00:00",
+  "site_theme_url": "https://opendata.fcgov.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 503,
+  "site_title": null,
+  "site_company": null,
+  "home_url": "https://opendata.fcgov.com/",
+  "home_status": 503,
+  "html_title": "This site has moved"
+ },
+ "opendata.howardcountymd.gov": {
+  "fetched_at": "2026-10-18T03:53:06+00:00",
+  "site_theme_url": "https://opendata.howardcountymd.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://opendata.howardcountymd.gov/",
+  "home_status": 200,
+  "html_title": "Howard County - Open Data Portal | Open Data Portal"
+ },
+ "opendata.maryland.gov": {
+  "fetched_at": "2026-10-18T03:51:53+00:00",
+  "site_theme_url": "https://opendata.maryland.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | data.maryland.gov",
+  "site_company": "The State of Maryland",
+  "home_url": "https://opendata.maryland.gov/",
+  "home_status": 200,
+  "html_title": "Open Data | opendata.maryland.gov"
+ },
+ "opendata.rdw.nl": {
+  "fetched_at": "2026-10-20T01:00:16+00:00",
+  "site_theme_url": "https://opendata.rdw.nl/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | RDW",
+  "site_company": "RDW",
+  "home_url": "https://opendata.rdw.nl/",
+  "home_status": 200,
+  "html_title": "Open Data | RDW | Open Data | RDW"
+ },
+ "openinformation.novascotia.ca": {
+  "fetched_at": "2026-10-18T03:51:50+00:00",
+  "site_theme_url": "https://openinformation.novascotia.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://openinformation.novascotia.ca/",
+  "home_status": 200,
+  "html_title": "Information Access | Nova Scotia"
+ },
+ "openperformance.edmonton.ca": {
+  "fetched_at": "2026-10-20T01:03:05+00:00",
+  "site_theme_url": "https://openperformance.edmonton.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "City of Edmonton Citizen Dashboard\n",
+  "site_company": "City of Edmonton Open Performance",
+  "home_url": "https://openperformance.edmonton.ca/",
+  "home_status": 200,
+  "html_title": "Open Performance Landing Page | City of Edmonton Open Performance"
+ },
+ "orlandofl.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:01+00:00",
+  "site_theme_url": "https://orlandofl.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://orlandofl.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "parkeronline.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:57+00:00",
+  "site_theme_url": "https://parkeronline.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://parkeronline.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Town of Parker, CO - Finance Data Portal"
+ },
+ "parksreporting.parks.ca.gov": {
+  "fetched_at": "2026-10-20T01:09:29+00:00",
+  "site_theme_url": "https://parksreporting.parks.ca.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Technologies",
+  "home_url": "https://parksreporting.parks.ca.gov/",
+  "home_status": 200,
+  "html_title": "California Parks Reporting Platform"
+ },
+ "performance.ci.janesville.wi.us": {
+  "fetched_at": "2026-10-20T01:00:06+00:00",
+  "site_theme_url": "https://performance.ci.janesville.wi.us/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://performance.ci.janesville.wi.us/",
+  "home_status": 200,
+  "html_title": "Park Place Performs! - City of Janesville"
+ },
+ "performance.cityofcamas.us": {
+  "fetched_at": "2026-10-18T04:07:01+00:00",
+  "site_theme_url": "https://performance.cityofcamas.us/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://performance.cityofcamas.us/",
+  "home_status": 200,
+  "html_title": "Open Data Portal | Camas Performance"
+ },
+ "performance.cookcountyil.gov": {
+  "fetched_at": "2026-10-20T01:05:52+00:00",
+  "site_theme_url": "https://performance.cookcountyil.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://performance.cookcountyil.gov/",
+  "home_status": 200,
+  "html_title": "Cook County Performance"
+ },
+ "performance.franklintn.gov": {
+  "fetched_at": "2026-10-20T01:03:58+00:00",
+  "site_theme_url": "https://performance.franklintn.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://performance.franklintn.gov/",
+  "home_status": 200,
+  "html_title": "Government Financial Reports App | FranklinForward: City's Strategic Plan Website"
+ },
+ "performance.fultoncountyga.gov": {
+  "fetched_at": "2026-10-18T03:52:57+00:00",
+  "site_theme_url": "https://performance.fultoncountyga.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "",
+  "site_company": "OpenData by Socrata",
+  "home_url": "https://performance.fultoncountyga.gov/",
+  "home_status": 200,
+  "html_title": "Rally | Open Data Portal | Fulton Performance"
+ },
+ "performance.princegeorgescountymd.gov": {
+  "fetched_at": "2026-10-18T03:52:54+00:00",
+  "site_theme_url": "https://performance.princegeorgescountymd.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "CountyStat | Prince George's County",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://performance.princegeorgescountymd.gov/",
+  "home_status": 200,
+  "html_title": "CountyStat | Prince George's CountyStat | CountyStat | Prince George's County"
+ },
+ "performance.seattle.gov": {
+  "fetched_at": "2026-10-18T03:52:35+00:00",
+  "site_theme_url": "https://performance.seattle.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": null,
+  "site_company": null,
+  "home_url": "https://performance.seattle.gov/",
+  "home_status": 200,
+  "html_title": "Innovation & Performance - Innovation and Performance | seattle.gov"
+ },
+ "performance.smcgov.org": {
+  "fetched_at": "2026-10-18T03:52:03+00:00",
+  "site_theme_url": "https://performance.smcgov.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "SMC Performance",
+  "site_company": "San Mateo County",
+  "home_url": "https://performance.smcgov.org/",
+  "home_status": 200,
+  "html_title": "San Mateo Performance Dashboards | San Mateo County Performance"
+ },
+ "perrycounty.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:34+00:00",
+  "site_theme_url": "https://perrycounty.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://perrycounty.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "pinellasparkpd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:30+00:00",
+  "site_theme_url": "https://pinellasparkpd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://pinellasparkpd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "pleasantonpd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:50+00:00",
+  "site_theme_url": "https://pleasantonpd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://pleasantonpd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "plymouth-ma.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:02+00:00",
+  "site_theme_url": "https://plymouth-ma.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://plymouth-ma.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "policedata.coloradosprings.gov": {
+  "fetched_at": "2026-10-20T01:05:02+00:00",
+  "site_theme_url": "https://policedata.coloradosprings.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://policedata.coloradosprings.gov/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "policeview.johnscreekga.gov": {
+  "fetched_at": "2026-10-20T01:05:42+00:00",
+  "site_theme_url": "https://policeview.johnscreekga.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Johns Creek Police Department | Performance Management\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://policeview.johnscreekga.gov/",
+  "home_status": 200,
+  "html_title": "Johns Creek Police Department | Performance Management | Johns Creek Police Department | Performance Management"
+ },
+ "prospertx.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:04+00:00",
+  "site_theme_url": "https://prospertx.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://prospertx.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "ptsd-va.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:03:44+00:00",
+  "site_theme_url": "https://ptsd-va.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://ptsd-va.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "PTSD Repository"
+ },
+ "ranchocordovaca.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:26+00:00",
+  "site_theme_url": "https://ranchocordovaca.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://ranchocordovaca.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "readingpa.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:04+00:00",
+  "site_theme_url": "https://readingpa.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://readingpa.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "reports.cdp.net": {
+  "fetched_at": "2026-10-20T01:09:54+00:00",
+  "site_theme_url": "https://reports.cdp.net/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "CDP Performance Dashboard",
+  "home_url": "https://reports.cdp.net/",
+  "home_status": 200,
+  "html_title": "Government Financial Reports App | 2015 Live City Reporting"
+ },
+ "rosevillepd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:06+00:00",
+  "site_theme_url": "https://rosevillepd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://rosevillepd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "rrps.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:05+00:00",
+  "site_theme_url": "https://rrps.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://rrps.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "sharefulton.fultoncountyga.gov": {
+  "fetched_at": "2026-10-18T03:52:10+00:00",
+  "site_theme_url": "https://sharefulton.fultoncountyga.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://sharefulton.fultoncountyga.gov/",
+  "home_status": 200,
+  "html_title": "Share Fulton"
+ },
+ "shawneesheriff.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:21+00:00",
+  "site_theme_url": "https://shawneesheriff.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://shawneesheriff.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "siouxfalls.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:08+00:00",
+  "site_theme_url": "https://siouxfalls.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://siouxfalls.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "slo-co.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:22+00:00",
+  "site_theme_url": "https://slo-co.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://slo-co.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "soquelcreekwdca.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:45+00:00",
+  "site_theme_url": "https://soquelcreekwdca.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://soquelcreekwdca.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "southfultonga.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:22+00:00",
+  "site_theme_url": "https://southfultonga.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://southfultonga.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "stateofalaska.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:04:22+00:00",
+  "site_theme_url": "https://stateofalaska.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://stateofalaska.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "stutsman.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:26+00:00",
+  "site_theme_url": "https://stutsman.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://stutsman.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "summitcountyoh.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:07+00:00",
+  "site_theme_url": "https://summitcountyoh.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://summitcountyoh.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "townofpalmbeach-epl.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:56+00:00",
+  "site_theme_url": "https://townofpalmbeach-epl.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://townofpalmbeach-epl.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "transparencyarchive.michigan.gov": {
+  "fetched_at": "2026-10-20T01:02:55+00:00",
+  "site_theme_url": "https://transparencyarchive.michigan.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "MI Transparency - State Expenditures\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://transparencyarchive.michigan.gov/",
+  "home_status": 200,
+  "html_title": "MI Transparency - State Expenditures | MI Transparency - State Expenditures"
+ },
+ "trca-epl.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:10+00:00",
+  "site_theme_url": "https://trca-epl.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://trca-epl.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "txcourts-reporting.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:57+00:00",
+  "site_theme_url": "https://txcourts-reporting.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://txcourts-reporting.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "unioncityhi-reporting.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:03:08+00:00",
+  "site_theme_url": "https://unioncityhi-reporting.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://unioncityhi-reporting.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "usc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:00:08+00:00",
+  "site_theme_url": "https://usc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://usc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "va-cca.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:59+00:00",
+  "site_theme_url": "https://va-cca.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://va-cca.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "vtmbl-reporting.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:36+00:00",
+  "site_theme_url": "https://vtmbl-reporting.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://vtmbl-reporting.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "wacotexas.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:48+00:00",
+  "site_theme_url": "https://wacotexas.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://wacotexas.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "washoe.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:07:36+00:00",
+  "site_theme_url": "https://washoe.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://washoe.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "weho.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:41+00:00",
+  "site_theme_url": "https://weho.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://weho.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "weslacotx.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:10:01+00:00",
+  "site_theme_url": "https://weslacotx.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://weslacotx.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "westpalmbeach.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:08:52+00:00",
+  "site_theme_url": "https://westpalmbeach.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://westpalmbeach.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "wicomicocountymd.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:09:12+00:00",
+  "site_theme_url": "https://wicomicocountymd.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://wicomicocountymd.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Catalog | Tyler Data & Insights"
+ },
+ "wv-omc.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:10:02+00:00",
+  "site_theme_url": "https://wv-omc.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://wv-omc.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ },
+ "www.dallasopendata.com": {
+  "fetched_at": "2026-10-18T03:52:34+00:00",
+  "site_theme_url": "https://www.dallasopendata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Dallas OpenData\n",
+  "site_company": "City of Dallas\n",
+  "home_url": "https://www.dallasopendata.com/",
+  "home_status": 200,
+  "html_title": "Dallas OpenData | Dallas OpenData"
+ },
+ "www.data.act.gov.au": {
+  "fetched_at": "2026-10-18T03:52:48+00:00",
+  "site_theme_url": "https://www.data.act.gov.au/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Portal\n",
+  "site_company": "ACT Government",
+  "home_url": "https://www.data.act.gov.au/",
+  "home_status": 200,
+  "html_title": "ACT | Open Data | Open Data Portal"
+ },
+ "www.datahub.va.gov": {
+  "fetched_at": "2026-10-18T03:52:05+00:00",
+  "site_theme_url": "https://www.datahub.va.gov/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "VA Datahub",
+  "home_url": "https://www.datahub.va.gov/",
+  "home_status": 200,
+  "html_title": "Department of Veterans Affairs Data Hub"
+ },
+ "www.dati.friuliveneziagiulia.it": {
+  "fetched_at": "2026-10-18T03:52:44+00:00",
+  "site_theme_url": "https://www.dati.friuliveneziagiulia.it/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data | Regione Autonoma Friuli Venezia Giulia",
+  "site_company": "Regione Autonoma Friuli Venezia Giulia",
+  "home_url": "https://www.dati.friuliveneziagiulia.it/",
+  "home_status": 200,
+  "html_title": "Regione Autonoma Friuli Venezia Giulia | Open Data | Open Data | Regione Autonoma Friuli Venezia Giulia"
+ },
+ "www.dati.lombardia.it": {
+  "fetched_at": "2026-10-18T03:51:52+00:00",
+  "site_theme_url": "https://www.dati.lombardia.it/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Open Data Regione Lombardia",
+  "site_company": "Regione Lombardia",
+  "home_url": "https://www.dati.lombardia.it/",
+  "home_status": 200,
+  "html_title": "Open Data Regione Lombardia"
+ },
+ "www.datos.gov.co": {
+  "fetched_at": "2026-10-18T03:51:49+00:00",
+  "site_theme_url": "https://www.datos.gov.co/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Datos Abiertos Colombia",
+  "site_company": "la plataforma de datos abiertos del gobierno colombiano",
+  "home_url": "https://www.datos.gov.co/",
+  "home_status": 200,
+  "html_title": "Datos Abiertos Colombia | Portal Nacional de Datos Abiertos"
+ },
+ "www.thedatazone.ca": {
+  "fetched_at": "2026-10-20T01:04:50+00:00",
+  "site_theme_url": "https://www.thedatazone.ca/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "datazONE | PVSC\n",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://www.thedatazone.ca/",
+  "home_status": 200,
+  "html_title": "datazONE | PVSC | DatazONE |"
+ },
+ "www.transparentrichmond.org": {
+  "fetched_at": "2026-10-18T03:53:01+00:00",
+  "site_theme_url": "https://www.transparentrichmond.org/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://www.transparentrichmond.org/",
+  "home_status": 200,
+  "html_title": "Transparent Richmond"
+ },
+ "yumaaz.data.socrata.com": {
+  "fetched_at": "2026-10-20T01:06:55+00:00",
+  "site_theme_url": "https://yumaaz.data.socrata.com/api/configurations.json?type=site_theme&defaultOnly=true&merge=true",
+  "site_theme_status": 200,
+  "site_title": "Tyler Data & Insights",
+  "site_company": "Tyler Data & Insights",
+  "home_url": "https://yumaaz.data.socrata.com/",
+  "home_status": 200,
+  "html_title": "Tyler Data & Insights"
+ }
+}

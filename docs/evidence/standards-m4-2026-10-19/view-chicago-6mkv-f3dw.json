@@ -1,0 +1,120 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/6mkv-f3dw.json",
+ "status": 200,
+ "name": "Zip Codes",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "objectid",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "zcta5ce10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "geoid10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "classfp10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "mtfcc10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "funcstat10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "aland10",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "33137",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "awater10",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "28415",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_leng",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "33140",
+    "non_null": "33140",
+    "null": "0"
+   }
+  }
+ ]
+}

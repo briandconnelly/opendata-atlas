@@ -1,0 +1,3 @@
+uv run pytest --run-integration -m integration tests/test_drift.py -k data.cityofchicago.org --ignore=tests/test_curation_skill.py -rA
+62 PASSED lines (no XFAIL, XPASS or SKIPPED)
+================= 62 passed, 8 deselected in 159.45s (0:02:39) =================

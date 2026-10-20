@@ -1,0 +1,66 @@
+{
+ "url": "https://data.seattle.gov/api/views/cyqu-gs94.json",
+ "status": 200,
+ "name": "City Council Districts",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "7",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "7",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "objectid",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "7",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "c_district",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "7",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "7",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_len",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "7",
+    "null": "0"
+   }
+  }
+ ]
+}

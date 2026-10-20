@@ -1,0 +1,31 @@
+"""Guide-examples check over summary.json, with a known positive, then a live re-run of each Example."""
+import asyncio, copy, json, sys
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.portals.loader import load_portal  # noqa: F401
+import importlib.util
+from pathlib import Path
+
+def problems(ge):
+    out = []
+    if ge.get("exit_code") != 0: out.append(f"exit_code {ge.get('exit_code')}")
+    if not ge.get("examples"): out.append("no examples")
+    out += [f"{e['guide']}: {e['question']}: is_error" for e in ge.get("examples", []) if e.get("is_error") is not False]
+    return out
+
+s = json.load(open(sys.argv[1]))
+ge = s["checks"]["guide_examples"]
+kp = copy.deepcopy(ge); kp["examples"][0]["is_error"] = True
+print("known positive (one is_error: true) ->", problems(kp))
+print("summary.json ->", problems(ge), len(ge["examples"]), "examples")
+
+spec = importlib.util.spec_from_file_location("g", "src/opendata_atlas/portals/data.everettwa.gov/guides.py")
+g = importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
+async def main():
+    async with Client(build_server()) as c:
+        for guide in g.GUIDES:
+            for ex in guide.examples:
+                r = (await c.call_tool_mcp("atlas_query_dataset", ex.arguments)).model_dump(mode="json", by_alias=True, exclude_none=True)
+                rows = (r.get("structuredContent") or {}).get("rows") or []
+                print("live:", ex.question, "isError", r.get("isError"), "rows", len(rows), rows[:3])
+asyncio.run(main())

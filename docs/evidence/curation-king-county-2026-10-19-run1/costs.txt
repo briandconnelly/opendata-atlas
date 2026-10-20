@@ -1,0 +1,17 @@
+<tmp>/curation.transcript.jsonl 1.7477596
+<tmp>/wt/.curation/evals-1/01-jail-bookings-last-month.transcript.jsonl 0.115316
+<tmp>/wt/.curation/evals-1/02-still-in-custody.transcript.jsonl 0.17816120000000002
+<tmp>/wt/.curation/evals-1/03-ld43-2012-republican-president.transcript.jsonl 0.12155640000000001
+<tmp>/wt/.curation/evals-1/04-traffic-collisions.transcript.jsonl 0.14488259999999997
+<tmp>/wt/.curation/evals-2/01-jail-bookings-last-month.transcript.jsonl 0.1110332
+<tmp>/wt/.curation/evals-2/02-still-in-custody.transcript.jsonl 0.1470524
+<tmp>/wt/.curation/evals-2/03-ld43-2012-republican-president.transcript.jsonl 0.10538539999999999
+<tmp>/wt/.curation/evals-2/04-traffic-collisions.transcript.jsonl 0.0864728
+<tmp>/wt/.curation/evals-3/01-jail-bookings-last-month.transcript.jsonl 0.1121864
+<tmp>/wt/.curation/evals-3/02-still-in-custody.transcript.jsonl 0.14117620000000003
+<tmp>/wt/.curation/evals-3/03-ld43-2012-republican-president.transcript.jsonl 0.1113784
+<tmp>/wt/.curation/evals-3/04-traffic-collisions.transcript.jsonl 0.12772540000000002
+<tmp>/evals/01-jail-bookings-last-month.transcript.jsonl 0.11160219999999998
+<tmp>/evals/02-still-in-custody.transcript.jsonl 0.1655726
+<tmp>/evals/03-ld43-2012-republican-president.transcript.jsonl 0.1142336
+<tmp>/evals/04-traffic-collisions.transcript.jsonl 0.166267

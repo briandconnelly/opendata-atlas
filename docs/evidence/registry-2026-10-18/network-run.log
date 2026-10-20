@@ -1,0 +1,332 @@
+enumerating us ...
+  us: 286 domains, exhausted=True
+enumerating eu ...
+  eu: 12 domains, exhausted=True
+[1/263] al-amcc-uat.data.socrata.com: chosen={'domains': 'al-amcc-uat.data.socrata.com'} host=al-amcc-uat.data.socrata.com views=200 errors=0 2.6s
+[2/263] al-amcc.data.socrata.com: chosen={'domains': 'al-amcc.data.socrata.com'} host=al-amcc.data.socrata.com views=200 errors=0 2.3s
+[3/263] albany.data.socrata.com: chosen={'domains': 'albany.data.socrata.com'} host=albany.data.socrata.com views=200 errors=0 2.2s
+[4/263] alpharetta.data.socrata.com: chosen={'domains': 'alpharetta.data.socrata.com'} host=alpharetta.data.socrata.com views=200 errors=0 2.4s
+[5/263] analisi.transparenciacatalunya.cat: chosen={'domains': 'analisi.transparenciacatalunya.cat'} host=analisi.transparenciacatalunya.cat views=200 errors=0 12.7s
+[6/263] anokamn.data.socrata.com: chosen={'domains': 'anokamn.data.socrata.com'} host=anokamn.data.socrata.com views=200 errors=0 2.6s
+[7/263] atlanta.data.socrata.com: chosen={'domains': 'atlanta.data.socrata.com'} host=atlanta.data.socrata.com views=200 errors=0 2.7s
+[8/263] bernalillocountynm.data.socrata.com: chosen={'domains': 'bernalillocountynm.data.socrata.com'} host=bernalillocountynm.data.socrata.com views=200 errors=0 2.3s
+[9/263] boulderco.data.socrata.com: chosen={'domains': 'boulderco.data.socrata.com'} host=boulderco.data.socrata.com views=200 errors=0 2.4s
+[10/263] bridgeportct.data.socrata.com: chosen={'domains': 'bridgeportct.data.socrata.com'} host=bridgeportct.data.socrata.com views=200 errors=0 2.6s
+[11/263] bronx.lehman.cuny.edu: chosen={'domains': 'bronx.lehman.cuny.edu'} host=bronx.lehman.cuny.edu views=200 errors=0 6.9s
+[12/263] budget-qa-reporting.data.socrata.com: chosen={'domains': 'budget-qa-reporting.data.socrata.com'} host=budget-qa-reporting.data.socrata.com views=200 errors=0 2.3s
+[13/263] bythenumbers.sco.ca.gov: chosen={'domains': 'bythenumbers.sco.ca.gov'} host=bythenumbers.sco.ca.gov views=200 errors=0 3.3s
+[14/263] capecoral.data.socrata.com: chosen={'domains': 'capecoral.data.socrata.com'} host=capecoral.data.socrata.com views=200 errors=0 2.3s
+[15/263] carsoncity.data.socrata.com: chosen={'domains': 'carsoncity.data.socrata.com'} host=carsoncity.data.socrata.com views=200 errors=0 2.4s
+[16/263] casagrandeaz.data.socrata.com: chosen={'domains': 'casagrandeaz.data.socrata.com'} host=casagrandeaz.data.socrata.com views=200 errors=0 2.3s
+[17/263] celebratingcities.data.socrata.com: chosen={'domains': 'celebratingcities.data.socrata.com'} host=celebratingcities.data.socrata.com views=200 errors=0 3.7s
+[18/263] citydata.mesaaz.gov: chosen={'domains': 'citydata.mesaaz.gov'} host=citydata.mesaaz.gov views=200 errors=0 4.7s
+[19/263] cityofchesapeake.data.socrata.com: chosen={'domains': 'cityofchesapeake.data.socrata.com'} host=cityofchesapeake.data.socrata.com views=200 errors=0 2.4s
+[20/263] cityofcudahy.data.socrata.com: chosen={'domains': 'cityofcudahy.data.socrata.com'} host=cityofcudahy.data.socrata.com views=200 errors=0 2.3s
+[21/263] cityoffairfaxpd.data.socrata.com: chosen={'domains': 'cityoffairfaxpd.data.socrata.com'} host=cityoffairfaxpd.data.socrata.com views=200 errors=0 2.3s
+[22/263] cityoflaramie.data.socrata.com: chosen={'domains': 'cityoflaramie.data.socrata.com'} host=cityoflaramie.data.socrata.com views=200 errors=0 2.5s
+[23/263] cityofnampa.data.socrata.com: chosen={'domains': 'cityofnampa.data.socrata.com'} host=cityofnampa.data.socrata.com views=200 errors=0 2.4s
+[24/263] cityofrockisland.data.socrata.com: chosen={'domains': 'cityofrockisland.data.socrata.com'} host=cityofrockisland.data.socrata.com views=200 errors=0 2.5s
+[25/263] cityoftulare.data.socrata.com: chosen={'domains': 'cityoftulare.data.socrata.com'} host=cityoftulare.data.socrata.com views=200 errors=0 2.4s
+[26/263] clatsop.data.socrata.com: chosen={'domains': 'clatsop.data.socrata.com'} host=clatsop.data.socrata.com views=200 errors=0 2.3s
+[27/263] cohesiondata.ec.europa.eu: chosen={'domains': 'cohesiondata.ec.europa.eu'} host=cohesiondata.ec.europa.eu views=200 errors=0 9.3s
+[28/263] collin-county-tx-ja.data.socrata.com: chosen={'domains': 'collin-county-tx-ja.data.socrata.com'} host=collin-county-tx-ja.data.socrata.com views=200 errors=0 2.5s
+[29/263] columbiasc.data.socrata.com: chosen={'domains': 'columbiasc.data.socrata.com'} host=columbiasc.data.socrata.com views=200 errors=0 2.4s
+[30/263] controllerdata.lacity.org: chosen={'domains': 'controllerdata.lacity.org'} host=controllerdata.lacity.org views=200 errors=0 4.4s
+[31/263] conyersga.data.socrata.com: chosen={'domains': 'conyersga.data.socrata.com'} host=conyersga.data.socrata.com views=200 errors=0 2.3s
+[32/263] cookcounty.data.socrata.com: chosen={'domains': 'cookcounty.data.socrata.com'} host=cookcounty.data.socrata.com views=200 errors=0 3.2s
+[33/263] corstat.coronaca.gov: chosen={'domains': 'corstat.coronaca.gov'} host=corstat.coronaca.gov views=200 errors=0 4.3s
+[34/263] cos-data.seattle.gov: chosen={'domains': 'cos-data.seattle.gov'} host=cos-data.seattle.gov views=200 errors=0 5.1s
+[35/263] covid19.buffalony.gov: chosen={'domains': 'covid19.buffalony.gov'} host=covid19.buffalony.gov views=200 errors=0 3.2s
+[36/263] cthru.data.socrata.com: chosen={'domains': 'cthru.data.socrata.com'} host=cthru.data.socrata.com views=200 errors=0 2.5s
+[37/263] cumberlandcounty.data.socrata.com: chosen={'domains': 'cumberlandcounty.data.socrata.com'} host=cumberlandcounty.data.socrata.com views=200 errors=0 2.3s
+[38/263] dashboard.plano.gov: chosen={'domains': 'dashboard.plano.gov'} host=dashboard.plano.gov views=200 errors=0 3.3s
+[39/263] data.auburnwa.gov: chosen={'domains': 'data.auburnwa.gov'} host=data.auburnwa.gov views=200 errors=0 2.6s
+[40/263] data.bayareametro.gov: chosen={'domains': 'data.bayareametro.gov'} host=data.bayareametro.gov views=200 errors=0 5.4s
+[41/263] data.bloomington.in.gov: chosen={'domains': 'data.bloomington.in.gov'} host=data.bloomington.in.gov views=200 errors=0 4.6s
+[42/263] data.brla.gov: chosen={'domains': 'data.brla.gov'} host=data.brla.gov views=200 errors=0 4.3s
+[43/263] data.bts.gov: chosen={'domains': 'data.bts.gov'} host=data.bts.gov views=200 errors=0 4.7s
+[44/263] data.buffalony.gov: chosen={'domains': 'data.buffalony.gov'} host=data.buffalony.gov views=200 errors=0 5.4s
+[45/263] data.calgary.ca: chosen={'domains': 'data.calgary.ca'} host=data.calgary.ca views=200 errors=0 4.5s
+[46/263] data.cambridgema.gov: chosen={'domains': 'data.cambridgema.gov'} host=data.cambridgema.gov views=200 errors=0 4.9s
+[47/263] data.cdc.gov: chosen={'domains': 'data.cdc.gov'} host=data.cdc.gov views=200 errors=0 5.3s
+[48/263] data.cdp.net: chosen={'domains': 'data.cdp.net'} host=data.cdp.net views=200 errors=0 8.0s
+[49/263] data.cincinnati-oh.gov: chosen={'domains': 'data.cincinnati-oh.gov'} host=data.cincinnati-oh.gov views=200 errors=0 3.8s
+[50/263] data.cityofberkeley.info: chosen={'domains': 'data.cityofberkeley.info'} host=data.cityofberkeley.info views=200 errors=0 2.5s
+[51/263] data.cityofchicago.org: chosen={'domains': 'data.cityofchicago.org'} host=data.cityofchicago.org views=200 errors=0 5.5s
+[52/263] data.cityofgainesville.org: chosen={'domains': 'data.cityofgainesville.org'} host=data.cityofgainesville.org views=200 errors=0 4.4s
+[53/263] data.cityofnewyork.us: chosen={'domains': 'data.cityofnewyork.us'} host=data.cityofnewyork.us views=200 errors=0 6.5s
+[54/263] data.cityoforlando.net: chosen={'domains': 'data.cityoforlando.net'} host=data.cityoforlando.net views=200 errors=0 2.4s
+[55/263] data.colorado.gov: chosen={'domains': 'data.colorado.gov'} host=data.colorado.gov views=200 errors=0 5.6s
+[56/263] data.coloradosprings.gov: chosen={'domains': 'data.coloradosprings.gov'} host=data.coloradosprings.gov views=200 errors=0 2.4s
+[57/263] data.countyofriverside.us: chosen={'domains': 'data.countyofriverside.us'} host=data.countyofriverside.us views=200 errors=0 2.5s
+[58/263] data.cstx.gov: chosen={'domains': 'data.cstx.gov'} host=data.cstx.gov views=200 errors=0 2.6s
+[59/263] data.ct.gov: chosen={'search_context': 'data.ct.gov'} host=data.ct.gov views=200 errors=0 6.0s
+[60/263] data.datacenterresearch.org: chosen={'domains': 'data.datacenterresearch.org'} host=data.datacenterresearch.org views=200 errors=0 2.5s
+[61/263] data.delaware.gov: chosen={'domains': 'data.delaware.gov'} host=data.delaware.gov views=500 errors=0 4.3s
+[62/263] data.dumfriesva.gov: chosen={'domains': 'data.dumfriesva.gov'} host=data.dumfriesva.gov views=200 errors=0 3.6s
+[63/263] data.edmonton.ca: chosen={'domains': 'data.edmonton.ca'} host=data.edmonton.ca views=200 errors=0 5.4s
+[64/263] data.energystar.gov: chosen={'domains': 'data.energystar.gov'} host=data.energystar.gov views=200 errors=0 3.1s
+[65/263] data.everettwa.gov: chosen={'domains': 'data.everettwa.gov'} host=data.everettwa.gov views=200 errors=0 4.4s
+[66/263] data.fortworthtexas.gov: chosen={'domains': 'data.fortworthtexas.gov'} host=data.fortworthtexas.gov views=404 errors=0 2.4s
+[67/263] data.framinghamma.gov: chosen={'domains': 'data.framinghamma.gov'} host=data.framinghamma.gov views=200 errors=0 2.7s
+[68/263] data.fultoncountyga.gov: chosen={'domains': 'data.fultoncountyga.gov'} host=data.fultoncountyga.gov views=200 errors=0 5.1s
+[69/263] data.honolulu.gov: chosen={'domains': 'data.honolulu.gov'} host=data.honolulu.gov views=200 errors=0 4.3s
+[70/263] data.kcmo.org: chosen={'domains': 'data.kcmo.org'} host=data.kcmo.org views=200 errors=0 4.5s
+[71/263] data.kingcounty.gov: chosen={'domains': 'data.kingcounty.gov'} host=data.kingcounty.gov views=200 errors=0 4.5s
+[72/263] data.lacity.org: chosen={'domains': 'data.lacity.org'} host=data.lacity.org views=200 errors=0 5.2s
+[73/263] data.macoupincountyil.gov: chosen={'domains': 'data.macoupincountyil.gov'} host=data.macoupincountyil.gov views=200 errors=0 2.6s
+[74/263] data.marincounty.gov: chosen={'domains': 'data.marincounty.gov'} host=data.marincounty.gov views=200 errors=0 3.3s
+[75/263] data.mesaaz.gov: chosen={'search_context': 'data.mesaaz.gov'} host=data.mesaaz.gov views=200 errors=0 4.1s
+[76/263] data.miamigov.com: chosen={'domains': 'data.miamigov.com'} host=data.miamigov.com views=0 errors=0 2.5s
+[77/263] data.michigan.gov: chosen={'domains': 'data.michigan.gov'} host=data.michigan.gov views=200 errors=0 4.3s
+[78/263] data.mmcp.ms.gov: chosen={'search_context': 'data.mmcp.ms.gov'} host=data.mmcp.ms.gov views=200 errors=0 2.7s
+[79/263] data.mo.gov: chosen={'domains': 'data.mo.gov'} host=data.mo.gov views=200 errors=0 4.7s
+[80/263] data.modestogov.com: chosen={'domains': 'data.modestogov.com'} host=data.modestogov.com views=200 errors=0 3.4s
+[81/263] data.montgomerycountymd.gov: chosen={'domains': 'data.montgomerycountymd.gov'} host=data.montgomerycountymd.gov views=200 errors=0 4.6s
+[82/263] data.montgomeryschoolsmd.org: chosen={'domains': 'data.montgomeryschoolsmd.org'} host=data.montgomeryschoolsmd.org views=200 errors=0 3.9s
+[83/263] data.napacounty.gov: chosen={'domains': 'data.napacounty.gov'} host=data.napacounty.gov views=200 errors=0 4.4s
+[84/263] data.nhitc.org: chosen={'search_context': 'data.nhitc.org'} host=data.nhitc.org views=0 errors=0 62.8s
+[85/263] data.nj.gov: chosen={'domains': 'data.nj.gov'} host=data.nj.gov views=200 errors=0 5.0s
+[86/263] data.nola.gov: chosen={'domains': 'data.nola.gov'} host=data.nola.gov views=200 errors=0 4.4s
+[87/263] data.norfolk.gov: chosen={'domains': 'data.norfolk.gov'} host=data.norfolk.gov views=200 errors=0 4.4s
+[88/263] data.novascotia.ca: chosen={'domains': 'data.novascotia.ca'} host=data.novascotia.ca views=200 errors=0 5.0s
+[89/263] data.ny.gov: chosen={'domains': 'data.ny.gov'} host=data.ny.gov views=200 errors=0 7.0s
+[90/263] data.oaklandca.gov: chosen={'domains': 'data.oaklandca.gov'} host=data.oaklandca.gov views=200 errors=0 4.4s
+[91/263] data.oce.pr.gov: chosen={'domains': 'data.oce.pr.gov'} host=data.oce.pr.gov views=200 errors=0 2.6s
+[92/263] data.ohiocourtofclaims.gov: chosen={'domains': 'data.ohiocourtofclaims.gov'} host=data.ohiocourtofclaims.gov views=200 errors=0 2.5s
+[93/263] data.orcities.org: chosen={'domains': 'data.orcities.org'} host=data.orcities.org views=200 errors=0 3.0s
+[94/263] data.oregon.gov: chosen={'domains': 'data.oregon.gov'} host=data.oregon.gov views=200 errors=0 4.8s
+[95/263] data.oxnard.org: chosen={'domains': 'data.oxnard.org'} host=data.oxnard.org views=200 errors=0 3.0s
+[96/263] data.pa.gov: chosen={'domains': 'data.pa.gov'} host=data.pa.gov views=200 errors=0 4.8s
+[97/263] data.permits.performance.gov: chosen={'domains': 'data.permits.performance.gov'} host=data.permits.performance.gov views=0 errors=0 2.3s
+[98/263] data.princegeorgescountymd.gov: chosen={'domains': 'data.princegeorgescountymd.gov'} host=data.princegeorgescountymd.gov views=200 errors=0 4.4s
+[99/263] data.providenceri.gov: chosen={'domains': 'data.providenceri.gov'} host=data.providenceri.gov views=200 errors=0 4.5s
+[100/263] data.ramseycountymn.gov: chosen={'domains': 'data.ramseycountymn.gov'} host=data.ramseycountymn.gov views=200 errors=0 5.0s
+[101/263] data.readingpa.gov: chosen={'domains': 'data.readingpa.gov'} host=data.readingpa.gov views=200 errors=0 2.6s
+[102/263] data.richmondgov.com: chosen={'domains': 'data.richmondgov.com'} host=data.richmondgov.com views=200 errors=0 2.6s
+[103/263] data.roseville.ca.us: chosen={'domains': 'data.roseville.ca.us'} host=data.roseville.ca.us views=200 errors=0 4.1s
+[104/263] data.sandiegocounty.gov: chosen={'search_context': 'data.sandiegocounty.gov'} host=data.sandiegocounty.gov views=200 errors=0 4.2s
+[105/263] data.sccgov.org: chosen={'domains': 'data.sccgov.org'} host=data.sccgov.org views=200 errors=0 4.8s
+[106/263] data.sf.gov: chosen={'search_context': 'data.sf.gov'} host=data.sf.gov views=200 errors=0 4.6s
+[107/263] data.smcgov.org: chosen={'domains': 'data.smcgov.org'} host=data.smcgov.org views=200 errors=0 4.2s
+[108/263] data.somervillema.gov: chosen={'domains': 'data.somervillema.gov'} host=data.somervillema.gov views=200 errors=0 2.6s
+[109/263] data.sonomacounty.ca.gov: chosen={'domains': 'data.sonomacounty.ca.gov'} host=data.sonomacounty.ca.gov views=200 errors=0 3.4s
+[110/263] data.sustainablesm.org: chosen={'domains': 'data.sustainablesm.org'} host=data.sustainablesm.org views=200 errors=0 4.2s
+[111/263] data.texas.gov: chosen={'domains': 'data.texas.gov'} host=data.texas.gov views=200 errors=0 5.4s
+[112/263] data.tompsc.com: chosen={'domains': 'data.tompsc.com'} host=data.tompsc.com views=200 errors=0 2.4s
+[113/263] data.transportation.gov: chosen={'domains': 'data.transportation.gov'} host=data.transportation.gov views=200 errors=0 4.8s
+[114/263] data.urbanaillinois.us: chosen={'domains': 'data.urbanaillinois.us'} host=data.urbanaillinois.us views=0 errors=0 2.0s
+[115/263] data.vermont.gov: chosen={'domains': 'data.vermont.gov'} host=data.vermont.gov views=200 errors=0 4.3s
+[116/263] data.wa.gov: chosen={'domains': 'data.wa.gov'} host=data.wa.gov views=200 errors=0 5.4s
+[117/263] data.waterpointdata.org: chosen={'domains': 'data.waterpointdata.org'} host=data.waterpointdata.org views=200 errors=0 2.6s
+[118/263] data.wcad.org: chosen={'domains': 'data.wcad.org'} host=data.wcad.org views=200 errors=0 2.8s
+[119/263] data.weho.org: chosen={'domains': 'data.weho.org'} host=data.weho.org views=200 errors=0 2.6s
+[120/263] data.winnipeg.ca: chosen={'domains': 'data.winnipeg.ca'} host=data.winnipeg.ca views=200 errors=0 4.6s
+[121/263] dataacademy.maryland.gov: chosen={'domains': 'dataacademy.maryland.gov'} host=dataacademy.maryland.gov views=200 errors=0 2.3s
+[122/263] datacatalog.cookcountyil.gov: chosen={'domains': 'datacatalog.cookcountyil.gov'} host=datacatalog.cookcountyil.gov views=500 errors=0 4.3s
+[123/263] datadiscovery.nlm.nih.gov: chosen={'domains': 'datadiscovery.nlm.nih.gov'} host=datadiscovery.nlm.nih.gov views=200 errors=0 3.6s
+[124/263] datahub.austintexas.gov: chosen={'domains': 'datahub.austintexas.gov'} host=datahub.austintexas.gov views=200 errors=0 5.1s
+[125/263] datahub.hhs.gov: chosen={'domains': 'datahub.hhs.gov'} host=datahub.hhs.gov views=200 errors=0 15.9s
+[126/263] datahub.smcgov.org: chosen={'domains': 'datahub.smcgov.org'} host=datahub.smcgov.org views=200 errors=0 5.1s
+[127/263] datahub.transportation.gov: chosen={'domains': 'datahub.transportation.gov'} host=datahub.transportation.gov views=200 errors=0 5.8s
+[128/263] datahub.usac.org: chosen={'domains': 'datahub.usac.org'} host=datahub.usac.org views=200 errors=0 2.8s
+[129/263] datainsights.encinitasca.gov: chosen={'search_context': 'datainsights.encinitasca.gov'} host=datainsights.encinitasca.gov views=200 errors=0 2.8s
+[130/263] datamgmt.nassaucountyny.gov: chosen={'domains': 'datamgmt.nassaucountyny.gov'} host=datamgmt.nassaucountyny.gov views=200 errors=0 2.5s
+[131/263] dcsheriff.data.socrata.com: chosen={'domains': 'dcsheriff.data.socrata.com'} host=dcsheriff.data.socrata.com views=200 errors=0 2.3s
+[132/263] dedhamma.data.socrata.com: chosen={'domains': 'dedhamma.data.socrata.com'} host=dedhamma.data.socrata.com views=200 errors=0 2.4s
+[133/263] dot-edpsandbox.data.socrata.com: chosen={'domains': 'dot-edpsandbox.data.socrata.com'} host=dot-edpsandbox.data.socrata.com views=200 errors=0 2.3s
+[134/263] douglasco.data.socrata.com: chosen={'domains': 'douglasco.data.socrata.com'} host=douglasco.data.socrata.com views=200 errors=0 2.3s
+[135/263] dubuque.data.socrata.com: chosen={'domains': 'dubuque.data.socrata.com'} host=dubuque.data.socrata.com views=200 errors=0 3.0s
+[136/263] edinamn-pd.data.socrata.com: chosen={'domains': 'edinamn-pd.data.socrata.com'} host=edinamn-pd.data.socrata.com views=200 errors=0 2.3s
+[137/263] edinburgtx.data.socrata.com: chosen={'domains': 'edinburgtx.data.socrata.com'} host=edinburgtx.data.socrata.com views=200 errors=0 2.3s
+[138/263] edmondok.data.socrata.com: chosen={'domains': 'edmondok.data.socrata.com'} host=edmondok.data.socrata.com views=200 errors=0 2.3s
+[139/263] educationtocareer.data.mass.gov: chosen={'domains': 'educationtocareer.data.mass.gov'} host=educationtocareer.data.mass.gov views=200 errors=0 4.4s
+[140/263] elkhartcountyin.data.socrata.com: chosen={'domains': 'elkhartcountyin.data.socrata.com'} host=elkhartcountyin.data.socrata.com views=200 errors=0 2.2s
+[141/263] erieco.data.socrata.com: chosen={'domains': 'erieco.data.socrata.com'} host=erieco.data.socrata.com views=200 errors=0 2.3s
+[142/263] fiscalfocus.pittsburghpa.gov: chosen={'domains': 'fiscalfocus.pittsburghpa.gov'} host=fiscalfocus.pittsburghpa.gov views=200 errors=0 3.3s
+[143/263] flaglercofl.data.socrata.com: chosen={'domains': 'flaglercofl.data.socrata.com'} host=flaglercofl.data.socrata.com views=200 errors=0 2.3s
+[144/263] fortlauderdale.data.socrata.com: chosen={'domains': 'fortlauderdale.data.socrata.com'} host=fortlauderdale.data.socrata.com views=200 errors=0 3.8s
+[145/263] fusioncenter.nhit.org: chosen={'domains': 'fusioncenter.nhit.org'} host=fusioncenter.nhit.org views=200 errors=0 3.6s
+[146/263] gnb.socrata.com: chosen={'domains': 'gnb.socrata.com'} host=gnb.socrata.com views=200 errors=0 4.7s
+[147/263] goochlandva.data.socrata.com: chosen={'domains': 'goochlandva.data.socrata.com'} host=goochlandva.data.socrata.com views=200 errors=0 2.2s
+[148/263] grandjunctionco.data.socrata.com: chosen={'domains': 'grandjunctionco.data.socrata.com'} host=grandjunctionco.data.socrata.com views=200 errors=0 2.3s
+[149/263] grovecityohpd.data.socrata.com: chosen={'domains': 'grovecityohpd.data.socrata.com'} host=grovecityohpd.data.socrata.com views=200 errors=0 2.8s
+[150/263] health.data.ny.gov: chosen={'domains': 'health.data.ny.gov'} host=health.data.ny.gov views=200 errors=0 5.0s
+[151/263] healthdata.nj.gov: chosen={'domains': 'healthdata.nj.gov'} host=healthdata.nj.gov views=200 errors=0 3.4s
+[152/263] healthdata.tn.gov: chosen={'domains': 'healthdata.tn.gov'} host=healthdata.tn.gov views=200 errors=0 5.2s
+[153/263] henrycoga.data.socrata.com: chosen={'domains': 'henrycoga.data.socrata.com'} host=henrycoga.data.socrata.com views=200 errors=0 2.5s
+[154/263] hickorync.data.socrata.com: chosen={'domains': 'hickorync.data.socrata.com'} host=hickorync.data.socrata.com views=200 errors=0 2.6s
+[155/263] hicscdata.hawaii.gov: chosen={'domains': 'hicscdata.hawaii.gov'} host=hicscdata.hawaii.gov views=200 errors=0 2.7s
+[156/263] hidot-contracts.data.socrata.com: chosen={'domains': 'hidot-contracts.data.socrata.com'} host=hidot-contracts.data.socrata.com views=200 errors=0 2.3s
+[157/263] highlandsranch.data.socrata.com: chosen={'domains': 'highlandsranch.data.socrata.com'} host=highlandsranch.data.socrata.com views=200 errors=0 2.3s
+[158/263] highways.hidot.hawaii.gov: chosen={'domains': 'highways.hidot.hawaii.gov'} host=highways.hidot.hawaii.gov views=200 errors=0 5.1s
+[159/263] hub.dati.lombardia.it: chosen={'domains': 'hub.dati.lombardia.it'} host=hub.dati.lombardia.it views=200 errors=0 17.6s
+[160/263] humboldtgov.data.socrata.com: chosen={'domains': 'humboldtgov.data.socrata.com'} host=humboldtgov.data.socrata.com views=200 errors=0 3.1s
+[161/263] illinois-edp.data.socrata.com: chosen={'domains': 'illinois-edp.data.socrata.com'} host=illinois-edp.data.socrata.com views=200 errors=0 4.5s
+[162/263] impact.stlouisco.com: chosen={'domains': 'impact.stlouisco.com'} host=impact.stlouisco.com views=200 errors=0 3.3s
+[163/263] indio.data.socrata.com: chosen={'domains': 'indio.data.socrata.com'} host=indio.data.socrata.com views=200 errors=0 2.4s
+[164/263] insights.cincinnati-oh.gov: chosen={'domains': 'insights.cincinnati-oh.gov'} host=insights.cincinnati-oh.gov views=200 errors=0 2.6s
+[165/263] integration-kcmo.data.socrata.com: chosen={'domains': 'integration-kcmo.data.socrata.com'} host=integration-kcmo.data.socrata.com views=200 errors=0 2.3s
+[166/263] iop.data.socrata.com: chosen={'domains': 'iop.data.socrata.com'} host=iop.data.socrata.com views=200 errors=0 2.3s
+[167/263] janesville.data.socrata.com: chosen={'domains': 'janesville.data.socrata.com'} host=janesville.data.socrata.com views=200 errors=0 2.5s
+[168/263] jerseyvillagetx.data.socrata.com: chosen={'domains': 'jerseyvillagetx.data.socrata.com'} host=jerseyvillagetx.data.socrata.com views=200 errors=0 2.3s
+[169/263] johnstonia.data.socrata.com: chosen={'domains': 'johnstonia.data.socrata.com'} host=johnstonia.data.socrata.com views=200 errors=0 2.3s
+[170/263] kirklandwa-scgc.data.socrata.com: chosen={'domains': 'kirklandwa-scgc.data.socrata.com'} host=kirklandwa-scgc.data.socrata.com views=200 errors=0 4.3s
+[171/263] kirklandwa.data.socrata.com: chosen={'domains': 'kirklandwa.data.socrata.com'} host=kirklandwa.data.socrata.com views=200 errors=0 4.4s
+[172/263] lacoso.data.socrata.com: chosen={'domains': 'lacoso.data.socrata.com'} host=lacoso.data.socrata.com views=200 errors=0 2.3s
+[173/263] lafayettecsdgovla-train.data.socrata.com: chosen={'domains': 'lafayettecsdgovla-train.data.socrata.com'} host=lafayettecsdgovla-train.data.socrata.com views=200 errors=0 2.4s
+[174/263] laramiecounty.data.socrata.com: chosen={'domains': 'laramiecounty.data.socrata.com'} host=laramiecounty.data.socrata.com views=200 errors=0 2.3s
+[175/263] metroairports.data.socrata.com: chosen={'domains': 'metroairports.data.socrata.com'} host=metroairports.data.socrata.com views=200 errors=0 2.3s
+[176/263] mi-treasury.data.socrata.com: chosen={'domains': 'mi-treasury.data.socrata.com'} host=mi-treasury.data.socrata.com views=200 errors=0 3.5s
+[177/263] mischooldata.data.socrata.com: chosen={'domains': 'mischooldata.data.socrata.com'} host=mischooldata.data.socrata.com views=200 errors=0 2.7s
+[178/263] moreno-valley.data.socrata.com: chosen={'domains': 'moreno-valley.data.socrata.com'} host=moreno-valley.data.socrata.com views=200 errors=0 2.5s
+[179/263] newcastle.data.socrata.com: chosen={'domains': 'newcastle.data.socrata.com'} host=newcastle.data.socrata.com views=200 errors=0 2.4s
+[180/263] newjerseysp-dev.data.socrata.com: chosen={'domains': 'newjerseysp-dev.data.socrata.com'} host=newjerseysp-dev.data.socrata.com views=200 errors=0 2.4s
+[181/263] newjerseysp-uat.data.socrata.com: chosen={'domains': 'newjerseysp-uat.data.socrata.com'} host=newjerseysp-uat.data.socrata.com views=200 errors=0 2.2s
+[182/263] nih-ncats.data.socrata.com: chosen={'domains': 'nih-ncats.data.socrata.com'} host=nih-ncats.data.socrata.com views=200 errors=0 2.3s
+[183/263] nnps-odp.data.socrata.com: chosen={'search_context': 'nnps-odp.data.socrata.com'} host=nnps-odp.data.socrata.com views=200 errors=0 3.8s
+[184/263] nvof-open.data.socrata.com: chosen={'domains': 'nvof-open.data.socrata.com'} host=nvof-open.data.socrata.com views=200 errors=0 2.3s
+[185/263] nyc-scgc.data.socrata.com: chosen={'domains': 'nyc-scgc.data.socrata.com'} host=nyc-scgc.data.socrata.com views=200 errors=0 2.3s
+[186/263] olmsteadcountymn.data.socrata.com: chosen={'domains': 'olmsteadcountymn.data.socrata.com'} host=olmsteadcountymn.data.socrata.com views=200 errors=0 2.5s
+[187/263] open.piercecountywa.gov: chosen={'search_context': 'open.piercecountywa.gov'} host=open.piercecountywa.gov views=200 errors=0 4.8s
+[188/263] opendata-augusta.data.socrata.com: chosen={'domains': 'opendata-augusta.data.socrata.com'} host=opendata-augusta.data.socrata.com views=200 errors=0 2.3s
+[189/263] opendata.camden.gov.uk: chosen={'domains': 'opendata.camden.gov.uk'} host=opendata.camden.gov.uk views=200 errors=0 8.5s
+[190/263] opendata.cityofmesquite.com: chosen={'domains': 'opendata.cityofmesquite.com'} host=opendata.cityofmesquite.com views=200 errors=0 3.0s
+[191/263] opendata.clermontauditor.org: chosen={'search_context': 'opendata.clermontauditor.org'} host=opendata.clermontauditor.org views=200 errors=0 3.9s
+[192/263] opendata.fcc.gov: chosen={'domains': 'opendata.fcc.gov'} host=opendata.fcc.gov views=200 errors=0 3.4s
+[193/263] opendata.fcgov.com: chosen={'domains': 'opendata.fcgov.com'} host=opendata.fcgov.com views=503 errors=0 4.0s
+[194/263] opendata.howardcountymd.gov: chosen={'domains': 'opendata.howardcountymd.gov'} host=opendata.howardcountymd.gov views=200 errors=0 4.5s
+[195/263] opendata.l-h.cat: chosen={'domains': 'opendata.l-h.cat'} host=opendata.l-h.cat views=200 errors=0 7.6s
+[196/263] opendata.maryland.gov: chosen={'domains': 'opendata.maryland.gov'} host=opendata.maryland.gov views=200 errors=0 7.4s
+[197/263] opendata.rdw.nl: chosen={'domains': 'opendata.rdw.nl'} host=opendata.rdw.nl views=200 errors=0 6.6s
+[198/263] openinformation.novascotia.ca: chosen={'domains': 'openinformation.novascotia.ca'} host=openinformation.novascotia.ca views=200 errors=0 7.0s
+[199/263] openperformance.edmonton.ca: chosen={'domains': 'openperformance.edmonton.ca'} host=openperformance.edmonton.ca views=200 errors=0 4.9s
+[200/263] orlandofl.data.socrata.com: chosen={'domains': 'orlandofl.data.socrata.com'} host=orlandofl.data.socrata.com views=200 errors=0 2.3s
+[201/263] parkeronline.data.socrata.com: chosen={'domains': 'parkeronline.data.socrata.com'} host=parkeronline.data.socrata.com views=200 errors=0 2.4s
+[202/263] parksreporting.parks.ca.gov: chosen={'domains': 'parksreporting.parks.ca.gov'} host=parksreporting.parks.ca.gov views=200 errors=0 2.3s
+[203/263] performance.austintexas.gov: chosen={'domains': 'performance.austintexas.gov'} host=performance.austintexas.gov views=200 errors=0 2.2s
+[204/263] performance.ci.janesville.wi.us: chosen={'domains': 'performance.ci.janesville.wi.us'} host=performance.ci.janesville.wi.us views=200 errors=0 7.1s
+[205/263] performance.cityofcamas.us: chosen={'domains': 'performance.cityofcamas.us'} host=performance.cityofcamas.us views=200 errors=0 4.4s
+[206/263] performance.cityofdavenportiowa.com: chosen={'domains': 'performance.cityofdavenportiowa.com'} host=performance.cityofdavenportiowa.com views=0 errors=0 1.9s
+[207/263] performance.cityofrc.us: chosen={'domains': 'performance.cityofrc.us'} host=performance.cityofrc.us views=0 errors=0 1.9s
+[208/263] performance.cookcountyil.gov: chosen={'domains': 'performance.cookcountyil.gov'} host=performance.cookcountyil.gov views=200 errors=0 2.4s
+[209/263] performance.franklintn.gov: chosen={'domains': 'performance.franklintn.gov'} host=performance.franklintn.gov views=200 errors=0 2.7s
+[210/263] performance.fultoncountyga.gov: chosen={'domains': 'performance.fultoncountyga.gov'} host=performance.fultoncountyga.gov views=200 errors=0 5.2s
+[211/263] performance.princegeorgescountymd.gov: chosen={'domains': 'performance.princegeorgescountymd.gov'} host=performance.princegeorgescountymd.gov views=200 errors=0 5.2s
+[212/263] performance.providenceri.gov: chosen={'domains': 'performance.providenceri.gov'} host=performance.providenceri.gov views=0 errors=0 3.0s
+[213/263] performance.seattle.gov: chosen={'domains': 'performance.seattle.gov'} host=performance.seattle.gov views=200 errors=0 4.1s
+[214/263] performance.smcgov.org: chosen={'domains': 'performance.smcgov.org'} host=performance.smcgov.org views=200 errors=0 5.2s
+[215/263] perrycounty.data.socrata.com: chosen={'domains': 'perrycounty.data.socrata.com'} host=perrycounty.data.socrata.com views=200 errors=0 2.4s
+[216/263] pinellasparkpd.data.socrata.com: chosen={'domains': 'pinellasparkpd.data.socrata.com'} host=pinellasparkpd.data.socrata.com views=200 errors=0 2.3s
+[217/263] pleasantonpd.data.socrata.com: chosen={'domains': 'pleasantonpd.data.socrata.com'} host=pleasantonpd.data.socrata.com views=200 errors=0 2.4s
+[218/263] plymouth-ma.data.socrata.com: chosen={'domains': 'plymouth-ma.data.socrata.com'} host=plymouth-ma.data.socrata.com views=200 errors=0 2.3s
+[219/263] policedata.coloradosprings.gov: chosen={'domains': 'policedata.coloradosprings.gov'} host=policedata.coloradosprings.gov views=200 errors=0 2.5s
+[220/263] policeview.johnscreekga.gov: chosen={'domains': 'policeview.johnscreekga.gov'} host=policeview.johnscreekga.gov views=200 errors=0 2.5s
+[221/263] prospertx.data.socrata.com: chosen={'domains': 'prospertx.data.socrata.com'} host=prospertx.data.socrata.com views=200 errors=0 2.4s
+[222/263] ptsd-va.data.socrata.com: chosen={'domains': 'ptsd-va.data.socrata.com'} host=ptsd-va.data.socrata.com views=200 errors=0 2.9s
+[223/263] ranchocordovaca.data.socrata.com: chosen={'domains': 'ranchocordovaca.data.socrata.com'} host=ranchocordovaca.data.socrata.com views=200 errors=0 2.4s
+[224/263] readingpa.data.socrata.com: chosen={'domains': 'readingpa.data.socrata.com'} host=readingpa.data.socrata.com views=200 errors=0 2.3s
+[225/263] reports.cdp.net: chosen={'domains': 'reports.cdp.net'} host=reports.cdp.net views=200 errors=0 6.6s
+[226/263] rosevillepd.data.socrata.com: chosen={'domains': 'rosevillepd.data.socrata.com'} host=rosevillepd.data.socrata.com views=200 errors=0 2.6s
+[227/263] rrps.data.socrata.com: chosen={'domains': 'rrps.data.socrata.com'} host=rrps.data.socrata.com views=200 errors=0 2.3s
+[228/263] sharefulton.fultoncountyga.gov: chosen={'domains': 'sharefulton.fultoncountyga.gov'} host=sharefulton.fultoncountyga.gov views=200 errors=0 4.7s
+[229/263] shawneesheriff.data.socrata.com: chosen={'domains': 'shawneesheriff.data.socrata.com'} host=shawneesheriff.data.socrata.com views=200 errors=0 2.3s
+[230/263] siouxfalls.data.socrata.com: chosen={'domains': 'siouxfalls.data.socrata.com'} host=siouxfalls.data.socrata.com views=200 errors=0 2.6s
+[231/263] slo-co.data.socrata.com: chosen={'domains': 'slo-co.data.socrata.com'} host=slo-co.data.socrata.com views=200 errors=0 2.3s
+[232/263] soquelcreekwdca.data.socrata.com: chosen={'domains': 'soquelcreekwdca.data.socrata.com'} host=soquelcreekwdca.data.socrata.com views=200 errors=0 2.4s
+[233/263] southfultonga.data.socrata.com: chosen={'domains': 'southfultonga.data.socrata.com'} host=southfultonga.data.socrata.com views=200 errors=0 2.2s
+[234/263] stat.montgomerycountymd.gov: chosen={'domains': 'stat.montgomerycountymd.gov'} host=stat.montgomerycountymd.gov views=404 errors=0 4.4s
+[235/263] stateofalaska.data.socrata.com: chosen={'domains': 'stateofalaska.data.socrata.com'} host=stateofalaska.data.socrata.com views=200 errors=0 2.4s
+[236/263] stutsman.data.socrata.com: chosen={'domains': 'stutsman.data.socrata.com'} host=stutsman.data.socrata.com views=200 errors=0 2.7s
+[237/263] summitcountyoh.data.socrata.com: chosen={'domains': 'summitcountyoh.data.socrata.com'} host=summitcountyoh.data.socrata.com views=200 errors=0 2.5s
+[238/263] townofpalmbeach-epl.data.socrata.com: chosen={'domains': 'townofpalmbeach-epl.data.socrata.com'} host=townofpalmbeach-epl.data.socrata.com views=200 errors=0 2.3s
+[239/263] transparencyarchive.michigan.gov: chosen={'domains': 'transparencyarchive.michigan.gov'} host=transparencyarchive.michigan.gov views=200 errors=0 3.2s
+[240/263] trca-epl.data.socrata.com: chosen={'domains': 'trca-epl.data.socrata.com'} host=trca-epl.data.socrata.com views=200 errors=0 2.3s
+[241/263] txcourts-reporting.data.socrata.com: chosen={'domains': 'txcourts-reporting.data.socrata.com'} host=txcourts-reporting.data.socrata.com views=200 errors=0 2.2s
+[242/263] unioncityhi-reporting.data.socrata.com: chosen={'domains': 'unioncityhi-reporting.data.socrata.com'} host=unioncityhi-reporting.data.socrata.com views=200 errors=0 3.5s
+[243/263] usc.data.socrata.com: chosen={'domains': 'usc.data.socrata.com'} host=usc.data.socrata.com views=200 errors=0 4.1s
+[244/263] va-cca-uat.data.socrata.com: chosen={'domains': 'va-cca-uat.data.socrata.com'} host=va-cca-uat.data.socrata.com views=200 errors=0 2.3s
+[245/263] va-cca.data.socrata.com: chosen={'domains': 'va-cca.data.socrata.com'} host=va-cca.data.socrata.com views=200 errors=0 2.3s
+[246/263] vtmbl-reporting-uat.data.socrata.com: chosen={'domains': 'vtmbl-reporting-uat.data.socrata.com'} host=vtmbl-reporting-uat.data.socrata.com views=200 errors=0 2.3s
+[247/263] vtmbl-reporting.data.socrata.com: chosen={'domains': 'vtmbl-reporting.data.socrata.com'} host=vtmbl-reporting.data.socrata.com views=200 errors=0 2.3s
+[248/263] wacotexas.data.socrata.com: chosen={'domains': 'wacotexas.data.socrata.com'} host=wacotexas.data.socrata.com views=200 errors=0 2.3s
+[249/263] washoe.data.socrata.com: chosen={'domains': 'washoe.data.socrata.com'} host=washoe.data.socrata.com views=200 errors=0 2.4s
+[250/263] weho.data.socrata.com: chosen={'search_context': 'weho.data.socrata.com'} host=weho.data.socrata.com views=200 errors=1 2.4s
+[251/263] weslacotx.data.socrata.com: chosen={'domains': 'weslacotx.data.socrata.com'} host=weslacotx.data.socrata.com views=200 errors=0 2.3s
+[252/263] westpalmbeach.data.socrata.com: chosen={'domains': 'westpalmbeach.data.socrata.com'} host=westpalmbeach.data.socrata.com views=200 errors=0 2.4s
+[253/263] wicomicocountymd.data.socrata.com: chosen={'domains': 'wicomicocountymd.data.socrata.com'} host=wicomicocountymd.data.socrata.com views=200 errors=0 2.4s
+[254/263] wv-omc.data.socrata.com: chosen={'domains': 'wv-omc.data.socrata.com'} host=wv-omc.data.socrata.com views=200 errors=0 2.3s
+[255/263] www.dallasopendata.com: chosen={'domains': 'www.dallasopendata.com'} host=www.dallasopendata.com views=200 errors=0 4.9s
+[256/263] www.data.act.gov.au: chosen={'domains': 'www.data.act.gov.au'} host=www.data.act.gov.au views=200 errors=0 4.7s
+[257/263] www.datahub.va.gov: chosen={'domains': 'www.datahub.va.gov'} host=www.datahub.va.gov views=200 errors=0 5.9s
+[258/263] www.dati.friuliveneziagiulia.it: chosen={'domains': 'www.dati.friuliveneziagiulia.it'} host=www.dati.friuliveneziagiulia.it views=200 errors=0 9.4s
+[259/263] www.dati.lombardia.it: chosen={'search_context': 'www.dati.lombardia.it'} host=www.dati.lombardia.it views=200 errors=0 17.7s
+[260/263] www.datos.gov.co: chosen={'domains': 'www.datos.gov.co'} host=www.datos.gov.co views=200 errors=0 27.7s
+[261/263] www.thedatazone.ca: chosen={'domains': 'www.thedatazone.ca'} host=www.thedatazone.ca views=200 errors=0 2.5s
+[262/263] www.transparentrichmond.org: chosen={'domains': 'www.transparentrichmond.org'} host=www.transparentrichmond.org views=200 errors=0 4.2s
+[263/263] yumaaz.data.socrata.com: chosen={'domains': 'yumaaz.data.socrata.com'} host=yumaaz.data.socrata.com views=200 errors=0 2.3s
+pack:data.seattle.gov: {'kind': 'pack', 'id': 'data.seattle.gov', 'region': 'us', 'probed_at': '2026-10-18T03:49:09+00:00', 'catalog_size': 699, 'dataset_count': 147, 'query': {'domains': 'cos-data.seattle.gov', 'search_context': 'data.seattle.gov'}, 'errors': 0, 'views': {'status': 200, 'json': True}}
+title datahub.hhs.gov: 'Tyler Data & Insights' / 'HHS Data Hub'
+title www.datos.gov.co: 'Datos Abiertos Colombia' / 'Datos Abiertos Colombia | Portal Nacional de Datos Abiertos'
+title openinformation.novascotia.ca: 'Tyler Data & Insights' / 'Information Access | Nova Scotia'
+title www.dati.lombardia.it: 'Open Data Regione Lombardia' / 'Open Data Regione Lombardia'
+title opendata.maryland.gov: 'Open Data | data.maryland.gov' / 'Open Data | opendata.maryland.gov'
+title data.bayareametro.gov: 'Tyler Data & Insights' / 'Tyler Data &amp; Insights'
+title data.cityofnewyork.us: 'NYC Open Data' / 'Explore data about NYC - NYC Open Data'
+title open.piercecountywa.gov: 'Tyler Data & Insights' / 'Open Pierce County'
+title data.ramseycountymn.gov: 'Tyler Data & Insights' / 'Data | Ramsey County'
+title datahub.austintexas.gov: 'Tyler Data & Insights' / 'City Data Hub | City of Austin'
+title data.wa.gov: "Data.WA | Washington State's Open Data Site" / 'Data.WA | State of Washington Open Data Platform | Data.WA | State of Washington'
+title performance.smcgov.org: 'SMC Performance' / 'San Mateo Performance Dashboards | San Mateo County Performance'
+title www.datahub.va.gov: 'Tyler Data & Insights' / 'Department of Veterans Affairs Data Hub'
+title data.colorado.gov: 'Colorado Information Marketplace | data.colorado.gov' / 'Colorado Information Marketplace | Colorado Information Marketplace | data.colorado.gov'
+title data.edmonton.ca: 'Edmonton - Open Data Portal\n' / 'Edmonton - Open Data Portal'
+title data.cityofchicago.org: 'City of Chicago | Data Portal' / 'City of Chicago | Data Portal | City of Chicago | Data Portal'
+title sharefulton.fultoncountyga.gov: 'Tyler Data & Insights' / 'Share Fulton'
+title data.sccgov.org: 'Open Data Portal\n' / 'County of Santa Clara'
+title data.ct.gov: 'Open Data | State of Connecticut' / 'Connecticut | Open Data | Connecticut Data'
+title highways.hidot.hawaii.gov: 'Open Data Portal' / 'State of Hawaii Department of Transportation'
+title data.ny.gov: 'State of New York | Open Data\n' / 'State of New York | Open Data | State of New York'
+title data.oregon.gov: "Oregon Data | Opening Oregon's Data" / 'Oregon | Open Data | data.oregon.gov | Oregon&#39;s Open Data Portal | Oregon.gov'
+title analisi.transparenciacatalunya.cat: 'Tyler Data & Insights' / 'Catàleg | Dades obertes de Catalunya'
+title cohesiondata.ec.europa.eu: 'Tyler Data & Insights' / 'Open Data Portal for the European Structural Investment Funds - European Commission | Cohesion Open Data'
+title data.texas.gov: 'Open Data Portal\n' / 'State of Texas | Open Data Portal | Open Data Portal'
+title data.cdc.gov: 'Data | Centers for Disease Control and Prevention' / 'Data | Centers for Disease Control and Prevention'
+title datahub.smcgov.org: 'Tyler Data & Insights' / 'SMC Datahub'
+title nnps-odp.data.socrata.com: 'Tyler Data & Insights' / 'Tyler Data &amp; Insights'
+title datahub.transportation.gov: 'USDOT Open Data' / 'USDOT Open Data'
+title data.novascotia.ca: 'Nova Scotia Government - Open Data Portal\n' / 'Nova Scotia Government - Open Data Portal | Open Data | Nova Scotia'
+title data.sf.gov: 'Data | San Francisco' / 'SF OpenData | DataSF'
+title data.mesaaz.gov: 'Open Data Portal\n' / 'Data Portal | City of Mesa Data Hub'
+title citydata.mesaaz.gov: 'Tyler Data & Insights' / 'City of Mesa Employee Data Portal'
+title www.dallasopendata.com: 'Dallas OpenData\n' / 'Dallas OpenData | Dallas OpenData'
+title performance.seattle.gov: None / 'Innovation & Performance - Innovation and Performance | seattle.gov'
+title data.montgomerycountymd.gov: 'Open Data Portal\n' / 'Montgomery County Data | Open Data Portal'
+title data.calgary.ca: 'Open Calgary' / 'Open Calgary | Open Calgary'
+title data.lacity.org: 'Los Angeles - Open Data Portal' / 'DataLA: Information, Insights, and Analysis from the City of Angels | Los Angeles Open Data Portal'
+title opendata.camden.gov.uk: 'Open Data Portal\n' / 'Camden Council | Open Data | Open Data Portal'
+title www.dati.friuliveneziagiulia.it: 'Open Data | Regione Autonoma Friuli Venezia Giulia' / 'Regione Autonoma Friuli Venezia Giulia | Open Data | Open Data | Regione Autonoma Friuli Venezia Giulia'
+title data.pa.gov: 'data.pa.gov' / 'data.pa.gov | PA Open Data Portal'
+title datacatalog.cookcountyil.gov: 'Data | Cook County, Illinois' / 'Cook County Open Data'
+title www.data.act.gov.au: 'Open Data Portal\n' / 'ACT | Open Data | Open Data Portal'
+title hub.dati.lombardia.it: 'Tyler Data & Insights' / 'Tyler Data &amp; Insights'
+title data.oaklandca.gov: 'Open Data Portal\n' / 'City of Oakland Open Data Portal | Open Data Portal'
+title performance.princegeorgescountymd.gov: "CountyStat | Prince George's County" / 'CountyStat | Prince George&#39;s CountyStat | CountyStat | Prince George&#39;s County'
+title gnb.socrata.com: 'Open Data Portal' / 'Open Data Portal | New Brunswick Open Data'
+title performance.fultoncountyga.gov: '' / 'Rally | Open Data Portal | Fulton Performance'
+title healthdata.tn.gov: 'Tyler Data & Insights' / 'TDH Health Data'
+title data.michigan.gov: 'Tyler Data & Insights' / 'Michigan | Open Data | Michigan | Open Data'
+title www.transparentrichmond.org: 'Tyler Data & Insights' / 'Transparent Richmond'
+title data.nj.gov: 'Rally - Open Data Portal' / 'Open Data Portal | NJOIT Open Data Center'
+title data.sandiegocounty.gov: 'Open Data Portal' / 'County of San Diego | Open Data Portal | Open Data Portal'
+title opendata.howardcountymd.gov: 'Open Data Portal\n' / 'Howard County - Open Data Portal | Open Data Portal'
+title health.data.ny.gov: 'State of New York | Open Data' / 'State of New York | Open Data Health | State of New York'
+title data.bts.gov: 'Tyler Data & Insights' / 'BTS Data Inventory'
+title data.kingcounty.gov: 'King County | Open Data' / 'King County | Open Data'
+title data.cdp.net: 'CDP Open Data Portal' / 'CDP Open Data Portal | CDP Open Data Portal'
+title data.winnipeg.ca: 'Open Data | City of Winnipeg' / 'Open Data Portal | Open Data | City of Winnipeg'
+title data.brla.gov: 'Open Data BR' / 'City of Baton Rouge - Open Data Portal | Open Data BR'
+{"catalog_domains": 298, "eligible_by_name": 263, "ineligible_by_name": 35, "identity_resolved": 262, "unresolved": 1, "folded_into_pack": 1, "ineligible_by_views_4xx": 2, "kept_on_views_5xx_or_error": 10, "views_2xx_not_json": 4, "duplicate_public_hosts": 0, "manual_entries": 0, "overrides": 2, "registry_entries": 260}
+real 1186.35
+user 15.84
+sys 1.67

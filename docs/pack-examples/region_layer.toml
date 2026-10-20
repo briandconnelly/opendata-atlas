@@ -1,0 +1,25 @@
+# Illustrative ids. A region layer's vintage: a metadata probe plus the publisher's statement.
+[[claim]]
+id = "council-district-layer-vintage"
+scope = {layer = "abcd-1234"}
+kind = "region_layer"
+interpretation = {kind = "council_district", reliability = "partial", reason = "Pre-2016 district boundaries; rows after redistricting are mislabeled.", label_column = "district", vintage = "pre-2016"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/abcd-1234.json"
+observed_at = 2026-10-16
+observation = "rowsUpdatedAt is 2015-07-20; the layer has not been updated since"
+
+[[claim.evidence]]
+kind = "document"
+url = "https://example.gov/districts"
+quote = "Boundaries shown are those adopted before the 2016 redistricting."
+observed_at = 2026-10-16
+
+[[claim.assertion]]
+checker = "metadata_before"
+probe = 0
+params = {field = "rowsUpdatedAt", before = 2016-01-01}

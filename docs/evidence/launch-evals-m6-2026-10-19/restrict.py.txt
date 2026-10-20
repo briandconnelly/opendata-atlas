@@ -1,0 +1,28 @@
+"""Restriction check for eval transcripts: init lists only the five atlas tools and one server; no other tool_use."""
+import json, sys
+FIVE = {f"mcp__opendata-atlas__atlas_{n}" for n in ("describe_dataset", "find_portals", "get_reference", "query_dataset", "search_datasets")}
+failed = 0
+for p in sys.argv[1:]:
+    events = [json.loads(l) for l in open(p)]
+    inits = [e for e in events if e.get("type") == "system" and e.get("subtype") == "init"]
+    problems = []
+    if len(inits) != 1:
+        problems.append(f"{len(inits)} init events")
+    for e in inits:
+        if set(e.get("tools") or []) != FIVE:
+            problems.append(f"tools {sorted(set(e.get('tools') or []) ^ FIVE)}")
+        names = [s.get("name") for s in (e.get("mcp_servers") or [])]
+        if names != ["opendata-atlas"]:
+            problems.append(f"servers {names}")
+        if "claude_ai" in json.dumps(e) or "claude.ai" in json.dumps(e):
+            problems.append("claude.ai in init")
+    used = set()
+    for e in events:
+        m = e.get("message")
+        if isinstance(m, dict) and isinstance(m.get("content"), list):
+            used |= {b["name"] for b in m["content"] if isinstance(b, dict) and b.get("type") == "tool_use"}
+    if used - FIVE:
+        problems.append(f"other tool_use {sorted(used - FIVE)}")
+    print("FAIL" if problems else "OK  ", p, problems or sorted(t.rsplit("_", 2)[-2] + "_" + t.rsplit("_", 1)[-1] for t in used))
+    failed += bool(problems)
+sys.exit(1 if failed else 0)

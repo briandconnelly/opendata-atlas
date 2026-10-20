@@ -1,0 +1,183 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "85ca-t3if-:@computed_region_rpca_8um6-fill"
+kind = "place_field"
+scope = {dataset = "85ca-t3if", column = ":@computed_region_rpca_8um6"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_rpca_8um6) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "1,095,756 of 1,104,923 rows (0.992) have a value; computed-region layer rpca-8um6, candidate label column `zip`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.94}
+
+[[claim]]
+id = "85ca-t3if-traffic_control_device-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "traffic_control_device"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT traffic_control_device AS v, count(*) AS n GROUP BY traffic_control_device ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 53,298 of 1,104,923 rows (0.048)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-device_condition-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "device_condition"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT device_condition AS v, count(*) AS n GROUP BY device_condition ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 85,416 of 1,104,923 rows (0.077)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-weather_condition-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "weather_condition"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT weather_condition AS v, count(*) AS n GROUP BY weather_condition ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 68,911 of 1,104,923 rows (0.062)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-lighting_condition-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "lighting_condition"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT lighting_condition AS v, count(*) AS n GROUP BY lighting_condition ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 56,042 of 1,104,923 rows (0.051)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-trafficway_type-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "trafficway_type"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT trafficway_type AS v, count(*) AS n GROUP BY trafficway_type ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 13,456 of 1,104,923 rows (0.012)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-roadway_surface_cond-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "roadway_surface_cond"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT roadway_surface_cond AS v, count(*) AS n GROUP BY roadway_surface_cond ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 109,505 of 1,104,923 rows (0.099)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-road_defect-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "85ca-t3if", column = "road_defect"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT road_defect AS v, count(*) AS n GROUP BY road_defect ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 226,451 of 1,104,923 rows (0.205)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}
+
+[[claim]]
+id = "85ca-t3if-crash_date-timezone"
+kind = "column_timezone"
+scope = {dataset = "85ca-t3if", column = "crash_date"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(crash_date) AS h, count(*) AS n WHERE crash_date >= '2026-03-08T00:00:00' AND crash_date < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 10 and 18."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(crash_date) AS h, count(*) AS n WHERE crash_date >= '2025-10-18T00:00:00' AND crash_date < '2026-10-19T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "Rows peak at hour 15 (8,805 of 110,364); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 13, peak_to = 17}
+
+[[claim]]
+id = "85ca-t3if-date_police_notified-timezone"
+kind = "column_timezone"
+scope = {dataset = "85ca-t3if", column = "date_police_notified"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_police_notified) AS h, count(*) AS n WHERE date_police_notified >= '2026-03-08T00:00:00' AND date_police_notified < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 7 and 15."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_police_notified) AS h, count(*) AS n WHERE date_police_notified >= '2025-10-18T00:00:00' AND date_police_notified < '2026-10-19T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "Rows peak at hour 16 (9,435 of 110,516); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 14, peak_to = 18}

@@ -1,0 +1,1026 @@
+[
+ {
+  "host": "data.seattle.gov",
+  "resultSetSize": {
+   "us:domains": 0,
+   "us:search_context": 699,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.seattle.gov": {
+    "pages": 0,
+    "results": 0,
+    "matches": false,
+    "domains_seen": {},
+    "first_dataset_id": null,
+    "link_hosts": []
+   },
+   "search_context=data.seattle.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.seattle.gov": 300
+    },
+    "first_dataset_id": "kzjm-xkqj",
+    "link_hosts": [
+     "data.seattle.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "search_context=data.seattle.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "kzjm-xkqj",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.sf.gov",
+  "resultSetSize": {
+   "us:domains": 5,
+   "us:search_context": 1225,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.sf.gov": {
+    "pages": 1,
+    "results": 5,
+    "matches": true,
+    "domains_seen": {
+     "data.sf.gov": 5
+    },
+    "first_dataset_id": "sfnk-6tdn",
+    "link_hosts": [
+     "data.sf.gov"
+    ]
+   },
+   "search_context=data.sf.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.sf.gov": 300
+    },
+    "first_dataset_id": "g8m3-pdis",
+    "link_hosts": [
+     "data.sf.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.sf.gov",
+   "search_context=data.sf.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "sfnk-6tdn",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.cityofchicago.org",
+  "resultSetSize": {
+   "us:domains": 2029,
+   "us:search_context": 2029,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.cityofchicago.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofchicago.org": 300
+    },
+    "first_dataset_id": "ydr8-5enu",
+    "link_hosts": [
+     "data.cityofchicago.org"
+    ]
+   },
+   "search_context=data.cityofchicago.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofchicago.org": 300
+    },
+    "first_dataset_id": "ydr8-5enu",
+    "link_hosts": [
+     "data.cityofchicago.org"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.cityofchicago.org",
+   "search_context=data.cityofchicago.org"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "ydr8-5enu",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.cityofnewyork.us",
+  "resultSetSize": {
+   "us:domains": 3021,
+   "us:search_context": 3021,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.cityofnewyork.us": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofnewyork.us": 300
+    },
+    "first_dataset_id": "8wbx-tsch",
+    "link_hosts": [
+     "data.cityofnewyork.us"
+    ]
+   },
+   "search_context=data.cityofnewyork.us": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofnewyork.us": 300
+    },
+    "first_dataset_id": "8wbx-tsch",
+    "link_hosts": [
+     "data.cityofnewyork.us"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.cityofnewyork.us",
+   "search_context=data.cityofnewyork.us"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "8wbx-tsch",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.kingcounty.gov",
+  "resultSetSize": {
+   "us:domains": 539,
+   "us:search_context": 539,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.kingcounty.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.kingcounty.gov": 300
+    },
+    "first_dataset_id": "yri2-fef8",
+    "link_hosts": [
+     "data.kingcounty.gov"
+    ]
+   },
+   "search_context=data.kingcounty.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.kingcounty.gov": 300
+    },
+    "first_dataset_id": "yri2-fef8",
+    "link_hosts": [
+     "data.kingcounty.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.kingcounty.gov",
+   "search_context=data.kingcounty.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "yri2-fef8",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "datahub.austintexas.gov",
+  "resultSetSize": {
+   "us:domains": 2287,
+   "us:search_context": 2287,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=datahub.austintexas.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "datahub.austintexas.gov": 300
+    },
+    "first_dataset_id": "3syk-w9eu",
+    "link_hosts": [
+     "datahub.austintexas.gov"
+    ]
+   },
+   "search_context=datahub.austintexas.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "datahub.austintexas.gov": 300
+    },
+    "first_dataset_id": "3syk-w9eu",
+    "link_hosts": [
+     "datahub.austintexas.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=datahub.austintexas.gov",
+   "search_context=datahub.austintexas.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "3syk-w9eu",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "www.dallasopendata.com",
+  "resultSetSize": {
+   "us:domains": 1087,
+   "us:search_context": 1087,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=www.dallasopendata.com": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "www.dallasopendata.com": 300
+    },
+    "first_dataset_id": "9fxf-t2tr",
+    "link_hosts": [
+     "www.dallasopendata.com"
+    ]
+   },
+   "search_context=www.dallasopendata.com": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "www.dallasopendata.com": 300
+    },
+    "first_dataset_id": "9fxf-t2tr",
+    "link_hosts": [
+     "www.dallasopendata.com"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=www.dallasopendata.com",
+   "search_context=www.dallasopendata.com"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "9fxf-t2tr",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.lacity.org",
+  "resultSetSize": {
+   "us:domains": 927,
+   "us:search_context": 1274,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.lacity.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.lacity.org": 300
+    },
+    "first_dataset_id": "6rrh-rzua",
+    "link_hosts": [
+     "data.lacity.org"
+    ]
+   },
+   "search_context=data.lacity.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": false,
+    "domains_seen": {
+     "data.lacity.org": 250,
+     "controllerdata.lacity.org": 50
+    },
+    "first_dataset_id": "6rrh-rzua",
+    "link_hosts": [
+     "controllerdata.lacity.org",
+     "data.lacity.org"
+    ]
+   },
+   "domains=controllerdata.lacity.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "controllerdata.lacity.org": 300
+    },
+    "first_dataset_id": "g9h8-fvhu",
+    "link_hosts": [
+     "controllerdata.lacity.org"
+    ]
+   },
+   "search_context=controllerdata.lacity.org": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "controllerdata.lacity.org": 300
+    },
+    "first_dataset_id": "g9h8-fvhu",
+    "link_hosts": [
+     "controllerdata.lacity.org"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=controllerdata.lacity.org",
+   "domains=data.lacity.org",
+   "search_context=controllerdata.lacity.org"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "6rrh-rzua",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.nola.gov",
+  "resultSetSize": {
+   "us:domains": 298,
+   "us:search_context": 298,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.nola.gov": {
+    "pages": 3,
+    "results": 298,
+    "matches": true,
+    "domains_seen": {
+     "data.nola.gov": 298
+    },
+    "first_dataset_id": "9mnw-mbde",
+    "link_hosts": [
+     "data.nola.gov"
+    ]
+   },
+   "search_context=data.nola.gov": {
+    "pages": 3,
+    "results": 298,
+    "matches": true,
+    "domains_seen": {
+     "data.nola.gov": 298
+    },
+    "first_dataset_id": "9mnw-mbde",
+    "link_hosts": [
+     "data.nola.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.nola.gov",
+   "search_context=data.nola.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "9mnw-mbde",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "datacatalog.cookcountyil.gov",
+  "resultSetSize": {
+   "us:domains": 809,
+   "us:search_context": 976,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=datacatalog.cookcountyil.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "datacatalog.cookcountyil.gov": 300
+    },
+    "first_dataset_id": "cjeq-bs86",
+    "link_hosts": [
+     "datacatalog.cookcountyil.gov"
+    ]
+   },
+   "search_context=datacatalog.cookcountyil.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": false,
+    "domains_seen": {
+     "datacatalog.cookcountyil.gov": 268,
+     "cookcounty.data.socrata.com": 32
+    },
+    "first_dataset_id": "cjeq-bs86",
+    "link_hosts": [
+     "cookcounty.data.socrata.com",
+     "datacatalog.cookcountyil.gov"
+    ]
+   },
+   "domains=cookcounty.data.socrata.com": {
+    "pages": 2,
+    "results": 167,
+    "matches": true,
+    "domains_seen": {
+     "cookcounty.data.socrata.com": 167
+    },
+    "first_dataset_id": "gra5-j9gt",
+    "link_hosts": [
+     "cookcounty.data.socrata.com"
+    ]
+   },
+   "search_context=cookcounty.data.socrata.com": {
+    "pages": 2,
+    "results": 167,
+    "matches": true,
+    "domains_seen": {
+     "cookcounty.data.socrata.com": 167
+    },
+    "first_dataset_id": "gra5-j9gt",
+    "link_hosts": [
+     "cookcounty.data.socrata.com"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=cookcounty.data.socrata.com",
+   "domains=datacatalog.cookcountyil.gov",
+   "search_context=cookcounty.data.socrata.com"
+  ],
+  "api_views_status": 500,
+  "resource_probe": {
+   "id": "cjeq-bs86",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.montgomerycountymd.gov",
+  "resultSetSize": {
+   "us:domains": 955,
+   "us:search_context": 955,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.montgomerycountymd.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.montgomerycountymd.gov": 300
+    },
+    "first_dataset_id": "98cc-bc7d",
+    "link_hosts": [
+     "data.montgomerycountymd.gov"
+    ]
+   },
+   "search_context=data.montgomerycountymd.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.montgomerycountymd.gov": 300
+    },
+    "first_dataset_id": "98cc-bc7d",
+    "link_hosts": [
+     "data.montgomerycountymd.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.montgomerycountymd.gov",
+   "search_context=data.montgomerycountymd.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "98cc-bc7d",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.wa.gov",
+  "resultSetSize": {
+   "us:domains": 2178,
+   "us:search_context": 2178,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.wa.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.wa.gov": 300
+    },
+    "first_dataset_id": "qxh8-f4bd",
+    "link_hosts": [
+     "data.wa.gov"
+    ]
+   },
+   "search_context=data.wa.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.wa.gov": 300
+    },
+    "first_dataset_id": "qxh8-f4bd",
+    "link_hosts": [
+     "data.wa.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.wa.gov",
+   "search_context=data.wa.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "qxh8-f4bd",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.ny.gov",
+  "resultSetSize": {
+   "us:domains": 1638,
+   "us:search_context": 5364,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.ny.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.ny.gov": 300
+    },
+    "first_dataset_id": "kwxv-fwze",
+    "link_hosts": [
+     "data.ny.gov"
+    ]
+   },
+   "search_context=data.ny.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": false,
+    "domains_seen": {
+     "data.ny.gov": 133,
+     "data.cityofnewyork.us": 92,
+     "health.data.ny.gov": 75
+    },
+    "first_dataset_id": "kwxv-fwze",
+    "link_hosts": [
+     "data.cityofnewyork.us",
+     "data.ny.gov",
+     "health.data.ny.gov"
+    ]
+   },
+   "domains=data.cityofnewyork.us": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofnewyork.us": 300
+    },
+    "first_dataset_id": "8wbx-tsch",
+    "link_hosts": [
+     "data.cityofnewyork.us"
+    ]
+   },
+   "search_context=data.cityofnewyork.us": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cityofnewyork.us": 300
+    },
+    "first_dataset_id": "8wbx-tsch",
+    "link_hosts": [
+     "data.cityofnewyork.us"
+    ]
+   },
+   "domains=health.data.ny.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "health.data.ny.gov": 300
+    },
+    "first_dataset_id": "keti-qx5t",
+    "link_hosts": [
+     "health.data.ny.gov"
+    ]
+   },
+   "search_context=health.data.ny.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "health.data.ny.gov": 300
+    },
+    "first_dataset_id": "keti-qx5t",
+    "link_hosts": [
+     "health.data.ny.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.cityofnewyork.us",
+   "domains=data.ny.gov",
+   "domains=health.data.ny.gov",
+   "search_context=data.cityofnewyork.us",
+   "search_context=health.data.ny.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "kwxv-fwze",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.texas.gov",
+  "resultSetSize": {
+   "us:domains": 1485,
+   "us:search_context": 1485,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.texas.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.texas.gov": 300
+    },
+    "first_dataset_id": "48ag-x9aa",
+    "link_hosts": [
+     "data.texas.gov"
+    ]
+   },
+   "search_context=data.texas.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.texas.gov": 300
+    },
+    "first_dataset_id": "48ag-x9aa",
+    "link_hosts": [
+     "data.texas.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.texas.gov",
+   "search_context=data.texas.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "48ag-x9aa",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.cdc.gov",
+  "resultSetSize": {
+   "us:domains": 1477,
+   "us:search_context": 1477,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.cdc.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cdc.gov": 300
+    },
+    "first_dataset_id": "9bhg-hcku",
+    "link_hosts": [
+     "data.cdc.gov"
+    ]
+   },
+   "search_context=data.cdc.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.cdc.gov": 300
+    },
+    "first_dataset_id": "9bhg-hcku",
+    "link_hosts": [
+     "data.cdc.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.cdc.gov",
+   "search_context=data.cdc.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "9bhg-hcku",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.calgary.ca",
+  "resultSetSize": {
+   "us:domains": 933,
+   "us:search_context": 933,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.calgary.ca": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.calgary.ca": 300
+    },
+    "first_dataset_id": "35ra-9556",
+    "link_hosts": [
+     "data.calgary.ca"
+    ]
+   },
+   "search_context=data.calgary.ca": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.calgary.ca": 300
+    },
+    "first_dataset_id": "35ra-9556",
+    "link_hosts": [
+     "data.calgary.ca"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.calgary.ca",
+   "search_context=data.calgary.ca"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "35ra-9556",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "www.datos.gov.co",
+  "resultSetSize": {
+   "us:domains": 10000,
+   "us:search_context": 10000,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=www.datos.gov.co": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "www.datos.gov.co": 300
+    },
+    "first_dataset_id": "jbjy-vk9h",
+    "link_hosts": [
+     "www.datos.gov.co"
+    ]
+   },
+   "search_context=www.datos.gov.co": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "www.datos.gov.co": 300
+    },
+    "first_dataset_id": "jbjy-vk9h",
+    "link_hosts": [
+     "www.datos.gov.co"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=www.datos.gov.co",
+   "search_context=www.datos.gov.co"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "jbjy-vk9h",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.oregon.gov",
+  "resultSetSize": {
+   "us:domains": 1591,
+   "us:search_context": 1591,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.oregon.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.oregon.gov": 300
+    },
+    "first_dataset_id": "tckn-sxa6",
+    "link_hosts": [
+     "data.oregon.gov"
+    ]
+   },
+   "search_context=data.oregon.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.oregon.gov": 300
+    },
+    "first_dataset_id": "tckn-sxa6",
+    "link_hosts": [
+     "data.oregon.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.oregon.gov",
+   "search_context=data.oregon.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "tckn-sxa6",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "data.honolulu.gov",
+  "resultSetSize": {
+   "us:domains": 453,
+   "us:search_context": 453,
+   "eu:domains": null,
+   "eu:search_context": null
+  },
+  "region": "us",
+  "attempts": {
+   "domains=data.honolulu.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.honolulu.gov": 300
+    },
+    "first_dataset_id": "ykb6-n5th",
+    "link_hosts": [
+     "data.honolulu.gov"
+    ]
+   },
+   "search_context=data.honolulu.gov": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "data.honolulu.gov": 300
+    },
+    "first_dataset_id": "ykb6-n5th",
+    "link_hosts": [
+     "data.honolulu.gov"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=data.honolulu.gov",
+   "search_context=data.honolulu.gov"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "ykb6-n5th",
+   "status": 200,
+   "rows": 1
+  }
+ },
+ {
+  "host": "opendata.camden.gov.uk",
+  "resultSetSize": {
+   "us:domains": null,
+   "us:search_context": null,
+   "eu:domains": 871,
+   "eu:search_context": 871
+  },
+  "region": "eu",
+  "attempts": {
+   "domains=opendata.camden.gov.uk": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "opendata.camden.gov.uk": 300
+    },
+    "first_dataset_id": "x43g-c2rf",
+    "link_hosts": [
+     "opendata.camden.gov.uk"
+    ]
+   },
+   "search_context=opendata.camden.gov.uk": {
+    "pages": 3,
+    "results": 300,
+    "matches": true,
+    "domains_seen": {
+     "opendata.camden.gov.uk": 300
+    },
+    "first_dataset_id": "x43g-c2rf",
+    "link_hosts": [
+     "opendata.camden.gov.uk"
+    ]
+   }
+  },
+  "satisfying": [
+   "domains=opendata.camden.gov.uk",
+   "search_context=opendata.camden.gov.uk"
+  ],
+  "api_views_status": 200,
+  "resource_probe": {
+   "id": "x43g-c2rf",
+   "status": 200,
+   "rows": 1
+  }
+ }
+]

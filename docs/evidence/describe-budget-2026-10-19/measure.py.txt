@@ -1,0 +1,25 @@
+import sys, json, anyio
+sys.path.insert(0, ".")
+from opendata_atlas.core import describe, budget, cache
+from opendata_atlas.core.http import SodaClient
+from opendata_atlas.portals import freshness
+from opendata_atlas.portals.loader import load_portal, SEATTLE
+from datetime import date
+from tests.http_fixtures import Replay
+import tests.http_fixtures as http_fixtures
+from pathlib import Path
+# The recording is kept beside this script (milestone 5 Task 8), not in tests/fixtures/http.
+http_fixtures.FIXTURES = Path("docs/evidence/describe-budget-2026-10-19")
+freshness.today = lambda: date(2026, 10, 18)
+ctx = load_portal(SEATTLE.parent / "data.cityofchicago.org")
+print("limit", budget.RESULT_LIMIT)
+describe.RESULT_LIMIT = 10**9
+async def main():
+    for column_query in (None, "zzz"):
+        cache.clear()
+        c = SodaClient(transport=Replay("describe_chicago_crimes_full"))
+        out = await describe.describe(c, ctx, dataset_id="ijzp-q8t2", column_query=column_query, sample_rows=0, detail="full")
+        print("column_query", column_query, "size", budget.payload_size(out), "columns", len(out.columns))
+        for p in out.place_fields:
+            print(" ", p.column, p.stats_status, p.value_count, len(p.values or []), len(json.dumps(p.model_dump(mode="json", exclude_none=True))))
+anyio.run(main)

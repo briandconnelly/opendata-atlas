@@ -1,0 +1,13 @@
+<tmp>/curation.transcript.jsonl 2.9569148000000016
+<tmp>/wt/.curation/evals-1/01-port-gardner-last-month.transcript.jsonl 0.1500842
+<tmp>/wt/.curation/evals-1/02-gang-crimes-2025.transcript.jsonl 0.1353654
+<tmp>/wt/.curation/evals-1/03-restaurant-inspections.transcript.jsonl 0.09040780000000001
+<tmp>/wt/.curation/evals-2/01-port-gardner-last-month.transcript.jsonl 0.1239246
+<tmp>/wt/.curation/evals-2/02-gang-crimes-2025.transcript.jsonl 0.1277214
+<tmp>/wt/.curation/evals-2/03-restaurant-inspections.transcript.jsonl 0.0834934
+<tmp>/wt/.curation/evals-3/01-port-gardner-last-month.transcript.jsonl 0.1290904
+<tmp>/wt/.curation/evals-3/02-gang-crimes-2025.transcript.jsonl 0.1166268
+<tmp>/wt/.curation/evals-3/03-restaurant-inspections.transcript.jsonl 0.07959079999999999
+<tmp>/evals/01-port-gardner-last-month.transcript.jsonl 0.1426532
+<tmp>/evals/02-gang-crimes-2025.transcript.jsonl 0.1223938
+<tmp>/evals/03-restaurant-inspections.transcript.jsonl 0.0987388

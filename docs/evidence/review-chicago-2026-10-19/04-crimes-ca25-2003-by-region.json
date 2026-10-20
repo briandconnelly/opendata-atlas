@@ -1,0 +1,17 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=%3A%40computed_region_vrxf_vc4k+AS+r%2C+count%28%2A%29+AS+n&%24where=community_area+%3D+%2225%22+AND+year+%3D+2003&%24group=%3A%40computed_region_vrxf_vc4k&%24order=n+DESC&%24limit=5",
+ "status": 200,
+ "body": [
+  {
+   "r": "26",
+   "n": "30196"
+  },
+  {
+   "n": "620"
+  },
+  {
+   "r": "27",
+   "n": "25"
+  }
+ ]
+}

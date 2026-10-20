@@ -1,0 +1,14 @@
+# Illustrative ids. What one row records, from the publisher's own page; no assertion.
+[[claim]]
+id = "calls-unit-dispatch"
+scope = {dataset = "abcd-1234"}
+kind = "unit_of_observation"
+interpretation = {unit = "dispatch", reason = "One row per unit dispatched, not per incident."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "document"
+url = "https://example.gov/calls"
+quote = "Each record is one dispatch of a responding unit to a call."
+observed_at = 2026-10-16

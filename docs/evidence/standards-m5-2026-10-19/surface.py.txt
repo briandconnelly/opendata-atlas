@@ -1,0 +1,77 @@
+"""Served-surface probe for the milestone 5 standards review (offline, in-process).
+
+Run from the worktree root: PYTHONPATH=. uv run python surface.py
+"""
+import asyncio, json
+from datetime import datetime
+from fastmcp import Client
+from opendata_atlas.core.reference import CAPABILITIES, INSTRUCTIONS
+from opendata_atlas.core.context import WEEKDAYS
+from opendata_atlas.mcp.server import build_server
+from tests.conftest import framed_size, wire
+
+
+def line(text, prefix):
+    return [l for l in text.splitlines() if l.startswith(prefix)]
+
+
+async def main():
+    out = {}
+    for mode in ("modern", "legacy"):
+        kw = {"mode": "legacy"} if mode == "legacy" else {}
+        async with Client(build_server(), **kw) as c:
+            tl = wire(await c.list_tools_mcp())
+            out[f"{mode}_tools_list_framed"] = framed_size(tl)
+            si = c.server_info
+            out[f"{mode}_server_info"] = {
+                "name": si.name, "title": si.title, "version": si.version,
+                "icons": [{**{k: v for k, v in i.model_dump(mode="json", by_alias=True, exclude_none=True).items() if k != "src"}, "src_chars": len(i.src),
+                           "src_prefix": i.src[:26]} for i in (si.icons or [])],
+            }
+            if mode == "legacy":
+                out["legacy_instructions_chars"] = len(c.initialize_result.instructions)
+                out["legacy_instructions_equal"] = c.initialize_result.instructions == INSTRUCTIONS
+            describe = next(t for t in tl["tools"] if t["name"] == "atlas_describe_dataset")
+            out[f"{mode}_describe_description_tail"] = describe["description"].splitlines()[-1]
+            out[f"{mode}_source_now_weekday_schema"] = sorted(
+                {json.dumps(t["outputSchema"]["properties"]["source"]["properties"].get("now_weekday"))
+                 for t in tl["tools"]})
+            res = wire(await c.list_resources_mcp())
+            rows = []
+            for r in res["resources"]:
+                read = wire(await c.read_resource_mcp(r["uri"]))
+                body = read["contents"][0].get("text", "")
+                rows.append({"uri": r["uri"], "size": r.get("size"), "read_bytes": len(body.encode()),
+                             "mimeType": r.get("mimeType"), "has_lastModified": "lastModified" in (r.get("annotations") or {}),
+                             "description": r.get("description")})
+            out[f"{mode}_resources"] = rows
+            tmpl = wire(await c.list_resource_templates_mcp())
+            out[f"{mode}_templates_with_size"] = [t["uriTemplate"] for t in tmpl["resourceTemplates"] if "size" in t]
+            out[f"{mode}_template_count"] = len(tmpl["resourceTemplates"])
+            # now_weekday on a portal-bound result and its absence on a portal-independent one
+            for k, args in {"portal_bound": {"topic": "guides", "portal": "seattle"},
+                            "portal_independent": {"topic": "index"}}.items():
+                r = wire(await c.call_tool_mcp("atlas_get_reference", args))
+                src = r["structuredContent"]["source"]
+                entry = {"keys": sorted(src)}
+                if "now_local" in src:
+                    entry["weekday_matches_now_local"] = (
+                        WEEKDAYS[datetime.fromisoformat(src["now_local"]).weekday()] == src.get("now_weekday"))
+                    entry["now_weekday_in_set"] = src.get("now_weekday") in WEEKDAYS
+                out[f"{mode}_{k}_source"] = entry
+            err = wire(await c.call_tool_mcp("atlas_get_reference", {"topic": "portals", "item_id": "nope.example"}))
+            sc = err.get("structuredContent", {})
+            out[f"{mode}_forced_error"] = {"isError": err.get("isError"), "code": sc.get("code"),
+                                           "field": sc.get("details", {}).get("field"),
+                                           "repair": sc.get("repair"),
+                                           "text_equals_structured": json.loads(err["content"][0]["text"]) == sc}
+            out[f"{mode}_resources_list_cache"] = [res.get("ttlMs"), res.get("cacheScope")]
+            dates = wire(await c.call_tool_mcp("atlas_get_reference", {"topic": "soql", "item_id": "dates"}))
+            text = json.dumps(dates["structuredContent"])
+            out[f"{mode}_dates_topic_mentions_now_weekday"] = "now_weekday" in text
+    out["instructions_chars"] = len(INSTRUCTIONS)
+    out["capabilities_time_line"] = line(CAPABILITIES, "- Time:")
+    out["capabilities_weekday_rule"] = [l for l in CAPABILITIES.splitlines() if "weekday" in l and l.startswith("- Name")]
+    print(json.dumps(out, indent=1))
+
+asyncio.run(main())

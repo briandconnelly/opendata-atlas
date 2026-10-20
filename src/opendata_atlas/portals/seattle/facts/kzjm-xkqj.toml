@@ -1,0 +1,65 @@
+# Seattle facts for `kzjm-xkqj`, converted from the fork's staged constants.
+
+[[claim]]
+id = "kzjm-xkqj-datetime-timezone"
+kind = "column_timezone"
+scope = {dataset = "kzjm-xkqj", column = "datetime"}
+interpretation = {timezone = "America/Los_Angeles"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "max(datetime) tracked Pacific wall-clock time when probed 2026-10-15."
+observed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(datetime) AS h, count(*) AS n WHERE datetime >= '2026-03-08T00:00:00' AND datetime < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-18
+observation = "No rows at hour 2 on 2026-03-08, the spring-forward date; hours 1 and 3 have 18 and 16; docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(datetime) AS h, count(*) AS n WHERE datetime >= '2025-01-01T00:00:00' AND datetime < '2026-01-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-18
+observation = "Rows peak at hour 16 (6,552 of 119,299) over 2025; all 24 hours populated; docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 14, peak_to = 18}
+
+[[claim]]
+id = "kzjm-xkqj-unit"
+kind = "unit_of_observation"
+scope = {dataset = "kzjm-xkqj"}
+interpretation = {unit = "dispatch", reason = "Most rows are medical, not fires: the five largest medical types (chiefly Aid Response and Medic Response) are 68% of all rows, a lower bound, since many smaller Aid/Medic types exist; a count of 'fire calls' covers every response type."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-18
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = 'The Fire 911 guide inherited from seattle-open-data (src/seattle_open_data/core/guides.py@26c6628): "`type`: response type. Most calls are medical: Aid Response and Medic Response together are about two thirds of all rows. "Fire calls" in ordinary speech usually means this whole dataset."'
+observed_at = 2026-10-18
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_y(datetime) AS y, sum(case(type IN ('Aid Response', 'Aid Response Yellow', 'Medic Response', 'Medic Response, 7 per Rule', 'Automatic Medical Alarm'), 1, true, 0)) AS med, count(*) AS n WHERE datetime >= '2020-01-01T00:00:00' GROUP BY y"
+observed_at = 2026-10-18
+observation = "Medical set, by name only: the top-20 types whose name has Aid or Medic (Medical included), so the share is a lower bound (smaller Aid/Medic types exist); listed explicitly so a new upstream type cannot join it; Trans to AMR, Nurseline/AMR, Low Acuity Response and Triaged Incident are left out, since calling them medical would be an inference. med/n 0.57-0.66 in every year 2020-2026 (lowest 2024: 73,513/129,629); docs/evidence/drift-2026-10-18/fire-types.json"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(type IN ('Aid Response', 'Aid Response Yellow', 'Medic Response', 'Medic Response, 7 per Rule', 'Automatic Medical Alarm'), 1, true, 0)) AS med, count(*) AS n"
+observed_at = 2026-10-18
+observation = "All rows: med/n 1,511,044/2,216,831 (0.6816), the guide's 'about two thirds'; docs/evidence/drift-2026-10-18/fire-types.json"
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {group = "y", numerator = "med", denominator = "n", min = 0.5, min_groups = 6}

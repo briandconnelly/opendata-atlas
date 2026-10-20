@@ -1,0 +1,6 @@
+modern tools/list framed 24560 unframed 24517
+modern overhead 695
+_meta stamp bytes 602
+icon src chars 430
+legacy tools/list framed 23944 unframed 23901
+INSTRUCTIONS chars 1797

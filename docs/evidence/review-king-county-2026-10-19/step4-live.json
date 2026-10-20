@@ -1,0 +1,68 @@
+{
+ "today": "2026-10-20",
+ "pack_levels": {
+  "j56h-zgnm": "profiled"
+ },
+ "pack_levels_2026_10_19": {
+  "j56h-zgnm": "profiled"
+ },
+ "pack_levels_2026_10_20": {
+  "j56h-zgnm": "profiled"
+ },
+ "find": {
+  "King County": {
+   "isError": false,
+   "ids": [
+    "data.kingcounty.gov"
+   ]
+  },
+  "King County, WA": {
+   "isError": false,
+   "ids": [
+    "data.kingcounty.gov"
+   ]
+  },
+  "king-county": {
+   "isError": false,
+   "ids": [
+    "data.kingcounty.gov"
+   ]
+  },
+  "Seattle": {
+   "isError": false,
+   "ids": [
+    "data.seattle.gov"
+   ]
+  }
+ },
+ "describe": {
+  "j56h-zgnm": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true,
+   "data_coverage": [
+    {
+     "column": "booking_date_time",
+     "min": "2025-10-01T00:08:07.000",
+     "max": "2026-09-30T23:52:04.000",
+     "origin": "live_query",
+     "status": "ok"
+    }
+   ]
+  }
+ },
+ "reference_isError": false,
+ "reference_tier_lines": [
+  "- tier: `profiled`"
+ ],
+ "reference_keys": [
+  "body",
+  "source",
+  "summary",
+  "title",
+  "topic",
+  "uri",
+  "version"
+ ]
+}

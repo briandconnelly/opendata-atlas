@@ -1,0 +1,20 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=%3A%40computed_region_8hcu_yrd4+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_8hcu_yrd4&%24order=n+DESC&%24limit=101",
+ "status": 200,
+ "seconds": 9.6,
+ "groups": 51,
+ "first": [
+  {
+   "v": "28",
+   "n": "419951"
+  },
+  {
+   "v": "16",
+   "n": "374579"
+  },
+  {
+   "v": "27",
+   "n": "371573"
+  }
+ ]
+}

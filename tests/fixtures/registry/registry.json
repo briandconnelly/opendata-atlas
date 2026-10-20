@@ -1,0 +1,58 @@
+{
+  "version": "2026-10-18-fixture00000",
+  "entries": [
+    {
+      "identity": {
+        "id": "b.example.gov",
+        "aliases": [],
+        "public_host": "b.example.gov",
+        "catalog_query": {
+          "domains": "b.example.gov"
+        },
+        "catalog_region": "us",
+        "name": "Example Portal B",
+        "platform": "socrata",
+        "status": "active",
+        "tier": "generic"
+      },
+      "dataset_count": 12,
+      "catalog_size": 20
+    },
+    {
+      "identity": {
+        "id": "a.example.gov",
+        "aliases": [
+          "alpha"
+        ],
+        "public_host": "a.example.gov",
+        "catalog_query": {
+          "domains": "a.example.gov"
+        },
+        "catalog_region": "us",
+        "name": "Example Portal A",
+        "platform": "socrata",
+        "status": "active",
+        "tier": "generic"
+      },
+      "dataset_count": null,
+      "catalog_size": null
+    },
+    {
+      "identity": {
+        "id": "data.seattle.gov",
+        "aliases": [],
+        "public_host": "data.seattle.gov",
+        "catalog_query": {
+          "domains": "data.seattle.gov"
+        },
+        "catalog_region": "us",
+        "name": "x",
+        "platform": "socrata",
+        "status": "active",
+        "tier": "generic"
+      },
+      "dataset_count": 5000,
+      "catalog_size": 7000
+    }
+  ]
+}

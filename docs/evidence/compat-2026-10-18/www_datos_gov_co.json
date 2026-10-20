@@ -1,0 +1,2669 @@
+{
+ "portal": "www.datos.gov.co",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 6
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 32,
+   "row_count": 92738
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 9,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 9
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "ch4u-f3i5",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Alertas poblacionales",
+       "id": "t7gg-g5ug",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "El formulario de ingreso de Alertas Tempranas; es un instrumento que le permite conocer al Sistema de Alertas Tempranas de Medellín, los posibles casos de Niños, Niñas y Adolescentes que se encuentran en riesgo de ser víctimas de: Explotación Sexual y Comercial de Niños, Niñas y Adolescentes (ESCNNA), Violencia Sexual, Reclutamiento, Uso y Utilización de Niños, Niñas y Adolescentes en Grupos de Delincuencia Organizada y Trabajo Infantil. A su vez, este formulario, permite caracterizar e identificar los factores de riesgo que condicionan un escenario de vulneración de derechos de los Niños, Niñas y Adolescentes de la ciudad y el área rural.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2025-10-31T19:43:25.000Z",
+       "createdAt": "2025-08-05T15:52:27.000Z",
+       "metadata_updated_at": "2025-10-31T19:43:25.000Z",
+       "data_updated_at": "2025-08-05T15:52:27.000Z",
+       "page_views": {
+        "page_views_last_week": 16,
+        "page_views_last_month": 37,
+        "page_views_total": 942,
+        "page_views_last_week_log": 4.08746284125034,
+        "page_views_last_month_log": 5.247927513443585,
+        "page_views_total_log": 9.881113960675098
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-08-05T15:52:27.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "niñas",
+        "niños",
+        "explotación comercial",
+        "adolescentes",
+        "explotación sexual",
+        "delitos sexuales",
+        "nna",
+        "datos"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "16-03-2022"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Temporal-Applicability",
+         "value": "2019-12-31T00:00:00Z"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "1-020-13-000289"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "Alcaldía de Medellín"
+        },
+        {
+         "key": "Common-Core_Update-Frequency",
+         "value": "R/P1Y"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "Inclusión Social y Reconciliación"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "31-08-2018"
+        },
+        {
+         "key": "Common-Core_Data-Standard",
+         "value": "http://www.mintic.gov.co"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/csv": "http://medata.gov.co/sites/default/files/distribution/1-020-13-000289/alertas_poblacionales.csv"
+         },
+         "title": "Alertas poblacionales",
+         "described_by": "http://10.1.222.231:9870/webhdfs/v1/MEData/Comma/Juventud/alertas_poblacionales.json?op=OPEN"
+        },
+        {
+         "urls": {
+          "text/json": "http://medata.gov.co/sites/default/files/distribution/1-020-13-000289/alertas_poblacionales.json"
+         },
+         "title": "Diccionario de datos",
+         "described_by": "http://10.1.222.231:9870/webhdfs/v1/MEData/Comma/Juventud/alertas_poblacionales.json?op=OPEN"
+        }
+       ],
+       "access_points": {
+        "text/csv": "http://medata.gov.co/sites/default/files/distribution/1-020-13-000289/alertas_poblacionales.csv"
+       }
+      },
+      "permalink": "https://www.datos.gov.co/d/t7gg-g5ug",
+      "link": "https://www.datos.gov.co/dataset/Alertas-poblacionales/t7gg-g5ug",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "UVR - Unidad de Valor Real",
+       "id": "mtic-nvgq",
+       "resource_name": "UVR",
+       "parent_fxf": [],
+       "description": "La unidad de valor real (UVR) es certificada por el Banco de la República y refleja el poder adquisitivo con base en la variación del índice de precios al consumidor (IPC) durante el mes calendario inmediatamente anterior al mes del inicio del período de cálculo. La UVR es una unidad de cuenta usada para calcular el costo de los créditos de vivienda que le permite a las entidades financieras mantener el poder adquisitivo del dinero prestado.",
+       "attribution": "Banco de la República, Bogotá D.C.",
+       "attribution_link": "https://www.banrep.gov.co/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2026-05-18T18:25:53.000Z",
+       "createdAt": "2026-02-09T20:38:41.000Z",
+       "metadata_updated_at": "2026-05-18T18:25:53.000Z",
+       "data_updated_at": "2026-02-09T20:38:41.000Z",
+       "page_views": {
+        "page_views_last_week": 81,
+        "page_views_last_month": 496,
+        "page_views_total": 9736,
+        "page_views_last_week_log": 6.357552004618085,
+        "page_views_last_month_log": 8.957102041562287,
+        "page_views_total_log": 13.249261626599845
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-02-09T21:13:49.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Economía y Finanzas",
+       "domain_tags": [
+        "unidad valor real",
+        "banco de la república",
+        "uvr"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Hacienda y Crédito Público"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Banco de la República, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/mtic-nvgq",
+      "link": "https://www.datos.gov.co/Economía-y-Finanzas/UVR-Unidad-de-Valor-Real/mtic-nvgq",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Drenaje Sencillo",
+       "id": "hfii-knfn",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "<p>El Ordenamiento del Recurso Hídrico es uno de los instrumentos más útiles para la gestión de las autoridades ambientales regionales, el cual permite un conocimiento más relevante sobre el recurso a través del establecimiento de normas de vertimiento y el logro de objetivos de calidad fisicoquímica e hidrobiológica en el tiempo.</p>",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2026-10-17T19:03:30.000Z",
+       "createdAt": "2025-09-26T19:17:10.000Z",
+       "metadata_updated_at": "2026-10-17T19:03:30.000Z",
+       "data_updated_at": "2025-09-26T19:17:10.000Z",
+       "page_views": {
+        "page_views_last_week": 184,
+        "page_views_last_month": 754,
+        "page_views_total": 3473,
+        "page_views_last_week_log": 7.531381460516312,
+        "page_views_last_month_log": 9.560332834212442,
+        "page_views_total_log": 11.762382038710394
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-09-26T19:17:10.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "2025-09-26T18:11:35.233Z"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "<p>Corporación Autónoma Regional del Cauca</p>"
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Geographic-Coverage",
+         "value": "-76.6438,2.4832,-76.5698,2.5106"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "https://www.arcgis.com/home/item.html?id=9407d75575d44e0daf3b66980b58eb2e&sublayer=1"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "CORPORACIÓN AUTÓNOMA REGIONAL DEL CAUCA"
+        },
+        {
+         "key": "Common-Core_Homepage",
+         "value": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/datasets/SIAC::drenaje-sencillo-"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "geospatial"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "2024-07-12T22:13:29.000Z"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/datasets/SIAC::drenaje-sencillo-"
+         },
+         "title": "ArcGIS Hub Dataset"
+        },
+        {
+         "urls": {
+          "application/json": "https://services1.arcgis.com/EuINl7edpiWRTtfn/arcgis/rest/services/PORH_%C3%81rea_Quebrada_Quita_Calz%C3%B3n/FeatureServer/1"
+         },
+         "title": "ArcGIS GeoService"
+        },
+        {
+         "urls": {
+          "text/csv": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/csv?layers=1"
+         },
+         "title": "CSV"
+        },
+        {
+         "urls": {
+          "application/zip": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/shapefile?layers=1"
+         },
+         "title": "Shapefile"
+        },
+        {
+         "urls": {
+          "application/vnd.geo+json": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/geojson?layers=1"
+         },
+         "title": "GeoJSON"
+        },
+        {
+         "urls": {
+          "application/vnd.google-earth.kml+xml": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/kml?layers=1"
+         },
+         "title": "KML"
+        },
+        {
+         "urls": {
+          "application/zip": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/filegdb?layers=1"
+         },
+         "title": "File Geodatabase"
+        },
+        {
+         "urls": {
+          "text/plain": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/featureCollection?layers=1"
+         },
+         "title": "Feature Collection"
+        },
+        {
+         "urls": {
+          "application/vnd.ms-excel": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/excel?layers=1"
+         },
+         "title": "Excel"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/geoPackage?layers=1"
+         },
+         "title": "GeoPackage"
+        },
+        {
+         "urls": {
+          "application/geopackage+sqlite3": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/api/download/v1/items/9407d75575d44e0daf3b66980b58eb2e/sqlite?layers=1"
+         },
+         "title": "SQLite Geodatabase"
+        }
+       ],
+       "access_points": {
+        "text/html": "https://sistema-de-informacin-ambiental-corporativo-1-siac.hub.arcgis.com/datasets/SIAC::drenaje-sencillo-"
+       }
+      },
+      "permalink": "https://www.datos.gov.co/d/hfii-knfn",
+      "link": "https://www.datos.gov.co/dataset/Drenaje-Sencillo/hfii-knfn",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 665,
+    "timings": {
+     "serviceMillis": 20,
+     "searchMillis": [
+      2,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Resultados de Análisis de Laboratorio Suelos en Colombia",
+       "id": "ch4u-f3i5",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Resultados del Servicio de Análisis de Suelos que el Laboratorio de Química y Física de Suelos de AGROSAVIA, presta al sector agropecuario, se enfoca en la EVALUACIÓN de la Fertilidad del Suelo, de la Salinidad y parámetros que Sirven como herramienta para la realización de planes de fertilización, Aplicación de enmiendas y adecuación de los terrenos para lograr producciones rentables.",
+       "attribution": "Corporación Colombiana de Investigación Agropecuaria - AGROSAVIA, Bogotá D.C.",
+       "attribution_link": "http://www.agrosavia.co",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-05-18T16:58:12.000Z",
+       "createdAt": "2017-05-23T13:54:27.000Z",
+       "metadata_updated_at": "2026-05-18T16:58:12.000Z",
+       "data_updated_at": "2025-10-03T21:05:14.000Z",
+       "page_views": {
+        "page_views_last_week": 69,
+        "page_views_last_month": 375,
+        "page_views_total": 21175,
+        "page_views_last_week_log": 6.129283016944967,
+        "page_views_last_month_log": 8.554588851677638,
+        "page_views_total_log": 14.3701424794954
+       },
+       "columns_name": [
+        "Fecha de Análisis",
+        "Fertilizantes aplicados",
+        "Manganeso disponible Olsen",
+        "Materia organica",
+        "capacidad de intercambio cationico",
+        "Hierro disponible doble acido",
+        "Estado",
+        "Riego",
+        "Municipio",
+        "Boro disponible",
+        "Aluminio intercambiable",
+        "pH agua:suelo",
+        "Fósforo Bray II",
+        "Cobre disponible doble acido",
+        "Secuencial",
+        "Manganeso disponible doble acido",
+        "Conductividad electrica",
+        "Calcio intercambiable",
+        "Cobre disponible",
+        "Tiempo de establecimiento",
+        "Hierro disponible olsen",
+        "Sodio intercambiable",
+        "Acidez Intercambiable",
+        "Azufre Fosfato monocalcico",
+        "Departamento",
+        "Topografia",
+        "Drenaje",
+        "Cultivo",
+        "Zinc disponible Olsen",
+        "Magnesio intercambiable",
+        "Zinc disponible doble  acido",
+        "Potasio intercambiable"
+       ],
+       "columns_field_name": [
+        "fecha_de_an_lisis",
+        "fertilizantes_aplicados",
+        "manganeso_disponible_olsen",
+        "materia_organica",
+        "capacidad_de_intercambio_cationico",
+        "hierro_disponible_doble_acido",
+        "estado",
+        "riego",
+        "municipio",
+        "boro_disponible",
+        "aluminio_intercambiable",
+        "ph_agua_suelo",
+        "fosforo_bray_ii",
+        "cobre_disponible_doble_acido",
+        "secuencial",
+        "manganeso_disponible_doble_acido",
+        "conductividad_electrica",
+        "calcio_intercambiable",
+        "cobre_disponible",
+        "tiempo_de_establecimiento",
+        "hierro_disponible_olsen",
+        "sodio_intercambiable",
+        "acidez_kcl",
+        "azufre_fosfato_monocalcico",
+        "departamento",
+        "topografia",
+        "drenaje",
+        "cultivo",
+        "zinc_disponible_olsen",
+        "magnesio_intercambiable",
+        "zinc_disponible_doble_acido",
+        "potasio_intercambiable"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Fecha de Análisis de la Muestra",
+        "Indica si ha aplicado fertilizantes y de que tipo.",
+        "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado por el método de Walkey & Black. Resultado numérico con dos cifras significativas, que permite conocer el contenido de materia orgánica de un suelo, pero indirectamente indica si un suelo puede tener alta fertilidad.",
+        "Determinado por la suma de cationes (Acidez, Calcio, Magnesio, Potasio y Sodio). El resultado es calculado, llamado \"Capacidad de intercambio Catiónico efectiva\", que permite interpretar junto con otros parámetros la capacidad del suelo de retener nutrientes.",
+        "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        " indica si el cultivo está establecido o no, es un campo tipo booleano de respuesta, \"establecido\" ó \"por establecer\".",
+        "Indica el tipo de riego que tiene el agricultor por ejemplo: no tiene, Manguera, Aspersión Goteo, etc.",
+        "Nombre del municipio donde fue tomada la muestra.",
+        "Determinado por el método de fosfato monobásico de calcio. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado por el método de KCL. Permite conocer que tan ácido es un suelo. Y con este valor se estima las necesidades de Cal a aplicar.",
+        "Ph determinado en una relación suelo: agua de 2,5:1, por métodos potenciométricos. El resultado se presenta numérico con dos cifras significativas, que permite conocer si un suelo es ácido o neutro",
+        "Determinado por el método de Bray II. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+        "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Secuencial identificador de registro",
+        "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado en una relación suelo: agua de 5:1, por métodos potenciométricos. Es un resultado que permite conocer si un suelo tiene problemas de salinidad o no.",
+        "Determinado por el método de acetato de amonio 1N pH 7,0. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+        "Indica la edad del cultivo, esta puede ser en años meses o días",
+        "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+        "Determinado por el método de acetato de amonio 1N pH 7,0. dato que permite junto con el valor de conductividad eléctrica conocer si un suelo es salino y si este problema puede estar asociado a sales de sodio.",
+        "Determinado por el método de KCL. Permite conocer que tan acido es un suelo, y con este valor se estima las necesidades de Cal a aplicar.",
+        "Determinado por el método de fosfato monobásico de calcio. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Es el nombre del departamento con base a la DIVIPOLA, Este campo hace referencia al departamento donde fue tomada la muestra. ",
+        "Muestra las condiciones del relieve del terreno donde se tomó la muestra, normalmente es plano, ondulado, pendiente y la conjugación de estas",
+        "Se asigna la característica de la calidad de drenaje en el suelo, \"asociado a si se encharca o no el suelo\", la lista desplegable esta: buen drenaje, drenaje regular, mal drenaje, drenaje moderado.",
+        "Nombre común del cultivo para el cual requiere el plan de fertilización.",
+        "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado por el método de acetato de amonio 1N pH 7,0. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+        "Determinado por el método de acetato de amonio 1N pH 7,0. Resultado numérico, este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente."
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 5843,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-10-03T21:07:04.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Agricultura y Desarrollo Rural",
+       "domain_tags": [
+        "análisis",
+        "agricultura",
+        "suelos",
+        "colombia",
+        "agrosavia",
+        "servicios"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Agricultura y Desarrollo Rural"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Corporación Colombiana de Investigación Agropecuaria - AGROSAVIA, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/ch4u-f3i5",
+      "link": "https://www.datos.gov.co/Agricultura-y-Desarrollo-Rural/Resultados-de-Análisis-de-Laboratorio-Suelos-en-Co/ch4u-f3i5",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Comunas y Barrios del Municipio de Valledupar",
+       "id": "emp6-672w",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Relación oficial de los barrios del municipio de Valledupar, organizada por comunas, que permite identificar su ubicación dentro de la división político-administrativa municipal.",
+       "attribution": "Alcaldía de Valledupar, Cesar",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-05-18T19:06:59.000Z",
+       "createdAt": "2023-08-22T14:47:03.000Z",
+       "metadata_updated_at": "2026-05-18T19:06:59.000Z",
+       "data_updated_at": "2023-08-22T15:53:52.000Z",
+       "page_views": {
+        "page_views_last_week": 249,
+        "page_views_last_month": 1358,
+        "page_views_total": 34568,
+        "page_views_last_week_log": 7.965784284662087,
+        "page_views_last_month_log": 10.40832974076739,
+        "page_views_total_log": 15.077191249973378
+       },
+       "columns_name": [
+        "NUM_COMUNA",
+        "NOMBRE_BARRIO",
+        "COD_MUN",
+        "COD_DPTO"
+       ],
+       "columns_field_name": [
+        "num_comuna",
+        "nombre_barrio",
+        "cod_mun",
+        "cod_dpto"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Number",
+        "Number"
+       ],
+       "columns_description": [
+        "Número de la comuna",
+        "Nombre del Barrio",
+        "Código DANE Municipio",
+        "Código DANE Departamento"
+       ],
+       "columns_format": [
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        }
+       ],
+       "download_count": 746,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-08-22T15:53:58.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ordenamiento Territorial",
+       "domain_tags": [
+        "ciudad",
+        "territorio",
+        "barrios",
+        "vivienda",
+        "pot",
+        "comunas",
+        "valledupar"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Municipal"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Planeación"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Alcaldía de Valledupar, Cesar"
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Territorial"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Valledupar"
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "20001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Cesar"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/emp6-672w",
+      "link": "https://www.datos.gov.co/Ordenamiento-Territorial/Comunas-y-Barrios-del-Municipio-de-Valledupar/emp6-672w",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Índice de Gobierno Digital - Histórico",
+       "id": "rtai-k9uh",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "El Índice de Gobierno Digital permite medir el desempeño y cumplimiento de las entidades públicas en la Política de Gobierno Digital.\nEste Índice permite al Ministerio de Tecnologías de la Información y las Comunicaciones determinar los avances específicos en cada temática de la Política de Gobierno Digital, buenas prácticas de implementación y estrategias focalizadas de acompañamiento.\nAsí mismo, la información generada a través del Índice de Gobierno Digital permite a las entidades públicas tomar decisiones y definir acciones orientadas a mejorar su desempeño y cumplimiento de la Política de Gobierno Digital.",
+       "attribution": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/rtai-k9uh",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-08-14T14:58:41.000Z",
+       "createdAt": "2020-09-22T17:55:46.000Z",
+       "metadata_updated_at": "2026-08-14T14:58:18.000Z",
+       "data_updated_at": "2026-08-14T14:58:41.000Z",
+       "page_views": {
+        "page_views_last_week": 58,
+        "page_views_last_month": 289,
+        "page_views_total": 13873,
+        "page_views_last_week_log": 5.882643049361842,
+        "page_views_last_month_log": 8.179909090014934,
+        "page_views_total_log": 13.760096169244093
+       },
+       "columns_name": [
+        "ID_MUNICIPIO",
+        "DEPARTAMENTO",
+        "VIGENCIA",
+        "SECTOR",
+        "ENTIDAD",
+        "PROMEDIO GRUPO PAR",
+        "MÍNIMO GRUPO PAR",
+        "NATURALEZA_JURÍDICA",
+        "MÁXIMO GRUPO PAR",
+        "ID_DEPARTAMENTO",
+        "ÍNDICE",
+        "CÓDIGO_SIGEP",
+        "QUINTIL GRUPO PAR",
+        "ID_ÍNDICE",
+        "MUNICIPIO",
+        "ORDEN",
+        "PERCENTIL GRUPO PAR",
+        "PUNTAJE ENTIDAD"
+       ],
+       "columns_field_name": [
+        "id_municipio",
+        "departamento",
+        "vigencia",
+        "sector",
+        "entidad",
+        "promedio_grupo_par",
+        "m_nimo_grupo_par",
+        "naturaleza_jur_dica",
+        "m_ximo_grupo_par",
+        "id_departamento",
+        "ndice",
+        "c_digo_sigep",
+        "quintil_grupo_par",
+        "id_ndice",
+        "municipio",
+        "orden",
+        "percentil_grupo_par",
+        "puntaje_entidad"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Number"
+       ],
+       "columns_description": [
+        "Código único de identificación DIVIPOLA de los municipios de Colombia",
+        "Departamentos de Colombia",
+        "Año de medición",
+        "Corresponde a los 24 sectores administrativos de la rama ejecutiva del orden nacional",
+        "Razón social de las entidades públicas",
+        "Puntaje promedio del grupo par al que pertenece cada entidad",
+        "Puntaje mínimo del grupo par al que pertenece cada entidad",
+        "Naturaleza jurídica de cada entidad",
+        "Puntaje máximo del grupo par al que pertenece cada entidad",
+        "Código único de identificación DIVIPOLA de los departamentos de Colombia",
+        "Nombre de cada índice",
+        "Código único de identificación de las entidades, de acuerdo con el Sistema de Información y Gestión del Empleo Público -SIGEP",
+        "Quintil en el que se ubica cada entidad dentro de su grupo par",
+        "Código único de identificación de cada índice",
+        "Municipios de Colombia",
+        "Orden en que se encuentre clasificada cada entidad: nacional o territorial",
+        "Percentil en el que se ubica cada entidad dentro de su grupo par",
+        "Puntaje obtenido por cada entidad en cada índice y en cada vigencia"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 1837,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-09-22T18:15:38.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ciencia, Tecnología e Innovación",
+       "domain_tags": [
+        "gobierno digital",
+        "índice de gobierno digital",
+        "tecnología",
+        "furag",
+        "gobierno abierto"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Tecnologías de la Información y Comunicaciones"
+        },
+        {
+         "key": "Información-de-la-Entidad_Área-o-dependencia",
+         "value": "Dirección de Gobierno Digital"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/rtai-k9uh",
+      "link": "https://www.datos.gov.co/Ciencia-Tecnología-e-Innovación/Índice-de-Gobierno-Digital-Histórico/rtai-k9uh",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Población con  Registro de localización y caracterización de personas con discapacidad (RLCPD),  residente en el Municipio de Los Patios, Norte de Santander",
+       "id": "x73x-644i",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Descripción del conjunto de Datos: El RLCPD es una herramienta que permite obtener vía web, información como ubicación y caracterización de las personas con algún tipo de discapacidad residentes en el territorio. Esta base de datos única también permite la actualización de los datos como cambio de domicilio o variación del estado de salud, en cumplimiento a la RESOLUCION 1239 DEL 2022.",
+       "attribution": "Alcaldía de Los Patios, Norte de Santander",
+       "attribution_link": "https://www.lospatios-nortedesantander.gov.co/",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-09-15T23:36:26.000Z",
+       "createdAt": "2022-11-16T13:12:52.000Z",
+       "metadata_updated_at": "2026-09-15T23:36:26.000Z",
+       "data_updated_at": "2022-11-16T13:37:30.000Z",
+       "page_views": {
+        "page_views_last_week": 16,
+        "page_views_last_month": 74,
+        "page_views_total": 6941,
+        "page_views_last_week_log": 4.08746284125034,
+        "page_views_last_month_log": 6.22881869049588,
+        "page_views_total_log": 12.761135649828647
+       },
+       "columns_name": [
+        "Fila",
+        "Multiple",
+        "Tipo de Documento",
+        "Código DANE",
+        "Departamento",
+        "Regimen",
+        "Psicosocial/Mental",
+        "Edad",
+        "Eps",
+        "Sordoceguera",
+        "Visual",
+        "Barrio",
+        "Municipio",
+        "Auditiva",
+        "Genero",
+        "Intelectual",
+        "Zona",
+        "Fisica",
+        "Còdigo DANE"
+       ],
+       "columns_field_name": [
+        "fila",
+        "multiple",
+        "tipo_de_documento",
+        "c_digo_dane_1",
+        "departamento",
+        "regimen",
+        "psicosocial_mental",
+        "edad",
+        "eps",
+        "sordoceguera",
+        "visual",
+        "barrio",
+        "municipio",
+        "auditiva",
+        "genero",
+        "intelectual",
+        "zona",
+        "fisica",
+        "c_digo_dane"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Checkbox",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        }
+       ],
+       "download_count": 531,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2022-11-16T13:37:36.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Salud y Protección Social",
+       "domain_tags": [
+        "rlcpd",
+        "personas en condicion de discapacidad",
+        "discapacidad",
+        "registro de localización y caracterización de personas con discapacidad"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Municipal"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Planeación"
+        },
+        {
+         "key": "Información-de-la-Entidad_Área-o-dependencia",
+         "value": "Oficina TIC"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Alcaldía de Los Patios, Norte de Santander"
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Territorial"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Los Patios"
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "54405"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Norte De Santander"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/x73x-644i",
+      "link": "https://www.datos.gov.co/Salud-y-Protección-Social/Población-con-Registro-de-localización-y-caracteri/x73x-644i",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Índice de desarrollo de Territorios y Ciudades Inteligentes, Fusagasugá 2019-2021",
+       "id": "xntv-7sx6",
+       "resource_name": null,
+       "parent_fxf": [
+        "rtai-k9uh",
+        "45ev-seft"
+       ],
+       "description": "El Índice de Gobierno Digital permite medir el desempeño y cumplimiento de las entidades públicas en la Política de Gobierno Digital.\nEste Índice permite al Ministerio de Tecnologías de la Información y las Comunicaciones determinar los avances específicos en cada temática de la Política de Gobierno Digital, buenas prácticas de implementación y estrategias focalizadas de acompañamiento.\nAsí mismo, la información generada a través del Índice de Gobierno Digital permite a las entidades públicas tomar decisiones y definir acciones orientadas a mejorar su desempeño y cumplimiento de la Política de Gobierno Digital.",
+       "attribution": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/rtai-k9uh",
+       "contact_email": "<identity redacted>",
+       "type": "chart",
+       "updatedAt": "2026-08-14T14:58:41.000Z",
+       "createdAt": "2022-10-24T13:41:48.000Z",
+       "metadata_updated_at": "2026-05-18T19:01:02.000Z",
+       "data_updated_at": "2026-08-14T14:58:41.000Z",
+       "page_views": {
+        "page_views_last_week": 14,
+        "page_views_last_month": 26,
+        "page_views_total": 765,
+        "page_views_last_week_log": 3.9068905956085187,
+        "page_views_last_month_log": 4.754887502163469,
+        "page_views_total_log": 9.581200581924957
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_chart",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2022-10-24T13:42:43.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ciencia, Tecnología e Innovación",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Tecnologías de la Información y Comunicaciones"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/xntv-7sx6",
+      "link": "https://www.datos.gov.co/Ciencia-Tecnología-e-Innovación/Índice-de-desarrollo-de-Territorios-y-Ciudades-Int/xntv-7sx6",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Impulso en el desarrollo de Territorios y Ciudades Inteligentes, Fusagasugá 2019-2020.",
+       "id": "vsry-d42y",
+       "resource_name": null,
+       "parent_fxf": [
+        "rtai-k9uh",
+        "45ev-seft"
+       ],
+       "description": "El Índice de Gobierno Digital permite medir el desempeño y cumplimiento de las entidades públicas en la Política de Gobierno Digital.\nEste Índice permite al Ministerio de Tecnologías de la Información y las Comunicaciones determinar los avances específicos en cada temática de la Política de Gobierno Digital, buenas prácticas de implementación y estrategias focalizadas de acompañamiento.\nAsí mismo, la información generada a través del Índice de Gobierno Digital permite a las entidades públicas tomar decisiones y definir acciones orientadas a mejorar su desempeño y cumplimiento de la Política de Gobierno Digital.",
+       "attribution": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/rtai-k9uh",
+       "contact_email": "<identity redacted>",
+       "type": "chart",
+       "updatedAt": "2026-08-14T14:58:41.000Z",
+       "createdAt": "2021-09-20T15:55:00.000Z",
+       "metadata_updated_at": "2026-05-18T17:12:06.000Z",
+       "data_updated_at": "2026-08-14T14:58:41.000Z",
+       "page_views": {
+        "page_views_last_week": 13,
+        "page_views_last_month": 25,
+        "page_views_total": 737,
+        "page_views_last_week_log": 3.8073549220576037,
+        "page_views_last_month_log": 4.700439718141093,
+        "page_views_total_log": 9.527477006060396
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_chart",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2021-10-07T15:59:28.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ciencia, Tecnología e Innovación",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Tecnologías de la Información y Comunicaciones"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/vsry-d42y",
+      "link": "https://www.datos.gov.co/Ciencia-Tecnología-e-Innovación/Impulso-en-el-desarrollo-de-Territorios-y-Ciudades/vsry-d42y",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Índices de Habilitadores y Propósitos de la PGD en Fusagasugá 2018-2021",
+       "id": "fy5v-4gs8",
+       "resource_name": null,
+       "parent_fxf": [
+        "rtai-k9uh",
+        "kn5u-k9yw"
+       ],
+       "description": "El Índice de Gobierno Digital permite medir el desempeño y cumplimiento de las entidades públicas en la Política de Gobierno Digital.\nEste Índice permite al Ministerio de Tecnologías de la Información y las Comunicaciones determinar los avances específicos en cada temática de la Política de Gobierno Digital, buenas prácticas de implementación y estrategias focalizadas de acompañamiento.\nAsí mismo, la información generada a través del Índice de Gobierno Digital permite a las entidades públicas tomar decisiones y definir acciones orientadas a mejorar su desempeño y cumplimiento de la Política de Gobierno Digital.",
+       "attribution": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/rtai-k9uh",
+       "contact_email": "<identity redacted>",
+       "type": "chart",
+       "updatedAt": "2026-08-14T14:58:41.000Z",
+       "createdAt": "2022-10-26T14:47:00.000Z",
+       "metadata_updated_at": "2026-05-18T16:57:06.000Z",
+       "data_updated_at": "2026-08-14T14:58:41.000Z",
+       "page_views": {
+        "page_views_last_week": 5,
+        "page_views_last_month": 21,
+        "page_views_total": 685,
+        "page_views_last_week_log": 2.584962500721156,
+        "page_views_last_month_log": 4.459431618637297,
+        "page_views_total_log": 9.422064766172813
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_chart",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2022-11-01T15:02:11.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ciencia, Tecnología e Innovación",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Tecnologías de la Información y Comunicaciones"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/fy5v-4gs8",
+      "link": "https://www.datos.gov.co/Ciencia-Tecnología-e-Innovación/Índices-de-Habilitadores-y-Propósitos-de-la-PGD-en/fy5v-4gs8",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Vista medición habilitadores y propósitos PGD Fusagasugá",
+       "id": "wjp6-f9sx",
+       "resource_name": null,
+       "parent_fxf": [
+        "rtai-k9uh",
+        "kn5u-k9yw"
+       ],
+       "description": "El Índice de Gobierno Digital permite medir el desempeño y cumplimiento de las entidades públicas en la Política de Gobierno Digital.\nEste Índice permite al Ministerio de Tecnologías de la Información y las Comunicaciones determinar los avances específicos en cada temática de la Política de Gobierno Digital, buenas prácticas de implementación y estrategias focalizadas de acompañamiento.\nAsí mismo, la información generada a través del Índice de Gobierno Digital permite a las entidades públicas tomar decisiones y definir acciones orientadas a mejorar su desempeño y cumplimiento de la Política de Gobierno Digital.",
+       "attribution": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/rtai-k9uh",
+       "contact_email": "<identity redacted>",
+       "type": "chart",
+       "updatedAt": "2026-08-14T14:58:41.000Z",
+       "createdAt": "2021-09-17T21:01:54.000Z",
+       "metadata_updated_at": "2026-05-18T18:58:09.000Z",
+       "data_updated_at": "2026-08-14T14:58:41.000Z",
+       "page_views": {
+        "page_views_last_week": 8,
+        "page_views_last_month": 22,
+        "page_views_total": 534,
+        "page_views_last_week_log": 3.1699250014423126,
+        "page_views_last_month_log": 4.523561956057013,
+        "page_views_total_log": 9.06339508128851
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 1,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_chart",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2021-10-07T15:58:02.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Ciencia, Tecnología e Innovación",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Tecnologías de la Información y Comunicaciones"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Tecnologías de la Información y las Comunicaciones - MinTIC, Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_DIVIPOLA-Municipio",
+         "value": "11001"
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/wjp6-f9sx",
+      "link": "https://www.datos.gov.co/Ciencia-Tecnología-e-Innovación/Vista-medición-habilitadores-y-propósitos-PGD-Fusa/wjp6-f9sx",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "POS 2017 DETALLADO",
+       "id": "hs93-pkbd",
+       "resource_name": null,
+       "parent_fxf": [
+        "9zcz-bjue"
+       ],
+       "description": "Permite consultar los procedimientos que se encuentran incluidos en el Plan obligatorio de Salud",
+       "attribution": "Ministerio de Salud y Protección Social - MinSalud, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/9zcz-bjue",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2025-12-19T23:31:41.000Z",
+       "createdAt": "2017-04-17T16:03:43.000Z",
+       "metadata_updated_at": "2025-12-19T23:31:41.000Z",
+       "data_updated_at": "2023-07-27T23:18:45.000Z",
+       "page_views": {
+        "page_views_last_week": 15,
+        "page_views_last_month": 94,
+        "page_views_total": 6135,
+        "page_views_last_week_log": 4.0,
+        "page_views_last_month_log": 6.569855608330948,
+        "page_views_total_log": 12.583082767502933
+       },
+       "columns_name": [
+        "CodigoProcedimiento"
+       ],
+       "columns_field_name": [
+        "codigoprocedimiento"
+       ],
+       "columns_datatype": [
+        "Text"
+       ],
+       "columns_description": [
+        "Código interno para el procedimiento "
+       ],
+       "columns_format": [
+        {}
+       ],
+       "download_count": 431,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-07-13T22:00:29.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Salud y Protección Social",
+       "domain_tags": [
+        "cobertura",
+        "pos",
+        "cups"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Salud y Protección Social"
+        },
+        {
+         "key": "Información-de-la-Entidad_Área-o-dependencia",
+         "value": "MINISTERIO DE SALUD Y PROTECCIÓN SOCIAL"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Salud y Protección Social"
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/hs93-pkbd",
+      "link": "https://www.datos.gov.co/Salud-y-Protección-Social/POS-2017-DETALLADO/hs93-pkbd",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Precios Medicamentos",
+       "id": "3t73-n4q9",
+       "resource_name": null,
+       "parent_fxf": [
+        "n4dj-8r7k"
+       ],
+       "description": "Permite comparar los precios equivalentes por tableta o cápsula de diferentes alternativas en el mercado, para un mismo medicamento.",
+       "attribution": "Ministerio de Salud y Protección Social - MinSalud, Bogotá D.C.",
+       "attribution_link": "https://www.datos.gov.co/d/n4dj-8r7k",
+       "contact_email": "<identity redacted>",
+       "type": "filter",
+       "updatedAt": "2025-12-19T23:16:34.000Z",
+       "createdAt": "2016-11-04T16:28:33.000Z",
+       "metadata_updated_at": "2025-12-19T23:16:34.000Z",
+       "data_updated_at": "2024-10-18T00:20:36.000Z",
+       "page_views": {
+        "page_views_last_week": 164,
+        "page_views_last_month": 913,
+        "page_views_total": 110002,
+        "page_views_last_week_log": 7.366322214245815,
+        "page_views_last_month_log": 9.83605035505807,
+        "page_views_total_log": 16.747183343878607
+       },
+       "columns_name": [
+        "concentracion",
+        "unidad_base",
+        "principio_activo",
+        "nombre_comercial",
+        "unidad_de_dispensacion",
+        "precio_por_tableta",
+        "numerofactor",
+        "factoresprecio",
+        "fabricante"
+       ],
+       "columns_field_name": [
+        "concentracion",
+        "unidad_base",
+        "principio_activo",
+        "nombre_comercial",
+        "unidad_de_dispensacion",
+        "precio_por_tableta",
+        "numerofactor",
+        "factoresprecio",
+        "fabricante"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Cantidad de principio activo que contiene un medicamento",
+        "Unidad básica o cantidad de medicamento que contiene la dosis disponible",
+        "Ingrediente farmacéutico activo",
+        "Nombre que identifica el medicamento de un determinado laboratorio farmacéutico",
+        "Hace referencia a la entidad física en donde está contenida la dosis del medicamento",
+        "Precios equivalentes por tableta o cápsula de diferentes alternativas en el mercado",
+        "Número de dosis",
+        "",
+        "Empresas autorizadas por la administración competente para fabricar medicamentos"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 4488,
+       "provenance": "community",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2017-07-10T15:46:05.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Salud y Protección Social",
+       "domain_tags": [
+        "medicamentos salud colombia"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Información-de-Datos_Idioma",
+         "value": "Español"
+        },
+        {
+         "key": "Información-de-Datos_Cobertura-Geográfica",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-Datos_Frecuencia-de-Actualización",
+         "value": "Anual"
+        },
+        {
+         "key": "Información-de-la-Entidad_Sector",
+         "value": "Salud y Protección Social"
+        },
+        {
+         "key": "Información-de-la-Entidad_Área-o-dependencia",
+         "value": "MINISTERIO DE SALUD Y PROTECCIÓN SOCIAL"
+        },
+        {
+         "key": "Información-de-la-Entidad_Nombre-de-la-Entidad",
+         "value": "Ministerio de Salud y Protección Social"
+        },
+        {
+         "key": "Información-de-la-Entidad_Orden",
+         "value": "Nacional"
+        },
+        {
+         "key": "Información-de-la-Entidad_Municipio",
+         "value": "Bogotá D.C."
+        },
+        {
+         "key": "Información-de-la-Entidad_Departamento",
+         "value": "Bogotá D.C."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.datos.gov.co",
+       "license": "Creative Commons Attribution | Share Alike 4.0 International"
+      },
+      "permalink": "https://www.datos.gov.co/d/3t73-n4q9",
+      "link": "https://www.datos.gov.co/Salud-y-Protección-Social/Precios-Medicamentos/3t73-n4q9",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 695,
+    "timings": {
+     "serviceMillis": 22,
+     "searchMillis": [
+      2,
+      8
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://www.datos.gov.co/api/views/ch4u-f3i5.json",
+   "status": 200,
+   "body": {
+    "id": "ch4u-f3i5",
+    "name": "Resultados de Análisis de Laboratorio Suelos en Colombia",
+    "assetType": "dataset",
+    "attribution": "Corporación Colombiana de Investigación Agropecuaria - AGROSAVIA, Bogotá D.C.",
+    "attributionLink": "http://www.agrosavia.co",
+    "averageRating": 0,
+    "category": "Agricultura y Desarrollo Rural",
+    "createdAt": 1495547667,
+    "description": "Resultados del Servicio de Análisis de Suelos que el Laboratorio de Química y Física de Suelos de AGROSAVIA, presta al sector agropecuario, se enfoca en la EVALUACIÓN de la Fertilidad del Suelo, de la Salinidad y parámetros que Sirven como herramienta para la realización de planes de fertilización, Aplicación de enmiendas y adecuación de los terrenos para lograr producciones rentables.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 5843,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "CC_40_BY_SA",
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 41660462,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1759525624,
+    "publicationGroup": 14227195,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1759525514,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 20113376,
+    "totalTimesRated": 0,
+    "viewCount": 21175,
+    "viewLastModified": 1779123492,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 618700298,
+      "name": "Secuencial",
+      "dataTypeName": "number",
+      "description": "Secuencial identificador de registro",
+      "fieldName": "secuencial",
+      "position": 1,
+      "renderTypeName": "number",
+      "tableColumnId": 92271260,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700330,
+      "name": "Fecha de Análisis",
+      "dataTypeName": "text",
+      "description": "Fecha de Análisis de la Muestra",
+      "fieldName": "fecha_de_an_lisis",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 162253350,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700300,
+      "name": "Departamento",
+      "dataTypeName": "text",
+      "description": "Es el nombre del departamento con base a la DIVIPOLA, Este campo hace referencia al departamento donde fue tomada la muestra. ",
+      "fieldName": "departamento",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 48057327,
+      "width": 244,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700301,
+      "name": "Municipio",
+      "dataTypeName": "text",
+      "description": "Nombre del municipio donde fue tomada la muestra.",
+      "fieldName": "municipio",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 48057328,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "92736",
+       "null": "2",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700302,
+      "name": "Cultivo",
+      "dataTypeName": "text",
+      "description": "Nombre común del cultivo para el cual requiere el plan de fertilización.",
+      "fieldName": "cultivo",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 48057329,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700303,
+      "name": "Estado",
+      "dataTypeName": "text",
+      "description": " indica si el cultivo está establecido o no, es un campo tipo booleano de respuesta, \"establecido\" ó \"por establecer\".",
+      "fieldName": "estado",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 48057330,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700304,
+      "name": "Tiempo de establecimiento",
+      "dataTypeName": "text",
+      "description": "Indica la edad del cultivo, esta puede ser en años meses o días",
+      "fieldName": "tiempo_de_establecimiento",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 157152850,
+      "width": 364,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700305,
+      "name": "Topografia",
+      "dataTypeName": "text",
+      "description": "Muestra las condiciones del relieve del terreno donde se tomó la muestra, normalmente es plano, ondulado, pendiente y la conjugación de estas",
+      "fieldName": "topografia",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 48057332,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700306,
+      "name": "Drenaje",
+      "dataTypeName": "text",
+      "description": "Se asigna la característica de la calidad de drenaje en el suelo, \"asociado a si se encharca o no el suelo\", la lista desplegable esta: buen drenaje, drenaje regular, mal drenaje, drenaje moderado.",
+      "fieldName": "drenaje",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 48057333,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700307,
+      "name": "Riego",
+      "dataTypeName": "text",
+      "description": "Indica el tipo de riego que tiene el agricultor por ejemplo: no tiene, Manguera, Aspersión Goteo, etc.",
+      "fieldName": "riego",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 48057334,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700308,
+      "name": "Fertilizantes aplicados",
+      "dataTypeName": "text",
+      "description": "Indica si ha aplicado fertilizantes y de que tipo.",
+      "fieldName": "fertilizantes_aplicados",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 48057335,
+      "width": 376,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700309,
+      "name": "pH agua:suelo",
+      "dataTypeName": "text",
+      "description": "Ph determinado en una relación suelo: agua de 2,5:1, por métodos potenciométricos. El resultado se presenta numérico con dos cifras significativas, que permite conocer si un suelo es ácido o neutro",
+      "fieldName": "ph_agua_suelo",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 92045422,
+      "width": 352,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "left"
+      }
+     },
+     {
+      "id": 618700310,
+      "name": "Materia organica",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Walkey & Black. Resultado numérico con dos cifras significativas, que permite conocer el contenido de materia orgánica de un suelo, pero indirectamente indica si un suelo puede tener alta fertilidad.",
+      "fieldName": "materia_organica",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 92045428,
+      "width": 376,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700311,
+      "name": "Fósforo Bray II",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Bray II. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+      "fieldName": "fosforo_bray_ii",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 92045418,
+      "width": 400,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700312,
+      "name": "Azufre Fosfato monocalcico",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de fosfato monobásico de calcio. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "azufre_fosfato_monocalcico",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 92045431,
+      "width": 532,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700313,
+      "name": "Acidez Intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de KCL. Permite conocer que tan acido es un suelo, y con este valor se estima las necesidades de Cal a aplicar.",
+      "fieldName": "acidez_kcl",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 92045420,
+      "width": 436,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700314,
+      "name": "Aluminio intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de KCL. Permite conocer que tan ácido es un suelo. Y con este valor se estima las necesidades de Cal a aplicar.",
+      "fieldName": "aluminio_intercambiable",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 92045426,
+      "width": 568,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700315,
+      "name": "Calcio intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de acetato de amonio 1N pH 7,0. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "calcio_intercambiable",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 92045424,
+      "width": 544,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700316,
+      "name": "Magnesio intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de acetato de amonio 1N pH 7,0. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "magnesio_intercambiable",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 92045429,
+      "width": 568,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700317,
+      "name": "Potasio intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de acetato de amonio 1N pH 7,0. Resultado numérico, este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "potasio_intercambiable",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 92045421,
+      "width": 544,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700318,
+      "name": "Sodio intercambiable",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de acetato de amonio 1N pH 7,0. dato que permite junto con el valor de conductividad eléctrica conocer si un suelo es salino y si este problema puede estar asociado a sales de sodio.",
+      "fieldName": "sodio_intercambiable",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 92045430,
+      "width": 532,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700319,
+      "name": "capacidad de intercambio cationico",
+      "dataTypeName": "text",
+      "description": "Determinado por la suma de cationes (Acidez, Calcio, Magnesio, Potasio y Sodio). El resultado es calculado, llamado \"Capacidad de intercambio Catiónico efectiva\", que permite interpretar junto con otros parámetros la capacidad del suelo de retener nutrientes.",
+      "fieldName": "capacidad_de_intercambio_cationico",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 92045434,
+      "width": 700,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700320,
+      "name": "Conductividad electrica",
+      "dataTypeName": "text",
+      "description": "Determinado en una relación suelo: agua de 5:1, por métodos potenciométricos. Es un resultado que permite conocer si un suelo tiene problemas de salinidad o no.",
+      "fieldName": "conductividad_electrica",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 92045433,
+      "width": 700,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700321,
+      "name": "Hierro disponible olsen",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+      "fieldName": "hierro_disponible_olsen",
+      "position": 24,
+      "renderTypeName": "text",
+      "tableColumnId": 92045432,
+      "width": 508,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700322,
+      "name": "Cobre disponible",
+      "dataTypeName": "text",
+      "description": "este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente",
+      "fieldName": "cobre_disponible",
+      "position": 25,
+      "renderTypeName": "text",
+      "tableColumnId": 48057350,
+      "width": 424,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700323,
+      "name": "Manganeso disponible Olsen",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "manganeso_disponible_olsen",
+      "position": 26,
+      "renderTypeName": "text",
+      "tableColumnId": 48057351,
+      "width": 544,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700324,
+      "name": "Zinc disponible Olsen",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Olsen. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "zinc_disponible_olsen",
+      "position": 27,
+      "renderTypeName": "text",
+      "tableColumnId": 48057352,
+      "width": 484,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700325,
+      "name": "Boro disponible",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de fosfato monobásico de calcio. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "boro_disponible",
+      "position": 28,
+      "renderTypeName": "text",
+      "tableColumnId": 92045427,
+      "width": 400,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700326,
+      "name": "Hierro disponible doble acido",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "hierro_disponible_doble_acido",
+      "position": 29,
+      "renderTypeName": "text",
+      "tableColumnId": 92045423,
+      "width": 580,
+      "cachedContents": {
+       "non_null": "92737",
+       "null": "1",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700327,
+      "name": "Cobre disponible doble acido",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "cobre_disponible_doble_acido",
+      "position": 30,
+      "renderTypeName": "text",
+      "tableColumnId": 92045425,
+      "width": 568,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700328,
+      "name": "Manganeso disponible doble acido",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "manganeso_disponible_doble_acido",
+      "position": 31,
+      "renderTypeName": "text",
+      "tableColumnId": 92045419,
+      "width": 616,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     },
+     {
+      "id": 618700329,
+      "name": "Zinc disponible doble  acido",
+      "dataTypeName": "text",
+      "description": "Determinado por el método de Doble ácido. Este dato permite conocer si un suelo tiene cantidades suficientes o limitantes de este elemento nutriente.",
+      "fieldName": "zinc_disponible_doble_acido",
+      "position": 32,
+      "renderTypeName": "text",
+      "tableColumnId": 48057357,
+      "width": 556,
+      "cachedContents": {
+       "non_null": "92738",
+       "null": "0",
+       "count": "92738",
+       "cardinality": "92738"
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Creative Commons Attribution | Share Alike 4.0 International",
+     "logoUrl": "images/licenses/cc30bysa.png",
+     "termsLink": "http://creativecommons.org/licenses/by-sa/4.0/legalcode"
+    },
+    "metadata": {
+     "custom_fields": {
+      "Información de la Entidad": {
+       "Municipio": "Bogotá D.C.",
+       "Nombre de la Entidad": "Corporación Colombiana de Investigación Agropecuaria - AGROSAVIA, Bogotá D.C.",
+       "DIVIPOLA Municipio": "11001",
+       "Orden": "Nacional",
+       "Sector": "Agricultura y Desarrollo Rural",
+       "Departamento": "Bogotá D.C."
+      },
+      "Información de Datos": {
+       "Cobertura Geográfica": "Nacional",
+       "Idioma": "Español",
+       "Frecuencia de Actualización": "Anual"
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "análisis",
+     "suelos",
+     "colombia",
+     "servicios",
+     "agricultura",
+     "agrosavia"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://www.datos.gov.co/resource/ch4u-f3i5.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "92738"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://www.datos.gov.co/resource/ch4u-f3i5.json?%24select=secuencial%2C+fecha_de_an_lisis%2C+departamento%2C+municipio%2C+cultivo%2C+estado%2C+tiempo_de_establecimiento%2C+topografia%2C+drenaje%2C+riego%2C+fertilizantes_aplicados%2C+ph_agua_suelo%2C+materia_organica%2C+fosforo_bray_ii%2C+azufre_fosfato_monocalcico%2C+acidez_kcl%2C+aluminio_intercambiable%2C+calcio_intercambiable%2C+magnesio_intercambiable%2C+potasio_intercambiable%2C+sodio_intercambiable%2C+capacidad_de_intercambio_cationico%2C+conductividad_electrica%2C+hierro_disponible_olsen%2C+cobre_disponible%2C+manganeso_disponible_olsen%2C+zinc_disponible_olsen%2C+boro_disponible%2C+hierro_disponible_doble_acido%2C+cobre_disponible_doble_acido%2C+manganeso_disponible_doble_acido%2C+zinc_disponible_doble_acido%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "acidez_kcl",
+     "aluminio_intercambiable",
+     "azufre_fosfato_monocalcico",
+     "boro_disponible",
+     "calcio_intercambiable",
+     "capacidad_de_intercambio_cationico",
+     "cobre_disponible",
+     "cobre_disponible_doble_acido",
+     "conductividad_electrica",
+     "cultivo",
+     "departamento",
+     "drenaje",
+     "estado",
+     "fecha_de_an_lisis",
+     "fertilizantes_aplicados",
+     "fosforo_bray_ii",
+     "hierro_disponible_doble_acido",
+     "hierro_disponible_olsen",
+     "magnesio_intercambiable",
+     "manganeso_disponible_doble_acido",
+     "manganeso_disponible_olsen",
+     "materia_organica",
+     "municipio",
+     "ph_agua_suelo",
+     "potasio_intercambiable",
+     "riego",
+     "secuencial",
+     "sodio_intercambiable",
+     "tiempo_de_establecimiento",
+     "topografia",
+     "zinc_disponible_doble_acido",
+     "zinc_disponible_olsen"
+    ],
+    "sha256": "66410c2e3753509f119e5e5fa5f1410cdda99b89430b66a2f5be496da932b449"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://www.datos.gov.co/resource/ch4u-f3i5.json?%24select=secuencial%2C+fecha_de_an_lisis%2C+departamento%2C+municipio%2C+cultivo%2C+estado%2C+tiempo_de_establecimiento%2C+topografia%2C+drenaje%2C+riego%2C+fertilizantes_aplicados%2C+ph_agua_suelo%2C+materia_organica%2C+fosforo_bray_ii%2C+azufre_fosfato_monocalcico%2C+acidez_kcl%2C+aluminio_intercambiable%2C+calcio_intercambiable%2C+magnesio_intercambiable%2C+potasio_intercambiable%2C+sodio_intercambiable%2C+capacidad_de_intercambio_cationico%2C+conductividad_electrica%2C+hierro_disponible_olsen%2C+cobre_disponible%2C+manganeso_disponible_olsen%2C+zinc_disponible_olsen%2C+boro_disponible%2C+hierro_disponible_doble_acido%2C+cobre_disponible_doble_acido%2C+manganeso_disponible_doble_acido%2C+zinc_disponible_doble_acido%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-mn2p~wucc~upyh%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "acidez_kcl",
+     "aluminio_intercambiable",
+     "azufre_fosfato_monocalcico",
+     "boro_disponible",
+     "calcio_intercambiable",
+     "capacidad_de_intercambio_cationico",
+     "cobre_disponible",
+     "cobre_disponible_doble_acido",
+     "conductividad_electrica",
+     "cultivo",
+     "departamento",
+     "drenaje",
+     "estado",
+     "fecha_de_an_lisis",
+     "fertilizantes_aplicados",
+     "fosforo_bray_ii",
+     "hierro_disponible_doble_acido",
+     "hierro_disponible_olsen",
+     "magnesio_intercambiable",
+     "manganeso_disponible_doble_acido",
+     "manganeso_disponible_olsen",
+     "materia_organica",
+     "municipio",
+     "ph_agua_suelo",
+     "potasio_intercambiable",
+     "riego",
+     "secuencial",
+     "sodio_intercambiable",
+     "tiempo_de_establecimiento",
+     "topografia",
+     "zinc_disponible_doble_acido",
+     "zinc_disponible_olsen"
+    ],
+    "sha256": "e59693cfee00fcc09fb9f9fb0a258c03b4ced603a2ea32885f3f28a9b3ca015a"
+   }
+  }
+ ]
+}

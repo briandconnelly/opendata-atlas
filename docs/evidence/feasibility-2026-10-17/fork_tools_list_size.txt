@@ -1,0 +1,6 @@
+# tools/list size at the fork point, seattle-open-data 26c6628 (offline; 2026-10-17)
+# git -C ~/projects/seattle-open-data archive 26c6628 | tar -x -C <dir>
+# cd <dir> && uv run --offline pytest -q -s tests/test_contract.py::test_tools_list_within_byte_budget
+tools/list serialized size: 15303 bytes (budget 24576)
+.
+1 passed in 0.04s

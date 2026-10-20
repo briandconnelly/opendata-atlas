@@ -1,0 +1,17 @@
+{
+ "run": "king-county-run1",
+ "base": "4b769dc0d18fd3eeb7899cf04788b835731c5a83",
+ "branch": "curate/test-2026-10-19 (renamed to curate/king-county-run1 in Step 8; commit a3f48d1)",
+ "worktree": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/wt",
+ "transcript": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/curation.transcript.jsonl",
+ "pytest_exit": 0,
+ "artifacts": {
+  "summary.json": "present",
+  "curation.transcript.jsonl": "present",
+  "evals": "present",
+  "wt/.curation/evals-1": "present",
+  "wt/.curation/evals-2": "present",
+  "wt/.curation/evals-3": "present"
+ },
+ "kept_worktree": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/king-county-run1/test_curation_skill_produces_a0/wt (kept: uncommitted validation.json drift side effect, previous_outcome null -> passed on the two j56h-zgnm timezone entries; no stash)"
+}

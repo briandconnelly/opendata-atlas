@@ -1,0 +1,30 @@
+# Illustrative ids. A column's stored timezone, read from two probes of hourly row counts.
+[[claim]]
+id = "calls-timestamp-local-time"
+scope = {dataset = "abcd-1234", column = "event_time"}
+kind = "column_timezone"
+interpretation = {timezone = "America/Los_Angeles", reason = "Local wall-clock time with no offset."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(event_time) AS h, count(*) AS n WHERE event_time between '2024-03-10T00:00:00' and '2024-03-10T23:59:59' GROUP BY h"
+observed_at = 2026-10-16
+observation = "No rows at hour 2 on the 2024 spring-forward date; hours 1 and 3 populated"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(event_time) AS h, count(*) AS n GROUP BY h"
+observed_at = 2026-10-16
+observation = "Counts peak mid-afternoon (hours 14-18) across all 24 hours"
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {hour = "h", count = "n", gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {hour = "h", count = "n", peak_from = 12, peak_to = 19}

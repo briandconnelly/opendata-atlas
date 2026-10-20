@@ -1,0 +1,7174 @@
+{
+ "data.cityofchicago.org/api/views/ijzp-q8t2.json?[]": {
+  "body": {
+   "approvals": [
+    {
+     "reviewedAt": 1465420961,
+     "reviewedAutomatically": true,
+     "state": "approved",
+     "submissionDetails": {
+      "permissionType": "READ"
+     },
+     "submissionId": 5770302,
+     "submissionObject": "public_audience_request",
+     "submissionOutcome": "change_audience",
+     "submissionOutcomeApplication": {
+      "failureCount": 0,
+      "status": "success"
+     },
+     "submittedAt": 1465420961,
+     "submitter": {
+      "displayName": "Fixture Person",
+      "id": "fixt-0020"
+     },
+     "targetAudience": "public",
+     "workflowId": 2226
+    }
+   ],
+   "assetType": "dataset",
+   "attribution": "Chicago Police Department",
+   "attributionLink": "https://www.chicagopolice.org/data-statistics/",
+   "averageRating": 0,
+   "category": "Public Safety",
+   "clientContext": {
+    "clientContextVariables": [],
+    "inheritedVariables": {}
+   },
+   "columns": [
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "14322792",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "634",
+      "top": [
+       {
+        "count": "1",
+        "item": "635"
+       },
+       {
+        "count": "1",
+        "item": "636"
+       },
+       {
+        "count": "1",
+        "item": "637"
+       },
+       {
+        "count": "1",
+        "item": "638"
+       },
+       {
+        "count": "1",
+        "item": "639"
+       },
+       {
+        "count": "1",
+        "item": "640"
+       },
+       {
+        "count": "1",
+        "item": "641"
+       },
+       {
+        "count": "1",
+        "item": "642"
+       },
+       {
+        "count": "1",
+        "item": "643"
+       },
+       {
+        "count": "1",
+        "item": "644"
+       },
+       {
+        "count": "1",
+        "item": "645"
+       },
+       {
+        "count": "1",
+        "item": "646"
+       },
+       {
+        "count": "1",
+        "item": "647"
+       },
+       {
+        "count": "1",
+        "item": "648"
+       },
+       {
+        "count": "1",
+        "item": "649"
+       },
+       {
+        "count": "1",
+        "item": "650"
+       },
+       {
+        "count": "1",
+        "item": "651"
+       },
+       {
+        "count": "1",
+        "item": "652"
+       },
+       {
+        "count": "1",
+        "item": "653"
+       },
+       {
+        "count": "1",
+        "item": "634"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "Unique identifier for the record.",
+     "fieldName": "id",
+     "format": {
+      "align": "right",
+      "noCommas": "true",
+      "precisionStyle": "standard"
+     },
+     "id": 580897883,
+     "name": "ID",
+     "position": 1,
+     "renderTypeName": "number",
+     "tableColumnId": 2154841,
+     "width": 100
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "ZZZ199957",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "01G050460",
+      "top": [
+       {
+        "count": "6",
+        "item": "HZ140230"
+       },
+       {
+        "count": "6",
+        "item": "HJ590004"
+       },
+       {
+        "count": "5",
+        "item": "HS256531"
+       },
+       {
+        "count": "5",
+        "item": "JC470284"
+       },
+       {
+        "count": "5",
+        "item": "HP296582"
+       },
+       {
+        "count": "5",
+        "item": "JE266473"
+       },
+       {
+        "count": "4",
+        "item": "JJ309322"
+       },
+       {
+        "count": "4",
+        "item": "JD286197"
+       },
+       {
+        "count": "4",
+        "item": "JJ318710"
+       },
+       {
+        "count": "4",
+        "item": "HZ554936"
+       },
+       {
+        "count": "4",
+        "item": "HN217726"
+       },
+       {
+        "count": "4",
+        "item": "HZ403466"
+       },
+       {
+        "count": "4",
+        "item": "JA206252"
+       },
+       {
+        "count": "4",
+        "item": "JF505994"
+       },
+       {
+        "count": "4",
+        "item": "HY346207"
+       },
+       {
+        "count": "4",
+        "item": "HJ104730"
+       },
+       {
+        "count": "4",
+        "item": "JA432970"
+       },
+       {
+        "count": "4",
+        "item": "HS496074"
+       },
+       {
+        "count": "4",
+        "item": "HJ756295"
+       },
+       {
+        "count": "4",
+        "item": "JK261757"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "The Chicago Police Department RD Number (Records Division Number), which is unique to the incident. ",
+     "fieldName": "case_number",
+     "format": {
+      "aggregate": "count",
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897884,
+     "name": "Case Number",
+     "position": 2,
+     "renderTypeName": "text",
+     "tableColumnId": 1514295,
+     "width": 134
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "2026-09-03T00:00:00.000",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "2001-01-01T00:00:00.000",
+      "top": [
+       {
+        "count": "305",
+        "item": "2008-01-01T00:01:00.000"
+       },
+       {
+        "count": "260",
+        "item": "2007-01-01T00:01:00.000"
+       },
+       {
+        "count": "227",
+        "item": "2006-01-01T00:01:00.000"
+       },
+       {
+        "count": "220",
+        "item": "2004-01-01T00:00:00.000"
+       },
+       {
+        "count": "217",
+        "item": "2003-01-01T00:00:00.000"
+       },
+       {
+        "count": "216",
+        "item": "2005-01-01T00:01:00.000"
+       },
+       {
+        "count": "214",
+        "item": "2003-01-01T00:01:00.000"
+       },
+       {
+        "count": "210",
+        "item": "2007-01-01T00:00:00.000"
+       },
+       {
+        "count": "209",
+        "item": "2015-01-01T00:00:00.000"
+       },
+       {
+        "count": "204",
+        "item": "2012-01-01T00:01:00.000"
+       },
+       {
+        "count": "202",
+        "item": "2023-01-01T00:00:00.000"
+       },
+       {
+        "count": "202",
+        "item": "2015-01-01T00:01:00.000"
+       },
+       {
+        "count": "202",
+        "item": "2001-01-01T00:00:00.000"
+       },
+       {
+        "count": "201",
+        "item": "2021-01-01T00:00:00.000"
+       },
+       {
+        "count": "198",
+        "item": "2009-01-01T00:01:00.000"
+       },
+       {
+        "count": "195",
+        "item": "2005-01-01T00:00:00.000"
+       },
+       {
+        "count": "191",
+        "item": "2022-01-01T00:00:00.000"
+       },
+       {
+        "count": "190",
+        "item": "2017-01-01T00:00:00.000"
+       },
+       {
+        "count": "186",
+        "item": "2006-01-01T00:00:00.000"
+       },
+       {
+        "count": "186",
+        "item": "2016-01-01T00:01:00.000"
+       }
+      ]
+     },
+     "dataTypeName": "calendar_date",
+     "description": "Date when the incident occurred. this is sometimes a best estimate. ",
+     "fieldName": "date",
+     "format": {
+      "align": "left",
+      "view": "date_time"
+     },
+     "id": 580897885,
+     "name": "Date",
+     "position": 3,
+     "renderTypeName": "calendar_date",
+     "tableColumnId": 1514296,
+     "width": 148
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "XX  UNKNOWN",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "0000X E 100 PL",
+      "top": [
+       {
+        "count": "17318",
+        "item": "001XX N STATE ST"
+       },
+       {
+        "count": "17163",
+        "item": "100XX W OHARE ST"
+       },
+       {
+        "count": "11046",
+        "item": "076XX S CICERO AVE"
+       },
+       {
+        "count": "10631",
+        "item": "0000X N STATE ST"
+       },
+       {
+        "count": "9807",
+        "item": "008XX N MICHIGAN AVE"
+       },
+       {
+        "count": "8270",
+        "item": "0000X W TERMINAL ST"
+       },
+       {
+        "count": "6670",
+        "item": "064XX S DR MARTIN LUTHER KING JR DR"
+       },
+       {
+        "count": "6091",
+        "item": "063XX S DR MARTIN LUTHER KING JR DR"
+       },
+       {
+        "count": "5374",
+        "item": "023XX S STATE ST"
+       },
+       {
+        "count": "5220",
+        "item": "0000X S STATE ST"
+       },
+       {
+        "count": "5094",
+        "item": "057XX S CICERO AVE"
+       },
+       {
+        "count": "5037",
+        "item": "001XX W 87TH ST"
+       },
+       {
+        "count": "4998",
+        "item": "006XX N MICHIGAN AVE"
+       },
+       {
+        "count": "4868",
+        "item": "012XX S WABASH AVE"
+       },
+       {
+        "count": "4586",
+        "item": "008XX N STATE ST"
+       },
+       {
+        "count": "4540",
+        "item": "009XX W BELMONT AVE"
+       },
+       {
+        "count": "4513",
+        "item": "033XX W FILLMORE ST"
+       },
+       {
+        "count": "4386",
+        "item": "075XX S STONY ISLAND AVE"
+       },
+       {
+        "count": "4335",
+        "item": "007XX N MICHIGAN AVE"
+       },
+       {
+        "count": "4288",
+        "item": "071XX S JEFFERY BLVD"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "The partially redacted address where the incident occurred, placing it on the same block as the actual address. ",
+     "fieldName": "block",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897886,
+     "name": "Block",
+     "position": 4,
+     "renderTypeName": "text",
+     "tableColumnId": 1514297,
+     "width": 160
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "9901",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "0110",
+      "top": [
+       {
+        "count": "689489",
+        "item": "0820"
+       },
+       {
+        "count": "674905",
+        "item": "0486"
+       },
+       {
+        "count": "614608",
+        "item": "0460"
+       },
+       {
+        "count": "470478",
+        "item": "0810"
+       },
+       {
+        "count": "469371",
+        "item": "1320"
+       },
+       {
+        "count": "448818",
+        "item": "1310"
+       },
+       {
+        "count": "397234",
+        "item": "0560"
+       },
+       {
+        "count": "349801",
+        "item": "0910"
+       },
+       {
+        "count": "296904",
+        "item": "0610"
+       },
+       {
+        "count": "280069",
+        "item": "1811"
+       },
+       {
+        "count": "270867",
+        "item": "0890"
+       },
+       {
+        "count": "246001",
+        "item": "0860"
+       },
+       {
+        "count": "161134",
+        "item": "2820"
+       },
+       {
+        "count": "142240",
+        "item": "1330"
+       },
+       {
+        "count": "126008",
+        "item": "2027"
+       },
+       {
+        "count": "123548",
+        "item": "0620"
+       },
+       {
+        "count": "120118",
+        "item": "2825"
+       },
+       {
+        "count": "114728",
+        "item": "031A"
+       },
+       {
+        "count": "105014",
+        "item": "0320"
+       },
+       {
+        "count": "103874",
+        "item": "2024"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "The Illinois Uniform Crime Reporting code. This is directly linked to the Primary Type and Description. See the list of IUCR codes at https://data.cityofchicago.org/d/c7ck-438e.",
+     "fieldName": "iucr",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897887,
+     "name": "IUCR",
+     "position": 5,
+     "renderTypeName": "text",
+     "tableColumnId": 1514298,
+     "width": 148
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "WEAPONS VIOLATION",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "ARSON",
+      "top": [
+       {
+        "count": "1834108",
+        "item": "THEFT"
+       },
+       {
+        "count": "1573013",
+        "item": "BATTERY"
+       },
+       {
+        "count": "980945",
+        "item": "CRIMINAL DAMAGE"
+       },
+       {
+        "count": "769557",
+        "item": "NARCOTICS"
+       },
+       {
+        "count": "582905",
+        "item": "ASSAULT"
+       },
+       {
+        "count": "539626",
+        "item": "OTHER OFFENSE"
+       },
+       {
+        "count": "457299",
+        "item": "BURGLARY"
+       },
+       {
+        "count": "447160",
+        "item": "MOTOR VEHICLE THEFT"
+       },
+       {
+        "count": "402157",
+        "item": "DECEPTIVE PRACTICE"
+       },
+       {
+        "count": "318870",
+        "item": "ROBBERY"
+       },
+       {
+        "count": "231620",
+        "item": "CRIMINAL TRESPASS"
+       },
+       {
+        "count": "129312",
+        "item": "WEAPONS VIOLATION"
+       },
+       {
+        "count": "70553",
+        "item": "PROSTITUTION"
+       },
+       {
+        "count": "62652",
+        "item": "OFFENSE INVOLVING CHILDREN"
+       },
+       {
+        "count": "55877",
+        "item": "PUBLIC PEACE VIOLATION"
+       },
+       {
+        "count": "35910",
+        "item": "SEX OFFENSE"
+       },
+       {
+        "count": "27247",
+        "item": "CRIM SEXUAL ASSAULT"
+       },
+       {
+        "count": "21086",
+        "item": "INTERFERENCE WITH PUBLIC OFFICER"
+       },
+       {
+        "count": "15563",
+        "item": "LIQUOR LAW VIOLATION"
+       },
+       {
+        "count": "14741",
+        "item": "ARSON"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "The primary description of the IUCR code.",
+     "fieldName": "primary_type",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897888,
+     "name": "Primary Type",
+     "position": 6,
+     "renderTypeName": "text",
+     "tableColumnId": 1514299,
+     "width": 244
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "WIREROOM/SPORTS",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "$300 AND UNDER",
+      "top": [
+       {
+        "count": "1016897",
+        "item": "SIMPLE"
+       },
+       {
+        "count": "689473",
+        "item": "$500 AND UNDER"
+       },
+       {
+        "count": "674905",
+        "item": "DOMESTIC BATTERY SIMPLE"
+       },
+       {
+        "count": "486247",
+        "item": "TO VEHICLE"
+       },
+       {
+        "count": "470465",
+        "item": "OVER $500"
+       },
+       {
+        "count": "448818",
+        "item": "TO PROPERTY"
+       },
+       {
+        "count": "349801",
+        "item": "AUTOMOBILE"
+       },
+       {
+        "count": "296904",
+        "item": "FORCIBLE ENTRY"
+       },
+       {
+        "count": "278136",
+        "item": "POSS: CANNABIS 30GMS OR LESS"
+       },
+       {
+        "count": "270867",
+        "item": "FROM BUILDING"
+       },
+       {
+        "count": "246001",
+        "item": "RETAIL THEFT"
+       },
+       {
+        "count": "161134",
+        "item": "TELEPHONE THREAT"
+       },
+       {
+        "count": "142240",
+        "item": "TO LAND"
+       },
+       {
+        "count": "123548",
+        "item": "UNLAWFUL ENTRY"
+       },
+       {
+        "count": "121109",
+        "item": "POSS: CRACK"
+       },
+       {
+        "count": "120118",
+        "item": "HARASSMENT BY TELEPHONE"
+       },
+       {
+        "count": "96713",
+        "item": "AGGRAVATED: OTHER DANG WEAPON"
+       },
+       {
+        "count": "95786",
+        "item": "POSS: HEROIN(WHITE)"
+       },
+       {
+        "count": "93089",
+        "item": "ARMED: HANDGUN"
+       },
+       {
+        "count": "91246",
+        "item": "STRONGARM - NO WEAPON"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "The secondary description of the IUCR code, a subcategory of the primary description.",
+     "fieldName": "description",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897889,
+     "name": "Description",
+     "position": 7,
+     "renderTypeName": "text",
+     "tableColumnId": 1514300,
+     "width": 298
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "YMCA",
+      "non_null": "8619835",
+      "null": "16641",
+      "smallest": "ABANDONED BUILDING",
+      "top": [
+       {
+        "count": "2258752",
+        "item": "STREET"
+       },
+       {
+        "count": "1409285",
+        "item": "RESIDENCE"
+       },
+       {
+        "count": "1043148",
+        "item": "APARTMENT"
+       },
+       {
+        "count": "772580",
+        "item": "SIDEWALK"
+       },
+       {
+        "count": "269964",
+        "item": "OTHER"
+       },
+       {
+        "count": "202912",
+        "item": "PARKING LOT/GARAGE(NON.RESID.)"
+       },
+       {
+        "count": "191860",
+        "item": "ALLEY"
+       },
+       {
+        "count": "176573",
+        "item": "SMALL RETAIL STORE"
+       },
+       {
+        "count": "146365",
+        "item": "SCHOOL, PUBLIC, BUILDING"
+       },
+       {
+        "count": "146112",
+        "item": "RESTAURANT"
+       },
+       {
+        "count": "136820",
+        "item": "VEHICLE NON-COMMERCIAL"
+       },
+       {
+        "count": "134799",
+        "item": "RESIDENCE-GARAGE"
+       },
+       {
+        "count": "124145",
+        "item": "RESIDENCE PORCH/HALLWAY"
+       },
+       {
+        "count": "116397",
+        "item": "DEPARTMENT STORE"
+       },
+       {
+        "count": "107357",
+        "item": "GROCERY FOOD STORE"
+       },
+       {
+        "count": "96619",
+        "item": "GAS STATION"
+       },
+       {
+        "count": "75127",
+        "item": "RESIDENTIAL YARD (FRONT/BACK)"
+       },
+       {
+        "count": "72657",
+        "item": "COMMERCIAL / BUSINESS OFFICE"
+       },
+       {
+        "count": "65168",
+        "item": "PARK PROPERTY"
+       },
+       {
+        "count": "56091",
+        "item": "CHA PARKING LOT/GROUNDS"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "Description of the location where the incident occurred.",
+     "fieldName": "location_description",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897890,
+     "name": "Location Description",
+     "position": 8,
+     "renderTypeName": "text",
+     "tableColumnId": 1514301,
+     "width": 340
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "non_null": "8636476",
+      "null": "0",
+      "top": [
+       {
+        "count": "6477862",
+        "item": false
+       },
+       {
+        "count": "2158614",
+        "item": true
+       }
+      ]
+     },
+     "dataTypeName": "checkbox",
+     "description": "Indicates whether an arrest was made.",
+     "fieldName": "arrest",
+     "format": {
+      "align": "center"
+     },
+     "id": 580897891,
+     "name": "Arrest",
+     "position": 9,
+     "renderTypeName": "checkbox",
+     "tableColumnId": 1514302,
+     "width": 106
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "non_null": "8636476",
+      "null": "0",
+      "top": [
+       {
+        "count": "7141309",
+        "item": false
+       },
+       {
+        "count": "1495167",
+        "item": true
+       }
+      ]
+     },
+     "dataTypeName": "checkbox",
+     "description": "Indicates whether the incident was domestic-related as defined by the Illinois Domestic Violence Act.",
+     "fieldName": "domestic",
+     "format": {
+      "align": "center"
+     },
+     "id": 580897892,
+     "name": "Domestic",
+     "position": 10,
+     "renderTypeName": "checkbox",
+     "tableColumnId": 1514303,
+     "width": 127
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "6100",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "0111",
+      "top": [
+       {
+        "count": "66995",
+        "item": "0421"
+       },
+       {
+        "count": "65931",
+        "item": "1834"
+       },
+       {
+        "count": "65437",
+        "item": "0423"
+       },
+       {
+        "count": "60532",
+        "item": "0624"
+       },
+       {
+        "count": "58867",
+        "item": "0511"
+       },
+       {
+        "count": "57206",
+        "item": "1533"
+       },
+       {
+        "count": "57137",
+        "item": "0823"
+       },
+       {
+        "count": "57075",
+        "item": "1112"
+       },
+       {
+        "count": "53692",
+        "item": "0414"
+       },
+       {
+        "count": "52684",
+        "item": "1522"
+       },
+       {
+        "count": "52262",
+        "item": "2533"
+       },
+       {
+        "count": "52119",
+        "item": "0621"
+       },
+       {
+        "count": "51609",
+        "item": "0612"
+       },
+       {
+        "count": "50144",
+        "item": "0631"
+       },
+       {
+        "count": "50047",
+        "item": "0321"
+       },
+       {
+        "count": "47841",
+        "item": "1831"
+       },
+       {
+        "count": "47655",
+        "item": "0825"
+       },
+       {
+        "count": "47433",
+        "item": "0512"
+       },
+       {
+        "count": "47226",
+        "item": "1011"
+       },
+       {
+        "count": "46705",
+        "item": "1121"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "Indicates the beat where the incident occurred.  A beat is the smallest police geographic area \u2013 each beat has a dedicated police beat car.  Three to five beats make up a police sector, and three sectors make up a police district.  The Chicago Police Department has 22 police districts.  \n\nSee the beats at https://data.cityofchicago.org/d/aerh-rz74.\n",
+     "fieldName": "beat",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897893,
+     "name": "Beat",
+     "position": 11,
+     "renderTypeName": "text",
+     "tableColumnId": 1514304,
+     "width": 148
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "16",
+      "non_null": "8636429",
+      "null": "47",
+      "smallest": "001",
+      "top": [
+       {
+        "count": "578053",
+        "item": "008"
+       },
+       {
+        "count": "545777",
+        "item": "011"
+       },
+       {
+        "count": "504078",
+        "item": "006"
+       },
+       {
+        "count": "488469",
+        "item": "004"
+       },
+       {
+        "count": "486373",
+        "item": "025"
+       },
+       {
+        "count": "485832",
+        "item": "007"
+       },
+       {
+        "count": "439161",
+        "item": "003"
+       },
+       {
+        "count": "439070",
+        "item": "012"
+       },
+       {
+        "count": "418416",
+        "item": "009"
+       },
+       {
+        "count": "413090",
+        "item": "002"
+       },
+       {
+        "count": "394961",
+        "item": "019"
+       },
+       {
+        "count": "394266",
+        "item": "018"
+       },
+       {
+        "count": "378647",
+        "item": "005"
+       },
+       {
+        "count": "369877",
+        "item": "010"
+       },
+       {
+        "count": "362510",
+        "item": "001"
+       },
+       {
+        "count": "361867",
+        "item": "015"
+       },
+       {
+        "count": "331970",
+        "item": "014"
+       },
+       {
+        "count": "290269",
+        "item": "016"
+       },
+       {
+        "count": "281551",
+        "item": "022"
+       },
+       {
+        "count": "263355",
+        "item": "024"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "Indicates the police district where the incident occurred.  See the districts at https://data.cityofchicago.org/d/fthy-xz3r.",
+     "fieldName": "district",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897894,
+     "name": "District",
+     "position": 12,
+     "renderTypeName": "text",
+     "tableColumnId": 5086344,
+     "width": 100
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "50",
+      "non_null": "8021665",
+      "null": "614811",
+      "smallest": "0",
+      "top": [
+       {
+        "count": "366448",
+        "item": "28"
+       },
+       {
+        "count": "327874",
+        "item": "42"
+       },
+       {
+        "count": "310809",
+        "item": "24"
+       },
+       {
+        "count": "309574",
+        "item": "27"
+       },
+       {
+        "count": "268907",
+        "item": "6"
+       },
+       {
+        "count": "268349",
+        "item": "2"
+       },
+       {
+        "count": "264221",
+        "item": "17"
+       },
+       {
+        "count": "263283",
+        "item": "20"
+       },
+       {
+        "count": "242786",
+        "item": "21"
+       },
+       {
+        "count": "241146",
+        "item": "3"
+       },
+       {
+        "count": "232040",
+        "item": "16"
+       },
+       {
+        "count": "223815",
+        "item": "34"
+       },
+       {
+        "count": "223614",
+        "item": "8"
+       },
+       {
+        "count": "219391",
+        "item": "7"
+       },
+       {
+        "count": "217193",
+        "item": "37"
+       },
+       {
+        "count": "211685",
+        "item": "9"
+       },
+       {
+        "count": "198916",
+        "item": "15"
+       },
+       {
+        "count": "192445",
+        "item": "5"
+       },
+       {
+        "count": "184306",
+        "item": "29"
+       },
+       {
+        "count": "170495",
+        "item": "4"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "The ward (City Council district) where the incident occurred.  See the wards at https://data.cityofchicago.org/d/sp34-6z76.",
+     "fieldName": "ward",
+     "format": {
+      "align": "right",
+      "noCommas": "false",
+      "precisionStyle": "standard"
+     },
+     "id": 580897895,
+     "name": "Ward",
+     "position": 13,
+     "renderTypeName": "number",
+     "tableColumnId": 1514305,
+     "width": 148
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "9",
+      "non_null": "8022754",
+      "null": "613722",
+      "smallest": "0",
+      "top": [
+       {
+        "count": "490470",
+        "item": "25"
+       },
+       {
+        "count": "290663",
+        "item": "8"
+       },
+       {
+        "count": "265046",
+        "item": "43"
+       },
+       {
+        "count": "253076",
+        "item": "28"
+       },
+       {
+        "count": "246841",
+        "item": "23"
+       },
+       {
+        "count": "235958",
+        "item": "24"
+       },
+       {
+        "count": "232308",
+        "item": "29"
+       },
+       {
+        "count": "224913",
+        "item": "71"
+       },
+       {
+        "count": "220535",
+        "item": "67"
+       },
+       {
+        "count": "209557",
+        "item": "49"
+       },
+       {
+        "count": "207409",
+        "item": "32"
+       },
+       {
+        "count": "204022",
+        "item": "68"
+       },
+       {
+        "count": "199977",
+        "item": "69"
+       },
+       {
+        "count": "191567",
+        "item": "66"
+       },
+       {
+        "count": "177268",
+        "item": "44"
+       },
+       {
+        "count": "166798",
+        "item": "6"
+       },
+       {
+        "count": "165338",
+        "item": "22"
+       },
+       {
+        "count": "157905",
+        "item": "61"
+       },
+       {
+        "count": "147936",
+        "item": "26"
+       },
+       {
+        "count": "147465",
+        "item": "27"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "Indicates the community area where the incident occurred.  Chicago has 77 community areas. \n\nSee the community areas at https://data.cityofchicago.org/d/cauq-8yn6.\n",
+     "fieldName": "community_area",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897896,
+     "name": "Community Area",
+     "position": 14,
+     "renderTypeName": "text",
+     "tableColumnId": 5086360,
+     "width": 170
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8635779",
+      "count": "8635779",
+      "largest": "26",
+      "non_null": "8635779",
+      "null": "0",
+      "smallest": "01A",
+      "top": [
+       {
+        "count": "1843882",
+        "item": "06"
+       },
+       {
+        "count": "1350374",
+        "item": "08B"
+       },
+       {
+        "count": "980873",
+        "item": "14"
+       },
+       {
+        "count": "768552",
+        "item": "18"
+       },
+       {
+        "count": "622522",
+        "item": "26"
+       },
+       {
+        "count": "592846",
+        "item": "08A"
+       },
+       {
+        "count": "447353",
+        "item": "05"
+       },
+       {
+        "count": "447119",
+        "item": "07"
+       },
+       {
+        "count": "348765",
+        "item": "11"
+       },
+       {
+        "count": "318855",
+        "item": "03"
+       },
+       {
+        "count": "240079",
+        "item": "04B"
+       },
+       {
+        "count": "161265",
+        "item": "04A"
+       },
+       {
+        "count": "131192",
+        "item": "15"
+       },
+       {
+        "count": "75774",
+        "item": "24"
+       },
+       {
+        "count": "70553",
+        "item": "16"
+       },
+       {
+        "count": "51490",
+        "item": "17"
+       },
+       {
+        "count": "48429",
+        "item": "02"
+       },
+       {
+        "count": "48356",
+        "item": "10"
+       },
+       {
+        "count": "22899",
+        "item": "20"
+       },
+       {
+        "count": "15563",
+        "item": "22"
+       }
+      ]
+     },
+     "dataTypeName": "text",
+     "description": "Indicates the crime classification as outlined in the FBI's National Incident-Based Reporting System (NIBRS).See the Chicago Police Department listing of these classifications at https://gis.chicagopolice.org/pages/crime_details.",
+     "fieldName": "fbi_code",
+     "format": {
+      "align": "left",
+      "displayStyle": "plain"
+     },
+     "id": 580897897,
+     "name": "FBI Code",
+     "position": 15,
+     "renderTypeName": "text",
+     "tableColumnId": 1514306,
+     "width": 196
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "1205119",
+      "non_null": "8536479",
+      "null": "99997",
+      "smallest": "0",
+      "top": [
+       {
+        "count": "14934",
+        "item": "1100658"
+       },
+       {
+        "count": "11292",
+        "item": "1145727"
+       },
+       {
+        "count": "10796",
+        "item": "1176352"
+       },
+       {
+        "count": "7442",
+        "item": "1177338"
+       },
+       {
+        "count": "5156",
+        "item": "1176436"
+       },
+       {
+        "count": "4141",
+        "item": "1176963"
+       },
+       {
+        "count": "4100",
+        "item": "1145654"
+       },
+       {
+        "count": "3975",
+        "item": "1176365"
+       },
+       {
+        "count": "3849",
+        "item": "1145011"
+       },
+       {
+        "count": "3520",
+        "item": "1176364"
+       },
+       {
+        "count": "3501",
+        "item": "1176223"
+       },
+       {
+        "count": "3456",
+        "item": "1149512"
+       },
+       {
+        "count": "3360",
+        "item": "1173303"
+       },
+       {
+        "count": "3248",
+        "item": "1154228"
+       },
+       {
+        "count": "3189",
+        "item": "1176389"
+       },
+       {
+        "count": "3130",
+        "item": "1100317"
+       },
+       {
+        "count": "3071",
+        "item": "1171084"
+       },
+       {
+        "count": "3065",
+        "item": "1163126"
+       },
+       {
+        "count": "3043",
+        "item": "1176740"
+       },
+       {
+        "count": "2973",
+        "item": "1160867"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "The x coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection.  This location is shifted from the actual location for partial redaction but falls on the same block.",
+     "fieldName": "x_coordinate",
+     "format": {
+      "align": "right",
+      "noCommas": "true",
+      "precisionStyle": "standard"
+     },
+     "id": 580897898,
+     "name": "X Coordinate",
+     "position": 16,
+     "renderTypeName": "number",
+     "tableColumnId": 1514307,
+     "width": 143
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "1951622",
+      "non_null": "8536479",
+      "null": "99997",
+      "smallest": "0",
+      "top": [
+       {
+        "count": "14951",
+        "item": "1934241"
+       },
+       {
+        "count": "11410",
+        "item": "1853720"
+       },
+       {
+        "count": "9328",
+        "item": "1900927"
+       },
+       {
+        "count": "5198",
+        "item": "1906181"
+       },
+       {
+        "count": "4235",
+        "item": "1910225"
+       },
+       {
+        "count": "4168",
+        "item": "1866253"
+       },
+       {
+        "count": "3614",
+        "item": "1950347"
+       },
+       {
+        "count": "3523",
+        "item": "1905805"
+       },
+       {
+        "count": "3411",
+        "item": "1950346"
+       },
+       {
+        "count": "3253",
+        "item": "1895451"
+       },
+       {
+        "count": "3196",
+        "item": "1901446"
+       },
+       {
+        "count": "3140",
+        "item": "1935229"
+       },
+       {
+        "count": "3137",
+        "item": "1895173"
+       },
+       {
+        "count": "3078",
+        "item": "1900524"
+       },
+       {
+        "count": "3061",
+        "item": "1903917"
+       },
+       {
+        "count": "2983",
+        "item": "1847273"
+       },
+       {
+        "count": "2962",
+        "item": "1841949"
+       },
+       {
+        "count": "2956",
+        "item": "1900502"
+       },
+       {
+        "count": "2941",
+        "item": "1921430"
+       },
+       {
+        "count": "2885",
+        "item": "1905133"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "The y coordinate of the location where the incident occurred in State Plane Illinois East NAD 1983 projection. This location is shifted from the actual location for partial redaction but falls on the same block.",
+     "fieldName": "y_coordinate",
+     "format": {
+      "align": "right",
+      "noCommas": "true",
+      "precisionStyle": "standard"
+     },
+     "id": 580897899,
+     "name": "Y Coordinate",
+     "position": 17,
+     "renderTypeName": "number",
+     "tableColumnId": 1514308,
+     "width": 142
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "2026",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "2001",
+      "top": [
+       {
+        "count": "486841",
+        "item": "2002"
+       },
+       {
+        "count": "485976",
+        "item": "2001"
+       },
+       {
+        "count": "476012",
+        "item": "2003"
+       },
+       {
+        "count": "469447",
+        "item": "2004"
+       },
+       {
+        "count": "453803",
+        "item": "2005"
+       },
+       {
+        "count": "448211",
+        "item": "2006"
+       },
+       {
+        "count": "437117",
+        "item": "2007"
+       },
+       {
+        "count": "427231",
+        "item": "2008"
+       },
+       {
+        "count": "392876",
+        "item": "2009"
+       },
+       {
+        "count": "370587",
+        "item": "2010"
+       },
+       {
+        "count": "352083",
+        "item": "2011"
+       },
+       {
+        "count": "336408",
+        "item": "2012"
+       },
+       {
+        "count": "307646",
+        "item": "2013"
+       },
+       {
+        "count": "275913",
+        "item": "2014"
+       },
+       {
+        "count": "270027",
+        "item": "2016"
+       },
+       {
+        "count": "269349",
+        "item": "2017"
+       },
+       {
+        "count": "269238",
+        "item": "2018"
+       },
+       {
+        "count": "264942",
+        "item": "2015"
+       },
+       {
+        "count": "263837",
+        "item": "2023"
+       },
+       {
+        "count": "261936",
+        "item": "2019"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "Year the incident occurred.",
+     "fieldName": "year",
+     "format": {
+      "align": "right",
+      "noCommas": "true",
+      "precisionStyle": "standard"
+     },
+     "id": 580897900,
+     "name": "Year",
+     "position": 18,
+     "renderTypeName": "number",
+     "tableColumnId": 1518776,
+     "width": 100
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "2026-09-10T15:53:03.000",
+      "non_null": "8636476",
+      "null": "0",
+      "smallest": "2006-03-31T22:03:38.000",
+      "top": [
+       {
+        "count": "2622602",
+        "item": "2018-02-10T15:50:01.000"
+       },
+       {
+        "count": "2545752",
+        "item": "2018-02-28T15:56:25.000"
+       },
+       {
+        "count": "489476",
+        "item": "2015-08-17T15:03:40.000"
+       },
+       {
+        "count": "330031",
+        "item": "2016-02-04T06:33:39.000"
+       },
+       {
+        "count": "237451",
+        "item": "2021-09-07T15:41:02.000"
+       },
+       {
+        "count": "233635",
+        "item": "2025-09-23T15:41:47.000"
+       },
+       {
+        "count": "227506",
+        "item": "2026-03-14T15:41:39.000"
+       },
+       {
+        "count": "226812",
+        "item": "2023-01-03T15:40:27.000"
+       },
+       {
+        "count": "153063",
+        "item": "2023-08-19T15:40:26.000"
+       },
+       {
+        "count": "143407",
+        "item": "2025-05-17T15:40:52.000"
+       },
+       {
+        "count": "97260",
+        "item": "2024-12-21T15:40:46.000"
+       },
+       {
+        "count": "80024",
+        "item": "2018-05-04T15:51:04.000"
+       },
+       {
+        "count": "63891",
+        "item": "2025-11-02T15:41:09.000"
+       },
+       {
+        "count": "30125",
+        "item": "2020-12-17T15:40:05.000"
+       },
+       {
+        "count": "24238",
+        "item": "2019-06-30T15:41:21.000"
+       },
+       {
+        "count": "17325",
+        "item": "2017-02-14T15:49:42.000"
+       },
+       {
+        "count": "8522",
+        "item": "2019-07-19T15:40:03.000"
+       },
+       {
+        "count": "8431",
+        "item": "2022-09-19T15:41:05.000"
+       },
+       {
+        "count": "5777",
+        "item": "2018-02-09T15:44:29.000"
+       },
+       {
+        "count": "5116",
+        "item": "2019-01-18T09:37:14.000"
+       }
+      ]
+     },
+     "dataTypeName": "calendar_date",
+     "description": "Date and time the record was last updated.",
+     "fieldName": "updated_on",
+     "format": {
+      "align": "left",
+      "view": "date_time"
+     },
+     "id": 580897901,
+     "name": "Updated On",
+     "position": 19,
+     "renderTypeName": "calendar_date",
+     "tableColumnId": 2154842,
+     "width": 164
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "42.022910333",
+      "non_null": "8536479",
+      "null": "99997",
+      "smallest": "36.619446395",
+      "top": [
+       {
+        "count": "14934",
+        "item": "41.976290414"
+       },
+       {
+        "count": "11256",
+        "item": "41.754592961"
+       },
+       {
+        "count": "9302",
+        "item": "41.883500187"
+       },
+       {
+        "count": "5027",
+        "item": "41.897895128"
+       },
+       {
+        "count": "4065",
+        "item": "41.788987036"
+       },
+       {
+        "count": "3839",
+        "item": "41.909664252"
+       },
+       {
+        "count": "3487",
+        "item": "41.896888586"
+       },
+       {
+        "count": "3213",
+        "item": "41.868541914"
+       },
+       {
+        "count": "3130",
+        "item": "41.979006297"
+       },
+       {
+        "count": "3126",
+        "item": "41.868180939"
+       },
+       {
+        "count": "2977",
+        "item": "41.885487535"
+       },
+       {
+        "count": "2963",
+        "item": "42.019399237"
+       },
+       {
+        "count": "2932",
+        "item": "41.88233367"
+       },
+       {
+        "count": "2909",
+        "item": "41.736259984"
+       },
+       {
+        "count": "2895",
+        "item": "41.882394062"
+       },
+       {
+        "count": "2865",
+        "item": "41.721627204"
+       },
+       {
+        "count": "2845",
+        "item": "41.929743818"
+       },
+       {
+        "count": "2815",
+        "item": "41.891694878"
+       },
+       {
+        "count": "2738",
+        "item": "41.891990384"
+       },
+       {
+        "count": "2671",
+        "item": "41.88171846"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "The latitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.",
+     "fieldName": "latitude",
+     "format": {
+      "align": "right",
+      "noCommas": "false",
+      "precisionStyle": "standard"
+     },
+     "id": 580897902,
+     "name": "Latitude",
+     "position": 20,
+     "renderTypeName": "number",
+     "tableColumnId": 1514309,
+     "width": 119
+    },
+    {
+     "cachedContents": {
+      "cardinality": "8636476",
+      "count": "8636476",
+      "largest": "-87.524529378",
+      "non_null": "8536479",
+      "null": "99997",
+      "smallest": "-91.686565684",
+      "top": [
+       {
+        "count": "14934",
+        "item": "-87.905227221"
+       },
+       {
+        "count": "11256",
+        "item": "-87.741528537"
+       },
+       {
+        "count": "9302",
+        "item": "-87.627876698"
+       },
+       {
+        "count": "5033",
+        "item": "-87.624096605"
+       },
+       {
+        "count": "4065",
+        "item": "-87.74147999"
+       },
+       {
+        "count": "3839",
+        "item": "-87.742728815"
+       },
+       {
+        "count": "3487",
+        "item": "-87.628203192"
+       },
+       {
+        "count": "3213",
+        "item": "-87.639235361"
+       },
+       {
+        "count": "3130",
+        "item": "-87.906463155"
+       },
+       {
+        "count": "3126",
+        "item": "-87.709271389"
+       },
+       {
+        "count": "2977",
+        "item": "-87.726422045"
+       },
+       {
+        "count": "2963",
+        "item": "-87.675049485"
+       },
+       {
+        "count": "2932",
+        "item": "-87.627841791"
+       },
+       {
+        "count": "2909",
+        "item": "-87.628068782"
+       },
+       {
+        "count": "2895",
+        "item": "-87.627844798"
+       },
+       {
+        "count": "2865",
+        "item": "-87.624485177"
+       },
+       {
+        "count": "2845",
+        "item": "-87.684273777"
+       },
+       {
+        "count": "2815",
+        "item": "-87.626155832"
+       },
+       {
+        "count": "2738",
+        "item": "-87.611461502"
+       },
+       {
+        "count": "2671",
+        "item": "-87.627760426"
+       }
+      ]
+     },
+     "dataTypeName": "number",
+     "description": "The longitude of the location where the incident occurred. This location is shifted from the actual location for partial redaction but falls on the same block.",
+     "fieldName": "longitude",
+     "format": {
+      "align": "right",
+      "noCommas": "false",
+      "precisionStyle": "standard"
+     },
+     "id": 580897903,
+     "name": "Longitude",
+     "position": 21,
+     "renderTypeName": "number",
+     "tableColumnId": 1514310,
+     "width": 133
+    },
+    {
+     "dataTypeName": "location",
+     "description": "The location where the incident occurred in a format that allows for creation of maps and other geographic operations on this data portal. This location is shifted from the actual location for partial redaction but falls on the same block.",
+     "fieldName": "location",
+     "format": {
+      "align": "left",
+      "view": "coords"
+     },
+     "id": 580897904,
+     "name": "Location",
+     "position": 22,
+     "renderTypeName": "location",
+     "tableColumnId": 1514311,
+     "width": 196
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_awaf-s7ux"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_awaf_s7ux",
+     "format": {},
+     "id": 580897909,
+     "name": "Historical Wards 2003-2015",
+     "position": 27,
+     "renderTypeName": "number",
+     "tableColumnId": 27782213
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_6mkv-f3dw"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_6mkv_f3dw",
+     "format": {},
+     "id": 580897910,
+     "name": "Zip Codes",
+     "position": 28,
+     "renderTypeName": "number",
+     "tableColumnId": 27782214
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_vrxf-vc4k"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_vrxf_vc4k",
+     "format": {},
+     "id": 580897911,
+     "name": "Community Areas",
+     "position": 29,
+     "renderTypeName": "number",
+     "tableColumnId": 27782215
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_bdys-3d7i"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_bdys_3d7i",
+     "format": {},
+     "id": 580897912,
+     "name": "Census Tracts",
+     "position": 30,
+     "renderTypeName": "number",
+     "tableColumnId": 27782216
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_43wa-7qmu"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "description": "",
+     "fieldName": ":@computed_region_43wa_7qmu",
+     "format": {},
+     "id": 580897913,
+     "name": "Wards",
+     "position": 31,
+     "renderTypeName": "number",
+     "tableColumnId": 28240039
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_rpca-8um6"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_rpca_8um6",
+     "format": {},
+     "id": 580897914,
+     "name": "Boundaries - ZIP Codes",
+     "position": 32,
+     "renderTypeName": "number",
+     "tableColumnId": 35863212
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_d9mm-jgwp"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_d9mm_jgwp",
+     "format": {},
+     "id": 580897915,
+     "name": "Police Districts",
+     "position": 33,
+     "renderTypeName": "number",
+     "tableColumnId": 42660468
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_d3ds-rm58"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_d3ds_rm58",
+     "format": {},
+     "id": 580897916,
+     "name": "Police Beats",
+     "position": 34,
+     "renderTypeName": "number",
+     "tableColumnId": 42671243
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "primary_key": "_feature_id",
+       "region": "_8hcu-yrd4"
+      },
+      "source_columns": [
+       "location"
+      ],
+      "type": "georegion_match_on_point"
+     },
+     "dataTypeName": "number",
+     "description": "This column was automatically created in order to record in what polygon from the dataset 'Wards 2023-' (8hcu-yrd4) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+     "fieldName": ":@computed_region_8hcu_yrd4",
+     "format": {},
+     "id": 580897917,
+     "name": "Wards 2023-",
+     "position": 35,
+     "renderTypeName": "number",
+     "tableColumnId": 148460106
+    }
+   ],
+   "createdAt": 1317405571,
+   "description": "This dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago from 2001 to present, minus the most recent seven days. Data is extracted from the Chicago Police Department's CLEAR (Citizen Law Enforcement Analysis and Reporting) system. In order to protect the privacy of crime victims, addresses are shown at the block level only and specific locations are not identified. Should you have questions about this dataset, you may contact the Data Fulfillment and Analysis Division of the Chicago Police Department at redacted-email  Disclaimer: These crimes may be based upon preliminary information supplied to the Police Department by the reporting parties that have not been verified. The preliminary crime classifications may be changed at a later date based upon additional investigation and there is always the possibility of mechanical or human error. Therefore, the Chicago Police Department does not guarantee (either expressed or implied) the accuracy, completeness, timeliness, or correct sequencing of the information and the information should not be used for comparison purposes over time. The Chicago Police Department will not be responsible for any error or omission, or for the use of, or the results obtained from the use of this information. All data visualizations on maps should be considered approximate and attempts to derive specific addresses are strictly prohibited. The Chicago Police Department is not responsible for the content of any off-site pages that are referenced by or that reference this web page other than an official City of Chicago or Chicago Police Department web page. The user specifically acknowledges that the Chicago Police Department is not responsible for any defamatory, offensive, misleading, or illegal conduct of other users, links, or third parties and that the risk of injury from the foregoing rests entirely with the user.  The unauthorized use of the words \"Chicago Police Department,\" \"Chicago Police,\" or any colorable imitation of these words or the unauthorized use of the Chicago Police Department logo is unlawful. This web page does not, in any way, authorize such use. Data are updated daily. To access a list of Chicago Police Department - Illinois Uniform Crime Reporting (IUCR) codes, go to http://data.cityofchicago.org/Public-Safety/Chicago-Police-Department-Illinois-Uniform-Crime-R/c7ck-438e",
+   "diciBackend": false,
+   "displayType": "table",
+   "downloadCount": 927573,
+   "flags": [
+    "default",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+   ],
+   "grants": [
+    {
+     "flags": [
+      "public"
+     ],
+     "inherited": false,
+     "type": "viewer"
+    }
+   ],
+   "hideFromCatalog": false,
+   "hideFromDataJson": false,
+   "id": "ijzp-q8t2",
+   "license": {
+    "name": "See Terms of Use"
+   },
+   "licenseId": "SEE_TERMS_OF_USE",
+   "locked": false,
+   "metadata": {
+    "availableDisplayTypes": [
+     "table",
+     "fatrow",
+     "page"
+    ],
+    "custom_fields": {
+     "Metadata": {
+      "Changes and Other Historical Information Useful to Understanding This Dataset": "https://www.google.com/search?q=site:data.cityofchicago.org/stories+\"Related+dataset+ID+s\"+\"ijzp-q8t2\"",
+      "Data Owner": "Police",
+      "Frequency": "Data are updated daily.",
+      "Time Period": "2001 to present, minus the most recent seven days"
+     }
+    },
+    "jsonQuery": {
+     "order": [
+      {
+       "ascending": false,
+       "columnFieldName": "date"
+      }
+     ]
+    },
+    "rdfSubject": "0",
+    "renderTypeConfig": {
+     "visible": {
+      "table": true
+     }
+    },
+    "rowIdentifier": 580897883,
+    "rowLabel": "Reported Crime"
+   },
+   "name": "Crimes - 2001 to Present",
+   "newBackend": true,
+   "numberOfComments": 0,
+   "oid": 39959650,
+   "owner": {
+    "displayName": "Fixture Person",
+    "flags": [
+     "acceptedEula",
+     "mayBeStoriesCoOwner"
+    ],
+    "id": "fixt-0020",
+    "profileImageUrlLarge": "/api/users/fixt-0020/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/fixt-0020/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/fixt-0020/profile_images/TINY",
+    "screenName": "Fixture Person",
+    "type": "interactive"
+   },
+   "provenance": "official",
+   "publicationAppendEnabled": false,
+   "publicationDate": 1694750301,
+   "publicationGroup": 239997,
+   "publicationStage": "published",
+   "query": {
+    "orderBys": [
+     {
+      "ascending": false,
+      "expression": {
+       "columnId": 580897885,
+       "type": "column"
+      }
+     }
+    ]
+   },
+   "resourceName": "crimes",
+   "rights": [
+    "read"
+   ],
+   "rowIdentifierColumnId": 580897883,
+   "rowsUpdatedAt": 1792409990,
+   "rowsUpdatedBy": "fixt-0021",
+   "tableAuthor": {
+    "displayName": "Fixture Person",
+    "flags": [
+     "acceptedEula",
+     "mayBeStoriesCoOwner"
+    ],
+    "id": "fixt-0020",
+    "profileImageUrlLarge": "/api/users/fixt-0020/profile_images/LARGE",
+    "profileImageUrlMedium": "/api/users/fixt-0020/profile_images/THUMB",
+    "profileImageUrlSmall": "/api/users/fixt-0020/profile_images/TINY",
+    "screenName": "Fixture Person",
+    "type": "interactive"
+   },
+   "tableId": 19289201,
+   "tags": [
+    "crime",
+    "police"
+   ],
+   "totalTimesRated": 0,
+   "viewCount": 1332207,
+   "viewLastModified": 1788892356,
+   "viewType": "tabular"
+  },
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/43wa-7qmu.json?[[\"$limit\", \"50\"], [\"$select\", \"_feature_id AS id, ward AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "12"
+   },
+   {
+    "id": "2",
+    "label": "16"
+   },
+   {
+    "id": "3",
+    "label": "15"
+   },
+   {
+    "id": "4",
+    "label": "20"
+   },
+   {
+    "id": "5",
+    "label": "49"
+   },
+   {
+    "id": "6",
+    "label": "23"
+   },
+   {
+    "id": "7",
+    "label": "29"
+   },
+   {
+    "id": "8",
+    "label": "14"
+   },
+   {
+    "id": "9",
+    "label": "3"
+   },
+   {
+    "id": "10",
+    "label": "4"
+   },
+   {
+    "id": "11",
+    "label": "2"
+   },
+   {
+    "id": "12",
+    "label": "35"
+   },
+   {
+    "id": "13",
+    "label": "21"
+   },
+   {
+    "id": "14",
+    "label": "24"
+   },
+   {
+    "id": "15",
+    "label": "13"
+   },
+   {
+    "id": "16",
+    "label": "48"
+   },
+   {
+    "id": "17",
+    "label": "31"
+   },
+   {
+    "id": "18",
+    "label": "47"
+   },
+   {
+    "id": "19",
+    "label": "38"
+   },
+   {
+    "id": "20",
+    "label": "33"
+   },
+   {
+    "id": "21",
+    "label": "30"
+   },
+   {
+    "id": "22",
+    "label": "34"
+   },
+   {
+    "id": "23",
+    "label": "28"
+   },
+   {
+    "id": "24",
+    "label": "40"
+   },
+   {
+    "id": "25",
+    "label": "44"
+   },
+   {
+    "id": "26",
+    "label": "25"
+   },
+   {
+    "id": "27",
+    "label": "50"
+   },
+   {
+    "id": "28",
+    "label": "22"
+   },
+   {
+    "id": "29",
+    "label": "41"
+   },
+   {
+    "id": "30",
+    "label": "18"
+   },
+   {
+    "id": "31",
+    "label": "17"
+   },
+   {
+    "id": "32",
+    "label": "6"
+   },
+   {
+    "id": "33",
+    "label": "5"
+   },
+   {
+    "id": "34",
+    "label": "43"
+   },
+   {
+    "id": "35",
+    "label": "8"
+   },
+   {
+    "id": "36",
+    "label": "42"
+   },
+   {
+    "id": "37",
+    "label": "7"
+   },
+   {
+    "id": "38",
+    "label": "39"
+   },
+   {
+    "id": "39",
+    "label": "46"
+   },
+   {
+    "id": "40",
+    "label": "32"
+   },
+   {
+    "id": "41",
+    "label": "1"
+   },
+   {
+    "id": "42",
+    "label": "19"
+   },
+   {
+    "id": "43",
+    "label": "9"
+   },
+   {
+    "id": "44",
+    "label": "36"
+   },
+   {
+    "id": "45",
+    "label": "37"
+   },
+   {
+    "id": "46",
+    "label": "27"
+   },
+   {
+    "id": "47",
+    "label": "10"
+   },
+   {
+    "id": "48",
+    "label": "11"
+   },
+   {
+    "id": "49",
+    "label": "26"
+   },
+   {
+    "id": "50",
+    "label": "45"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/6mkv-f3dw.json?[[\"$limit\", \"83\"], [\"$select\", \"_feature_id AS id, zcta5ce10 AS label\"], [\"$where\", \"_feature_id IN (2733,4094,4299,4300,4301,4446,4447,4448,4449,4450,4451,4452,4453,4454,4455,4456,4457,4458,4459,4460,9012,9458,9460,10408,10412,10417,10505,14309,14310,14311,14912,14913,14914,14917,14920,14924,14926,15610,16174,16181,16197,21182,21184,21186,21190,21192,21194,21202,21273,21538,21546,21554,21559,21560,21569,21572,21642,21849,21853,21861,21867,21869,22212,22216,22243,22248,22250,22254,22257,22260,22268,22528,22532,22535,22538,22615,22616,22618,22620,26609,26615,26633,26912)\"]]": {
+  "body": [
+   {
+    "id": "2733",
+    "label": "60501"
+   },
+   {
+    "id": "4094",
+    "label": "60007"
+   },
+   {
+    "id": "4299",
+    "label": "60651"
+   },
+   {
+    "id": "4300",
+    "label": "60652"
+   },
+   {
+    "id": "4301",
+    "label": "60653"
+   },
+   {
+    "id": "4446",
+    "label": "60654"
+   },
+   {
+    "id": "4447",
+    "label": "60655"
+   },
+   {
+    "id": "4448",
+    "label": "60656"
+   },
+   {
+    "id": "4449",
+    "label": "60657"
+   },
+   {
+    "id": "4450",
+    "label": "60659"
+   },
+   {
+    "id": "4451",
+    "label": "60660"
+   },
+   {
+    "id": "4452",
+    "label": "60661"
+   },
+   {
+    "id": "4453",
+    "label": "60706"
+   },
+   {
+    "id": "4454",
+    "label": "60707"
+   },
+   {
+    "id": "4455",
+    "label": "60712"
+   },
+   {
+    "id": "4456",
+    "label": "60714"
+   },
+   {
+    "id": "4457",
+    "label": "60803"
+   },
+   {
+    "id": "4458",
+    "label": "60804"
+   },
+   {
+    "id": "4459",
+    "label": "60805"
+   },
+   {
+    "id": "4460",
+    "label": "60827"
+   },
+   {
+    "id": "9012",
+    "label": "60068"
+   },
+   {
+    "id": "9458",
+    "label": "60076"
+   },
+   {
+    "id": "9460",
+    "label": "60077"
+   },
+   {
+    "id": "10408",
+    "label": "60453"
+   },
+   {
+    "id": "10412",
+    "label": "60456"
+   },
+   {
+    "id": "10417",
+    "label": "60459"
+   },
+   {
+    "id": "10505",
+    "label": "60106"
+   },
+   {
+    "id": "14309",
+    "label": "60601"
+   },
+   {
+    "id": "14310",
+    "label": "60602"
+   },
+   {
+    "id": "14311",
+    "label": "60603"
+   },
+   {
+    "id": "14912",
+    "label": "60604"
+   },
+   {
+    "id": "14913",
+    "label": "60605"
+   },
+   {
+    "id": "14914",
+    "label": "60606"
+   },
+   {
+    "id": "14917",
+    "label": "60607"
+   },
+   {
+    "id": "14920",
+    "label": "60608"
+   },
+   {
+    "id": "14924",
+    "label": "60609"
+   },
+   {
+    "id": "14926",
+    "label": "60610"
+   },
+   {
+    "id": "15610",
+    "label": "60131"
+   },
+   {
+    "id": "16174",
+    "label": "60171"
+   },
+   {
+    "id": "16181",
+    "label": "60176"
+   },
+   {
+    "id": "16197",
+    "label": "60018"
+   },
+   {
+    "id": "21182",
+    "label": "60611"
+   },
+   {
+    "id": "21184",
+    "label": "60612"
+   },
+   {
+    "id": "21186",
+    "label": "60613"
+   },
+   {
+    "id": "21190",
+    "label": "60614"
+   },
+   {
+    "id": "21192",
+    "label": "60615"
+   },
+   {
+    "id": "21194",
+    "label": "60616"
+   },
+   {
+    "id": "21202",
+    "label": "60617"
+   },
+   {
+    "id": "21273",
+    "label": "65775"
+   },
+   {
+    "id": "21538",
+    "label": "60618"
+   },
+   {
+    "id": "21546",
+    "label": "60619"
+   },
+   {
+    "id": "21554",
+    "label": "60620"
+   },
+   {
+    "id": "21559",
+    "label": "60621"
+   },
+   {
+    "id": "21560",
+    "label": "60622"
+   },
+   {
+    "id": "21569",
+    "label": "60623"
+   },
+   {
+    "id": "21572",
+    "label": "60624"
+   },
+   {
+    "id": "21642",
+    "label": "46320"
+   },
+   {
+    "id": "21849",
+    "label": "60625"
+   },
+   {
+    "id": "21853",
+    "label": "60626"
+   },
+   {
+    "id": "21861",
+    "label": "60628"
+   },
+   {
+    "id": "21867",
+    "label": "60629"
+   },
+   {
+    "id": "21869",
+    "label": "60630"
+   },
+   {
+    "id": "22212",
+    "label": "60643"
+   },
+   {
+    "id": "22216",
+    "label": "60644"
+   },
+   {
+    "id": "22243",
+    "label": "60631"
+   },
+   {
+    "id": "22248",
+    "label": "60632"
+   },
+   {
+    "id": "22250",
+    "label": "60633"
+   },
+   {
+    "id": "22254",
+    "label": "60634"
+   },
+   {
+    "id": "22257",
+    "label": "60636"
+   },
+   {
+    "id": "22260",
+    "label": "60637"
+   },
+   {
+    "id": "22268",
+    "label": "60638"
+   },
+   {
+    "id": "22528",
+    "label": "60645"
+   },
+   {
+    "id": "22532",
+    "label": "60646"
+   },
+   {
+    "id": "22535",
+    "label": "60647"
+   },
+   {
+    "id": "22538",
+    "label": "60649"
+   },
+   {
+    "id": "22615",
+    "label": "60639"
+   },
+   {
+    "id": "22616",
+    "label": "60640"
+   },
+   {
+    "id": "22618",
+    "label": "60641"
+   },
+   {
+    "id": "22620",
+    "label": "60642"
+   },
+   {
+    "id": "26609",
+    "label": "60202"
+   },
+   {
+    "id": "26615",
+    "label": "60302"
+   },
+   {
+    "id": "26633",
+    "label": "60406"
+   },
+   {
+    "id": "26912",
+    "label": "60419"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/8hcu-yrd4.json?[[\"$limit\", \"50\"], [\"$select\", \"_feature_id AS id, ward AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "1"
+   },
+   {
+    "id": "2",
+    "label": "2"
+   },
+   {
+    "id": "8",
+    "label": "3"
+   },
+   {
+    "id": "9",
+    "label": "4"
+   },
+   {
+    "id": "3",
+    "label": "5"
+   },
+   {
+    "id": "4",
+    "label": "6"
+   },
+   {
+    "id": "5",
+    "label": "7"
+   },
+   {
+    "id": "10",
+    "label": "8"
+   },
+   {
+    "id": "11",
+    "label": "9"
+   },
+   {
+    "id": "6",
+    "label": "10"
+   },
+   {
+    "id": "7",
+    "label": "11"
+   },
+   {
+    "id": "12",
+    "label": "12"
+   },
+   {
+    "id": "13",
+    "label": "13"
+   },
+   {
+    "id": "14",
+    "label": "14"
+   },
+   {
+    "id": "15",
+    "label": "15"
+   },
+   {
+    "id": "16",
+    "label": "16"
+   },
+   {
+    "id": "17",
+    "label": "17"
+   },
+   {
+    "id": "18",
+    "label": "18"
+   },
+   {
+    "id": "19",
+    "label": "19"
+   },
+   {
+    "id": "20",
+    "label": "20"
+   },
+   {
+    "id": "21",
+    "label": "21"
+   },
+   {
+    "id": "22",
+    "label": "22"
+   },
+   {
+    "id": "23",
+    "label": "23"
+   },
+   {
+    "id": "24",
+    "label": "24"
+   },
+   {
+    "id": "25",
+    "label": "25"
+   },
+   {
+    "id": "26",
+    "label": "26"
+   },
+   {
+    "id": "27",
+    "label": "27"
+   },
+   {
+    "id": "28",
+    "label": "28"
+   },
+   {
+    "id": "29",
+    "label": "29"
+   },
+   {
+    "id": "30",
+    "label": "30"
+   },
+   {
+    "id": "31",
+    "label": "31"
+   },
+   {
+    "id": "32",
+    "label": "32"
+   },
+   {
+    "id": "33",
+    "label": "33"
+   },
+   {
+    "id": "34",
+    "label": "34"
+   },
+   {
+    "id": "35",
+    "label": "35"
+   },
+   {
+    "id": "36",
+    "label": "36"
+   },
+   {
+    "id": "37",
+    "label": "37"
+   },
+   {
+    "id": "38",
+    "label": "38"
+   },
+   {
+    "id": "39",
+    "label": "39"
+   },
+   {
+    "id": "40",
+    "label": "40"
+   },
+   {
+    "id": "41",
+    "label": "41"
+   },
+   {
+    "id": "42",
+    "label": "42"
+   },
+   {
+    "id": "43",
+    "label": "43"
+   },
+   {
+    "id": "44",
+    "label": "44"
+   },
+   {
+    "id": "45",
+    "label": "45"
+   },
+   {
+    "id": "46",
+    "label": "46"
+   },
+   {
+    "id": "47",
+    "label": "47"
+   },
+   {
+    "id": "48",
+    "label": "48"
+   },
+   {
+    "id": "49",
+    "label": "49"
+   },
+   {
+    "id": "50",
+    "label": "50"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/awaf-s7ux.json?[[\"$limit\", \"53\"], [\"$select\", \"_feature_id AS id, ward AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "4"
+   },
+   {
+    "id": "2",
+    "label": "33"
+   },
+   {
+    "id": "3",
+    "label": "49"
+   },
+   {
+    "id": "4",
+    "label": "37"
+   },
+   {
+    "id": "5",
+    "label": "OUT"
+   },
+   {
+    "id": "6",
+    "label": "18"
+   },
+   {
+    "id": "7",
+    "label": "31"
+   },
+   {
+    "id": "8",
+    "label": "25"
+   },
+   {
+    "id": "9",
+    "label": "8"
+   },
+   {
+    "id": "10",
+    "label": "26"
+   },
+   {
+    "id": "11",
+    "label": "28"
+   },
+   {
+    "id": "12",
+    "label": "3"
+   },
+   {
+    "id": "13",
+    "label": "47"
+   },
+   {
+    "id": "24",
+    "label": "1"
+   },
+   {
+    "id": "25",
+    "label": "38"
+   },
+   {
+    "id": "26",
+    "label": "11"
+   },
+   {
+    "id": "27",
+    "label": "30"
+   },
+   {
+    "id": "28",
+    "label": "39"
+   },
+   {
+    "id": "29",
+    "label": "12"
+   },
+   {
+    "id": "30",
+    "label": "9"
+   },
+   {
+    "id": "31",
+    "label": "6"
+   },
+   {
+    "id": "32",
+    "label": "5"
+   },
+   {
+    "id": "33",
+    "label": "19"
+   },
+   {
+    "id": "34",
+    "label": "41"
+   },
+   {
+    "id": "35",
+    "label": "23"
+   },
+   {
+    "id": "36",
+    "label": "24"
+   },
+   {
+    "id": "37",
+    "label": "46"
+   },
+   {
+    "id": "38",
+    "label": "44"
+   },
+   {
+    "id": "39",
+    "label": "36"
+   },
+   {
+    "id": "40",
+    "label": "48"
+   },
+   {
+    "id": "41",
+    "label": "27"
+   },
+   {
+    "id": "42",
+    "label": "50"
+   },
+   {
+    "id": "43",
+    "label": "7"
+   },
+   {
+    "id": "44",
+    "label": "15"
+   },
+   {
+    "id": "45",
+    "label": "34"
+   },
+   {
+    "id": "14",
+    "label": "22"
+   },
+   {
+    "id": "15",
+    "label": "35"
+   },
+   {
+    "id": "16",
+    "label": "32"
+   },
+   {
+    "id": "17",
+    "label": "17"
+   },
+   {
+    "id": "18",
+    "label": "21"
+   },
+   {
+    "id": "19",
+    "label": "16"
+   },
+   {
+    "id": "20",
+    "label": "45"
+   },
+   {
+    "id": "21",
+    "label": "OUT"
+   },
+   {
+    "id": "22",
+    "label": "42"
+   },
+   {
+    "id": "23",
+    "label": "13"
+   },
+   {
+    "id": "46",
+    "label": "40"
+   },
+   {
+    "id": "47",
+    "label": "10"
+   },
+   {
+    "id": "48",
+    "label": "2"
+   },
+   {
+    "id": "49",
+    "label": "14"
+   },
+   {
+    "id": "50",
+    "label": "OUT"
+   },
+   {
+    "id": "51",
+    "label": "43"
+   },
+   {
+    "id": "52",
+    "label": "29"
+   },
+   {
+    "id": "53",
+    "label": "20"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/d9mm-jgwp.json?[[\"$limit\", \"25\"], [\"$select\", \"_feature_id AS id, dist_num AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "17"
+   },
+   {
+    "id": "2",
+    "label": "20"
+   },
+   {
+    "id": "4",
+    "label": "31"
+   },
+   {
+    "id": "5",
+    "label": "19"
+   },
+   {
+    "id": "6",
+    "label": "25"
+   },
+   {
+    "id": "7",
+    "label": "14"
+   },
+   {
+    "id": "8",
+    "label": "31"
+   },
+   {
+    "id": "9",
+    "label": "22"
+   },
+   {
+    "id": "10",
+    "label": "5"
+   },
+   {
+    "id": "11",
+    "label": "24"
+   },
+   {
+    "id": "12",
+    "label": "16"
+   },
+   {
+    "id": "13",
+    "label": "8"
+   },
+   {
+    "id": "14",
+    "label": "18"
+   },
+   {
+    "id": "15",
+    "label": "12"
+   },
+   {
+    "id": "16",
+    "label": "11"
+   },
+   {
+    "id": "24",
+    "label": "2"
+   },
+   {
+    "id": "3",
+    "label": "31"
+   },
+   {
+    "id": "17",
+    "label": "7"
+   },
+   {
+    "id": "18",
+    "label": "3"
+   },
+   {
+    "id": "19",
+    "label": "4"
+   },
+   {
+    "id": "20",
+    "label": "6"
+   },
+   {
+    "id": "21",
+    "label": "10"
+   },
+   {
+    "id": "22",
+    "label": "1"
+   },
+   {
+    "id": "23",
+    "label": "9"
+   },
+   {
+    "id": "25",
+    "label": "15"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_43wa_7qmu\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_43wa_7qmu AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "405842",
+    "v": "23"
+   },
+   {
+    "n": "390807",
+    "v": "46"
+   },
+   {
+    "n": "350577",
+    "v": "36"
+   },
+   {
+    "n": "316655",
+    "v": "4"
+   },
+   {
+    "n": "305245",
+    "v": "32"
+   },
+   {
+    "n": "294818",
+    "v": "14"
+   },
+   {
+    "n": "293544",
+    "v": "2"
+   },
+   {
+    "n": "279316",
+    "v": "45"
+   },
+   {
+    "n": "272761",
+    "v": "9"
+   },
+   {
+    "n": "266051",
+    "v": "35"
+   },
+   {
+    "n": "264903",
+    "v": "31"
+   },
+   {
+    "n": "253579",
+    "v": "37"
+   },
+   {
+    "n": "248187",
+    "v": "13"
+   },
+   {
+    "n": "244904",
+    "v": "43"
+   },
+   {
+    "n": "244326",
+    "v": "22"
+   },
+   {
+    "n": "219701",
+    "v": "10"
+   },
+   {
+    "n": "208423",
+    "v": "7"
+   },
+   {
+    "n": "198221",
+    "v": "33"
+   },
+   {
+    "n": "171370",
+    "v": "41"
+   },
+   {
+    "n": "158704",
+    "v": "49"
+   },
+   {
+    "n": "148624",
+    "v": "26"
+   },
+   {
+    "n": "142007",
+    "v": "47"
+   },
+   {
+    "n": "141423",
+    "v": "3"
+   },
+   {
+    "n": "135231",
+    "v": "11"
+   },
+   {
+    "n": "129288",
+    "v": "5"
+   },
+   {
+    "n": "126202",
+    "v": "30"
+   },
+   {
+    "n": "123264"
+   },
+   {
+    "n": "121544",
+    "v": "39"
+   },
+   {
+    "n": "116345",
+    "v": "25"
+   },
+   {
+    "n": "114775",
+    "v": "1"
+   },
+   {
+    "n": "113145",
+    "v": "48"
+   },
+   {
+    "n": "112688",
+    "v": "40"
+   },
+   {
+    "n": "109785",
+    "v": "28"
+   },
+   {
+    "n": "109702",
+    "v": "8"
+   },
+   {
+    "n": "106192",
+    "v": "12"
+   },
+   {
+    "n": "105514",
+    "v": "44"
+   },
+   {
+    "n": "105292",
+    "v": "17"
+   },
+   {
+    "n": "99758",
+    "v": "21"
+   },
+   {
+    "n": "98715",
+    "v": "34"
+   },
+   {
+    "n": "94816",
+    "v": "6"
+   },
+   {
+    "n": "94208",
+    "v": "16"
+   },
+   {
+    "n": "93459",
+    "v": "50"
+   },
+   {
+    "n": "90929",
+    "v": "24"
+   },
+   {
+    "n": "89686",
+    "v": "20"
+   },
+   {
+    "n": "88306",
+    "v": "18"
+   },
+   {
+    "n": "84796",
+    "v": "29"
+   },
+   {
+    "n": "82624",
+    "v": "27"
+   },
+   {
+    "n": "78870",
+    "v": "15"
+   },
+   {
+    "n": "74836",
+    "v": "38"
+   },
+   {
+    "n": "72718",
+    "v": "42"
+   },
+   {
+    "n": "69665",
+    "v": "19"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_6mkv_f3dw\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_6mkv_f3dw AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "368855",
+    "v": "21554"
+   },
+   {
+    "n": "367689",
+    "v": "21861"
+   },
+   {
+    "n": "326893",
+    "v": "21572"
+   },
+   {
+    "n": "325005",
+    "v": "21546"
+   },
+   {
+    "n": "317055",
+    "v": "22216"
+   },
+   {
+    "n": "313501",
+    "v": "21202"
+   },
+   {
+    "n": "310109",
+    "v": "21569"
+   },
+   {
+    "n": "285868",
+    "v": "22257"
+   },
+   {
+    "n": "279964",
+    "v": "22260"
+   },
+   {
+    "n": "277426",
+    "v": "4299"
+   },
+   {
+    "n": "263669",
+    "v": "21867"
+   },
+   {
+    "n": "262075",
+    "v": "14924"
+   },
+   {
+    "n": "255647",
+    "v": "21559"
+   },
+   {
+    "n": "249666",
+    "v": "22538"
+   },
+   {
+    "n": "229694",
+    "v": "22615"
+   },
+   {
+    "n": "227718",
+    "v": "22535"
+   },
+   {
+    "n": "214699",
+    "v": "21184"
+   },
+   {
+    "n": "196297",
+    "v": "14920"
+   },
+   {
+    "n": "179626",
+    "v": "22248"
+   },
+   {
+    "n": "166536",
+    "v": "21560"
+   },
+   {
+    "n": "165306",
+    "v": "21538"
+   },
+   {
+    "n": "149152",
+    "v": "21194"
+   },
+   {
+    "n": "148058",
+    "v": "22212"
+   },
+   {
+    "n": "146623",
+    "v": "4301"
+   },
+   {
+    "n": "141976",
+    "v": "22616"
+   },
+   {
+    "n": "140586",
+    "v": "21190"
+   },
+   {
+    "n": "136531",
+    "v": "22618"
+   },
+   {
+    "n": "134111",
+    "v": "21192"
+   },
+   {
+    "n": "123449",
+    "v": "21849"
+   },
+   {
+    "n": "121738",
+    "v": "4449"
+   },
+   {
+    "n": "121545",
+    "v": "21853"
+   },
+   {
+    "n": "116246",
+    "v": "21182"
+   },
+   {
+    "n": "109098",
+    "v": "14926"
+   },
+   {
+    "n": "103126",
+    "v": "22254"
+   },
+   {
+    "n": "100892"
+   },
+   {
+    "n": "100808",
+    "v": "14917"
+   },
+   {
+    "n": "86381",
+    "v": "22268"
+   },
+   {
+    "n": "85780",
+    "v": "21186"
+   },
+   {
+    "n": "82551",
+    "v": "4300"
+   },
+   {
+    "n": "75444",
+    "v": "22620"
+   },
+   {
+    "n": "74868",
+    "v": "21869"
+   },
+   {
+    "n": "74705",
+    "v": "4446"
+   },
+   {
+    "n": "70140",
+    "v": "14913"
+   },
+   {
+    "n": "66029",
+    "v": "4450"
+   },
+   {
+    "n": "65308",
+    "v": "4451"
+   },
+   {
+    "n": "62427",
+    "v": "22528"
+   },
+   {
+    "n": "52623",
+    "v": "14309"
+   },
+   {
+    "n": "41635",
+    "v": "14310"
+   },
+   {
+    "n": "37916",
+    "v": "4460"
+   },
+   {
+    "n": "33993",
+    "v": "4454"
+   },
+   {
+    "n": "32597",
+    "v": "16197"
+   },
+   {
+    "n": "28311",
+    "v": "14311"
+   },
+   {
+    "n": "28196",
+    "v": "14914"
+   },
+   {
+    "n": "26558",
+    "v": "4447"
+   },
+   {
+    "n": "26299",
+    "v": "22243"
+   },
+   {
+    "n": "25093",
+    "v": "22532"
+   },
+   {
+    "n": "24376",
+    "v": "14912"
+   },
+   {
+    "n": "24118",
+    "v": "4448"
+   },
+   {
+    "n": "22769",
+    "v": "4452"
+   },
+   {
+    "n": "20637",
+    "v": "22250"
+   },
+   {
+    "n": "2964",
+    "v": "4453"
+   },
+   {
+    "n": "2717",
+    "v": "4458"
+   },
+   {
+    "n": "2063",
+    "v": "26615"
+   },
+   {
+    "n": "1991",
+    "v": "4459"
+   },
+   {
+    "n": "1373",
+    "v": "15610"
+   },
+   {
+    "n": "759",
+    "v": "10417"
+   },
+   {
+    "n": "734",
+    "v": "4456"
+   },
+   {
+    "n": "711",
+    "v": "2733"
+   },
+   {
+    "n": "648",
+    "v": "10408"
+   },
+   {
+    "n": "572",
+    "v": "26609"
+   },
+   {
+    "n": "478",
+    "v": "10412"
+   },
+   {
+    "n": "232",
+    "v": "26633"
+   },
+   {
+    "n": "185",
+    "v": "4457"
+   },
+   {
+    "n": "179",
+    "v": "16174"
+   },
+   {
+    "n": "149",
+    "v": "21273"
+   },
+   {
+    "n": "135",
+    "v": "9012"
+   },
+   {
+    "n": "129",
+    "v": "10505"
+   },
+   {
+    "n": "122",
+    "v": "16181"
+   },
+   {
+    "n": "65",
+    "v": "21642"
+   },
+   {
+    "n": "56",
+    "v": "4455"
+   },
+   {
+    "n": "33",
+    "v": "9460"
+   },
+   {
+    "n": "28",
+    "v": "26912"
+   },
+   {
+    "n": "19",
+    "v": "4094"
+   },
+   {
+    "n": "8",
+    "v": "9458"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_8hcu_yrd4\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_8hcu_yrd4 AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "419951",
+    "v": "28"
+   },
+   {
+    "n": "374579",
+    "v": "16"
+   },
+   {
+    "n": "371573",
+    "v": "27"
+   },
+   {
+    "n": "312395",
+    "v": "17"
+   },
+   {
+    "n": "311457",
+    "v": "20"
+   },
+   {
+    "n": "307286",
+    "v": "37"
+   },
+   {
+    "n": "304778",
+    "v": "4"
+   },
+   {
+    "n": "304742",
+    "v": "24"
+   },
+   {
+    "n": "290329",
+    "v": "11"
+   },
+   {
+    "n": "286380",
+    "v": "21"
+   },
+   {
+    "n": "274035",
+    "v": "10"
+   },
+   {
+    "n": "262148",
+    "v": "5"
+   },
+   {
+    "n": "228693",
+    "v": "8"
+   },
+   {
+    "n": "224907",
+    "v": "42"
+   },
+   {
+    "n": "201377",
+    "v": "9"
+   },
+   {
+    "n": "195810",
+    "v": "29"
+   },
+   {
+    "n": "181552",
+    "v": "3"
+   },
+   {
+    "n": "169496",
+    "v": "26"
+   },
+   {
+    "n": "168506",
+    "v": "6"
+   },
+   {
+    "n": "166216",
+    "v": "34"
+   },
+   {
+    "n": "161913",
+    "v": "15"
+   },
+   {
+    "n": "152803",
+    "v": "1"
+   },
+   {
+    "n": "137843",
+    "v": "18"
+   },
+   {
+    "n": "135792",
+    "v": "36"
+   },
+   {
+    "n": "131595",
+    "v": "49"
+   },
+   {
+    "n": "124613",
+    "v": "32"
+   },
+   {
+    "n": "124478"
+   },
+   {
+    "n": "124342",
+    "v": "46"
+   },
+   {
+    "n": "122850",
+    "v": "35"
+   },
+   {
+    "n": "121525",
+    "v": "25"
+   },
+   {
+    "n": "114226",
+    "v": "14"
+   },
+   {
+    "n": "114190",
+    "v": "31"
+   },
+   {
+    "n": "113139",
+    "v": "22"
+   },
+   {
+    "n": "111131",
+    "v": "44"
+   },
+   {
+    "n": "106095",
+    "v": "2"
+   },
+   {
+    "n": "105107",
+    "v": "12"
+   },
+   {
+    "n": "103703",
+    "v": "30"
+   },
+   {
+    "n": "99539",
+    "v": "7"
+   },
+   {
+    "n": "97926",
+    "v": "33"
+   },
+   {
+    "n": "94927",
+    "v": "43"
+   },
+   {
+    "n": "94508",
+    "v": "48"
+   },
+   {
+    "n": "91302",
+    "v": "40"
+   },
+   {
+    "n": "86566",
+    "v": "45"
+   },
+   {
+    "n": "84124",
+    "v": "41"
+   },
+   {
+    "n": "83004",
+    "v": "13"
+   },
+   {
+    "n": "82859",
+    "v": "47"
+   },
+   {
+    "n": "82473",
+    "v": "23"
+   },
+   {
+    "n": "78052",
+    "v": "19"
+   },
+   {
+    "n": "77865",
+    "v": "50"
+   },
+   {
+    "n": "77769",
+    "v": "39"
+   },
+   {
+    "n": "69872",
+    "v": "38"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_awaf_s7ux\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_awaf_s7ux AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "377364",
+    "v": "11"
+   },
+   {
+    "n": "375360",
+    "v": "22"
+   },
+   {
+    "n": "342737",
+    "v": "48"
+   },
+   {
+    "n": "333983",
+    "v": "36"
+   },
+   {
+    "n": "317646",
+    "v": "41"
+   },
+   {
+    "n": "278571",
+    "v": "17"
+   },
+   {
+    "n": "277372",
+    "v": "53"
+   },
+   {
+    "n": "272732",
+    "v": "31"
+   },
+   {
+    "n": "256383",
+    "v": "12"
+   },
+   {
+    "n": "255111",
+    "v": "18"
+   },
+   {
+    "n": "235585",
+    "v": "9"
+   },
+   {
+    "n": "230498",
+    "v": "19"
+   },
+   {
+    "n": "229456",
+    "v": "45"
+   },
+   {
+    "n": "222753",
+    "v": "44"
+   },
+   {
+    "n": "221422",
+    "v": "43"
+   },
+   {
+    "n": "220095",
+    "v": "4"
+   },
+   {
+    "n": "215560",
+    "v": "30"
+   },
+   {
+    "n": "210164",
+    "v": "32"
+   },
+   {
+    "n": "189948",
+    "v": "52"
+   },
+   {
+    "n": "178730",
+    "v": "1"
+   },
+   {
+    "n": "165835",
+    "v": "24"
+   },
+   {
+    "n": "148241",
+    "v": "16"
+   },
+   {
+    "n": "143939",
+    "v": "47"
+   },
+   {
+    "n": "143505",
+    "v": "10"
+   },
+   {
+    "n": "139868",
+    "v": "6"
+   },
+   {
+    "n": "126946"
+   },
+   {
+    "n": "121487",
+    "v": "8"
+   },
+   {
+    "n": "120711",
+    "v": "38"
+   },
+   {
+    "n": "120691",
+    "v": "3"
+   },
+   {
+    "n": "120080",
+    "v": "37"
+   },
+   {
+    "n": "119272",
+    "v": "26"
+   },
+   {
+    "n": "118375",
+    "v": "7"
+   },
+   {
+    "n": "116964",
+    "v": "49"
+   },
+   {
+    "n": "115270",
+    "v": "27"
+   },
+   {
+    "n": "112147",
+    "v": "15"
+   },
+   {
+    "n": "110266",
+    "v": "51"
+   },
+   {
+    "n": "109946",
+    "v": "35"
+   },
+   {
+    "n": "108298",
+    "v": "23"
+   },
+   {
+    "n": "103445",
+    "v": "29"
+   },
+   {
+    "n": "98058",
+    "v": "14"
+   },
+   {
+    "n": "95785",
+    "v": "25"
+   },
+   {
+    "n": "92336",
+    "v": "40"
+   },
+   {
+    "n": "90184",
+    "v": "46"
+   },
+   {
+    "n": "89439",
+    "v": "13"
+   },
+   {
+    "n": "88402",
+    "v": "42"
+   },
+   {
+    "n": "88149",
+    "v": "34"
+   },
+   {
+    "n": "85241",
+    "v": "2"
+   },
+   {
+    "n": "84806",
+    "v": "20"
+   },
+   {
+    "n": "84000",
+    "v": "39"
+   },
+   {
+    "n": "81285",
+    "v": "28"
+   },
+   {
+    "n": "75983",
+    "v": "33"
+   },
+   {
+    "n": "1859",
+    "v": "21"
+   },
+   {
+    "n": "54",
+    "v": "5"
+   },
+   {
+    "n": "4",
+    "v": "50"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_bdys_3d7i\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_bdys_3d7i AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "121617"
+   },
+   {
+    "n": "97160",
+    "v": "92"
+   },
+   {
+    "n": "54787",
+    "v": "580"
+   },
+   {
+    "n": "46202",
+    "v": "696"
+   },
+   {
+    "n": "44630",
+    "v": "456"
+   },
+   {
+    "n": "44270",
+    "v": "584"
+   },
+   {
+    "n": "44223",
+    "v": "674"
+   },
+   {
+    "n": "40233",
+    "v": "332"
+   },
+   {
+    "n": "39080",
+    "v": "374"
+   },
+   {
+    "n": "36779",
+    "v": "69"
+   },
+   {
+    "n": "36500",
+    "v": "1"
+   },
+   {
+    "n": "35556",
+    "v": "33"
+   },
+   {
+    "n": "34498",
+    "v": "108"
+   },
+   {
+    "n": "33741",
+    "v": "524"
+   },
+   {
+    "n": "33710",
+    "v": "98"
+   },
+   {
+    "n": "32835",
+    "v": "188"
+   },
+   {
+    "n": "32681",
+    "v": "111"
+   },
+   {
+    "n": "32443",
+    "v": "247"
+   },
+   {
+    "n": "32210",
+    "v": "97"
+   },
+   {
+    "n": "32052",
+    "v": "668"
+   },
+   {
+    "n": "31513",
+    "v": "68"
+   },
+   {
+    "n": "31297",
+    "v": "367"
+   },
+   {
+    "n": "31092",
+    "v": "435"
+   },
+   {
+    "n": "30865",
+    "v": "286"
+   },
+   {
+    "n": "30309",
+    "v": "63"
+   },
+   {
+    "n": "30309",
+    "v": "255"
+   },
+   {
+    "n": "30023",
+    "v": "319"
+   },
+   {
+    "n": "30022",
+    "v": "652"
+   },
+   {
+    "n": "29974",
+    "v": "245"
+   },
+   {
+    "n": "29721",
+    "v": "99"
+   },
+   {
+    "n": "28446",
+    "v": "670"
+   },
+   {
+    "n": "28394",
+    "v": "618"
+   },
+   {
+    "n": "28044",
+    "v": "96"
+   },
+   {
+    "n": "27884",
+    "v": "572"
+   },
+   {
+    "n": "27573",
+    "v": "241"
+   },
+   {
+    "n": "27492",
+    "v": "487"
+   },
+   {
+    "n": "27231",
+    "v": "104"
+   },
+   {
+    "n": "27101",
+    "v": "673"
+   },
+   {
+    "n": "26999",
+    "v": "421"
+   },
+   {
+    "n": "26366",
+    "v": "60"
+   },
+   {
+    "n": "26227",
+    "v": "626"
+   },
+   {
+    "n": "25837",
+    "v": "410"
+   },
+   {
+    "n": "25836",
+    "v": "166"
+   },
+   {
+    "n": "25611",
+    "v": "383"
+   },
+   {
+    "n": "25525",
+    "v": "252"
+   },
+   {
+    "n": "25496",
+    "v": "133"
+   },
+   {
+    "n": "25010",
+    "v": "381"
+   },
+   {
+    "n": "24979",
+    "v": "253"
+   },
+   {
+    "n": "24972",
+    "v": "141"
+   },
+   {
+    "n": "24937",
+    "v": "495"
+   },
+   {
+    "n": "24840",
+    "v": "761"
+   },
+   {
+    "n": "24819",
+    "v": "246"
+   },
+   {
+    "n": "24667",
+    "v": "507"
+   },
+   {
+    "n": "24513",
+    "v": "585"
+   },
+   {
+    "n": "24349",
+    "v": "573"
+   },
+   {
+    "n": "24006",
+    "v": "694"
+   },
+   {
+    "n": "23932",
+    "v": "37"
+   },
+   {
+    "n": "23798",
+    "v": "283"
+   },
+   {
+    "n": "23658",
+    "v": "514"
+   },
+   {
+    "n": "23655",
+    "v": "193"
+   },
+   {
+    "n": "23386",
+    "v": "436"
+   },
+   {
+    "n": "23277",
+    "v": "333"
+   },
+   {
+    "n": "23262",
+    "v": "11"
+   },
+   {
+    "n": "23227",
+    "v": "159"
+   },
+   {
+    "n": "23001",
+    "v": "34"
+   },
+   {
+    "n": "22808",
+    "v": "454"
+   },
+   {
+    "n": "22160",
+    "v": "195"
+   },
+   {
+    "n": "22153",
+    "v": "236"
+   },
+   {
+    "n": "21824",
+    "v": "378"
+   },
+   {
+    "n": "21812",
+    "v": "10"
+   },
+   {
+    "n": "21681",
+    "v": "452"
+   },
+   {
+    "n": "21483",
+    "v": "515"
+   },
+   {
+    "n": "21432",
+    "v": "736"
+   },
+   {
+    "n": "21260",
+    "v": "382"
+   },
+   {
+    "n": "21205",
+    "v": "176"
+   },
+   {
+    "n": "21140",
+    "v": "152"
+   },
+   {
+    "n": "21121",
+    "v": "574"
+   },
+   {
+    "n": "21108",
+    "v": "675"
+   },
+   {
+    "n": "21035",
+    "v": "599"
+   },
+   {
+    "n": "20874",
+    "v": "597"
+   },
+   {
+    "n": "20843",
+    "v": "481"
+   },
+   {
+    "n": "20656",
+    "v": "244"
+   },
+   {
+    "n": "20601",
+    "v": "61"
+   },
+   {
+    "n": "20578",
+    "v": "494"
+   },
+   {
+    "n": "20325",
+    "v": "672"
+   },
+   {
+    "n": "20226",
+    "v": "479"
+   },
+   {
+    "n": "20099",
+    "v": "671"
+   },
+   {
+    "n": "19930",
+    "v": "433"
+   },
+   {
+    "n": "19766",
+    "v": "187"
+   },
+   {
+    "n": "19658",
+    "v": "404"
+   },
+   {
+    "n": "19638",
+    "v": "134"
+   },
+   {
+    "n": "19577",
+    "v": "511"
+   },
+   {
+    "n": "19519",
+    "v": "496"
+   },
+   {
+    "n": "19418",
+    "v": "237"
+   },
+   {
+    "n": "19392",
+    "v": "109"
+   },
+   {
+    "n": "19381",
+    "v": "91"
+   },
+   {
+    "n": "19358",
+    "v": "753"
+   },
+   {
+    "n": "19308",
+    "v": "512"
+   },
+   {
+    "n": "19278",
+    "v": "12"
+   },
+   {
+    "n": "19273",
+    "v": "505"
+   },
+   {
+    "n": "19272",
+    "v": "113"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_d3ds_rm58\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_d3ds_rm58 AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "122050"
+   },
+   {
+    "n": "65910",
+    "v": "225"
+   },
+   {
+    "n": "65521",
+    "v": "74"
+   },
+   {
+    "n": "62964",
+    "v": "238"
+   },
+   {
+    "n": "60506",
+    "v": "227"
+   },
+   {
+    "n": "58200",
+    "v": "250"
+   },
+   {
+    "n": "57212",
+    "v": "276"
+   },
+   {
+    "n": "56182",
+    "v": "137"
+   },
+   {
+    "n": "55772",
+    "v": "66"
+   },
+   {
+    "n": "54156",
+    "v": "222"
+   },
+   {
+    "n": "51353",
+    "v": "195"
+   },
+   {
+    "n": "51298",
+    "v": "229"
+   },
+   {
+    "n": "50636",
+    "v": "230"
+   },
+   {
+    "n": "49525",
+    "v": "235"
+   },
+   {
+    "n": "49219",
+    "v": "97"
+   },
+   {
+    "n": "48162",
+    "v": "256"
+   },
+   {
+    "n": "48153",
+    "v": "73"
+   },
+   {
+    "n": "47339",
+    "v": "206"
+   },
+   {
+    "n": "47250",
+    "v": "274"
+   },
+   {
+    "n": "46425",
+    "v": "241"
+   },
+   {
+    "n": "46083",
+    "v": "82"
+   },
+   {
+    "n": "46018",
+    "v": "81"
+   },
+   {
+    "n": "45989",
+    "v": "141"
+   },
+   {
+    "n": "45750",
+    "v": "262"
+   },
+   {
+    "n": "45303",
+    "v": "65"
+   },
+   {
+    "n": "45267",
+    "v": "208"
+   },
+   {
+    "n": "45023",
+    "v": "155"
+   },
+   {
+    "n": "44951",
+    "v": "228"
+   },
+   {
+    "n": "44662",
+    "v": "271"
+   },
+   {
+    "n": "44366",
+    "v": "101"
+   },
+   {
+    "n": "44331",
+    "v": "277"
+   },
+   {
+    "n": "43995",
+    "v": "266"
+   },
+   {
+    "n": "43942",
+    "v": "217"
+   },
+   {
+    "n": "43340",
+    "v": "209"
+   },
+   {
+    "n": "43292",
+    "v": "69"
+   },
+   {
+    "n": "43227",
+    "v": "194"
+   },
+   {
+    "n": "43223",
+    "v": "207"
+   },
+   {
+    "n": "43197",
+    "v": "260"
+   },
+   {
+    "n": "43057",
+    "v": "79"
+   },
+   {
+    "n": "43016",
+    "v": "267"
+   },
+   {
+    "n": "42514",
+    "v": "94"
+   },
+   {
+    "n": "42148",
+    "v": "142"
+   },
+   {
+    "n": "42105",
+    "v": "261"
+   },
+   {
+    "n": "41643",
+    "v": "231"
+   },
+   {
+    "n": "41563",
+    "v": "88"
+   },
+   {
+    "n": "41553",
+    "v": "71"
+   },
+   {
+    "n": "41465",
+    "v": "223"
+   },
+   {
+    "n": "41440",
+    "v": "218"
+   },
+   {
+    "n": "41252",
+    "v": "239"
+   },
+   {
+    "n": "40656",
+    "v": "226"
+   },
+   {
+    "n": "40250",
+    "v": "204"
+   },
+   {
+    "n": "40247",
+    "v": "93"
+   },
+   {
+    "n": "40049",
+    "v": "212"
+   },
+   {
+    "n": "39252",
+    "v": "84"
+   },
+   {
+    "n": "38832",
+    "v": "183"
+   },
+   {
+    "n": "38794",
+    "v": "240"
+   },
+   {
+    "n": "38419",
+    "v": "246"
+   },
+   {
+    "n": "38377",
+    "v": "144"
+   },
+   {
+    "n": "38325",
+    "v": "220"
+   },
+   {
+    "n": "38153",
+    "v": "269"
+   },
+   {
+    "n": "38091",
+    "v": "105"
+   },
+   {
+    "n": "37980",
+    "v": "176"
+   },
+   {
+    "n": "37796",
+    "v": "221"
+   },
+   {
+    "n": "37600",
+    "v": "233"
+   },
+   {
+    "n": "37511",
+    "v": "150"
+   },
+   {
+    "n": "37477",
+    "v": "9"
+   },
+   {
+    "n": "37325",
+    "v": "52"
+   },
+   {
+    "n": "37299",
+    "v": "113"
+   },
+   {
+    "n": "36945",
+    "v": "68"
+   },
+   {
+    "n": "36873",
+    "v": "67"
+   },
+   {
+    "n": "36860",
+    "v": "90"
+   },
+   {
+    "n": "36735",
+    "v": "145"
+   },
+   {
+    "n": "36729",
+    "v": "257"
+   },
+   {
+    "n": "36354",
+    "v": "275"
+   },
+   {
+    "n": "36278",
+    "v": "232"
+   },
+   {
+    "n": "36211",
+    "v": "202"
+   },
+   {
+    "n": "36191",
+    "v": "249"
+   },
+   {
+    "n": "36064",
+    "v": "193"
+   },
+   {
+    "n": "36051",
+    "v": "4"
+   },
+   {
+    "n": "35931",
+    "v": "153"
+   },
+   {
+    "n": "35636",
+    "v": "243"
+   },
+   {
+    "n": "35597",
+    "v": "146"
+   },
+   {
+    "n": "35512",
+    "v": "152"
+   },
+   {
+    "n": "35458",
+    "v": "129"
+   },
+   {
+    "n": "35365",
+    "v": "224"
+   },
+   {
+    "n": "35252",
+    "v": "200"
+   },
+   {
+    "n": "35246",
+    "v": "133"
+   },
+   {
+    "n": "35196",
+    "v": "199"
+   },
+   {
+    "n": "35024",
+    "v": "247"
+   },
+   {
+    "n": "34886",
+    "v": "263"
+   },
+   {
+    "n": "34503",
+    "v": "234"
+   },
+   {
+    "n": "34502",
+    "v": "115"
+   },
+   {
+    "n": "34273",
+    "v": "127"
+   },
+   {
+    "n": "34245",
+    "v": "211"
+   },
+   {
+    "n": "33998",
+    "v": "140"
+   },
+   {
+    "n": "33959",
+    "v": "197"
+   },
+   {
+    "n": "33909",
+    "v": "215"
+   },
+   {
+    "n": "33792",
+    "v": "75"
+   },
+   {
+    "n": "33528",
+    "v": "102"
+   },
+   {
+    "n": "33232",
+    "v": "7"
+   },
+   {
+    "n": "33214",
+    "v": "86"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_d9mm_jgwp\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_d9mm_jgwp AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "567987",
+    "v": "13"
+   },
+   {
+    "n": "541021",
+    "v": "16"
+   },
+   {
+    "n": "499160",
+    "v": "20"
+   },
+   {
+    "n": "487186",
+    "v": "19"
+   },
+   {
+    "n": "479341",
+    "v": "6"
+   },
+   {
+    "n": "478563",
+    "v": "17"
+   },
+   {
+    "n": "436492",
+    "v": "15"
+   },
+   {
+    "n": "436199",
+    "v": "18"
+   },
+   {
+    "n": "421679",
+    "v": "23"
+   },
+   {
+    "n": "404957",
+    "v": "24"
+   },
+   {
+    "n": "392824",
+    "v": "5"
+   },
+   {
+    "n": "390283",
+    "v": "14"
+   },
+   {
+    "n": "372806",
+    "v": "10"
+   },
+   {
+    "n": "365728",
+    "v": "21"
+   },
+   {
+    "n": "364441",
+    "v": "22"
+   },
+   {
+    "n": "354925",
+    "v": "25"
+   },
+   {
+    "n": "328546",
+    "v": "7"
+   },
+   {
+    "n": "281650",
+    "v": "12"
+   },
+   {
+    "n": "276562",
+    "v": "9"
+   },
+   {
+    "n": "254108",
+    "v": "11"
+   },
+   {
+    "n": "248147",
+    "v": "1"
+   },
+   {
+    "n": "155741",
+    "v": "2"
+   },
+   {
+    "n": "122079"
+   },
+   {
+    "n": "1858",
+    "v": "4"
+   },
+   {
+    "n": "54",
+    "v": "3"
+   },
+   {
+    "n": "4",
+    "v": "8"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_rpca_8um6\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_rpca_8um6 AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "380417",
+    "v": "59"
+   },
+   {
+    "n": "353216",
+    "v": "19"
+   },
+   {
+    "n": "327483",
+    "v": "61"
+   },
+   {
+    "n": "320157",
+    "v": "30"
+   },
+   {
+    "n": "318686",
+    "v": "32"
+   },
+   {
+    "n": "313882",
+    "v": "57"
+   },
+   {
+    "n": "306738",
+    "v": "25"
+   },
+   {
+    "n": "295142",
+    "v": "5"
+   },
+   {
+    "n": "283100",
+    "v": "58"
+   },
+   {
+    "n": "276591",
+    "v": "60"
+   },
+   {
+    "n": "264014",
+    "v": "23"
+   },
+   {
+    "n": "262999",
+    "v": "37"
+   },
+   {
+    "n": "257185",
+    "v": "11"
+   },
+   {
+    "n": "247645",
+    "v": "24"
+   },
+   {
+    "n": "222949",
+    "v": "28"
+   },
+   {
+    "n": "213903",
+    "v": "1"
+   },
+   {
+    "n": "208622",
+    "v": "2"
+   },
+   {
+    "n": "190739",
+    "v": "43"
+   },
+   {
+    "n": "176558",
+    "v": "56"
+   },
+   {
+    "n": "169424",
+    "v": "39"
+   },
+   {
+    "n": "162897",
+    "v": "4"
+   },
+   {
+    "n": "150320",
+    "v": "40"
+   },
+   {
+    "n": "150016",
+    "v": "15"
+   },
+   {
+    "n": "148417",
+    "v": "36"
+   },
+   {
+    "n": "145309",
+    "v": "13"
+   },
+   {
+    "n": "142073",
+    "v": "10"
+   },
+   {
+    "n": "138871",
+    "v": "16"
+   },
+   {
+    "n": "136252",
+    "v": "21"
+   },
+   {
+    "n": "128649",
+    "v": "22"
+   },
+   {
+    "n": "123334"
+   },
+   {
+    "n": "122987",
+    "v": "20"
+   },
+   {
+    "n": "122668",
+    "v": "9"
+   },
+   {
+    "n": "114533",
+    "v": "54"
+   },
+   {
+    "n": "112480",
+    "v": "6"
+   },
+   {
+    "n": "104350",
+    "v": "52"
+   },
+   {
+    "n": "101381",
+    "v": "44"
+   },
+   {
+    "n": "86160",
+    "v": "7"
+   },
+   {
+    "n": "85459",
+    "v": "8"
+   },
+   {
+    "n": "79927",
+    "v": "53"
+   },
+   {
+    "n": "77353",
+    "v": "48"
+   },
+   {
+    "n": "75826",
+    "v": "49"
+   },
+   {
+    "n": "72356",
+    "v": "55"
+   },
+   {
+    "n": "72007",
+    "v": "35"
+   },
+   {
+    "n": "63927",
+    "v": "12"
+   },
+   {
+    "n": "63840",
+    "v": "14"
+   },
+   {
+    "n": "63615",
+    "v": "50"
+   },
+   {
+    "n": "48561",
+    "v": "42"
+   },
+   {
+    "n": "46982",
+    "v": "41"
+   },
+   {
+    "n": "37764",
+    "v": "47"
+   },
+   {
+    "n": "33728",
+    "v": "38"
+   },
+   {
+    "n": "29557",
+    "v": "3"
+   },
+   {
+    "n": "29266",
+    "v": "33"
+   },
+   {
+    "n": "27429",
+    "v": "34"
+   },
+   {
+    "n": "27284",
+    "v": "31"
+   },
+   {
+    "n": "26798",
+    "v": "45"
+   },
+   {
+    "n": "24658",
+    "v": "18"
+   },
+   {
+    "n": "24530",
+    "v": "29"
+   },
+   {
+    "n": "24032",
+    "v": "17"
+   },
+   {
+    "n": "23604",
+    "v": "46"
+   },
+   {
+    "n": "18864",
+    "v": "26"
+   },
+   {
+    "n": "2937",
+    "v": "27"
+   },
+   {
+    "n": "1890",
+    "v": "51"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \":@computed_region_vrxf_vc4k\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_vrxf_vc4k AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "518007",
+    "v": "26"
+   },
+   {
+    "n": "312172",
+    "v": "37"
+   },
+   {
+    "n": "281096",
+    "v": "39"
+   },
+   {
+    "n": "271582",
+    "v": "29"
+   },
+   {
+    "n": "264206",
+    "v": "24"
+   },
+   {
+    "n": "254912",
+    "v": "25"
+   },
+   {
+    "n": "244304",
+    "v": "30"
+   },
+   {
+    "n": "241319",
+    "v": "70"
+   },
+   {
+    "n": "236793",
+    "v": "65"
+   },
+   {
+    "n": "224232",
+    "v": "45"
+   },
+   {
+    "n": "221841",
+    "v": "66"
+   },
+   {
+    "n": "218150",
+    "v": "38"
+   },
+   {
+    "n": "209361",
+    "v": "67"
+   },
+   {
+    "n": "204009",
+    "v": "64"
+   },
+   {
+    "n": "181692",
+    "v": "40"
+   },
+   {
+    "n": "180027",
+    "v": "23"
+   },
+   {
+    "n": "174385",
+    "v": "57"
+   },
+   {
+    "n": "165570",
+    "v": "59"
+   },
+   {
+    "n": "158638",
+    "v": "28"
+   },
+   {
+    "n": "158098",
+    "v": "19"
+   },
+   {
+    "n": "154647",
+    "v": "42"
+   },
+   {
+    "n": "153439",
+    "v": "27"
+   },
+   {
+    "n": "146384",
+    "v": "32"
+   },
+   {
+    "n": "144349",
+    "v": "9"
+   },
+   {
+    "n": "135663",
+    "v": "50"
+   },
+   {
+    "n": "133373",
+    "v": "68"
+   },
+   {
+    "n": "130694",
+    "v": "31"
+   },
+   {
+    "n": "129892",
+    "v": "10"
+   },
+   {
+    "n": "123393"
+   },
+   {
+    "n": "120967",
+    "v": "4"
+   },
+   {
+    "n": "109387",
+    "v": "15"
+   },
+   {
+    "n": "107722",
+    "v": "20"
+   },
+   {
+    "n": "100557",
+    "v": "72"
+   },
+   {
+    "n": "99654",
+    "v": "1"
+   },
+   {
+    "n": "96754",
+    "v": "16"
+   },
+   {
+    "n": "89893",
+    "v": "7"
+   },
+   {
+    "n": "88817",
+    "v": "76"
+   },
+   {
+    "n": "83475",
+    "v": "55"
+   },
+   {
+    "n": "83112",
+    "v": "33"
+   },
+   {
+    "n": "78390",
+    "v": "61"
+   },
+   {
+    "n": "77576",
+    "v": "22"
+   },
+   {
+    "n": "76812",
+    "v": "14"
+   },
+   {
+    "n": "75651",
+    "v": "69"
+   },
+   {
+    "n": "71162",
+    "v": "53"
+   },
+   {
+    "n": "69202",
+    "v": "34"
+   },
+   {
+    "n": "66727",
+    "v": "74"
+   },
+   {
+    "n": "64989",
+    "v": "6"
+   },
+   {
+    "n": "61930",
+    "v": "63"
+   },
+   {
+    "n": "59244",
+    "v": "8"
+   },
+   {
+    "n": "57310",
+    "v": "48"
+   },
+   {
+    "n": "54969",
+    "v": "58"
+   },
+   {
+    "n": "52795",
+    "v": "5"
+   },
+   {
+    "n": "51264",
+    "v": "46"
+   },
+   {
+    "n": "50823",
+    "v": "17"
+   },
+   {
+    "n": "50072",
+    "v": "44"
+   },
+   {
+    "n": "48082",
+    "v": "21"
+   },
+   {
+    "n": "46806",
+    "v": "75"
+   },
+   {
+    "n": "42677",
+    "v": "49"
+   },
+   {
+    "n": "39912",
+    "v": "41"
+   },
+   {
+    "n": "39106",
+    "v": "51"
+   },
+   {
+    "n": "37408",
+    "v": "36"
+   },
+   {
+    "n": "35266",
+    "v": "56"
+   },
+   {
+    "n": "34949",
+    "v": "62"
+   },
+   {
+    "n": "34890",
+    "v": "35"
+   },
+   {
+    "n": "33887",
+    "v": "11"
+   },
+   {
+    "n": "32464",
+    "v": "47"
+   },
+   {
+    "n": "31358",
+    "v": "60"
+   },
+   {
+    "n": "31222",
+    "v": "54"
+   },
+   {
+    "n": "31111",
+    "v": "71"
+   },
+   {
+    "n": "29189",
+    "v": "13"
+   },
+   {
+    "n": "26115",
+    "v": "3"
+   },
+   {
+    "n": "21301",
+    "v": "2"
+   },
+   {
+    "n": "20545",
+    "v": "18"
+   },
+   {
+    "n": "19771",
+    "v": "52"
+   },
+   {
+    "n": "17861",
+    "v": "73"
+   },
+   {
+    "n": "15514",
+    "v": "12"
+   },
+   {
+    "n": "13412",
+    "v": "43"
+   },
+   {
+    "n": "8013",
+    "v": "77"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \"community_area\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \"community_area AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "613720"
+   },
+   {
+    "n": "491684",
+    "v": "25"
+   },
+   {
+    "n": "291866",
+    "v": "8"
+   },
+   {
+    "n": "265953",
+    "v": "43"
+   },
+   {
+    "n": "254208",
+    "v": "28"
+   },
+   {
+    "n": "247477",
+    "v": "23"
+   },
+   {
+    "n": "236704",
+    "v": "24"
+   },
+   {
+    "n": "232936",
+    "v": "29"
+   },
+   {
+    "n": "225640",
+    "v": "71"
+   },
+   {
+    "n": "220993",
+    "v": "67"
+   },
+   {
+    "n": "210180",
+    "v": "49"
+   },
+   {
+    "n": "208293",
+    "v": "32"
+   },
+   {
+    "n": "204524",
+    "v": "68"
+   },
+   {
+    "n": "200684",
+    "v": "69"
+   },
+   {
+    "n": "192119",
+    "v": "66"
+   },
+   {
+    "n": "177824",
+    "v": "44"
+   },
+   {
+    "n": "167332",
+    "v": "6"
+   },
+   {
+    "n": "165899",
+    "v": "22"
+   },
+   {
+    "n": "158328",
+    "v": "61"
+   },
+   {
+    "n": "148339",
+    "v": "26"
+   },
+   {
+    "n": "147877",
+    "v": "27"
+   },
+   {
+    "n": "147122",
+    "v": "19"
+   },
+   {
+    "n": "145875",
+    "v": "46"
+   },
+   {
+    "n": "134752",
+    "v": "30"
+   },
+   {
+    "n": "129426",
+    "v": "53"
+   },
+   {
+    "n": "128022",
+    "v": "42"
+   },
+   {
+    "n": "125633",
+    "v": "7"
+   },
+   {
+    "n": "124918",
+    "v": "1"
+   },
+   {
+    "n": "120507",
+    "v": "3"
+   },
+   {
+    "n": "112115",
+    "v": "38"
+   },
+   {
+    "n": "104264",
+    "v": "2"
+   },
+   {
+    "n": "102020",
+    "v": "15"
+   },
+   {
+    "n": "95609",
+    "v": "73"
+   },
+   {
+    "n": "90196",
+    "v": "35"
+   },
+   {
+    "n": "89691",
+    "v": "16"
+   },
+   {
+    "n": "84543",
+    "v": "40"
+   },
+   {
+    "n": "83079",
+    "v": "77"
+   },
+   {
+    "n": "80776",
+    "v": "31"
+   },
+   {
+    "n": "76744",
+    "v": "58"
+   },
+   {
+    "n": "74411",
+    "v": "21"
+   },
+   {
+    "n": "73670",
+    "v": "63"
+   },
+   {
+    "n": "72793",
+    "v": "70"
+   },
+   {
+    "n": "72611",
+    "v": "14"
+   },
+   {
+    "n": "66631",
+    "v": "56"
+   },
+   {
+    "n": "64556",
+    "v": "33"
+   },
+   {
+    "n": "63887",
+    "v": "75"
+   },
+   {
+    "n": "59132",
+    "v": "65"
+   },
+   {
+    "n": "58324",
+    "v": "4"
+   },
+   {
+    "n": "54908",
+    "v": "41"
+   },
+   {
+    "n": "53878",
+    "v": "51"
+   },
+   {
+    "n": "51605",
+    "v": "60"
+   },
+   {
+    "n": "49917",
+    "v": "17"
+   },
+   {
+    "n": "49257",
+    "v": "76"
+   },
+   {
+    "n": "48843",
+    "v": "39"
+   },
+   {
+    "n": "47982",
+    "v": "20"
+   },
+   {
+    "n": "47044",
+    "v": "5"
+   },
+   {
+    "n": "43991",
+    "v": "48"
+   },
+   {
+    "n": "40614",
+    "v": "45"
+   },
+   {
+    "n": "40293",
+    "v": "52"
+   },
+   {
+    "n": "36483",
+    "v": "54"
+   },
+   {
+    "n": "35470",
+    "v": "10"
+   },
+   {
+    "n": "32930",
+    "v": "50"
+   },
+   {
+    "n": "32621",
+    "v": "59"
+   },
+   {
+    "n": "32381",
+    "v": "64"
+   },
+   {
+    "n": "32133",
+    "v": "11"
+   },
+   {
+    "n": "31300",
+    "v": "34"
+   },
+   {
+    "n": "31006",
+    "v": "62"
+   },
+   {
+    "n": "29516",
+    "v": "57"
+   },
+   {
+    "n": "29507",
+    "v": "72"
+   },
+   {
+    "n": "27482",
+    "v": "13"
+   },
+   {
+    "n": "26242",
+    "v": "37"
+   },
+   {
+    "n": "19547",
+    "v": "36"
+   },
+   {
+    "n": "19419",
+    "v": "18"
+   },
+   {
+    "n": "18604",
+    "v": "55"
+   },
+   {
+    "n": "17962",
+    "v": "74"
+   },
+   {
+    "n": "14985",
+    "v": "12"
+   },
+   {
+    "n": "11771",
+    "v": "47"
+   },
+   {
+    "n": "8058",
+    "v": "9"
+   },
+   {
+    "n": "2705",
+    "v": "0"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"text\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$group\", \"ward\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \"ward AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "614809"
+   },
+   {
+    "n": "367589",
+    "v": "28"
+   },
+   {
+    "n": "328870",
+    "v": "42"
+   },
+   {
+    "n": "311650",
+    "v": "24"
+   },
+   {
+    "n": "310644",
+    "v": "27"
+   },
+   {
+    "n": "269902",
+    "v": "6"
+   },
+   {
+    "n": "268730",
+    "v": "2"
+   },
+   {
+    "n": "265151",
+    "v": "17"
+   },
+   {
+    "n": "264158",
+    "v": "20"
+   },
+   {
+    "n": "243589",
+    "v": "21"
+   },
+   {
+    "n": "241853",
+    "v": "3"
+   },
+   {
+    "n": "232821",
+    "v": "16"
+   },
+   {
+    "n": "224548",
+    "v": "34"
+   },
+   {
+    "n": "224338",
+    "v": "8"
+   },
+   {
+    "n": "220123",
+    "v": "7"
+   },
+   {
+    "n": "217870",
+    "v": "37"
+   },
+   {
+    "n": "212474",
+    "v": "9"
+   },
+   {
+    "n": "199307",
+    "v": "15"
+   },
+   {
+    "n": "193130",
+    "v": "5"
+   },
+   {
+    "n": "184842",
+    "v": "29"
+   },
+   {
+    "n": "171334",
+    "v": "4"
+   },
+   {
+    "n": "152869",
+    "v": "1"
+   },
+   {
+    "n": "140551",
+    "v": "10"
+   },
+   {
+    "n": "136252",
+    "v": "26"
+   },
+   {
+    "n": "131815",
+    "v": "18"
+   },
+   {
+    "n": "131164",
+    "v": "32"
+   },
+   {
+    "n": "118631",
+    "v": "25"
+   },
+   {
+    "n": "117284",
+    "v": "49"
+   },
+   {
+    "n": "114637",
+    "v": "44"
+   },
+   {
+    "n": "111779",
+    "v": "46"
+   },
+   {
+    "n": "109698",
+    "v": "14"
+   },
+   {
+    "n": "109254",
+    "v": "31"
+   },
+   {
+    "n": "108781",
+    "v": "11"
+   },
+   {
+    "n": "107219",
+    "v": "30"
+   },
+   {
+    "n": "105494",
+    "v": "35"
+   },
+   {
+    "n": "99944",
+    "v": "23"
+   },
+   {
+    "n": "99828",
+    "v": "43"
+   },
+   {
+    "n": "97584",
+    "v": "13"
+   },
+   {
+    "n": "97338",
+    "v": "12"
+   },
+   {
+    "n": "94136",
+    "v": "22"
+   },
+   {
+    "n": "89835",
+    "v": "36"
+   },
+   {
+    "n": "86263",
+    "v": "41"
+   },
+   {
+    "n": "86176",
+    "v": "40"
+   },
+   {
+    "n": "84402",
+    "v": "48"
+   },
+   {
+    "n": "83547",
+    "v": "47"
+   },
+   {
+    "n": "83436",
+    "v": "50"
+   },
+   {
+    "n": "82699",
+    "v": "45"
+   },
+   {
+    "n": "82268",
+    "v": "38"
+   },
+   {
+    "n": "80904",
+    "v": "33"
+   },
+   {
+    "n": "75942",
+    "v": "39"
+   },
+   {
+    "n": "72250",
+    "v": "19"
+   },
+   {
+    "n": "2629",
+    "v": "0"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"v\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$select\", \"count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "8662341"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"n\"]",
+   "x-soda2-types": "[\"number\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/ijzp-q8t2.json?[[\"$select\", \"min(date) AS lo, max(date) AS hi\"]]": {
+  "body": [
+   {
+    "hi": "2026-10-11T00:00:00.000",
+    "lo": "2001-01-01T00:00:00.000"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"lo\",\"hi\"]",
+   "x-soda2-types": "[\"floating_timestamp\",\"floating_timestamp\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/rpca-8um6.json?[[\"$limit\", \"61\"], [\"$select\", \"_feature_id AS id, zip AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61)\"]]": {
+  "body": [
+   {
+    "id": "6",
+    "label": "60611"
+   },
+   {
+    "id": "7",
+    "label": "60638"
+   },
+   {
+    "id": "9",
+    "label": "60626"
+   },
+   {
+    "id": "10",
+    "label": "60615"
+   },
+   {
+    "id": "11",
+    "label": "60621"
+   },
+   {
+    "id": "19",
+    "label": "60628"
+   },
+   {
+    "id": "13",
+    "label": "60643"
+   },
+   {
+    "id": "33",
+    "label": "60655"
+   },
+   {
+    "id": "35",
+    "label": "60605"
+   },
+   {
+    "id": "36",
+    "label": "60653"
+   },
+   {
+    "id": "37",
+    "label": "60609"
+   },
+   {
+    "id": "38",
+    "label": "60666"
+   },
+   {
+    "id": "39",
+    "label": "60618"
+   },
+   {
+    "id": "40",
+    "label": "60616"
+   },
+   {
+    "id": "34",
+    "label": "60603"
+   },
+   {
+    "id": "43",
+    "label": "60608"
+   },
+   {
+    "id": "26",
+    "label": "60633"
+   },
+   {
+    "id": "48",
+    "label": "60630"
+   },
+   {
+    "id": "27",
+    "label": "60643"
+   },
+   {
+    "id": "28",
+    "label": "60612"
+   },
+   {
+    "id": "1",
+    "label": "60647"
+   },
+   {
+    "id": "2",
+    "label": "60639"
+   },
+   {
+    "id": "56",
+    "label": "60632"
+   },
+   {
+    "id": "57",
+    "label": "60623"
+   },
+   {
+    "id": "58",
+    "label": "60629"
+   },
+   {
+    "id": "59",
+    "label": "60620"
+   },
+   {
+    "id": "60",
+    "label": "60637"
+   },
+   {
+    "id": "61",
+    "label": "60619"
+   },
+   {
+    "id": "3",
+    "label": "60707"
+   },
+   {
+    "id": "4",
+    "label": "60622"
+   },
+   {
+    "id": "5",
+    "label": "60651"
+   },
+   {
+    "id": "8",
+    "label": "60652"
+   },
+   {
+    "id": "12",
+    "label": "60645"
+   },
+   {
+    "id": "29",
+    "label": "60604"
+   },
+   {
+    "id": "14",
+    "label": "60660"
+   },
+   {
+    "id": "15",
+    "label": "60640"
+   },
+   {
+    "id": "16",
+    "label": "60614"
+   },
+   {
+    "id": "17",
+    "label": "60631"
+   },
+   {
+    "id": "18",
+    "label": "60646"
+   },
+   {
+    "id": "20",
+    "label": "60625"
+   },
+   {
+    "id": "21",
+    "label": "60641"
+   },
+   {
+    "id": "22",
+    "label": "60657"
+   },
+   {
+    "id": "23",
+    "label": "60636"
+   },
+   {
+    "id": "24",
+    "label": "60649"
+   },
+   {
+    "id": "25",
+    "label": "60617"
+   },
+   {
+    "id": "30",
+    "label": "60624"
+   },
+   {
+    "id": "31",
+    "label": "60656"
+   },
+   {
+    "id": "32",
+    "label": "60644"
+   },
+   {
+    "id": "41",
+    "label": "60602"
+   },
+   {
+    "id": "45",
+    "label": "60661"
+   },
+   {
+    "id": "42",
+    "label": "60601"
+   },
+   {
+    "id": "44",
+    "label": "60607"
+   },
+   {
+    "id": "46",
+    "label": "60606"
+   },
+   {
+    "id": "47",
+    "label": "60827"
+   },
+   {
+    "id": "49",
+    "label": "60642"
+   },
+   {
+    "id": "50",
+    "label": "60659"
+   },
+   {
+    "id": "51",
+    "label": "60707"
+   },
+   {
+    "id": "52",
+    "label": "60634"
+   },
+   {
+    "id": "53",
+    "label": "60613"
+   },
+   {
+    "id": "54",
+    "label": "60610"
+   },
+   {
+    "id": "55",
+    "label": "60654"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ },
+ "data.cityofchicago.org/resource/vrxf-vc4k.json?[[\"$limit\", \"77\"], [\"$select\", \"_feature_id AS id, community AS label\"], [\"$where\", \"_feature_id IN (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "DOUGLAS"
+   },
+   {
+    "id": "2",
+    "label": "OAKLAND"
+   },
+   {
+    "id": "3",
+    "label": "FULLER PARK"
+   },
+   {
+    "id": "4",
+    "label": "GRAND BOULEVARD"
+   },
+   {
+    "id": "5",
+    "label": "KENWOOD"
+   },
+   {
+    "id": "6",
+    "label": "LINCOLN SQUARE"
+   },
+   {
+    "id": "7",
+    "label": "WASHINGTON PARK"
+   },
+   {
+    "id": "8",
+    "label": "HYDE PARK"
+   },
+   {
+    "id": "9",
+    "label": "WOODLAWN"
+   },
+   {
+    "id": "10",
+    "label": "ROGERS PARK"
+   },
+   {
+    "id": "11",
+    "label": "JEFFERSON PARK"
+   },
+   {
+    "id": "12",
+    "label": "FOREST GLEN"
+   },
+   {
+    "id": "13",
+    "label": "NORTH PARK"
+   },
+   {
+    "id": "14",
+    "label": "ALBANY PARK"
+   },
+   {
+    "id": "15",
+    "label": "PORTAGE PARK"
+   },
+   {
+    "id": "16",
+    "label": "IRVING PARK"
+   },
+   {
+    "id": "17",
+    "label": "DUNNING"
+   },
+   {
+    "id": "18",
+    "label": "MONTCLARE"
+   },
+   {
+    "id": "19",
+    "label": "BELMONT CRAGIN"
+   },
+   {
+    "id": "20",
+    "label": "WEST RIDGE"
+   },
+   {
+    "id": "21",
+    "label": "HERMOSA"
+   },
+   {
+    "id": "22",
+    "label": "AVONDALE"
+   },
+   {
+    "id": "23",
+    "label": "LOGAN SQUARE"
+   },
+   {
+    "id": "24",
+    "label": "HUMBOLDT PARK"
+   },
+   {
+    "id": "25",
+    "label": "WEST TOWN"
+   },
+   {
+    "id": "26",
+    "label": "AUSTIN"
+   },
+   {
+    "id": "27",
+    "label": "WEST GARFIELD PARK"
+   },
+   {
+    "id": "28",
+    "label": "EAST GARFIELD PARK"
+   },
+   {
+    "id": "29",
+    "label": "NEAR WEST SIDE"
+   },
+   {
+    "id": "30",
+    "label": "NORTH LAWNDALE"
+   },
+   {
+    "id": "31",
+    "label": "UPTOWN"
+   },
+   {
+    "id": "32",
+    "label": "SOUTH LAWNDALE"
+   },
+   {
+    "id": "33",
+    "label": "LOWER WEST SIDE"
+   },
+   {
+    "id": "34",
+    "label": "NEAR SOUTH SIDE"
+   },
+   {
+    "id": "35",
+    "label": "ARMOUR SQUARE"
+   },
+   {
+    "id": "36",
+    "label": "NORWOOD PARK"
+   },
+   {
+    "id": "37",
+    "label": "NEAR NORTH SIDE"
+   },
+   {
+    "id": "38",
+    "label": "LOOP"
+   },
+   {
+    "id": "39",
+    "label": "SOUTH SHORE"
+   },
+   {
+    "id": "40",
+    "label": "CHATHAM"
+   },
+   {
+    "id": "41",
+    "label": "AVALON PARK"
+   },
+   {
+    "id": "42",
+    "label": "SOUTH CHICAGO"
+   },
+   {
+    "id": "43",
+    "label": "BURNSIDE"
+   },
+   {
+    "id": "44",
+    "label": "CALUMET HEIGHTS"
+   },
+   {
+    "id": "45",
+    "label": "ROSELAND"
+   },
+   {
+    "id": "46",
+    "label": "NORTH CENTER"
+   },
+   {
+    "id": "47",
+    "label": "PULLMAN"
+   },
+   {
+    "id": "48",
+    "label": "SOUTH DEERING"
+   },
+   {
+    "id": "49",
+    "label": "EAST SIDE"
+   },
+   {
+    "id": "50",
+    "label": "WEST PULLMAN"
+   },
+   {
+    "id": "51",
+    "label": "RIVERDALE"
+   },
+   {
+    "id": "52",
+    "label": "HEGEWISCH"
+   },
+   {
+    "id": "53",
+    "label": "GARFIELD RIDGE"
+   },
+   {
+    "id": "54",
+    "label": "ARCHER HEIGHTS"
+   },
+   {
+    "id": "55",
+    "label": "BRIGHTON PARK"
+   },
+   {
+    "id": "56",
+    "label": "MCKINLEY PARK"
+   },
+   {
+    "id": "57",
+    "label": "LAKE VIEW"
+   },
+   {
+    "id": "58",
+    "label": "BRIDGEPORT"
+   },
+   {
+    "id": "59",
+    "label": "NEW CITY"
+   },
+   {
+    "id": "60",
+    "label": "WEST ELSDON"
+   },
+   {
+    "id": "61",
+    "label": "GAGE PARK"
+   },
+   {
+    "id": "62",
+    "label": "CLEARING"
+   },
+   {
+    "id": "63",
+    "label": "WEST LAWN"
+   },
+   {
+    "id": "64",
+    "label": "CHICAGO LAWN"
+   },
+   {
+    "id": "65",
+    "label": "WEST ENGLEWOOD"
+   },
+   {
+    "id": "66",
+    "label": "ENGLEWOOD"
+   },
+   {
+    "id": "67",
+    "label": "GREATER GRAND CROSSING"
+   },
+   {
+    "id": "68",
+    "label": "LINCOLN PARK"
+   },
+   {
+    "id": "69",
+    "label": "ASHBURN"
+   },
+   {
+    "id": "70",
+    "label": "AUBURN GRESHAM"
+   },
+   {
+    "id": "71",
+    "label": "BEVERLY"
+   },
+   {
+    "id": "72",
+    "label": "WASHINGTON HEIGHTS"
+   },
+   {
+    "id": "73",
+    "label": "MOUNT GREENWOOD"
+   },
+   {
+    "id": "74",
+    "label": "MORGAN PARK"
+   },
+   {
+    "id": "75",
+    "label": "OHARE"
+   },
+   {
+    "id": "76",
+    "label": "EDGEWATER"
+   },
+   {
+    "id": "77",
+    "label": "EDISON PARK"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"id\",\"label\"]",
+   "x-soda2-types": "[\"number\",\"text\"]"
+  },
+  "status": 200
+ }
+}

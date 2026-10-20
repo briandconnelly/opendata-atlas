@@ -1,0 +1,35 @@
+# Seattle facts for `65db-xm6k`, converted from the fork's staged constants.
+
+[[claim]]
+id = "65db-xm6k-date-timezone"
+kind = "column_timezone"
+scope = {dataset = "65db-xm6k", column = "date"}
+interpretation = {timezone = "America/Los_Angeles"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "Empty spring-forward hour and commute peaks matched Pacific wall-clock time when probed 2026-10-16."
+observed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date) AS h, sum(fremont_bridge) AS n WHERE date >= '2026-03-08T00:00:00' AND date < '2026-03-09T00:00:00' AND fremont_bridge IS NOT NULL GROUP BY h"
+observed_at = 2026-10-18
+observation = "On 2026-03-08, the spring-forward date, the 02:00 row has no counts (all null), so no hour 2 group has a count; hours 1 and 3 count 26 and 20. The null-count filter keeps an empty hour from reading as unparseable; docs/evidence/drift-2026-10-18/fremont-reprobe.json"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date) AS h, sum(fremont_bridge) AS n WHERE date >= '2025-01-01T00:00:00' AND date < '2026-01-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-18
+observation = "Counts peak at hour 8 (118,390) with a second peak at hour 17 (112,077) over 2025; all 24 hours populated; docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 6, peak_to = 10}

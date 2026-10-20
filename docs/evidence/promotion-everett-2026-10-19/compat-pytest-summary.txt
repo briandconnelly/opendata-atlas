@@ -1,0 +1,3 @@
+=========================== short test summary info ============================
+PASSED tests/test_compat_live.py::test_portal_compat[data.everettwa.gov]
+============================== 1 passed in 6.26s ===============================

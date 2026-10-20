@@ -1,0 +1,470 @@
+# Hand-written registry overrides (docs/design.md, Registry steps 4-5).
+#
+# Allowed fields: name, aliases, place_names, jurisdiction, timezone, public_host, catalog_query,
+# status. An id the enumeration did not produce becomes a manual entry and must pass eligibility
+# and identity when scripts/build_registry.py runs.
+#
+# Sources: `name` and `place_names` come only from the portal's own title, recorded in
+# docs/evidence/registry-2026-10-18/titles.json (site_theme `strings.site_title` and
+# `strings.company` from /api/configurations.json?type=site_theme, and the home page <title>);
+# each comment below quotes them. A generated name rejected on review is overridden with the
+# host; a renamed one, with another part of the same portal's title. `jurisdiction` follows
+# from that name; where the title does not say city or county the level is "other".
+# `jurisdiction.region` is the ISO 3166-2 subdivision code without the country prefix.
+# `timezone` is a calendar assignment for a single-zone jurisdiction, not an upstream fact
+# (docs/decisions.md); it is omitted (null) for multi-zone states, national and supranational
+# portals, and portals without a jurisdiction.
+#
+# Coverage:
+# - 1-51: the 50 largest portals by catalog_size on 2026-10-18, after the eligibility rules
+#   (summary.json `top50_by_catalog_size`), which include the required Cook County. 16 was
+#   Chicago, now defined by its pack; 51, data.nj.gov, joined the 50 in its place (milestone 6).
+# - 52-57: generated names that the milestone 6 review rejected or renamed
+#   (docs/evidence/registry-names-2026-10-20/review.md); they set `name` only.
+# - 58-59: Everett and King County, added for curation (milestone 6). Both are now defined by
+#   their packs, so neither entry remains.
+# data.seattle.gov, data.cityofchicago.org, data.everettwa.gov and data.kingcounty.gov are
+# defined by their packs (portal.toml) and have no override.
+#
+# Aliases: give them only to portals being curated or profiled. So far: Chicago (milestone 2),
+# and Everett and King County (milestone 6), each now in its pack.
+
+# 1. titles.json["datahub.hhs.gov"]: site_title="Tyler Data & Insights", site_company="HHS Data Hub", html_title="HHS Data Hub"
+# national portal: no timezone
+# source: country US: HHS is a United States department; geography (the named place lies there), not the title
+["datahub.hhs.gov"]
+name = "HHS Data Hub"
+jurisdiction = { level = "national", country = "US" }
+
+# 2. titles.json["www.datos.gov.co"]: site_title="Datos Abiertos Colombia", site_company="la plataforma de datos abiertos del gobierno colombiano", html_title="Datos Abiertos Colombia | Portal Nacional de Datos Abiertos"
+# national portal: no timezone
+# source: country CO: the title names Colombia
+["www.datos.gov.co"]
+name = "Datos Abiertos Colombia"
+place_names = ["Colombia"]
+jurisdiction = { level = "national", country = "CO" }
+
+# 3. titles.json["openinformation.novascotia.ca"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Information Access | Nova Scotia"
+# province; single zone
+# source: country CA, region NS: geography (the named place lies there), not the title
+["openinformation.novascotia.ca"]
+name = "Information Access, Nova Scotia"
+place_names = ["Nova Scotia"]
+jurisdiction = { level = "state", country = "CA", region = "NS" }
+timezone = "America/Halifax"
+
+# 4. titles.json["www.dati.lombardia.it"]: site_title="Open Data Regione Lombardia", site_company="Regione Lombardia", html_title="Open Data Regione Lombardia"
+# region IT-25
+# source: country IT, region 25: geography (the named place lies there), not the title
+["www.dati.lombardia.it"]
+name = "Open Data Regione Lombardia"
+place_names = ["Lombardia", "Regione Lombardia"]
+jurisdiction = { level = "region", country = "IT", region = "25" }
+timezone = "Europe/Rome"
+
+# 5. titles.json["opendata.maryland.gov"]: site_title="Open Data | data.maryland.gov", site_company="The State of Maryland", html_title="Open Data | opendata.maryland.gov"
+# single zone
+# source: country US, region MD: geography (the named place lies there), not the title
+["opendata.maryland.gov"]
+name = "The State of Maryland"
+place_names = ["Maryland"]
+jurisdiction = { level = "state", country = "US", region = "MD" }
+timezone = "America/New_York"
+
+# 6. titles.json["data.bayareametro.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Tyler Data & Insights"
+# every title field is the vendor default; no name, place or jurisdiction recorded
+["data.bayareametro.gov"]
+
+# 7. titles.json["data.cityofnewyork.us"]: site_title="NYC Open Data", site_company="NYC Open Data", html_title="Explore data about NYC - NYC Open Data"
+# place names: the title's "NYC" is New York City; "New York" also matches the state portal (milestone 2 final review)
+# source: country US, region NY: geography (the named place lies there), not the title
+["data.cityofnewyork.us"]
+name = "NYC Open Data"
+place_names = ["NYC", "New York City", "New York"]
+jurisdiction = { level = "city", country = "US", region = "NY" }
+timezone = "America/New_York"
+
+# 8. titles.json["open.piercecountywa.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Open Pierce County"
+# region from host piercecountywa.gov
+# source: country US: geography (the named place lies there), not the title; region WA: host piercecountywa.gov
+["open.piercecountywa.gov"]
+name = "Open Pierce County"
+place_names = ["Pierce County"]
+jurisdiction = { level = "county", country = "US", region = "WA" }
+timezone = "America/Los_Angeles"
+
+# 9. titles.json["data.ramseycountymn.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Data | Ramsey County"
+# region from host ramseycountymn.gov
+# source: country US: geography (the named place lies there), not the title; region MN: host ramseycountymn.gov
+["data.ramseycountymn.gov"]
+name = "Ramsey County"
+place_names = ["Ramsey County"]
+jurisdiction = { level = "county", country = "US", region = "MN" }
+timezone = "America/Chicago"
+
+# 10. titles.json["datahub.austintexas.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="City Data Hub | City of Austin"
+# region from host austintexas.gov
+# source: country US: geography (the named place lies there), not the title; region TX: host austintexas.gov
+["datahub.austintexas.gov"]
+name = "City of Austin"
+place_names = ["Austin"]
+jurisdiction = { level = "city", country = "US", region = "TX" }
+timezone = "America/Chicago"
+
+# 11. titles.json["data.wa.gov"]: site_title="Data.WA | Washington State's Open Data Site", site_company="Data.WA", html_title="Data.WA | State of Washington Open Data Platform | Data.WA | State of Washington"
+# single zone
+# source: country US, region WA: geography (the named place lies there), not the title
+["data.wa.gov"]
+name = "State of Washington"
+place_names = ["Washington", "Washington State"]
+jurisdiction = { level = "state", country = "US", region = "WA" }
+timezone = "America/Los_Angeles"
+
+# 12. titles.json["performance.smcgov.org"]: site_title="SMC Performance", site_company="San Mateo County", html_title="San Mateo Performance Dashboards | San Mateo County Performance"
+# region: San Mateo County is in California (calendar/geography assignment, as for timezone)
+# source: country US, region CA: geography (the named place lies there), not the title
+["performance.smcgov.org"]
+name = "San Mateo County Performance"
+place_names = ["San Mateo County"]
+jurisdiction = { level = "county", country = "US", region = "CA" }
+timezone = "America/Los_Angeles"
+
+# 13. titles.json["www.datahub.va.gov"]: site_title="Tyler Data & Insights", site_company="VA Datahub", html_title="Department of Veterans Affairs Data Hub"
+# national portal: no timezone
+# source: country US: the Department of Veterans Affairs is a United States department; geography (the named place lies there), not the title
+["www.datahub.va.gov"]
+name = "Department of Veterans Affairs Data Hub"
+jurisdiction = { level = "national", country = "US" }
+
+# 14. titles.json["data.colorado.gov"]: site_title="Colorado Information Marketplace | data.colorado.gov", site_company="Colorado Information Marketplace", html_title="Colorado Information Marketplace | Colorado Information Marketplace | data.colorado.gov"
+# single zone
+# source: country US, region CO: geography (the named place lies there), not the title
+["data.colorado.gov"]
+name = "Colorado Information Marketplace"
+place_names = ["Colorado"]
+jurisdiction = { level = "state", country = "US", region = "CO" }
+timezone = "America/Denver"
+
+# 15. titles.json["data.edmonton.ca"]: site_title="Edmonton - Open Data Portal", site_company="Edmonton's Open Data Portal", html_title="Edmonton - Open Data Portal"
+# title does not say city or region: level other
+# source: country CA, region AB: geography (the named place lies there), not the title
+["data.edmonton.ca"]
+name = "Edmonton - Open Data Portal"
+place_names = ["Edmonton"]
+jurisdiction = { level = "other", country = "CA", region = "AB" }
+timezone = "America/Edmonton"
+
+# 16. data.cityofchicago.org is defined by its pack (portals/data.cityofchicago.org/portal.toml)
+# and has no override.
+
+# 17. titles.json["sharefulton.fultoncountyga.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Share Fulton"
+# title does not say city or county: level other; region from host fultoncountyga.gov
+# source: country US: geography (the named place lies there), not the title; region GA: host fultoncountyga.gov
+["sharefulton.fultoncountyga.gov"]
+name = "Share Fulton"
+place_names = ["Fulton"]
+jurisdiction = { level = "other", country = "US", region = "GA" }
+timezone = "America/New_York"
+
+# 18. titles.json["data.sccgov.org"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="County of Santa Clara"
+# region: Santa Clara County is in California
+# source: country US, region CA: geography (the named place lies there), not the title
+["data.sccgov.org"]
+name = "County of Santa Clara"
+place_names = ["County of Santa Clara", "Santa Clara County"]
+jurisdiction = { level = "county", country = "US", region = "CA" }
+timezone = "America/Los_Angeles"
+
+# 19. titles.json["data.ct.gov"]: site_title="Open Data | State of Connecticut", site_company="CT Open Data Portal", html_title="Connecticut | Open Data | Connecticut Data"
+# single zone
+# source: country US, region CT: geography (the named place lies there), not the title
+["data.ct.gov"]
+name = "State of Connecticut"
+place_names = ["Connecticut"]
+jurisdiction = { level = "state", country = "US", region = "CT" }
+timezone = "America/New_York"
+
+# 20. titles.json["highways.hidot.hawaii.gov"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="State of Hawaii Department of Transportation"
+# single zone
+# source: country US, region HI: geography (the named place lies there), not the title
+["highways.hidot.hawaii.gov"]
+name = "State of Hawaii Department of Transportation"
+place_names = ["Hawaii"]
+jurisdiction = { level = "state", country = "US", region = "HI" }
+timezone = "Pacific/Honolulu"
+
+# 21. titles.json["data.ny.gov"]: site_title="State of New York | Open Data", site_company="State of New York", html_title="State of New York | Open Data | State of New York"
+# single zone
+# source: country US, region NY: geography (the named place lies there), not the title
+["data.ny.gov"]
+name = "State of New York"
+place_names = ["State of New York", "New York"]
+jurisdiction = { level = "state", country = "US", region = "NY" }
+timezone = "America/New_York"
+
+# 22. titles.json["data.oregon.gov"]: site_title="Oregon Data | Opening Oregon's Data", site_company="Oregon Data", html_title="Oregon | Open Data | data.oregon.gov | Oregon's Open Data Portal | Oregon.gov"
+# multi-zone state (part of Malheur County is Mountain): no timezone
+# source: country US, region OR: geography (the named place lies there), not the title
+["data.oregon.gov"]
+name = "Oregon Data"
+place_names = ["Oregon"]
+jurisdiction = { level = "state", country = "US", region = "OR" }
+
+# 23. titles.json["analisi.transparenciacatalunya.cat"]: site_title="Tyler Data & Insights", site_company="Transparència Catalunya", html_title="Catàleg | Dades obertes de Catalunya"
+# region ES-CT
+# source: country ES, region CT: geography (the named place lies there), not the title
+["analisi.transparenciacatalunya.cat"]
+name = "Dades obertes de Catalunya"
+place_names = ["Catalunya"]
+jurisdiction = { level = "region", country = "ES", region = "CT" }
+timezone = "Europe/Madrid"
+
+# 24. titles.json["cohesiondata.ec.europa.eu"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Open Data Portal for the European Structural Investment Funds - European Commission | Cohesion Open Data"
+# European Commission portal: supranational, no country, no jurisdiction or timezone
+["cohesiondata.ec.europa.eu"]
+name = "Cohesion Open Data"
+
+# 25. titles.json["data.texas.gov"]: site_title="Open Data Portal", site_company="State of Texas Open Data Portal", html_title="State of Texas | Open Data Portal | Open Data Portal"
+# multi-zone state (El Paso is Mountain): no timezone
+# source: country US, region TX: geography (the named place lies there), not the title
+["data.texas.gov"]
+name = "State of Texas"
+place_names = ["Texas"]
+jurisdiction = { level = "state", country = "US", region = "TX" }
+
+# 26. titles.json["data.cdc.gov"]: site_title="Data | Centers for Disease Control and Prevention", site_company="Data.CDC.gov", html_title="Data | Centers for Disease Control and Prevention"
+# national portal: no timezone
+# source: country US: the CDC is a United States agency; geography (the named place lies there), not the title
+["data.cdc.gov"]
+name = "Centers for Disease Control and Prevention"
+jurisdiction = { level = "national", country = "US" }
+
+# 27. titles.json["datahub.smcgov.org"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="SMC Datahub"
+# title names no place ('SMC' is not expanded): no place names or jurisdiction
+["datahub.smcgov.org"]
+name = "SMC Datahub"
+
+# 28. titles.json["nnps-odp.data.socrata.com"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Tyler Data & Insights"
+# every title field is the vendor default; no name, place or jurisdiction recorded
+["nnps-odp.data.socrata.com"]
+
+# 29. titles.json["datahub.transportation.gov"]: site_title="USDOT Open Data", site_company="DOT DataHub", html_title="USDOT Open Data"
+# national portal: no timezone
+# source: country US: the title says USDOT
+["datahub.transportation.gov"]
+name = "USDOT Open Data"
+jurisdiction = { level = "national", country = "US" }
+
+# 30. titles.json["data.novascotia.ca"]: site_title="Nova Scotia Government - Open Data Portal", site_company="Tyler Data & Insights", html_title="Nova Scotia Government - Open Data Portal | Open Data | Nova Scotia"
+# province; single zone
+# source: country CA, region NS: geography (the named place lies there), not the title
+["data.novascotia.ca"]
+name = "Nova Scotia Government"
+place_names = ["Nova Scotia"]
+jurisdiction = { level = "state", country = "CA", region = "NS" }
+timezone = "America/Halifax"
+
+# 31. titles.json["data.sf.gov"]: site_title="Data | San Francisco", site_company="San Francisco Data", html_title="SF OpenData | DataSF"
+# title does not say city or county: level other
+# source: country US, region CA: geography (the named place lies there), not the title
+["data.sf.gov"]
+name = "San Francisco Data"
+place_names = ["San Francisco"]
+jurisdiction = { level = "other", country = "US", region = "CA" }
+timezone = "America/Los_Angeles"
+
+# 32. titles.json["data.mesaaz.gov"]: site_title="Open Data Portal", site_company="City of Mesa", html_title="Data Portal | City of Mesa Data Hub"
+# region from host mesaaz.gov; Arizona outside the Navajo Nation keeps standard time
+# source: country US: geography (the named place lies there), not the title; region AZ: host mesaaz.gov
+["data.mesaaz.gov"]
+name = "City of Mesa"
+place_names = ["Mesa"]
+jurisdiction = { level = "city", country = "US", region = "AZ" }
+timezone = "America/Phoenix"
+
+# 33. titles.json["citydata.mesaaz.gov"]: site_title="Tyler Data & Insights", site_company="CityData", html_title="City of Mesa Employee Data Portal"
+# region from host mesaaz.gov
+# source: country US: geography (the named place lies there), not the title; region AZ: host mesaaz.gov
+["citydata.mesaaz.gov"]
+name = "City of Mesa Employee Data Portal"
+place_names = ["Mesa"]
+jurisdiction = { level = "city", country = "US", region = "AZ" }
+timezone = "America/Phoenix"
+
+# 34. titles.json["www.dallasopendata.com"]: site_title="Dallas OpenData", site_company="City of Dallas", html_title="Dallas OpenData | Dallas OpenData"
+# region: Dallas, Texas (no state in the title)
+# source: country US, region TX: geography (the named place lies there), not the title
+["www.dallasopendata.com"]
+name = "City of Dallas"
+place_names = ["Dallas"]
+jurisdiction = { level = "city", country = "US", region = "TX" }
+timezone = "America/Chicago"
+
+# 35. titles.json["data.montgomerycountymd.gov"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="Montgomery County Data | Open Data Portal"
+# region from host montgomerycountymd.gov
+# source: country US: geography (the named place lies there), not the title; region MD: host montgomerycountymd.gov
+["data.montgomerycountymd.gov"]
+name = "Montgomery County"
+place_names = ["Montgomery County"]
+jurisdiction = { level = "county", country = "US", region = "MD" }
+timezone = "America/New_York"
+
+# 36. titles.json["data.calgary.ca"]: site_title="Open Calgary", site_company="Open Calgary", html_title="Open Calgary | Open Calgary"
+# title does not say city or region: level other
+# source: country CA, region AB: geography (the named place lies there), not the title
+["data.calgary.ca"]
+name = "Open Calgary"
+place_names = ["Calgary"]
+jurisdiction = { level = "other", country = "CA", region = "AB" }
+timezone = "America/Edmonton"
+
+# 37. titles.json["data.lacity.org"]: site_title="Los Angeles - Open Data Portal", site_company="City of Los Angeles", html_title="DataLA: Information, Insights, and Analysis from the City of Angels | Los Angeles Open Data Portal"
+# source: country US, region CA: geography (the named place lies there), not the title
+["data.lacity.org"]
+name = "City of Los Angeles"
+place_names = ["Los Angeles"]
+jurisdiction = { level = "city", country = "US", region = "CA" }
+timezone = "America/Los_Angeles"
+
+# 38. titles.json["opendata.camden.gov.uk"]: site_title="Open Data Portal", site_company="London Borough of Camden", html_title="Camden Council | Open Data | Open Data Portal"
+# a London borough is none of city/county/region/state: level other; region GB-CMD
+# source: country GB, region CMD: geography (the named place lies there), not the title
+["opendata.camden.gov.uk"]
+name = "London Borough of Camden"
+place_names = ["Camden", "London Borough of Camden"]
+jurisdiction = { level = "other", country = "GB", region = "CMD" }
+timezone = "Europe/London"
+
+# 39. titles.json["www.dati.friuliveneziagiulia.it"]: site_title="Open Data | Regione Autonoma Friuli Venezia Giulia", site_company="Regione Autonoma Friuli Venezia Giulia", html_title="Regione Autonoma Friuli Venezia Giulia | Open Data | Open Data | Regione Autonoma Friuli Venezia Giulia"
+# region IT-36
+# source: country IT, region 36: geography (the named place lies there), not the title
+["www.dati.friuliveneziagiulia.it"]
+name = "Regione Autonoma Friuli Venezia Giulia"
+place_names = ["Friuli Venezia Giulia"]
+jurisdiction = { level = "region", country = "IT", region = "36" }
+timezone = "Europe/Rome"
+
+# 40. titles.json["data.pa.gov"]: site_title="data.pa.gov", site_company="Tyler Data & Insights", html_title="data.pa.gov | PA Open Data Portal"
+# title says only 'PA': level other; region from host pa.gov
+# source: country US: geography (the named place lies there), not the title; region PA: host pa.gov and the title's 'PA'
+["data.pa.gov"]
+name = "PA Open Data Portal"
+place_names = ["PA"]
+jurisdiction = { level = "other", country = "US", region = "PA" }
+timezone = "America/New_York"
+
+# 41. titles.json["datacatalog.cookcountyil.gov"]: site_title="Data | Cook County, Illinois", site_company="Cook County", html_title="Cook County Open Data"
+# required override (milestone 2 brief)
+# source: country US, region IL: the milestone 2 brief and the title's 'Illinois'
+["datacatalog.cookcountyil.gov"]
+name = "Cook County, Illinois"
+place_names = ["Cook County", "Cook County, IL", "Cook County, Illinois"]
+jurisdiction = { level = "county", country = "US", region = "IL" }
+timezone = "America/Chicago"
+
+# 42. titles.json["www.data.act.gov.au"]: site_title="Open Data Portal", site_company="ACT Government", html_title="ACT | Open Data | Open Data Portal"
+# territory, treated as state level; the ACT keeps Sydney time
+# source: country AU, region ACT: geography (the named place lies there), not the title
+["www.data.act.gov.au"]
+name = "ACT Government"
+place_names = ["ACT"]
+jurisdiction = { level = "state", country = "AU", region = "ACT" }
+timezone = "Australia/Sydney"
+
+# 43. titles.json["hub.dati.lombardia.it"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Tyler Data & Insights"
+# every title field is the vendor default; no name, place or jurisdiction recorded
+["hub.dati.lombardia.it"]
+
+# 44. titles.json["data.oaklandca.gov"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="City of Oakland Open Data Portal | Open Data Portal"
+# region from host oaklandca.gov
+# source: country US: geography (the named place lies there), not the title; region CA: host oaklandca.gov
+["data.oaklandca.gov"]
+name = "City of Oakland"
+place_names = ["Oakland"]
+jurisdiction = { level = "city", country = "US", region = "CA" }
+timezone = "America/Los_Angeles"
+
+# 45. titles.json["performance.princegeorgescountymd.gov"]: site_title="CountyStat | Prince George's County", site_company="Tyler Data & Insights", html_title="CountyStat | Prince George's CountyStat | CountyStat | Prince George's County"
+# region from host princegeorgescountymd.gov
+# source: country US: geography (the named place lies there), not the title; region MD: host princegeorgescountymd.gov
+["performance.princegeorgescountymd.gov"]
+name = "Prince George's County"
+place_names = ["Prince George's County"]
+jurisdiction = { level = "county", country = "US", region = "MD" }
+timezone = "America/New_York"
+
+# 46. titles.json["gnb.socrata.com"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="Open Data Portal | New Brunswick Open Data"
+# province; single zone
+# source: country CA, region NB: geography (the named place lies there), not the title
+["gnb.socrata.com"]
+name = "New Brunswick Open Data"
+place_names = ["New Brunswick"]
+jurisdiction = { level = "state", country = "CA", region = "NB" }
+timezone = "America/Moncton"
+
+# 47. titles.json["performance.fultoncountyga.gov"]: site_title=null, site_company="OpenData by Socrata", html_title="Rally | Open Data Portal | Fulton Performance"
+# title does not say city or county: level other; region from host fultoncountyga.gov
+# source: country US: geography (the named place lies there), not the title; region GA: host fultoncountyga.gov
+["performance.fultoncountyga.gov"]
+name = "Fulton Performance"
+place_names = ["Fulton"]
+jurisdiction = { level = "other", country = "US", region = "GA" }
+timezone = "America/New_York"
+
+# 48. titles.json["healthdata.tn.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="TDH Health Data"
+# title names no place ('TDH' is not expanded): no place names or jurisdiction
+["healthdata.tn.gov"]
+name = "TDH Health Data"
+
+# 49. titles.json["data.michigan.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Michigan | Open Data | Michigan | Open Data"
+# multi-zone state (four Upper Peninsula counties are Central): no timezone
+# source: country US, region MI: geography (the named place lies there), not the title
+["data.michigan.gov"]
+name = "Michigan"
+place_names = ["Michigan"]
+jurisdiction = { level = "state", country = "US", region = "MI" }
+
+# 50. titles.json["www.transparentrichmond.org"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Transparent Richmond"
+# title says only 'Richmond' (no city, county, state or country): no jurisdiction or timezone
+["www.transparentrichmond.org"]
+name = "Transparent Richmond"
+place_names = ["Richmond"]
+
+# 51. titles.json["data.nj.gov"]: site_title="Rally - Open Data Portal", site_company="New Jersey's Open Data Center", html_title="Open Data Portal | NJOIT Open Data Center"
+# joined the 50 largest when Chicago's entry moved into its pack (milestone 6); single zone
+# source: country US, region NJ: geography (the named place lies there), not the title
+["data.nj.gov"]
+name = "New Jersey's Open Data Center"
+place_names = ["New Jersey"]
+jurisdiction = { level = "state", country = "US", region = "NJ" }
+timezone = "America/New_York"
+
+# 52. titles.json["healthdata.nj.gov"]: site_title="Socrata | Making Data Social", site_company="Socrata", html_title="Catalog | Socrata | Making Data Social"
+# name review (milestone 6): reject; "Making Data Social" reads as the vendor's tagline (site_company is "Socrata"; not probed further), and no title field names the owner
+["healthdata.nj.gov"]
+name = "healthdata.nj.gov"
+
+# 53. titles.json["cookcounty.data.socrata.com"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Cook County Open Data"
+# name review (milestone 6): reject; as a name, "Cook County Open Data" would rank this 10-dataset site above datacatalog.cookcountyil.gov (41) for "Cook County"
+["cookcounty.data.socrata.com"]
+name = "cookcounty.data.socrata.com"
+
+# 54. titles.json["bythenumbers.sco.ca.gov"]: site_title="Open Data Portal", site_company="Tyler Data & Insights", html_title="Government Financial Reports - California State Controller’s Office | CA Local Government Financial Data"
+# name review (milestone 6): rename; "Government Financial Reports" reads as a vendor app's name, inferred (not probed) from the same string heading 55 and 56; the owner is the Controller's Office
+["bythenumbers.sco.ca.gov"]
+name = "California State Controller’s Office"
+
+# 55. titles.json["performance.franklintn.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Government Financial Reports App | FranklinForward: City's Strategic Plan Website"
+# name review (milestone 6): rename; "Government Financial Reports App" reads as a vendor app's name, inferred (not probed) from the same string heading 54 and 56
+["performance.franklintn.gov"]
+name = "FranklinForward: City's Strategic Plan Website"
+
+# 56. titles.json["reports.cdp.net"]: site_title="Tyler Data & Insights", site_company="CDP Performance Dashboard", html_title="Government Financial Reports App | 2015 Live City Reporting"
+# name review (milestone 6): rename; "Government Financial Reports App" reads as a vendor app's name, inferred (not probed) from the same string heading 54 and 55
+["reports.cdp.net"]
+name = "CDP Performance Dashboard"
+
+# 57. titles.json["health.data.ny.gov"]: site_title="State of New York | Open Data", site_company="New York State Department of Health | Health Data NY", html_title="State of New York | Open Data Health | State of New York"
+# name review (milestone 6): rename; "State of New York" is data.ny.gov's name (21), and this is the Department of Health's portal
+["health.data.ny.gov"]
+name = "New York State Department of Health"

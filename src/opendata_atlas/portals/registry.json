@@ -1,0 +1,5143 @@
+{
+ "version": "2026-10-20-5bcfa38b2156",
+ "entries": [
+  {
+   "identity": {
+    "id": "al-amcc.data.socrata.com",
+    "aliases": [],
+    "public_host": "al-amcc.data.socrata.com",
+    "catalog_query": {
+     "domains": "al-amcc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "al-amcc.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "albany.data.socrata.com",
+    "aliases": [],
+    "public_host": "albany.data.socrata.com",
+    "catalog_query": {
+     "domains": "albany.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Albany",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 6
+  },
+  {
+   "identity": {
+    "id": "alpharetta.data.socrata.com",
+    "aliases": [],
+    "public_host": "alpharetta.data.socrata.com",
+    "catalog_query": {
+     "domains": "alpharetta.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "alpharetta.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 67
+  },
+  {
+   "identity": {
+    "id": "analisi.transparenciacatalunya.cat",
+    "aliases": [],
+    "public_host": "analisi.transparenciacatalunya.cat",
+    "catalog_query": {
+     "domains": "analisi.transparenciacatalunya.cat"
+    },
+    "catalog_region": "eu",
+    "name": "Dades obertes de Catalunya",
+    "place_names": [
+     "Catalunya"
+    ],
+    "jurisdiction": {
+     "level": "region",
+     "country": "ES",
+     "region": "CT"
+    },
+    "timezone": "Europe/Madrid",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1107,
+   "catalog_size": 1587
+  },
+  {
+   "identity": {
+    "id": "anokamn.data.socrata.com",
+    "aliases": [],
+    "public_host": "anokamn.data.socrata.com",
+    "catalog_query": {
+     "domains": "anokamn.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "anokamn.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "atlanta.data.socrata.com",
+    "aliases": [],
+    "public_host": "atlanta.data.socrata.com",
+    "catalog_query": {
+     "domains": "atlanta.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "atlanta.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 11
+  },
+  {
+   "identity": {
+    "id": "bernalillocountynm.data.socrata.com",
+    "aliases": [],
+    "public_host": "bernalillocountynm.data.socrata.com",
+    "catalog_query": {
+     "domains": "bernalillocountynm.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "bernalillocountynm.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "boulderco.data.socrata.com",
+    "aliases": [],
+    "public_host": "boulderco.data.socrata.com",
+    "catalog_query": {
+     "domains": "boulderco.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "boulderco.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "bridgeportct.data.socrata.com",
+    "aliases": [],
+    "public_host": "bridgeportct.data.socrata.com",
+    "catalog_query": {
+     "domains": "bridgeportct.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "bridgeportct.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 35
+  },
+  {
+   "identity": {
+    "id": "bronx.lehman.cuny.edu",
+    "aliases": [],
+    "public_host": "bronx.lehman.cuny.edu",
+    "catalog_query": {
+     "domains": "bronx.lehman.cuny.edu"
+    },
+    "catalog_region": "us",
+    "name": "Lehman College Community Connect: Bronx Information Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 352,
+   "catalog_size": 472
+  },
+  {
+   "identity": {
+    "id": "bythenumbers.sco.ca.gov",
+    "aliases": [],
+    "public_host": "bythenumbers.sco.ca.gov",
+    "catalog_query": {
+     "domains": "bythenumbers.sco.ca.gov"
+    },
+    "catalog_region": "us",
+    "name": "California State Controller’s Office",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 97,
+   "catalog_size": 170
+  },
+  {
+   "identity": {
+    "id": "capecoral.data.socrata.com",
+    "aliases": [],
+    "public_host": "capecoral.data.socrata.com",
+    "catalog_query": {
+     "domains": "capecoral.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "capecoral.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "carsoncity.data.socrata.com",
+    "aliases": [],
+    "public_host": "carsoncity.data.socrata.com",
+    "catalog_query": {
+     "domains": "carsoncity.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "Performance Carson City Dashboard",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 19,
+   "catalog_size": 21
+  },
+  {
+   "identity": {
+    "id": "casagrandeaz.data.socrata.com",
+    "aliases": [],
+    "public_host": "casagrandeaz.data.socrata.com",
+    "catalog_query": {
+     "domains": "casagrandeaz.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "casagrandeaz.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "celebratingcities.data.socrata.com",
+    "aliases": [],
+    "public_host": "celebratingcities.data.socrata.com",
+    "catalog_query": {
+     "domains": "celebratingcities.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "Celebrating Cities",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 94,
+   "catalog_size": 140
+  },
+  {
+   "identity": {
+    "id": "citydata.mesaaz.gov",
+    "aliases": [],
+    "public_host": "citydata.mesaaz.gov",
+    "catalog_query": {
+     "domains": "citydata.mesaaz.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Mesa Employee Data Portal",
+    "place_names": [
+     "Mesa"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "AZ"
+    },
+    "timezone": "America/Phoenix",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 304,
+   "catalog_size": 1172
+  },
+  {
+   "identity": {
+    "id": "cityofchesapeake.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityofchesapeake.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityofchesapeake.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityofchesapeake.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 15,
+   "catalog_size": 15
+  },
+  {
+   "identity": {
+    "id": "cityofcudahy.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityofcudahy.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityofcudahy.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityofcudahy.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 72
+  },
+  {
+   "identity": {
+    "id": "cityoffairfaxpd.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityoffairfaxpd.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityoffairfaxpd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityoffairfaxpd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "cityoflaramie.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityoflaramie.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityoflaramie.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityoflaramie.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "cityofnampa.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityofnampa.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityofnampa.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityofnampa.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 6
+  },
+  {
+   "identity": {
+    "id": "cityofrockisland.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityofrockisland.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityofrockisland.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityofrockisland.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "cityoftulare.data.socrata.com",
+    "aliases": [],
+    "public_host": "cityoftulare.data.socrata.com",
+    "catalog_query": {
+     "domains": "cityoftulare.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cityoftulare.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 3
+  },
+  {
+   "identity": {
+    "id": "clatsop.data.socrata.com",
+    "aliases": [],
+    "public_host": "clatsop.data.socrata.com",
+    "catalog_query": {
+     "domains": "clatsop.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "clatsop.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "cohesiondata.ec.europa.eu",
+    "aliases": [],
+    "public_host": "cohesiondata.ec.europa.eu",
+    "catalog_query": {
+     "domains": "cohesiondata.ec.europa.eu"
+    },
+    "catalog_region": "eu",
+    "name": "Cohesion Open Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 125,
+   "catalog_size": 1496
+  },
+  {
+   "identity": {
+    "id": "collin-county-tx-ja.data.socrata.com",
+    "aliases": [],
+    "public_host": "collin-county-tx-ja.data.socrata.com",
+    "catalog_query": {
+     "domains": "collin-county-tx-ja.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "collin-county-tx-ja.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 3
+  },
+  {
+   "identity": {
+    "id": "columbiasc.data.socrata.com",
+    "aliases": [],
+    "public_host": "columbiasc.data.socrata.com",
+    "catalog_query": {
+     "domains": "columbiasc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "columbiasc.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 11,
+   "catalog_size": 16
+  },
+  {
+   "identity": {
+    "id": "controllerdata.lacity.org",
+    "aliases": [],
+    "public_host": "controllerdata.lacity.org",
+    "catalog_query": {
+     "domains": "controllerdata.lacity.org"
+    },
+    "catalog_region": "us",
+    "name": "controllerdata.lacity.org",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 87,
+   "catalog_size": 347
+  },
+  {
+   "identity": {
+    "id": "conyersga.data.socrata.com",
+    "aliases": [],
+    "public_host": "conyersga.data.socrata.com",
+    "catalog_query": {
+     "domains": "conyersga.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "conyersga.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "cookcounty.data.socrata.com",
+    "aliases": [],
+    "public_host": "cookcounty.data.socrata.com",
+    "catalog_query": {
+     "domains": "cookcounty.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cookcounty.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 10,
+   "catalog_size": 167
+  },
+  {
+   "identity": {
+    "id": "corstat.coronaca.gov",
+    "aliases": [],
+    "public_host": "corstat.coronaca.gov",
+    "catalog_query": {
+     "domains": "corstat.coronaca.gov"
+    },
+    "catalog_region": "us",
+    "name": "Corona Open Performance",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 91,
+   "catalog_size": 299
+  },
+  {
+   "identity": {
+    "id": "covid19.buffalony.gov",
+    "aliases": [],
+    "public_host": "covid19.buffalony.gov",
+    "catalog_query": {
+     "domains": "covid19.buffalony.gov"
+    },
+    "catalog_region": "us",
+    "name": "Buffalo, NY",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 21,
+   "catalog_size": 100
+  },
+  {
+   "identity": {
+    "id": "cthru.data.socrata.com",
+    "aliases": [],
+    "public_host": "cthru.data.socrata.com",
+    "catalog_query": {
+     "domains": "cthru.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "CTHRU",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 20,
+   "catalog_size": 52
+  },
+  {
+   "identity": {
+    "id": "cumberlandcounty.data.socrata.com",
+    "aliases": [],
+    "public_host": "cumberlandcounty.data.socrata.com",
+    "catalog_query": {
+     "domains": "cumberlandcounty.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "cumberlandcounty.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 3
+  },
+  {
+   "identity": {
+    "id": "dashboard.plano.gov",
+    "aliases": [],
+    "public_host": "dashboard.plano.gov",
+    "catalog_query": {
+     "domains": "dashboard.plano.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Plano",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 30,
+   "catalog_size": 138
+  },
+  {
+   "identity": {
+    "id": "data.auburnwa.gov",
+    "aliases": [],
+    "public_host": "data.auburnwa.gov",
+    "catalog_query": {
+     "domains": "data.auburnwa.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Auburn",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 31,
+   "catalog_size": 54
+  },
+  {
+   "identity": {
+    "id": "data.bayareametro.gov",
+    "aliases": [],
+    "public_host": "data.bayareametro.gov",
+    "catalog_query": {
+     "domains": "data.bayareametro.gov"
+    },
+    "catalog_region": "us",
+    "name": "data.bayareametro.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1988,
+   "catalog_size": 3431
+  },
+  {
+   "identity": {
+    "id": "data.bloomington.in.gov",
+    "aliases": [],
+    "public_host": "data.bloomington.in.gov",
+    "catalog_query": {
+     "domains": "data.bloomington.in.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Bloomington Open Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 203,
+   "catalog_size": 365
+  },
+  {
+   "identity": {
+    "id": "data.brla.gov",
+    "aliases": [],
+    "public_host": "data.brla.gov",
+    "catalog_query": {
+     "domains": "data.brla.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Baton Rouge",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 240,
+   "catalog_size": 499
+  },
+  {
+   "identity": {
+    "id": "data.bts.gov",
+    "aliases": [],
+    "public_host": "data.bts.gov",
+    "catalog_query": {
+     "domains": "data.bts.gov"
+    },
+    "catalog_region": "us",
+    "name": "BTS Data Inventory",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 153,
+   "catalog_size": 589
+  },
+  {
+   "identity": {
+    "id": "data.buffalony.gov",
+    "aliases": [],
+    "public_host": "data.buffalony.gov",
+    "catalog_query": {
+     "domains": "data.buffalony.gov"
+    },
+    "catalog_region": "us",
+    "name": "OpenData Buffalo",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 106
+  },
+  {
+   "identity": {
+    "id": "data.calgary.ca",
+    "aliases": [],
+    "public_host": "data.calgary.ca",
+    "catalog_query": {
+     "domains": "data.calgary.ca"
+    },
+    "catalog_region": "us",
+    "name": "Open Calgary",
+    "place_names": [
+     "Calgary"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "CA",
+     "region": "AB"
+    },
+    "timezone": "America/Edmonton",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 413,
+   "catalog_size": 933
+  },
+  {
+   "identity": {
+    "id": "data.cambridgema.gov",
+    "aliases": [],
+    "public_host": "data.cambridgema.gov",
+    "catalog_query": {
+     "domains": "data.cambridgema.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Cambridge",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 280,
+   "catalog_size": 446
+  },
+  {
+   "identity": {
+    "id": "data.cdc.gov",
+    "aliases": [],
+    "public_host": "data.cdc.gov",
+    "catalog_query": {
+     "domains": "data.cdc.gov"
+    },
+    "catalog_region": "us",
+    "name": "Centers for Disease Control and Prevention",
+    "place_names": [],
+    "jurisdiction": {
+     "level": "national",
+     "country": "US",
+     "region": null
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1084,
+   "catalog_size": 1477
+  },
+  {
+   "identity": {
+    "id": "data.cdp.net",
+    "aliases": [],
+    "public_host": "data.cdp.net",
+    "catalog_query": {
+     "domains": "data.cdp.net"
+    },
+    "catalog_region": "eu",
+    "name": "CDP Open Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 292,
+   "catalog_size": 535
+  },
+  {
+   "identity": {
+    "id": "data.cincinnati-oh.gov",
+    "aliases": [],
+    "public_host": "data.cincinnati-oh.gov",
+    "catalog_query": {
+     "domains": "data.cincinnati-oh.gov"
+    },
+    "catalog_region": "us",
+    "name": "Cincinnati Open Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 84,
+   "catalog_size": 143
+  },
+  {
+   "identity": {
+    "id": "data.cityofberkeley.info",
+    "aliases": [],
+    "public_host": "data.cityofberkeley.info",
+    "catalog_query": {
+     "domains": "data.cityofberkeley.info"
+    },
+    "catalog_region": "us",
+    "name": "City of Berkeley",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 43,
+   "catalog_size": 65
+  },
+  {
+   "identity": {
+    "id": "data.cityofchicago.org",
+    "aliases": [
+     "chicago"
+    ],
+    "public_host": "data.cityofchicago.org",
+    "catalog_query": {
+     "domains": "data.cityofchicago.org"
+    },
+    "catalog_region": "us",
+    "name": "City of Chicago",
+    "place_names": [
+     "Chicago",
+     "Chicago, IL"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "IL"
+    },
+    "timezone": "America/Chicago",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "curated"
+   },
+   "dataset_count": 920,
+   "catalog_size": 2029
+  },
+  {
+   "identity": {
+    "id": "data.cityofgainesville.org",
+    "aliases": [],
+    "public_host": "data.cityofgainesville.org",
+    "catalog_query": {
+     "domains": "data.cityofgainesville.org"
+    },
+    "catalog_region": "us",
+    "name": "City of Gainesville",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 86,
+   "catalog_size": 201
+  },
+  {
+   "identity": {
+    "id": "data.cityofnewyork.us",
+    "aliases": [],
+    "public_host": "data.cityofnewyork.us",
+    "catalog_query": {
+     "domains": "data.cityofnewyork.us"
+    },
+    "catalog_region": "us",
+    "name": "NYC Open Data",
+    "place_names": [
+     "NYC",
+     "New York City",
+     "New York"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "NY"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2405,
+   "catalog_size": 3021
+  },
+  {
+   "identity": {
+    "id": "data.cityoforlando.net",
+    "aliases": [],
+    "public_host": "data.cityoforlando.net",
+    "catalog_query": {
+     "domains": "data.cityoforlando.net"
+    },
+    "catalog_region": "us",
+    "name": "City of Orlando Open Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 27,
+   "catalog_size": 76
+  },
+  {
+   "identity": {
+    "id": "data.colorado.gov",
+    "aliases": [],
+    "public_host": "data.colorado.gov",
+    "catalog_query": {
+     "domains": "data.colorado.gov"
+    },
+    "catalog_region": "us",
+    "name": "Colorado Information Marketplace",
+    "place_names": [
+     "Colorado"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "CO"
+    },
+    "timezone": "America/Denver",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 639,
+   "catalog_size": 2107
+  },
+  {
+   "identity": {
+    "id": "data.coloradosprings.gov",
+    "aliases": [],
+    "public_host": "data.coloradosprings.gov",
+    "catalog_query": {
+     "domains": "data.coloradosprings.gov"
+    },
+    "catalog_region": "us",
+    "name": "data.coloradosprings.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 16
+  },
+  {
+   "identity": {
+    "id": "data.countyofriverside.us",
+    "aliases": [],
+    "public_host": "data.countyofriverside.us",
+    "catalog_query": {
+     "domains": "data.countyofriverside.us"
+    },
+    "catalog_region": "us",
+    "name": "Riverside County Open Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 28,
+   "catalog_size": 45
+  },
+  {
+   "identity": {
+    "id": "data.cstx.gov",
+    "aliases": [],
+    "public_host": "data.cstx.gov",
+    "catalog_query": {
+     "domains": "data.cstx.gov"
+    },
+    "catalog_region": "us",
+    "name": "College Station",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 19,
+   "catalog_size": 40
+  },
+  {
+   "identity": {
+    "id": "data.ct.gov",
+    "aliases": [],
+    "public_host": "data.ct.gov",
+    "catalog_query": {
+     "search_context": "data.ct.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Connecticut",
+    "place_names": [
+     "Connecticut"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "CT"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 654,
+   "catalog_size": 1798
+  },
+  {
+   "identity": {
+    "id": "data.datacenterresearch.org",
+    "aliases": [],
+    "public_host": "data.datacenterresearch.org",
+    "catalog_query": {
+     "domains": "data.datacenterresearch.org"
+    },
+    "catalog_region": "us",
+    "name": "The Data Center",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 45,
+   "catalog_size": 47
+  },
+  {
+   "identity": {
+    "id": "data.delaware.gov",
+    "aliases": [],
+    "public_host": "data.delaware.gov",
+    "catalog_query": {
+     "domains": "data.delaware.gov"
+    },
+    "catalog_region": "us",
+    "name": "Delaware Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 177,
+   "catalog_size": 347
+  },
+  {
+   "identity": {
+    "id": "data.dumfriesva.gov",
+    "aliases": [],
+    "public_host": "data.dumfriesva.gov",
+    "catalog_query": {
+     "domains": "data.dumfriesva.gov"
+    },
+    "catalog_region": "us",
+    "name": "data.dumfriesva.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 39,
+   "catalog_size": 125
+  },
+  {
+   "identity": {
+    "id": "data.edmonton.ca",
+    "aliases": [],
+    "public_host": "data.edmonton.ca",
+    "catalog_query": {
+     "domains": "data.edmonton.ca"
+    },
+    "catalog_region": "us",
+    "name": "Edmonton - Open Data Portal",
+    "place_names": [
+     "Edmonton"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "CA",
+     "region": "AB"
+    },
+    "timezone": "America/Edmonton",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1421,
+   "catalog_size": 2090
+  },
+  {
+   "identity": {
+    "id": "data.energystar.gov",
+    "aliases": [],
+    "public_host": "data.energystar.gov",
+    "catalog_query": {
+     "domains": "data.energystar.gov"
+    },
+    "catalog_region": "us",
+    "name": "ENERGY STAR Product Finder API & Datasets",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 53,
+   "catalog_size": 90
+  },
+  {
+   "identity": {
+    "id": "data.everettwa.gov",
+    "aliases": [
+     "everett"
+    ],
+    "public_host": "data.everettwa.gov",
+    "catalog_query": {
+     "domains": "data.everettwa.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Everett",
+    "place_names": [
+     "Everett",
+     "Everett, WA"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "WA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 122,
+   "catalog_size": 332
+  },
+  {
+   "identity": {
+    "id": "data.framinghamma.gov",
+    "aliases": [],
+    "public_host": "data.framinghamma.gov",
+    "catalog_query": {
+     "domains": "data.framinghamma.gov"
+    },
+    "catalog_region": "us",
+    "name": "Open Data Framingham",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 25,
+   "catalog_size": 43
+  },
+  {
+   "identity": {
+    "id": "data.fultoncountyga.gov",
+    "aliases": [],
+    "public_host": "data.fultoncountyga.gov",
+    "catalog_query": {
+     "domains": "data.fultoncountyga.gov"
+    },
+    "catalog_region": "us",
+    "name": "Fulton County Open Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 18,
+   "catalog_size": 236
+  },
+  {
+   "identity": {
+    "id": "data.honolulu.gov",
+    "aliases": [],
+    "public_host": "data.honolulu.gov",
+    "catalog_query": {
+     "domains": "data.honolulu.gov"
+    },
+    "catalog_region": "us",
+    "name": "Honolulu",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 72,
+   "catalog_size": 453
+  },
+  {
+   "identity": {
+    "id": "data.kcmo.org",
+    "aliases": [],
+    "public_host": "data.kcmo.org",
+    "catalog_query": {
+     "domains": "data.kcmo.org"
+    },
+    "catalog_region": "us",
+    "name": "City of Kansas City, Mo.",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 200,
+   "catalog_size": 377
+  },
+  {
+   "identity": {
+    "id": "data.kingcounty.gov",
+    "aliases": [
+     "king-county"
+    ],
+    "public_host": "data.kingcounty.gov",
+    "catalog_query": {
+     "domains": "data.kingcounty.gov"
+    },
+    "catalog_region": "us",
+    "name": "King County",
+    "place_names": [
+     "King County",
+     "King County, WA"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "WA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 268,
+   "catalog_size": 539
+  },
+  {
+   "identity": {
+    "id": "data.lacity.org",
+    "aliases": [],
+    "public_host": "data.lacity.org",
+    "catalog_query": {
+     "domains": "data.lacity.org"
+    },
+    "catalog_region": "us",
+    "name": "City of Los Angeles",
+    "place_names": [
+     "Los Angeles"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 361,
+   "catalog_size": 927
+  },
+  {
+   "identity": {
+    "id": "data.macoupincountyil.gov",
+    "aliases": [],
+    "public_host": "data.macoupincountyil.gov",
+    "catalog_query": {
+     "domains": "data.macoupincountyil.gov"
+    },
+    "catalog_region": "us",
+    "name": "Macoupin County",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 46,
+   "catalog_size": 61
+  },
+  {
+   "identity": {
+    "id": "data.marincounty.gov",
+    "aliases": [],
+    "public_host": "data.marincounty.gov",
+    "catalog_query": {
+     "domains": "data.marincounty.gov"
+    },
+    "catalog_region": "us",
+    "name": "County of Marin",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 47,
+   "catalog_size": 124
+  },
+  {
+   "identity": {
+    "id": "data.mesaaz.gov",
+    "aliases": [],
+    "public_host": "data.mesaaz.gov",
+    "catalog_query": {
+     "search_context": "data.mesaaz.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Mesa",
+    "place_names": [
+     "Mesa"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "AZ"
+    },
+    "timezone": "America/Phoenix",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 322,
+   "catalog_size": 1213
+  },
+  {
+   "identity": {
+    "id": "data.michigan.gov",
+    "aliases": [],
+    "public_host": "data.michigan.gov",
+    "catalog_query": {
+     "domains": "data.michigan.gov"
+    },
+    "catalog_region": "us",
+    "name": "Michigan",
+    "place_names": [
+     "Michigan"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "MI"
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 243,
+   "catalog_size": 647
+  },
+  {
+   "identity": {
+    "id": "data.mmcp.ms.gov",
+    "aliases": [],
+    "public_host": "data.mmcp.ms.gov",
+    "catalog_query": {
+     "search_context": "data.mmcp.ms.gov"
+    },
+    "catalog_region": "us",
+    "name": "Mississippi Medical Cannabis Program",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 32,
+   "catalog_size": 78
+  },
+  {
+   "identity": {
+    "id": "data.mo.gov",
+    "aliases": [],
+    "public_host": "data.mo.gov",
+    "catalog_query": {
+     "domains": "data.mo.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Missouri Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 262,
+   "catalog_size": 328
+  },
+  {
+   "identity": {
+    "id": "data.modestogov.com",
+    "aliases": [],
+    "public_host": "data.modestogov.com",
+    "catalog_query": {
+     "domains": "data.modestogov.com"
+    },
+    "catalog_region": "us",
+    "name": "Modesto City View",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 30,
+   "catalog_size": 162
+  },
+  {
+   "identity": {
+    "id": "data.montgomerycountymd.gov",
+    "aliases": [],
+    "public_host": "data.montgomerycountymd.gov",
+    "catalog_query": {
+     "domains": "data.montgomerycountymd.gov"
+    },
+    "catalog_region": "us",
+    "name": "Montgomery County",
+    "place_names": [
+     "Montgomery County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "MD"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 471,
+   "catalog_size": 955
+  },
+  {
+   "identity": {
+    "id": "data.montgomeryschoolsmd.org",
+    "aliases": [],
+    "public_host": "data.montgomeryschoolsmd.org",
+    "catalog_query": {
+     "domains": "data.montgomeryschoolsmd.org"
+    },
+    "catalog_region": "us",
+    "name": "MCPS",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 47,
+   "catalog_size": 212
+  },
+  {
+   "identity": {
+    "id": "data.napacounty.gov",
+    "aliases": [],
+    "public_host": "data.napacounty.gov",
+    "catalog_query": {
+     "domains": "data.napacounty.gov"
+    },
+    "catalog_region": "us",
+    "name": "Napa County HHSA Open Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 83,
+   "catalog_size": 245
+  },
+  {
+   "identity": {
+    "id": "data.nhitc.org",
+    "aliases": [],
+    "public_host": "data.nhitc.org",
+    "catalog_query": {
+     "search_context": "data.nhitc.org"
+    },
+    "catalog_region": "us",
+    "name": "data.nhitc.org",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 114,
+   "catalog_size": 161
+  },
+  {
+   "identity": {
+    "id": "data.nj.gov",
+    "aliases": [],
+    "public_host": "data.nj.gov",
+    "catalog_query": {
+     "domains": "data.nj.gov"
+    },
+    "catalog_region": "us",
+    "name": "New Jersey's Open Data Center",
+    "place_names": [
+     "New Jersey"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "NJ"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 116,
+   "catalog_size": 622
+  },
+  {
+   "identity": {
+    "id": "data.nola.gov",
+    "aliases": [],
+    "public_host": "data.nola.gov",
+    "catalog_query": {
+     "domains": "data.nola.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of New Orleans",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 209,
+   "catalog_size": 298
+  },
+  {
+   "identity": {
+    "id": "data.norfolk.gov",
+    "aliases": [],
+    "public_host": "data.norfolk.gov",
+    "catalog_query": {
+     "domains": "data.norfolk.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Norfolk Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 105,
+   "catalog_size": 227
+  },
+  {
+   "identity": {
+    "id": "data.novascotia.ca",
+    "aliases": [],
+    "public_host": "data.novascotia.ca",
+    "catalog_query": {
+     "domains": "data.novascotia.ca"
+    },
+    "catalog_region": "us",
+    "name": "Nova Scotia Government",
+    "place_names": [
+     "Nova Scotia"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "CA",
+     "region": "NS"
+    },
+    "timezone": "America/Halifax",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 711,
+   "catalog_size": 1277
+  },
+  {
+   "identity": {
+    "id": "data.ny.gov",
+    "aliases": [],
+    "public_host": "data.ny.gov",
+    "catalog_query": {
+     "domains": "data.ny.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of New York",
+    "place_names": [
+     "State of New York",
+     "New York"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "NY"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1035,
+   "catalog_size": 1638
+  },
+  {
+   "identity": {
+    "id": "data.oaklandca.gov",
+    "aliases": [],
+    "public_host": "data.oaklandca.gov",
+    "catalog_query": {
+     "domains": "data.oaklandca.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Oakland",
+    "place_names": [
+     "Oakland"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 313,
+   "catalog_size": 739
+  },
+  {
+   "identity": {
+    "id": "data.oce.pr.gov",
+    "aliases": [],
+    "public_host": "data.oce.pr.gov",
+    "catalog_query": {
+     "domains": "data.oce.pr.gov"
+    },
+    "catalog_region": "us",
+    "name": "OCEPR",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 9,
+   "catalog_size": 50
+  },
+  {
+   "identity": {
+    "id": "data.ohiocourtofclaims.gov",
+    "aliases": [],
+    "public_host": "data.ohiocourtofclaims.gov",
+    "catalog_query": {
+     "domains": "data.ohiocourtofclaims.gov"
+    },
+    "catalog_region": "us",
+    "name": "data.ohiocourtofclaims.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 10,
+   "catalog_size": 30
+  },
+  {
+   "identity": {
+    "id": "data.orcities.org",
+    "aliases": [],
+    "public_host": "data.orcities.org",
+    "catalog_query": {
+     "domains": "data.orcities.org"
+    },
+    "catalog_region": "us",
+    "name": "LOC Open Data Portal",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 52,
+   "catalog_size": 67
+  },
+  {
+   "identity": {
+    "id": "data.oregon.gov",
+    "aliases": [],
+    "public_host": "data.oregon.gov",
+    "catalog_query": {
+     "domains": "data.oregon.gov"
+    },
+    "catalog_region": "us",
+    "name": "Oregon Data",
+    "place_names": [
+     "Oregon"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "OR"
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 539,
+   "catalog_size": 1591
+  },
+  {
+   "identity": {
+    "id": "data.pa.gov",
+    "aliases": [],
+    "public_host": "data.pa.gov",
+    "catalog_query": {
+     "domains": "data.pa.gov"
+    },
+    "catalog_region": "us",
+    "name": "PA Open Data Portal",
+    "place_names": [
+     "PA"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "US",
+     "region": "PA"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 352,
+   "catalog_size": 813
+  },
+  {
+   "identity": {
+    "id": "data.princegeorgescountymd.gov",
+    "aliases": [],
+    "public_host": "data.princegeorgescountymd.gov",
+    "catalog_query": {
+     "domains": "data.princegeorgescountymd.gov"
+    },
+    "catalog_region": "us",
+    "name": "OpenPGC",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 139,
+   "catalog_size": 257
+  },
+  {
+   "identity": {
+    "id": "data.providenceri.gov",
+    "aliases": [],
+    "public_host": "data.providenceri.gov",
+    "catalog_query": {
+     "domains": "data.providenceri.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Providence",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 121,
+   "catalog_size": 297
+  },
+  {
+   "identity": {
+    "id": "data.ramseycountymn.gov",
+    "aliases": [],
+    "public_host": "data.ramseycountymn.gov",
+    "catalog_query": {
+     "domains": "data.ramseycountymn.gov"
+    },
+    "catalog_region": "us",
+    "name": "Ramsey County",
+    "place_names": [
+     "Ramsey County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "MN"
+    },
+    "timezone": "America/Chicago",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 383,
+   "catalog_size": 2377
+  },
+  {
+   "identity": {
+    "id": "data.readingpa.gov",
+    "aliases": [],
+    "public_host": "data.readingpa.gov",
+    "catalog_query": {
+     "domains": "data.readingpa.gov"
+    },
+    "catalog_region": "us",
+    "name": "Open Reading",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 19,
+   "catalog_size": 45
+  },
+  {
+   "identity": {
+    "id": "data.richmondgov.com",
+    "aliases": [],
+    "public_host": "data.richmondgov.com",
+    "catalog_query": {
+     "domains": "data.richmondgov.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Richmond, Virginia",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 31,
+   "catalog_size": 57
+  },
+  {
+   "identity": {
+    "id": "data.roseville.ca.us",
+    "aliases": [],
+    "public_host": "data.roseville.ca.us",
+    "catalog_query": {
+     "domains": "data.roseville.ca.us"
+    },
+    "catalog_region": "us",
+    "name": "City of Roseville",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 60,
+   "catalog_size": 206
+  },
+  {
+   "identity": {
+    "id": "data.sandiegocounty.gov",
+    "aliases": [],
+    "public_host": "data.sandiegocounty.gov",
+    "catalog_query": {
+     "search_context": "data.sandiegocounty.gov"
+    },
+    "catalog_region": "us",
+    "name": "County of San Diego",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 348,
+   "catalog_size": 620
+  },
+  {
+   "identity": {
+    "id": "data.sccgov.org",
+    "aliases": [],
+    "public_host": "data.sccgov.org",
+    "catalog_query": {
+     "domains": "data.sccgov.org"
+    },
+    "catalog_region": "us",
+    "name": "County of Santa Clara",
+    "place_names": [
+     "County of Santa Clara",
+     "Santa Clara County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 131,
+   "catalog_size": 1806
+  },
+  {
+   "identity": {
+    "id": "data.seattle.gov",
+    "aliases": [
+     "seattle"
+    ],
+    "public_host": "data.seattle.gov",
+    "catalog_query": {
+     "domains": "cos-data.seattle.gov",
+     "search_context": "data.seattle.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Seattle",
+    "place_names": [
+     "Seattle",
+     "Seattle, WA"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "WA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "curated"
+   },
+   "dataset_count": 147,
+   "catalog_size": 699
+  },
+  {
+   "identity": {
+    "id": "data.sf.gov",
+    "aliases": [],
+    "public_host": "data.sf.gov",
+    "catalog_query": {
+     "search_context": "data.sf.gov"
+    },
+    "catalog_region": "us",
+    "name": "San Francisco Data",
+    "place_names": [
+     "San Francisco"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "US",
+     "region": "CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 669,
+   "catalog_size": 1225
+  },
+  {
+   "identity": {
+    "id": "data.smcgov.org",
+    "aliases": [],
+    "public_host": "data.smcgov.org",
+    "catalog_query": {
+     "domains": "data.smcgov.org"
+    },
+    "catalog_region": "us",
+    "name": "Open San Mateo County",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 45,
+   "catalog_size": 88
+  },
+  {
+   "identity": {
+    "id": "data.somervillema.gov",
+    "aliases": [],
+    "public_host": "data.somervillema.gov",
+    "catalog_query": {
+     "domains": "data.somervillema.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Somerville, MA",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 33,
+   "catalog_size": 53
+  },
+  {
+   "identity": {
+    "id": "data.sonomacounty.ca.gov",
+    "aliases": [],
+    "public_host": "data.sonomacounty.ca.gov",
+    "catalog_query": {
+     "domains": "data.sonomacounty.ca.gov"
+    },
+    "catalog_region": "us",
+    "name": "County of Sonoma",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 24,
+   "catalog_size": 139
+  },
+  {
+   "identity": {
+    "id": "data.sustainablesm.org",
+    "aliases": [],
+    "public_host": "data.sustainablesm.org",
+    "catalog_query": {
+     "domains": "data.sustainablesm.org"
+    },
+    "catalog_region": "us",
+    "name": "Santa Monica Sustainable City Plan",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 134,
+   "catalog_size": 326
+  },
+  {
+   "identity": {
+    "id": "data.texas.gov",
+    "aliases": [],
+    "public_host": "data.texas.gov",
+    "catalog_query": {
+     "domains": "data.texas.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Texas",
+    "place_names": [
+     "Texas"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "TX"
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 828,
+   "catalog_size": 1485
+  },
+  {
+   "identity": {
+    "id": "data.tompsc.com",
+    "aliases": [],
+    "public_host": "data.tompsc.com",
+    "catalog_query": {
+     "domains": "data.tompsc.com"
+    },
+    "catalog_region": "us",
+    "name": "Mount Pleasant, SC",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 13,
+   "catalog_size": 35
+  },
+  {
+   "identity": {
+    "id": "data.transportation.gov",
+    "aliases": [],
+    "public_host": "data.transportation.gov",
+    "catalog_query": {
+     "domains": "data.transportation.gov"
+    },
+    "catalog_region": "us",
+    "name": "Department of Transportation",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 3
+  },
+  {
+   "identity": {
+    "id": "data.vermont.gov",
+    "aliases": [],
+    "public_host": "data.vermont.gov",
+    "catalog_query": {
+     "domains": "data.vermont.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Vermont",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 172,
+   "catalog_size": 270
+  },
+  {
+   "identity": {
+    "id": "data.wa.gov",
+    "aliases": [],
+    "public_host": "data.wa.gov",
+    "catalog_query": {
+     "domains": "data.wa.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Washington",
+    "place_names": [
+     "Washington",
+     "Washington State"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "WA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1070,
+   "catalog_size": 2178
+  },
+  {
+   "identity": {
+    "id": "data.waterpointdata.org",
+    "aliases": [],
+    "public_host": "data.waterpointdata.org",
+    "catalog_query": {
+     "domains": "data.waterpointdata.org"
+    },
+    "catalog_region": "us",
+    "name": "Water Point Data Exchange",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 15,
+   "catalog_size": 38
+  },
+  {
+   "identity": {
+    "id": "data.wcad.org",
+    "aliases": [],
+    "public_host": "data.wcad.org",
+    "catalog_query": {
+     "domains": "data.wcad.org"
+    },
+    "catalog_region": "us",
+    "name": "WCAD Open Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 84,
+   "catalog_size": 97
+  },
+  {
+   "identity": {
+    "id": "data.weho.org",
+    "aliases": [],
+    "public_host": "data.weho.org",
+    "catalog_query": {
+     "domains": "data.weho.org"
+    },
+    "catalog_region": "us",
+    "name": "City of West Hollywood",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 37,
+   "catalog_size": 73
+  },
+  {
+   "identity": {
+    "id": "data.winnipeg.ca",
+    "aliases": [],
+    "public_host": "data.winnipeg.ca",
+    "catalog_query": {
+     "domains": "data.winnipeg.ca"
+    },
+    "catalog_region": "us",
+    "name": "City of Winnipeg",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 236,
+   "catalog_size": 522
+  },
+  {
+   "identity": {
+    "id": "dataacademy.maryland.gov",
+    "aliases": [],
+    "public_host": "dataacademy.maryland.gov",
+    "catalog_query": {
+     "domains": "dataacademy.maryland.gov"
+    },
+    "catalog_region": "us",
+    "name": "Data Academy",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 22
+  },
+  {
+   "identity": {
+    "id": "datacatalog.cookcountyil.gov",
+    "aliases": [],
+    "public_host": "datacatalog.cookcountyil.gov",
+    "catalog_query": {
+     "domains": "datacatalog.cookcountyil.gov"
+    },
+    "catalog_region": "us",
+    "name": "Cook County, Illinois",
+    "place_names": [
+     "Cook County",
+     "Cook County, IL",
+     "Cook County, Illinois"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "IL"
+    },
+    "timezone": "America/Chicago",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 523,
+   "catalog_size": 809
+  },
+  {
+   "identity": {
+    "id": "datadiscovery.nlm.nih.gov",
+    "aliases": [],
+    "public_host": "datadiscovery.nlm.nih.gov",
+    "catalog_query": {
+     "domains": "datadiscovery.nlm.nih.gov"
+    },
+    "catalog_region": "us",
+    "name": "National Library of Medicine",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 25,
+   "catalog_size": 147
+  },
+  {
+   "identity": {
+    "id": "datahub.austintexas.gov",
+    "aliases": [],
+    "public_host": "datahub.austintexas.gov",
+    "catalog_query": {
+     "domains": "datahub.austintexas.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Austin",
+    "place_names": [
+     "Austin"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "TX"
+    },
+    "timezone": "America/Chicago",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 711,
+   "catalog_size": 2287
+  },
+  {
+   "identity": {
+    "id": "datahub.hhs.gov",
+    "aliases": [],
+    "public_host": "datahub.hhs.gov",
+    "catalog_query": {
+     "domains": "datahub.hhs.gov"
+    },
+    "catalog_region": "us",
+    "name": "HHS Data Hub",
+    "place_names": [],
+    "jurisdiction": {
+     "level": "national",
+     "country": "US",
+     "region": null
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 147,
+   "catalog_size": 10000
+  },
+  {
+   "identity": {
+    "id": "datahub.smcgov.org",
+    "aliases": [],
+    "public_host": "datahub.smcgov.org",
+    "catalog_query": {
+     "domains": "datahub.smcgov.org"
+    },
+    "catalog_region": "us",
+    "name": "SMC Datahub",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 443,
+   "catalog_size": 1379
+  },
+  {
+   "identity": {
+    "id": "datahub.transportation.gov",
+    "aliases": [],
+    "public_host": "datahub.transportation.gov",
+    "catalog_query": {
+     "domains": "datahub.transportation.gov"
+    },
+    "catalog_region": "us",
+    "name": "USDOT Open Data",
+    "place_names": [],
+    "jurisdiction": {
+     "level": "national",
+     "country": "US",
+     "region": null
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 457,
+   "catalog_size": 1285
+  },
+  {
+   "identity": {
+    "id": "datahub.usac.org",
+    "aliases": [],
+    "public_host": "datahub.usac.org",
+    "catalog_query": {
+     "domains": "datahub.usac.org"
+    },
+    "catalog_region": "us",
+    "name": "USAC",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 32,
+   "catalog_size": 77
+  },
+  {
+   "identity": {
+    "id": "datainsights.encinitasca.gov",
+    "aliases": [],
+    "public_host": "datainsights.encinitasca.gov",
+    "catalog_query": {
+     "search_context": "datainsights.encinitasca.gov"
+    },
+    "catalog_region": "us",
+    "name": "City of Encinitas",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 15,
+   "catalog_size": 99
+  },
+  {
+   "identity": {
+    "id": "datamgmt.nassaucountyny.gov",
+    "aliases": [],
+    "public_host": "datamgmt.nassaucountyny.gov",
+    "catalog_query": {
+     "domains": "datamgmt.nassaucountyny.gov"
+    },
+    "catalog_region": "us",
+    "name": "Open Nassau (Internal)",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 17,
+   "catalog_size": 59
+  },
+  {
+   "identity": {
+    "id": "dcsheriff.data.socrata.com",
+    "aliases": [],
+    "public_host": "dcsheriff.data.socrata.com",
+    "catalog_query": {
+     "domains": "dcsheriff.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "dcsheriff.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "dedhamma.data.socrata.com",
+    "aliases": [],
+    "public_host": "dedhamma.data.socrata.com",
+    "catalog_query": {
+     "domains": "dedhamma.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "dedhamma.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "douglasco.data.socrata.com",
+    "aliases": [],
+    "public_host": "douglasco.data.socrata.com",
+    "catalog_query": {
+     "domains": "douglasco.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "douglasco.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 12
+  },
+  {
+   "identity": {
+    "id": "dubuque.data.socrata.com",
+    "aliases": [],
+    "public_host": "dubuque.data.socrata.com",
+    "catalog_query": {
+     "domains": "dubuque.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "Dubuque, IA",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "edinamn-pd.data.socrata.com",
+    "aliases": [],
+    "public_host": "edinamn-pd.data.socrata.com",
+    "catalog_query": {
+     "domains": "edinamn-pd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "edinamn-pd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "edinburgtx.data.socrata.com",
+    "aliases": [],
+    "public_host": "edinburgtx.data.socrata.com",
+    "catalog_query": {
+     "domains": "edinburgtx.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "edinburgtx.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "edmondok.data.socrata.com",
+    "aliases": [],
+    "public_host": "edmondok.data.socrata.com",
+    "catalog_query": {
+     "domains": "edmondok.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "edmondok.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 10,
+   "catalog_size": 10
+  },
+  {
+   "identity": {
+    "id": "educationtocareer.data.mass.gov",
+    "aliases": [],
+    "public_host": "educationtocareer.data.mass.gov",
+    "catalog_query": {
+     "domains": "educationtocareer.data.mass.gov"
+    },
+    "catalog_region": "us",
+    "name": "E2C Hub",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 101,
+   "catalog_size": 232
+  },
+  {
+   "identity": {
+    "id": "elkhartcountyin.data.socrata.com",
+    "aliases": [],
+    "public_host": "elkhartcountyin.data.socrata.com",
+    "catalog_query": {
+     "domains": "elkhartcountyin.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "elkhartcountyin.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "erieco.data.socrata.com",
+    "aliases": [],
+    "public_host": "erieco.data.socrata.com",
+    "catalog_query": {
+     "domains": "erieco.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "erieco.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 7
+  },
+  {
+   "identity": {
+    "id": "fiscalfocus.pittsburghpa.gov",
+    "aliases": [],
+    "public_host": "fiscalfocus.pittsburghpa.gov",
+    "catalog_query": {
+     "domains": "fiscalfocus.pittsburghpa.gov"
+    },
+    "catalog_region": "us",
+    "name": "Fiscal Focus Pittsburgh",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 15,
+   "catalog_size": 195
+  },
+  {
+   "identity": {
+    "id": "flaglercofl.data.socrata.com",
+    "aliases": [],
+    "public_host": "flaglercofl.data.socrata.com",
+    "catalog_query": {
+     "domains": "flaglercofl.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "flaglercofl.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "fortlauderdale.data.socrata.com",
+    "aliases": [],
+    "public_host": "fortlauderdale.data.socrata.com",
+    "catalog_query": {
+     "domains": "fortlauderdale.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Fort Lauderdale Police Department",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 25,
+   "catalog_size": 197
+  },
+  {
+   "identity": {
+    "id": "fusioncenter.nhit.org",
+    "aliases": [],
+    "public_host": "fusioncenter.nhit.org",
+    "catalog_query": {
+     "domains": "fusioncenter.nhit.org"
+    },
+    "catalog_region": "us",
+    "name": "NHIT Data Fusion Center®",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 112,
+   "catalog_size": 157
+  },
+  {
+   "identity": {
+    "id": "gnb.socrata.com",
+    "aliases": [],
+    "public_host": "gnb.socrata.com",
+    "catalog_query": {
+     "domains": "gnb.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "New Brunswick Open Data",
+    "place_names": [
+     "New Brunswick"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "CA",
+     "region": "NB"
+    },
+    "timezone": "America/Moncton",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 319,
+   "catalog_size": 693
+  },
+  {
+   "identity": {
+    "id": "goochlandva.data.socrata.com",
+    "aliases": [],
+    "public_host": "goochlandva.data.socrata.com",
+    "catalog_query": {
+     "domains": "goochlandva.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "goochlandva.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 8,
+   "catalog_size": 11
+  },
+  {
+   "identity": {
+    "id": "grandjunctionco.data.socrata.com",
+    "aliases": [],
+    "public_host": "grandjunctionco.data.socrata.com",
+    "catalog_query": {
+     "domains": "grandjunctionco.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "grandjunctionco.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 7,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "grovecityohpd.data.socrata.com",
+    "aliases": [],
+    "public_host": "grovecityohpd.data.socrata.com",
+    "catalog_query": {
+     "domains": "grovecityohpd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "grovecityohpd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "health.data.ny.gov",
+    "aliases": [],
+    "public_host": "health.data.ny.gov",
+    "catalog_query": {
+     "domains": "health.data.ny.gov"
+    },
+    "catalog_region": "us",
+    "name": "New York State Department of Health",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 315,
+   "catalog_size": 599
+  },
+  {
+   "identity": {
+    "id": "healthdata.nj.gov",
+    "aliases": [],
+    "public_host": "healthdata.nj.gov",
+    "catalog_query": {
+     "domains": "healthdata.nj.gov"
+    },
+    "catalog_region": "us",
+    "name": "healthdata.nj.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 134,
+   "catalog_size": 142
+  },
+  {
+   "identity": {
+    "id": "healthdata.tn.gov",
+    "aliases": [],
+    "public_host": "healthdata.tn.gov",
+    "catalog_query": {
+     "domains": "healthdata.tn.gov"
+    },
+    "catalog_region": "us",
+    "name": "TDH Health Data",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 288,
+   "catalog_size": 685
+  },
+  {
+   "identity": {
+    "id": "henrycoga.data.socrata.com",
+    "aliases": [],
+    "public_host": "henrycoga.data.socrata.com",
+    "catalog_query": {
+     "domains": "henrycoga.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "henrycoga.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 9,
+   "catalog_size": 16
+  },
+  {
+   "identity": {
+    "id": "hickorync.data.socrata.com",
+    "aliases": [],
+    "public_host": "hickorync.data.socrata.com",
+    "catalog_query": {
+     "domains": "hickorync.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "hickorync.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 3
+  },
+  {
+   "identity": {
+    "id": "hicscdata.hawaii.gov",
+    "aliases": [],
+    "public_host": "hicscdata.hawaii.gov",
+    "catalog_query": {
+     "domains": "hicscdata.hawaii.gov"
+    },
+    "catalog_region": "us",
+    "name": "hicscdata.hawaii.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 16,
+   "catalog_size": 59
+  },
+  {
+   "identity": {
+    "id": "hidot-contracts.data.socrata.com",
+    "aliases": [],
+    "public_host": "hidot-contracts.data.socrata.com",
+    "catalog_query": {
+     "domains": "hidot-contracts.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "State of Hawaii Department of Transportation",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "highlandsranch.data.socrata.com",
+    "aliases": [],
+    "public_host": "highlandsranch.data.socrata.com",
+    "catalog_query": {
+     "domains": "highlandsranch.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "Highlands Ranch Metro Area",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 23
+  },
+  {
+   "identity": {
+    "id": "highways.hidot.hawaii.gov",
+    "aliases": [],
+    "public_host": "highways.hidot.hawaii.gov",
+    "catalog_query": {
+     "domains": "highways.hidot.hawaii.gov"
+    },
+    "catalog_region": "us",
+    "name": "State of Hawaii Department of Transportation",
+    "place_names": [
+     "Hawaii"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "HI"
+    },
+    "timezone": "Pacific/Honolulu",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 304,
+   "catalog_size": 1676
+  },
+  {
+   "identity": {
+    "id": "hub.dati.lombardia.it",
+    "aliases": [],
+    "public_host": "hub.dati.lombardia.it",
+    "catalog_query": {
+     "domains": "hub.dati.lombardia.it"
+    },
+    "catalog_region": "eu",
+    "name": "hub.dati.lombardia.it",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 597,
+   "catalog_size": 772
+  },
+  {
+   "identity": {
+    "id": "humboldtgov.data.socrata.com",
+    "aliases": [],
+    "public_host": "humboldtgov.data.socrata.com",
+    "catalog_query": {
+     "domains": "humboldtgov.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "humboldtgov.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 16,
+   "catalog_size": 47
+  },
+  {
+   "identity": {
+    "id": "illinois-edp.data.socrata.com",
+    "aliases": [],
+    "public_host": "illinois-edp.data.socrata.com",
+    "catalog_query": {
+     "domains": "illinois-edp.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "illinois-edp.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 297,
+   "catalog_size": 403
+  },
+  {
+   "identity": {
+    "id": "impact.stlouisco.com",
+    "aliases": [],
+    "public_host": "impact.stlouisco.com",
+    "catalog_query": {
+     "domains": "impact.stlouisco.com"
+    },
+    "catalog_region": "us",
+    "name": "Impact STLCO",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 77,
+   "catalog_size": 103
+  },
+  {
+   "identity": {
+    "id": "indio.data.socrata.com",
+    "aliases": [],
+    "public_host": "indio.data.socrata.com",
+    "catalog_query": {
+     "domains": "indio.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "indio.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 11
+  },
+  {
+   "identity": {
+    "id": "insights.cincinnati-oh.gov",
+    "aliases": [],
+    "public_host": "insights.cincinnati-oh.gov",
+    "catalog_query": {
+     "domains": "insights.cincinnati-oh.gov"
+    },
+    "catalog_region": "us",
+    "name": "CincyInsights",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 63
+  },
+  {
+   "identity": {
+    "id": "iop.data.socrata.com",
+    "aliases": [],
+    "public_host": "iop.data.socrata.com",
+    "catalog_query": {
+     "domains": "iop.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "iop.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "janesville.data.socrata.com",
+    "aliases": [],
+    "public_host": "janesville.data.socrata.com",
+    "catalog_query": {
+     "domains": "janesville.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Janesville",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 42,
+   "catalog_size": 45
+  },
+  {
+   "identity": {
+    "id": "jerseyvillagetx.data.socrata.com",
+    "aliases": [],
+    "public_host": "jerseyvillagetx.data.socrata.com",
+    "catalog_query": {
+     "domains": "jerseyvillagetx.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "jerseyvillagetx.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 14
+  },
+  {
+   "identity": {
+    "id": "johnstonia.data.socrata.com",
+    "aliases": [],
+    "public_host": "johnstonia.data.socrata.com",
+    "catalog_query": {
+     "domains": "johnstonia.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "johnstonia.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 7
+  },
+  {
+   "identity": {
+    "id": "kirklandwa-scgc.data.socrata.com",
+    "aliases": [],
+    "public_host": "kirklandwa-scgc.data.socrata.com",
+    "catalog_query": {
+     "domains": "kirklandwa-scgc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "kirklandwa-scgc.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "kirklandwa.data.socrata.com",
+    "aliases": [],
+    "public_host": "kirklandwa.data.socrata.com",
+    "catalog_query": {
+     "domains": "kirklandwa.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "kirklandwa.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 6
+  },
+  {
+   "identity": {
+    "id": "lacoso.data.socrata.com",
+    "aliases": [],
+    "public_host": "lacoso.data.socrata.com",
+    "catalog_query": {
+     "domains": "lacoso.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "lacoso.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 8,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "laramiecounty.data.socrata.com",
+    "aliases": [],
+    "public_host": "laramiecounty.data.socrata.com",
+    "catalog_query": {
+     "domains": "laramiecounty.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "laramiecounty.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "metroairports.data.socrata.com",
+    "aliases": [],
+    "public_host": "metroairports.data.socrata.com",
+    "catalog_query": {
+     "domains": "metroairports.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "MAC Sustainability",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 34
+  },
+  {
+   "identity": {
+    "id": "mi-treasury.data.socrata.com",
+    "aliases": [],
+    "public_host": "mi-treasury.data.socrata.com",
+    "catalog_query": {
+     "domains": "mi-treasury.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "MICommunity Financial Dashboard",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 31,
+   "catalog_size": 86
+  },
+  {
+   "identity": {
+    "id": "mischooldata.data.socrata.com",
+    "aliases": [],
+    "public_host": "mischooldata.data.socrata.com",
+    "catalog_query": {
+     "domains": "mischooldata.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "mischooldata.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 29,
+   "catalog_size": 42
+  },
+  {
+   "identity": {
+    "id": "moreno-valley.data.socrata.com",
+    "aliases": [],
+    "public_host": "moreno-valley.data.socrata.com",
+    "catalog_query": {
+     "domains": "moreno-valley.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Moreno Valley",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "newcastle.data.socrata.com",
+    "aliases": [],
+    "public_host": "newcastle.data.socrata.com",
+    "catalog_query": {
+     "domains": "newcastle.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "newcastle.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 10
+  },
+  {
+   "identity": {
+    "id": "nih-ncats.data.socrata.com",
+    "aliases": [],
+    "public_host": "nih-ncats.data.socrata.com",
+    "catalog_query": {
+     "domains": "nih-ncats.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "nih-ncats.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 7
+  },
+  {
+   "identity": {
+    "id": "nnps-odp.data.socrata.com",
+    "aliases": [],
+    "public_host": "nnps-odp.data.socrata.com",
+    "catalog_query": {
+     "search_context": "nnps-odp.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "nnps-odp.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 631,
+   "catalog_size": 1374
+  },
+  {
+   "identity": {
+    "id": "nvof-open.data.socrata.com",
+    "aliases": [],
+    "public_host": "nvof-open.data.socrata.com",
+    "catalog_query": {
+     "domains": "nvof-open.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "nvof-open.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 11,
+   "catalog_size": 16
+  },
+  {
+   "identity": {
+    "id": "nyc-scgc.data.socrata.com",
+    "aliases": [],
+    "public_host": "nyc-scgc.data.socrata.com",
+    "catalog_query": {
+     "domains": "nyc-scgc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "NYC SCGC",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 7,
+   "catalog_size": 11
+  },
+  {
+   "identity": {
+    "id": "olmsteadcountymn.data.socrata.com",
+    "aliases": [],
+    "public_host": "olmsteadcountymn.data.socrata.com",
+    "catalog_query": {
+     "domains": "olmsteadcountymn.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "olmsteadcountymn.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "open.piercecountywa.gov",
+    "aliases": [],
+    "public_host": "open.piercecountywa.gov",
+    "catalog_query": {
+     "search_context": "open.piercecountywa.gov"
+    },
+    "catalog_region": "us",
+    "name": "Open Pierce County",
+    "place_names": [
+     "Pierce County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "WA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 886,
+   "catalog_size": 2537
+  },
+  {
+   "identity": {
+    "id": "opendata-augusta.data.socrata.com",
+    "aliases": [],
+    "public_host": "opendata-augusta.data.socrata.com",
+    "catalog_query": {
+     "domains": "opendata-augusta.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "opendata-augusta.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 24
+  },
+  {
+   "identity": {
+    "id": "opendata.camden.gov.uk",
+    "aliases": [],
+    "public_host": "opendata.camden.gov.uk",
+    "catalog_query": {
+     "domains": "opendata.camden.gov.uk"
+    },
+    "catalog_region": "eu",
+    "name": "London Borough of Camden",
+    "place_names": [
+     "Camden",
+     "London Borough of Camden"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "GB",
+     "region": "CMD"
+    },
+    "timezone": "Europe/London",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 113,
+   "catalog_size": 871
+  },
+  {
+   "identity": {
+    "id": "opendata.cityofmesquite.com",
+    "aliases": [],
+    "public_host": "opendata.cityofmesquite.com",
+    "catalog_query": {
+     "domains": "opendata.cityofmesquite.com"
+    },
+    "catalog_region": "us",
+    "name": "Mesquite Texas",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 6
+  },
+  {
+   "identity": {
+    "id": "opendata.clermontauditor.org",
+    "aliases": [],
+    "public_host": "opendata.clermontauditor.org",
+    "catalog_query": {
+     "search_context": "opendata.clermontauditor.org"
+    },
+    "catalog_region": "us",
+    "name": "Clermont Auditor",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 43,
+   "catalog_size": 398
+  },
+  {
+   "identity": {
+    "id": "opendata.fcc.gov",
+    "aliases": [],
+    "public_host": "opendata.fcc.gov",
+    "catalog_query": {
+     "domains": "opendata.fcc.gov"
+    },
+    "catalog_region": "us",
+    "name": "Federal Communications Commission",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 56,
+   "catalog_size": 100
+  },
+  {
+   "identity": {
+    "id": "opendata.fcgov.com",
+    "aliases": [],
+    "public_host": "opendata.fcgov.com",
+    "catalog_query": {
+     "domains": "opendata.fcgov.com"
+    },
+    "catalog_region": "us",
+    "name": "opendata.fcgov.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 80,
+   "catalog_size": 221
+  },
+  {
+   "identity": {
+    "id": "opendata.howardcountymd.gov",
+    "aliases": [],
+    "public_host": "opendata.howardcountymd.gov",
+    "catalog_query": {
+     "domains": "opendata.howardcountymd.gov"
+    },
+    "catalog_region": "us",
+    "name": "Howard County",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 124,
+   "catalog_size": 600
+  },
+  {
+   "identity": {
+    "id": "opendata.maryland.gov",
+    "aliases": [],
+    "public_host": "opendata.maryland.gov",
+    "catalog_query": {
+     "domains": "opendata.maryland.gov"
+    },
+    "catalog_region": "us",
+    "name": "The State of Maryland",
+    "place_names": [
+     "Maryland"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "US",
+     "region": "MD"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1539,
+   "catalog_size": 3614
+  },
+  {
+   "identity": {
+    "id": "opendata.rdw.nl",
+    "aliases": [],
+    "public_host": "opendata.rdw.nl",
+    "catalog_query": {
+     "domains": "opendata.rdw.nl"
+    },
+    "catalog_region": "eu",
+    "name": "RDW",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 68,
+   "catalog_size": 205
+  },
+  {
+   "identity": {
+    "id": "openinformation.novascotia.ca",
+    "aliases": [],
+    "public_host": "openinformation.novascotia.ca",
+    "catalog_query": {
+     "domains": "openinformation.novascotia.ca"
+    },
+    "catalog_region": "us",
+    "name": "Information Access, Nova Scotia",
+    "place_names": [
+     "Nova Scotia"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "CA",
+     "region": "NS"
+    },
+    "timezone": "America/Halifax",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 6318
+  },
+  {
+   "identity": {
+    "id": "openperformance.edmonton.ca",
+    "aliases": [],
+    "public_host": "openperformance.edmonton.ca",
+    "catalog_query": {
+     "domains": "openperformance.edmonton.ca"
+    },
+    "catalog_region": "us",
+    "name": "City of Edmonton Open Performance",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 9,
+   "catalog_size": 129
+  },
+  {
+   "identity": {
+    "id": "orlandofl.data.socrata.com",
+    "aliases": [],
+    "public_host": "orlandofl.data.socrata.com",
+    "catalog_query": {
+     "domains": "orlandofl.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "orlandofl.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 9,
+   "catalog_size": 13
+  },
+  {
+   "identity": {
+    "id": "parkeronline.data.socrata.com",
+    "aliases": [],
+    "public_host": "parkeronline.data.socrata.com",
+    "catalog_query": {
+     "domains": "parkeronline.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "Town of Parker, CO",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 49
+  },
+  {
+   "identity": {
+    "id": "parksreporting.parks.ca.gov",
+    "aliases": [],
+    "public_host": "parksreporting.parks.ca.gov",
+    "catalog_query": {
+     "domains": "parksreporting.parks.ca.gov"
+    },
+    "catalog_region": "us",
+    "name": "California Parks Reporting Platform",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "performance.ci.janesville.wi.us",
+    "aliases": [],
+    "public_host": "performance.ci.janesville.wi.us",
+    "catalog_query": {
+     "domains": "performance.ci.janesville.wi.us"
+    },
+    "catalog_region": "us",
+    "name": "City of Janesville",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 73,
+   "catalog_size": 227
+  },
+  {
+   "identity": {
+    "id": "performance.cityofcamas.us",
+    "aliases": [],
+    "public_host": "performance.cityofcamas.us",
+    "catalog_query": {
+     "domains": "performance.cityofcamas.us"
+    },
+    "catalog_region": "us",
+    "name": "Camas Performance",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 64,
+   "catalog_size": 473
+  },
+  {
+   "identity": {
+    "id": "performance.cookcountyil.gov",
+    "aliases": [],
+    "public_host": "performance.cookcountyil.gov",
+    "catalog_query": {
+     "domains": "performance.cookcountyil.gov"
+    },
+    "catalog_region": "us",
+    "name": "Cook County Performance",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 12,
+   "catalog_size": 42
+  },
+  {
+   "identity": {
+    "id": "performance.franklintn.gov",
+    "aliases": [],
+    "public_host": "performance.franklintn.gov",
+    "catalog_query": {
+     "domains": "performance.franklintn.gov"
+    },
+    "catalog_region": "us",
+    "name": "FranklinForward: City's Strategic Plan Website",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 27,
+   "catalog_size": 88
+  },
+  {
+   "identity": {
+    "id": "performance.fultoncountyga.gov",
+    "aliases": [],
+    "public_host": "performance.fultoncountyga.gov",
+    "catalog_query": {
+     "domains": "performance.fultoncountyga.gov"
+    },
+    "catalog_region": "us",
+    "name": "Fulton Performance",
+    "place_names": [
+     "Fulton"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "US",
+     "region": "GA"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 78,
+   "catalog_size": 689
+  },
+  {
+   "identity": {
+    "id": "performance.princegeorgescountymd.gov",
+    "aliases": [],
+    "public_host": "performance.princegeorgescountymd.gov",
+    "catalog_query": {
+     "domains": "performance.princegeorgescountymd.gov"
+    },
+    "catalog_region": "us",
+    "name": "Prince George's County",
+    "place_names": [
+     "Prince George's County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "MD"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 263,
+   "catalog_size": 708
+  },
+  {
+   "identity": {
+    "id": "performance.smcgov.org",
+    "aliases": [],
+    "public_host": "performance.smcgov.org",
+    "catalog_query": {
+     "domains": "performance.smcgov.org"
+    },
+    "catalog_region": "us",
+    "name": "San Mateo County Performance",
+    "place_names": [
+     "San Mateo County"
+    ],
+    "jurisdiction": {
+     "level": "county",
+     "country": "US",
+     "region": "CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 899,
+   "catalog_size": 2128
+  },
+  {
+   "identity": {
+    "id": "perrycounty.data.socrata.com",
+    "aliases": [],
+    "public_host": "perrycounty.data.socrata.com",
+    "catalog_query": {
+     "domains": "perrycounty.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "perrycounty.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "pinellasparkpd.data.socrata.com",
+    "aliases": [],
+    "public_host": "pinellasparkpd.data.socrata.com",
+    "catalog_query": {
+     "domains": "pinellasparkpd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "pinellasparkpd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 8,
+   "catalog_size": 9
+  },
+  {
+   "identity": {
+    "id": "pleasantonpd.data.socrata.com",
+    "aliases": [],
+    "public_host": "pleasantonpd.data.socrata.com",
+    "catalog_query": {
+     "domains": "pleasantonpd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "pleasantonpd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "plymouth-ma.data.socrata.com",
+    "aliases": [],
+    "public_host": "plymouth-ma.data.socrata.com",
+    "catalog_query": {
+     "domains": "plymouth-ma.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "plymouth-ma.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "policedata.coloradosprings.gov",
+    "aliases": [],
+    "public_host": "policedata.coloradosprings.gov",
+    "catalog_query": {
+     "domains": "policedata.coloradosprings.gov"
+    },
+    "catalog_region": "us",
+    "name": "policedata.coloradosprings.gov",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 11,
+   "catalog_size": 47
+  },
+  {
+   "identity": {
+    "id": "policeview.johnscreekga.gov",
+    "aliases": [],
+    "public_host": "policeview.johnscreekga.gov",
+    "catalog_query": {
+     "domains": "policeview.johnscreekga.gov"
+    },
+    "catalog_region": "us",
+    "name": "Johns Creek Police Department",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 11,
+   "catalog_size": 43
+  },
+  {
+   "identity": {
+    "id": "prospertx.data.socrata.com",
+    "aliases": [],
+    "public_host": "prospertx.data.socrata.com",
+    "catalog_query": {
+     "domains": "prospertx.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "prospertx.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "ptsd-va.data.socrata.com",
+    "aliases": [],
+    "public_host": "ptsd-va.data.socrata.com",
+    "catalog_query": {
+     "domains": "ptsd-va.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "PTSD Repository",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 17,
+   "catalog_size": 98
+  },
+  {
+   "identity": {
+    "id": "ranchocordovaca.data.socrata.com",
+    "aliases": [],
+    "public_host": "ranchocordovaca.data.socrata.com",
+    "catalog_query": {
+     "domains": "ranchocordovaca.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "ranchocordovaca.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 10
+  },
+  {
+   "identity": {
+    "id": "readingpa.data.socrata.com",
+    "aliases": [],
+    "public_host": "readingpa.data.socrata.com",
+    "catalog_query": {
+     "domains": "readingpa.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "readingpa.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "reports.cdp.net",
+    "aliases": [],
+    "public_host": "reports.cdp.net",
+    "catalog_query": {
+     "domains": "reports.cdp.net"
+    },
+    "catalog_region": "eu",
+    "name": "CDP Performance Dashboard",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "rosevillepd.data.socrata.com",
+    "aliases": [],
+    "public_host": "rosevillepd.data.socrata.com",
+    "catalog_query": {
+     "domains": "rosevillepd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "rosevillepd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 8,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "rrps.data.socrata.com",
+    "aliases": [],
+    "public_host": "rrps.data.socrata.com",
+    "catalog_query": {
+     "domains": "rrps.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "rrps.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 4,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "sharefulton.fultoncountyga.gov",
+    "aliases": [],
+    "public_host": "sharefulton.fultoncountyga.gov",
+    "catalog_query": {
+     "domains": "sharefulton.fultoncountyga.gov"
+    },
+    "catalog_region": "us",
+    "name": "Share Fulton",
+    "place_names": [
+     "Fulton"
+    ],
+    "jurisdiction": {
+     "level": "other",
+     "country": "US",
+     "region": "GA"
+    },
+    "timezone": "America/New_York",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 239,
+   "catalog_size": 1984
+  },
+  {
+   "identity": {
+    "id": "shawneesheriff.data.socrata.com",
+    "aliases": [],
+    "public_host": "shawneesheriff.data.socrata.com",
+    "catalog_query": {
+     "domains": "shawneesheriff.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "shawneesheriff.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 18,
+   "catalog_size": 19
+  },
+  {
+   "identity": {
+    "id": "siouxfalls.data.socrata.com",
+    "aliases": [],
+    "public_host": "siouxfalls.data.socrata.com",
+    "catalog_query": {
+     "domains": "siouxfalls.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "siouxfalls.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 17,
+   "catalog_size": 31
+  },
+  {
+   "identity": {
+    "id": "slo-co.data.socrata.com",
+    "aliases": [],
+    "public_host": "slo-co.data.socrata.com",
+    "catalog_query": {
+     "domains": "slo-co.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "slo-co.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 6,
+   "catalog_size": 7
+  },
+  {
+   "identity": {
+    "id": "soquelcreekwdca.data.socrata.com",
+    "aliases": [],
+    "public_host": "soquelcreekwdca.data.socrata.com",
+    "catalog_query": {
+     "domains": "soquelcreekwdca.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "soquelcreekwdca.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 15
+  },
+  {
+   "identity": {
+    "id": "southfultonga.data.socrata.com",
+    "aliases": [],
+    "public_host": "southfultonga.data.socrata.com",
+    "catalog_query": {
+     "domains": "southfultonga.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "southfultonga.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 17
+  },
+  {
+   "identity": {
+    "id": "stateofalaska.data.socrata.com",
+    "aliases": [],
+    "public_host": "stateofalaska.data.socrata.com",
+    "catalog_query": {
+     "domains": "stateofalaska.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "stateofalaska.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 31,
+   "catalog_size": 64
+  },
+  {
+   "identity": {
+    "id": "stutsman.data.socrata.com",
+    "aliases": [],
+    "public_host": "stutsman.data.socrata.com",
+    "catalog_query": {
+     "domains": "stutsman.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "stutsman.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 13,
+   "catalog_size": 17
+  },
+  {
+   "identity": {
+    "id": "summitcountyoh.data.socrata.com",
+    "aliases": [],
+    "public_host": "summitcountyoh.data.socrata.com",
+    "catalog_query": {
+     "domains": "summitcountyoh.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "summitcountyoh.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 8
+  },
+  {
+   "identity": {
+    "id": "townofpalmbeach-epl.data.socrata.com",
+    "aliases": [],
+    "public_host": "townofpalmbeach-epl.data.socrata.com",
+    "catalog_query": {
+     "domains": "townofpalmbeach-epl.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "townofpalmbeach-epl.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "transparencyarchive.michigan.gov",
+    "aliases": [],
+    "public_host": "transparencyarchive.michigan.gov",
+    "catalog_query": {
+     "domains": "transparencyarchive.michigan.gov"
+    },
+    "catalog_region": "us",
+    "name": "MI Transparency",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 56,
+   "catalog_size": 142
+  },
+  {
+   "identity": {
+    "id": "trca-epl.data.socrata.com",
+    "aliases": [],
+    "public_host": "trca-epl.data.socrata.com",
+    "catalog_query": {
+     "domains": "trca-epl.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "trca-epl.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "txcourts-reporting.data.socrata.com",
+    "aliases": [],
+    "public_host": "txcourts-reporting.data.socrata.com",
+    "catalog_query": {
+     "domains": "txcourts-reporting.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "txcourts-reporting.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "unioncityhi-reporting.data.socrata.com",
+    "aliases": [],
+    "public_host": "unioncityhi-reporting.data.socrata.com",
+    "catalog_query": {
+     "domains": "unioncityhi-reporting.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "unioncityhi-reporting.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 125
+  },
+  {
+   "identity": {
+    "id": "usc.data.socrata.com",
+    "aliases": [],
+    "public_host": "usc.data.socrata.com",
+    "catalog_query": {
+     "domains": "usc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "usc.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 160,
+   "catalog_size": 226
+  },
+  {
+   "identity": {
+    "id": "va-cca.data.socrata.com",
+    "aliases": [],
+    "public_host": "va-cca.data.socrata.com",
+    "catalog_query": {
+     "domains": "va-cca.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "va-cca.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "vtmbl-reporting.data.socrata.com",
+    "aliases": [],
+    "public_host": "vtmbl-reporting.data.socrata.com",
+    "catalog_query": {
+     "domains": "vtmbl-reporting.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "vtmbl-reporting.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "wacotexas.data.socrata.com",
+    "aliases": [],
+    "public_host": "wacotexas.data.socrata.com",
+    "catalog_query": {
+     "domains": "wacotexas.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "wacotexas.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 14
+  },
+  {
+   "identity": {
+    "id": "washoe.data.socrata.com",
+    "aliases": [],
+    "public_host": "washoe.data.socrata.com",
+    "catalog_query": {
+     "domains": "washoe.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "washoe.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3,
+   "catalog_size": 9
+  },
+  {
+   "identity": {
+    "id": "weho.data.socrata.com",
+    "aliases": [],
+    "public_host": "weho.data.socrata.com",
+    "catalog_query": {
+     "domains": "weho.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "weho.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 2,
+   "catalog_size": 2
+  },
+  {
+   "identity": {
+    "id": "weslacotx.data.socrata.com",
+    "aliases": [],
+    "public_host": "weslacotx.data.socrata.com",
+    "catalog_query": {
+     "domains": "weslacotx.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "weslacotx.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "westpalmbeach.data.socrata.com",
+    "aliases": [],
+    "public_host": "westpalmbeach.data.socrata.com",
+    "catalog_query": {
+     "domains": "westpalmbeach.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "westpalmbeach.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 5,
+   "catalog_size": 5
+  },
+  {
+   "identity": {
+    "id": "wicomicocountymd.data.socrata.com",
+    "aliases": [],
+    "public_host": "wicomicocountymd.data.socrata.com",
+    "catalog_query": {
+     "domains": "wicomicocountymd.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "wicomicocountymd.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 4
+  },
+  {
+   "identity": {
+    "id": "wv-omc.data.socrata.com",
+    "aliases": [],
+    "public_host": "wv-omc.data.socrata.com",
+    "catalog_query": {
+     "domains": "wv-omc.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "wv-omc.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 1,
+   "catalog_size": 1
+  },
+  {
+   "identity": {
+    "id": "www.dallasopendata.com",
+    "aliases": [],
+    "public_host": "www.dallasopendata.com",
+    "catalog_query": {
+     "domains": "www.dallasopendata.com"
+    },
+    "catalog_region": "us",
+    "name": "City of Dallas",
+    "place_names": [
+     "Dallas"
+    ],
+    "jurisdiction": {
+     "level": "city",
+     "country": "US",
+     "region": "TX"
+    },
+    "timezone": "America/Chicago",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 342,
+   "catalog_size": 1087
+  },
+  {
+   "identity": {
+    "id": "www.data.act.gov.au",
+    "aliases": [],
+    "public_host": "www.data.act.gov.au",
+    "catalog_query": {
+     "domains": "www.data.act.gov.au"
+    },
+    "catalog_region": "us",
+    "name": "ACT Government",
+    "place_names": [
+     "ACT"
+    ],
+    "jurisdiction": {
+     "level": "state",
+     "country": "AU",
+     "region": "ACT"
+    },
+    "timezone": "Australia/Sydney",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 383,
+   "catalog_size": 785
+  },
+  {
+   "identity": {
+    "id": "www.datahub.va.gov",
+    "aliases": [],
+    "public_host": "www.datahub.va.gov",
+    "catalog_query": {
+     "domains": "www.datahub.va.gov"
+    },
+    "catalog_region": "us",
+    "name": "Department of Veterans Affairs Data Hub",
+    "place_names": [],
+    "jurisdiction": {
+     "level": "national",
+     "country": "US",
+     "region": null
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 529,
+   "catalog_size": 2113
+  },
+  {
+   "identity": {
+    "id": "www.dati.friuliveneziagiulia.it",
+    "aliases": [],
+    "public_host": "www.dati.friuliveneziagiulia.it",
+    "catalog_query": {
+     "domains": "www.dati.friuliveneziagiulia.it"
+    },
+    "catalog_region": "eu",
+    "name": "Regione Autonoma Friuli Venezia Giulia",
+    "place_names": [
+     "Friuli Venezia Giulia"
+    ],
+    "jurisdiction": {
+     "level": "region",
+     "country": "IT",
+     "region": "36"
+    },
+    "timezone": "Europe/Rome",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 266,
+   "catalog_size": 854
+  },
+  {
+   "identity": {
+    "id": "www.dati.lombardia.it",
+    "aliases": [],
+    "public_host": "www.dati.lombardia.it",
+    "catalog_query": {
+     "search_context": "www.dati.lombardia.it"
+    },
+    "catalog_region": "eu",
+    "name": "Open Data Regione Lombardia",
+    "place_names": [
+     "Lombardia",
+     "Regione Lombardia"
+    ],
+    "jurisdiction": {
+     "level": "region",
+     "country": "IT",
+     "region": "25"
+    },
+    "timezone": "Europe/Rome",
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 3390,
+   "catalog_size": 5066
+  },
+  {
+   "identity": {
+    "id": "www.datos.gov.co",
+    "aliases": [],
+    "public_host": "www.datos.gov.co",
+    "catalog_query": {
+     "domains": "www.datos.gov.co"
+    },
+    "catalog_region": "us",
+    "name": "Datos Abiertos Colombia",
+    "place_names": [
+     "Colombia"
+    ],
+    "jurisdiction": {
+     "level": "national",
+     "country": "CO",
+     "region": null
+    },
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 8423,
+   "catalog_size": 10000
+  },
+  {
+   "identity": {
+    "id": "www.thedatazone.ca",
+    "aliases": [],
+    "public_host": "www.thedatazone.ca",
+    "catalog_query": {
+     "domains": "www.thedatazone.ca"
+    },
+    "catalog_region": "us",
+    "name": "datazONE",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 21,
+   "catalog_size": 51
+  },
+  {
+   "identity": {
+    "id": "www.transparentrichmond.org",
+    "aliases": [],
+    "public_host": "www.transparentrichmond.org",
+    "catalog_query": {
+     "domains": "www.transparentrichmond.org"
+    },
+    "catalog_region": "us",
+    "name": "Transparent Richmond",
+    "place_names": [
+     "Richmond"
+    ],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 141,
+   "catalog_size": 631
+  },
+  {
+   "identity": {
+    "id": "yumaaz.data.socrata.com",
+    "aliases": [],
+    "public_host": "yumaaz.data.socrata.com",
+    "catalog_query": {
+     "domains": "yumaaz.data.socrata.com"
+    },
+    "catalog_region": "us",
+    "name": "yumaaz.data.socrata.com",
+    "place_names": [],
+    "jurisdiction": null,
+    "timezone": null,
+    "platform": "socrata",
+    "status": "active",
+    "tier": "generic"
+   },
+   "dataset_count": 9,
+   "catalog_size": 14
+  }
+ ]
+}

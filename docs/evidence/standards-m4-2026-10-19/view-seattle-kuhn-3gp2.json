@@ -1,0 +1,39 @@
+{
+ "url": "https://data.seattle.gov/api/views/kuhn-3gp2.json",
+ "status": 200,
+ "name": "SPD Beats",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "51",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "51",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "name",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "51",
+    "null": "0"
+   }
+  }
+ ]
+}

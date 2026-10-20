@@ -1,0 +1,4 @@
+## known positive: the scan over docs/evidence/scrub-known-positive/
+1 match: positive.txt:1 (the synthetic email and phone line); exit 0
+## the scan over the pack, evals/portals/data.kingcounty.gov.json, the PR body (summary.json final_message), docs/evidence/curation-king-county-2026-10-19-run1/ and the agent's decisions row
+no match; exit 1

@@ -1,0 +1,522 @@
+{
+ "portal": "data.cdc.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 6
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 17,
+   "row_count": 1677927
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 18,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 17
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "9kjw-3miq",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.cdc.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 17,
+     "searchMillis": [
+      2,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.cdc.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "114,780 bytes, over the 65,536-byte cap",
+    "sha256": "243f676d62005887ec63c5b724f73771efdfd503f10f69b3d40b04cf5f03aa98",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.cdc.gov/api/views/9kjw-3miq.json",
+   "status": 200,
+   "body": {
+    "id": "9kjw-3miq",
+    "name": "U.S. State and Territorial Orders Closing and Reopening Bars Issued from March 11, 2020 through August 15, 2021 by County by Day",
+    "assetType": "dataset",
+    "attribution": "Mara Howard-Williams, Public Health Law Program, Center for State, Tribal, Local, and Territorial Support, Centers for Disease Control and Prevention",
+    "averageRating": 0,
+    "category": "Policy Surveillance",
+    "createdAt": 1613745282,
+    "description": "State and territorial executive orders, administrative orders, resolutions, and proclamations are collected from government websites and cataloged and coded using Microsoft Excel by one coder with one or more additional coders conducting quality assurance.\n\nData were collected to determine when bars in states and territories were subject to closing and reopening requirements through executive orders, administrative orders, resolutions, and proclamations for COVID-19. Data can be used to determine when bars in states and territories were subject to closing and reopening requirements through executive orders, administrative orders, resolutions, and proclamations for COVID-19. Data consists exclusively of state and territorial orders, many of which apply to specific counties within their respective state or territory; therefore, data is broken down to the county level.\n\nThese data are derived from publicly available state and territorial executive orders, administrative orders, resolutions, and proclamations (“orders”) for COVID-19 that expressly close or reopen bars found by the CDC, COVID-19 Community Intervention & Critical Populations Task Force, Monitoring & Evaluation Team, Mitigation Policy Analysis Unit, and the CDC, Center for State, Tribal, Local, and Territorial Support, Public Health Law Program from March 11, 2020 through August 15, 2021.  These data will be updated as new orders are collected. Any orders not available through publicly accessible websites are not included in these data. Only official copies of the documents or, where official copies were unavailable, official press releases from government websites describing requirements were coded; news media reports on restrictions were excluded. Recommendations not included in an order are not included in these data. Effective and expiration dates were coded using only the date provided; no distinction was made based on the specific time of the day the order became effective or expired. These data do not necessarily represent an official position of the Centers for Disease Control and Prevention.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 3299,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 37642790,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1631302370,
+    "publicationGroup": 18053466,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1631302752,
+    "tableId": 18437646,
+    "totalTimesRated": 0,
+    "viewCount": 7182,
+    "viewLastModified": 1788999923,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 547958177,
+      "name": "State_Tribe_Territory",
+      "dataTypeName": "text",
+      "description": "U.S. state, tribe, and territory names",
+      "fieldName": "state_tribe_territory",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 130866993,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "56"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958178,
+      "name": "County_Name",
+      "dataTypeName": "text",
+      "description": "U.S. county names",
+      "fieldName": "county_name",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 130866992,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "1968"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958179,
+      "name": "FIPS_State",
+      "dataTypeName": "number",
+      "description": "U.S. state FIPS codes",
+      "fieldName": "fips_state",
+      "position": 3,
+      "renderTypeName": "number",
+      "tableColumnId": 130866991,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "56"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958180,
+      "name": "FIPS_County",
+      "dataTypeName": "number",
+      "description": "U.S. county FIPS codes",
+      "fieldName": "fips_county",
+      "position": 4,
+      "renderTypeName": "number",
+      "tableColumnId": 130866990,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "329"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958200,
+      "name": "date",
+      "dataTypeName": "text",
+      "description": "Daily date in dataset",
+      "fieldName": "date",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 139348112,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "519"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958182,
+      "name": "Business_Type",
+      "dataTypeName": "text",
+      "description": "Describes the type of businesses being impacted. Bars (including cigar bars/hookah lounge, taverns, brew pubs, breweries, microbreweries, distillery, pubs, wineries, tasting rooms, clubs, and other places of public accommodation offering alcoholic beverages for on-premises consumption). Note: when a state differentiates between bars that serve food and bars that do not, and treats bars that serve food in the same manner as restaurants, only bars that do not serve food are coded as bars and bars that do serve food will be captured as Restaurants; Restaurants: any establishment that traditionally provides for on-premises consumption of food and beverages, distinguished from bars (beverage only) and businesses that sell food for off-premises consumption (grocery stores, convenience stores, etc.).",
+      "fieldName": "business_type",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 130866988,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958183,
+      "name": "Action",
+      "dataTypeName": "text",
+      "description": "Describes the closure action applied to the business described in Business_Type. NA: the jurisdiction has not closed businesses of this type; Closed: the jurisdiction has closed businesses of this type; Curbside/carryout/delivery only: businesses may only conduct curbside or delivery operations; Open with limitations - outdoor: the jurisdiction allows on-premise consumption but only outdoors; Open with limitations - indoor: The jurisdiction allows on-premise consumption indoors, but must follow safety limitations such as reduced capacity and social distancing; Authorized to fully reopen: businesses of this type may open fully with no new limitations for COVID-19.",
+      "fieldName": "action",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 130866985,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "5"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958185,
+      "name": "order_code",
+      "dataTypeName": "text",
+      "description": "Numeric order status grouped by display categories used on the Environmental Public Health Tracking Network; corresponds to restrictiveness of the action",
+      "fieldName": "order_code",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 139015157,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "6"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958195,
+      "name": "Source_of_Action",
+      "dataTypeName": "text",
+      "description": "Source where order was found",
+      "fieldName": "source_of_action",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 130866978,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "11"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958196,
+      "name": "URL",
+      "dataTypeName": "text",
+      "description": "URL of order language used to complete dataset",
+      "fieldName": "url",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 130866977,
+      "cachedContents": {
+       "non_null": "1661388",
+       "null": "16539",
+       "count": "1677927",
+       "cardinality": "178"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958197,
+      "name": "Citation",
+      "dataTypeName": "text",
+      "description": "Citation for the order",
+      "fieldName": "citation",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 130866976,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "1837"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958204,
+      "name": "Percent_Capacity_Outdoor",
+      "dataTypeName": "text",
+      "description": "The maximum number of people permitted for on premise, outdoor consumption number",
+      "fieldName": "percent_capacity_outdoor",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 139348116,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "13"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958203,
+      "name": "Percent_Capacity_Indoor",
+      "dataTypeName": "text",
+      "description": "The maximum percent occupancy for on premise, indoor consumption number",
+      "fieldName": "percent_capacity_indoor",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 139348115,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "16"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958202,
+      "name": "Numeric_Capacity_Outdoor",
+      "dataTypeName": "text",
+      "description": "The maximum number of people permitted for on premise, indoor consumption number",
+      "fieldName": "numeric_capacity_outdoor",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 139348114,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "14"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958201,
+      "name": "Numeric_Capacity_Indoor",
+      "dataTypeName": "text",
+      "description": "The maximum number of people permitted for on premise, indoor consumption number",
+      "fieldName": "numeric_capacity_indoor",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 139348113,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "12"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958199,
+      "name": "Limited_Open_Outdoor_Only",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "limited_open_outdoor_only",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 139348111,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "2"
+      },
+      "format": {}
+     },
+     {
+      "id": 547958198,
+      "name": "Limited_Open_General_Indoor",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "limited_open_general_indoor",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 139348110,
+      "cachedContents": {
+       "non_null": "1677927",
+       "null": "0",
+       "count": "1677927",
+       "cardinality": "2"
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "custom_fields": {
+      "Common Core": {
+       "Contact Email": "<identity redacted>",
+       "Footnotes": "Data can be used to determine when bars in states and territories were subject to closing and reopening requirements through executive orders, administrative orders, resolutions, and proclamations for COVID-19 closing and reopening bars.",
+       "Suggested Citation": "CDC, COVID-19 Community Intervention & Critical Populations Task Force, Monitoring & Evaluation Team, Mitigation Policy Analysis Unit and the CDC, Center for State, Tribal, Local, and Territorial Support, Public Health Law Program, “State and Territorial COVID-19 Orders and Proclamations Closing and Reopening Bars” (August 15, 2021).",
+       "Contact Name": "<identity redacted>",
+       "Program Code": "009:020",
+       "Publisher": "Environmental Public Health Tracking",
+       "Bureau Code": "009:20"
+      },
+      "Common Core 3": {
+       "Contact Email": "<identity redacted>",
+       "Contact Name": "<identity redacted>",
+       "Program Code": "009:020",
+       "Publisher": "Environmental Public Health Tracking",
+       "Bureau Code": "009:20"
+      }
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ]
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "covid-19",
+     "social distancing",
+     "executive order",
+     "proclamation",
+     "legal epidemiology",
+     "government order",
+     "public health order",
+     "mitigation",
+     "business closure",
+     "business reopening"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.cdc.gov/resource/9kjw-3miq.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "1677927"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.cdc.gov/resource/9kjw-3miq.json?%24select=state_tribe_territory%2C+county_name%2C+fips_state%2C+fips_county%2C+date%2C+business_type%2C+action%2C+order_code%2C+source_of_action%2C+url%2C+citation%2C+percent_capacity_outdoor%2C+percent_capacity_indoor%2C+numeric_capacity_outdoor%2C+numeric_capacity_indoor%2C+limited_open_outdoor_only%2C+limited_open_general_indoor%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "action",
+     "business_type",
+     "citation",
+     "county_name",
+     "date",
+     "fips_county",
+     "fips_state",
+     "limited_open_general_indoor",
+     "limited_open_outdoor_only",
+     "numeric_capacity_indoor",
+     "numeric_capacity_outdoor",
+     "order_code",
+     "percent_capacity_indoor",
+     "percent_capacity_outdoor",
+     "source_of_action",
+     "state_tribe_territory",
+     "url"
+    ],
+    "sha256": "4c2efcd238c164e8f7f33f2b703b95322fac1a2ae06e33f1c47457b341cdcdf0"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.cdc.gov/resource/9kjw-3miq.json?%24select=state_tribe_territory%2C+county_name%2C+fips_state%2C+fips_county%2C+date%2C+business_type%2C+action%2C+order_code%2C+source_of_action%2C+url%2C+citation%2C+percent_capacity_outdoor%2C+percent_capacity_indoor%2C+numeric_capacity_outdoor%2C+numeric_capacity_indoor%2C+limited_open_outdoor_only%2C+limited_open_general_indoor%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-2rds_75bd-xhz3%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "action",
+     "business_type",
+     "citation",
+     "county_name",
+     "date",
+     "fips_county",
+     "fips_state",
+     "limited_open_general_indoor",
+     "limited_open_outdoor_only",
+     "numeric_capacity_indoor",
+     "numeric_capacity_outdoor",
+     "order_code",
+     "percent_capacity_indoor",
+     "percent_capacity_outdoor",
+     "source_of_action",
+     "state_tribe_territory",
+     "url"
+    ],
+    "sha256": "dae7578a7d361ba26107e5dc5837f131358c2eb2594d66e42cb4cfa88820c2f1"
+   }
+  }
+ ]
+}

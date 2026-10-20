@@ -1,0 +1,197 @@
+{
+ "modern_tools_list_framed": 24464,
+ "modern_portals_index": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "topic": "portals",
+   "uri": "opendata-atlas://portals",
+   "title": "Portal index",
+   "summary": "Curated and profiled portals; each item gives identity, tier, knowledge by dataset, and the guide index. atlas_find_portals finds every registered portal.",
+   "version": "0.1.0",
+   "entries": [
+    {
+     "item_id": "data.seattle.gov",
+     "title": "City of Seattle",
+     "description": "curated portal, city",
+     "uri": "opendata-atlas://portals/data.seattle.gov"
+    },
+    {
+     "item_id": "data.cityofchicago.org",
+     "title": "City of Chicago",
+     "description": "profiled portal, city",
+     "uri": "opendata-atlas://portals/data.cityofchicago.org"
+    }
+   ],
+   "has_more": false,
+   "source": {
+    "request_id": "9aefe43f53e14a38"
+   }
+  }
+ },
+ "modern_portals_chicago": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "topic": "portals",
+   "uri": "opendata-atlas://portals/data.cityofchicago.org",
+   "title": "City of Chicago (data.cityofchicago.org)",
+   "summary": "Identity, tier, knowledge by dataset, and guide index for City of Chicago.",
+   "version": "0.1.0",
+   "body": "# City of Chicago\n\n## Identity\n- id: `data.cityofchicago.org`\n- aliases: `chicago`\n- public host: data.cityofchicago.org\n- jurisdiction: city, US, IL\n- calendar zone: America/Chicago\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- reviewed: `ijzp-q8t2` (Crimes - 2001 to Present)\n- profiled: `22u3-xenr` (no title recorded), `4ijn-s7e5` (no title recorded), `85ca-t3if` (no title recorded), `i6bp-fvbx` (no title recorded), `r5kz-chrr` (no title recorded), `s6ha-ppgi` (no title recorded), `ydr8-5enu` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 2 `unchecked`, 62 `passed`.\n\n## Guides\n- `crimes` (ijzp-q8t2): Crimes - 2001 to Present. opendata-atlas://portals/data.cityofchicago.org/guides/crimes\n",
+   "source": {
+    "request_id": "0d726640a29749e4",
+    "portal": {
+     "id": "data.cityofchicago.org",
+     "alias": "chicago",
+     "name": "City of Chicago",
+     "tier": "profiled",
+     "timezone": "America/Chicago"
+    },
+    "now_local": "2026-10-19T10:46:49-05:00"
+   }
+  }
+ },
+ "modern_portals_unknown": {
+  "isError": true,
+  "text_equals_structured": true,
+  "structured": {
+   "code": "portal_not_found",
+   "message": "No portal has this id or alias.",
+   "details": {
+    "field": "item_id",
+    "reason": "Portal ids are hostnames; aliases are short names."
+   },
+   "temporary": false,
+   "repair": {
+    "next_step": "find_portal",
+    "tool": "atlas_find_portals",
+    "arguments": {},
+    "alternative": "Search by place name with atlas_find_portals."
+   },
+   "request_id": "9fda0bce461b4dfd",
+   "retry_after_ms": null
+  }
+ },
+ "modern_contributing": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "keys": [
+    "body",
+    "source",
+    "summary",
+    "title",
+    "topic",
+    "uri",
+    "version"
+   ]
+  }
+ },
+ "read opendata-atlas://portals/chicago": {
+  "ttlMs": 3600000,
+  "cacheScope": "public",
+  "mimeType": "text/markdown",
+  "bytes": 952
+ },
+ "chicago_resource_body": "# City of Chicago\n\n## Identity\n- id: `data.cityofchicago.org`\n- aliases: `chicago`\n- public host: data.cityofchicago.org\n- jurisdiction: city, US, IL\n- calendar zone: America/Chicago\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- reviewed: `ijzp-q8t2` (Crimes - 2001 to Present)\n- profiled: `22u3-xenr` (no title recorded), `4ijn-s7e5` (no title recorded), `85ca-t3if` (no title recorded), `i6bp-fvbx` (no title recorded), `r5kz-chrr` (no title recorded), `s6ha-ppgi` (no title recorded), `ydr8-5enu` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 2 `unchecked`, 62 `passed`.\n\n## Guides\n- `crimes` (ijzp-q8t2): Crimes - 2001 to Present. opendata-atlas://portals/data.cityofchicago.org/guides/crimes\n",
+ "read opendata-atlas://contributing": {
+  "ttlMs": 3600000,
+  "cacheScope": "public",
+  "mimeType": "text/markdown",
+  "bytes": 14589
+ },
+ "contributing_equals_repo_file": true,
+ "legacy_tools_list_framed": 23784,
+ "legacy_instructions_chars": 1797,
+ "legacy_instructions_equal": true,
+ "legacy_portals_index": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "topic": "portals",
+   "uri": "opendata-atlas://portals",
+   "title": "Portal index",
+   "summary": "Curated and profiled portals; each item gives identity, tier, knowledge by dataset, and the guide index. atlas_find_portals finds every registered portal.",
+   "version": "0.1.0",
+   "entries": [
+    {
+     "item_id": "data.seattle.gov",
+     "title": "City of Seattle",
+     "description": "curated portal, city",
+     "uri": "opendata-atlas://portals/data.seattle.gov"
+    },
+    {
+     "item_id": "data.cityofchicago.org",
+     "title": "City of Chicago",
+     "description": "profiled portal, city",
+     "uri": "opendata-atlas://portals/data.cityofchicago.org"
+    }
+   ],
+   "has_more": false,
+   "source": {
+    "request_id": "da2de8e1866b4786"
+   }
+  }
+ },
+ "legacy_portals_chicago": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "topic": "portals",
+   "uri": "opendata-atlas://portals/data.cityofchicago.org",
+   "title": "City of Chicago (data.cityofchicago.org)",
+   "summary": "Identity, tier, knowledge by dataset, and guide index for City of Chicago.",
+   "version": "0.1.0",
+   "body": "# City of Chicago\n\n## Identity\n- id: `data.cityofchicago.org`\n- aliases: `chicago`\n- public host: data.cityofchicago.org\n- jurisdiction: city, US, IL\n- calendar zone: America/Chicago\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- reviewed: `ijzp-q8t2` (Crimes - 2001 to Present)\n- profiled: `22u3-xenr` (no title recorded), `4ijn-s7e5` (no title recorded), `85ca-t3if` (no title recorded), `i6bp-fvbx` (no title recorded), `r5kz-chrr` (no title recorded), `s6ha-ppgi` (no title recorded), `ydr8-5enu` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 2 `unchecked`, 62 `passed`.\n\n## Guides\n- `crimes` (ijzp-q8t2): Crimes - 2001 to Present. opendata-atlas://portals/data.cityofchicago.org/guides/crimes\n",
+   "source": {
+    "request_id": "4ae902ad16e74218",
+    "portal": {
+     "id": "data.cityofchicago.org",
+     "alias": "chicago",
+     "name": "City of Chicago",
+     "tier": "profiled",
+     "timezone": "America/Chicago"
+    },
+    "now_local": "2026-10-19T10:46:49-05:00"
+   }
+  }
+ },
+ "legacy_portals_unknown": {
+  "isError": true,
+  "text_equals_structured": true,
+  "structured": {
+   "code": "portal_not_found",
+   "message": "No portal has this id or alias.",
+   "details": {
+    "field": "item_id",
+    "reason": "Portal ids are hostnames; aliases are short names."
+   },
+   "temporary": false,
+   "repair": {
+    "next_step": "find_portal",
+    "tool": "atlas_find_portals",
+    "arguments": {},
+    "alternative": "Search by place name with atlas_find_portals."
+   },
+   "request_id": "1d84ba3576d34742",
+   "retry_after_ms": null
+  }
+ },
+ "legacy_contributing": {
+  "isError": false,
+  "text_equals_structured": true,
+  "structured": {
+   "keys": [
+    "body",
+    "source",
+    "summary",
+    "title",
+    "topic",
+    "uri",
+    "version"
+   ]
+  }
+ },
+ "instructions_chars": 1797
+}

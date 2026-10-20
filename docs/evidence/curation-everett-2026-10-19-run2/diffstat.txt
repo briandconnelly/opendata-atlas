@@ -1,0 +1,12 @@
+ docs/decisions.md                                  |   1 +
+ evals/portals/data.everettwa.gov.json              |  27 +++++
+ .../data.everettwa.gov/facts/f6vp-3svh.toml        | 125 +++++++++++++++++++++
+ .../data.everettwa.gov/facts/qvfa-2v26.toml        |  49 ++++++++
+ .../data.everettwa.gov/facts/szww-y224.toml        |  86 ++++++++++++++
+ .../data.everettwa.gov/facts/w35j-83t3.toml        |  55 +++++++++
+ .../portals/data.everettwa.gov/guides.py           |  64 +++++++++++
+ .../portals/data.everettwa.gov/portal.toml         |  21 ++++
+ .../portals/data.everettwa.gov/regions.toml        |  32 ++++++
+ src/opendata_atlas/portals/registry_overrides.toml |  17 +--
+ src/opendata_atlas/portals/validation.json         |  98 ++++++++++++++++
+ 11 files changed, 562 insertions(+), 13 deletions(-)

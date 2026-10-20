@@ -1,0 +1,18 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=%3A%40computed_region_vrxf_vc4k+AS+r%2C+count%28%2A%29+AS+n&%24where=community_area+%3D+%2241%22+AND+date+between+%222026-09-01T00%3A00%3A00%22+and+%222026-09-30T23%3A59%3A59%22&%24group=%3A%40computed_region_vrxf_vc4k&%24order=n+DESC",
+ "status": 200,
+ "body": [
+  {
+   "r": "8",
+   "n": "197"
+  },
+  {
+   "r": "5",
+   "n": "2"
+  },
+  {
+   "r": "7",
+   "n": "2"
+  }
+ ]
+}

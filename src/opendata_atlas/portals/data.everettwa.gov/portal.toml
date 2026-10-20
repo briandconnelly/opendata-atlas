@@ -1,0 +1,21 @@
+id = "data.everettwa.gov"
+aliases = ["everett"]
+public_host = "data.everettwa.gov"
+catalog_region = "us"
+name = "City of Everett"
+place_names = ["Everett", "Everett, WA"]
+timezone = "America/Los_Angeles"
+platform = "socrata"
+status = "active"
+tier = "curated"
+
+[catalog_query]
+domains = "data.everettwa.gov"
+
+# Moved from registry_overrides.toml (entry 58), which took the name from the portal's own
+# title (html_title "City of Everett Open Data"), country US from geography and region WA from
+# the host everettwa.gov. timezone is the calendar assignment for single-zone Washington.
+[jurisdiction]
+level = "city"
+country = "US"
+region = "WA"

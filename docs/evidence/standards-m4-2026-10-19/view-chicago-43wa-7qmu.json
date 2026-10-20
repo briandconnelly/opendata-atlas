@@ -1,0 +1,57 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/43wa-7qmu.json",
+ "status": 200,
+ "name": "Wards",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "ward",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_leng",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  }
+ ]
+}

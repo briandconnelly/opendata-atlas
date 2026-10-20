@@ -1,0 +1,70 @@
+# Engine gap 2 (Everett review M1): a reviewed place_field claim's placeholders are ignored.
+# [LIVE] data.everettwa.gov, 2026-10-19 (Pacific) / 2026-10-20 (UTC). In-process atlas_describe_dataset
+# with the Everett pack from curate/everett-run2 (2ddddb0), extracted to a temp tree outside the worktree:
+#   git archive curate/everett-run2 src/opendata_atlas/portals/data.everettwa.gov | tar -x -C <tmp>
+# The script swaps resolve._pack_dirs so only the everett entry points at <tmp>; no worktree file changes.
+
+## repro.py
+"""In-process atlas_describe_dataset of Everett f6vp-3svh, with the Everett pack read from a
+temp tree (curate/everett-run2), not from the worktree. Prints the `neighborhood` field."""
+
+import asyncio
+import json
+import sys
+from pathlib import Path
+
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.portals import resolve
+
+pack = Path(sys.argv[1]).resolve()
+shipped = resolve._pack_dirs()
+resolve._pack_dirs = lambda: {**shipped, "data.everettwa.gov": pack}  # ty: ignore
+
+
+async def main() -> None:
+    async with Client(build_server()) as c:
+        r = await c.call_tool_mcp(
+            "atlas_describe_dataset", {"portal": "everett", "dataset_id": "f6vp-3svh", "detail": "full"}
+        )
+    out = r.model_dump(mode="json", by_alias=True, exclude_none=True)
+    print("isError:", out.get("isError"))
+    sc = out["structuredContent"]
+    hood = next(p for p in sc["place_fields"] if p["column"] == "neighborhood")
+    vals = [v["value"] for v in hood.get("values", [])]
+    print("pack dir:", pack.name)
+    print("knowledge.level:", sc.get("knowledge", {}).get("level"))
+    print("neighborhood assigned_fraction:", hood.get("assigned_fraction"))
+    print("neighborhood value_count:", hood.get("value_count"), "len(values):", len(vals))
+    print("'Not Assigned' in values:", [v for v in hood.get("values", []) if v["value"] == "Not Assigned"])
+    print("placeholder_values:", json.dumps(hood.get("placeholder_values")))
+    print("candidate_placeholders:", json.dumps(hood.get("candidate_placeholders")))
+    print("stale_placeholders key present:", "stale_placeholders" in hood)
+    print("reliability:", hood.get("reliability"))
+
+
+asyncio.run(main())
+
+## $ uv run python repro.py <tmp>/src/opendata_atlas/portals/data.everettwa.gov   (before the fix, feat/more-portals at f06a8fb)
+isError: False
+pack dir: data.everettwa.gov
+knowledge.level: reviewed
+neighborhood assigned_fraction: 1.0
+neighborhood value_count: 20 len(values): 20
+'Not Assigned' in values: [{'label': 'Not Assigned', 'value': 'Not Assigned'}]
+placeholder_values: [{"value": "null", "rows": 16}]
+candidate_placeholders: null
+stale_placeholders key present: False
+reliability: partial
+
+## same command, after the fix
+isError: False
+pack dir: data.everettwa.gov
+knowledge.level: reviewed
+neighborhood assigned_fraction: 0.9253
+neighborhood value_count: 19 len(values): 19
+'Not Assigned' in values: []
+placeholder_values: [{"value": "Not Assigned", "rows": 120857}, {"value": "null", "rows": 16}]
+candidate_placeholders: null
+stale_placeholders key present: False
+reliability: partial

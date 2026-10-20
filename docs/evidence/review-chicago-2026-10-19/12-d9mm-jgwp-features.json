@@ -1,0 +1,26 @@
+{
+ "url": "https://data.cityofchicago.org/resource/d9mm-jgwp.json?%24select=_feature_id%2C+dist_num%2C+dist_label&%24where=_feature_id+in+%2822%2C+3%2C+4%2C+8%29",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "3",
+   "dist_num": "31",
+   "dist_label": "31ST"
+  },
+  {
+   "_feature_id": "4",
+   "dist_num": "31",
+   "dist_label": "31ST"
+  },
+  {
+   "_feature_id": "8",
+   "dist_num": "31",
+   "dist_label": "31ST"
+  },
+  {
+   "_feature_id": "22",
+   "dist_num": "1",
+   "dist_label": "1ST"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+id = "data.seattle.gov"
+aliases = ["seattle"]
+public_host = "data.seattle.gov"
+catalog_region = "us"
+name = "City of Seattle"
+place_names = ["Seattle", "Seattle, WA"]
+timezone = "America/Los_Angeles"
+platform = "socrata"
+status = "active"
+tier = "curated"
+
+[catalog_query]
+domains = "cos-data.seattle.gov"
+search_context = "data.seattle.gov"
+
+[jurisdiction]
+level = "city"
+country = "US"
+region = "WA"

@@ -1,0 +1,120 @@
+{
+  "portal_id": "data.lacity.org",
+  "identity_verified": true,
+  "identity_detail": "All 300 results on 3 Discovery pages (domains=data.lacity.org) carry data.lacity.org.",
+  "asset_mix": {
+    "filter": 419,
+    "dataset": 361,
+    "chart": 63,
+    "map": 55,
+    "href": 16,
+    "story": 6,
+    "visualization": 5,
+    "file": 2
+  },
+  "flagship_basis": "Discovery only=dataset&order=page_views_total&limit=100 (100 results), re-sorted by resource.page_views.page_views_total descending (missing as 0), then id; top 5.",
+  "datasets": [
+    {
+      "dataset_id": "6rrh-rzua",
+      "title": "Listing of Active Businesses",
+      "page_views": 821305,
+      "claims": [
+        "6rrh-rzua-:@computed_region_qz3q_ghft-fill",
+        "6rrh-rzua-:@computed_region_kqwf_mjcx-fill",
+        "6rrh-rzua-:@computed_region_k96s_3jcv-fill",
+        "6rrh-rzua-:@computed_region_tatf_ua23-fill",
+        "6rrh-rzua-:@computed_region_ur2y_g4cx-fill",
+        "6rrh-rzua-:@computed_region_2dna_qi2s-fill"
+      ],
+      "notes": [
+        "location_account: more than 100 groups, not categorical; skipped.",
+        "business_name: more than 100 groups, not categorical; skipped.",
+        "dba_name: more than 100 groups, not categorical; skipped.",
+        "street_address: more than 100 groups, not categorical; skipped.",
+        "city: more than 100 groups, not categorical; skipped.",
+        "zip_code: more than 100 groups, not categorical; skipped.",
+        "location_description: more than 100 groups, not categorical; skipped.",
+        "mailing_address: more than 100 groups, not categorical; skipped.",
+        "mailing_city: more than 100 groups, not categorical; skipped.",
+        "mailing_zip_code: more than 100 groups, not categorical; skipped.",
+        "naics: more than 100 groups, not categorical; skipped.",
+        "primary_naics_description: more than 100 groups, not categorical; skipped.",
+        "location_start_date: date-only; no timezone test applies."
+      ]
+    },
+    {
+      "dataset_id": "2nrs-mtv8",
+      "title": "Crime Data from 2020 to 2024",
+      "page_views": 456799,
+      "claims": [
+        "2nrs-mtv8-vict_sex-placeholders",
+        "2nrs-mtv8-vict_descent-placeholders"
+      ],
+      "notes": [
+        "2 text columns after the first 20 not probed.",
+        "dr_no: more than 100 groups, not categorical; skipped.",
+        "time_occ: more than 100 groups, not categorical; skipped.",
+        "rpt_dist_no: more than 100 groups, not categorical; skipped.",
+        "crm_cd: more than 100 groups, not categorical; skipped.",
+        "crm_cd_desc: more than 100 groups, not categorical; skipped.",
+        "mocodes: more than 100 groups, not categorical; skipped.",
+        "vict_age: more than 100 groups, not categorical; skipped.",
+        "premis_desc: more than 100 groups, not categorical; skipped.",
+        "crm_cd_1: more than 100 groups, not categorical; skipped.",
+        "crm_cd_2: more than 100 groups, not categorical; skipped.",
+        "date_rptd: date-only; no timezone test applies.",
+        "date_occ: date-only; no timezone test applies."
+      ]
+    },
+    {
+      "dataset_id": "dik5-hwp6",
+      "title": "Los Angeles International Airport (LAX) - Parking Lots Current Status",
+      "page_views": 433489,
+      "claims": [],
+      "notes": [
+        "dataexportdatetime: no spring-forward day in America/Los_Angeles between 2024-05-01 and 2024-05-01; no timezone probes."
+      ]
+    },
+    {
+      "dataset_id": "4ca8-mxuh",
+      "title": "Addresses in the City of Los Angeles",
+      "page_views": 201261,
+      "claims": [],
+      "notes": [
+        "pin: more than 100 groups, not categorical; skipped.",
+        "pind: more than 100 groups, not categorical; skipped.",
+        "str_nm: more than 100 groups, not categorical; skipped.",
+        "unit_range: more than 100 groups, not categorical; skipped.",
+        "No time-typed column; no timezone probes."
+      ]
+    },
+    {
+      "dataset_id": "63jg-8b9z",
+      "title": "Crime Data from 2010 to 2019",
+      "page_views": 140178,
+      "claims": [
+        "63jg-8b9z-vict_sex-placeholders",
+        "63jg-8b9z-vict_descent-placeholders"
+      ],
+      "notes": [
+        "3 text columns after the first 20 not probed.",
+        "dr_no: more than 100 groups, not categorical; skipped.",
+        "time_occ: more than 100 groups, not categorical; skipped.",
+        "rpt_dist_no: more than 100 groups, not categorical; skipped.",
+        "crm_cd: more than 100 groups, not categorical; skipped.",
+        "crm_cd_desc: more than 100 groups, not categorical; skipped.",
+        "mocodes: more than 100 groups, not categorical; skipped.",
+        "vict_age: more than 100 groups, not categorical; skipped.",
+        "premis_cd: more than 100 groups, not categorical; skipped.",
+        "premis_desc: more than 100 groups, not categorical; skipped.",
+        "crm_cd_1: more than 100 groups, not categorical; skipped.",
+        "crm_cd_2: more than 100 groups, not categorical; skipped.",
+        "date_rptd: date-only; no timezone test applies.",
+        "date_occ: date-only; no timezone test applies."
+      ]
+    }
+  ],
+  "profiled_at": "2026-10-18",
+  "error": null,
+  "review_values": []
+}

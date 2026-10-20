@@ -1,0 +1,284 @@
+{
+ "01-future-row": {
+  "isError": false,
+  "rows": [
+   {
+    "eventnumber": "2025-00119644",
+    "datetimereceived": "2026-12-20T10:16:00.000"
+   }
+  ],
+  "warnings": null
+ },
+ "02-sept-total-and-distinct": {
+  "isError": false,
+  "rows": [
+   {
+    "n": "10357",
+    "events": "10357"
+   }
+  ],
+  "warnings": null
+ },
+ "03-sept-port-gardner-text": {
+  "isError": false,
+  "rows": [
+   {
+    "n": "1640"
+   }
+  ],
+  "warnings": null
+ },
+ "04-sept-port-gardner-region": {
+  "isError": false,
+  "rows": [
+   {
+    "n": "1628"
+   }
+  ],
+  "warnings": null
+ },
+ "05-sept-not-assigned": {
+  "isError": false,
+  "rows": [
+   {
+    "n": "617"
+   }
+  ],
+  "warnings": null
+ },
+ "06-neighborhood-values": {
+  "isError": false,
+  "rows": [
+   {
+    "neighborhood": "PORT GARDNER",
+    "n": "257363"
+   },
+   {
+    "neighborhood": "Not Assigned",
+    "n": "120857"
+   },
+   {
+    "neighborhood": "BAYSIDE",
+    "n": "120138"
+   },
+   {
+    "neighborhood": "WESTMONT",
+    "n": "112453"
+   },
+   {
+    "neighborhood": "RIVERSIDE",
+    "n": "111688"
+   },
+   {
+    "neighborhood": "CASCADE VIEW",
+    "n": "110337"
+   },
+   {
+    "neighborhood": "HOLLY",
+    "n": "106225"
+   },
+   {
+    "neighborhood": "PINEHURST",
+    "n": "105720"
+   },
+   {
+    "neighborhood": "DELTA",
+    "n": "103706"
+   },
+   {
+    "neighborhood": "TWIN CREEKS",
+    "n": "84859"
+   },
+   {
+    "neighborhood": "SILVER LAKE",
+    "n": "72683"
+   },
+   {
+    "neighborhood": "NORTHWEST EVERETT",
+    "n": "71304"
+   },
+   {
+    "neighborhood": "GLACIER VIEW",
+    "n": "56467"
+   },
+   {
+    "neighborhood": "EVERGREEN",
+    "n": "46080"
+   },
+   {
+    "neighborhood": "SOUTH FOREST PARK",
+    "n": "41833"
+   },
+   {
+    "neighborhood": "VIEW RIDGE-MADISON",
+    "n": "41755"
+   },
+   {
+    "neighborhood": "HARBORVIEW-SEAHURST-GLENHAVEN",
+    "n": "18244"
+   },
+   {
+    "neighborhood": "LOWELL",
+    "n": "17418"
+   },
+   {
+    "neighborhood": "BOULEVARD BLUFFS",
+    "n": "13475"
+   },
+   {
+    "neighborhood": "VALLEY VIEW",
+    "n": "5788"
+   },
+   {
+    "neighborhood": null,
+    "n": "16"
+   }
+  ],
+  "warnings": null
+ },
+ "07-area-values": {
+  "isError": false,
+  "rows": [
+   {
+    "area": "North",
+    "n": "681319"
+   },
+   {
+    "area": "South",
+    "n": "522081"
+   },
+   {
+    "area": "Central",
+    "n": "362022"
+   },
+   {
+    "area": "Not Assigned",
+    "n": "52971"
+   },
+   {
+    "area": null,
+    "n": "16"
+   }
+  ],
+  "warnings": null
+ },
+ "08-precinct-values": {
+  "isError": false,
+  "rows": [
+   {
+    "precinct": "South",
+    "n": "884103"
+   },
+   {
+    "precinct": "North",
+    "n": "681319"
+   },
+   {
+    "precinct": "Not Assigned",
+    "n": "52971"
+   },
+   {
+    "precinct": null,
+    "n": "16"
+   }
+  ],
+  "warnings": null
+ },
+ "09-gang-2025": {
+  "isError": false,
+  "rows": [
+   {
+    "gangrelated": null,
+    "n": "6935"
+   },
+   {
+    "gangrelated": "NO - NOT BELIEVED TO BE GANG-RELATED",
+    "n": "4902"
+   },
+   {
+    "gangrelated": "YES - BELIEVED TO BE GANG-RELATED",
+    "n": "59"
+   },
+   {
+    "gangrelated": "UNKNOWN IF GANG-RELATED",
+    "n": "3"
+   }
+  ],
+  "warnings": null
+ },
+ "10-sept-top-types": {
+  "isError": false,
+  "rows": [
+   {
+    "incidenttype": "TRAFFIC",
+    "n": "2065"
+   },
+   {
+    "incidenttype": "SUSPICIOUS EVENT",
+    "n": "960"
+   },
+   {
+    "incidenttype": "FOLLOW-UP",
+    "n": "739"
+   },
+   {
+    "incidenttype": "911 HANG UP",
+    "n": "694"
+   },
+   {
+    "incidenttype": "SECURITY CHECK",
+    "n": "593"
+   }
+  ],
+  "warnings": null
+ },
+ "11-f6vp-description": "Police Incidents represent all calls for police responses. These include burglary and trespass reports, assaults, drug related calls, thefts, vandalism, and reports of suspicious activity. Officer initiated activity such as traffic stops is also included in police incidents.\n\nAddresses and Geolocation have been partially obfuscated to the nearest 100 block to protect the privacy of individuals. When mapped this may make the data appear to happen at an intersection when it actually happens within that block. For incidents that do not have an exact block number or the address was typed in by dispatch incorrectly the obfuscation method may place the item much further away than the actual location.\n\nSome incidents will result in a police report, which can be found in the dataset \"Police Cases.\" Case reports involving domestic violence, child abuse, or sex offenses involving minors have been removed from this data set.\n\nIncidents designated as Collisions are included in this dataset and should be classified as what was reported to the 911 dispatcher. In order to track verified collisions a Police Traffic Collision Report (PTCR) is completed, which results in a case being created.",
+ "12-psyp-nrnc-features": [
+  {
+   "_feature_id": "1",
+   "code": "EV"
+  },
+  {
+   "_feature_id": "2",
+   "code": "EV"
+  },
+  {
+   "_feature_id": "3",
+   "code": "EV"
+  },
+  {
+   "_feature_id": "4",
+   "code": "EV"
+  },
+  {
+   "_feature_id": "5",
+   "code": "EV"
+  }
+ ],
+ "13-cx6t-port-gardner": [
+  {
+   "_feature_id": "10",
+   "name": "PORT GARDNER"
+  }
+ ],
+ "14-cx6t-count": [
+  {
+   "n": "19",
+   "names": "19"
+  }
+ ],
+ "15-inspection-search": [
+  [
+   "restaurant inspection",
+   []
+  ],
+  [
+   "food health inspections",
+   []
+  ],
+  [
+   "inspection",
+   []
+  ]
+ ]
+}

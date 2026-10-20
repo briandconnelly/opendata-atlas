@@ -1,0 +1,39 @@
+{
+ "url": "https://data.seattle.gov/api/views/ru88-fbhk.json",
+ "status": 200,
+ "name": "Seattle Police Department Micro Community Policing Plan Areas",
+ "columns": [
+  {
+   "fieldName": "precinct",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "5",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "name",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "61",
+    "non_null": "61",
+    "null": "0"
+   }
+  }
+ ]
+}

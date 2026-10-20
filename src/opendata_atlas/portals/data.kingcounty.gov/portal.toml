@@ -1,0 +1,21 @@
+id = "data.kingcounty.gov"
+aliases = ["king-county"]
+public_host = "data.kingcounty.gov"
+catalog_region = "us"
+name = "King County"
+place_names = ["King County", "King County, WA"]
+timezone = "America/Los_Angeles"
+platform = "socrata"
+status = "active"
+tier = "profiled"
+
+[catalog_query]
+domains = "data.kingcounty.gov"
+
+# Moved from registry_overrides.toml (entry 59). The publisher's home page,
+# https://kingcounty.gov/, titles itself "Home - King County, Washington".
+# timezone is the calendar assignment for single-zone Washington.
+[jurisdiction]
+level = "county"
+country = "US"
+region = "WA"

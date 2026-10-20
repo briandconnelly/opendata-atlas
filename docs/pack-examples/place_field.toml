@@ -1,0 +1,19 @@
+# Illustrative ids. A reviewed text place field, with a single-row share check.
+[[claim]]
+id = "crime-neighborhood-place-field"
+scope = {dataset = "abcd-1234", column = "neighborhood"}
+kind = "place_field"
+interpretation = {kind = "neighborhood", reliability = "partial", reason = "About 3% of rows carry the placeholder '-'."}
+placeholders = ["-"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(neighborhood = '-', 1, true, 0)) AS ph, count(*) AS n WHERE offense_date >= '2020-01-01'"
+observed_at = 2026-10-16
+observation = "ph/n is 0.03 since 2020"
+
+[[claim.assertion]]
+checker = "share_by_group"
+params = {numerator = "ph", denominator = "n", max = 0.1}

@@ -1,0 +1,84 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/8hcu-yrd4.json",
+ "status": 200,
+ "name": "Wards 2023-",
+ "columns": [
+  {
+   "fieldName": "ward",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "objectid",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "edit_date",
+   "dataTypeName": "calendar_date",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "ward_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "globalid",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "st_area_sh",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "st_length_",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "50",
+    "non_null": "50",
+    "null": "0"
+   }
+  }
+ ]
+}

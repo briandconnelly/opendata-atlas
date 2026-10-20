@@ -1,0 +1,142 @@
+"""Task 5 mechanical checks for the everett pack. Run from the review worktree root:
+uv run python <this file>. Each check runs on its known positive first."""
+
+from __future__ import annotations
+
+import json
+import shutil
+import subprocess
+import sys
+import tempfile
+import tomllib
+from pathlib import Path
+
+sys.path.insert(0, str(Path.cwd()))
+from tests.test_curation_skill import claim_summary, path_violations
+
+BASE = "3cea5d69c73f09d35d3a2a139d6453539dbbaa90"
+PACK = "data.everettwa.gov"
+PID = "data.everettwa.gov"
+PD = Path("src/opendata_atlas/portals") / PACK
+EV = Path("evals/portals") / f"{PACK}.json"
+
+
+def git(*a: str) -> str:
+    return subprocess.run(["git", *a], check=True, text=True, capture_output=True).stdout
+
+
+def section(t: str) -> None:
+    print(f"\n## {t}")
+
+
+# --- Path rule
+section("path rule")
+print("known positive ['README.md'] ->", path_violations(["README.md"], PACK))
+paths = git("diff", "--name-only", BASE, "HEAD").split()
+print(len(paths), "paths ->", path_violations(paths, PACK))
+
+
+# --- Evidence (rule 1) and reviewed_by (rule 18)
+def evidence_problems(pack_dir: Path) -> list[str]:
+    out = []
+    for path in [*sorted((pack_dir / "facts").glob("*.toml")), pack_dir / "regions.toml"]:
+        for c in tomllib.loads(path.read_text()).get("claim", []):
+            interp = c.get("interpretation") or {}
+            kinds = {e.get("kind") for e in c.get("evidence", [])}
+            if "reliability" in interp:
+                if not interp.get("reason"):
+                    out.append(f"{path.name}:{c['id']}: reliability without reason")
+                if not kinds & {"soql_probe", "metadata_probe", "document"}:
+                    out.append(f"{path.name}:{c['id']}: reliability without probe/document")
+            if (interp or c.get("placeholders")) and c.get("reviewed_by") != "claude":
+                out.append(f"{path.name}:{c['id']}: reviewed_by={c.get('reviewed_by')!r}")
+            if interp and not interp.get("reason"):
+                out.append(f"{path.name}:{c['id']}: interpretation without reason")
+    return out
+
+
+section("evidence")
+with tempfile.TemporaryDirectory() as td:
+    copy = Path(td) / PACK
+    shutil.copytree(PD, copy)
+    f = copy / "facts/f6vp-3svh.toml"
+    text = f.read_text()
+    marker = 'reason = "The 19 neighborhood names'
+    assert marker in text
+    f.write_text(text.replace(marker, 'note = "The 19 neighborhood names', 1))
+    print("known positive (neighborhood reason deleted) ->", evidence_problems(copy))
+print("pack ->", evidence_problems(PD))
+n_rel = sum(
+    1
+    for p in [*sorted((PD / "facts").glob("*.toml")), PD / "regions.toml"]
+    for c in tomllib.loads(p.read_text()).get("claim", [])
+    if "reliability" in (c.get("interpretation") or {})
+)
+print("claims setting reliability:", n_rel)
+print("claim_summary ->", claim_summary(PD))
+
+# --- Identity
+section("identity")
+portal = tomllib.loads((PD / "portal.toml").read_text())
+base_ov = tomllib.loads(git("show", f"{BASE}:src/opendata_atlas/portals/registry_overrides.toml"))
+head_ov = tomllib.loads(Path("src/opendata_atlas/portals/registry_overrides.toml").read_text())
+o = base_ov[PID]
+print("tier", portal["tier"], "| timezone", portal.get("timezone"))
+for k in ("name", "aliases", "place_names", "jurisdiction", "timezone"):
+    print(f"  {k}: pack={portal.get(k)!r} override={o.get(k)!r} equal={portal.get(k) == o.get(k)}")
+print("override table gone at HEAD:", PID not in head_ov)
+lines = (PD / "portal.toml").read_text().splitlines()
+i = lines.index("[jurisdiction]")
+j = i
+while j > 0 and lines[j - 1].startswith("#"):
+    j -= 1
+print("comment lines above [jurisdiction]:", i - j)
+print("\n".join(lines[j:i]))
+
+# --- Shared-file isolation (ruling 82)
+section("isolation: registry_overrides.toml")
+
+
+def override_diffs(base: dict, head: dict) -> list[str]:
+    keys = set(base) | set(head)
+    return sorted(k for k in keys if base.get(k) != head.get(k))
+
+
+kp = dict(head_ov)
+kp["datahub.hhs.gov"] = {**kp["datahub.hhs.gov"], "name": "changed"}
+print("known positive (datahub.hhs.gov changed) ->", override_diffs(base_ov, kp))
+print("HEAD ->", override_diffs(base_ov, head_ov))
+
+section("isolation: validation.json")
+base_v = json.loads(git("show", f"{BASE}:src/opendata_atlas/portals/validation.json"))
+head_v = json.loads(Path("src/opendata_atlas/portals/validation.json").read_text())
+
+
+def validation_diffs(base: dict, head: dict) -> list[str]:
+    out = [f"top-level {k}" for k in set(base) | set(head) if k != "portals" and base.get(k) != head.get(k)]
+    bp, hp = base.get("portals", {}), head.get("portals", {})
+    out += [f"portals[{k}]" for k in sorted(set(bp) | set(hp)) if bp.get(k) != hp.get(k)]
+    return out
+
+
+kpv = json.loads(json.dumps(head_v))
+first = next(iter(kpv["portals"]["data.seattle.gov"]))
+kpv["portals"]["data.seattle.gov"][first]["outcome"] = "contradicted"
+print("known positive (a Seattle outcome changed) ->", validation_diffs(base_v, kpv))
+print("HEAD ->", validation_diffs(base_v, head_v))
+print("everett entries:", len(head_v["portals"].get(PID, {})))
+
+# --- Eval file
+section("eval file")
+tasks = json.loads(EV.read_text())
+covers = {c for t in tasks for c in t.get("covers", [])}
+print("covers:", sorted(covers), "missing:", sorted({"in_area", "relative_date", "misleading_field", "not_published"} - covers))
+for t in tasks:
+    e = t["expect"]
+    print(t["id"], "PASS/PARTIAL/FAIL:", all(w in e for w in ("PASS", "PARTIAL", "FAIL")))
+    if "misleading_field" in t.get("covers", []):
+        p = t["prompt"].lower()
+        banned = ["gangrelated", "gang_related", "szww-y224", "police cases", "cases"]
+        print("  misleading_field prompt:", t["prompt"], "| names:", [b for b in banned if b in p])
+datasets = {d for t in tasks for d in ("f6vp-3svh", "szww-y224", "qvfa-2v26", "w35j-83t3") if d in t["expect"]}
+print("datasets named in expects:", sorted(datasets))

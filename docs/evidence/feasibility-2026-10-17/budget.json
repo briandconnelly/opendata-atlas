@@ -1,0 +1,17 @@
+{
+  "measured_as": "len(compact_json(wire(list_tools_mcp())).encode()), as test_contract.py",
+  "budget_bytes": 24576,
+  "current_four_tool_bytes": 15230,
+  "portal_description_bytes": 66,
+  "atlas_find_portals_entry_bytes": 2337,
+  "five_tool_bytes": 18250,
+  "headroom_bytes": 6326,
+  "within_budget": true,
+  "tools": [
+    "atlas_find_portals",
+    "atlas_search_datasets",
+    "atlas_describe_dataset",
+    "atlas_query_dataset",
+    "atlas_get_reference"
+  ]
+}

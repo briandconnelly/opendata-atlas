@@ -1,0 +1,18 @@
+{
+ "url": "https://data.cityofchicago.org/resource/awaf-s7ux.json?%24select=_feature_id%2C+ward&%24order=ward+DESC&%24limit=3",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "5",
+   "ward": "OUT"
+  },
+  {
+   "_feature_id": "21",
+   "ward": "OUT"
+  },
+  {
+   "_feature_id": "50",
+   "ward": "OUT"
+  }
+ ]
+}

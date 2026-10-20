@@ -1,0 +1,2585 @@
+{
+ "portal": "datahub.austintexas.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 7
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 68,
+   "row_count": 2380709
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 3,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 3
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "3syk-w9eu",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=datahub.austintexas.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 15,
+     "searchMillis": [
+      2,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=datahub.austintexas.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "130,337 bytes, over the 65,536-byte cap",
+    "sha256": "26d8e295620ea1e1420e7309341e0a372134c614b30e5ad4cacb040ccc79b0e6",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/api/views/3syk-w9eu.json",
+   "status": 200,
+   "body": {
+    "summarized": "132,336 bytes, over the 65,536-byte cap",
+    "sha256": "c0d3b80d41e7c21d75b625e168dfe3ff551a25ba61ed935e781907d9572444ba",
+    "keys": [
+     "approvals",
+     "assetType",
+     "attribution",
+     "averageRating",
+     "category",
+     "clientContext",
+     "columns",
+     "createdAt",
+     "description",
+     "diciBackend",
+     "displayType",
+     "downloadCount",
+     "flags",
+     "grants",
+     "hideFromCatalog",
+     "hideFromDataJson",
+     "id",
+     "license",
+     "licenseId",
+     "locked",
+     "metadata",
+     "name",
+     "newBackend",
+     "numberOfComments",
+     "oid",
+     "owner",
+     "provenance",
+     "publicationAppendEnabled",
+     "publicationDate",
+     "publicationGroup",
+     "publicationStage",
+     "query",
+     "rights",
+     "rowIdentifierColumnId",
+     "rowsUpdatedAt",
+     "rowsUpdatedBy",
+     "tableAuthor",
+     "tableId",
+     "tags",
+     "totalTimesRated",
+     "viewCount",
+     "viewLastModified",
+     "viewType"
+    ],
+    "column_count": 78,
+    "column_field_names": [
+     "permittype",
+     "permit_type_desc",
+     "permit_number",
+     "permit_class_mapped",
+     "permit_class",
+     "work_class",
+     "condominium",
+     "permit_location",
+     "description",
+     "tcad_id",
+     "legal_description",
+     "applieddate",
+     "issue_date",
+     "day_issued",
+     "calendar_year_issued",
+     "fiscal_year_issued",
+     "issued_in_last_30_days",
+     "issue_method",
+     "status_current",
+     "statusdate",
+     "expiresdate",
+     "completed_date",
+     "total_existing_bldg_sqft",
+     "remodel_repair_sqft",
+     "total_new_add_sqft",
+     "total_valuation_remodel",
+     "total_job_valuation",
+     "number_of_floors",
+     "housing_units",
+     "building_valuation",
+     "building_valuation_remodel",
+     "electrical_valuation",
+     "electrical_valuation_remodel",
+     "mechanical_valuation",
+     "mechanical_valuation_remodel",
+     "plumbing_valuation",
+     "plumbing_valuation_remodel",
+     "medgas_valuation",
+     "medgas_valuation_remodel",
+     "original_address1",
+     "original_city",
+     "original_state",
+     "original_zip",
+     "council_district",
+     "jurisdiction",
+     "link",
+     "project_id",
+     "masterpermitnum",
+     "latitude",
+     "longitude",
+     "location",
+     "contractor_trade",
+     "contractor_company_name",
+     "contractor_full_name",
+     "contractor_phone",
+     "contractor_address1",
+     "contractor_address2",
+     "contractor_city",
+     "contractor_zip",
+     "applicant_full_name",
+     "applicant_org",
+     "applicant_phone",
+     "applicant_address1",
+     "applicant_address2",
+     "applicant_city",
+     "applicantzip",
+     "certificate_of_occupancy",
+     "total_lot_sq_ft",
+     ":@computed_region_8spj_utxs",
+     ":@computed_region_q9nd_rr82",
+     ":@computed_region_e9j2_6w3z",
+     ":@computed_region_m2th_e4b7",
+     ":@computed_region_rxpj_nzrk",
+     ":@computed_region_a3it_2a2z",
+     ":@computed_region_qwte_z96m",
+     ":@computed_region_i2aj_cj5t",
+     ":@computed_region_xzeg_zdjk",
+     ":@computed_region_6gig_z43c"
+    ],
+    "id": "3syk-w9eu",
+    "name": "Issued Construction Permits",
+    "rowsUpdatedAt": 1792327928
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "2380709"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=min%28applieddate%29+AS+lo%2C+max%28applieddate%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1921-09-20T00:00:00.000",
+     "hi": "2026-10-16T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_8spj_utxs+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_8spj_utxs&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "526247"
+    },
+    {
+     "v": "10",
+     "n": "282836"
+    },
+    {
+     "v": "7",
+     "n": "211869"
+    },
+    {
+     "v": "9",
+     "n": "210573"
+    },
+    {
+     "v": "5",
+     "n": "207507"
+    },
+    {
+     "v": "8",
+     "n": "204190"
+    },
+    {
+     "v": "1",
+     "n": "195810"
+    },
+    {
+     "v": "2",
+     "n": "161640"
+    },
+    {
+     "v": "6",
+     "n": "152754"
+    },
+    {
+     "v": "3",
+     "n": "131285"
+    },
+    {
+     "v": "4",
+     "n": "95998"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_e9j2_6w3z+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_e9j2_6w3z&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "1439039"
+    },
+    {
+     "v": "6",
+     "n": "41992"
+    },
+    {
+     "v": "60",
+     "n": "38898"
+    },
+    {
+     "v": "73",
+     "n": "34684"
+    },
+    {
+     "v": "11",
+     "n": "30528"
+    },
+    {
+     "v": "53",
+     "n": "30412"
+    },
+    {
+     "v": "16",
+     "n": "26010"
+    },
+    {
+     "v": "2",
+     "n": "25659"
+    },
+    {
+     "v": "25",
+     "n": "25096"
+    },
+    {
+     "v": "42",
+     "n": "24444"
+    },
+    {
+     "v": "93",
+     "n": "24378"
+    },
+    {
+     "v": "74",
+     "n": "23000"
+    },
+    {
+     "v": "84",
+     "n": "22193"
+    },
+    {
+     "v": "52",
+     "n": "21835"
+    },
+    {
+     "v": "89",
+     "n": "19969"
+    },
+    {
+     "v": "46",
+     "n": "19444"
+    },
+    {
+     "v": "45",
+     "n": "17754"
+    },
+    {
+     "v": "38",
+     "n": "16514"
+    },
+    {
+     "v": "58",
+     "n": "16433"
+    },
+    {
+     "v": "49",
+     "n": "16047"
+    },
+    {
+     "v": "72",
+     "n": "16006"
+    },
+    {
+     "v": "21",
+     "n": "15735"
+    },
+    {
+     "v": "22",
+     "n": "14950"
+    },
+    {
+     "v": "61",
+     "n": "14662"
+    },
+    {
+     "v": "66",
+     "n": "14065"
+    },
+    {
+     "v": "44",
+     "n": "13770"
+    },
+    {
+     "v": "35",
+     "n": "13138"
+    },
+    {
+     "v": "68",
+     "n": "12802"
+    },
+    {
+     "v": "50",
+     "n": "12630"
+    },
+    {
+     "v": "29",
+     "n": "12566"
+    },
+    {
+     "v": "39",
+     "n": "12489"
+    },
+    {
+     "v": "69",
+     "n": "12486"
+    },
+    {
+     "v": "34",
+     "n": "12287"
+    },
+    {
+     "v": "95",
+     "n": "11923"
+    },
+    {
+     "v": "83",
+     "n": "11893"
+    },
+    {
+     "v": "43",
+     "n": "10566"
+    },
+    {
+     "v": "9",
+     "n": "10317"
+    },
+    {
+     "v": "3",
+     "n": "10022"
+    },
+    {
+     "v": "85",
+     "n": "9647"
+    },
+    {
+     "v": "56",
+     "n": "9433"
+    },
+    {
+     "v": "41",
+     "n": "9305"
+    },
+    {
+     "v": "63",
+     "n": "9240"
+    },
+    {
+     "v": "67",
+     "n": "9163"
+    },
+    {
+     "v": "76",
+     "n": "9124"
+    },
+    {
+     "v": "64",
+     "n": "9078"
+    },
+    {
+     "v": "92",
+     "n": "8950"
+    },
+    {
+     "v": "47",
+     "n": "8190"
+    },
+    {
+     "v": "59",
+     "n": "7820"
+    },
+    {
+     "v": "65",
+     "n": "7734"
+    },
+    {
+     "v": "19",
+     "n": "7256"
+    },
+    {
+     "v": "51",
+     "n": "7221"
+    },
+    {
+     "v": "23",
+     "n": "6956"
+    },
+    {
+     "v": "5",
+     "n": "6884"
+    },
+    {
+     "v": "1",
+     "n": "6854"
+    },
+    {
+     "v": "54",
+     "n": "6433"
+    },
+    {
+     "v": "87",
+     "n": "6178"
+    },
+    {
+     "v": "37",
+     "n": "5817"
+    },
+    {
+     "v": "77",
+     "n": "5747"
+    },
+    {
+     "v": "12",
+     "n": "5322"
+    },
+    {
+     "v": "17",
+     "n": "5105"
+    },
+    {
+     "v": "82",
+     "n": "4694"
+    },
+    {
+     "v": "32",
+     "n": "4557"
+    },
+    {
+     "v": "94",
+     "n": "4424"
+    },
+    {
+     "v": "26",
+     "n": "4117"
+    },
+    {
+     "v": "18",
+     "n": "4034"
+    },
+    {
+     "v": "30",
+     "n": "3708"
+    },
+    {
+     "v": "31",
+     "n": "3328"
+    },
+    {
+     "v": "86",
+     "n": "3083"
+    },
+    {
+     "v": "48",
+     "n": "3074"
+    },
+    {
+     "v": "81",
+     "n": "2954"
+    },
+    {
+     "v": "15",
+     "n": "2895"
+    },
+    {
+     "v": "70",
+     "n": "2437"
+    },
+    {
+     "v": "62",
+     "n": "2339"
+    },
+    {
+     "v": "27",
+     "n": "1802"
+    },
+    {
+     "v": "24",
+     "n": "1689"
+    },
+    {
+     "v": "13",
+     "n": "1631"
+    },
+    {
+     "v": "78",
+     "n": "1568"
+    },
+    {
+     "v": "57",
+     "n": "1444"
+    },
+    {
+     "v": "90",
+     "n": "1418"
+    },
+    {
+     "v": "36",
+     "n": "1271"
+    },
+    {
+     "v": "40",
+     "n": "1234"
+    },
+    {
+     "v": "88",
+     "n": "1172"
+    },
+    {
+     "v": "75",
+     "n": "1098"
+    },
+    {
+     "v": "80",
+     "n": "1065"
+    },
+    {
+     "v": "28",
+     "n": "1010"
+    },
+    {
+     "v": "55",
+     "n": "679"
+    },
+    {
+     "v": "4",
+     "n": "659"
+    },
+    {
+     "v": "79",
+     "n": "510"
+    },
+    {
+     "v": "91",
+     "n": "487"
+    },
+    {
+     "v": "20",
+     "n": "470"
+    },
+    {
+     "v": "14",
+     "n": "416"
+    },
+    {
+     "v": "10",
+     "n": "340"
+    },
+    {
+     "v": "33",
+     "n": "323"
+    },
+    {
+     "v": "7",
+     "n": "285"
+    },
+    {
+     "v": "71",
+     "n": "205"
+    },
+    {
+     "v": "8",
+     "n": "196"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_q9nd_rr82+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_q9nd_rr82&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "500475"
+    },
+    {
+     "v": "5",
+     "n": "282942"
+    },
+    {
+     "v": "7",
+     "n": "211869"
+    },
+    {
+     "v": "10",
+     "n": "210573"
+    },
+    {
+     "v": "2",
+     "n": "210348"
+    },
+    {
+     "v": "8",
+     "n": "208685"
+    },
+    {
+     "v": "1",
+     "n": "208600"
+    },
+    {
+     "v": "4",
+     "n": "164436"
+    },
+    {
+     "v": "6",
+     "n": "155498"
+    },
+    {
+     "v": "3",
+     "n": "131285"
+    },
+    {
+     "v": "9",
+     "n": "95998"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_m2th_e4b7+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_m2th_e4b7&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "217",
+     "n": "605402"
+    },
+    {
+     "v": "540",
+     "n": "395826"
+    },
+    {
+     "n": "363948"
+    },
+    {
+     "v": "309",
+     "n": "237189"
+    },
+    {
+     "v": "484",
+     "n": "149710"
+    },
+    {
+     "v": "126",
+     "n": "135851"
+    },
+    {
+     "v": "373",
+     "n": "97642"
+    },
+    {
+     "v": "531",
+     "n": "88982"
+    },
+    {
+     "v": "62",
+     "n": "65955"
+    },
+    {
+     "v": "63",
+     "n": "35162"
+    },
+    {
+     "v": "295",
+     "n": "29350"
+    },
+    {
+     "v": "248",
+     "n": "25212"
+    },
+    {
+     "v": "369",
+     "n": "18551"
+    },
+    {
+     "v": "329",
+     "n": "15077"
+    },
+    {
+     "v": "179",
+     "n": "13487"
+    },
+    {
+     "v": "114",
+     "n": "12729"
+    },
+    {
+     "v": "64",
+     "n": "10213"
+    },
+    {
+     "v": "441",
+     "n": "9331"
+    },
+    {
+     "v": "496",
+     "n": "6678"
+    },
+    {
+     "v": "82",
+     "n": "6417"
+    },
+    {
+     "v": "163",
+     "n": "5082"
+    },
+    {
+     "v": "365",
+     "n": "4960"
+    },
+    {
+     "v": "473",
+     "n": "4716"
+    },
+    {
+     "v": "417",
+     "n": "4650"
+    },
+    {
+     "v": "502",
+     "n": "3557"
+    },
+    {
+     "v": "45",
+     "n": "3469"
+    },
+    {
+     "v": "488",
+     "n": "2801"
+    },
+    {
+     "v": "524",
+     "n": "2600"
+    },
+    {
+     "v": "21",
+     "n": "2520"
+    },
+    {
+     "v": "76",
+     "n": "2075"
+    },
+    {
+     "v": "434",
+     "n": "1740"
+    },
+    {
+     "v": "372",
+     "n": "1569"
+    },
+    {
+     "v": "25",
+     "n": "1556"
+    },
+    {
+     "v": "533",
+     "n": "1486"
+    },
+    {
+     "v": "193",
+     "n": "1480"
+    },
+    {
+     "v": "101",
+     "n": "1475"
+    },
+    {
+     "v": "244",
+     "n": "1400"
+    },
+    {
+     "v": "482",
+     "n": "1381"
+    },
+    {
+     "v": "150",
+     "n": "1302"
+    },
+    {
+     "v": "318",
+     "n": "1195"
+    },
+    {
+     "v": "218",
+     "n": "1093"
+    },
+    {
+     "v": "480",
+     "n": "899"
+    },
+    {
+     "v": "468",
+     "n": "846"
+    },
+    {
+     "v": "474",
+     "n": "778"
+    },
+    {
+     "v": "498",
+     "n": "647"
+    },
+    {
+     "v": "142",
+     "n": "557"
+    },
+    {
+     "v": "238",
+     "n": "498"
+    },
+    {
+     "v": "423",
+     "n": "372"
+    },
+    {
+     "v": "247",
+     "n": "249"
+    },
+    {
+     "v": "96",
+     "n": "219"
+    },
+    {
+     "v": "206",
+     "n": "196"
+    },
+    {
+     "v": "500",
+     "n": "182"
+    },
+    {
+     "v": "506",
+     "n": "142"
+    },
+    {
+     "v": "159",
+     "n": "127"
+    },
+    {
+     "v": "459",
+     "n": "116"
+    },
+    {
+     "v": "7",
+     "n": "18"
+    },
+    {
+     "v": "118",
+     "n": "17"
+    },
+    {
+     "v": "335",
+     "n": "9"
+    },
+    {
+     "v": "120",
+     "n": "5"
+    },
+    {
+     "v": "65",
+     "n": "3"
+    },
+    {
+     "v": "22",
+     "n": "2"
+    },
+    {
+     "v": "444",
+     "n": "2"
+    },
+    {
+     "v": "489",
+     "n": "2"
+    },
+    {
+     "v": "68",
+     "n": "2"
+    },
+    {
+     "v": "42",
+     "n": "1"
+    },
+    {
+     "v": "490",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_a3it_2a2z+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_a3it_2a2z&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "361865"
+    },
+    {
+     "v": "2859",
+     "n": "124154"
+    },
+    {
+     "v": "3259",
+     "n": "107613"
+    },
+    {
+     "v": "3647",
+     "n": "106107"
+    },
+    {
+     "v": "3637",
+     "n": "93847"
+    },
+    {
+     "v": "3247",
+     "n": "87826"
+    },
+    {
+     "v": "2858",
+     "n": "81121"
+    },
+    {
+     "v": "3258",
+     "n": "80102"
+    },
+    {
+     "v": "3638",
+     "n": "78900"
+    },
+    {
+     "v": "2857",
+     "n": "74808"
+    },
+    {
+     "v": "3645",
+     "n": "72839"
+    },
+    {
+     "v": "3260",
+     "n": "68425"
+    },
+    {
+     "v": "3646",
+     "n": "63825"
+    },
+    {
+     "v": "3239",
+     "n": "61539"
+    },
+    {
+     "v": "3642",
+     "n": "58736"
+    },
+    {
+     "v": "3243",
+     "n": "52617"
+    },
+    {
+     "v": "3639",
+     "n": "48059"
+    },
+    {
+     "v": "3643",
+     "n": "46816"
+    },
+    {
+     "v": "3261",
+     "n": "46645"
+    },
+    {
+     "v": "3255",
+     "n": "43470"
+    },
+    {
+     "v": "3256",
+     "n": "42745"
+    },
+    {
+     "v": "3240",
+     "n": "42369"
+    },
+    {
+     "v": "2862",
+     "n": "42188"
+    },
+    {
+     "v": "2860",
+     "n": "42035"
+    },
+    {
+     "v": "2856",
+     "n": "37955"
+    },
+    {
+     "v": "3640",
+     "n": "35208"
+    },
+    {
+     "v": "3245",
+     "n": "33653"
+    },
+    {
+     "v": "3251",
+     "n": "32472"
+    },
+    {
+     "v": "3641",
+     "n": "29411"
+    },
+    {
+     "v": "3644",
+     "n": "29140"
+    },
+    {
+     "v": "8481",
+     "n": "28222"
+    },
+    {
+     "v": "3246",
+     "n": "27110"
+    },
+    {
+     "v": "8002",
+     "n": "25547"
+    },
+    {
+     "v": "2864",
+     "n": "24220"
+    },
+    {
+     "v": "3242",
+     "n": "18619"
+    },
+    {
+     "v": "2865",
+     "n": "17157"
+    },
+    {
+     "v": "8030",
+     "n": "15867"
+    },
+    {
+     "v": "3250",
+     "n": "14892"
+    },
+    {
+     "v": "3252",
+     "n": "12285"
+    },
+    {
+     "v": "3248",
+     "n": "12150"
+    },
+    {
+     "v": "3244",
+     "n": "11951"
+    },
+    {
+     "v": "3249",
+     "n": "11715"
+    },
+    {
+     "v": "3241",
+     "n": "9207"
+    },
+    {
+     "v": "3254",
+     "n": "8593"
+    },
+    {
+     "v": "8029",
+     "n": "5979"
+    },
+    {
+     "v": "3253",
+     "n": "3275"
+    },
+    {
+     "v": "2855",
+     "n": "2134"
+    },
+    {
+     "v": "20326",
+     "n": "1188"
+    },
+    {
+     "v": "3257",
+     "n": "1174"
+    },
+    {
+     "v": "7998",
+     "n": "1163"
+    },
+    {
+     "v": "2848",
+     "n": "882"
+    },
+    {
+     "v": "2863",
+     "n": "751"
+    },
+    {
+     "v": "2861",
+     "n": "89"
+    },
+    {
+     "v": "8022",
+     "n": "26"
+    },
+    {
+     "v": "8485",
+     "n": "9"
+    },
+    {
+     "v": "8026",
+     "n": "7"
+    },
+    {
+     "v": "8005",
+     "n": "6"
+    },
+    {
+     "v": "20328",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_qwte_z96m+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_qwte_z96m&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "1498354"
+    },
+    {
+     "v": "3764",
+     "n": "60075"
+    },
+    {
+     "v": "915",
+     "n": "41108"
+    },
+    {
+     "v": "1114",
+     "n": "26277"
+    },
+    {
+     "v": "3851",
+     "n": "25752"
+    },
+    {
+     "v": "145",
+     "n": "23176"
+    },
+    {
+     "v": "340",
+     "n": "18856"
+    },
+    {
+     "v": "3447",
+     "n": "18138"
+    },
+    {
+     "v": "3480",
+     "n": "17172"
+    },
+    {
+     "v": "3316",
+     "n": "16797"
+    },
+    {
+     "v": "3253",
+     "n": "16440"
+    },
+    {
+     "v": "3144",
+     "n": "16431"
+    },
+    {
+     "v": "981",
+     "n": "15991"
+    },
+    {
+     "v": "2244",
+     "n": "15320"
+    },
+    {
+     "v": "1169",
+     "n": "14664"
+    },
+    {
+     "v": "952",
+     "n": "14480"
+    },
+    {
+     "v": "1371",
+     "n": "13958"
+    },
+    {
+     "v": "553",
+     "n": "13029"
+    },
+    {
+     "v": "1594",
+     "n": "12880"
+    },
+    {
+     "v": "1081",
+     "n": "12607"
+    },
+    {
+     "v": "566",
+     "n": "12238"
+    },
+    {
+     "v": "442",
+     "n": "11016"
+    },
+    {
+     "v": "202",
+     "n": "10491"
+    },
+    {
+     "v": "352",
+     "n": "10382"
+    },
+    {
+     "v": "3819",
+     "n": "8850"
+    },
+    {
+     "v": "572",
+     "n": "8129"
+    },
+    {
+     "v": "2731",
+     "n": "7873"
+    },
+    {
+     "v": "2761",
+     "n": "7370"
+    },
+    {
+     "v": "564",
+     "n": "7225"
+    },
+    {
+     "v": "1404",
+     "n": "7214"
+    },
+    {
+     "v": "92",
+     "n": "7166"
+    },
+    {
+     "v": "3341",
+     "n": "7145"
+    },
+    {
+     "v": "4025",
+     "n": "7079"
+    },
+    {
+     "v": "1776",
+     "n": "6621"
+    },
+    {
+     "v": "3627",
+     "n": "6423"
+    },
+    {
+     "v": "2631",
+     "n": "6406"
+    },
+    {
+     "v": "3439",
+     "n": "6370"
+    },
+    {
+     "v": "1692",
+     "n": "6273"
+    },
+    {
+     "v": "102",
+     "n": "6121"
+    },
+    {
+     "v": "3823",
+     "n": "5969"
+    },
+    {
+     "v": "598",
+     "n": "5945"
+    },
+    {
+     "v": "1912",
+     "n": "5922"
+    },
+    {
+     "v": "67",
+     "n": "5821"
+    },
+    {
+     "v": "3853",
+     "n": "5246"
+    },
+    {
+     "v": "1131",
+     "n": "5038"
+    },
+    {
+     "v": "206",
+     "n": "5025"
+    },
+    {
+     "v": "3234",
+     "n": "4836"
+    },
+    {
+     "v": "1426",
+     "n": "4814"
+    },
+    {
+     "v": "2884",
+     "n": "4660"
+    },
+    {
+     "v": "2133",
+     "n": "4565"
+    },
+    {
+     "v": "378",
+     "n": "4453"
+    },
+    {
+     "v": "2450",
+     "n": "4368"
+    },
+    {
+     "v": "3941",
+     "n": "4194"
+    },
+    {
+     "v": "2983",
+     "n": "3875"
+    },
+    {
+     "v": "3476",
+     "n": "3826"
+    },
+    {
+     "v": "3950",
+     "n": "3707"
+    },
+    {
+     "v": "529",
+     "n": "3662"
+    },
+    {
+     "v": "3265",
+     "n": "3522"
+    },
+    {
+     "v": "2420",
+     "n": "3381"
+    },
+    {
+     "v": "2316",
+     "n": "3179"
+    },
+    {
+     "v": "1515",
+     "n": "3087"
+    },
+    {
+     "v": "3841",
+     "n": "3006"
+    },
+    {
+     "v": "205",
+     "n": "2987"
+    },
+    {
+     "v": "2854",
+     "n": "2965"
+    },
+    {
+     "v": "2282",
+     "n": "2944"
+    },
+    {
+     "v": "2164",
+     "n": "2908"
+    },
+    {
+     "v": "2126",
+     "n": "2793"
+    },
+    {
+     "v": "517",
+     "n": "2697"
+    },
+    {
+     "v": "1402",
+     "n": "2691"
+    },
+    {
+     "v": "417",
+     "n": "2556"
+    },
+    {
+     "v": "2019",
+     "n": "2380"
+    },
+    {
+     "v": "2647",
+     "n": "2355"
+    },
+    {
+     "v": "696",
+     "n": "2324"
+    },
+    {
+     "v": "1897",
+     "n": "2286"
+    },
+    {
+     "v": "1053",
+     "n": "2213"
+    },
+    {
+     "v": "1932",
+     "n": "2144"
+    },
+    {
+     "v": "2261",
+     "n": "2063"
+    },
+    {
+     "v": "350",
+     "n": "2034"
+    },
+    {
+     "v": "3112",
+     "n": "2023"
+    },
+    {
+     "v": "3118",
+     "n": "1947"
+    },
+    {
+     "v": "3867",
+     "n": "1922"
+    },
+    {
+     "v": "1760",
+     "n": "1918"
+    },
+    {
+     "v": "3098",
+     "n": "1902"
+    },
+    {
+     "v": "1553",
+     "n": "1899"
+    },
+    {
+     "v": "585",
+     "n": "1738"
+    },
+    {
+     "v": "3325",
+     "n": "1735"
+    },
+    {
+     "v": "3459",
+     "n": "1698"
+    },
+    {
+     "v": "627",
+     "n": "1691"
+    },
+    {
+     "v": "986",
+     "n": "1641"
+    },
+    {
+     "v": "1989",
+     "n": "1619"
+    },
+    {
+     "v": "2577",
+     "n": "1548"
+    },
+    {
+     "v": "1491",
+     "n": "1481"
+    },
+    {
+     "v": "106",
+     "n": "1456"
+    },
+    {
+     "v": "3505",
+     "n": "1413"
+    },
+    {
+     "v": "2429",
+     "n": "1402"
+    },
+    {
+     "v": "341",
+     "n": "1394"
+    },
+    {
+     "v": "3342",
+     "n": "1364"
+    },
+    {
+     "v": "3600",
+     "n": "1360"
+    },
+    {
+     "v": "1921",
+     "n": "1353"
+    },
+    {
+     "v": "357",
+     "n": "1304"
+    },
+    {
+     "v": "2091",
+     "n": "1284"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_rxpj_nzrk+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_rxpj_nzrk&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "361865"
+    },
+    {
+     "v": "75",
+     "n": "123858"
+    },
+    {
+     "v": "23",
+     "n": "107002"
+    },
+    {
+     "v": "58",
+     "n": "101304"
+    },
+    {
+     "v": "22",
+     "n": "93203"
+    },
+    {
+     "v": "66",
+     "n": "90697"
+    },
+    {
+     "v": "20",
+     "n": "84735"
+    },
+    {
+     "v": "69",
+     "n": "82352"
+    },
+    {
+     "v": "53",
+     "n": "79444"
+    },
+    {
+     "v": "16",
+     "n": "76368"
+    },
+    {
+     "v": "1",
+     "n": "74745"
+    },
+    {
+     "v": "29",
+     "n": "68405"
+    },
+    {
+     "v": "18",
+     "n": "66197"
+    },
+    {
+     "v": "33",
+     "n": "61471"
+    },
+    {
+     "v": "78",
+     "n": "56645"
+    },
+    {
+     "v": "36",
+     "n": "54003"
+    },
+    {
+     "v": "28",
+     "n": "45869"
+    },
+    {
+     "v": "77",
+     "n": "45858"
+    },
+    {
+     "v": "10",
+     "n": "45167"
+    },
+    {
+     "v": "47",
+     "n": "42793"
+    },
+    {
+     "v": "55",
+     "n": "42702"
+    },
+    {
+     "v": "4",
+     "n": "41817"
+    },
+    {
+     "v": "8",
+     "n": "41775"
+    },
+    {
+     "v": "50",
+     "n": "40837"
+    },
+    {
+     "v": "24",
+     "n": "36342"
+    },
+    {
+     "v": "65",
+     "n": "35680"
+    },
+    {
+     "v": "46",
+     "n": "35239"
+    },
+    {
+     "v": "49",
+     "n": "32380"
+    },
+    {
+     "v": "39",
+     "n": "29592"
+    },
+    {
+     "v": "7",
+     "n": "29549"
+    },
+    {
+     "v": "3",
+     "n": "26183"
+    },
+    {
+     "v": "6",
+     "n": "25879"
+    },
+    {
+     "v": "45",
+     "n": "25321"
+    },
+    {
+     "v": "62",
+     "n": "24241"
+    },
+    {
+     "v": "60",
+     "n": "19121"
+    },
+    {
+     "v": "74",
+     "n": "16914"
+    },
+    {
+     "v": "5",
+     "n": "16629"
+    },
+    {
+     "v": "32",
+     "n": "14764"
+    },
+    {
+     "v": "21",
+     "n": "12832"
+    },
+    {
+     "v": "27",
+     "n": "11994"
+    },
+    {
+     "v": "48",
+     "n": "11886"
+    },
+    {
+     "v": "67",
+     "n": "11751"
+    },
+    {
+     "v": "54",
+     "n": "9897"
+    },
+    {
+     "v": "11",
+     "n": "9638"
+    },
+    {
+     "v": "14",
+     "n": "7663"
+    },
+    {
+     "v": "63",
+     "n": "2134"
+    },
+    {
+     "v": "15",
+     "n": "1448"
+    },
+    {
+     "v": "79",
+     "n": "1352"
+    },
+    {
+     "v": "13",
+     "n": "1182"
+    },
+    {
+     "v": "57",
+     "n": "993"
+    },
+    {
+     "v": "40",
+     "n": "907"
+    },
+    {
+     "v": "68",
+     "n": "26"
+    },
+    {
+     "v": "25",
+     "n": "20"
+    },
+    {
+     "v": "73",
+     "n": "17"
+    },
+    {
+     "v": "44",
+     "n": "9"
+    },
+    {
+     "v": "43",
+     "n": "7"
+    },
+    {
+     "v": "61",
+     "n": "6"
+    },
+    {
+     "v": "30",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_i2aj_cj5t+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_i2aj_cj5t&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "361865"
+    },
+    {
+     "v": "73",
+     "n": "123858"
+    },
+    {
+     "v": "23",
+     "n": "107002"
+    },
+    {
+     "v": "58",
+     "n": "101304"
+    },
+    {
+     "v": "22",
+     "n": "93203"
+    },
+    {
+     "v": "64",
+     "n": "90697"
+    },
+    {
+     "v": "20",
+     "n": "84735"
+    },
+    {
+     "v": "67",
+     "n": "82353"
+    },
+    {
+     "v": "51",
+     "n": "79444"
+    },
+    {
+     "v": "15",
+     "n": "76368"
+    },
+    {
+     "v": "1",
+     "n": "74745"
+    },
+    {
+     "v": "30",
+     "n": "68407"
+    },
+    {
+     "v": "18",
+     "n": "66197"
+    },
+    {
+     "v": "33",
+     "n": "61471"
+    },
+    {
+     "v": "76",
+     "n": "56645"
+    },
+    {
+     "v": "36",
+     "n": "54003"
+    },
+    {
+     "v": "29",
+     "n": "45857"
+    },
+    {
+     "v": "75",
+     "n": "45857"
+    },
+    {
+     "v": "9",
+     "n": "45167"
+    },
+    {
+     "v": "45",
+     "n": "42793"
+    },
+    {
+     "v": "52",
+     "n": "42702"
+    },
+    {
+     "v": "3",
+     "n": "41817"
+    },
+    {
+     "v": "7",
+     "n": "41776"
+    },
+    {
+     "v": "50",
+     "n": "40837"
+    },
+    {
+     "v": "24",
+     "n": "36341"
+    },
+    {
+     "v": "63",
+     "n": "35680"
+    },
+    {
+     "v": "44",
+     "n": "35239"
+    },
+    {
+     "v": "49",
+     "n": "32380"
+    },
+    {
+     "v": "39",
+     "n": "29592"
+    },
+    {
+     "v": "6",
+     "n": "29549"
+    },
+    {
+     "v": "17",
+     "n": "26183"
+    },
+    {
+     "v": "5",
+     "n": "25879"
+    },
+    {
+     "v": "48",
+     "n": "25321"
+    },
+    {
+     "v": "65",
+     "n": "24241"
+    },
+    {
+     "v": "60",
+     "n": "19133"
+    },
+    {
+     "v": "72",
+     "n": "16914"
+    },
+    {
+     "v": "4",
+     "n": "16630"
+    },
+    {
+     "v": "32",
+     "n": "14764"
+    },
+    {
+     "v": "21",
+     "n": "12832"
+    },
+    {
+     "v": "28",
+     "n": "11994"
+    },
+    {
+     "v": "46",
+     "n": "11886"
+    },
+    {
+     "v": "79",
+     "n": "11749"
+    },
+    {
+     "v": "57",
+     "n": "9897"
+    },
+    {
+     "v": "10",
+     "n": "9637"
+    },
+    {
+     "v": "13",
+     "n": "7663"
+    },
+    {
+     "v": "66",
+     "n": "2134"
+    },
+    {
+     "v": "14",
+     "n": "1448"
+    },
+    {
+     "v": "77",
+     "n": "1352"
+    },
+    {
+     "v": "12",
+     "n": "1182"
+    },
+    {
+     "v": "54",
+     "n": "993"
+    },
+    {
+     "v": "41",
+     "n": "907"
+    },
+    {
+     "v": "80",
+     "n": "26"
+    },
+    {
+     "v": "25",
+     "n": "20"
+    },
+    {
+     "v": "71",
+     "n": "17"
+    },
+    {
+     "v": "47",
+     "n": "9"
+    },
+    {
+     "v": "43",
+     "n": "7"
+    },
+    {
+     "v": "61",
+     "n": "6"
+    },
+    {
+     "v": "26",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_xzeg_zdjk+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_xzeg_zdjk&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "1439039"
+    },
+    {
+     "v": "56",
+     "n": "41992"
+    },
+    {
+     "v": "10",
+     "n": "38898"
+    },
+    {
+     "v": "58",
+     "n": "34684"
+    },
+    {
+     "v": "13",
+     "n": "30528"
+    },
+    {
+     "v": "1",
+     "n": "30412"
+    },
+    {
+     "v": "30",
+     "n": "26010"
+    },
+    {
+     "v": "65",
+     "n": "25659"
+    },
+    {
+     "v": "4",
+     "n": "25301"
+    },
+    {
+     "v": "3",
+     "n": "24449"
+    },
+    {
+     "v": "2",
+     "n": "24378"
+    },
+    {
+     "v": "43",
+     "n": "23000"
+    },
+    {
+     "v": "62",
+     "n": "22193"
+    },
+    {
+     "v": "63",
+     "n": "21835"
+    },
+    {
+     "v": "59",
+     "n": "21080"
+    },
+    {
+     "v": "8",
+     "n": "19969"
+    },
+    {
+     "v": "47",
+     "n": "19752"
+    },
+    {
+     "v": "16",
+     "n": "19627"
+    },
+    {
+     "v": "29",
+     "n": "19444"
+    },
+    {
+     "v": "46",
+     "n": "17968"
+    },
+    {
+     "v": "31",
+     "n": "17754"
+    },
+    {
+     "v": "5",
+     "n": "17253"
+    },
+    {
+     "v": "42",
+     "n": "16514"
+    },
+    {
+     "v": "37",
+     "n": "16006"
+    },
+    {
+     "v": "24",
+     "n": "15735"
+    },
+    {
+     "v": "28",
+     "n": "15522"
+    },
+    {
+     "v": "45",
+     "n": "14950"
+    },
+    {
+     "v": "54",
+     "n": "14829"
+    },
+    {
+     "v": "26",
+     "n": "14662"
+    },
+    {
+     "v": "23",
+     "n": "14065"
+    },
+    {
+     "v": "22",
+     "n": "13396"
+    },
+    {
+     "v": "11",
+     "n": "13138"
+    },
+    {
+     "v": "33",
+     "n": "12802"
+    },
+    {
+     "v": "20",
+     "n": "12630"
+    },
+    {
+     "v": "19",
+     "n": "12566"
+    },
+    {
+     "v": "14",
+     "n": "12489"
+    },
+    {
+     "v": "44",
+     "n": "12486"
+    },
+    {
+     "v": "27",
+     "n": "12117"
+    },
+    {
+     "v": "34",
+     "n": "11923"
+    },
+    {
+     "v": "50",
+     "n": "10566"
+    },
+    {
+     "v": "64",
+     "n": "10513"
+    },
+    {
+     "v": "48",
+     "n": "10022"
+    },
+    {
+     "v": "15",
+     "n": "9647"
+    },
+    {
+     "v": "39",
+     "n": "9628"
+    },
+    {
+     "v": "53",
+     "n": "9305"
+    },
+    {
+     "v": "38",
+     "n": "9124"
+    },
+    {
+     "v": "41",
+     "n": "9078"
+    },
+    {
+     "v": "60",
+     "n": "8950"
+    },
+    {
+     "v": "9",
+     "n": "8189"
+    },
+    {
+     "v": "51",
+     "n": "7864"
+    },
+    {
+     "v": "61",
+     "n": "7412"
+    },
+    {
+     "v": "35",
+     "n": "7256"
+    },
+    {
+     "v": "32",
+     "n": "7221"
+    },
+    {
+     "v": "6",
+     "n": "6956"
+    },
+    {
+     "v": "12",
+     "n": "6882"
+    },
+    {
+     "v": "18",
+     "n": "6433"
+    },
+    {
+     "v": "49",
+     "n": "5816"
+    },
+    {
+     "v": "57",
+     "n": "5739"
+    },
+    {
+     "v": "36",
+     "n": "5322"
+    },
+    {
+     "v": "21",
+     "n": "5105"
+    },
+    {
+     "v": "17",
+     "n": "4557"
+    },
+    {
+     "v": "40",
+     "n": "4424"
+    },
+    {
+     "v": "25",
+     "n": "3328"
+    },
+    {
+     "v": "7",
+     "n": "2118"
+    },
+    {
+     "v": "52",
+     "n": "1689"
+    },
+    {
+     "v": "55",
+     "n": "510"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=%3A%40computed_region_6gig_z43c+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_6gig_z43c&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "497253"
+    },
+    {
+     "v": "4",
+     "n": "298306"
+    },
+    {
+     "v": "3",
+     "n": "222136"
+    },
+    {
+     "v": "2",
+     "n": "203194"
+    },
+    {
+     "v": "7",
+     "n": "199936"
+    },
+    {
+     "v": "8",
+     "n": "199773"
+    },
+    {
+     "v": "9",
+     "n": "199396"
+    },
+    {
+     "v": "1",
+     "n": "165930"
+    },
+    {
+     "v": "6",
+     "n": "139901"
+    },
+    {
+     "v": "10",
+     "n": "136987"
+    },
+    {
+     "v": "5",
+     "n": "117897"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=permittype%2C+permit_type_desc%2C+permit_number%2C+permit_class_mapped%2C+permit_class%2C+work_class%2C+condominium%2C+permit_location%2C+description%2C+tcad_id%2C+legal_description%2C+applieddate%2C+issue_date%2C+day_issued%2C+calendar_year_issued%2C+fiscal_year_issued%2C+issued_in_last_30_days%2C+issue_method%2C+status_current%2C+statusdate%2C+expiresdate%2C+completed_date%2C+total_existing_bldg_sqft%2C+remodel_repair_sqft%2C+total_new_add_sqft%2C+total_valuation_remodel%2C+total_job_valuation%2C+number_of_floors%2C+housing_units%2C+building_valuation%2C+building_valuation_remodel%2C+electrical_valuation%2C+electrical_valuation_remodel%2C+mechanical_valuation%2C+mechanical_valuation_remodel%2C+plumbing_valuation%2C+plumbing_valuation_remodel%2C+medgas_valuation%2C+medgas_valuation_remodel%2C+original_address1%2C+original_city%2C+original_state%2C+original_zip%2C+council_district%2C+jurisdiction%2C+link%2C+project_id%2C+masterpermitnum%2C+latitude%2C+longitude%2C+location%2C+contractor_trade%2C+contractor_company_name%2C+contractor_full_name%2C+contractor_phone%2C+contractor_address1%2C+contractor_address2%2C+contractor_city%2C+contractor_zip%2C+applicant_full_name%2C+applicant_org%2C+applicant_phone%2C+applicant_address1%2C+applicant_address2%2C+applicant_city%2C+applicantzip%2C+certificate_of_occupancy%2C+total_lot_sq_ft%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "applicant_address2",
+     "applicant_city",
+     "applicant_full_name",
+     "applicant_org",
+     "applicant_phone",
+     "applicantzip",
+     "applieddate",
+     "building_valuation",
+     "building_valuation_remodel",
+     "calendar_year_issued",
+     "certificate_of_occupancy",
+     "condominium",
+     "contractor_address2",
+     "contractor_city",
+     "contractor_company_name",
+     "contractor_full_name",
+     "contractor_phone",
+     "contractor_trade",
+     "contractor_zip",
+     "council_district",
+     "day_issued",
+     "description",
+     "electrical_valuation",
+     "electrical_valuation_remodel",
+     "expiresdate",
+     "fiscal_year_issued",
+     "housing_units",
+     "issue_date",
+     "issue_method",
+     "issued_in_last_30_days",
+     "jurisdiction",
+     "latitude",
+     "legal_description",
+     "link",
+     "location",
+     "longitude",
+     "masterpermitnum",
+     "mechanical_valuation",
+     "mechanical_valuation_remodel",
+     "medgas_valuation_remodel",
+     "number_of_floors",
+     "original_address1",
+     "original_city",
+     "original_state",
+     "original_zip",
+     "permit_class",
+     "permit_class_mapped",
+     "permit_location",
+     "permit_number",
+     "permit_type_desc",
+     "permittype",
+     "plumbing_valuation",
+     "plumbing_valuation_remodel",
+     "project_id",
+     "remodel_repair_sqft",
+     "status_current",
+     "statusdate",
+     "tcad_id",
+     "total_job_valuation",
+     "total_new_add_sqft",
+     "total_valuation_remodel",
+     "work_class"
+    ],
+    "sha256": "cd904799cdbe67c3238296250b9b6f138c3009f391a11f97812561ce4fbef8b3"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://datahub.austintexas.gov/resource/3syk-w9eu.json?%24select=permittype%2C+permit_type_desc%2C+permit_number%2C+permit_class_mapped%2C+permit_class%2C+work_class%2C+condominium%2C+permit_location%2C+description%2C+tcad_id%2C+legal_description%2C+applieddate%2C+issue_date%2C+day_issued%2C+calendar_year_issued%2C+fiscal_year_issued%2C+issued_in_last_30_days%2C+issue_method%2C+status_current%2C+statusdate%2C+expiresdate%2C+completed_date%2C+total_existing_bldg_sqft%2C+remodel_repair_sqft%2C+total_new_add_sqft%2C+total_valuation_remodel%2C+total_job_valuation%2C+number_of_floors%2C+housing_units%2C+building_valuation%2C+building_valuation_remodel%2C+electrical_valuation%2C+electrical_valuation_remodel%2C+mechanical_valuation%2C+mechanical_valuation_remodel%2C+plumbing_valuation%2C+plumbing_valuation_remodel%2C+medgas_valuation%2C+medgas_valuation_remodel%2C+original_address1%2C+original_city%2C+original_state%2C+original_zip%2C+council_district%2C+jurisdiction%2C+link%2C+project_id%2C+masterpermitnum%2C+latitude%2C+longitude%2C+location%2C+contractor_trade%2C+contractor_company_name%2C+contractor_full_name%2C+contractor_phone%2C+contractor_address1%2C+contractor_address2%2C+contractor_city%2C+contractor_zip%2C+applicant_full_name%2C+applicant_org%2C+applicant_phone%2C+applicant_address1%2C+applicant_address2%2C+applicant_city%2C+applicantzip%2C+certificate_of_occupancy%2C+total_lot_sq_ft%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-jyyy.by6y~h4wi%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "applicant_address2",
+     "applicant_city",
+     "applicant_full_name",
+     "applicant_org",
+     "applicant_phone",
+     "applicantzip",
+     "applieddate",
+     "building_valuation",
+     "building_valuation_remodel",
+     "calendar_year_issued",
+     "certificate_of_occupancy",
+     "condominium",
+     "contractor_address2",
+     "contractor_city",
+     "contractor_company_name",
+     "contractor_full_name",
+     "contractor_phone",
+     "contractor_trade",
+     "contractor_zip",
+     "council_district",
+     "day_issued",
+     "description",
+     "electrical_valuation",
+     "electrical_valuation_remodel",
+     "expiresdate",
+     "fiscal_year_issued",
+     "housing_units",
+     "issue_date",
+     "issue_method",
+     "issued_in_last_30_days",
+     "jurisdiction",
+     "latitude",
+     "legal_description",
+     "link",
+     "location",
+     "longitude",
+     "masterpermitnum",
+     "mechanical_valuation",
+     "mechanical_valuation_remodel",
+     "medgas_valuation_remodel",
+     "number_of_floors",
+     "original_address1",
+     "original_city",
+     "original_state",
+     "original_zip",
+     "permit_class",
+     "permit_class_mapped",
+     "permit_location",
+     "permit_number",
+     "permit_type_desc",
+     "permittype",
+     "plumbing_valuation",
+     "plumbing_valuation_remodel",
+     "project_id",
+     "remodel_repair_sqft",
+     "status_current",
+     "statusdate",
+     "tcad_id",
+     "total_existing_bldg_sqft",
+     "total_job_valuation",
+     "total_new_add_sqft",
+     "total_valuation_remodel",
+     "work_class"
+    ],
+    "sha256": "69581e71ca8dd61333faac7421403a6a51f38a7144b315099f1ffb6da2ddb306"
+   }
+  }
+ ]
+}

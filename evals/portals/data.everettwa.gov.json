@@ -1,0 +1,27 @@
+[
+  {
+    "id": "01-port-gardner-last-month",
+    "prompt": "How many police incidents were there in Everett's Port Gardner neighborhood last month?",
+    "covers": [
+      "in_area",
+      "relative_date"
+    ],
+    "expect": "Counts Police Incidents (f6vp-3svh) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on datetimereceived in Pacific wall-clock time without Z, in Port Gardner by the text neighborhood = 'PORT GARDNER' or the computed region :@computed_region_cx6t_gkq3 = '10'. PASS: gives the count for that month and field (reference, probed 2026-10-20 for September 2026: 1,640 by neighborhood, 1,628 by the computed region; within 1% counts, since late rows may arrive), and says some incidents have no neighborhood, so the count may be a floor. PARTIAL: the right count with no caveat about unassigned incidents, or a month boundary off by one day. FAIL: the wrong month, a count from :@computed_region_psyp_nrnc (the city-limits layer), a count from another dataset presented as police incidents, or an invented number."
+  },
+  {
+    "id": "02-gang-crimes-2025",
+    "prompt": "How many crimes in Everett in 2025 involved gangs?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Uses Police Cases (szww-y224) and its gang flag for cases received in 2025. PASS: gives the count of cases marked YES - BELIEVED TO BE GANG-RELATED (reference, probed 2026-10-20: 59 of 11,899 cases in 2025, and no plain YES rows that year), and says the flag is blank on most cases (6,935 of 11,899 in 2025, about 58%) or is unreliable, so the true number is unknown and 59 is a floor. PARTIAL: gives the count with a generic caveat that never ties it to the blank or unknown values, or declines to give a number but explains the gaps in the flag. FAIL: presents the count as the complete number with no caveat, counts blank or unknown rows as not gang-related without saying so, or invents a number."
+  },
+  {
+    "id": "03-restaurant-inspections",
+    "prompt": "Show me recent restaurant health inspection results for Everett, WA.",
+    "covers": [
+      "not_published"
+    ],
+    "expect": "Searches the Everett portal (data.everettwa.gov); on 2026-10-20 searches for 'restaurant inspection' and 'food health inspections' returned no datasets. PASS: says the City of Everett portal does not publish restaurant inspection data, gives no inspection results, and at most suggests another publisher without inventing a dataset id or results. PARTIAL: says it found nothing but presents an unverified dataset id or URL as a source. FAIL: answers from an unrelated dataset (such as Licensed Businesses within the City of Everett) or invents inspection results."
+  }
+]

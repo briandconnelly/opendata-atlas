@@ -1,0 +1,22 @@
+{
+ "albany.data.socrata.com": {
+  "catalog_status": 200,
+  "datasets": 5,
+  "views_status": 200
+ },
+ "fortlauderdale.data.socrata.com": {
+  "catalog_status": 200,
+  "datasets": 25,
+  "views_status": 200
+ },
+ "siouxfalls.data.socrata.com": {
+  "catalog_status": 200,
+  "datasets": 17,
+  "views_status": 200
+ },
+ "atlanta.data.socrata.com": {
+  "catalog_status": 200,
+  "datasets": 6,
+  "views_status": 200
+ }
+}

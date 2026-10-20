@@ -1,0 +1,111 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/vrxf-vc4k.json",
+ "status": 200,
+ "name": "Community Areas",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "perimeter",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "comarea_",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "comarea_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "area_numbe",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "community",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "area_num_1",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_len",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "77",
+    "non_null": "77",
+    "null": "0"
+   }
+  }
+ ]
+}

@@ -1,0 +1,125 @@
+# Police Incidents. Drafted by atlas-profile on 2026-10-20; reviewed 2026-10-20.
+
+[[claim]]
+id = "f6vp-3svh-unit-incident"
+kind = "unit_of_observation"
+scope = {dataset = "f6vp-3svh"}
+interpretation = {unit = "incident", reason = "One row per police incident (eventnumber), including officer-initiated activity such as traffic stops; count(*) counts incidents."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct eventnumber) AS events WHERE datetimereceived >= '2026-09-01T00:00:00' AND datetimereceived < '2026-10-01T00:00:00'"
+observed_at = 2026-10-20
+observation = "September 2026: 10,357 rows and 10,357 distinct eventnumber values."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.everettwa.gov/api/views/f6vp-3svh.json"
+quote = "Police Incidents represent all calls for police responses. These include burglary and trespass reports, assaults, drug related calls, thefts, vandalism, and reports of suspicious activity. Officer initiated activity such as traffic stops is also included in police incidents."
+observed_at = 2026-10-20
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "events", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "f6vp-3svh-:@computed_region_psyp_nrnc-fill"
+kind = "place_field"
+scope = {dataset = "f6vp-3svh", column = ":@computed_region_psyp_nrnc"}
+interpretation = {kind = "other", kind_label = "city limits", reliability = "partial", reason = "City Limits Shading layer (psyp-nrnc): 5 polygons, all code EV. It says only whether a point lies inside Everett, not where; 95% of rows fall in feature 3. Not an area filter for parts of the city."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_psyp_nrnc) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,535,802 of 1,618,409 rows (0.949) have a value; computed-region layer psyp-nrnc, candidate label column none found."
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/psyp-nrnc.json"
+observed_at = 2026-10-20
+observation = "Layer name is \"City Limits Shading\"; columns code, draw, comments. Its 5 features all have code EV; on this dataset 1,535,559 rows are feature 3, 243 feature 2, and 82,607 null."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.89}
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 1
+params = {field = "name", value = "City Limits Shading"}
+
+[[claim]]
+id = "f6vp-3svh-:@computed_region_cx6t_gkq3-fill"
+kind = "place_field"
+scope = {dataset = "f6vp-3svh", column = ":@computed_region_cx6t_gkq3"}
+interpretation = {kind = "neighborhood", reliability = "partial", reason = "Everett's 19 neighborhoods (layer cx6t-gkq3, label `name`); about 11% of incidents have no neighborhood (7-14% a year since 2015), so area counts are a floor."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_cx6t_gkq3) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,438,570 of 1,618,409 rows (0.889) have a value; computed-region layer cx6t-gkq3, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.83}
+
+[[claim]]
+id = "f6vp-3svh-neighborhood-place-field"
+kind = "place_field"
+scope = {dataset = "f6vp-3svh", column = "neighborhood"}
+interpretation = {kind = "neighborhood", reliability = "partial", reason = "The 19 neighborhood names (uppercase, as in layer cx6t-gkq3), plus the placeholder 'Not Assigned' on about 7.5% of rows; exclude it from rankings."}
+placeholders = ["Not Assigned"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(neighborhood = 'Not Assigned', 1, true, 0)) AS ph, count(*) AS n"
+observed_at = 2026-10-20
+observation = "120,857 of 1,618,409 rows (0.075) are 'Not Assigned'; 16 are null. Over all years 'Not Assigned' is the second-largest value, after PORT GARDNER."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "ph", denominator = "n", max = 0.12}
+
+[[claim]]
+id = "f6vp-3svh-datetimereceived-timezone"
+kind = "column_timezone"
+scope = {dataset = "f6vp-3svh", column = "datetimereceived"}
+interpretation = {timezone = "America/Los_Angeles", reason = "Pacific wall-clock time with no offset: no rows in the skipped hour on the 2026 spring-forward date, and an afternoon peak."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(datetimereceived) AS h, count(*) AS n WHERE datetimereceived >= '2026-03-08T00:00:00' AND datetimereceived < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 10 and 8."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(datetimereceived) AS h, count(*) AS n WHERE datetimereceived >= '2025-12-20T00:00:00' AND datetimereceived < '2026-12-21T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 14 (6,284 of 98,730); 24 of 24 hours populated. The window ends 2026-12-21 because one row (eventnumber 2025-00119644) is dated 2026-12-20, in the future."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 12, peak_to = 16}

@@ -1,0 +1,41 @@
+[
+  {
+    "portal": "data.everettwa.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 4
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 17,
+        "row_count": 192715
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 16,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 16
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "3w3u-656c",
+        "left_because": null
+      }
+    ]
+  }
+]

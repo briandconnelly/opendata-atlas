@@ -1,0 +1,57 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/d3ds-rm58.json",
+ "status": 200,
+ "name": "Police Beats",
+ "columns": [
+  {
+   "fieldName": "district",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "23",
+    "non_null": "277",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "sector",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "5",
+    "non_null": "277",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "beat",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "5",
+    "non_null": "277",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "beat_num",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "275",
+    "non_null": "277",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "277",
+    "non_null": "277",
+    "null": "0"
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+# Illustrative ids. A reviewed placeholder declaration with share assertions.
+[[claim]]
+id = "crime-neighborhood-pre2017-placeholder"
+scope = {dataset = "abcd-1234", column = "neighborhood", time = {column = "offense_date", until = "2016-12-31"}}
+kind = "placeholder_share"
+interpretation = {reliability = "partial", reason = "Placeholder ('-') for nearly all offenses before 2017; 1-4% missing since. Do not use for 2008-2016."}
+placeholders = ["-", "UNKNOWN", "OOJ", "FK ERROR"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_y(offense_date) AS y, sum(case(neighborhood = '-', 1, true, 0)) AS ph, count(*) AS n GROUP BY y"
+observed_at = 2026-10-16
+observation = "ph/n 0.98-1.00 for 2008-2016; 0.01-0.04 for 2017-2026"
+
+[[claim.assertion]]
+checker = "share_by_group"
+params = {group = "y", numerator = "ph", denominator = "n", where = "y <= 2016", min = 0.9, min_groups = 9}
+
+[[claim.assertion]]
+checker = "share_by_group"
+params = {group = "y", numerator = "ph", denominator = "n", where = "y >= 2017", max = 0.05, min_groups = 9}

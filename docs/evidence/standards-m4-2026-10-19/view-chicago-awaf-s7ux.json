@@ -1,0 +1,138 @@
+{
+ "url": "https://data.cityofchicago.org/api/views/awaf-s7ux.json",
+ "status": 200,
+ "name": "Historical Wards 2003-2015",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "data_admin",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "perimeter",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "ward",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "alderman",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "class",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "ward_phone",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "hall_phone",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "hall_offic",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "44",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "address",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "51",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "edit_date1",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "7",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_len",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "53",
+    "non_null": "53",
+    "null": "0"
+   }
+  }
+ ]
+}

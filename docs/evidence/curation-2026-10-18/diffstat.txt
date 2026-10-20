@@ -1,0 +1,10 @@
+ evals/portals/data.honolulu.gov.json               |  34 +++++++
+ .../portals/data.honolulu.gov/facts/6hui-dvrh.toml | 108 +++++++++++++++++++++
+ .../portals/data.honolulu.gov/facts/7mwf-c3z3.toml |  49 ++++++++++
+ .../portals/data.honolulu.gov/facts/jdy7-ftwe.toml |  49 ++++++++++
+ .../portals/data.honolulu.gov/facts/yef5-h88r.toml |  17 ++++
+ .../portals/data.honolulu.gov/guides.py            |  66 +++++++++++++
+ .../portals/data.honolulu.gov/portal.toml          |  23 +++++
+ .../portals/data.honolulu.gov/regions.toml         |  20 ++++
+ src/opendata_atlas/portals/validation.json         |  67 +++++++++++++
+ 9 files changed, 433 insertions(+)

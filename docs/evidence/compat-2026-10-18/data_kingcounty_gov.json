@@ -1,0 +1,1457 @@
+{
+ "portal": "data.kingcounty.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 10
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 55,
+   "row_count": 74
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 6,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 5
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "7bee-uw8s",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.kingcounty.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "102,418 bytes, over the 65,536-byte cap",
+    "sha256": "c1605cf367d5cf269658042fa23c2b78ccab4dbeeee8fe06fa4dab8b2194062b",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.kingcounty.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Permitting - Accela Permitting Portal",
+       "id": "76qh-9bwf",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The permitting portal provides:\n\n- View project status\n- Search for permit records\t\n- View record details\n- Schedule inspections\t\n- Pay permit fees due\n- View inspection times and results",
+       "attribution": "King County",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2021-02-16T21:22:18.000Z",
+       "createdAt": "2020-12-30T21:25:20.000Z",
+       "metadata_updated_at": "2021-02-16T21:22:18.000Z",
+       "data_updated_at": "2020-12-30T21:25:20.000Z",
+       "page_views": {
+        "page_views_last_week": 87,
+        "page_views_last_month": 335,
+        "page_views_total": 5813,
+        "page_views_last_week_log": 6.459431618637298,
+        "page_views_last_month_log": 8.39231742277876,
+        "page_views_total_log": 12.505315356136236
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-12-30T21:28:21.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Licenses, Permits, and Records",
+       "domain_tags": [
+        "permits",
+        "records",
+        "status",
+        "fees",
+        "inspection",
+        "permitting"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.kingcounty.gov",
+       "license": "Public Domain",
+       "additional_access_points": [
+        {
+         "urls": {
+          "Link": "https://aca-prod.accela.com/kingco/Default.aspx"
+         },
+         "description": "The permitting portal provides:\n\n- View project status\n- Search for permit records\t\n- View record details\n- Schedule inspections\t\n- Pay permit fees due\n- View inspection times and results",
+         "title": "Permitting - Accela Permitting Portal"
+        }
+       ],
+       "access_points": {
+        "Link": "https://aca-prod.accela.com/kingco/Default.aspx"
+       }
+      },
+      "permalink": "https://data.kingcounty.gov/d/76qh-9bwf",
+      "link": "https://data.kingcounty.gov/Licenses-Permits-and-Records/Permitting-Accela-Permitting-Portal/76qh-9bwf",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Permitting - Public Notices & Records Research",
+       "id": "q2eh-943a",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Applicants applying for certain land use actions or permit types described in chapter 20.20 of the King County Code are required to provide public notification. The State Environmental Policy Act of 1972 (SEPA) also requires public notification of environmental threshold determinations (TD) for these applications and other actions. For more information about SEPA requirements, see public notification and the SEPA process.",
+       "attribution": "King County",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2021-02-16T21:22:13.000Z",
+       "createdAt": "2020-12-30T21:22:20.000Z",
+       "metadata_updated_at": "2021-02-16T21:22:13.000Z",
+       "data_updated_at": "2020-12-30T21:22:20.000Z",
+       "page_views": {
+        "page_views_last_week": 18,
+        "page_views_last_month": 47,
+        "page_views_total": 1128,
+        "page_views_last_week_log": 4.247927513443585,
+        "page_views_last_month_log": 5.584962500721157,
+        "page_views_total_log": 10.140829770773001
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-12-30T21:24:35.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Licenses, Permits, and Records",
+       "domain_tags": [
+        "auction",
+        "sepa",
+        "records",
+        "land use",
+        "permits",
+        "permitting"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.kingcounty.gov",
+       "license": "Public Domain",
+       "additional_access_points": [
+        {
+         "urls": {
+          "Link": "https://kingcounty.gov/depts/local-services/permits/public-notices.aspx"
+         },
+         "description": "Applicants applying for certain land use actions or permit types described in chapter 20.20 of the King County Code are required to provide public notification. The State Environmental Policy Act of 1972 (SEPA) also requires public notification of environmental threshold determinations (TD) for these applications and other actions. For more information about SEPA requirements, see public notification and the SEPA process.",
+         "title": "Permitting - Public Notices & Records Research"
+        }
+       ],
+       "access_points": {
+        "Link": "https://kingcounty.gov/depts/local-services/permits/public-notices.aspx"
+       }
+      },
+      "permalink": "https://data.kingcounty.gov/d/q2eh-943a",
+      "link": "https://data.kingcounty.gov/Licenses-Permits-and-Records/Permitting-Public-Notices-Records-Research/q2eh-943a",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "King County Archives Search",
+       "id": "cbwy-bnrd",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "We are a repository of historical King County government records, which are open to public view. Over three hundred collections comprising over 18,000 cubic feet, some dating back to 1853, serve as a permanent source of information about activities, programs, and decisions of County agencies and elected officials. Our records are in many formats, including paper, photographs, maps, and audio-visual materials.\n\nThey include legislative records - County Commissioner's resolutions (1853-1968) and County Council ordinances and motions (1969-1999), a special collection of over 6,000 County documents, pre-charter legislation, administration and policy decisions, early road and bridge establishment and inspection records and records and policies from former County Executives.\n\nSome King County government records are also held by the <a href=\"https://www.sos.wa.gov//archives/archives_puget.aspx\">Puget Sound Regional Branch of the Washington State Archives</a>, which began collecting materials before the establishment of the King County Archives program in 1990.",
+       "attribution": "King County",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2021-02-16T21:23:21.000Z",
+       "createdAt": "2020-12-30T21:56:51.000Z",
+       "metadata_updated_at": "2021-02-16T21:23:21.000Z",
+       "data_updated_at": "2020-12-30T21:56:51.000Z",
+       "page_views": {
+        "page_views_last_week": 37,
+        "page_views_last_month": 90,
+        "page_views_total": 1452,
+        "page_views_last_week_log": 5.247927513443585,
+        "page_views_last_month_log": 6.507794640198696,
+        "page_views_total_log": 10.504818987632841
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-12-30T22:00:21.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Licenses, Permits, and Records",
+       "domain_tags": [
+        "inspection records",
+        "legislative records",
+        "documents",
+        "policies",
+        "ordinances"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.kingcounty.gov",
+       "license": "Public Domain",
+       "additional_access_points": [
+        {
+         "urls": {
+          "Link": "https://archivesearch.kingcounty.gov/scripts/mwimain.dll/144/DESCRIPTION?DIRECTSEARCH"
+         },
+         "description": "A repository of historical King County government records, which are open to public view.",
+         "title": "King County Archives Search"
+        }
+       ],
+       "access_points": {
+        "Link": "https://archivesearch.kingcounty.gov/scripts/mwimain.dll/144/DESCRIPTION?DIRECTSEARCH"
+       }
+      },
+      "permalink": "https://data.kingcounty.gov/d/cbwy-bnrd",
+      "link": "https://data.kingcounty.gov/Licenses-Permits-and-Records/King-County-Archives-Search/cbwy-bnrd",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 3,
+    "timings": {
+     "serviceMillis": 19,
+     "searchMillis": [
+      3,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.kingcounty.gov/api/views/7bee-uw8s.json",
+   "status": 200,
+   "body": {
+    "id": "7bee-uw8s",
+    "name": "Table view",
+    "assetType": "filter",
+    "attribution": "King County",
+    "attributionLink": "http://kingcounty.gov",
+    "averageRating": 0,
+    "category": "Operations",
+    "createdAt": 1494006488,
+    "description": "Master calendar for King County",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 2217,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "PUBLIC_DOMAIN",
+    "locked": false,
+    "modifyingViewUid": "a5hq-yx6s",
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 41685878,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1552941914,
+    "publicationGroup": 13995327,
+    "publicationStage": "published",
+    "queryString": "SELECT `start_time`, `end_time`, `event_name`, `event_description_details`, `location_name`, `location`, `contact_name`, `contact_email`, `contact_phone`, `host_contact_department`, `feed_keyword_s`, `display_on_kc_home_page`, `airport`, `arts_culture`, `best_starts_for_kids`, `business`, `closure`, `council`, `courts`, `elections`, `emergency`, `employees`, `environment`, `events`, `executive`, `fleet_auctions`, `health`, `jails`, `jobs`, `licenses`, `metro`, `news`, `operations`, `parks`, `permits`, `pets`, `property`, `recreation`, `recycling_trash`, `swd_home`, `swd_advisory_committee`, `swd_ecoconsumer`, `swd_facilities`, `swd_greentools`, `swd_recycling_collection_events`, `swd_wastemobile`, `roads`, `rural`, `safety`, `sheriff`, `socialservices`, `transportation`, `volunteer`, `water_taxi`, `tac_meeting` WHERE `metro` ORDER BY `swd_home` DESC NULL LAST",
+    "rowsUpdatedAt": 1791929450,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 20126798,
+    "totalTimesRated": 0,
+    "viewCount": 18264,
+    "viewLastModified": 1738118558,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 619542311,
+      "name": "Start time",
+      "dataTypeName": "calendar_date",
+      "fieldName": "start_time",
+      "position": 1,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 42675155,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542312,
+      "name": "End time",
+      "dataTypeName": "calendar_date",
+      "fieldName": "end_time",
+      "position": 2,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 42675156,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542313,
+      "name": "Event Name",
+      "dataTypeName": "text",
+      "fieldName": "event_name",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 42675157,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 619542314,
+      "name": "Event description/details",
+      "dataTypeName": "text",
+      "fieldName": "event_description_details",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 42675158,
+      "width": 400,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 619542315,
+      "name": "Location name",
+      "dataTypeName": "text",
+      "fieldName": "location_name",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 42675159,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542316,
+      "name": "Location",
+      "dataTypeName": "point",
+      "fieldName": "location",
+      "position": 6,
+      "renderTypeName": "point",
+      "tableColumnId": 42675160,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "46",
+       "null": "28",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542317,
+      "name": "Contact name",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "contact_name",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 42675162,
+      "width": 244,
+      "cachedContents": {
+       "non_null": "73",
+       "null": "1",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542318,
+      "name": "Contact email",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "contact_email",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 42675163,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "73",
+       "null": "1",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {
+       "displayStyle": "email",
+       "align": "left"
+      }
+     },
+     {
+      "id": 619542319,
+      "name": "Contact phone",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "contact_phone",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 42675164,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "73",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {
+       "displayStyle": "phone",
+       "align": "left"
+      }
+     },
+     {
+      "id": 619542320,
+      "name": "Host/Contact Department",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "host_contact_department",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 42675165,
+      "width": 376,
+      "cachedContents": {
+       "non_null": "73",
+       "null": "1",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542321,
+      "name": "Feed Keyword(s):",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "feed_keyword_s",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 42675166,
+      "width": 292,
+      "cachedContents": {
+       "non_null": "0",
+       "null": "74",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542322,
+      "name": "Display on KC home page",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "display_on_kc_home_page",
+      "position": 12,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675167,
+      "width": 376,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542323,
+      "name": "Airport",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "airport",
+      "position": 13,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42676162,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542324,
+      "name": "arts_culture",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "arts_culture",
+      "position": 14,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675168,
+      "width": 244,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542325,
+      "name": "Best Starts for Kids",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "best_starts_for_kids",
+      "position": 15,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675169,
+      "width": 340,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542326,
+      "name": "business",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "business",
+      "position": 16,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675170,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542327,
+      "name": "closure",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "closure",
+      "position": 17,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675171,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542328,
+      "name": "council",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "council",
+      "position": 18,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675172,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542329,
+      "name": "courts",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "courts",
+      "position": 19,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675173,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542330,
+      "name": "elections",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "elections",
+      "position": 20,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675174,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542331,
+      "name": "emergency",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "emergency",
+      "position": 21,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675175,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542332,
+      "name": "employees",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "employees",
+      "position": 22,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675176,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542333,
+      "name": "environment",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "environment",
+      "position": 23,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675177,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542334,
+      "name": "events",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "events",
+      "position": 24,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675178,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542335,
+      "name": "executive",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "executive",
+      "position": 25,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675179,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542336,
+      "name": "Fleet auctions",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "fleet_auctions",
+      "position": 26,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42676192,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542337,
+      "name": "health",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "health",
+      "position": 27,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675180,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542338,
+      "name": "jails",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "jails",
+      "position": 28,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675181,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542339,
+      "name": "jobs",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "jobs",
+      "position": 29,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675182,
+      "width": 148,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542340,
+      "name": "licenses",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "licenses",
+      "position": 30,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675183,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542341,
+      "name": "Metro",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "metro",
+      "position": 31,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675184,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "74",
+       "null": "0",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542342,
+      "name": "news",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "news",
+      "position": 32,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675185,
+      "width": 148,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542343,
+      "name": "operations",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "operations",
+      "position": 33,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675186,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542344,
+      "name": "parks",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "parks",
+      "position": 34,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675187,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542345,
+      "name": "permits",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "permits",
+      "position": 35,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675188,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542346,
+      "name": "pets",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "pets",
+      "position": 36,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675189,
+      "width": 148,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542347,
+      "name": "property",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "property",
+      "position": 37,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675190,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542348,
+      "name": "recreation",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "recreation",
+      "position": 38,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675191,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542349,
+      "name": "recycling_trash",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "recycling_trash",
+      "position": 39,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675192,
+      "width": 280,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542350,
+      "name": "SWD home",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_home",
+      "position": 40,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968459,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542351,
+      "name": "SWD Advisory Committee",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_advisory_committee",
+      "position": 41,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968453,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542352,
+      "name": "SWD EcoConsumer",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_ecoconsumer",
+      "position": 42,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968456,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542353,
+      "name": "SWD Facilities",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_facilities",
+      "position": 43,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968455,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542354,
+      "name": "SWD GreenTools",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_greentools",
+      "position": 44,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968458,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542355,
+      "name": "SWD Recycling collection events",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_recycling_collection_events",
+      "position": 45,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968457,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542356,
+      "name": "SWD Wastemobile",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "swd_wastemobile",
+      "position": 46,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42968454,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542357,
+      "name": "roads",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "roads",
+      "position": 47,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675193,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542358,
+      "name": "rural",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "rural",
+      "position": 48,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675194,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542359,
+      "name": "safety",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "safety",
+      "position": 49,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675195,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542360,
+      "name": "sheriff",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "sheriff",
+      "position": 50,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675196,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542361,
+      "name": "SocialServices",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "socialservices",
+      "position": 51,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675197,
+      "width": 268,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542362,
+      "name": "transportation",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "transportation",
+      "position": 52,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675198,
+      "width": 268,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542363,
+      "name": "volunteer",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "volunteer",
+      "position": 53,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42675199,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542364,
+      "name": "Water taxi",
+      "dataTypeName": "checkbox",
+      "description": "",
+      "fieldName": "water_taxi",
+      "position": 54,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 42676161,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "72",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     },
+     {
+      "id": 619542365,
+      "name": "TAC Meeting",
+      "dataTypeName": "calendar_date",
+      "description": "",
+      "fieldName": "tac_meeting",
+      "position": 55,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 42675200,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "0",
+       "null": "74",
+       "count": "74",
+       "cardinality": "74"
+      },
+      "format": {}
+     }
+    ],
+    "disabledFeatureFlags": [
+     "allow_comments"
+    ],
+    "displayFormat": {
+     "startDateTableId": 42675155,
+     "titleTableId": 42675157,
+     "endDateTableId": 42675156,
+     "descriptionColumns": [
+      {
+       "tableColumnId": 42675159
+      },
+      {
+       "tableColumnId": 42675160
+      },
+      {
+       "tableColumnId": 42675161
+      },
+      {
+       "tableColumnId": 42675158
+      }
+     ]
+    },
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Public Domain"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "availableDisplayTypes": [
+      "calendar",
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "",
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "calendar"
+    ],
+    "flags": [
+     "calculatedView",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType",
+     "soqlBasedView"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.kingcounty.gov/resource/7bee-uw8s.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "74"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.kingcounty.gov/resource/7bee-uw8s.json?%24select=min%28start_time%29+AS+lo%2C+max%28start_time%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2019-01-08T10:30:00.000",
+     "hi": "2020-02-19T17:30:00.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.kingcounty.gov/resource/7bee-uw8s.json?%24select=start_time%2C+end_time%2C+event_name%2C+event_description_details%2C+location_name%2C+location%2C+contact_name%2C+contact_email%2C+contact_phone%2C+host_contact_department%2C+feed_keyword_s%2C+display_on_kc_home_page%2C+airport%2C+arts_culture%2C+best_starts_for_kids%2C+business%2C+closure%2C+council%2C+courts%2C+elections%2C+emergency%2C+employees%2C+environment%2C+events%2C+executive%2C+fleet_auctions%2C+health%2C+jails%2C+jobs%2C+licenses%2C+metro%2C+news%2C+operations%2C+parks%2C+permits%2C+pets%2C+property%2C+recreation%2C+recycling_trash%2C+swd_home%2C+swd_advisory_committee%2C+swd_ecoconsumer%2C+swd_facilities%2C+swd_greentools%2C+swd_recycling_collection_events%2C+swd_wastemobile%2C+roads%2C+rural%2C+safety%2C+sheriff%2C+socialservices%2C+transportation%2C+volunteer%2C+water_taxi%2C+tac_meeting%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "contact_email",
+     "contact_name",
+     "end_time",
+     "event_description_details",
+     "event_name",
+     "events",
+     "host_contact_department",
+     "location",
+     "metro",
+     "start_time"
+    ],
+    "sha256": "0b13d960586c508b96924a8d76425db44c9848358d3bd070d0e476448f30898a"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.kingcounty.gov/resource/7bee-uw8s.json?%24select=start_time%2C+end_time%2C+event_name%2C+event_description_details%2C+location_name%2C+location%2C+contact_name%2C+contact_email%2C+contact_phone%2C+host_contact_department%2C+feed_keyword_s%2C+display_on_kc_home_page%2C+airport%2C+arts_culture%2C+best_starts_for_kids%2C+business%2C+closure%2C+council%2C+courts%2C+elections%2C+emergency%2C+employees%2C+environment%2C+events%2C+executive%2C+fleet_auctions%2C+health%2C+jails%2C+jobs%2C+licenses%2C+metro%2C+news%2C+operations%2C+parks%2C+permits%2C+pets%2C+property%2C+recreation%2C+recycling_trash%2C+swd_home%2C+swd_advisory_committee%2C+swd_ecoconsumer%2C+swd_facilities%2C+swd_greentools%2C+swd_recycling_collection_events%2C+swd_wastemobile%2C+roads%2C+rural%2C+safety%2C+sheriff%2C+socialservices%2C+transportation%2C+volunteer%2C+water_taxi%2C+tac_meeting%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-4iak.d47u.3ab7%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "contact_email",
+     "contact_name",
+     "end_time",
+     "event_description_details",
+     "event_name",
+     "events",
+     "host_contact_department",
+     "location",
+     "metro",
+     "start_time"
+    ],
+    "sha256": "8cbbd8da83ef5667f61530cdfe76a0a8464eed82f24dbde33e553283d319b2cf"
+   }
+  }
+ ]
+}

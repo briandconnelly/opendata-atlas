@@ -1,0 +1,8 @@
+== shipped (as on disk)
+ describe neighborhood: {'assigned_fraction': 1.0, 'placeholder_values': [{'value': 'null', 'rows': 16}], 'value_count': 20, 'reliability': 'partial'}
+ query rows: [{'neighborhood': 'PORT GARDNER', 'n': '19778'}, {'neighborhood': 'HOLLY', 'n': '8827'}, {'neighborhood': 'DELTA', 'n': '8570'}]
+ query warnings: null
+== counterfactual (declaration honored, in memory)
+ describe neighborhood: {'assigned_fraction': 0.9253, 'placeholder_values': [{'value': 'Not Assigned', 'rows': 120857}, {'value': 'null', 'rows': 16}], 'value_count': 19, 'reliability': 'partial'}
+ query rows: [{'neighborhood': 'PORT GARDNER', 'n': '19778'}, {'neighborhood': 'HOLLY', 'n': '8827'}, {'neighborhood': 'DELTA', 'n': '8570'}]
+ query warnings: null

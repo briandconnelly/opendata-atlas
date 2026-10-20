@@ -1,0 +1,373 @@
+# Crimes - 2001 to Present. Drafted by atlas-profile; reviewed 2026-10-19.
+# Computed-region columns without a claim here take their layer's claim in regions.toml.
+
+[[claim]]
+id = "ijzp-q8t2-unit-reported-incident"
+kind = "unit_of_observation"
+scope = {dataset = "ijzp-q8t2"}
+interpretation = {unit = "reported crime incident", reason = "One row per reported incident, except homicides, which have one row per victim; the most recent seven days are withheld."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.cityofchicago.org/d/ijzp-q8t2"
+quote = "This dataset reflects reported incidents of crime (with the exception of murders where data exists for each victim) that occurred in the City of Chicago from 2001 to present, minus the most recent seven days."
+observed_at = 2026-10-19
+
+[[claim]]
+id = "ijzp-q8t2-date-timezone"
+kind = "column_timezone"
+scope = {dataset = "ijzp-q8t2", column = "date"}
+interpretation = {timezone = "America/Chicago", reason = "Local wall-clock time with no offset: no rows at 02:00 on the spring-forward day. The hour-0 peak is an artifact: over half its rows are stamped exactly 00:00, a default for an unknown time; otherwise counts peak 12:00-18:00."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date) AS h, count(*) AS n WHERE date >= '2026-03-08T00:00:00' AND date < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 17 and 28."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date) AS h, count(*) AS n WHERE date >= '2025-10-11T00:00:00' AND date < '2026-10-12T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "Rows peak at hour 0 (15,415 of 231,496); 24 of 24 hours populated. Hours 12-18 hold 12,273-12,882 each; hours 4-6 the fewest (4,487-5,275)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(date_extract_mm(date) = 0, 1, true, 0)) AS on_hour, count(*) AS n WHERE date_extract_hh(date) = 0 AND date >= '2025-10-11T00:00:00' AND date < '2026-10-12T00:00:00'"
+observed_at = 2026-10-19
+observation = "8,333 of the 15,415 hour-0 rows (0.54) are at minute 0."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 0, peak_to = 2}
+
+[[claim]]
+id = "ijzp-q8t2-ward-place-field"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = "ward"}
+interpretation = {kind = "ward", reliability = "partial", reason = "The ward recorded with the report. Almost empty for 2001 (under 1% of rows) and 73% filled for 2002; over 99.9% filled since 2003. For counts by ward that include 2001-2002, use :@computed_region_8hcu_yrd4 (current wards) instead."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(ward) AS w, count(*) AS n WHERE year = 2001"
+observed_at = 2026-10-19
+observation = "4,416 of 485,979 rows from 2001 (0.009) have a ward. A per-year probe (GROUP BY year) gave 2002: 353,758 of 486,843 (0.73); every year 2003-2026 at least 0.999."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(ward) AS w, count(*) AS n WHERE year = 2025"
+observed_at = 2026-10-19
+observation = "238,157 of 238,158 rows from 2025 have a ward."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "w", denominator = "n", max = 0.05}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "w", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "ijzp-q8t2-community_area-place-field"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = "community_area"}
+interpretation = {kind = "community_area", reliability = "partial", reason = "The community area number (1-77, as text) recorded with the report. Almost empty for 2001 (about 1% of rows) and 73% filled for 2002; '0' (2,705 rows) is not an area. For counts that include 2001-2002, use :@computed_region_vrxf_vc4k instead."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(community_area) AS ca, count(*) AS n WHERE year = 2001"
+observed_at = 2026-10-19
+observation = "6,395 of 485,979 rows from 2001 (0.013) have a community area. A per-year probe (GROUP BY year) gave 2002: 354,231 of 486,843 (0.73); every year 2003-2026 at least 0.999."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(community_area) AS ca, count(*) AS n WHERE year = 2025"
+observed_at = 2026-10-19
+observation = "238,149 of 238,158 rows from 2025 have a community area."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "ca", denominator = "n", max = 0.05}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "ca", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "ijzp-q8t2-community_area-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ijzp-q8t2", column = "community_area"}
+placeholders = ["0"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT community_area AS v, count(*) AS n GROUP BY community_area ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-19
+observation = "Groups include shared-vocabulary placeholder values: \"0\" 2,705 of 8,662,341 rows (0.000). Chicago's community areas are numbered 1-77 (layer vrxf-vc4k)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "0", count = "n"}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_8hcu_yrd4-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_8hcu_yrd4"}
+interpretation = {kind = "ward", reliability = "ok", reason = "Current (2023-) wards, 98.6% filled across all years. Since 2024 it agrees with the reported ward on 97% of sampled rows. Older rows get today's ward, not the ward at the time."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_8hcu_yrd4) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,537,863 of 8,662,341 rows (0.986) have a value; computed-region layer 8hcu-yrd4, candidate label column `globalid` (the ward number is in `ward`)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(:@computed_region_8hcu_yrd4 = 3, 1, true, 0)) AS hit, count(*) AS n WHERE ward = 5 AND date >= '2024-01-01T00:00:00'"
+observed_at = 2026-10-19
+observation = "Of 16,854 rows since 2024 reporting ward 5, 16,406 (0.973) fall in feature 3 (ward 5)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "hit", denominator = "n", min = 0.9}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_43wa_7qmu-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_43wa_7qmu"}
+interpretation = {kind = "ward", reliability = "partial", reason = "2015-2023 ward boundaries, superseded in May 2023. For 2016-2022 rows reporting ward 5 it agrees on 89%, against 79% for the current-ward layer."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_43wa_7qmu) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,539,077 of 8,662,341 rows (0.986) have a value; computed-region layer 43wa-7qmu, candidate label column `ward`."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(:@computed_region_43wa_7qmu = 33, 1, true, 0)) AS hit, count(*) AS n WHERE ward = 5 AND date >= '2016-01-01T00:00:00' AND date < '2023-01-01T00:00:00'"
+observed_at = 2026-10-19
+observation = "Of 41,294 rows from 2016-2022 reporting ward 5, 36,755 (0.89) fall in feature 33 (ward 5). The same rows fall in layer 8hcu-yrd4's ward 5 (feature 3) for 32,629 (0.79)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "hit", denominator = "n", min = 0.8}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_awaf_s7ux-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_awaf_s7ux"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_awaf_s7ux) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,535,395 of 8,662,341 rows (0.985) have a value; computed-region layer awaf-s7ux, candidate label column `ward`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_vrxf_vc4k-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_vrxf_vc4k"}
+interpretation = {kind = "community_area", reliability = "ok", reason = "Community areas, 98.6% filled across all years, including 2001-2002 when the reported community_area is mostly empty. Since 2024 it agrees with the reported area on 98% of sampled rows."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_vrxf_vc4k) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,538,948 of 8,662,341 rows (0.986) have a value; computed-region layer vrxf-vc4k, candidate label column `area_numbe`."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(:@computed_region_vrxf_vc4k = 1, 1, true, 0)) AS hit, count(*) AS n WHERE community_area = '35' AND date >= '2024-01-01T00:00:00'"
+observed_at = 2026-10-19
+observation = "Of 7,990 rows since 2024 reporting community area 35, 7,848 (0.982) fall in feature 1 (area 35, DOUGLAS)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_vrxf_vc4k) AS ca, count(*) AS n WHERE year = 2001"
+observed_at = 2026-10-19
+observation = "482,810 of 485,979 rows from 2001 (0.993) have a value; for 2002, 470,168 of 486,843 (0.966)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "hit", denominator = "n", min = 0.9}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 2
+params = {numerator = "ca", denominator = "n", min = 0.9}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_d9mm_jgwp-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_d9mm_jgwp"}
+interpretation = {kind = "police_district", reliability = "ok", reason = "Police districts, 98.6% filled. Since 2024 it agrees with the reported district on 99% of sampled rows."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_d9mm_jgwp) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,540,262 of 8,662,341 rows (0.986) have a value; computed-region layer d9mm-jgwp, candidate label column `dist_label`."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(:@computed_region_d9mm_jgwp = 22, 1, true, 0)) AS hit, count(*) AS n WHERE district = '001' AND date >= '2024-01-01T00:00:00'"
+observed_at = 2026-10-19
+observation = "Of 38,643 rows since 2024 reporting district 001, 38,357 (0.993) fall in feature 22 (dist_num 1)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "hit", denominator = "n", min = 0.95}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_d3ds_rm58-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_d3ds_rm58"}
+interpretation = {kind = "beat", reliability = "partial", reason = "2016 police beats. Since 2024, 6-9% of the rows in two sampled beats fall in another beat; prefer the reported `beat` column."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_d3ds_rm58) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,540,291 of 8,662,341 rows (0.986) have a value; computed-region layer d3ds-rm58, candidate label column `district`."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(:@computed_region_d3ds_rm58 = 74, 1, true, 0)) AS hit, count(*) AS n WHERE beat = '1834' AND date >= '2024-01-01T00:00:00'"
+observed_at = 2026-10-19
+observation = "Of 8,264 rows since 2024 reporting beat 1834, 7,783 (0.94) fall in feature 74 (beat_num 1834). For beat 0111 (feature 88): 3,958 of 4,341 (0.91)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "hit", denominator = "n", min = 0.85, max = 0.99}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_6mkv_f3dw-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_6mkv_f3dw"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_6mkv_f3dw) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,561,449 of 8,662,341 rows (0.988) have a value; computed-region layer 6mkv-f3dw, candidate label column `zcta5ce10`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_bdys_3d7i-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_bdys_3d7i"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_bdys_3d7i) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,540,724 of 8,662,341 rows (0.986) have a value; computed-region layer bdys-3d7i, candidate label column `statefp10` (the tract is in `name10`)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "ijzp-q8t2-:@computed_region_rpca_8um6-fill"
+kind = "place_field"
+scope = {dataset = "ijzp-q8t2", column = ":@computed_region_rpca_8um6"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_rpca_8um6) AS filled, count(*) AS n"
+observed_at = 2026-10-19
+observation = "8,539,007 of 8,662,341 rows (0.986) have a value; computed-region layer rpca-8um6, candidate label column `zip`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "ijzp-q8t2-updated_on-timezone"
+kind = "column_timezone"
+scope = {dataset = "ijzp-q8t2", column = "updated_on"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(updated_on) AS h, count(*) AS n WHERE updated_on >= '2026-03-08T00:00:00' AND updated_on < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 0 and 0."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(updated_on) AS h, count(*) AS n WHERE updated_on >= '2025-10-18T00:00:00' AND updated_on < '2026-10-19T00:00:00' GROUP BY h"
+observed_at = 2026-10-19
+observation = "Rows peak at hour 15 (445,481 of 448,970); 3 of 24 hours populated."

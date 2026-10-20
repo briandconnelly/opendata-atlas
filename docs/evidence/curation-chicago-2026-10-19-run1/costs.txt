@@ -1,0 +1,21 @@
+# Task 3 run 1 cost check (2026-10-19). <tmp> = <scratchpad>/m4/run1/test_curation_skill_produces_a0
+# summary.json curation.total_cost_usd = 4.281282599999999, curation.num_turns = 105
+<tmp>/curation.transcript.jsonl 4.2813
+<tmp>/wt/.curation/evals-1/01-hyde-park-last-month.transcript.jsonl 0.2612
+<tmp>/wt/.curation/evals-1/02-austin-2001-2003.transcript.jsonl 0.1989
+<tmp>/wt/.curation/evals-1/03-crimes-yesterday.transcript.jsonl 0.1558
+<tmp>/wt/.curation/evals-2/01-hyde-park-last-month.transcript.jsonl 0.2037
+<tmp>/wt/.curation/evals-2/02-austin-2001-2003.transcript.jsonl 0.1766
+<tmp>/wt/.curation/evals-2/03-crimes-yesterday.transcript.jsonl 0.1576
+<tmp>/wt/.curation/evals-3/01-hyde-park-last-month.transcript.jsonl 0.1847
+<tmp>/wt/.curation/evals-3/02-austin-2001-2003.transcript.jsonl 0.1887
+<tmp>/wt/.curation/evals-3/03-crimes-yesterday.transcript.jsonl 0.1488
+<tmp>/evals/01-hyde-park-last-month.transcript.jsonl 0.1938
+<tmp>/evals/02-austin-2001-2003.transcript.jsonl 0.2037
+<tmp>/evals/03-crimes-yesterday.transcript.jsonl 0.1242
+# curation session: 4.2813
+# agent eval runs (9 sessions): 1.6760
+# test eval run (3 sessions): 0.5216
+# total (13 sessions): 6.4789
+# UNRESOLVED: none
+# worst case for this step at T = 3: $12 + 4*3*$1 = $24 (gated at T = 6: $36)

@@ -1,0 +1,10 @@
+evals/results/2026-10-19-m4/cross/25-wrong-portal.transcript.jsonl 0.13279080000000001 success api_error_status=None
+evals/results/2026-10-19-m4/cross/26-ambiguous-place.transcript.jsonl 0.1433564 success api_error_status=None
+evals/results/2026-10-19-m4/cross/28-generic-text-place.transcript.jsonl 0.13302440000000001 success api_error_status=None
+evals/results/2026-10-19-m4/cross/29-multi-zone.transcript.jsonl 0.16521 success api_error_status=None
+evals/results/2026-10-19-m4/cross/31-knowledge-gap-offer.transcript.jsonl 0.1501928 success api_error_status=None
+evals/results/2026-10-19-m4/seattle/01-cold-start.transcript.jsonl 0.0768856 success api_error_status=None
+evals/results/2026-10-19-m4/seattle/03-fire-capitol-hill.transcript.jsonl 0.1286114 success api_error_status=None
+evals/results/2026-10-19-m4/seattle/14-crime-capitol-hill.transcript.jsonl 0.1761798 success api_error_status=None
+evals/results/2026-10-19-m4/seattle/30-stale-claim.transcript.jsonl 0.17648640000000002 success api_error_status=None
+total 1.2827

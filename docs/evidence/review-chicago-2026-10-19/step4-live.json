@@ -1,0 +1,69 @@
+{
+ "today": "2026-10-19",
+ "pack_levels": {
+  "22u3-xenr": "profiled",
+  "4ijn-s7e5": "profiled",
+  "85ca-t3if": "profiled",
+  "i6bp-fvbx": "profiled",
+  "ijzp-q8t2": "reviewed",
+  "r5kz-chrr": "profiled",
+  "s6ha-ppgi": "profiled",
+  "ydr8-5enu": "profiled"
+ },
+ "find_first_id": "data.cityofchicago.org",
+ "find_isError": false,
+ "describe": {
+  "22u3-xenr": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "4ijn-s7e5": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "85ca-t3if": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "i6bp-fvbx": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "ijzp-q8t2": {
+   "isError": false,
+   "level": "reviewed",
+   "expected": "reviewed",
+   "match": true
+  },
+  "r5kz-chrr": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "s6ha-ppgi": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  },
+  "ydr8-5enu": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true
+  }
+ },
+ "reference_isError": false,
+ "reference_tier_line": [
+  "- tier: `profiled`"
+ ]
+}

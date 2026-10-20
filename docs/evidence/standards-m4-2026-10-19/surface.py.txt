@@ -1,0 +1,49 @@
+"""Served-surface probe for the milestone 4 standards review (offline, in-process)."""
+import asyncio, json, sys
+from pathlib import Path
+from fastmcp import Client
+from opendata_atlas.core.reference import INSTRUCTIONS
+from opendata_atlas.mcp.server import build_server
+
+FRAME = '{"jsonrpc":"2.0","id":2147483647,"result":}'
+def framed(d): return len(json.dumps(d, separators=(",", ":")).encode()) + len(FRAME)
+def wire(m): return m.model_dump(mode="json", by_alias=True, exclude_none=True)
+
+async def main(root):
+    out = {}
+    for mode in ("modern", "legacy"):
+        kw = {"mode": "legacy"} if mode == "legacy" else {}
+        async with Client(build_server(), **kw) as c:
+            tl = wire(await c.list_tools_mcp())
+            out[f"{mode}_tools_list_framed"] = framed(tl)
+            if mode == "legacy":
+                out["legacy_instructions_chars"] = len(c.initialize_result.instructions)
+                out["legacy_instructions_equal"] = c.initialize_result.instructions == INSTRUCTIONS
+            calls = {
+                "portals_index": {"topic": "portals"},
+                "portals_chicago": {"topic": "portals", "item_id": "chicago"},
+                "portals_unknown": {"topic": "portals", "item_id": "nope.example"},
+                "contributing": {"topic": "contributing"},
+            }
+            for k, args in calls.items():
+                r = wire(await c.call_tool_mcp("atlas_get_reference", args))
+                sc = r.get("structuredContent", {})
+                text = r["content"][0]["text"]
+                out[f"{mode}_{k}"] = {"isError": r.get("isError", False),
+                                     "text_equals_structured": json.loads(text) == sc,
+                                     "structured": sc if k != "contributing" else {"keys": sorted(sc)}}
+            if mode == "modern":
+                for uri in ("opendata-atlas://portals/chicago", "opendata-atlas://contributing"):
+                    res = await c.read_resource_mcp(uri)
+                    w = wire(res)
+                    body = w["contents"][0].get("text", "")
+                    out[f"read {uri}"] = {"ttlMs": w.get("ttlMs"), "cacheScope": w.get("cacheScope"),
+                                          "mimeType": w["contents"][0].get("mimeType"), "bytes": len(body.encode())}
+                    if uri.endswith("contributing"):
+                        out["contributing_equals_repo_file"] = body == (root / "CONTRIBUTING-portals.md").read_text()
+                    else:
+                        out["chicago_resource_body"] = body
+    out["instructions_chars"] = len(INSTRUCTIONS)
+    print(json.dumps(out, indent=1))
+
+asyncio.run(main(Path(sys.argv[1])))

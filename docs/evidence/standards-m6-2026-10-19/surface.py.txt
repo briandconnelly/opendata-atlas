@@ -1,0 +1,44 @@
+# Run: PYTHONPATH=. uv run python docs/evidence/standards-m6-2026-10-19/surface.py.txt > docs/evidence/standards-m6-2026-10-19/surface.json
+# In-process, no network: the served surface milestone 6 changed (registry names), on both eras.
+import asyncio, json
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.core.reference import INSTRUCTIONS, CAPABILITIES
+from tests.conftest import compact_json, framed_size, wire
+
+QUERIES = ["Everett", "Everett, WA", "everett", "King County", "King County, WA", "king-county",
+           "Seattle", "Cook County", "New Jersey", "City of Albany", "open data", "Tyler",
+           "Government Financial Reports", "Franklin", "FranklinForward"]
+
+async def main():
+    out = {"INSTRUCTIONS_chars": len(INSTRUCTIONS), "capabilities_bytes": len(CAPABILITIES.encode())}
+    for mode in ("modern", "legacy"):
+        kw = {"mode": "legacy"} if mode == "legacy" else {}
+        m = out[mode] = {}
+        async with Client(build_server(), **kw) as c:
+            tl = wire(await c.list_tools_mcp())
+            m["tools_list_framed"] = framed_size(tl)
+            m["instructions_equal"] = (c.initialize_result.instructions if mode == "legacy" else INSTRUCTIONS) == INSTRUCTIONS
+            r = wire(await c.call_tool_mcp("atlas_find_portals", {}))
+            sc = r["structuredContent"]
+            m["find_portals_noarg"] = {"isError": r["isError"], "bytes": len(compact_json(sc).encode()),
+                                       "first": [(p["id"], p.get("name"), p.get("tier")) for p in sc.get("candidates", [])[:6]],
+                                       "keys": sorted(sc)}
+            m["find"] = {}
+            for q in QUERIES:
+                r = wire(await c.call_tool_mcp("atlas_find_portals", {"query": q}))
+                sc = r["structuredContent"]
+                m["find"][q] = [(p["id"], p.get("name"), p.get("tier")) for p in sc.get("candidates", [])[:3]] if not r["isError"] else sc
+            r = wire(await c.call_tool_mcp("atlas_get_reference", {"topic": "portals"}))
+            sc = r["structuredContent"]
+            m["portals_topic"] = {"isError": r["isError"], "bytes": len(compact_json(sc).encode()),
+                                  "entries": [(e.get("item_id"), e.get("title"), e.get("description")) for e in sc.get("entries", [])]}
+            for pid in ("everett", "king-county"):
+                r = wire(await c.call_tool_mcp("atlas_get_reference", {"topic": "portals", "item_id": pid}))
+                sc = r["structuredContent"]
+                m[f"portals_item_{pid}"] = {"isError": r["isError"], "bytes": len(compact_json(sc).encode()), "body": sc}
+            r = wire(await c.call_tool_mcp("atlas_no_such_tool", {"x": 1}))
+            m["unknown_tool"] = {"isError": r["isError"], "structuredContent": r["structuredContent"]}
+    print(json.dumps(out, indent=1, ensure_ascii=False, default=str))
+
+asyncio.run(main())

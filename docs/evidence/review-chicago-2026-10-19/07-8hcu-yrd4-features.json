@@ -1,0 +1,16 @@
+{
+ "url": "https://data.cityofchicago.org/resource/8hcu-yrd4.json?%24select=_feature_id%2C+ward%2C+globalid&%24where=_feature_id+in+%283%2C+5%29",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "3",
+   "ward": "5",
+   "globalid": "{0A109A41-9DED-47D7-934E-1EA1CC7EE025}"
+  },
+  {
+   "_feature_id": "5",
+   "ward": "7",
+   "globalid": "{279FCBD9-EA0D-4FFC-A8CA-EDA2676C0721}"
+  }
+ ]
+}

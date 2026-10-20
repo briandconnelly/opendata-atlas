@@ -1,0 +1,32 @@
+# Computed-region layers seen on Everett datasets (portal-level: any dataset may use them).
+# psyp-nrnc (City Limits Shading) has no label column; it is reviewed per dataset instead.
+
+[[claim]]
+id = "region-cx6t-gkq3"
+kind = "region_layer"
+scope = {layer = "cx6t-gkq3"}
+interpretation = {kind = "neighborhood", label_column = "name", vintage = "Neighborhoods layer as probed 2026-10-20 (19 neighborhoods)", reliability = "partial", reason = "Everett's 19 neighborhoods by name. Fill varies by dataset: 0.875-0.898 on Police Incidents, Police Cases and Fire 911 Unit Dispatches, 0.353 on Licensed Businesses (profiler fill claims, 2026-10-20); check assigned_fraction."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(name) AS named"
+observed_at = 2026-10-20
+observation = "19 features, each with a distinct uppercase `name` (BAYSIDE ... WESTMONT); PORT GARDNER is _feature_id 10."
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/cx6t-gkq3.json"
+observed_at = 2026-10-20
+observation = "Layer name is \"Neighborhoods\"; columns the_geom, objectid, name, globalid, acres, shape_starea, shape_stlength, _feature_id."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "named", denominator = "n", min = 1.0}
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 1
+params = {field = "name", value = "Neighborhoods"}

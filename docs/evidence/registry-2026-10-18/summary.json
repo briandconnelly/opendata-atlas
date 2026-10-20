@@ -1,0 +1,493 @@
+{
+ "command": "uv run python scripts/build_registry.py --out src/opendata_atlas/portals/registry.json --evidence docs/evidence/registry-2026-10-18/ --titles all",
+ "run_started_at": "2026-10-20T01:19:07+00:00",
+ "run_seconds": 0.0,
+ "probe_seconds_total": 1050.9,
+ "user_agent": "opendata-atlas-registry/0",
+ "registry_version": "2026-10-20-5bcfa38b2156",
+ "enumeration": {
+  "started_at": "2026-10-18T03:30:56+00:00",
+  "finished_at": "2026-10-18T03:31:38+00:00",
+  "regions": {
+   "us": {
+    "requests": 9,
+    "results_seen": 43333,
+    "unique_ids": 43333,
+    "domain_growth_per_page": [
+     191,
+     220,
+     233,
+     252,
+     261,
+     268,
+     281,
+     285,
+     286
+    ],
+    "exhausted": true,
+    "capped": false,
+    "domain_count": 286
+   },
+   "eu": {
+    "requests": 2,
+    "results_seen": 5447,
+    "unique_ids": 5447,
+    "domain_growth_per_page": [
+     12,
+     12
+    ],
+    "exhausted": true,
+    "capped": false,
+    "domain_count": 12
+   }
+  }
+ },
+ "counts": {
+  "catalog_domains": 298,
+  "eligible_by_name": 263,
+  "ineligible_by_name": 35,
+  "non_production": 9,
+  "production": 254,
+  "identity_resolved": 254,
+  "unresolved": 0,
+  "folded_into_pack": 2,
+  "ineligible_by_views": 12,
+  "kept_on_views_5xx_or_timeout": 4,
+  "duplicate_public_hosts": 0,
+  "manual_entries": 0,
+  "overrides": 58,
+  "registry_entries": 242
+ },
+ "ineligible_by_name": [
+  "auditor-ca.demo.socrata.com",
+  "austin-metro.demo.socrata.com",
+  "austintexas-op-beta.demo.socrata.com",
+  "bronx-lehman-cuny-staging.data.socrata.com",
+  "ca-sco.demo.socrata.com",
+  "camden.demo.socrata.com",
+  "cityofcamas.demo.socrata.com",
+  "cityofchicago-v2.demo.socrata.com",
+  "coa-internal.demo.socrata.com",
+  "gainesville-govstat.demo.socrata.com",
+  "internal-data.ct.gov",
+  "internal-sandiegocounty.data.socrata.com",
+  "internal.open.piercecountywa.gov",
+  "internal.opendata.clermontauditor.org",
+  "internaldata.maryland.gov",
+  "kc-performance.demo.socrata.com",
+  "lombardia-scgc.demo.eu.socrata.com",
+  "lombardia-staging.azure-westeurope-prod.socrata.com",
+  "mesa-az.demo.socrata.com",
+  "miami.demo.socrata.com",
+  "michigan-data.demo.socrata.com",
+  "midashboard-staging.demo.socrata.com",
+  "nasa-test-0.demo.socrata.com",
+  "norfolk-performance.demo.socrata.com",
+  "ontario.demo.socrata.com",
+  "pennsylvania.demo.socrata.com",
+  "priv-data.ojp.usdoj.gov",
+  "redmond-demo.demo.socrata.com",
+  "sdc-stories.demo.socrata.com",
+  "seattleperformance.demo.socrata.com",
+  "stlouiscounty-performance.demo.socrata.com",
+  "txcourts-staging-reporting.data.socrata.com",
+  "vdh-richmondcity.demo.socrata.com",
+  "wsac.demo.socrata.com",
+  "youth-development-index-cs.demo.socrata.com"
+ ],
+ "non_production": [
+  "al-amcc-uat.data.socrata.com",
+  "budget-qa-reporting.data.socrata.com",
+  "dot-edpsandbox.data.socrata.com",
+  "integration-kcmo.data.socrata.com",
+  "lafayettecsdgovla-train.data.socrata.com",
+  "newjerseysp-dev.data.socrata.com",
+  "newjerseysp-uat.data.socrata.com",
+  "va-cca-uat.data.socrata.com",
+  "vtmbl-reporting-uat.data.socrata.com"
+ ],
+ "unresolved": {},
+ "folded_into_pack": {
+  "cos-data.seattle.gov": "data.seattle.gov",
+  "data.cityofchicago.org": "data.cityofchicago.org"
+ },
+ "ineligible_by_views": {
+  "data.fortworthtexas.gov": {
+   "why": "dropped: 404",
+   "views": {
+    "status": 404,
+    "json": false
+   }
+  },
+  "data.miamigov.com": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:05:01+00:00"
+   }
+  },
+  "data.oxnard.org": {
+   "why": "dropped: 200 with a body that is not JSON",
+   "views": {
+    "status": 200,
+    "json": false,
+    "final_url": "https://oxnardca.opengov.com/data",
+    "error": null,
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:04+00:00"
+   }
+  },
+  "data.permits.performance.gov": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:02+00:00"
+   }
+  },
+  "data.urbanaillinois.us": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:02+00:00"
+   }
+  },
+  "opendata.l-h.cat": {
+   "why": "dropped: 200 with a body that is not JSON",
+   "views": {
+    "status": 200,
+    "json": false,
+    "final_url": "https://seu-e.cat/ca/web/hospitaletdellobregat/dades-obertes",
+    "error": null,
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:10+00:00"
+   }
+  },
+  "performance.austintexas.gov": {
+   "why": "dropped: 200 with a body that is not JSON",
+   "views": {
+    "status": 200,
+    "json": false,
+    "final_url": "https://experience.arcgis.com/experience/600891cd6a8f4e33882358405107d4e3",
+    "error": null,
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:10+00:00"
+   }
+  },
+  "performance.cityofdavenportiowa.com": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:02+00:00"
+   }
+  },
+  "performance.cityofrc.us": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:03+00:00"
+   }
+  },
+  "performance.providenceri.gov": {
+   "why": "dropped: transport failure (ConnectError)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectError",
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:03+00:00"
+   }
+  },
+  "performance.seattle.gov": {
+   "why": "dropped: 200 with a body that is not JSON",
+   "views": {
+    "status": 200,
+    "json": false,
+    "final_url": "https://www.seattle.gov/innovation-and-performance",
+    "error": null,
+    "timeout": false,
+    "probed_at": "2026-10-18T04:06:11+00:00"
+   }
+  },
+  "stat.montgomerycountymd.gov": {
+   "why": "dropped: 404",
+   "views": {
+    "status": 404,
+    "json": false
+   }
+  }
+ },
+ "kept_on_views_5xx_or_timeout": {
+  "data.delaware.gov": {
+   "why": "kept: 500",
+   "views": {
+    "status": 500,
+    "json": true
+   }
+  },
+  "data.nhitc.org": {
+   "why": "kept: timeout (ConnectTimeout)",
+   "views": {
+    "status": 0,
+    "json": false,
+    "final_url": null,
+    "error": "ConnectTimeout",
+    "timeout": true,
+    "probed_at": "2026-10-18T04:06:01+00:00"
+   }
+  },
+  "datacatalog.cookcountyil.gov": {
+   "why": "kept: 500",
+   "views": {
+    "status": 500,
+    "json": true
+   }
+  },
+  "opendata.fcgov.com": {
+   "why": "kept: 503",
+   "views": {
+    "status": 503,
+    "json": false
+   }
+  }
+ },
+ "public_host_differs": {},
+ "duplicate_public_hosts": [],
+ "chosen_search_context": [
+  "data.ct.gov",
+  "data.mesaaz.gov",
+  "data.mmcp.ms.gov",
+  "data.nhitc.org",
+  "data.sandiegocounty.gov",
+  "data.seattle.gov",
+  "data.sf.gov",
+  "datainsights.encinitasca.gov",
+  "nnps-odp.data.socrata.com",
+  "open.piercecountywa.gov",
+  "opendata.clermontauditor.org",
+  "www.dati.lombardia.it"
+ ],
+ "top50_by_catalog_size": [
+  [
+   "datahub.hhs.gov",
+   10000
+  ],
+  [
+   "www.datos.gov.co",
+   10000
+  ],
+  [
+   "openinformation.novascotia.ca",
+   6318
+  ],
+  [
+   "www.dati.lombardia.it",
+   5066
+  ],
+  [
+   "opendata.maryland.gov",
+   3614
+  ],
+  [
+   "data.bayareametro.gov",
+   3431
+  ],
+  [
+   "data.cityofnewyork.us",
+   3021
+  ],
+  [
+   "open.piercecountywa.gov",
+   2537
+  ],
+  [
+   "data.ramseycountymn.gov",
+   2377
+  ],
+  [
+   "datahub.austintexas.gov",
+   2287
+  ],
+  [
+   "data.wa.gov",
+   2178
+  ],
+  [
+   "performance.smcgov.org",
+   2128
+  ],
+  [
+   "www.datahub.va.gov",
+   2113
+  ],
+  [
+   "data.colorado.gov",
+   2107
+  ],
+  [
+   "data.edmonton.ca",
+   2090
+  ],
+  [
+   "sharefulton.fultoncountyga.gov",
+   1984
+  ],
+  [
+   "data.sccgov.org",
+   1806
+  ],
+  [
+   "data.ct.gov",
+   1798
+  ],
+  [
+   "highways.hidot.hawaii.gov",
+   1676
+  ],
+  [
+   "data.ny.gov",
+   1638
+  ],
+  [
+   "data.oregon.gov",
+   1591
+  ],
+  [
+   "analisi.transparenciacatalunya.cat",
+   1587
+  ],
+  [
+   "cohesiondata.ec.europa.eu",
+   1496
+  ],
+  [
+   "data.texas.gov",
+   1485
+  ],
+  [
+   "data.cdc.gov",
+   1477
+  ],
+  [
+   "datahub.smcgov.org",
+   1379
+  ],
+  [
+   "nnps-odp.data.socrata.com",
+   1374
+  ],
+  [
+   "datahub.transportation.gov",
+   1285
+  ],
+  [
+   "data.novascotia.ca",
+   1277
+  ],
+  [
+   "data.sf.gov",
+   1225
+  ],
+  [
+   "data.mesaaz.gov",
+   1213
+  ],
+  [
+   "citydata.mesaaz.gov",
+   1172
+  ],
+  [
+   "www.dallasopendata.com",
+   1087
+  ],
+  [
+   "data.montgomerycountymd.gov",
+   955
+  ],
+  [
+   "data.calgary.ca",
+   933
+  ],
+  [
+   "data.lacity.org",
+   927
+  ],
+  [
+   "opendata.camden.gov.uk",
+   871
+  ],
+  [
+   "www.dati.friuliveneziagiulia.it",
+   854
+  ],
+  [
+   "data.pa.gov",
+   813
+  ],
+  [
+   "datacatalog.cookcountyil.gov",
+   809
+  ],
+  [
+   "www.data.act.gov.au",
+   785
+  ],
+  [
+   "hub.dati.lombardia.it",
+   772
+  ],
+  [
+   "data.oaklandca.gov",
+   739
+  ],
+  [
+   "performance.princegeorgescountymd.gov",
+   708
+  ],
+  [
+   "gnb.socrata.com",
+   693
+  ],
+  [
+   "performance.fultoncountyga.gov",
+   689
+  ],
+  [
+   "healthdata.tn.gov",
+   685
+  ],
+  [
+   "data.michigan.gov",
+   647
+  ],
+  [
+   "www.transparentrichmond.org",
+   631
+  ],
+  [
+   "data.nj.gov",
+   622
+  ]
+ ],
+ "top50_without_override": []
+}

@@ -1,0 +1,737 @@
+{
+ "portal": "data.ny.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 8
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 10,
+   "row_count": 11837
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "kb9s-4gzd",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.ny.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Posted and R-Posted Bridges in New York State",
+       "id": "cg63-e3dc",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This data set features a hyperlink to the New York State Department of Transportation’s Posted Bridges web page, which includes a link to the Posted Bridges interactive map.  The interface provides up-to-date information for locating Load-Posted, R-Posted and Other-Posted bridges throughout New York. This site has been developed as a reference tool for operators of Commercial Vehicles to identify and locate structures in New York State where access and use is limited based on the vehicle's weight. Legal weights are established in Section 385 of the Vehicle and Traffic Law.  All trucks operating over legal weight pursuant to a Divisible Load Overweight Permit are prohibited from crossing all R-Posted Bridges.",
+       "attribution": "New York State Department of Transportation",
+       "attribution_link": "http://gis.dot.ny.gov/postedbridges/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2026-04-16T20:37:22.000Z",
+       "createdAt": "2015-03-05T19:23:11.000Z",
+       "metadata_updated_at": "2026-04-16T20:37:22.000Z",
+       "data_updated_at": "2015-03-05T19:23:11.000Z",
+       "page_views": {
+        "page_views_last_week": 41,
+        "page_views_last_month": 233,
+        "page_views_total": 4995,
+        "page_views_last_week_log": 5.392317422778761,
+        "page_views_last_month_log": 7.870364719583405,
+        "page_views_total_log": 12.286557761607957
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 55,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2015-03-05T19:23:31.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transportation",
+       "domain_tags": [
+        "posted bridges",
+        "height restricted  bridges",
+        "bridges",
+        "r-posted bridges",
+        "oversized loads"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Additional-Resources_See-Also",
+         "value": "http://gis.dot.ny.gov/postedbridges/help/default.htm"
+        },
+        {
+         "key": "Additional-Resources_See-Also-",
+         "value": "http://gis3.dot.ny.gov/ArcGIS/rest/services/CVDataFeed/MapServer"
+        },
+        {
+         "key": "Dataset-Summary_Dataset-Owner",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Dataset-Summary_Contact-Information",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Dataset-Summary_Granularity",
+         "value": "Bridge"
+        },
+        {
+         "key": "Dataset-Summary_Coverage",
+         "value": "Statewide "
+        },
+        {
+         "key": "Dataset-Summary_Posting-Frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Dataset-Summary_Organization",
+         "value": "Engineering Division Office of Structures"
+        },
+        {
+         "key": "Dataset-Summary_Time-Period",
+         "value": "Current"
+        },
+        {
+         "key": "Dataset-Information_Agency",
+         "value": "Transportation, Department of"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.ny.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://www.dot.ny.gov/gisapps/posted-bridges"
+         }
+        }
+       ],
+       "access_points": {
+        "text/html": "https://www.dot.ny.gov/gisapps/posted-bridges"
+       }
+      },
+      "permalink": "https://data.ny.gov/d/cg63-e3dc",
+      "link": "https://data.ny.gov/Transportation/Posted-and-R-Posted-Bridges-in-New-York-State/cg63-e3dc",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 1,
+    "timings": {
+     "serviceMillis": 17,
+     "searchMillis": [
+      2,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.ny.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "93,749 bytes, over the 65,536-byte cap",
+    "sha256": "8cc75cb2c054c8389a97b0dc2a77f251a7b9ec53f7895bc47a5fb0ccc6bc2e20",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/api/views/kb9s-4gzd.json",
+   "status": 200,
+   "body": {
+    "id": "kb9s-4gzd",
+    "name": "City of Albany Building Permits Issued:  2009-2013",
+    "assetType": "dataset",
+    "attribution": "City of Albany",
+    "attributionLink": "http://albanyny.gov/Government/Departments/Codes.aspx",
+    "averageRating": 0,
+    "category": "Government & Finance",
+    "createdAt": 1362510325,
+    "description": "This data summarizes the Building Permits issued between 2009-2013 in the City of Albany.  This process is governed by the Division of Buildings and Regulatory Compliance.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 38685,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1560189696,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 7350757,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1395947961,
+    "publicationGroup": 715537,
+    "publicationStage": "published",
+    "rowClass": "",
+    "rowsUpdatedAt": 1395947744,
+    "tableId": 1475685,
+    "totalTimesRated": 0,
+    "viewCount": 17205,
+    "viewLastModified": 1749590949,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 133439182,
+      "name": "Date",
+      "dataTypeName": "calendar_date",
+      "fieldName": "date",
+      "position": 1,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 8375117,
+      "width": 124,
+      "cachedContents": {
+       "non_null": "11826",
+       "null": "11",
+       "not_null": "11826",
+       "count": "11837",
+       "cardinality": "1245"
+      },
+      "format": {
+       "view": "date",
+       "align": "center"
+      }
+     },
+     {
+      "id": 133439183,
+      "name": "Application Number",
+      "dataTypeName": "number",
+      "fieldName": "application_number",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 8375118,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "11834",
+       "null": "3",
+       "not_null": "11834",
+       "count": "11837",
+       "cardinality": "11655"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "center"
+      }
+     },
+     {
+      "id": 133439184,
+      "name": "Permit Number",
+      "dataTypeName": "number",
+      "fieldName": "permit_number",
+      "position": 3,
+      "renderTypeName": "number",
+      "tableColumnId": 8375119,
+      "width": 174,
+      "cachedContents": {
+       "non_null": "11837",
+       "null": "0",
+       "not_null": "11837",
+       "count": "11837",
+       "cardinality": "11835"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "center"
+      }
+     },
+     {
+      "id": 133439185,
+      "name": "Address",
+      "dataTypeName": "text",
+      "fieldName": "address",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 8375120,
+      "width": 264,
+      "cachedContents": {
+       "non_null": "11837",
+       "null": "0",
+       "not_null": "11837",
+       "count": "11837",
+       "cardinality": "8815"
+      },
+      "format": {}
+     },
+     {
+      "id": 133439186,
+      "name": "Owner",
+      "dataTypeName": "text",
+      "fieldName": "owner",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 8375121,
+      "width": 263,
+      "cachedContents": {
+       "non_null": "11836",
+       "null": "1",
+       "not_null": "11836",
+       "count": "11837",
+       "cardinality": "9327"
+      },
+      "format": {}
+     },
+     {
+      "id": 133439187,
+      "name": "Contractor",
+      "dataTypeName": "text",
+      "fieldName": "contractor",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 8375122,
+      "width": 216,
+      "cachedContents": {
+       "non_null": "11837",
+       "null": "0",
+       "not_null": "11837",
+       "count": "11837",
+       "cardinality": "6414"
+      },
+      "format": {}
+     },
+     {
+      "id": 133439188,
+      "name": "Estimated Cost",
+      "dataTypeName": "number",
+      "fieldName": "estimated_cost",
+      "position": 7,
+      "renderTypeName": "number",
+      "tableColumnId": 8375123,
+      "width": 170,
+      "cachedContents": {
+       "non_null": "11837",
+       "null": "0",
+       "not_null": "11837",
+       "count": "11837",
+       "cardinality": "2730"
+      },
+      "format": {
+       "precisionStyle": "currency",
+       "humane": "false",
+       "currencyStyle": "USD",
+       "precision": "0",
+       "align": "right"
+      }
+     },
+     {
+      "id": 133439189,
+      "name": "Fee",
+      "dataTypeName": "number",
+      "fieldName": "fee",
+      "position": 8,
+      "renderTypeName": "number",
+      "tableColumnId": 8375124,
+      "width": 115,
+      "cachedContents": {
+       "non_null": "11837",
+       "null": "0",
+       "not_null": "11837",
+       "count": "11837",
+       "cardinality": "2"
+      },
+      "format": {
+       "precisionStyle": "currency",
+       "humane": "false",
+       "currencyStyle": "USD",
+       "precision": "0",
+       "align": "right"
+      }
+     },
+     {
+      "id": 133439190,
+      "name": "Description of Work",
+      "dataTypeName": "text",
+      "fieldName": "description_of_work",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 8375125,
+      "width": 328,
+      "cachedContents": {
+       "non_null": "11829",
+       "null": "8",
+       "not_null": "11829",
+       "count": "11837",
+       "cardinality": "5522"
+      },
+      "format": {}
+     },
+     {
+      "id": 140085947,
+      "name": "Location",
+      "dataTypeName": "location",
+      "fieldName": "location",
+      "position": 10,
+      "renderTypeName": "location",
+      "tableColumnId": 18866046,
+      "width": 191,
+      "format": {}
+     },
+     {
+      "id": 370248241,
+      "name": "NYS Municipal Boundaries",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'NYS Municipal Boundaries' (yamh-8v7k) the point in column 'location' is located. This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_yamh_8v7k",
+      "position": 15,
+      "renderTypeName": "number",
+      "tableColumnId": 68099048,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_yamh-8v7k",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 370248242,
+      "name": "New York Zip Codes",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'New York Zip Codes' (wbg7-3whc) the point in column 'location' is located. This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_wbg7_3whc",
+      "position": 16,
+      "renderTypeName": "number",
+      "tableColumnId": 68099049,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_wbg7-3whc",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 370248263,
+      "name": "Counties",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Counties' (kjdx-g34t) the point in column 'location' is located. This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_kjdx_g34t",
+      "position": 17,
+      "renderTypeName": "number",
+      "tableColumnId": 68099070,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_kjdx-g34t",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "rdfSubject": "0",
+     "rdfClass": "",
+     "jsonQuery": {
+      "order": [
+       {
+        "columnFieldName": "date",
+        "ascending": false
+       },
+       {
+        "columnFieldName": "owner",
+        "ascending": true
+       }
+      ]
+     },
+     "attachments": [
+      {
+       "filename": "Albany_Building_Permits_Metadata_Narrative.pdf",
+       "name": "Albany_Building_Permits_Metadata_Narrative.pdf",
+       "blobId": "F3C8CEF9-9544-43DB-9931-1B950533BD12"
+      }
+     ],
+     "custom_fields": {
+      "Dataset Summary": {
+       "Posting Frequency": "Static - Not Updated",
+       "Organization": "Division of Buildings and Regulatory Compliance",
+       "Contact Information": "<identity redacted>",
+       "Time Period": "2009 - 2013",
+       "Coverage": "City of Albany",
+       "Granularity": "City",
+       "Units": "Permits",
+       "Dataset Owner": "<identity redacted>",
+       "Data Frequency": "Daily"
+      },
+      "Additional Resources": {
+       "See Also": "http://www.ecode360.com/AL0934"
+      },
+      "Disclaimers": {
+       "Limitations": "This dataset includes a summary of building permits issued; it is a snapshot of the database maintained by the division (3/1/13) and any further questions regarding this data - including the most up-to-date data - should be directed to the City of Albany Division of Buildings and Regulatory Compliance."
+      },
+      "Dataset Information": {
+       "Localities": "Albany, City of",
+       "Agency": "Locality"
+      }
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {
+     "orderBys": [
+      {
+       "ascending": false,
+       "expression": {
+        "columnId": 133439182,
+        "type": "column"
+       }
+      },
+      {
+       "ascending": true,
+       "expression": {
+        "columnId": 133439186,
+        "type": "column"
+       }
+      }
+     ]
+    },
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "albany",
+     "building",
+     "permits"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "11837"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=min%28date%29+AS+lo%2C+max%28date%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2009-01-02T00:00:00.000",
+     "hi": "2013-12-31T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=%3A%40computed_region_wbg7_3whc+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_wbg7_3whc&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "45",
+     "n": "2642"
+    },
+    {
+     "v": "40",
+     "n": "2133"
+    },
+    {
+     "v": "43",
+     "n": "1982"
+    },
+    {
+     "v": "47",
+     "n": "1363"
+    },
+    {
+     "v": "46",
+     "n": "1199"
+    },
+    {
+     "v": "39",
+     "n": "1118"
+    },
+    {
+     "v": "44",
+     "n": "778"
+    },
+    {
+     "v": "41",
+     "n": "280"
+    },
+    {
+     "v": "42",
+     "n": "239"
+    },
+    {
+     "v": "48",
+     "n": "99"
+    },
+    {
+     "v": "49",
+     "n": "3"
+    },
+    {
+     "v": "1225",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=%3A%40computed_region_yamh_8v7k+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_yamh_8v7k&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "814",
+     "n": "11659"
+    },
+    {
+     "v": "834",
+     "n": "121"
+    },
+    {
+     "v": "832",
+     "n": "51"
+    },
+    {
+     "v": "837",
+     "n": "5"
+    },
+    {
+     "v": "830",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=%3A%40computed_region_kjdx_g34t+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_kjdx_g34t&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "2030",
+     "n": "11837"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=date%2C+application_number%2C+permit_number%2C+address%2C+owner%2C+contractor%2C+estimated_cost%2C+fee%2C+description_of_work%2C+location%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address",
+     "application_number",
+     "contractor",
+     "date",
+     "description_of_work",
+     "estimated_cost",
+     "fee",
+     "location",
+     "owner",
+     "permit_number"
+    ],
+    "sha256": "84e82072698aa406a6cd8d6334082ef21e0487d3713074b6b895784f0fdbdc5a"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.ny.gov/resource/kb9s-4gzd.json?%24select=date%2C+application_number%2C+permit_number%2C+address%2C+owner%2C+contractor%2C+estimated_cost%2C+fee%2C+description_of_work%2C+location%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-kfsx-zcup_56az%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address",
+     "application_number",
+     "contractor",
+     "date",
+     "description_of_work",
+     "estimated_cost",
+     "fee",
+     "location",
+     "owner",
+     "permit_number"
+    ],
+    "sha256": "bfa437a478677fd4a4f05bcb6384d7ec95f2dcd537779a94abe2d62c50e9cd1d"
+   }
+  }
+ ]
+}

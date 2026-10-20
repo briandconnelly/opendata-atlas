@@ -1,0 +1,24 @@
+{
+ "url": "https://data.cityofchicago.org/resource/bdys-3d7i.json?%24select=_feature_id%2C+statefp10%2C+name10%2C+tractce10&%24limit=3",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "1",
+   "statefp10": "17",
+   "name10": "8424",
+   "tractce10": "842400"
+  },
+  {
+   "_feature_id": "2",
+   "statefp10": "17",
+   "name10": "8403",
+   "tractce10": "840300"
+  },
+  {
+   "_feature_id": "3",
+   "statefp10": "17",
+   "name10": "8411",
+   "tractce10": "841100"
+  }
+ ]
+}

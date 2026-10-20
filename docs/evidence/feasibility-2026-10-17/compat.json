@@ -1,0 +1,635 @@
+[
+  {
+    "host": "data.seattle.gov",
+    "catalog_query": {
+      "search_context": "data.seattle.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 9
+    },
+    "dataset_id": "76t5-zqzr",
+    "dataset_title": "Building Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 41
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 6
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 6
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.8
+  },
+  {
+    "host": "data.sf.gov",
+    "catalog_query": {
+      "domains": "data.sf.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "no_tabular_result",
+      "results": 0,
+      "engine_error": false
+    },
+    "seconds": 0.2,
+    "retry_with_other_parameter": {
+      "host": "data.sf.gov",
+      "catalog_query": {
+        "search_context": "data.sf.gov"
+      },
+      "identity": "ok",
+      "search": {
+        "outcome": "ok",
+        "results": 9
+      },
+      "dataset_id": "i98e-djp9",
+      "dataset_title": "Building Permits",
+      "describe": {
+        "outcome": "ok",
+        "columns": 55
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "rows": 4
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "rows": 4
+      },
+      "forced_error": {
+        "outcome": "soql_syntax_error",
+        "message": "The upstream service rejected the query.",
+        "engine_error": true
+      },
+      "seconds": 1.8
+    }
+  },
+  {
+    "host": "data.cityofchicago.org",
+    "catalog_query": {
+      "domains": "data.cityofchicago.org"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "ydr8-5enu",
+    "dataset_title": "Building Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 116
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 1
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 1
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 4.1
+  },
+  {
+    "host": "data.cityofnewyork.us",
+    "catalog_query": {
+      "domains": "data.cityofnewyork.us"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 9
+    },
+    "dataset_id": "tg4x-b46p",
+    "dataset_title": "Film Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 14
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 19
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 15
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.8
+  },
+  {
+    "host": "data.kingcounty.gov",
+    "catalog_query": {
+      "domains": "data.kingcounty.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "7bee-uw8s",
+    "dataset_title": "Table view",
+    "describe": {
+      "outcome": "ok",
+      "columns": 55
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 6
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 5
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.8
+  },
+  {
+    "host": "datahub.austintexas.gov",
+    "catalog_query": {
+      "domains": "datahub.austintexas.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 8
+    },
+    "dataset_id": "3syk-w9eu",
+    "dataset_title": "Issued Construction Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 68
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 3
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 3
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 4.5
+  },
+  {
+    "host": "www.dallasopendata.com",
+    "catalog_query": {
+      "domains": "www.dallasopendata.com"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 8
+    },
+    "dataset_id": "e7gq-4sah",
+    "dataset_title": "Building Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 11
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 20
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 20
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.4
+  },
+  {
+    "host": "data.lacity.org",
+    "catalog_query": {
+      "domains": "data.lacity.org"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "k5qd-jg2c",
+    "dataset_title": "Electrical Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 54
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 5
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 5
+    },
+    "forced_error": {
+      "outcome": "soql_syntax_error",
+      "message": "The upstream service rejected the query.",
+      "engine_error": true
+    },
+    "seconds": 2.0
+  },
+  {
+    "host": "data.nola.gov",
+    "catalog_query": {
+      "domains": "data.nola.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "rcm3-fn58",
+    "dataset_title": "Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 42
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 7
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 7
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 2.8
+  },
+  {
+    "host": "datacatalog.cookcountyil.gov",
+    "catalog_query": {
+      "domains": "datacatalog.cookcountyil.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "6yjf-dfxs",
+    "dataset_title": "Assessor - Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 22
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 12
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 13
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.4
+  },
+  {
+    "host": "data.montgomerycountymd.gov",
+    "catalog_query": {
+      "domains": "data.montgomerycountymd.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 10
+    },
+    "dataset_id": "m88u-pqki",
+    "dataset_title": "Residential Permit",
+    "describe": {
+      "outcome": "ok",
+      "columns": 20
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 14
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 15
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 2.6
+  },
+  {
+    "host": "data.wa.gov",
+    "catalog_query": {
+      "domains": "data.wa.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 9
+    },
+    "dataset_id": "yccr-zbpr",
+    "dataset_title": "Permit Timeliness - Permit Application Processing Times (Washington State)",
+    "describe": {
+      "outcome": "ok",
+      "columns": 8
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 20
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 20
+    },
+    "forced_error": {
+      "outcome": "soql_syntax_error",
+      "message": "The upstream service rejected the query.",
+      "engine_error": true
+    },
+    "seconds": 1.7
+  },
+  {
+    "host": "data.ny.gov",
+    "catalog_query": {
+      "domains": "data.ny.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 8
+    },
+    "dataset_id": "9hk7-xgkb",
+    "dataset_title": "Draft State Facility Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 11
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 19
+    },
+    "query_p2": {
+      "outcome": "single_page",
+      "engine_error": false
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.9
+  },
+  {
+    "host": "data.texas.gov",
+    "catalog_query": {
+      "domains": "data.texas.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 9
+    },
+    "dataset_id": "jrea-zgmq",
+    "dataset_title": "Active Sales Tax Permit Holders",
+    "describe": {
+      "outcome": "ok",
+      "columns": 19
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 15
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 15
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.5
+  },
+  {
+    "host": "data.cdc.gov",
+    "catalog_query": {
+      "domains": "data.cdc.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 6
+    },
+    "dataset_id": "9kjw-3miq",
+    "dataset_title": "U.S. State and Territorial Orders Closing and Reopening Bars Issued from March 11, 2020 through August 15, 2021 by County by Day",
+    "describe": {
+      "outcome": "ok",
+      "columns": 17
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 19
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 18
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.6
+  },
+  {
+    "host": "data.calgary.ca",
+    "catalog_query": {
+      "domains": "data.calgary.ca"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 7
+    },
+    "dataset_id": "c2es-76ed",
+    "dataset_title": "Building Permits",
+    "describe": {
+      "outcome": "ok",
+      "columns": 30
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 7
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 7
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 2.5
+  },
+  {
+    "host": "www.datos.gov.co",
+    "catalog_query": {
+      "domains": "www.datos.gov.co"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 6
+    },
+    "dataset_id": "ch4u-f3i5",
+    "dataset_title": "Resultados de An\u00e1lisis de Laboratorio Suelos en Colombia",
+    "describe": {
+      "outcome": "ok",
+      "columns": 32
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 9
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 9
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.9
+  },
+  {
+    "host": "data.oregon.gov",
+    "catalog_query": {
+      "domains": "data.oregon.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 9
+    },
+    "dataset_id": "5fni-sp3g",
+    "dataset_title": "WQ Permit Fee Rulemaking 2015",
+    "describe": {
+      "outcome": "ok",
+      "columns": 7
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 3
+    },
+    "query_p2": {
+      "outcome": "single_page",
+      "engine_error": false
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 1.5
+  },
+  {
+    "host": "data.honolulu.gov",
+    "catalog_query": {
+      "domains": "data.honolulu.gov"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 5
+    },
+    "dataset_id": "4vab-c87q",
+    "dataset_title": "Building Permits - January 1, 2005 through June 30, 2025",
+    "describe": {
+      "outcome": "ok",
+      "columns": 77
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 3
+    },
+    "query_p2": {
+      "outcome": "ok",
+      "rows": 3
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 2.1
+  },
+  {
+    "host": "opendata.camden.gov.uk",
+    "catalog_query": {
+      "domains": "opendata.camden.gov.uk"
+    },
+    "identity": "ok",
+    "search": {
+      "outcome": "ok",
+      "results": 6
+    },
+    "dataset_id": "eqq9-intm",
+    "dataset_title": "Basement applications permitted in Swiss Cottage from 01.01.2015",
+    "describe": {
+      "outcome": "ok",
+      "columns": 29
+    },
+    "query_p1": {
+      "outcome": "ok",
+      "rows": 0
+    },
+    "query_p2": {
+      "outcome": "single_page",
+      "engine_error": false
+    },
+    "forced_error": {
+      "outcome": "ok",
+      "message": "A referenced column does not exist in this dataset.",
+      "engine_error": false
+    },
+    "seconds": 4.5
+  }
+]

@@ -1,0 +1,174 @@
+# Computed-region layers seen on Chicago datasets (portal-level: any dataset may use them).
+# Layer names, update dates and label columns probed 2026-10-19 from /api/views/<layer>.json
+# and the layers' own rows. A dataset's place_field claim on a column overrides these.
+
+[[claim]]
+id = "region-8hcu-yrd4"
+kind = "region_layer"
+scope = {layer = "8hcu-yrd4"}
+interpretation = {kind = "ward", label_column = "ward", vintage = "Wards 2023-, updated 2023-08-18 (50 wards, in force from May 2023)", reliability = "ok", reason = "Current ward boundaries; a row from before May 2023 gets the ward that covers its location today, not the ward at the time."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/8hcu-yrd4.json"
+observed_at = 2026-10-19
+observation = "name \"Wards 2023-\"; rowsUpdatedAt 2023-08-18; description: \"Ward boundaries in Chicago from May 2023 onward\". 50 features, `ward` 1-50; `_feature_id` is not the ward number (feature 3 is ward 5)."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Wards 2023-"}
+
+[[claim]]
+id = "region-43wa-7qmu"
+kind = "region_layer"
+scope = {layer = "43wa-7qmu"}
+interpretation = {kind = "ward", label_column = "ward", vintage = "Wards 2015-2023, updated 2015-04-22 (50 wards)", reliability = "partial", reason = "Ward boundaries in force May 2015 to May 2023; superseded by layer 8hcu-yrd4 for current wards."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/43wa-7qmu.json"
+observed_at = 2026-10-19
+observation = "name \"Wards\"; rowsUpdatedAt 2015-04-22. 50 features, `ward` 1-50; `_feature_id` is not the ward number (feature 1 is ward 12)."
+
+[[claim.assertion]]
+checker = "metadata_before"
+probe = 0
+params = {field = "rowsUpdatedAt", before = 2023-01-01}
+
+[[claim]]
+id = "region-awaf-s7ux"
+kind = "region_layer"
+scope = {layer = "awaf-s7ux"}
+interpretation = {kind = "ward", label_column = "ward", vintage = "Historical Wards 2003-2015, updated 2015-02-19", reliability = "unreliable", reason = "Ward boundaries of 2003-2015, twice superseded; the layer also has an 'OUT' feature. Use layer 8hcu-yrd4 for current wards."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/awaf-s7ux.json"
+observed_at = 2026-10-19
+observation = "name \"Historical Wards 2003-2015\"; rowsUpdatedAt 2015-02-19. 53 features; `ward` runs from \"1\" to \"OUT\"."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Historical Wards 2003-2015"}
+
+[[claim]]
+id = "region-vrxf-vc4k"
+kind = "region_layer"
+scope = {layer = "vrxf-vc4k"}
+interpretation = {kind = "community_area", label_column = "community", vintage = "Community Areas (77), updated 2015-02-19", reliability = "ok", reason = "Chicago's 77 community areas; labels are upper-case names (e.g. 'HYDE PARK')."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/vrxf-vc4k.json"
+observed_at = 2026-10-19
+observation = "name \"Community Areas\"; rowsUpdatedAt 2015-02-19. 77 features; `community` holds names (ALBANY PARK to WOODLAWN), `area_numbe` the area number; `_feature_id` is not the area number (feature 1 is area 35, DOUGLAS)."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Community Areas"}
+
+[[claim]]
+id = "region-rpca-8um6"
+kind = "region_layer"
+scope = {layer = "rpca-8um6"}
+interpretation = {kind = "zip", label_column = "zip", vintage = "Boundaries - ZIP Codes (61 Chicago ZIPs), updated 2016-04-25", reliability = "ok", reason = "The city's own 61 ZIP code areas (60601-60827)."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/rpca-8um6.json"
+observed_at = 2026-10-19
+observation = "name \"Boundaries - ZIP Codes\"; rowsUpdatedAt 2016-04-25. 61 features, `zip` 60601-60827."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Boundaries - ZIP Codes"}
+
+[[claim]]
+id = "region-6mkv-f3dw"
+kind = "region_layer"
+scope = {layer = "6mkv-f3dw"}
+interpretation = {kind = "zip", label_column = "zcta5ce10", vintage = "2010 ZIP Code Tabulation Areas (national, 33,140), updated 2015-02-19", reliability = "ok", reason = "National 2010 ZCTAs; a ZCTA approximates its ZIP code."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/6mkv-f3dw.json"
+observed_at = 2026-10-19
+observation = "name \"Zip Codes\"; rowsUpdatedAt 2015-02-19. 33,140 features, `zcta5ce10` 00601-99929."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Zip Codes"}
+
+[[claim]]
+id = "region-bdys-3d7i"
+kind = "region_layer"
+scope = {layer = "bdys-3d7i"}
+interpretation = {kind = "census_tract", label_column = "name10", vintage = "2010 Census Tracts (801), updated 2015-02-19", reliability = "partial", reason = "2010 census tracts; 2020 tract boundaries and numbers differ."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/bdys-3d7i.json"
+observed_at = 2026-10-19
+observation = "name \"Census Tracts\"; rowsUpdatedAt 2015-02-19. 801 features with 2010 fields (`statefp10`, `tractce10`, `name10`); `name10` runs 1001-9801."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Census Tracts"}
+
+[[claim]]
+id = "region-d9mm-jgwp"
+kind = "region_layer"
+scope = {layer = "d9mm-jgwp"}
+interpretation = {kind = "police_district", label_column = "dist_num", vintage = "Police Districts, updated 2016-09-02", reliability = "ok", reason = "Police district boundaries; district 31 appears as several features."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/d9mm-jgwp.json"
+observed_at = 2026-10-19
+observation = "name \"Police Districts\"; rowsUpdatedAt 2016-09-02. 25 features; `dist_num` 1-31, with 31 on features 3, 4 and 8."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Police Districts"}
+
+[[claim]]
+id = "region-d3ds-rm58"
+kind = "region_layer"
+scope = {layer = "d3ds-rm58"}
+interpretation = {kind = "beat", label_column = "beat_num", vintage = "Police Beats (277), updated 2016-09-02", reliability = "partial", reason = "Beat boundaries last updated 2016-09-02; on Crimes since 2024, 6-9% of the rows in two sampled beats fall in another beat of this layer (claim ijzp-q8t2-:@computed_region_d3ds_rm58-fill)."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-19
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/d3ds-rm58.json"
+observed_at = 2026-10-19
+observation = "name \"Police Beats\"; rowsUpdatedAt 2016-09-02. 277 features, `beat_num` 0111-3100."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Police Beats"}

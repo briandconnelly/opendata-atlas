@@ -1,0 +1,41 @@
+[
+  {
+    "portal": "data.cityofchicago.org",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 116,
+        "row_count": 850693
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 1,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 1
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "ydr8-5enu",
+        "left_because": null
+      }
+    ]
+  }
+]

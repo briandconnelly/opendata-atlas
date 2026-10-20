@@ -1,0 +1,9 @@
+{
+ "url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json?%24select=count%28%2A%29+AS+n&%24where=%3A%40computed_region_vrxf_vc4k+%3D+%228%22+AND+date+between+%222026-09-01T00%3A00%3A00%22+and+%222026-09-30T23%3A59%3A59%22",
+ "status": 200,
+ "body": [
+  {
+   "n": "202"
+  }
+ ]
+}

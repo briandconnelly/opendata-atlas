@@ -1,0 +1,853 @@
+{
+ "portal": "data.cityofnewyork.us",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 9
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 14,
+   "row_count": 19719
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 19,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 15
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "tg4x-b46p",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.cityofnewyork.us&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "82,377 bytes, over the 65,536-byte cap",
+    "sha256": "270caef439dd640c664c2d5772255ee828c119f260f8526ee0dd97b0fb212c04",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.cityofnewyork.us&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Protected Streets - Segments",
+       "id": "9p9k-tusd",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Current list of Protected Streets for segments.",
+       "attribution": "Department of Transportation (DOT)",
+       "attribution_link": "https://www1.nyc.gov/html/dot/html/infrastructure/protectedst.shtml",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2024-10-30T14:28:32.000Z",
+       "createdAt": "2016-07-15T21:43:46.000Z",
+       "metadata_updated_at": "2024-10-30T14:28:32.000Z",
+       "data_updated_at": "2016-07-15T21:43:46.000Z",
+       "page_views": {
+        "page_views_last_week": 13,
+        "page_views_last_month": 38,
+        "page_views_total": 2418,
+        "page_views_last_week_log": 3.8073549220576037,
+        "page_views_last_month_log": 5.285402218862249,
+        "page_views_total_log": 11.240195053979926
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-07-15T21:43:53.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transportation",
+       "domain_tags": [
+        "streets",
+        "block",
+        "construction",
+        "milling",
+        "pavement",
+        "paving",
+        "permit",
+        "protected",
+        "roadways"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Update_Automation",
+         "value": "N/A"
+        },
+        {
+         "key": "Update_Date-Made-Public",
+         "value": "7/15/2016"
+        },
+        {
+         "key": "Update_Update-Frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Dataset-Information_Agency",
+         "value": "Department of Transportation (DOT)"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.cityofnewyork.us",
+       "additional_access_points": [
+        {
+         "urls": {
+          "xls": "https://nycstreets.net/PavementWorks/Location/ProtectedStreetLocations"
+         }
+        }
+       ],
+       "access_points": {
+        "xls": "https://nycstreets.net/PavementWorks/Location/ProtectedStreetLocations"
+       }
+      },
+      "permalink": "https://data.cityofnewyork.us/d/9p9k-tusd",
+      "link": "https://data.cityofnewyork.us/Transportation/Protected-Streets-Segments/9p9k-tusd",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Protected Streets - Intersections",
+       "id": "hfa3-euj3",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Current list of Protected Streets for intersections.",
+       "attribution": "Department of Transportation (DOT)",
+       "attribution_link": "https://www1.nyc.gov/html/dot/html/infrastructure/protectedst.shtml",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2024-10-30T14:28:31.000Z",
+       "createdAt": "2016-07-15T21:40:48.000Z",
+       "metadata_updated_at": "2024-10-30T14:28:31.000Z",
+       "data_updated_at": "2016-07-15T21:40:48.000Z",
+       "page_views": {
+        "page_views_last_week": 8,
+        "page_views_last_month": 42,
+        "page_views_total": 2007,
+        "page_views_last_week_log": 3.1699250014423126,
+        "page_views_last_month_log": 5.426264754702098,
+        "page_views_total_log": 10.971543553950772
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-07-15T21:40:55.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transportation",
+       "domain_tags": [
+        "permit",
+        "block",
+        "construction",
+        "milling",
+        "protected",
+        "roadways",
+        "streets",
+        "pavement",
+        "paving"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Update_Automation",
+         "value": "N/A"
+        },
+        {
+         "key": "Update_Date-Made-Public",
+         "value": "7/15/2016"
+        },
+        {
+         "key": "Update_Update-Frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Dataset-Information_Agency",
+         "value": "Department of Transportation (DOT)"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.cityofnewyork.us",
+       "additional_access_points": [
+        {
+         "urls": {
+          "xls": "https://nycstreets.net/PavementWorks/Location/ProtectedStreetLocations"
+         }
+        }
+       ],
+       "access_points": {
+        "xls": "https://nycstreets.net/PavementWorks/Location/ProtectedStreetLocations"
+       }
+      },
+      "permalink": "https://data.cityofnewyork.us/d/hfa3-euj3",
+      "link": "https://data.cityofnewyork.us/Transportation/Protected-Streets-Intersections/hfa3-euj3",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Housing Database",
+       "id": "6umk-irkx",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The NYC Department of City Planning’s (DCP) <a href = \"https://www.nyc.gov/site/planning/data-maps/open-data/dwn-housing-database.page#housingdevelopmentproject\">Housing Database</a> contains all NYC Department of Buildings (DOB) approved housing construction and demolition jobs filed or completed in NYC since January 1, 2010. It includes the three primary construction job types that add or remove residential units: new buildings, major alterations, and demolitions, and can be used to determine the change in legal housing units across time and space. Records in the Housing Database Project-Level Files are geocoded to the greatest level of precision possible, subject to numerous quality assurance and control checks, recoded for usability, and joined to other housing data sources relevant to city planners and analysts.\n\nData are updated semiannually, at the end of the second and fourth quarters of each year.\n\nPlease see DCP’s annual Housing Production Snapshot summarizing findings from the 21Q4 data release <a href=\"https://storymaps.arcgis.com/stories/1c9138dc24064b2e8142ff156345a719\">here</a>. Additional Housing and Economic analyses are also <a href=\"https://www.nyc.gov/site/planning/planning-level/housing-economy/housing-economy.page\">available</a>.\n\nThe NYC Department of City Planning’s (DCP) <a href=\"https://www.nyc.gov/site/planning/data-maps/open-data/dwn-housing-database.page#housingdevelopmentunit\">Housing Database Unit Change Summary Files</a> provide the net change in Class A housing units since 2010, and the count of units pending completion for commonly used political and statistical boundaries (Census Block, Census Tract, City Council district, Community District, Community District Tabulation Area (CDTA), Neighborhood Tabulation Area (NTA). These tables are aggregated from the DCP Housing Database Project-Level Files, which is derived from Department of Buildings (DOB) approved housing construction and demolition jobs filed or completed in NYC since January 1, 2010. Net housing unit change is calculated as the sum of all three construction job types that add or remove residential units: new buildings, major alterations, and demolitions. These files can be used to determine the change in legal housing units across time and space.",
+       "attribution": "Department of City Planning (DCP)",
+       "attribution_link": "https://www.nyc.gov/site/planning/data-maps/open-data/dwn-housing-database.page",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2025-01-10T20:38:23.000Z",
+       "createdAt": "2021-03-19T00:07:46.000Z",
+       "metadata_updated_at": "2025-01-10T20:38:23.000Z",
+       "data_updated_at": "2021-03-19T00:07:46.000Z",
+       "page_views": {
+        "page_views_last_week": 268,
+        "page_views_last_month": 925,
+        "page_views_total": 28108,
+        "page_views_last_week_log": 8.071462362556625,
+        "page_views_last_month_log": 9.854868383260238,
+        "page_views_total_log": 14.778744509158738
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2021-03-19T00:16:46.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing & Development",
+       "domain_tags": [
+        "housing",
+        "construction",
+        "net units",
+        "demolition",
+        "development",
+        "dwelling unit",
+        "unit change",
+        "proposed units",
+        "pipeline",
+        "permit",
+        "alteration",
+        "building",
+        "certificate of occupancy",
+        "class a",
+        "job application",
+        "class b",
+        "co",
+        "house",
+        "hotel",
+        "filing",
+        "existing units"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Update_Automation",
+         "value": "N/A"
+        },
+        {
+         "key": "Update_Date-Made-Public",
+         "value": "4/7/2021"
+        },
+        {
+         "key": "Update_Update-Frequency",
+         "value": "Every 6 months"
+        },
+        {
+         "key": "Dataset-Information_Agency",
+         "value": "Department of City Planning (DCP)"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.cityofnewyork.us",
+       "additional_access_points": [
+        {
+         "urls": {
+          "webpage": "https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww1.nyc.gov%2Fsite%2Fplanning%2Fdata-maps%2Fopen-data%2Fdwn-housing-database.page%23housingdevelopmentproject&data=04%7C01%7Cafinkel%40doitt.nyc.gov%7Cc592232fffcb414a833f08d8e96f457c%7C73d61799c28440228d4154cc4f1929ef%7C0%7C0%7C637516013145865388%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=HFR5PnBZhlfY5VAFJSif3xtEaUUxoVIhDQwpK0bjIT4%3D&reserved=0"
+         },
+         "title": "Housing Database"
+        }
+       ],
+       "access_points": {
+        "webpage": "https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww1.nyc.gov%2Fsite%2Fplanning%2Fdata-maps%2Fopen-data%2Fdwn-housing-database.page%23housingdevelopmentproject&data=04%7C01%7Cafinkel%40doitt.nyc.gov%7Cc592232fffcb414a833f08d8e96f457c%7C73d61799c28440228d4154cc4f1929ef%7C0%7C0%7C637516013145865388%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=HFR5PnBZhlfY5VAFJSif3xtEaUUxoVIhDQwpK0bjIT4%3D&reserved=0"
+       }
+      },
+      "permalink": "https://data.cityofnewyork.us/d/6umk-irkx",
+      "link": "https://data.cityofnewyork.us/Housing-Development/Housing-Database/6umk-irkx",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 3,
+    "timings": {
+     "serviceMillis": 117,
+     "searchMillis": [
+      3,
+      103
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.cityofnewyork.us/api/views/tg4x-b46p.json",
+   "status": 200,
+   "body": {
+    "id": "tg4x-b46p",
+    "name": "Film Permits",
+    "assetType": "dataset",
+    "attribution": "Mayor’s Office of Media and Entertainment (MOME)",
+    "averageRating": 0,
+    "category": "City Government",
+    "createdAt": 1438013241,
+    "description": "Permits are generally required when asserting the exclusive use of city property, like a sidewalk, a street, or a park. See http://www1.nyc.gov/site/mome/permits/when-permit-required.page",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 41354,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1549830895,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 20230818,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1461256016,
+    "publicationGroup": 3731932,
+    "publicationStage": "published",
+    "rowClass": "",
+    "rowsUpdatedAt": 1792265436,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 10149168,
+    "totalTimesRated": 0,
+    "viewCount": 564047,
+    "viewLastModified": 1792265419,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 251885169,
+      "name": "EventID",
+      "dataTypeName": "number",
+      "description": "Auto-generated unique event identification number",
+      "fieldName": "eventid",
+      "position": 1,
+      "renderTypeName": "number",
+      "tableColumnId": 30098701,
+      "width": 79,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 251885170,
+      "name": "EventType",
+      "dataTypeName": "text",
+      "description": "Type of Activity for this approved permit.\n\nLoad in/out – vehicles parking to load sets, equipment, etc. into location;\n\nShooting – filming scheduled to occur;\n\nDCAS Prep/Shoot/Wrap –activity scheduled to occur on Department of Citywide Administrative Services (DCAS) property, such as a city courthouse;\n\nRigging – set dressing activity at location, not filming yet\n",
+      "fieldName": "eventtype",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 30098706,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885171,
+      "name": "StartDateTime",
+      "dataTypeName": "calendar_date",
+      "description": "Activity scheduled to begin",
+      "fieldName": "startdatetime",
+      "position": 3,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 30098703,
+      "width": 166,
+      "cachedContents": {
+       "non_null": "19313",
+       "null": "406",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "view": "date_time",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885172,
+      "name": "EndDateTime",
+      "dataTypeName": "calendar_date",
+      "description": "Activity scheduled to be completed",
+      "fieldName": "enddatetime",
+      "position": 4,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 30098704,
+      "width": 163,
+      "cachedContents": {
+       "non_null": "19553",
+       "null": "166",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "view": "date_time",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885173,
+      "name": "EnteredOn",
+      "dataTypeName": "calendar_date",
+      "description": "Date permit request submitted to MOME",
+      "fieldName": "enteredon",
+      "position": 5,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 30098712,
+      "width": 169,
+      "cachedContents": {
+       "non_null": "17634",
+       "null": "2085",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "view": "date_time",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885174,
+      "name": "EventAgency",
+      "dataTypeName": "text",
+      "fieldName": "eventagency",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 30098705,
+      "width": 270,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {}
+     },
+     {
+      "id": 251885175,
+      "name": "ParkingHeld",
+      "dataTypeName": "text",
+      "description": "Locations of request to hold parking in advance for permitted filming activity.",
+      "fieldName": "parkingheld",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 30098707,
+      "width": 673,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885176,
+      "name": "Borough",
+      "dataTypeName": "text",
+      "description": "First borough of activity for the day",
+      "fieldName": "borough",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 30098708,
+      "width": 130,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885177,
+      "name": "CommunityBoard(s)",
+      "dataTypeName": "text",
+      "description": "First Community Board of activity for the day",
+      "fieldName": "communityboard_s",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 30098709,
+      "width": 121,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885178,
+      "name": "PolicePrecinct(s)",
+      "dataTypeName": "text",
+      "description": "First Police precinct of activity for the day",
+      "fieldName": "policeprecinct_s",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 30098710,
+      "width": 119,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885179,
+      "name": "Category",
+      "dataTypeName": "text",
+      "description": "Description of production as selected by permit applicant",
+      "fieldName": "category",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 35672917,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885180,
+      "name": "SubCategoryName",
+      "dataTypeName": "text",
+      "description": "More specific description of production as selected by permit applicant",
+      "fieldName": "subcategoryname",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 35672916,
+      "width": 143,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885181,
+      "name": "Country",
+      "dataTypeName": "text",
+      "description": "Project origin ",
+      "fieldName": "country",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 35672915,
+      "width": 226,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 251885182,
+      "name": "ZipCode(s)",
+      "dataTypeName": "text",
+      "description": "First zip code of production activity",
+      "fieldName": "zipcode_s",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 30098711,
+      "width": 124,
+      "cachedContents": {
+       "non_null": "19719",
+       "null": "0",
+       "not_null": "62453",
+       "count": "19719",
+       "cardinality": "19719"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "jsonQuery": {
+      "order": [
+       {
+        "ascending": false,
+        "columnFieldName": "enteredon"
+       }
+      ]
+     },
+     "rdfSubject": "0",
+     "rdfClass": "",
+     "attachments": [
+      {
+       "filename": "Data Dictionary word.docx",
+       "assetId": "916308c4-c857-40c5-a94d-f0b5aa0748e3",
+       "blobId": "",
+       "name": "Data Dictionary word.docx"
+      }
+     ],
+     "custom_fields": {
+      "Update": {
+       "Automation": "Yes",
+       "Date Made Public": "4/21/2016",
+       "Update Frequency": "Daily"
+      },
+      "Legislative Compliance": {
+       "Geo-coding Attached?": ""
+      },
+      "Dataset Information": {
+       "Agency": "Mayor's Office of Media And Entertainment (MOME)"
+      }
+     },
+     "rowIdentifier": "0",
+     "rowLabel": "Film Permit",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {
+     "orderBys": [
+      {
+       "ascending": false,
+       "expression": {
+        "columnId": 251885173,
+        "type": "column"
+       }
+      }
+     ]
+    },
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "mome",
+     "film",
+     "permits"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.cityofnewyork.us/resource/tg4x-b46p.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "19719"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.cityofnewyork.us/resource/tg4x-b46p.json?%24select=min%28startdatetime%29+AS+lo%2C+max%28startdatetime%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2023-01-01T04:00:00.000",
+     "hi": "2026-07-19T12:01:00.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.cityofnewyork.us/resource/tg4x-b46p.json?%24select=eventid%2C+eventtype%2C+startdatetime%2C+enddatetime%2C+enteredon%2C+eventagency%2C+parkingheld%2C+borough%2C+communityboard_s%2C+policeprecinct_s%2C+category%2C+subcategoryname%2C+country%2C+zipcode_s%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "borough",
+     "category",
+     "communityboard_s",
+     "country",
+     "enddatetime",
+     "enteredon",
+     "eventagency",
+     "eventid",
+     "eventtype",
+     "parkingheld",
+     "policeprecinct_s",
+     "startdatetime",
+     "subcategoryname",
+     "zipcode_s"
+    ],
+    "sha256": "d5d6eb8de1540de87f11d31904604f1fe8627e32c6953c44dc1ed69157837a95"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.cityofnewyork.us/resource/tg4x-b46p.json?%24select=eventid%2C+eventtype%2C+startdatetime%2C+enddatetime%2C+enteredon%2C+eventagency%2C+parkingheld%2C+borough%2C+communityboard_s%2C+policeprecinct_s%2C+category%2C+subcategoryname%2C+country%2C+zipcode_s%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-7qvq-zrds.ukmw%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "borough",
+     "category",
+     "communityboard_s",
+     "country",
+     "enddatetime",
+     "enteredon",
+     "eventagency",
+     "eventid",
+     "eventtype",
+     "parkingheld",
+     "policeprecinct_s",
+     "startdatetime",
+     "subcategoryname",
+     "zipcode_s"
+    ],
+    "sha256": "18ef22cd8d857015c21edc3a8c5902d889b56a56b6611489622d699bec41962e"
+   }
+  }
+ ]
+}

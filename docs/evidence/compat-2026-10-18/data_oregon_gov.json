@@ -1,0 +1,2103 @@
+{
+ "portal": "data.oregon.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 9
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 7,
+   "row_count": 7
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 7,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "single_page",
+   "kind": "data",
+   "upstream_rows": 7
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "5fni-sp3g",
+   "left_because": "empty or one page"
+  },
+  {
+   "result": 2,
+   "dataset_id": "hi9g-m7ts",
+   "left_because": "empty or one page"
+  },
+  {
+   "result": 3,
+   "dataset_id": "j3rx-7bui",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.oregon.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Gridded Soil Survey Geographic Database for Oregon",
+       "id": "d82a-6g2f",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "<div><span style=\"font-family:&quot;Calibri&quot;,sans-serif;font-size:11.0pt;\"><strong>This is a dataset download, not a document. The Open button will start the download.</strong></span><br></div><div><p>Detailed soil units from Soils Surveys covering nonfederal land conducted by the U.S. Natural Resource Conservation Service (NRCS) that differentiates mapped units on the basis of a range of physical, topographic, and chemical properties.</p><p><br></p></div>",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "federated_href",
+       "updatedAt": "2025-01-31T19:01:55.000Z",
+       "createdAt": "2025-01-29T19:02:47.000Z",
+       "metadata_updated_at": "2025-01-31T19:01:55.000Z",
+       "data_updated_at": "2025-01-29T19:02:47.000Z",
+       "page_views": {
+        "page_views_last_week": 2,
+        "page_views_last_month": 43,
+        "page_views_total": 189,
+        "page_views_last_week_log": 1.5849625007211563,
+        "page_views_last_month_log": 5.459431618637297,
+        "page_views_total_log": 7.569855608330948
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "federated",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2025-01-29T19:02:47.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "gridded",
+        "natsgo",
+        "environment",
+        "geospatial data gateway",
+        "oregon",
+        "ssurgo",
+        "united states of america",
+        "usa",
+        "raster",
+        "gnatsgo",
+        "soils",
+        "soil survey",
+        "gdg",
+        "geoscientificinformation",
+        "farming",
+        "gssurgo"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Last-Update",
+         "value": "2024-03-12T06:12:29.000Z"
+        },
+        {
+         "key": "Common-Core_License",
+         "value": "The U.S. Department of Agriculture, Natural Resources Conservation Service, should be acknowledged as the data source in products derived from these data.This dataset is not designed for use as a primary regulatory tool in permitting or siting decisions, but may be used as a reference source. This is public information and may be interpreted by organizations, agencies, units of government, or others based on needs; however, they are responsible for the appropriate application. Federal, State, or local regulatory bodies are not to reassign to the Natural Resources Conservation Service any authority for the decisions that they make. The Natural Resources Conservation Service will not perform any evaluations of these maps for purposes related solely to State or local regulatory programs. Digital data files are periodically updated. Files are dated, and users are responsible for obtaining the latest version of the data."
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Common-Core_Geographic-Coverage",
+         "value": "0.0000,0.0000,0.0000,0.0000"
+        },
+        {
+         "key": "Common-Core_Unique-Identifier",
+         "value": "https://www.arcgis.com/home/item.html?id=2290ec8cc5794a4eb1e3638535cf060f"
+        },
+        {
+         "key": "Common-Core_Publisher",
+         "value": "State of Oregon"
+        },
+        {
+         "key": "Common-Core_Homepage",
+         "value": "https://geohub.oregon.gov/documents/oregon-geo::gridded-soil-survey-geographic-database-for-oregon"
+        },
+        {
+         "key": "Common-Core_Theme",
+         "value": "geospatial"
+        },
+        {
+         "key": "Common-Core_Issued",
+         "value": "2023-06-20T21:30:52.000Z"
+        },
+        {
+         "key": "Common-Core_Contact-Name",
+         "value": "<identity redacted>"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.oregon.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "text/html": "https://geohub.oregon.gov/documents/oregon-geo::gridded-soil-survey-geographic-database-for-oregon"
+         },
+         "title": "ArcGIS Hub Dataset"
+        },
+        {
+         "urls": {
+          "application/json": "https://ftp.gis.oregon.gov/framework/geoscience/Soils_framework_data/gNATSGO_OR2024.zip"
+         },
+         "title": "ArcGIS GeoService"
+        }
+       ],
+       "access_points": {
+        "text/html": "https://geohub.oregon.gov/documents/oregon-geo::gridded-soil-survey-geographic-database-for-oregon"
+       }
+      },
+      "permalink": "https://data.oregon.gov/d/d82a-6g2f",
+      "link": "https://data.oregon.gov/dataset/Gridded-Soil-Survey-Geographic-Database-for-Oregon/d82a-6g2f",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 1,
+    "timings": {
+     "serviceMillis": 19,
+     "searchMillis": [
+      2,
+      5
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.oregon.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "WQ Permit Fee Rulemaking 2015",
+       "id": "5fni-sp3g",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Public comment open September 15, 2015 through October 15, 2015.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2016-02-13T07:17:24.000Z",
+       "createdAt": "2015-09-10T21:55:56.000Z",
+       "metadata_updated_at": "2015-09-14T22:59:37.000Z",
+       "data_updated_at": "2016-02-13T07:17:24.000Z",
+       "page_views": {
+        "page_views_last_week": 5,
+        "page_views_last_month": 18,
+        "page_views_total": 893,
+        "page_views_last_week_log": 2.584962500721156,
+        "page_views_last_month_log": 4.247927513443585,
+        "page_views_total_log": 9.804131021183318
+       },
+       "columns_name": [
+        "Additional Document",
+        "Last Name",
+        "Email Address",
+        "Organization",
+        "State",
+        "Comment",
+        "First Name"
+       ],
+       "columns_field_name": [
+        "additional_document",
+        "last_name",
+        "email_address",
+        "organization",
+        "state",
+        "comment",
+        "first_name"
+       ],
+       "columns_datatype": [
+        "Document",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        },
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 2060,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2015-09-14T22:55:34.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/5fni-sp3g",
+      "link": "https://data.oregon.gov/dataset/WQ-Permit-Fee-Rulemaking-2015/5fni-sp3g",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Title V Permit Fee Rulemaking 2018",
+       "id": "hi9g-m7ts",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "DEQ invites the public to comment on this rulemaking from May 15 through June 21, 2018. Comments received outside of this time frame will not be considered.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2018-06-07T22:59:41.000Z",
+       "createdAt": "2018-03-15T16:40:20.000Z",
+       "metadata_updated_at": "2018-06-07T22:54:50.000Z",
+       "data_updated_at": "2018-06-07T22:59:41.000Z",
+       "page_views": {
+        "page_views_last_week": 3,
+        "page_views_last_month": 15,
+        "page_views_total": 729,
+        "page_views_last_week_log": 2.0,
+        "page_views_last_month_log": 4.0,
+        "page_views_total_log": 9.51175265376738
+       },
+       "columns_name": [
+        "Email Address",
+        "Last Name",
+        "Comment",
+        "State",
+        "Additional Document",
+        "First Name",
+        "Organization"
+       ],
+       "columns_field_name": [
+        "email_address",
+        "last_name",
+        "comment",
+        "state",
+        "additional_document",
+        "first_name",
+        "organization"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Document",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 1217,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2018-06-07T22:54:50.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/hi9g-m7ts",
+      "link": "https://data.oregon.gov/dataset/Title-V-Permit-Fee-Rulemaking-2018/hi9g-m7ts",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "2016 Solid Waste Permit Fee Rulemaking",
+       "id": "j3rx-7bui",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Comment period is from 10/15/15 to 11/23/15",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2015-11-24T00:00:02.000Z",
+       "createdAt": "2015-10-14T22:38:57.000Z",
+       "metadata_updated_at": "2015-10-15T16:18:20.000Z",
+       "data_updated_at": "2015-11-24T00:00:02.000Z",
+       "page_views": {
+        "page_views_last_week": 4,
+        "page_views_last_month": 18,
+        "page_views_total": 855,
+        "page_views_last_week_log": 2.321928094887362,
+        "page_views_last_month_log": 4.247927513443585,
+        "page_views_total_log": 9.741466986401146
+       },
+       "columns_name": [
+        "Last Name",
+        "Additional Document",
+        "State",
+        "First Name",
+        "Organization",
+        "Email",
+        "Comment"
+       ],
+       "columns_field_name": [
+        "last_name",
+        "additional_document",
+        "state",
+        "first_name",
+        "organization",
+        "email",
+        "comment"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Document",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        },
+        {}
+       ],
+       "download_count": 1762,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2015-10-15T16:18:19.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/j3rx-7bui",
+      "link": "https://data.oregon.gov/dataset/2016-Solid-Waste-Permit-Fee-Rulemaking/j3rx-7bui",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Comment on DEQ's Water Quality Permit Fee Rulemaking",
+       "id": "569m-j47f",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "DEQ invites you to comment on the proposed rule amendments between 9 a.m. 5/15/17 and 4 p.m. 6/30/17. Comments received outside this time frame will not be considered. Please note that all information provided when commenting will display below and becomes public record.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2017-06-30T22:51:17.000Z",
+       "createdAt": "2017-05-12T22:58:39.000Z",
+       "metadata_updated_at": "2017-06-22T16:32:23.000Z",
+       "data_updated_at": "2017-06-30T22:51:17.000Z",
+       "page_views": {
+        "page_views_last_week": 4,
+        "page_views_last_month": 11,
+        "page_views_total": 689,
+        "page_views_last_week_log": 2.321928094887362,
+        "page_views_last_month_log": 3.5849625007211565,
+        "page_views_total_log": 9.430452551665532
+       },
+       "columns_name": [
+        "Last Name",
+        "Organization",
+        "Email",
+        "Additional Document",
+        "State",
+        "Comment",
+        "First Name"
+       ],
+       "columns_field_name": [
+        "last_name",
+        "organization",
+        "email",
+        "additional_document",
+        "state",
+        "comment",
+        "first_name"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Document",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        },
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 1739,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2017-06-22T16:32:23.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/569m-j47f",
+      "link": "https://data.oregon.gov/dataset/Comment-on-DEQ-s-Water-Quality-Permit-Fee-Rulemaki/569m-j47f",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Comment on Rulemaking: Title V Consumer Price Index 2016",
+       "id": "p9nk-5yub",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "DEQ proposes rules to increase Title V operating permit fees by the change in the consumer price index as authorized by federal and state law. The proposed fee increases are necessary for DEQ to provide essential services associated with Oregon’s Title V permitting program.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2018-04-15T08:26:56.000Z",
+       "createdAt": "2016-01-14T18:26:28.000Z",
+       "metadata_updated_at": "2016-01-15T20:30:11.000Z",
+       "data_updated_at": "2018-04-15T08:26:56.000Z",
+       "page_views": {
+        "page_views_last_week": 3,
+        "page_views_last_month": 22,
+        "page_views_total": 815,
+        "page_views_last_week_log": 2.0,
+        "page_views_last_month_log": 4.523561956057013,
+        "page_views_total_log": 9.672425341971495
+       },
+       "columns_name": [
+        "State",
+        "Organization",
+        "Email",
+        "Comment",
+        "First Name",
+        "Additional Document",
+        "Last Name"
+       ],
+       "columns_field_name": [
+        "state",
+        "organization",
+        "email",
+        "comment",
+        "first_name",
+        "additional_document",
+        "last_name"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Document",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        },
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 2966,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-01-15T20:30:11.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/p9nk-5yub",
+      "link": "https://data.oregon.gov/dataset/Comment-on-Rulemaking-Title-V-Consumer-Price-Index/p9nk-5yub",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "LRAPAPS",
+       "id": "q9na-4n3z",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Comment - Incorporate LRAPA rules for permit streamlining into State Implementation Plan",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2017-08-10T18:39:33.000Z",
+       "createdAt": "2013-12-16T22:36:32.000Z",
+       "metadata_updated_at": "2014-08-26T21:09:51.000Z",
+       "data_updated_at": "2017-08-10T18:39:33.000Z",
+       "page_views": {
+        "page_views_last_week": 9,
+        "page_views_last_month": 33,
+        "page_views_total": 1916,
+        "page_views_last_week_log": 3.3219280948873626,
+        "page_views_last_month_log": 5.08746284125034,
+        "page_views_total_log": 10.904634621668151
+       },
+       "columns_name": [
+        "Comment",
+        "Additional Document",
+        "First Name",
+        "State",
+        "Last Name",
+        "Organization",
+        "Email Address"
+       ],
+       "columns_field_name": [
+        "comment",
+        "additional_document",
+        "first_name",
+        "state",
+        "last_name",
+        "organization",
+        "email_address"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Document",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        }
+       ],
+       "download_count": 5536,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2014-08-26T21:09:51.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/q9na-4n3z",
+      "link": "https://data.oregon.gov/dataset/LRAPAPS/q9na-4n3z",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "LRAPAfed",
+       "id": "3sv8-uifh",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "rulemaking for permitting requirements",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2017-03-17T07:04:43.000Z",
+       "createdAt": "2013-12-16T21:17:31.000Z",
+       "metadata_updated_at": "2014-03-11T23:52:33.000Z",
+       "data_updated_at": "2017-03-17T07:04:43.000Z",
+       "page_views": {
+        "page_views_last_week": 7,
+        "page_views_last_month": 28,
+        "page_views_total": 799,
+        "page_views_last_week_log": 3.0,
+        "page_views_last_month_log": 4.857980995127573,
+        "page_views_total_log": 9.643856189774725
+       },
+       "columns_name": [
+        "State",
+        "Organization",
+        "Email Address",
+        "Last Name",
+        "Comment",
+        "First Name",
+        "Additional Document"
+       ],
+       "columns_field_name": [
+        "state",
+        "organization",
+        "email_address",
+        "last_name",
+        "comment",
+        "first_name",
+        "additional_document"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Document"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "displayStyle": "email"
+        },
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 2248,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2014-03-11T23:52:33.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "data.oregon.gov"
+      },
+      "permalink": "https://data.oregon.gov/d/3sv8-uifh",
+      "link": "https://data.oregon.gov/dataset/LRAPAfed/3sv8-uifh",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Budgeted Revenue",
+       "id": "mwsa-rpk9",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "State Budgeted Revenue Report: 2025-27. Visit  the Oregon Transparency website for more information. https://www.oregon.gov/transparency/Pages/index.aspx. This report provides revenue information for Oregon state agencies. It is organized by agency name, and includes agency number and each fund type (e.g. General Fund, Lottery Funds, Other Funds, and Federal Funds). Note: This report includes data from the Oregon Legislature and the Oregon Judicial Department. It does not include data from the Oregon State Lottery, or semi-independent agencies, boards and commissions. (Source: DAS Chief Financial Office – Oregon Budget Information Tracking System – ORBITS)",
+       "attribution": "DAS Financial",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-09-21T13:39:59.000Z",
+       "createdAt": "2019-12-31T19:23:10.000Z",
+       "metadata_updated_at": "2026-09-21T13:39:58.000Z",
+       "data_updated_at": "2026-09-21T13:39:59.000Z",
+       "page_views": {
+        "page_views_last_week": 40,
+        "page_views_last_month": 210,
+        "page_views_total": 6491,
+        "page_views_last_week_log": 5.357552004618084,
+        "page_views_last_month_log": 7.721099188707186,
+        "page_views_total_log": 12.664447284547972
+       },
+       "columns_name": [
+        "Total",
+        "Other Funds",
+        "Lottery Funds",
+        "General Funds",
+        "Federal Funds",
+        "Agency #",
+        "Agency"
+       ],
+       "columns_field_name": [
+        "grand_total",
+        "other_funds",
+        "lottery_funds",
+        "general_funds",
+        "federal_funds",
+        "dept_no",
+        "dept_description"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "This field is the sum of Federal, General, Lottery, and Other Funds. ",
+        "Other Funds are largest single category of revenues received for state budget. They include money from some taxes — chiefly those related to highway use, employment, and forests. They also include revenues from state licensing fees and the state's \"business-like\" incomes, such as tuition, hunting/fishing permits and other fees for services, and many funds related to loans or bonds.",
+        "Lottery Funds are another significant source of money the state can use for specific purposes. Lottery Funds go to dedicated purposes such as higher education sports programs, county economic development, the Education Stability Fund, the Parks and Natural Resources Fund, debt service, and the treatment of gambling addiction.",
+        "General Fund dollars come almost entirely from income taxes paid by individual Oregonians and Oregon businesses. The General Fund is also the most discretionary source of funds that the Governor and Legislature may spend.",
+        "Federal Funds are revenues that the federal government has legally dedicated to specific programs and services. The federal government limits the state's choices about where and how to spend this money. Some federal dollars come to the state as a fixed amount for a specific program. Most Federal Funds however, are matching money for state expenditures.",
+        "The unique 5-digit number associated with an Agency.",
+        "The name of the Agency, provided in an ease of use format for the public. "
+       ],
+       "columns_format": [
+        {
+         "align": "right"
+        },
+        {
+         "align": "right"
+        },
+        {
+         "align": "right"
+        },
+        {
+         "align": "right"
+        },
+        {
+         "align": "right"
+        },
+        {
+         "align": "center"
+        },
+        {}
+       ],
+       "download_count": 4451,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2019-12-31T19:28:10.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Revenue & Expense",
+       "domain_tags": [
+        "state agencies",
+        "budgeted revenue",
+        "budget",
+        "transparency",
+        "agency budget",
+        "revenue"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Information_Agency-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Dataset-Information_Data-Change-Frequency",
+         "value": "Annually"
+        },
+        {
+         "key": "Dataset-Information_Data-Dictionary",
+         "value": "Yes"
+        },
+        {
+         "key": "Dataset-Information_Data-Publishing-Frequency",
+         "value": "Annually"
+        },
+        {
+         "key": "Dataset-Information_Agency-URL",
+         "value": "https://www.oregon.gov/das/Financial/Pages/Index.aspx"
+        },
+        {
+         "key": "Dataset-Information_Notes",
+         "value": "9/21/22 - The ownership of this dataset asset was transferred from P. Newsome (Oregon Open Data Portal Administrator)\\DAS\\EIS to Greg Budreau (DAS\\Budget & Finance)."
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.oregon.gov",
+       "license": "Public Domain U.S. Government"
+      },
+      "permalink": "https://data.oregon.gov/d/mwsa-rpk9",
+      "link": "https://data.oregon.gov/Revenue-Expense/Budgeted-Revenue/mwsa-rpk9",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Current and Proposed Long-term Rural Enterprise Zone Facilities",
+       "id": "re77-krua",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Available in most rural enterprise zones, the Long-Term Rural Enterprise Zone Facilities Program offers a property tax abatement of up to 15 years, as compared to the Standard Program's three to five years. Under this program – beginning after the calendar year in which the facility is permitted or ready for use and occupancy – the qualifying facility of a certified business firm is not subject to local property taxes over the following 7 to 15 years. Prior to that point (e.g., during construction), facility property would also be exempt.\n\nThis dataset includes company specific information for all current and proposed facilities as of September 2026.\n\nFor more information, visit: https://www.oregon.gov/biz/programs/enterprisezones/Long-TermRuralEnterpriseZone/Pages/default.aspx",
+       "attribution": "Business Oregon",
+       "attribution_link": "https://www.oregon.gov/biz/programs/enterprisezones/Long-TermRuralEnterpriseZone/Pages/default.aspx",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-09-29T18:25:31.000Z",
+       "createdAt": "2021-07-12T23:40:38.000Z",
+       "metadata_updated_at": "2026-09-29T18:25:31.000Z",
+       "data_updated_at": "2026-09-29T18:19:09.000Z",
+       "page_views": {
+        "page_views_last_week": 65,
+        "page_views_last_month": 324,
+        "page_views_total": 3525,
+        "page_views_last_week_log": 6.044394119358453,
+        "page_views_last_month_log": 8.344295907915816,
+        "page_views_total_log": 11.783816759320183
+       },
+       "columns_name": [
+        "Facility",
+        "Local Certification Date",
+        "Certified Business Firm",
+        "Investment Required by Year Operations Begin",
+        "To Be Hired after Operations within …",
+        "Property Tax Savings for Firm, 2025–26",
+        "2025 Exempt Assessed Value",
+        "Existing Job Level at Facility Site (base)",
+        "Expected New Hires",
+        "Required Full-Time Facility Employees",
+        "Estimated Investment Proposed",
+        "Expected or Actual First Exemption Year",
+        "Locally Set Exemption Period",
+        "Enterprise Zone",
+        "County"
+       ],
+       "columns_field_name": [
+        "facility_or",
+        "local_certification_date",
+        "cetified_business_firm",
+        "investment_required_by_year_operations_begin",
+        "to_be_hired_after_operations_within_",
+        "property_tax_savings_for_firm_2025_26",
+        "_2025_exempt_assessed_value",
+        "existing_job_level_at_facility_site_base_",
+        "expected_new_hires",
+        "required_fulltime_facility_employees",
+        "estimated_investment_proposed",
+        "expected_or_actual_first_exemption_year",
+        "locally_set_exemption_period",
+        "enterprise_zone",
+        "county_or"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Name or distinguishing feature of specific facility on which certified business firm may receive exemption from property taxes inside rural enterprise zone",
+        "Date that application (Department of Revenue Form OR-AP-CERT) was approved by local zone manager (sponsor) and county assessor, after agreement and city/county resolutions",
+        "Name of company locally certified pursuant to application, which was submitted before facility work began, in order to later receive 7- to 15-year property tax abatement",
+        "Minimum investment costs to acquire, build and install facility property, as required under ORS 285C.412 by the end of the first year of commercial operations at the facility before main exemption period begins",
+        "Latest year (3 or 5) after first year of operations, by which minimum hiring must be achieved under ORS 285C.412 (minimum must be maintained for the remainder of the exemption period)",
+        "Estimated property taxes that would have due on the facility but for the exemption, usually adjusting for assessment and compression, but not taxes still collected for bond levies or early payment discount",
+        "Estimated value of exempt facility property as of January-1 assessment date, in terms of what would have been taxable that year",
+        "Existing number of employee at the facility on top of which new hiring would occur",
+        "Number of additional employees that business firm planned to hire at the time of certification application",
+        "Minimum number of new employees that certified business firm must hire at the facility under ORS 285C.412, either 10, 35, 50 or 75 depending on location or other factors",
+        "Total cost of investment that business expected to make at the time of certification application",
+        "When the main exemption period did or will (likely) begin, after facility construction and installations are initially complete and facility has received certificate of occupancy or is in service",
+        "Length of exemption period from 7 to 15 years (post-construction) as established in agreement between business firm and zone sponsor",
+        "Name of rural enterprise zone, as sponsored by local city, port or county government(s) that entered into an agreement with business firm as part of local certification, in which facility is located",
+        "Name of the county in which is located the facility, as economically eligible or qualified at time of local agreement between business and zone sponsor"
+       ],
+       "columns_format": [
+        {},
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        },
+        {
+         "noCommas": "true",
+         "align": "center"
+        },
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        },
+        {
+         "displayStyle": "url"
+        },
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        },
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        },
+        {
+         "displayStyle": "checkmark",
+         "align": "center"
+        }
+       ],
+       "download_count": 1910,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-09-29T18:19:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Revenue & Expense",
+       "domain_tags": [
+        "ltrez",
+        "long term",
+        "enterprise zones",
+        "ez",
+        "rural enterprise zone",
+        "rural",
+        "long-term rural"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Information_Agency-Name",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Dataset-Information_Data-Change-Frequency",
+         "value": "Annually"
+        },
+        {
+         "key": "Dataset-Information_Data-Dictionary",
+         "value": "No"
+        },
+        {
+         "key": "Dataset-Information_Data-Publishing-Frequency",
+         "value": "Annually"
+        },
+        {
+         "key": "Dataset-Information_Geographic-Coverage",
+         "value": "Statewide"
+        },
+        {
+         "key": "Dataset-Information_Agency-URL",
+         "value": "https://www.oregon.gov/biz/Pages/default.aspx"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.oregon.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.oregon.gov/d/re77-krua",
+      "link": "https://data.oregon.gov/Revenue-Expense/Current-and-Proposed-Long-term-Rural-Enterprise-Zo/re77-krua",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 9,
+    "timings": {
+     "serviceMillis": 20,
+     "searchMillis": [
+      2,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/api/views/5fni-sp3g.json",
+   "status": 200,
+   "body": {
+    "id": "5fni-sp3g",
+    "name": "WQ Permit Fee Rulemaking 2015",
+    "assetType": "dataset",
+    "averageRating": 0,
+    "createdAt": 1441922156,
+    "description": "Public comment open September 15, 2015 through October 15, 2015.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 2060,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1455354055,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 13319027,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1442271334,
+    "publicationGroup": 4288835,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1455347844,
+    "tableId": 4332946,
+    "totalTimesRated": 0,
+    "viewCount": 893,
+    "viewLastModified": 1442271577,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 221905716,
+      "name": "First Name",
+      "dataTypeName": "text",
+      "fieldName": "first_name",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 31232003,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "3",
+       "null": "0",
+       "not_null": "3",
+       "count": "3",
+       "cardinality": "3"
+      },
+      "format": {}
+     },
+     {
+      "id": 221905720,
+      "name": "Last Name",
+      "dataTypeName": "text",
+      "fieldName": "last_name",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 31232004,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "3",
+       "null": "0",
+       "not_null": "3",
+       "count": "3",
+       "cardinality": "3"
+      },
+      "format": {}
+     },
+     {
+      "id": 221905723,
+      "name": "Email Address",
+      "dataTypeName": "text",
+      "fieldName": "email_address",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 31232028,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "3",
+       "null": "0",
+       "not_null": "3",
+       "count": "3",
+       "cardinality": "3"
+      },
+      "format": {
+       "displayStyle": "email"
+      }
+     },
+     {
+      "id": 221905727,
+      "name": "Organization",
+      "dataTypeName": "text",
+      "fieldName": "organization",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 31232052,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "3",
+       "null": "0",
+       "not_null": "3",
+       "count": "3",
+       "cardinality": "3"
+      },
+      "format": {}
+     },
+     {
+      "id": 221905728,
+      "name": "State",
+      "dataTypeName": "text",
+      "fieldName": "state",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 31232058,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "2",
+       "null": "1",
+       "not_null": "2",
+       "count": "3",
+       "cardinality": "2"
+      },
+      "format": {}
+     },
+     {
+      "id": 221905729,
+      "name": "Comment",
+      "dataTypeName": "text",
+      "fieldName": "comment",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 31232059,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "3",
+       "null": "0",
+       "not_null": "3",
+       "count": "3",
+       "cardinality": "3"
+      },
+      "format": {}
+     },
+     {
+      "id": 221905730,
+      "name": "Additional Document",
+      "dataTypeName": "document",
+      "fieldName": "additional_document",
+      "position": 7,
+      "renderTypeName": "document",
+      "tableColumnId": 31232060,
+      "width": 100,
+      "cachedContents": {
+       "non_null": 3,
+       "null": 0
+      },
+      "format": {},
+      "subColumnTypes": [
+       "content_type",
+       "file_id",
+       "filename",
+       "size"
+      ]
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "richRendererConfigs": {
+      "fatRow": {
+       "columns": [
+        {
+         "rows": [
+          {
+           "fields": [
+            {
+             "tableColumnId": 31232059,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232059,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 31232003,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232003,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 31232004,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232004,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 31232052,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232052,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 31232058,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232058,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 31232060,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 31232060,
+             "type": "columnData"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "Row",
+     "renderTypeConfig": {
+      "visible": {
+       "fatrow": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/resource/5fni-sp3g.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "3"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.oregon.gov/resource/5fni-sp3g.json?%24select=first_name%2C+last_name%2C+email_address%2C+organization%2C+state%2C+comment%2C+additional_document%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 3,
+    "keys": [
+     ":id",
+     "additional_document",
+     "comment",
+     "email_address",
+     "first_name",
+     "last_name",
+     "organization",
+     "state"
+    ],
+    "sha256": "18d333ac449113c3d765943097c15d20b7479133f5bfda3ecd0fa08e2c8ac02a"
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/api/views/hi9g-m7ts.json",
+   "status": 200,
+   "body": {
+    "id": "hi9g-m7ts",
+    "name": "Title V Permit Fee Rulemaking 2018",
+    "assetType": "dataset",
+    "averageRating": 0,
+    "createdAt": 1521132020,
+    "description": "DEQ invites the public to comment on this rulemaking from May 15 through June 21, 2018. Comments received outside of this time frame will not be considered.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 1217,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1528412494,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 28988759,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1528412090,
+    "publicationGroup": 14938066,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1528412381,
+    "tableId": 15258206,
+    "totalTimesRated": 0,
+    "viewCount": 729,
+    "viewLastModified": 1528412090,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 362635398,
+      "name": "First Name",
+      "dataTypeName": "text",
+      "fieldName": "first_name",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 62441776,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 362635399,
+      "name": "Last Name",
+      "dataTypeName": "text",
+      "fieldName": "last_name",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 62441777,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 362635400,
+      "name": "Email Address",
+      "dataTypeName": "text",
+      "fieldName": "email_address",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 62441825,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 362635401,
+      "name": "Organization",
+      "dataTypeName": "text",
+      "fieldName": "organization",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 62441875,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 362635402,
+      "name": "State",
+      "dataTypeName": "text",
+      "fieldName": "state",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 62441876,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 362635473,
+      "name": "Comment",
+      "dataTypeName": "text",
+      "fieldName": "comment",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 62441877,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "1",
+       "null": "0",
+       "not_null": "1",
+       "count": "1",
+       "cardinality": "1"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 362635404,
+      "name": "Additional Document",
+      "dataTypeName": "document",
+      "fieldName": "additional_document",
+      "position": 7,
+      "renderTypeName": "document",
+      "tableColumnId": 62441878,
+      "width": 100,
+      "cachedContents": {
+       "non_null": 1,
+       "null": 0
+      },
+      "format": {},
+      "subColumnTypes": [
+       "content_type",
+       "file_id",
+       "filename",
+       "size"
+      ]
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "richRendererConfigs": {
+      "fatRow": {
+       "columns": [
+        {
+         "rows": [
+          {
+           "fields": [
+            {
+             "tableColumnId": 62441877,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441877,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 62441776,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441776,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 62441777,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441777,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 62441875,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441875,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 62441876,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441876,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 62441878,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 62441878,
+             "type": "columnData"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "rdfSubject": "0",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "",
+     "renderTypeConfig": {
+      "visible": {
+       "fatrow": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/resource/hi9g-m7ts.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.oregon.gov/resource/hi9g-m7ts.json?%24select=first_name%2C+last_name%2C+email_address%2C+organization%2C+state%2C+comment%2C+additional_document%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 1,
+    "keys": [
+     ":id",
+     "comment",
+     "email_address",
+     "first_name",
+     "last_name",
+     "organization",
+     "state"
+    ],
+    "sha256": "0337a96701516ecaf8fc561fea0c283fc57a54a2fdc36a44e983d9134f1f672c"
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/api/views/j3rx-7bui.json",
+   "status": 200,
+   "body": {
+    "id": "j3rx-7bui",
+    "name": "2016 Solid Waste Permit Fee Rulemaking",
+    "assetType": "dataset",
+    "averageRating": 0,
+    "createdAt": 1444862337,
+    "description": "Comment period is from 10/15/15 to 11/23/15",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 1762,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1448332774,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 13997356,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1444925899,
+    "publicationGroup": 4847491,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1448323202,
+    "tableId": 4864409,
+    "totalTimesRated": 0,
+    "viewCount": 855,
+    "viewLastModified": 1444925900,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 226091652,
+      "name": "First Name",
+      "dataTypeName": "text",
+      "fieldName": "first_name",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 32020876,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "7",
+       "null": "0",
+       "count": "7",
+       "cardinality": "7"
+      },
+      "format": {}
+     },
+     {
+      "id": 226091653,
+      "name": "Last Name",
+      "dataTypeName": "text",
+      "fieldName": "last_name",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 32020884,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "7",
+       "null": "0",
+       "count": "7",
+       "cardinality": "7"
+      },
+      "format": {}
+     },
+     {
+      "id": 226091654,
+      "name": "Email",
+      "dataTypeName": "text",
+      "fieldName": "email",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 32020885,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "6",
+       "null": "1",
+       "count": "7",
+       "cardinality": "6"
+      },
+      "format": {
+       "displayStyle": "email"
+      }
+     },
+     {
+      "id": 226091655,
+      "name": "Organization",
+      "dataTypeName": "text",
+      "fieldName": "organization",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 32020907,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "5",
+       "null": "2",
+       "count": "7",
+       "cardinality": "5"
+      },
+      "format": {}
+     },
+     {
+      "id": 226091656,
+      "name": "State",
+      "dataTypeName": "text",
+      "fieldName": "state",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 32020934,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "7",
+       "null": "0",
+       "count": "7",
+       "cardinality": "1"
+      },
+      "format": {}
+     },
+     {
+      "id": 226091657,
+      "name": "Comment",
+      "dataTypeName": "text",
+      "fieldName": "comment",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 32020935,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "6",
+       "null": "1",
+       "count": "7",
+       "cardinality": "6"
+      },
+      "format": {}
+     },
+     {
+      "id": 226091658,
+      "name": "Additional Document",
+      "dataTypeName": "document",
+      "fieldName": "additional_document",
+      "position": 7,
+      "renderTypeName": "document",
+      "tableColumnId": 32020962,
+      "width": 100,
+      "cachedContents": {
+       "non_null": 7,
+       "null": 0
+      },
+      "format": {},
+      "subColumnTypes": [
+       "content_type",
+       "file_id",
+       "filename",
+       "size"
+      ]
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "richRendererConfigs": {
+      "fatRow": {
+       "columns": [
+        {
+         "rows": [
+          {
+           "fields": [
+            {
+             "tableColumnId": 32020935,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020935,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 32020876,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020876,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 32020884,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020884,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 32020907,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020907,
+             "type": "columnData"
+            },
+            {
+             "tableColumnId": 32020934,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020934,
+             "type": "columnData"
+            }
+           ]
+          },
+          {
+           "fields": [
+            {
+             "tableColumnId": 32020962,
+             "type": "columnLabel"
+            },
+            {
+             "tableColumnId": 32020962,
+             "type": "columnData"
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "Row",
+     "renderTypeConfig": {
+      "visible": {
+       "fatrow": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.oregon.gov/resource/j3rx-7bui.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "7"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.oregon.gov/resource/j3rx-7bui.json?%24select=first_name%2C+last_name%2C+email%2C+organization%2C+state%2C+comment%2C+additional_document%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 7,
+    "keys": [
+     ":id",
+     "additional_document",
+     "comment",
+     "email",
+     "first_name",
+     "last_name",
+     "organization",
+     "state"
+    ],
+    "sha256": "e60de452696de9af38901da35373c50487d33787bc4a976f666824cb81200871"
+   }
+  }
+ ]
+}

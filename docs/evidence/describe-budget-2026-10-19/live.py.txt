@@ -1,0 +1,19 @@
+import asyncio, json, time
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+async def main():
+    async with Client(build_server()) as c:
+        t = time.monotonic()
+        r = await c.call_tool_mcp("atlas_describe_dataset", {"portal": "chicago", "dataset_id": "ijzp-q8t2", "detail": "full"})
+        secs = round(time.monotonic() - t, 1)
+        d = r.model_dump(mode="json", by_alias=True, exclude_none=True)
+        s = d.get("structuredContent") or {}
+        out = {"call": "atlas_describe_dataset {portal: chicago, dataset_id: ijzp-q8t2, detail: full} (in-process, m5 worktree, phase budget applied, uncommitted)", "seconds": secs, "isError": d.get("isError")}
+        if d.get("isError"):
+            out["code"] = s.get("code"); out["repair_arguments"] = (s.get("repair") or {}).get("arguments")
+        else:
+            pf = s.get("place_fields", [])
+            out["ok"] = sum(p.get("stats_status") == "ok" for p in pf); out["total"] = len(pf)
+            out["place_fields"] = [{"column": p["column"], "kind": p["kind"], "stats_status": p.get("stats_status"), "value_count": p.get("value_count"), "values_n": len(p.get("values") or []), "labels_available": p.get("labels_available")} for p in pf]
+        print(json.dumps(out, indent=1))
+asyncio.run(main())

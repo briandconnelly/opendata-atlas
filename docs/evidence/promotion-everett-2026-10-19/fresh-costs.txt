@@ -1,0 +1,10 @@
+evals/results/none-known-positive.transcript.jsonl UNRESOLVED: missing
+evals/results/2026-10-19-m6-everett-1/01-port-gardner-last-month.transcript.jsonl 0.1313988
+evals/results/2026-10-19-m6-everett-1/02-gang-crimes-2025.transcript.jsonl 0.109879
+evals/results/2026-10-19-m6-everett-1/03-restaurant-inspections.transcript.jsonl 0.1525078
+evals/results/2026-10-19-m6-everett-2/01-port-gardner-last-month.transcript.jsonl 0.1277428
+evals/results/2026-10-19-m6-everett-2/02-gang-crimes-2025.transcript.jsonl 0.10291679999999999
+evals/results/2026-10-19-m6-everett-2/03-restaurant-inspections.transcript.jsonl 0.09339800000000001
+evals/results/2026-10-19-m6-everett-3/01-port-gardner-last-month.transcript.jsonl 0.1261948
+evals/results/2026-10-19-m6-everett-3/02-gang-crimes-2025.transcript.jsonl 0.1134216
+evals/results/2026-10-19-m6-everett-3/03-restaurant-inspections.transcript.jsonl 0.0853836

@@ -1,0 +1,17 @@
+{
+ "run": "everett-run2",
+ "base": "3cea5d69c73f09d35d3a2a139d6453539dbbaa90",
+ "branch": "curate/test-2026-10-19",
+ "worktree": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run2/test_curation_skill_produces_a0/wt",
+ "transcript": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run2/test_curation_skill_produces_a0/curation.transcript.jsonl",
+ "pytest_exit": 0,
+ "artifacts": {
+  "summary.json": "present",
+  "curation.transcript.jsonl": "present",
+  "evals": "present",
+  "wt/.curation/evals-1": "present",
+  "wt/.curation/evals-2": "present",
+  "wt/.curation/evals-3": "present"
+ },
+ "kept_worktree": null
+}

@@ -1,0 +1,1133 @@
+{
+ "requested_at": "2026-10-18T22:59:54.310178+00:00",
+ "tool": "atlas_describe_dataset",
+ "arguments": {
+  "portal": "seattle",
+  "dataset_id": "tazs-3rd5",
+  "detail": "full"
+ },
+ "server_args": [
+  "--validation",
+  "evals/fixtures/validation-stale.json"
+ ],
+ "is_error": false,
+ "structuredContent": {
+  "dataset_id": "tazs-3rd5",
+  "title": "SPD Crime Data: 2008-Present",
+  "queryability": "supported",
+  "row_count": {
+   "value": 1568849,
+   "origin": "live_query",
+   "status": "ok"
+  },
+  "data_coverage": [
+   {
+    "column": "report_date_time",
+    "min": "1975-12-16T15:00:00.000",
+    "max": "2026-10-17T21:23:31.000",
+    "origin": "live_query",
+    "status": "ok"
+   }
+  ],
+  "columns": [
+   {
+    "name": "report_number",
+    "type": "text",
+    "description": "Primary key/UID for the overall report. One report can contain multiple offenses, as denoted by the Offense ID.",
+    "stats": {
+     "top": [
+      "2023-018027",
+      "2025-162098",
+      "2023-124881",
+      "2023-346113",
+      "2024-337659"
+     ],
+     "smallest": "1919-343672",
+     "largest": "2120-096194",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "report_date_time",
+    "type": "calendar_date",
+    "description": "Date and time the offense(s) was reported. (Can differ from date of occurrence)",
+    "stats": {
+     "top": [
+      "2025-06-12T13:34:51.000",
+      "2023-02-02T16:56:16.000",
+      "2023-05-08T10:16:03.000",
+      "2023-12-01T19:06:31.000",
+      "2025-07-01T09:30:10.000"
+     ],
+     "smallest": "1975-12-16T15:00:00.000",
+     "largest": "2026-10-17T21:23:31.000",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "offense_id",
+    "type": "text",
+    "description": "Distinct identifier to denote when there are multiple offenses associated with a single report.",
+    "stats": {
+     "top": [
+      "71549966187",
+      "71446625503",
+      "71550484989",
+      "70507901970",
+      "70507823258"
+     ],
+     "smallest": "10000684691",
+     "largest": "9999918849",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "offense_date",
+    "type": "calendar_date",
+    "description": "Date of Offense is the Offense start date and if null then Event Start Date.",
+    "stats": {
+     "top": [
+      "2020-03-08T00:00:00.000",
+      "2020-05-01T00:00:00.000",
+      "2020-03-15T00:00:00.000",
+      "2020-04-01T00:00:00.000",
+      "2020-05-10T00:00:00.000"
+     ],
+     "smallest": "1900-01-01T00:00:00.000",
+     "largest": "2026-10-17T20:29:00.000",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "nibrs_group_a_b",
+    "type": "text",
+    "description": "Corresponding offense group.",
+    "stats": {
+     "top": [
+      "A",
+      "B",
+      "-"
+     ],
+     "smallest": "-",
+     "largest": "B",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "nibrs_crime_against_category",
+    "type": "text",
+    "description": "Corresponding offense crime against category.",
+    "stats": {
+     "top": [
+      "PROPERTY",
+      "PERSON",
+      "ANY",
+      "SOCIETY",
+      "NOT_A_CRIME"
+     ],
+     "smallest": "-",
+     "largest": "SOCIETY",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "offense_sub_category",
+    "type": "text",
+    "description": "Categorization of Offense Codes (NIBRS Codes) into Sub Categories for reporting. Data Driven refers to these as Offense.",
+    "stats": {
+     "top": [
+      "LARCENY-THEFT",
+      "ALL OTHER",
+      "BURGLARY",
+      "ASSAULT OFFENSES",
+      "PROPERTY OFFENSES (INCLUDES STOLEN, DESTRUCTION)"
+     ],
+     "smallest": "999",
+     "largest": "WEAPON LAW VIOLATION",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "shooting_type_group",
+    "type": "text",
+    "description": "Shots Fired Event statistic only, other event statistics not included. Used to identify shots fired records.",
+    "stats": {
+     "top": [
+      "-",
+      "Shots Fired (Eyewitness/Casings/Property Damage)",
+      "Shooting (Non-Fatal Injury)",
+      "Shooting (Fatal Injury)"
+     ],
+     "smallest": "-",
+     "largest": "Shots Fired (Eyewitness/Casings/Property Damage)",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "block_address",
+    "type": "text",
+    "description": "Offense(s) address location blurred to the one hundred block.",
+    "stats": {
+     "top": [
+      "REDACTED",
+      "-",
+      "4XX BLOCK OF NE NORTHGATE WAY",
+      "14XX BLOCK OF S LANE ST",
+      "14XX BLOCK OF BROADWAY"
+     ],
+     "smallest": "-",
+     "largest": "YUKON AVE S / S HENDERSON ST",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "latitude",
+    "type": "text",
+    "description": "Offense(s) spatial coordinate blurred to the one hundred block.",
+    "stats": {
+     "top": [
+      "REDACTED",
+      "-1.0",
+      "47.7086028",
+      "47.59665466",
+      "47.72503555"
+     ],
+     "smallest": "-1.0",
+     "largest": "REDACTED",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "longitude",
+    "type": "text",
+    "description": "Offense(s) spatial coordinate blurred to the one hundred block.",
+    "stats": {
+     "top": [
+      "REDACTED",
+      "-1.0",
+      "-122.324615154453",
+      "-122.31343650376",
+      "-122.327680645916"
+     ],
+     "smallest": "-0.793982400354556",
+     "largest": "REDACTED",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "beat",
+    "type": "text",
+    "description": "Designated police sector boundary where offense(s) occurred.",
+    "stats": {
+     "top": [
+      "K3",
+      "U1",
+      "E2",
+      "Q3",
+      "B2"
+     ],
+     "smallest": "-",
+     "largest": "W3",
+     "null": 0,
+     "origin": "cached_metadata"
+    },
+    "knowledge": {
+     "level": "reviewed",
+     "validation": "unchecked"
+    }
+   },
+   {
+    "name": "precinct",
+    "type": "text",
+    "description": "Designated police precinct boundary where offense(s) occurred.",
+    "stats": {
+     "top": [
+      "North",
+      "West",
+      "East",
+      "South",
+      "Southwest"
+     ],
+     "smallest": "-",
+     "largest": "West",
+     "null": 0,
+     "origin": "cached_metadata"
+    },
+    "knowledge": {
+     "level": "reviewed",
+     "validation": "unchecked"
+    }
+   },
+   {
+    "name": "sector",
+    "type": "text",
+    "description": "Designated police sector boundary where offense(s) occurred.",
+    "stats": {
+     "top": [
+      "U",
+      "E",
+      "K",
+      "B",
+      "D"
+     ],
+     "smallest": "-",
+     "largest": "W",
+     "null": 0,
+     "origin": "cached_metadata"
+    },
+    "knowledge": {
+     "level": "reviewed",
+     "validation": "stale"
+    }
+   },
+   {
+    "name": "neighborhood",
+    "type": "text",
+    "description": "Designated Micro-Community Policing Plans (MCPP) boundary where offense(s) occurred.",
+    "stats": {
+     "top": [
+      "-",
+      "DOWNTOWN COMMERCIAL",
+      "CAPITOL HILL",
+      "NORTHGATE",
+      "QUEEN ANNE"
+     ],
+     "smallest": "-",
+     "largest": "WALLINGFORD",
+     "null": 0,
+     "origin": "cached_metadata"
+    },
+    "knowledge": {
+     "level": "reviewed",
+     "validation": "unchecked"
+    }
+   },
+   {
+    "name": "reporting_area",
+    "type": "text",
+    "description": "Geographic reporting area of the Report Location from Mark43.",
+    "stats": {
+     "top": [
+      "REDACTED",
+      "-",
+      "2055",
+      "4115",
+      "6612"
+     ],
+     "smallest": "-",
+     "largest": "REDACTED",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "offense_category",
+    "type": "text",
+    "description": "Grouping of Offense Sub Categories for reporting. These include Violent, Property. Data Driven refers to these as Offense Category.",
+    "stats": {
+     "top": [
+      "ALL OTHER",
+      "PROPERTY CRIME",
+      "VIOLENT CRIME"
+     ],
+     "smallest": "ALL OTHER",
+     "largest": "VIOLENT CRIME",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "nibrs_offense_code_description",
+    "type": "text",
+    "description": "NIBRS Offense code description",
+    "stats": {
+     "top": [
+      "Theft From Motor Vehicle",
+      "All Other Offenses",
+      "Burglary/Breaking & Entering",
+      "Destruction/Damage/Vandalism of Property",
+      "All Other Larceny"
+     ],
+     "smallest": "-",
+     "largest": "Wire Fraud",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "nibrs_offense_code",
+    "type": "text",
+    "description": "Reported NIBRS offense code",
+    "stats": {
+     "top": [
+      "23F",
+      "90Z",
+      "220",
+      "290",
+      "23H"
+     ],
+     "smallest": "-",
+     "largest": "999",
+     "null": 0,
+     "origin": "cached_metadata"
+    }
+   },
+   {
+    "name": "census_block_2020",
+    "type": "text",
+    "description": "The census tract represents small-area neighborhood units, while the census block is the smallest geographic unit used by the United States Census Bureau for tabulating data. Census tracts and blocks allow for the analysis of demographic and housing information. The field contains the Census Tract ID and Census Block ID as one string with both IDs separated by a period. This string is derived from the 2020 Census.",
+    "stats": {
+     "top": [
+      "-",
+      "REDACTED",
+      "4301.1010",
+      "11402.1010",
+      "9000.1024"
+     ],
+     "smallest": "-",
+     "largest": "REDACTED",
+     "null": 3,
+     "origin": "cached_metadata"
+    }
+   }
+  ],
+  "columns_total": 20,
+  "has_more_columns": false,
+  "stats_available": true,
+  "place_fields": [
+   {
+    "column": "neighborhood",
+    "kind": "neighborhood",
+    "source": "column",
+    "reliability": "partial",
+    "reliability_reason": "Placeholder ('-') for nearly all offenses before 2017; 1-4% missing since. Do not use for 2008-2016.",
+    "value_count": 58,
+    "values": [
+     {
+      "label": "ALASKA JUNCTION",
+      "value": "ALASKA JUNCTION"
+     },
+     {
+      "label": "ALKI",
+      "value": "ALKI"
+     },
+     {
+      "label": "BALLARD NORTH",
+      "value": "BALLARD NORTH"
+     },
+     {
+      "label": "BALLARD SOUTH",
+      "value": "BALLARD SOUTH"
+     },
+     {
+      "label": "BELLTOWN",
+      "value": "BELLTOWN"
+     },
+     {
+      "label": "BITTERLAKE",
+      "value": "BITTERLAKE"
+     },
+     {
+      "label": "BRIGHTON/DUNLAP",
+      "value": "BRIGHTON/DUNLAP"
+     },
+     {
+      "label": "CAPITOL HILL",
+      "value": "CAPITOL HILL"
+     },
+     {
+      "label": "CENTRAL AREA/SQUIRE PARK",
+      "value": "CENTRAL AREA/SQUIRE PARK"
+     },
+     {
+      "label": "CHINATOWN/INTERNATIONAL DISTRICT",
+      "value": "CHINATOWN/INTERNATIONAL DISTRICT"
+     },
+     {
+      "label": "CLAREMONT/RAINIER VISTA",
+      "value": "CLAREMONT/RAINIER VISTA"
+     },
+     {
+      "label": "COLUMBIA CITY",
+      "value": "COLUMBIA CITY"
+     },
+     {
+      "label": "COMMERCIAL DUWAMISH",
+      "value": "COMMERCIAL DUWAMISH"
+     },
+     {
+      "label": "COMMERCIAL HARBOR ISLAND",
+      "value": "COMMERCIAL HARBOR ISLAND"
+     },
+     {
+      "label": "DOWNTOWN COMMERCIAL",
+      "value": "DOWNTOWN COMMERCIAL"
+     },
+     {
+      "label": "EASTLAKE - EAST",
+      "value": "EASTLAKE - EAST"
+     },
+     {
+      "label": "EASTLAKE - WEST",
+      "value": "EASTLAKE - WEST"
+     },
+     {
+      "label": "FAUNTLEROY SW",
+      "value": "FAUNTLEROY SW"
+     },
+     {
+      "label": "FIRST HILL",
+      "value": "FIRST HILL"
+     },
+     {
+      "label": "FREMONT",
+      "value": "FREMONT"
+     },
+     {
+      "label": "GENESEE",
+      "value": "GENESEE"
+     },
+     {
+      "label": "GEORGETOWN",
+      "value": "GEORGETOWN"
+     },
+     {
+      "label": "GREENWOOD",
+      "value": "GREENWOOD"
+     },
+     {
+      "label": "HIGH POINT",
+      "value": "HIGH POINT"
+     },
+     {
+      "label": "HIGHLAND PARK",
+      "value": "HIGHLAND PARK"
+     },
+     {
+      "label": "HILLMAN CITY",
+      "value": "HILLMAN CITY"
+     },
+     {
+      "label": "JUDKINS PARK/NORTH BEACON HILL",
+      "value": "JUDKINS PARK/NORTH BEACON HILL"
+     },
+     {
+      "label": "LAKECITY",
+      "value": "LAKECITY"
+     },
+     {
+      "label": "LAKEWOOD/SEWARD PARK",
+      "value": "LAKEWOOD/SEWARD PARK"
+     },
+     {
+      "label": "MADISON PARK",
+      "value": "MADISON PARK"
+     },
+     {
+      "label": "MADRONA/LESCHI",
+      "value": "MADRONA/LESCHI"
+     },
+     {
+      "label": "MAGNOLIA",
+      "value": "MAGNOLIA"
+     },
+     {
+      "label": "MID BEACON HILL",
+      "value": "MID BEACON HILL"
+     },
+     {
+      "label": "MILLER PARK",
+      "value": "MILLER PARK"
+     },
+     {
+      "label": "MONTLAKE/PORTAGE BAY",
+      "value": "MONTLAKE/PORTAGE BAY"
+     },
+     {
+      "label": "MORGAN",
+      "value": "MORGAN"
+     },
+     {
+      "label": "MOUNT BAKER",
+      "value": "MOUNT BAKER"
+     },
+     {
+      "label": "NEW HOLLY",
+      "value": "NEW HOLLY"
+     },
+     {
+      "label": "NORTH ADMIRAL",
+      "value": "NORTH ADMIRAL"
+     },
+     {
+      "label": "NORTH BEACON HILL",
+      "value": "NORTH BEACON HILL"
+     },
+     {
+      "label": "NORTH DELRIDGE",
+      "value": "NORTH DELRIDGE"
+     },
+     {
+      "label": "NORTHGATE",
+      "value": "NORTHGATE"
+     },
+     {
+      "label": "PHINNEY RIDGE",
+      "value": "PHINNEY RIDGE"
+     },
+     {
+      "label": "PIGEON POINT",
+      "value": "PIGEON POINT"
+     },
+     {
+      "label": "PIONEER SQUARE",
+      "value": "PIONEER SQUARE"
+     },
+     {
+      "label": "QUEEN ANNE",
+      "value": "QUEEN ANNE"
+     },
+     {
+      "label": "RAINIER BEACH",
+      "value": "RAINIER BEACH"
+     },
+     {
+      "label": "RAINIER VIEW",
+      "value": "RAINIER VIEW"
+     },
+     {
+      "label": "ROOSEVELT/RAVENNA",
+      "value": "ROOSEVELT/RAVENNA"
+     },
+     {
+      "label": "ROXHILL/WESTWOOD/ARBOR HEIGHTS",
+      "value": "ROXHILL/WESTWOOD/ARBOR HEIGHTS"
+     },
+     {
+      "label": "SANDPOINT",
+      "value": "SANDPOINT"
+     },
+     {
+      "label": "SLU/CASCADE",
+      "value": "SLU/CASCADE"
+     },
+     {
+      "label": "SODO",
+      "value": "SODO"
+     },
+     {
+      "label": "SOUTH BEACON HILL",
+      "value": "SOUTH BEACON HILL"
+     },
+     {
+      "label": "SOUTH DELRIDGE",
+      "value": "SOUTH DELRIDGE"
+     },
+     {
+      "label": "SOUTH PARK",
+      "value": "SOUTH PARK"
+     },
+     {
+      "label": "UNIVERSITY",
+      "value": "UNIVERSITY"
+     },
+     {
+      "label": "WALLINGFORD",
+      "value": "WALLINGFORD"
+     }
+    ],
+    "placeholder_values": [
+     {
+      "value": "-",
+      "rows": 745999
+     },
+     {
+      "value": "UNKNOWN",
+      "rows": 5998
+     },
+     {
+      "value": "OOJ",
+      "rows": 25
+     },
+     {
+      "value": "FK ERROR",
+      "rows": 2
+     }
+    ],
+    "assigned_fraction": 0.5207,
+    "null_rows": 0,
+    "non_null_rows": 1568849,
+    "stats_status": "ok"
+   },
+   {
+    "column": "precinct",
+    "kind": "precinct",
+    "source": "column",
+    "reliability": "ok",
+    "value_count": 5,
+    "values": [
+     {
+      "label": "East",
+      "value": "East"
+     },
+     {
+      "label": "North",
+      "value": "North"
+     },
+     {
+      "label": "South",
+      "value": "South"
+     },
+     {
+      "label": "Southwest",
+      "value": "Southwest"
+     },
+     {
+      "label": "West",
+      "value": "West"
+     }
+    ],
+    "placeholder_values": [
+     {
+      "value": "-",
+      "rows": 9778
+     },
+     {
+      "value": "OOJ",
+      "rows": 5602
+     }
+    ],
+    "assigned_fraction": 0.9902,
+    "null_rows": 0,
+    "non_null_rows": 1568849,
+    "stats_status": "ok"
+   },
+   {
+    "column": "sector",
+    "kind": "sector",
+    "source": "column",
+    "reliability": "unknown",
+    "reliability_reason": "Reviewed as ok, but its checks last ran on 2026-01-01, over 180 days ago; treat its coverage as unknown.",
+    "validation": "stale",
+    "value_count": 19,
+    "values": [
+     {
+      "label": "99",
+      "value": "99"
+     },
+     {
+      "label": "B",
+      "value": "B"
+     },
+     {
+      "label": "C",
+      "value": "C"
+     },
+     {
+      "label": "D",
+      "value": "D"
+     },
+     {
+      "label": "E",
+      "value": "E"
+     },
+     {
+      "label": "F",
+      "value": "F"
+     },
+     {
+      "label": "G",
+      "value": "G"
+     },
+     {
+      "label": "H",
+      "value": "H"
+     },
+     {
+      "label": "J",
+      "value": "J"
+     },
+     {
+      "label": "K",
+      "value": "K"
+     },
+     {
+      "label": "L",
+      "value": "L"
+     },
+     {
+      "label": "M",
+      "value": "M"
+     },
+     {
+      "label": "N",
+      "value": "N"
+     },
+     {
+      "label": "O",
+      "value": "O"
+     },
+     {
+      "label": "Q",
+      "value": "Q"
+     },
+     {
+      "label": "R",
+      "value": "R"
+     },
+     {
+      "label": "S",
+      "value": "S"
+     },
+     {
+      "label": "U",
+      "value": "U"
+     },
+     {
+      "label": "W",
+      "value": "W"
+     }
+    ],
+    "placeholder_values": [
+     {
+      "value": "-",
+      "rows": 11222
+     },
+     {
+      "value": "OOJ",
+      "rows": 157
+     }
+    ],
+    "assigned_fraction": 0.9927,
+    "null_rows": 0,
+    "non_null_rows": 1568849,
+    "stats_status": "ok"
+   },
+   {
+    "column": "beat",
+    "kind": "beat",
+    "source": "column",
+    "reliability": "ok",
+    "value_count": 53,
+    "values": [
+     {
+      "label": "99",
+      "value": "99"
+     },
+     {
+      "label": "B1",
+      "value": "B1"
+     },
+     {
+      "label": "B2",
+      "value": "B2"
+     },
+     {
+      "label": "B3",
+      "value": "B3"
+     },
+     {
+      "label": "C1",
+      "value": "C1"
+     },
+     {
+      "label": "C2",
+      "value": "C2"
+     },
+     {
+      "label": "C3",
+      "value": "C3"
+     },
+     {
+      "label": "D1",
+      "value": "D1"
+     },
+     {
+      "label": "D2",
+      "value": "D2"
+     },
+     {
+      "label": "D3",
+      "value": "D3"
+     },
+     {
+      "label": "E1",
+      "value": "E1"
+     },
+     {
+      "label": "E2",
+      "value": "E2"
+     },
+     {
+      "label": "E3",
+      "value": "E3"
+     },
+     {
+      "label": "F1",
+      "value": "F1"
+     },
+     {
+      "label": "F2",
+      "value": "F2"
+     },
+     {
+      "label": "F3",
+      "value": "F3"
+     },
+     {
+      "label": "G1",
+      "value": "G1"
+     },
+     {
+      "label": "G2",
+      "value": "G2"
+     },
+     {
+      "label": "G3",
+      "value": "G3"
+     },
+     {
+      "label": "H1",
+      "value": "H1"
+     },
+     {
+      "label": "J1",
+      "value": "J1"
+     },
+     {
+      "label": "J2",
+      "value": "J2"
+     },
+     {
+      "label": "J3",
+      "value": "J3"
+     },
+     {
+      "label": "K1",
+      "value": "K1"
+     },
+     {
+      "label": "K2",
+      "value": "K2"
+     },
+     {
+      "label": "K3",
+      "value": "K3"
+     },
+     {
+      "label": "L1",
+      "value": "L1"
+     },
+     {
+      "label": "L2",
+      "value": "L2"
+     },
+     {
+      "label": "L3",
+      "value": "L3"
+     },
+     {
+      "label": "M1",
+      "value": "M1"
+     },
+     {
+      "label": "M2",
+      "value": "M2"
+     },
+     {
+      "label": "M3",
+      "value": "M3"
+     },
+     {
+      "label": "N1",
+      "value": "N1"
+     },
+     {
+      "label": "N2",
+      "value": "N2"
+     },
+     {
+      "label": "N3",
+      "value": "N3"
+     },
+     {
+      "label": "O1",
+      "value": "O1"
+     },
+     {
+      "label": "O2",
+      "value": "O2"
+     },
+     {
+      "label": "O3",
+      "value": "O3"
+     },
+     {
+      "label": "Q1",
+      "value": "Q1"
+     },
+     {
+      "label": "Q2",
+      "value": "Q2"
+     },
+     {
+      "label": "Q3",
+      "value": "Q3"
+     },
+     {
+      "label": "R1",
+      "value": "R1"
+     },
+     {
+      "label": "R2",
+      "value": "R2"
+     },
+     {
+      "label": "R3",
+      "value": "R3"
+     },
+     {
+      "label": "S1",
+      "value": "S1"
+     },
+     {
+      "label": "S2",
+      "value": "S2"
+     },
+     {
+      "label": "S3",
+      "value": "S3"
+     },
+     {
+      "label": "U1",
+      "value": "U1"
+     },
+     {
+      "label": "U2",
+      "value": "U2"
+     },
+     {
+      "label": "U3",
+      "value": "U3"
+     },
+     {
+      "label": "W1",
+      "value": "W1"
+     },
+     {
+      "label": "W2",
+      "value": "W2"
+     },
+     {
+      "label": "W3",
+      "value": "W3"
+     }
+    ],
+    "placeholder_values": [
+     {
+      "value": "-",
+      "rows": 11232
+     },
+     {
+      "value": "OOJ",
+      "rows": 155
+     }
+    ],
+    "assigned_fraction": 0.9927,
+    "null_rows": 0,
+    "non_null_rows": 1568849,
+    "stats_status": "ok"
+   }
+  ],
+  "geo_columns": [],
+  "geo_unusable": [
+   {
+    "column": "latitude",
+    "reason": "Text coordinate column (values may be redacted); near cannot use it."
+   },
+   {
+    "column": "longitude",
+    "reason": "Text coordinate column (values may be redacted); near cannot use it."
+   }
+  ],
+  "time_semantics": [
+   {
+    "column": "report_date_time",
+    "type": "calendar_date"
+   },
+   {
+    "column": "offense_date",
+    "type": "calendar_date"
+   }
+  ],
+  "knowledge": {
+   "level": "none",
+   "validation": "stale"
+  },
+  "unit_of_observation": {
+   "unit": "offense"
+  },
+  "guide_uri": "opendata-atlas://portals/data.seattle.gov/guides/spd-crime",
+  "example_queries": [
+   {
+    "question": "How many offenses of each category occurred in 2025?",
+    "arguments": {
+     "portal": "seattle",
+     "dataset_id": "tazs-3rd5",
+     "select": [
+      "offense_category",
+      "count(*) AS offenses"
+     ],
+     "where": "offense_date between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+     "group_by": [
+      "offense_category"
+     ],
+     "order_by": [
+      "offenses DESC"
+     ]
+    }
+   },
+   {
+    "question": "How many reports did each precinct take in 2025?",
+    "arguments": {
+     "portal": "seattle",
+     "dataset_id": "tazs-3rd5",
+     "select": [
+      "precinct",
+      "count(distinct report_number) AS reports"
+     ],
+     "where": "report_date_time between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+     "group_by": [
+      "precinct"
+     ],
+     "order_by": [
+      "reports DESC"
+     ]
+    }
+   }
+  ],
+  "source": {
+   "request_id": "016d239f448749c9",
+   "portal": {
+    "id": "data.seattle.gov",
+    "alias": "seattle",
+    "name": "City of Seattle",
+    "tier": "curated",
+    "timezone": "America/Los_Angeles"
+   },
+   "now_local": "2026-10-18T15:59:54-07:00",
+   "retrieved_at": "2026-10-18T22:59:54Z"
+  }
+ }
+}

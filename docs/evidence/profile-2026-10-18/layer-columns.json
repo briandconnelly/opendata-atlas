@@ -1,0 +1,262 @@
+{
+  "fetched_at": "2026-10-18T22:52:28+00:00",
+  "request": "GET https://data.lacity.org/api/views/<layer>.json (columns' fieldName and dataTypeName kept)",
+  "layers": {
+    "qz3q-ghft": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "objectid",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "zcta5ce10",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "geoid10",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "classfp10",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "mtfcc10",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "funcstat10",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "aland10",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "awater10",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "shape_leng",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "shape_area",
+        "dataTypeName": "number"
+      }
+    ],
+    "kqwf-mjcx": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "objectid",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "name",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "district",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "dist_name",
+        "dataTypeName": "text"
+      }
+    ],
+    "k96s-3jcv": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "slug",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "set",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "kind",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "external_i",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "name",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "display_na",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "intptlat",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "name_1",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "intptlon",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "funcstat",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "geoid",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "awater",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "countyfp",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "namelsad",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "mtfcc",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "tractce",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "statefp",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "aland",
+        "dataTypeName": "text"
+      }
+    ],
+    "tatf-ua23": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "objectid",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "cnsld",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "vbm",
+        "dataTypeName": "text"
+      }
+    ],
+    "ur2y-g4cx": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "spa_nm",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "shape_leng",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "shape_area",
+        "dataTypeName": "number"
+      }
+    ],
+    "2dna-qi2s": [
+      {
+        "fieldName": "_feature_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "_feature_id_string",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "the_geom",
+        "dataTypeName": "multipolygon"
+      },
+      {
+        "fieldName": "name",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "waddress",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "dwebsite",
+        "dataTypeName": "text"
+      },
+      {
+        "fieldName": "nc_id",
+        "dataTypeName": "number"
+      },
+      {
+        "fieldName": "service_re",
+        "dataTypeName": "text"
+      }
+    ]
+  }
+}

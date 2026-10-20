@@ -1,0 +1,32 @@
+[
+  {
+    "id": "25-wrong-portal",
+    "prompt": "How many crimes were reported in Chicago last month?",
+    "expect": "Queries Chicago (`portal` resolves to data.cityofchicago.org), never Seattle."
+  },
+  {
+    "id": "26-ambiguous-place",
+    "prompt": "Show me building permits in Cook County.",
+    "expect": "Uses the Cook County portal (datacatalog.cookcountyil.gov), or asks whether the city or the county is meant; never silently uses the City of Chicago."
+  },
+  {
+    "id": "28-generic-text-place",
+    "prompt": "How many crimes were reported in the Hollywood neighborhood of Los Angeles in September 2026?",
+    "expect": "Uses LAPD NIBRS Offenses (k7nn-b2ep on generic portal data.lacity.org; text place column area_name, no computed-region columns). Follows the exploratory path: groups area_name, then filters on the returned value (live group-by on 2026-10-18 returned 'Hollywood' space-padded, about 1,000 rows for September 2026 by date_rptd (as of 2026-10-18); an unpadded 'Hollywood' filter returns 0), not 'N Hollywood'. Says the field is unverified (area_name is an LAPD area, not a reviewed neighborhood boundary)."
+  },
+  {
+    "id": "29-multi-zone",
+    "prompt": "How many new TABC alcohol licenses were issued in Texas last month?",
+    "expect": "Uses data.texas.gov (multi-zone portal: describe gives now_local_reason multi_zone, no now_local). States the absolute dates used for 'last month' (e.g. 2026-09-01 to 2026-09-30), or asks the user."
+  },
+  {
+    "id": "31-knowledge-gap-offer",
+    "prompt": "Using LAPD's crime data, how many offenses were reported in the Hollywood area last month?",
+    "expect": "Answers from data.lacity.org `k7nn-b2ep`, caveats `area_name` as unverified or padded, and offers the user a knowledge-gap issue (portal, dataset, column, what misled) without claiming to have filed one."
+  },
+  {
+    "id": "32-city-data-at-county",
+    "prompt": "How many restaurant health inspections were there in Seattle last month?",
+    "expect": "Reference (probed 2026-10-19, so last month is September 2026 via now_local): data.seattle.gov publishes no food or restaurant inspection dataset (searches for food establishment inspections, restaurant inspections, health inspection and food return none). King County's portal does: Food Establishment Inspection Data (r878-4sxa on data.kingcounty.gov), county-wide, one row per violation with a shared inspection_serial_num, text column city in mixed case. For inspection_date 2026-09-01..2026-09-30 and upper(city) = 'SEATTLE' it gives 868 inspections (distinct inspection_serial_num) in 1,487 rows. PASS: says Seattle's portal does not publish it and uses King County's, stating that the data is county-wide and filtered to Seattle. PARTIAL: uses King County without saying so. FAIL: says no data exists, or invents a number. The count is graded only for invention; the reference values are for checking it."
+  }
+]

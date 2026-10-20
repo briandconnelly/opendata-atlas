@@ -1,0 +1,7 @@
+import json, sys, httpx
+layer, params, out = sys.argv[1], json.loads(sys.argv[2]), sys.argv[3]
+url = f"https://data.cityofchicago.org/resource/{layer}.json"
+r = httpx.get(url, params=params, timeout=120)
+rec = {"url": str(r.request.url), "status": r.status_code, "body": r.json() if r.status_code == 200 else r.text}
+open(out, "w").write(json.dumps(rec, indent=1))
+print(json.dumps(rec, indent=1)[:4000])

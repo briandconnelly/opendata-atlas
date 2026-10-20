@@ -1,0 +1,69 @@
+name: Drift checks
+
+# Re-run every pack assertion live each week, and open (or update) one issue per portal
+# whose claims are contradicted or could not be checked.
+#
+# UNEXERCISED: this repository has no remote yet, so this workflow has never run on GitHub.
+# tests/test_workflows.py checks its shape and runs its issue loop against a stub `gh`; the
+# first real run is the first real test. Check the first run by hand.
+
+on:
+  schedule:
+    - cron: "41 15 * * 1" # Mondays 15:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    name: Drift checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          enable-cache: true
+          prune-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Sync dependencies
+        run: uv sync --locked
+
+      # Failing claims are reported as issues below, so a red drift run does not stop them.
+      - name: Drift run
+        continue-on-error: true
+        env:
+          # Optional: a Socrata app token raises the anonymous rate limit.
+          SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+        run: uv run pytest --run-integration -m integration tests/test_drift.py --drift-report drift-report.json
+
+      - name: Write issue bodies
+        if: always()
+        # A missing or unreadable report (the run failed before any claim) gives a `Drift: run failed` issue.
+        run: uv run python scripts/drift_issues.py drift-report.json --out drift-issues --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Open or update drift issues
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        # `bash` adds pipefail: a failed `gh issue list` stops the step instead of opening a duplicate.
+        shell: bash
+        run: |
+          gh label create drift --description "A pack claim no longer holds upstream" --force
+          while IFS=$'\t' read -r portal title; do
+            number=$(gh issue list --label drift --state open --search "$title in:title" \
+              --json number,title | jq -r --arg t "$title" '.[] | select(.title == $t) | .number' | head -n 1)
+            if [ -n "$number" ]; then
+              gh issue comment "$number" --body-file "drift-issues/$portal.md"
+            else
+              gh issue create --label drift --title "$title" --body-file "drift-issues/$portal.md"
+            fi
+          done < drift-issues/titles.tsv

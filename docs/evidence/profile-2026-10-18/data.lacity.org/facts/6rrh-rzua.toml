@@ -1,0 +1,97 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_qz3q_ghft-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_qz3q_ghft"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_qz3q_ghft) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "522,401 of 632,799 rows (0.826) have a value; computed-region layer qz3q-ghft, candidate label column `zcta5ce10`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.77}
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_kqwf_mjcx-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_kqwf_mjcx"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_kqwf_mjcx) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "435,725 of 632,799 rows (0.689) have a value; computed-region layer kqwf-mjcx, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.63}
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_k96s_3jcv-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_k96s_3jcv"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_k96s_3jcv) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "492,783 of 632,799 rows (0.779) have a value; computed-region layer k96s-3jcv, candidate label column `slug`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.72}
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_tatf_ua23-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_tatf_ua23"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_tatf_ua23) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "451,265 of 632,799 rows (0.713) have a value; computed-region layer tatf-ua23, candidate label column `cnsld`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.66}
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_ur2y_g4cx-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_ur2y_g4cx"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_ur2y_g4cx) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "147,065 of 632,799 rows (0.232) have a value; computed-region layer ur2y-g4cx, candidate label column `spa_nm`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.18}
+
+[[claim]]
+id = "6rrh-rzua-:@computed_region_2dna_qi2s-fill"
+kind = "place_field"
+scope = {dataset = "6rrh-rzua", column = ":@computed_region_2dna_qi2s"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_2dna_qi2s) AS filled, count(*) AS n"
+observed_at = 2026-10-18
+observation = "423,167 of 632,799 rows (0.669) have a value; computed-region layer 2dna-qi2s, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.61}

@@ -1,0 +1,10 @@
+E       AssertionError: assert 'internal_error' == 'invalid_argument'
+E
+E         - invalid_argument
+E         + internal_error
+E       AssertionError: assert 'internal_error' == 'invalid_argument'
+E
+E         - invalid_argument
+E         + internal_error
+FAILED tests/test_error_wire.py::test_unknown_tool_is_a_malformed_call[modern]
+FAILED tests/test_error_wire.py::test_unknown_tool_is_a_malformed_call[legacy]

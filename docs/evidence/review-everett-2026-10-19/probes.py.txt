@@ -1,0 +1,56 @@
+"""Reviewer re-probes of the everett guide, claims and eval references. Run from the review worktree."""
+
+import asyncio
+import json
+
+import httpx
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+
+F = "f6vp-3svh"
+C = "szww-y224"
+SEPT = "datetimereceived between '2026-09-01T00:00:00' and '2026-09-30T23:59:59'"
+Y2025 = "datetimereceived between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'"
+
+QUERIES = {
+    "01-future-row": (F, {"select": ["eventnumber", "datetimereceived", "incidenttype"], "where": "datetimereceived > '2026-10-21T00:00:00'"}),
+    "02-sept-total-and-distinct": (F, {"select": ["count(*) AS n", "count(distinct eventnumber) AS events"], "where": SEPT}),
+    "03-sept-port-gardner-text": (F, {"select": ["count(*) AS n"], "where": f"{SEPT} AND neighborhood = 'PORT GARDNER'"}),
+    "04-sept-port-gardner-region": (F, {"select": ["count(*) AS n"], "where": f"{SEPT} AND :@computed_region_cx6t_gkq3 = '10'"}),
+    "05-sept-not-assigned": (F, {"select": ["count(*) AS n"], "where": f"{SEPT} AND neighborhood = 'Not Assigned'"}),
+    "06-neighborhood-values": (F, {"select": ["neighborhood", "count(*) AS n"], "group_by": ["neighborhood"], "order_by": ["n DESC"], "page_size": 30}),
+    "07-area-values": (F, {"select": ["area", "count(*) AS n"], "group_by": ["area"], "order_by": ["n DESC"]}),
+    "08-precinct-values": (F, {"select": ["precinct", "count(*) AS n"], "group_by": ["precinct"], "order_by": ["n DESC"]}),
+    "09-gang-2025": (C, {"select": ["gangrelated", "count(*) AS n"], "where": Y2025, "group_by": ["gangrelated"], "order_by": ["n DESC"]}),
+    "10-sept-top-types": (F, {"select": ["incidenttype", "count(*) AS n"], "where": SEPT, "group_by": ["incidenttype"], "order_by": ["n DESC"], "page_size": 5}),
+}
+
+
+def short(r):
+    sc = r.get("structuredContent") or {}
+    if r.get("isError"):
+        return {"isError": True, "error": sc.get("error", sc)}
+    return {"isError": False, "rows": sc.get("rows"), "warnings": sc.get("warnings")}
+
+
+async def main():
+    out = {}
+    async with Client(build_server()) as c:
+        for name, (ds, args) in QUERIES.items():
+            r = await c.call_tool_mcp("atlas_query_dataset", {"portal": "everett", "dataset_id": ds, **args})
+            out[name] = short(r.model_dump(mode="json", by_alias=True, exclude_none=True))
+    base = "https://data.everettwa.gov"
+    with httpx.Client(timeout=60) as h:
+        meta = h.get(f"{base}/api/views/{F}.json").json()
+        out["11-f6vp-description"] = meta.get("description")
+        out["12-psyp-nrnc-features"] = h.get(f"{base}/resource/psyp-nrnc.json", params={"$select": "_feature_id, code"}).json()
+        out["13-cx6t-port-gardner"] = h.get(f"{base}/resource/cx6t-gkq3.json", params={"$select": "_feature_id, name", "$where": "name = 'PORT GARDNER'"}).json()
+        out["14-cx6t-count"] = h.get(f"{base}/resource/cx6t-gkq3.json", params={"$select": "count(*) AS n, count(distinct name) AS names"}).json()
+        out["15-inspection-search"] = [
+            (q, [r["resource"]["id"] + " " + r["resource"]["name"] for r in h.get("https://api.us.socrata.com/api/catalog/v1", params={"domains": "data.everettwa.gov", "q": q}).json().get("results", [])])
+            for q in ("restaurant inspection", "food health inspections", "inspection")
+        ]
+    print(json.dumps(out, indent=1, default=str))
+
+
+asyncio.run(main())

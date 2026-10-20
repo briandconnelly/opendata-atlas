@@ -1,0 +1,2861 @@
+{
+ "portal": "data.nola.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 10
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 42,
+   "row_count": 349082
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 7,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 7
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "rcm3-fn58",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.nola.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "84,336 bytes, over the 65,536-byte cap",
+    "sha256": "87b272faffe80c42d9e658f22914b6a71226170ba7b7c5e6fa0901487ced5aef",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.nola.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Restaurant Inspections (Orleans Parish)",
+       "id": "4eex-dv6s",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Information provided courtesy of the Louisiana Department of Health and Hospitals. The Retail Food Program objective is to prevent and minimize food-borne disease outbreaks through consulting, monitoring, issuance of permits and regulation of food establishments. The program also oversees the Food Safety Certification Program which consults with industry, monitors and regulates the Food Safety Certification requirements of retail food establishments.",
+       "attribution": "Louisiana Department of Health and Hospitals",
+       "attribution_link": "http://new.dhh.louisiana.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2018-08-28T21:05:55.000Z",
+       "createdAt": "2015-04-28T20:28:49.000Z",
+       "metadata_updated_at": "2018-08-28T21:05:55.000Z",
+       "data_updated_at": "2015-04-28T20:28:49.000Z",
+       "page_views": {
+        "page_views_last_week": 30,
+        "page_views_last_month": 135,
+        "page_views_total": 6388,
+        "page_views_last_week_log": 4.954196310386876,
+        "page_views_last_month_log": 7.08746284125034,
+        "page_views_total_log": 12.641374424294513
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 70,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2015-04-28T20:31:27.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Health, Education, and Social Services",
+       "domain_tags": [
+        "louisiana",
+        "orleans",
+        "restaurant",
+        "inspections",
+        "health"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Source-Information_Source-Department",
+         "value": "Louisiana Department of Health and Hospitals"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.nola.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "http": "http://la.healthinspections.us/stateoflouisiana/"
+         },
+         "title": "Louisiana Health Inspections"
+        }
+       ],
+       "access_points": {
+        "http": "http://la.healthinspections.us/stateoflouisiana/"
+       }
+      },
+      "permalink": "https://data.nola.gov/d/4eex-dv6s",
+      "link": "https://data.nola.gov/Health-Education-and-Social-Services/Restaurant-Inspections-Orleans-Parish-/4eex-dv6s",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Brake Tag Stations",
+       "id": "skez-k7ak",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The City of New Orleans official brake tag inspections will be available at these locations.Brake tag inspection fees are as follows:- All trucks over 6,000 pounds gross vehicle weight shall pay a fee of $40.00- All trucks, 6,000 pounds gross vehicle weight or less shall pay a fee of $30.00- All other vehicles (this includes: Motorcycles and Utility Trailers) shall pay a fee of $25.00.Please call <phone redacted> with questions or concerns; also, if you are a business and are interested in applying for the brake tag program.The list of vehicle inspection stations is subject to change as businesses come and go from the program. Check back to find additional locations as they become available.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2017-05-24T19:15:28.000Z",
+       "createdAt": "2017-01-12T17:39:44.000Z",
+       "metadata_updated_at": "2017-05-24T19:15:28.000Z",
+       "data_updated_at": "2017-01-12T17:39:44.000Z",
+       "page_views": {
+        "page_views_last_week": 10,
+        "page_views_last_month": 52,
+        "page_views_total": 1066,
+        "page_views_last_week_log": 3.4594316186372978,
+        "page_views_last_month_log": 5.7279204545632,
+        "page_views_total_log": 10.059344460824425
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2017-01-12T17:41:38.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Transportation and Infrastructure",
+       "domain_tags": [
+        "brake tags",
+        "public safety",
+        "inspections",
+        "egis"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Common-Core_Public-Access-Level",
+         "value": "public"
+        },
+        {
+         "key": "Source-Information_Source-Department",
+         "value": "Safety and Permits"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.nola.gov",
+       "additional_access_points": [
+        {
+         "urls": {
+          "preview data": "http://portal-nolagis.opendata.arcgis.com/datasets/brake-tag-stations"
+         }
+        }
+       ],
+       "access_points": {
+        "preview data": "http://portal-nolagis.opendata.arcgis.com/datasets/brake-tag-stations"
+       }
+      },
+      "permalink": "https://data.nola.gov/d/skez-k7ak",
+      "link": "https://data.nola.gov/Transportation-and-Infrastructure/Brake-Tag-Stations/skez-k7ak",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 2,
+    "timings": {
+     "serviceMillis": 19,
+     "searchMillis": [
+      2,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.nola.gov&ids=2ei9-wqw2&limit=1",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Non-Commercial Short-Term Rental Licenses",
+       "id": "2ei9-wqw2",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Permit applications for non-commercial short-term rentals.",
+       "attribution": "Department of Safety and Permits",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-18T04:45:28.000Z",
+       "createdAt": "2024-07-02T16:46:58.000Z",
+       "metadata_updated_at": "2024-08-28T17:59:57.000Z",
+       "data_updated_at": "2026-10-18T04:45:28.000Z",
+       "page_views": {
+        "page_views_last_week": 51,
+        "page_views_last_month": 241,
+        "page_views_total": 2262,
+        "page_views_last_week_log": 5.700439718141093,
+        "page_views_last_month_log": 7.9188632372745955,
+        "page_views_total_log": 11.144020869266893
+       },
+       "columns_name": [
+        "Reference Code",
+        "Owner Permit Documents",
+        "Operator Permit Documents",
+        "Blocks",
+        "Council Districts",
+        "Self-Reported Neighborhood Organizations (SRNOs) Boundaries",
+        "(ALTERNATE) - Neighborhood Statistical Areas",
+        "Zip Codes",
+        "Neighborhood Organizations",
+        "Police Districts",
+        "Census - 2010",
+        "Type",
+        "Partial/Whole",
+        "Max Occupancy",
+        "Operator Permit",
+        "Issue Date",
+        "Y",
+        "X",
+        "Operator Type",
+        "Bedrooms Rented",
+        "Expiration Date",
+        "Type of Building",
+        "Operator",
+        "Location",
+        "Current Status Date",
+        "LicID",
+        "Operator Email",
+        "License Number",
+        "Address",
+        "Current Status",
+        "Application Date",
+        "Operator Phone",
+        "Owner"
+       ],
+       "columns_field_name": [
+        "reference_code",
+        "owner_permit_documents",
+        "operator_permit_documents",
+        ":@computed_region_ewbu_t8bu",
+        ":@computed_region_k37d_then",
+        ":@computed_region_m56f_hbma",
+        ":@computed_region_7fw3_kdpf",
+        ":@computed_region_spev_d8jm",
+        ":@computed_region_sikx_bdeb",
+        ":@computed_region_evki_aju8",
+        ":@computed_region_u4yh_3wk9",
+        "type",
+        "partial_whole",
+        "max_occupancy",
+        "operator_permit",
+        "issue_date",
+        "y",
+        "x",
+        "operator_type",
+        "bedrooms_rented",
+        "expiration_date",
+        "type_of_building",
+        "operator",
+        "location",
+        "current_status_date",
+        "licid",
+        "operator_email",
+        "license_number",
+        "address",
+        "current_status",
+        "application_date",
+        "operator_phone",
+        "owner"
+       ],
+       "columns_datatype": [
+        "Text",
+        "URL",
+        "URL",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Point",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "This column was automatically created in order to record in what polygon from the dataset 'Blocks' (ewbu-t8bu) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Council Districts' (k37d-then) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Self-Reported Neighborhood Organizations (SRNOs) Boundaries' (m56f-hbma) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset '(ALTERNATE) - Neighborhood Statistical Areas' (7fw3-kdpf) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Zip Codes' (spev-d8jm) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Neighborhood Organizations' (sikx-bdeb) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Police Districts' (evki-aju8) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "This column was automatically created in order to record in what polygon from the dataset 'Census - 2010' (u4yh-3wk9) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true"
+        },
+        {
+         "displayStyle": "email"
+        },
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {}
+       ],
+       "download_count": 12337,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2024-07-02T17:09:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Housing, Land Use, and Blight",
+       "domain_tags": [
+        "short-term rentals",
+        "short term rental",
+        "airbnb",
+        "license",
+        "str"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Common-Core_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Source-Information_Source-Department",
+         "value": "Safety and Permits"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.nola.gov"
+      },
+      "permalink": "https://data.nola.gov/d/2ei9-wqw2",
+      "link": "https://data.nola.gov/Housing-Land-Use-and-Blight/Non-Commercial-Short-Term-Rental-Licenses/2ei9-wqw2",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 1,
+    "timings": {
+     "serviceMillis": 17,
+     "searchMillis": [
+      3,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/api/views/rcm3-fn58.json",
+   "status": 200,
+   "body": {
+    "summarized": "80,717 bytes, over the 65,536-byte cap",
+    "sha256": "44ef5b9fba2efceb6c13ae965b263524a31e5eb9d9055042d9c305e48cebaaed",
+    "keys": [
+     "approvals",
+     "assetType",
+     "attribution",
+     "averageRating",
+     "category",
+     "clientContext",
+     "columns",
+     "createdAt",
+     "description",
+     "diciBackend",
+     "displayType",
+     "downloadCount",
+     "flags",
+     "grants",
+     "hideFromCatalog",
+     "hideFromDataJson",
+     "id",
+     "indexUpdatedAt",
+     "license",
+     "licenseId",
+     "locked",
+     "metadata",
+     "name",
+     "newBackend",
+     "numberOfComments",
+     "oid",
+     "owner",
+     "provenance",
+     "publicationAppendEnabled",
+     "publicationDate",
+     "publicationGroup",
+     "publicationStage",
+     "query",
+     "rights",
+     "rowClass",
+     "rowIdentifierColumnId",
+     "rowsUpdatedAt",
+     "rowsUpdatedBy",
+     "tableAuthor",
+     "tableId",
+     "tags",
+     "totalTimesRated",
+     "viewCount",
+     "viewLastModified",
+     "viewType"
+    ],
+    "column_count": 50,
+    "column_field_names": [
+     "address",
+     "owner",
+     "description",
+     "numstring",
+     "isclosed",
+     "type",
+     "code",
+     "division",
+     "m_s",
+     "filingdate",
+     "issuedate",
+     "currentstatus",
+     "nextstatus",
+     "currentstatusdate",
+     "nextstatusdate",
+     "landuse",
+     "landuseshort",
+     "projectname",
+     "unpaidfees",
+     "totalfees",
+     "bldgarea",
+     "constrval",
+     "bondamount",
+     "opencomments",
+     "applicant",
+     "totalinspections",
+     "contractors",
+     "pin",
+     "beds",
+     "baths",
+     "heattype",
+     "secondfloo",
+     "basementar",
+     "daysopen",
+     "daysissued",
+     "leadagency",
+     "exitreason",
+     "subdivision",
+     "councildist",
+     "zoning",
+     "historicdistrict",
+     "location_1",
+     ":@computed_region_ewbu_t8bu",
+     ":@computed_region_k37d_then",
+     ":@computed_region_m56f_hbma",
+     ":@computed_region_7fw3_kdpf",
+     ":@computed_region_spev_d8jm",
+     ":@computed_region_sikx_bdeb",
+     ":@computed_region_evki_aju8",
+     ":@computed_region_u4yh_3wk9"
+    ],
+    "id": "rcm3-fn58",
+    "name": "Permits",
+    "rowsUpdatedAt": 1792299369
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "349082"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=min%28filingdate%29+AS+lo%2C+max%28filingdate%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2002-02-03T14:12:56.000",
+     "hi": "2026-10-16T14:47:11.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_k37d_then+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_k37d_then&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "2",
+     "n": "90799"
+    },
+    {
+     "v": "4",
+     "n": "76465"
+    },
+    {
+     "v": "1",
+     "n": "67248"
+    },
+    {
+     "v": "3",
+     "n": "62293"
+    },
+    {
+     "v": "5",
+     "n": "51644"
+    },
+    {
+     "n": "633"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_ewbu_t8bu+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_ewbu_t8bu&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "6268",
+     "n": "677"
+    },
+    {
+     "v": "10076",
+     "n": "666"
+    },
+    {
+     "n": "650"
+    },
+    {
+     "v": "9629",
+     "n": "629"
+    },
+    {
+     "v": "4903",
+     "n": "606"
+    },
+    {
+     "v": "4242",
+     "n": "600"
+    },
+    {
+     "v": "3487",
+     "n": "592"
+    },
+    {
+     "v": "7278",
+     "n": "549"
+    },
+    {
+     "v": "1842",
+     "n": "464"
+    },
+    {
+     "v": "2752",
+     "n": "459"
+    },
+    {
+     "v": "6265",
+     "n": "419"
+    },
+    {
+     "v": "1320",
+     "n": "417"
+    },
+    {
+     "v": "1432",
+     "n": "412"
+    },
+    {
+     "v": "7282",
+     "n": "409"
+    },
+    {
+     "v": "3997",
+     "n": "404"
+    },
+    {
+     "v": "9639",
+     "n": "396"
+    },
+    {
+     "v": "1117",
+     "n": "393"
+    },
+    {
+     "v": "9156",
+     "n": "384"
+    },
+    {
+     "v": "11552",
+     "n": "368"
+    },
+    {
+     "v": "4504",
+     "n": "367"
+    },
+    {
+     "v": "3702",
+     "n": "364"
+    },
+    {
+     "v": "7747",
+     "n": "363"
+    },
+    {
+     "v": "8347",
+     "n": "362"
+    },
+    {
+     "v": "5819",
+     "n": "349"
+    },
+    {
+     "v": "11956",
+     "n": "349"
+    },
+    {
+     "v": "1579",
+     "n": "348"
+    },
+    {
+     "v": "5166",
+     "n": "341"
+    },
+    {
+     "v": "229",
+     "n": "337"
+    },
+    {
+     "v": "10615",
+     "n": "336"
+    },
+    {
+     "v": "12416",
+     "n": "325"
+    },
+    {
+     "v": "12867",
+     "n": "320"
+    },
+    {
+     "v": "6421",
+     "n": "311"
+    },
+    {
+     "v": "4938",
+     "n": "310"
+    },
+    {
+     "v": "12819",
+     "n": "309"
+    },
+    {
+     "v": "1319",
+     "n": "308"
+    },
+    {
+     "v": "1240",
+     "n": "305"
+    },
+    {
+     "v": "183",
+     "n": "300"
+    },
+    {
+     "v": "4937",
+     "n": "299"
+    },
+    {
+     "v": "9875",
+     "n": "295"
+    },
+    {
+     "v": "11645",
+     "n": "291"
+    },
+    {
+     "v": "11331",
+     "n": "289"
+    },
+    {
+     "v": "1196",
+     "n": "288"
+    },
+    {
+     "v": "12402",
+     "n": "281"
+    },
+    {
+     "v": "2425",
+     "n": "279"
+    },
+    {
+     "v": "12473",
+     "n": "267"
+    },
+    {
+     "v": "5485",
+     "n": "266"
+    },
+    {
+     "v": "4530",
+     "n": "262"
+    },
+    {
+     "v": "12215",
+     "n": "261"
+    },
+    {
+     "v": "2554",
+     "n": "255"
+    },
+    {
+     "v": "11560",
+     "n": "255"
+    },
+    {
+     "v": "8156",
+     "n": "255"
+    },
+    {
+     "v": "2561",
+     "n": "248"
+    },
+    {
+     "v": "6552",
+     "n": "248"
+    },
+    {
+     "v": "12052",
+     "n": "245"
+    },
+    {
+     "v": "1988",
+     "n": "243"
+    },
+    {
+     "v": "974",
+     "n": "243"
+    },
+    {
+     "v": "2043",
+     "n": "240"
+    },
+    {
+     "v": "6977",
+     "n": "240"
+    },
+    {
+     "v": "8996",
+     "n": "236"
+    },
+    {
+     "v": "7344",
+     "n": "236"
+    },
+    {
+     "v": "6179",
+     "n": "235"
+    },
+    {
+     "v": "2303",
+     "n": "229"
+    },
+    {
+     "v": "11189",
+     "n": "229"
+    },
+    {
+     "v": "5509",
+     "n": "228"
+    },
+    {
+     "v": "1323",
+     "n": "224"
+    },
+    {
+     "v": "10338",
+     "n": "223"
+    },
+    {
+     "v": "1857",
+     "n": "223"
+    },
+    {
+     "v": "487",
+     "n": "223"
+    },
+    {
+     "v": "4179",
+     "n": "223"
+    },
+    {
+     "v": "9713",
+     "n": "222"
+    },
+    {
+     "v": "6979",
+     "n": "222"
+    },
+    {
+     "v": "6863",
+     "n": "220"
+    },
+    {
+     "v": "5689",
+     "n": "220"
+    },
+    {
+     "v": "6312",
+     "n": "219"
+    },
+    {
+     "v": "4002",
+     "n": "218"
+    },
+    {
+     "v": "3803",
+     "n": "218"
+    },
+    {
+     "v": "11058",
+     "n": "215"
+    },
+    {
+     "v": "13827",
+     "n": "213"
+    },
+    {
+     "v": "9278",
+     "n": "213"
+    },
+    {
+     "v": "5926",
+     "n": "212"
+    },
+    {
+     "v": "6554",
+     "n": "212"
+    },
+    {
+     "v": "3308",
+     "n": "212"
+    },
+    {
+     "v": "10569",
+     "n": "212"
+    },
+    {
+     "v": "7830",
+     "n": "211"
+    },
+    {
+     "v": "7512",
+     "n": "210"
+    },
+    {
+     "v": "10250",
+     "n": "207"
+    },
+    {
+     "v": "9319",
+     "n": "207"
+    },
+    {
+     "v": "3324",
+     "n": "207"
+    },
+    {
+     "v": "13926",
+     "n": "205"
+    },
+    {
+     "v": "6555",
+     "n": "204"
+    },
+    {
+     "v": "3887",
+     "n": "204"
+    },
+    {
+     "v": "3591",
+     "n": "204"
+    },
+    {
+     "v": "9765",
+     "n": "203"
+    },
+    {
+     "v": "8158",
+     "n": "203"
+    },
+    {
+     "v": "6782",
+     "n": "202"
+    },
+    {
+     "v": "10991",
+     "n": "200"
+    },
+    {
+     "v": "2013",
+     "n": "198"
+    },
+    {
+     "v": "9614",
+     "n": "198"
+    },
+    {
+     "v": "2997",
+     "n": "198"
+    },
+    {
+     "v": "2562",
+     "n": "198"
+    },
+    {
+     "v": "9196",
+     "n": "198"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_m56f_hbma+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_m56f_hbma&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "2",
+     "n": "25233"
+    },
+    {
+     "v": "181",
+     "n": "20072"
+    },
+    {
+     "v": "109",
+     "n": "14619"
+    },
+    {
+     "v": "134",
+     "n": "14587"
+    },
+    {
+     "v": "106",
+     "n": "11320"
+    },
+    {
+     "v": "23",
+     "n": "10879"
+    },
+    {
+     "v": "27",
+     "n": "9459"
+    },
+    {
+     "v": "235",
+     "n": "8474"
+    },
+    {
+     "v": "255",
+     "n": "7980"
+    },
+    {
+     "v": "46",
+     "n": "7913"
+    },
+    {
+     "v": "54",
+     "n": "7843"
+    },
+    {
+     "v": "31",
+     "n": "7119"
+    },
+    {
+     "v": "154",
+     "n": "7048"
+    },
+    {
+     "v": "139",
+     "n": "6762"
+    },
+    {
+     "v": "248",
+     "n": "6031"
+    },
+    {
+     "v": "94",
+     "n": "5955"
+    },
+    {
+     "v": "58",
+     "n": "5638"
+    },
+    {
+     "v": "47",
+     "n": "5257"
+    },
+    {
+     "v": "55",
+     "n": "4968"
+    },
+    {
+     "v": "147",
+     "n": "4767"
+    },
+    {
+     "v": "249",
+     "n": "4694"
+    },
+    {
+     "v": "132",
+     "n": "4437"
+    },
+    {
+     "v": "239",
+     "n": "4108"
+    },
+    {
+     "v": "133",
+     "n": "4019"
+    },
+    {
+     "v": "153",
+     "n": "3873"
+    },
+    {
+     "v": "43",
+     "n": "3836"
+    },
+    {
+     "v": "42",
+     "n": "3754"
+    },
+    {
+     "v": "232",
+     "n": "3664"
+    },
+    {
+     "v": "102",
+     "n": "3379"
+    },
+    {
+     "v": "92",
+     "n": "3158"
+    },
+    {
+     "v": "83",
+     "n": "3000"
+    },
+    {
+     "v": "15",
+     "n": "2938"
+    },
+    {
+     "v": "21",
+     "n": "2747"
+    },
+    {
+     "v": "251",
+     "n": "2662"
+    },
+    {
+     "v": "61",
+     "n": "2650"
+    },
+    {
+     "v": "4",
+     "n": "2642"
+    },
+    {
+     "v": "142",
+     "n": "2635"
+    },
+    {
+     "v": "199",
+     "n": "2522"
+    },
+    {
+     "v": "96",
+     "n": "2499"
+    },
+    {
+     "v": "148",
+     "n": "2474"
+    },
+    {
+     "v": "188",
+     "n": "2431"
+    },
+    {
+     "v": "50",
+     "n": "2255"
+    },
+    {
+     "v": "155",
+     "n": "2237"
+    },
+    {
+     "v": "150",
+     "n": "2232"
+    },
+    {
+     "v": "231",
+     "n": "2192"
+    },
+    {
+     "v": "62",
+     "n": "2155"
+    },
+    {
+     "v": "123",
+     "n": "2139"
+    },
+    {
+     "v": "158",
+     "n": "2046"
+    },
+    {
+     "v": "12",
+     "n": "2004"
+    },
+    {
+     "v": "91",
+     "n": "1959"
+    },
+    {
+     "n": "1953"
+    },
+    {
+     "v": "120",
+     "n": "1949"
+    },
+    {
+     "v": "82",
+     "n": "1895"
+    },
+    {
+     "v": "11",
+     "n": "1887"
+    },
+    {
+     "v": "104",
+     "n": "1886"
+    },
+    {
+     "v": "163",
+     "n": "1865"
+    },
+    {
+     "v": "184",
+     "n": "1776"
+    },
+    {
+     "v": "97",
+     "n": "1715"
+    },
+    {
+     "v": "81",
+     "n": "1689"
+    },
+    {
+     "v": "243",
+     "n": "1622"
+    },
+    {
+     "v": "14",
+     "n": "1612"
+    },
+    {
+     "v": "16",
+     "n": "1597"
+    },
+    {
+     "v": "63",
+     "n": "1581"
+    },
+    {
+     "v": "168",
+     "n": "1426"
+    },
+    {
+     "v": "95",
+     "n": "1414"
+    },
+    {
+     "v": "36",
+     "n": "1394"
+    },
+    {
+     "v": "39",
+     "n": "1367"
+    },
+    {
+     "v": "179",
+     "n": "1357"
+    },
+    {
+     "v": "140",
+     "n": "1353"
+    },
+    {
+     "v": "143",
+     "n": "1311"
+    },
+    {
+     "v": "117",
+     "n": "1238"
+    },
+    {
+     "v": "229",
+     "n": "1212"
+    },
+    {
+     "v": "87",
+     "n": "1198"
+    },
+    {
+     "v": "10",
+     "n": "1177"
+    },
+    {
+     "v": "183",
+     "n": "1111"
+    },
+    {
+     "v": "66",
+     "n": "1099"
+    },
+    {
+     "v": "57",
+     "n": "1056"
+    },
+    {
+     "v": "77",
+     "n": "997"
+    },
+    {
+     "v": "13",
+     "n": "978"
+    },
+    {
+     "v": "5",
+     "n": "965"
+    },
+    {
+     "v": "260",
+     "n": "955"
+    },
+    {
+     "v": "45",
+     "n": "952"
+    },
+    {
+     "v": "240",
+     "n": "944"
+    },
+    {
+     "v": "149",
+     "n": "900"
+    },
+    {
+     "v": "187",
+     "n": "868"
+    },
+    {
+     "v": "49",
+     "n": "827"
+    },
+    {
+     "v": "37",
+     "n": "797"
+    },
+    {
+     "v": "137",
+     "n": "779"
+    },
+    {
+     "v": "8",
+     "n": "775"
+    },
+    {
+     "v": "230",
+     "n": "739"
+    },
+    {
+     "v": "198",
+     "n": "679"
+    },
+    {
+     "v": "162",
+     "n": "649"
+    },
+    {
+     "v": "225",
+     "n": "595"
+    },
+    {
+     "v": "51",
+     "n": "585"
+    },
+    {
+     "v": "76",
+     "n": "578"
+    },
+    {
+     "v": "172",
+     "n": "567"
+    },
+    {
+     "v": "242",
+     "n": "556"
+    },
+    {
+     "v": "67",
+     "n": "533"
+    },
+    {
+     "v": "190",
+     "n": "502"
+    },
+    {
+     "v": "259",
+     "n": "473"
+    },
+    {
+     "v": "161",
+     "n": "466"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_7fw3_kdpf+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_7fw3_kdpf&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "13",
+     "n": "16675"
+    },
+    {
+     "v": "20",
+     "n": "15841"
+    },
+    {
+     "v": "12",
+     "n": "15628"
+    },
+    {
+     "v": "57",
+     "n": "13672"
+    },
+    {
+     "v": "4",
+     "n": "11809"
+    },
+    {
+     "v": "47",
+     "n": "11512"
+    },
+    {
+     "v": "69",
+     "n": "9955"
+    },
+    {
+     "v": "38",
+     "n": "9544"
+    },
+    {
+     "v": "61",
+     "n": "9084"
+    },
+    {
+     "v": "62",
+     "n": "9075"
+    },
+    {
+     "v": "58",
+     "n": "8633"
+    },
+    {
+     "v": "42",
+     "n": "7526"
+    },
+    {
+     "v": "43",
+     "n": "7428"
+    },
+    {
+     "v": "5",
+     "n": "7121"
+    },
+    {
+     "v": "41",
+     "n": "6974"
+    },
+    {
+     "v": "28",
+     "n": "6963"
+    },
+    {
+     "v": "48",
+     "n": "6766"
+    },
+    {
+     "v": "22",
+     "n": "6721"
+    },
+    {
+     "v": "67",
+     "n": "5946"
+    },
+    {
+     "v": "54",
+     "n": "5577"
+    },
+    {
+     "v": "11",
+     "n": "5462"
+    },
+    {
+     "v": "72",
+     "n": "5373"
+    },
+    {
+     "v": "31",
+     "n": "4880"
+    },
+    {
+     "v": "10",
+     "n": "4831"
+    },
+    {
+     "v": "70",
+     "n": "4600"
+    },
+    {
+     "v": "40",
+     "n": "4579"
+    },
+    {
+     "v": "64",
+     "n": "4426"
+    },
+    {
+     "v": "8",
+     "n": "4426"
+    },
+    {
+     "v": "49",
+     "n": "4425"
+    },
+    {
+     "v": "66",
+     "n": "4342"
+    },
+    {
+     "v": "21",
+     "n": "4288"
+    },
+    {
+     "v": "52",
+     "n": "4166"
+    },
+    {
+     "v": "44",
+     "n": "4133"
+    },
+    {
+     "v": "7",
+     "n": "4118"
+    },
+    {
+     "v": "45",
+     "n": "4041"
+    },
+    {
+     "v": "34",
+     "n": "3946"
+    },
+    {
+     "v": "59",
+     "n": "3927"
+    },
+    {
+     "v": "32",
+     "n": "3873"
+    },
+    {
+     "v": "16",
+     "n": "3818"
+    },
+    {
+     "v": "55",
+     "n": "3811"
+    },
+    {
+     "v": "30",
+     "n": "3809"
+    },
+    {
+     "v": "37",
+     "n": "3361"
+    },
+    {
+     "v": "19",
+     "n": "3354"
+    },
+    {
+     "v": "56",
+     "n": "3268"
+    },
+    {
+     "v": "65",
+     "n": "3194"
+    },
+    {
+     "v": "18",
+     "n": "3109"
+    },
+    {
+     "v": "71",
+     "n": "3095"
+    },
+    {
+     "v": "51",
+     "n": "2975"
+    },
+    {
+     "v": "15",
+     "n": "2694"
+    },
+    {
+     "v": "46",
+     "n": "2674"
+    },
+    {
+     "v": "26",
+     "n": "2558"
+    },
+    {
+     "v": "50",
+     "n": "2477"
+    },
+    {
+     "v": "29",
+     "n": "2456"
+    },
+    {
+     "v": "2",
+     "n": "2413"
+    },
+    {
+     "v": "27",
+     "n": "2312"
+    },
+    {
+     "v": "68",
+     "n": "2270"
+    },
+    {
+     "v": "3",
+     "n": "2152"
+    },
+    {
+     "v": "24",
+     "n": "2136"
+    },
+    {
+     "v": "53",
+     "n": "1981"
+    },
+    {
+     "v": "14",
+     "n": "1937"
+    },
+    {
+     "v": "63",
+     "n": "1733"
+    },
+    {
+     "v": "39",
+     "n": "1688"
+    },
+    {
+     "v": "60",
+     "n": "1683"
+    },
+    {
+     "v": "9",
+     "n": "1467"
+    },
+    {
+     "v": "36",
+     "n": "1443"
+    },
+    {
+     "v": "35",
+     "n": "1303"
+    },
+    {
+     "v": "1",
+     "n": "1221"
+    },
+    {
+     "v": "17",
+     "n": "1169"
+    },
+    {
+     "v": "33",
+     "n": "1061"
+    },
+    {
+     "v": "6",
+     "n": "1005"
+    },
+    {
+     "n": "633"
+    },
+    {
+     "v": "23",
+     "n": "399"
+    },
+    {
+     "v": "25",
+     "n": "137"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_sikx_bdeb+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_sikx_bdeb&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "2",
+     "n": "25233"
+    },
+    {
+     "v": "181",
+     "n": "20072"
+    },
+    {
+     "v": "109",
+     "n": "14619"
+    },
+    {
+     "v": "134",
+     "n": "14587"
+    },
+    {
+     "v": "106",
+     "n": "11320"
+    },
+    {
+     "v": "23",
+     "n": "11039"
+    },
+    {
+     "v": "27",
+     "n": "9459"
+    },
+    {
+     "v": "255",
+     "n": "9394"
+    },
+    {
+     "v": "235",
+     "n": "8474"
+    },
+    {
+     "v": "46",
+     "n": "7913"
+    },
+    {
+     "v": "54",
+     "n": "7843"
+    },
+    {
+     "v": "31",
+     "n": "7119"
+    },
+    {
+     "v": "154",
+     "n": "7048"
+    },
+    {
+     "v": "139",
+     "n": "6762"
+    },
+    {
+     "v": "248",
+     "n": "6031"
+    },
+    {
+     "v": "94",
+     "n": "5955"
+    },
+    {
+     "v": "58",
+     "n": "5638"
+    },
+    {
+     "v": "47",
+     "n": "5257"
+    },
+    {
+     "v": "55",
+     "n": "4968"
+    },
+    {
+     "v": "147",
+     "n": "4767"
+    },
+    {
+     "v": "249",
+     "n": "4694"
+    },
+    {
+     "v": "132",
+     "n": "4437"
+    },
+    {
+     "v": "239",
+     "n": "4108"
+    },
+    {
+     "v": "133",
+     "n": "4019"
+    },
+    {
+     "v": "153",
+     "n": "3873"
+    },
+    {
+     "v": "43",
+     "n": "3836"
+    },
+    {
+     "v": "42",
+     "n": "3754"
+    },
+    {
+     "v": "232",
+     "n": "3664"
+    },
+    {
+     "v": "102",
+     "n": "3379"
+    },
+    {
+     "v": "92",
+     "n": "3158"
+    },
+    {
+     "v": "83",
+     "n": "3000"
+    },
+    {
+     "v": "15",
+     "n": "2938"
+    },
+    {
+     "v": "21",
+     "n": "2747"
+    },
+    {
+     "v": "251",
+     "n": "2662"
+    },
+    {
+     "v": "61",
+     "n": "2650"
+    },
+    {
+     "v": "4",
+     "n": "2642"
+    },
+    {
+     "v": "142",
+     "n": "2635"
+    },
+    {
+     "v": "199",
+     "n": "2522"
+    },
+    {
+     "v": "96",
+     "n": "2499"
+    },
+    {
+     "v": "148",
+     "n": "2474"
+    },
+    {
+     "v": "188",
+     "n": "2431"
+    },
+    {
+     "v": "50",
+     "n": "2255"
+    },
+    {
+     "v": "155",
+     "n": "2237"
+    },
+    {
+     "v": "150",
+     "n": "2232"
+    },
+    {
+     "v": "231",
+     "n": "2192"
+    },
+    {
+     "v": "62",
+     "n": "2155"
+    },
+    {
+     "v": "123",
+     "n": "2139"
+    },
+    {
+     "v": "158",
+     "n": "2046"
+    },
+    {
+     "v": "12",
+     "n": "2004"
+    },
+    {
+     "v": "91",
+     "n": "1959"
+    },
+    {
+     "n": "1953"
+    },
+    {
+     "v": "120",
+     "n": "1949"
+    },
+    {
+     "v": "82",
+     "n": "1895"
+    },
+    {
+     "v": "11",
+     "n": "1887"
+    },
+    {
+     "v": "104",
+     "n": "1886"
+    },
+    {
+     "v": "163",
+     "n": "1865"
+    },
+    {
+     "v": "184",
+     "n": "1776"
+    },
+    {
+     "v": "97",
+     "n": "1715"
+    },
+    {
+     "v": "81",
+     "n": "1689"
+    },
+    {
+     "v": "243",
+     "n": "1622"
+    },
+    {
+     "v": "14",
+     "n": "1612"
+    },
+    {
+     "v": "16",
+     "n": "1597"
+    },
+    {
+     "v": "63",
+     "n": "1581"
+    },
+    {
+     "v": "168",
+     "n": "1426"
+    },
+    {
+     "v": "36",
+     "n": "1394"
+    },
+    {
+     "v": "39",
+     "n": "1367"
+    },
+    {
+     "v": "179",
+     "n": "1357"
+    },
+    {
+     "v": "140",
+     "n": "1353"
+    },
+    {
+     "v": "143",
+     "n": "1311"
+    },
+    {
+     "v": "117",
+     "n": "1238"
+    },
+    {
+     "v": "229",
+     "n": "1212"
+    },
+    {
+     "v": "87",
+     "n": "1198"
+    },
+    {
+     "v": "10",
+     "n": "1177"
+    },
+    {
+     "v": "183",
+     "n": "1111"
+    },
+    {
+     "v": "66",
+     "n": "1099"
+    },
+    {
+     "v": "57",
+     "n": "1056"
+    },
+    {
+     "v": "77",
+     "n": "997"
+    },
+    {
+     "v": "13",
+     "n": "978"
+    },
+    {
+     "v": "5",
+     "n": "965"
+    },
+    {
+     "v": "260",
+     "n": "955"
+    },
+    {
+     "v": "45",
+     "n": "952"
+    },
+    {
+     "v": "240",
+     "n": "944"
+    },
+    {
+     "v": "149",
+     "n": "900"
+    },
+    {
+     "v": "187",
+     "n": "868"
+    },
+    {
+     "v": "49",
+     "n": "827"
+    },
+    {
+     "v": "37",
+     "n": "797"
+    },
+    {
+     "v": "137",
+     "n": "779"
+    },
+    {
+     "v": "8",
+     "n": "775"
+    },
+    {
+     "v": "230",
+     "n": "739"
+    },
+    {
+     "v": "198",
+     "n": "679"
+    },
+    {
+     "v": "162",
+     "n": "649"
+    },
+    {
+     "v": "225",
+     "n": "595"
+    },
+    {
+     "v": "51",
+     "n": "585"
+    },
+    {
+     "v": "76",
+     "n": "578"
+    },
+    {
+     "v": "172",
+     "n": "567"
+    },
+    {
+     "v": "242",
+     "n": "556"
+    },
+    {
+     "v": "67",
+     "n": "533"
+    },
+    {
+     "v": "190",
+     "n": "502"
+    },
+    {
+     "v": "259",
+     "n": "473"
+    },
+    {
+     "v": "161",
+     "n": "466"
+    },
+    {
+     "v": "197",
+     "n": "444"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_evki_aju8+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_evki_aju8&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "7",
+     "n": "66675"
+    },
+    {
+     "v": "3",
+     "n": "54862"
+    },
+    {
+     "v": "8",
+     "n": "45262"
+    },
+    {
+     "v": "4",
+     "n": "45107"
+    },
+    {
+     "v": "1",
+     "n": "43178"
+    },
+    {
+     "v": "6",
+     "n": "35380"
+    },
+    {
+     "v": "5",
+     "n": "29888"
+    },
+    {
+     "v": "2",
+     "n": "28100"
+    },
+    {
+     "n": "630"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_spev_d8jm+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_spev_d8jm&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "3766",
+     "n": "37053"
+    },
+    {
+     "v": "3457",
+     "n": "35970"
+    },
+    {
+     "v": "3768",
+     "n": "34866"
+    },
+    {
+     "v": "3770",
+     "n": "30938"
+    },
+    {
+     "v": "3767",
+     "n": "27606"
+    },
+    {
+     "v": "4152",
+     "n": "23449"
+    },
+    {
+     "v": "3772",
+     "n": "21652"
+    },
+    {
+     "v": "4148",
+     "n": "21404"
+    },
+    {
+     "v": "3458",
+     "n": "18930"
+    },
+    {
+     "v": "3456",
+     "n": "15722"
+    },
+    {
+     "v": "4147",
+     "n": "15346"
+    },
+    {
+     "v": "4149",
+     "n": "13895"
+    },
+    {
+     "v": "3455",
+     "n": "13142"
+    },
+    {
+     "v": "4153",
+     "n": "12358"
+    },
+    {
+     "v": "3454",
+     "n": "10292"
+    },
+    {
+     "v": "4150",
+     "n": "8919"
+    },
+    {
+     "v": "4151",
+     "n": "6518"
+    },
+    {
+     "n": "581"
+    },
+    {
+     "v": "4154",
+     "n": "248"
+    },
+    {
+     "v": "4155",
+     "n": "126"
+    },
+    {
+     "v": "31199",
+     "n": "27"
+    },
+    {
+     "v": "2704",
+     "n": "20"
+    },
+    {
+     "v": "2304",
+     "n": "7"
+    },
+    {
+     "v": "14817",
+     "n": "7"
+    },
+    {
+     "v": "3913",
+     "n": "6"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=%3A%40computed_region_u4yh_3wk9+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_u4yh_3wk9&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "n": "785"
+    },
+    {
+     "v": "6268",
+     "n": "677"
+    },
+    {
+     "v": "10076",
+     "n": "666"
+    },
+    {
+     "v": "9629",
+     "n": "629"
+    },
+    {
+     "v": "4903",
+     "n": "606"
+    },
+    {
+     "v": "4242",
+     "n": "600"
+    },
+    {
+     "v": "3487",
+     "n": "592"
+    },
+    {
+     "v": "7278",
+     "n": "549"
+    },
+    {
+     "v": "1842",
+     "n": "464"
+    },
+    {
+     "v": "2752",
+     "n": "459"
+    },
+    {
+     "v": "6265",
+     "n": "419"
+    },
+    {
+     "v": "1320",
+     "n": "417"
+    },
+    {
+     "v": "1432",
+     "n": "412"
+    },
+    {
+     "v": "7282",
+     "n": "408"
+    },
+    {
+     "v": "3997",
+     "n": "404"
+    },
+    {
+     "v": "9639",
+     "n": "396"
+    },
+    {
+     "v": "1117",
+     "n": "393"
+    },
+    {
+     "v": "9156",
+     "n": "384"
+    },
+    {
+     "v": "11552",
+     "n": "368"
+    },
+    {
+     "v": "4504",
+     "n": "367"
+    },
+    {
+     "v": "3702",
+     "n": "364"
+    },
+    {
+     "v": "7747",
+     "n": "363"
+    },
+    {
+     "v": "8347",
+     "n": "362"
+    },
+    {
+     "v": "11956",
+     "n": "349"
+    },
+    {
+     "v": "5819",
+     "n": "349"
+    },
+    {
+     "v": "1579",
+     "n": "348"
+    },
+    {
+     "v": "10615",
+     "n": "336"
+    },
+    {
+     "v": "12416",
+     "n": "325"
+    },
+    {
+     "v": "12867",
+     "n": "318"
+    },
+    {
+     "v": "229",
+     "n": "314"
+    },
+    {
+     "v": "6421",
+     "n": "311"
+    },
+    {
+     "v": "4938",
+     "n": "310"
+    },
+    {
+     "v": "12819",
+     "n": "309"
+    },
+    {
+     "v": "1319",
+     "n": "308"
+    },
+    {
+     "v": "1240",
+     "n": "305"
+    },
+    {
+     "v": "5166",
+     "n": "304"
+    },
+    {
+     "v": "183",
+     "n": "300"
+    },
+    {
+     "v": "4937",
+     "n": "299"
+    },
+    {
+     "v": "9875",
+     "n": "295"
+    },
+    {
+     "v": "11645",
+     "n": "291"
+    },
+    {
+     "v": "11331",
+     "n": "289"
+    },
+    {
+     "v": "1196",
+     "n": "288"
+    },
+    {
+     "v": "2425",
+     "n": "279"
+    },
+    {
+     "v": "12402",
+     "n": "279"
+    },
+    {
+     "v": "12473",
+     "n": "267"
+    },
+    {
+     "v": "5485",
+     "n": "266"
+    },
+    {
+     "v": "4530",
+     "n": "262"
+    },
+    {
+     "v": "12215",
+     "n": "261"
+    },
+    {
+     "v": "8156",
+     "n": "255"
+    },
+    {
+     "v": "11560",
+     "n": "255"
+    },
+    {
+     "v": "2554",
+     "n": "255"
+    },
+    {
+     "v": "2561",
+     "n": "248"
+    },
+    {
+     "v": "6552",
+     "n": "248"
+    },
+    {
+     "v": "12052",
+     "n": "245"
+    },
+    {
+     "v": "974",
+     "n": "243"
+    },
+    {
+     "v": "1988",
+     "n": "243"
+    },
+    {
+     "v": "2043",
+     "n": "240"
+    },
+    {
+     "v": "6977",
+     "n": "240"
+    },
+    {
+     "v": "7344",
+     "n": "236"
+    },
+    {
+     "v": "8996",
+     "n": "236"
+    },
+    {
+     "v": "6179",
+     "n": "235"
+    },
+    {
+     "v": "11189",
+     "n": "229"
+    },
+    {
+     "v": "2303",
+     "n": "229"
+    },
+    {
+     "v": "5509",
+     "n": "228"
+    },
+    {
+     "v": "5689",
+     "n": "226"
+    },
+    {
+     "v": "1323",
+     "n": "224"
+    },
+    {
+     "v": "4179",
+     "n": "223"
+    },
+    {
+     "v": "487",
+     "n": "223"
+    },
+    {
+     "v": "1857",
+     "n": "223"
+    },
+    {
+     "v": "10338",
+     "n": "223"
+    },
+    {
+     "v": "6979",
+     "n": "222"
+    },
+    {
+     "v": "9713",
+     "n": "222"
+    },
+    {
+     "v": "6863",
+     "n": "220"
+    },
+    {
+     "v": "6312",
+     "n": "219"
+    },
+    {
+     "v": "3803",
+     "n": "218"
+    },
+    {
+     "v": "4002",
+     "n": "218"
+    },
+    {
+     "v": "11058",
+     "n": "215"
+    },
+    {
+     "v": "9278",
+     "n": "213"
+    },
+    {
+     "v": "13827",
+     "n": "213"
+    },
+    {
+     "v": "10569",
+     "n": "212"
+    },
+    {
+     "v": "3308",
+     "n": "212"
+    },
+    {
+     "v": "6554",
+     "n": "212"
+    },
+    {
+     "v": "5926",
+     "n": "212"
+    },
+    {
+     "v": "7830",
+     "n": "211"
+    },
+    {
+     "v": "7512",
+     "n": "210"
+    },
+    {
+     "v": "3324",
+     "n": "207"
+    },
+    {
+     "v": "10250",
+     "n": "207"
+    },
+    {
+     "v": "9319",
+     "n": "207"
+    },
+    {
+     "v": "13926",
+     "n": "205"
+    },
+    {
+     "v": "3887",
+     "n": "204"
+    },
+    {
+     "v": "6555",
+     "n": "204"
+    },
+    {
+     "v": "6782",
+     "n": "204"
+    },
+    {
+     "v": "9765",
+     "n": "203"
+    },
+    {
+     "v": "8158",
+     "n": "203"
+    },
+    {
+     "v": "10991",
+     "n": "200"
+    },
+    {
+     "v": "9614",
+     "n": "198"
+    },
+    {
+     "v": "2013",
+     "n": "198"
+    },
+    {
+     "v": "9196",
+     "n": "198"
+    },
+    {
+     "v": "2562",
+     "n": "198"
+    },
+    {
+     "v": "2997",
+     "n": "196"
+    },
+    {
+     "v": "4134",
+     "n": "194"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=address%2C+owner%2C+description%2C+numstring%2C+isclosed%2C+type%2C+code%2C+division%2C+m_s%2C+filingdate%2C+issuedate%2C+currentstatus%2C+nextstatus%2C+currentstatusdate%2C+nextstatusdate%2C+landuse%2C+landuseshort%2C+projectname%2C+unpaidfees%2C+totalfees%2C+bldgarea%2C+constrval%2C+bondamount%2C+opencomments%2C+applicant%2C+totalinspections%2C+contractors%2C+pin%2C+beds%2C+baths%2C+heattype%2C+secondfloo%2C+basementar%2C+daysopen%2C+daysissued%2C+leadagency%2C+exitreason%2C+subdivision%2C+councildist%2C+zoning%2C+historicdistrict%2C+location_1%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address",
+     "applicant",
+     "basementar",
+     "baths",
+     "beds",
+     "bldgarea",
+     "bondamount",
+     "code",
+     "constrval",
+     "contractors",
+     "councildist",
+     "currentstatus",
+     "currentstatusdate",
+     "daysissued",
+     "daysopen",
+     "description",
+     "division",
+     "exitreason",
+     "filingdate",
+     "historicdistrict",
+     "isclosed",
+     "issuedate",
+     "landuse",
+     "landuseshort",
+     "leadagency",
+     "location_1",
+     "m_s",
+     "numstring",
+     "opencomments",
+     "owner",
+     "pin",
+     "secondfloo",
+     "subdivision",
+     "totalfees",
+     "totalinspections",
+     "type",
+     "unpaidfees",
+     "zoning"
+    ],
+    "sha256": "fe6397972f66444559caac34eafc6dd40c9aae0b9fe2ee6e71d80758e51b3f14"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.nola.gov/resource/rcm3-fn58.json?%24select=address%2C+owner%2C+description%2C+numstring%2C+isclosed%2C+type%2C+code%2C+division%2C+m_s%2C+filingdate%2C+issuedate%2C+currentstatus%2C+nextstatus%2C+currentstatusdate%2C+nextstatusdate%2C+landuse%2C+landuseshort%2C+projectname%2C+unpaidfees%2C+totalfees%2C+bldgarea%2C+constrval%2C+bondamount%2C+opencomments%2C+applicant%2C+totalinspections%2C+contractors%2C+pin%2C+beds%2C+baths%2C+heattype%2C+secondfloo%2C+basementar%2C+daysopen%2C+daysissued%2C+leadagency%2C+exitreason%2C+subdivision%2C+councildist%2C+zoning%2C+historicdistrict%2C+location_1%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-2gfn~pfjt_8nqw%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address",
+     "applicant",
+     "basementar",
+     "baths",
+     "beds",
+     "bldgarea",
+     "bondamount",
+     "code",
+     "constrval",
+     "contractors",
+     "councildist",
+     "currentstatus",
+     "currentstatusdate",
+     "daysissued",
+     "daysopen",
+     "description",
+     "division",
+     "exitreason",
+     "filingdate",
+     "historicdistrict",
+     "isclosed",
+     "issuedate",
+     "landuse",
+     "landuseshort",
+     "leadagency",
+     "location_1",
+     "m_s",
+     "nextstatus",
+     "nextstatusdate",
+     "numstring",
+     "opencomments",
+     "owner",
+     "pin",
+     "secondfloo",
+     "subdivision",
+     "totalfees",
+     "totalinspections",
+     "type",
+     "unpaidfees",
+     "zoning"
+    ],
+    "sha256": "3e87a6559171fc06e6544011166e40b9d2425f1db158b2f0a77edf3493818957"
+   }
+  }
+ ]
+}

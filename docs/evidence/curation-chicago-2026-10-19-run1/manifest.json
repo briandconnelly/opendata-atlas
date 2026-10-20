@@ -1,0 +1,39 @@
+{
+ "run": 1,
+ "base": "064d8199fed55c37dcd6d50689562fc446bfb657",
+ "branch": "curate/test-2026-10-19",
+ "worktree": "<tmp>/wt",
+ "transcript": "<tmp>/curation.transcript.jsonl",
+ "pytest_exit": 0,
+ "pytest_outcome": "1 passed in 2465.43s (0:41:05)",
+ "artifacts": {
+  "<tmp>/curation.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-1/01-hyde-park-last-month.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-1/02-austin-2001-2003.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-1/03-crimes-yesterday.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-2/01-hyde-park-last-month.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-2/02-austin-2001-2003.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-2/03-crimes-yesterday.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-3/01-hyde-park-last-month.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-3/02-austin-2001-2003.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-3/03-crimes-yesterday.transcript.jsonl": "present",
+  "<tmp>/evals/01-hyde-park-last-month.transcript.jsonl": "present",
+  "<tmp>/evals/02-austin-2001-2003.transcript.jsonl": "present",
+  "<tmp>/evals/03-crimes-yesterday.transcript.jsonl": "present",
+  "<tmp>/wt/.curation/evals-1": "present",
+  "<tmp>/wt/.curation/evals-2": "present",
+  "<tmp>/wt/.curation/evals-3": "present",
+  "docs/evidence/curation-chicago-2026-10-19-run1/summary.json": "present"
+ },
+ "kept_worktree": null,
+ "pytest_exit_source": "run1.log ends '1 passed in 2465.43s (0:41:05)'; the background pipeline's exit 0 is tee's",
+ "worktree_removed": "clean (status --porcelain --untracked-files=all empty, shown to surface a probe file; stash list empty); removed with plain `git worktree remove`",
+ "branch_renamed_to": "curate/chicago-run1",
+ "agent_commit": "5a2a9c8 feat: add the data.cityofchicago.org knowledge pack (profiled)",
+ "local_eval_copy": "evals/results/2026-10-19-m4-curation-run1/evals-{1,2,3} (git-ignored; 9 transcripts verified with cmp)",
+ "not_kept": ".curation/report.json (may hold personal data) and the agent's other .curation scratch files, deleted with the worktree",
+ "step7": {
+  "outcome": "1 passed, failures [], no rule-8 stop in the PR body; PR body proposes curated (conditional on a tests/ fixture fix)",
+  "next": "Task 5"
+ }
+}

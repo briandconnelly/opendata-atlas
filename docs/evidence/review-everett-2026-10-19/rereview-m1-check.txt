@@ -1,0 +1,2 @@
+known positive (pre-fix behavior in memory): {"assigned_fraction": 1.0, "value_count": 20, "placeholder_values": [{"value": "null", "rows": 16}], "Not Assigned in values": true, "n_values": 20, "reliability": "partial", "level": "reviewed"} -> resolved: False
+fixed engine (as on disk): {"assigned_fraction": 0.9253, "value_count": 19, "placeholder_values": [{"value": "Not Assigned", "rows": 120857}, {"value": "null", "rows": 16}], "Not Assigned in values": false, "n_values": 19, "reliability": "partial", "level": "reviewed"} -> resolved: True

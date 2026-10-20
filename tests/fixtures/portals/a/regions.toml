@@ -1,0 +1,13 @@
+# Test-only claim: the same layer id on both fixture portals, labelled differently upstream.
+[[claim]]
+id = "region-cccc-dddd"
+kind = "region_layer"
+scope = {layer = "cccc-dddd"}
+interpretation = {kind = "council_district", label_column = "name", reliability = "ok"}
+reviewed_by = "test"
+reviewed_at = 2026-10-17
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "Test fixture; responses are hand-written in tests/fixtures/http/isolation_two_portals.json."
+observed_at = 2026-10-17

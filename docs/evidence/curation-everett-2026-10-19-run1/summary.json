@@ -1,0 +1,121 @@
+{
+ "portal": "data.everettwa.gov",
+ "branch": "curate/test-2026-10-19",
+ "base": "519053a4fa893a71cdbc9308e865a970d2e5a0cb",
+ "curation": {
+  "exit_code": 0,
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 72,
+  "duration_ms": 580565,
+  "total_cost_usd": 2.9315290000000003,
+  "final_message": "I committed the Everett knowledge pack as `31eec85` on `curate/test-2026-10-19`, declared `profiled`, but stopped curating early: one offline test fails on every new pack, and fixing it means changing a file the contribution rules don't let a pack PR touch. Because of that I made no eval runs. Nothing was pushed and no PR was opened.\n\n**PR title:** `feat: add the data.everettwa.gov knowledge pack (profiled)`\n\n**PR body:**\n\n## Portal\nCity of Everett, `data.everettwa.gov` (alias `everett`). Declared tier: **`profiled`**.\n\n## Not proposing `curated`\nThe run stopped under skill rule 8. `tests/test_manifest.py::test_bundle_requires_every_pack` fails with `AssertionError: data.everettwa.gov`. The cause is that `scripts/build_bundle.py` lists each shipped pack's `portal.toml` by hand in `REQUIRED`. A pack PR may only change the pack, its eval file, `registry_overrides.toml` and `validation.json`, so no new pack can pass check 11.2. The defect is logged in `docs/decisions.md` (\"New pack fails the bundle gate\"). Checks 11.1 and 11.2 were run; the eval runs (11.3) were skipped as rule 8 requires. The three eval tasks are written but have never been run or graded.\n\n## Identity\n- The profiler verified the catalog identity (all 300 Discovery results carry `data.everettwa.gov`).\n- I deleted the portal's `registry_overrides.toml` entry (#58) and updated the header comments to match.\n- `jurisdiction` (city, US, WA) and `timezone` (`America/Los_Angeles`) were already set from the registry, so neither was missing and I did not need a second profiler run for timezones.\n- Step 3 deleted **0 claims**: `review_values` was empty.\n\n## Dataset reviewed\n**Police Incidents (`f6vp-3svh`)**: `atlas_describe_dataset` reports `knowledge.level = \"reviewed\"`.\n- **Unit of observation:** one police incident, either a call for police response or an officer-initiated event. Evidence: the publisher's page, quoted verbatim, plus a probe showing `eventnumber` is unique on all 1,618,409 rows.\n- **`datetimereceived`:** `America/Los_Angeles` local time with no offset. No rows fall in the skipped 2 am hour on the spring-forward day, and the busiest hour is 14.\n- **`:@computed_region_cx6t_gkq3` (Neighborhoods layer, 2019):** neighborhood, `partial`. About 11% of rows get no neighborhood. On rows that have both, it matches the dataset's own `neighborhood` text column only 78% of the time. Example: Westmont in 2024 has 6,843 incidents by this layer and 10,583 by the text column.\n- **`:@computed_region_psyp_nrnc` (City Limits Shading):** `other` (\"inside city limits\"), `partial`. It only marks whether a point is inside the city (every polygon is coded EV); it is not an area breakdown.\n- **`neighborhood` (text):** neighborhood, `partial`, with the placeholder `Not Assigned` (7.5% of rows).\n- **Region layers:** `regions.toml` reviews both layers for the whole portal, so neighborhood names show up on every dataset that uses them.\n- **Guide:** a `police-incidents` guide in `guides.py`. Both of its examples ran with `\"isError\": false`.\n\nAll claims on the other three profiled datasets (`qvfa-2v26`, `szww-y224`, `w35j-83t3`) remain unreviewed observations.\n\n## Drift\n`tests/test_drift.py -k data.everettwa.gov`: **17 passed, 0 failed**, run after the last change. `validation.json` only gains entries for this portal.\n\n## Check 11.2\n- `uv run pytest -q --ignore=tests/test_curation_skill.py`: 1 failed, 1237 passed, 124 skipped. The single failure is the bundle-gate defect above.\n- `uv run prek run --all-files`: every hook passed.\n- No other pack's claims failed any check.\n\n## Eval grades\nNone: 11.3 was skipped under rule 8. `evals/portals/data.everettwa.gov.json` has three tasks:\n- `01-delta-last-month` covers `in_area` and `relative_date`.\n- `02-westmont-2024` covers `misleading_field`.\n- `03-restaurant-inspections` covers `not_published`.\n\n## Knowledge gaps\n- **Engine defect:** the bundle gate above.\n- **`disposition` is mostly empty since 2022** (57% of 2024 rows). No claim kind can record an empty-value share on a column that isn't a place field, so this is in the guide only.\n- **Future-dated row:** one row is dated 2026-12-20, after today. The guide notes it.\n- **Unset jurisdiction or timezone:** none.\n\n\ud83e\udd16 Generated with Claude Code",
+  "transcript": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run1/test_curation_skill_produces_a0/curation.transcript.jsonl"
+ },
+ "checks": {
+  "offline_gate": {
+   "exit_code": 0,
+   "tail": "............................................                             [100%]\n44 passed in 0.25s\n"
+  },
+  "drift": {
+   "exit_code": 0,
+   "tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.7.0\nrootdir: /private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run1/test_curation_skill_produces_a0/wt\nconfigfile: pyproject.toml\nplugins: cov-7.1.0, asyncio-1.4.0, platformdirs-4.13.3, anyio-4.15.1\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollected 87 items / 70 deselected / 17 selected\n\ntests/test_drift.py .................                                    [100%]\n\n====================== 17 passed, 70 deselected in 30.60s ======================\n"
+  },
+  "guide_examples": {
+   "exit_code": 0,
+   "examples": [
+    {
+     "guide": "police-incidents",
+     "question": "How many incidents of each type in September 2026?",
+     "is_error": false,
+     "code": null
+    },
+    {
+     "guide": "police-incidents",
+     "question": "How many incidents in Delta in September 2026, by each neighborhood source?",
+     "is_error": false,
+     "code": null
+    }
+   ],
+   "stderr_tail": ""
+  },
+  "evals": {
+   "exit_code": 0,
+   "out": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run1/test_curation_skill_produces_a0/evals"
+  }
+ },
+ "commits": 1,
+ "changed_paths": [
+  "docs/decisions.md",
+  "evals/portals/data.everettwa.gov.json",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/f6vp-3svh.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/qvfa-2v26.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/szww-y224.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/w35j-83t3.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/guides.py",
+  "src/opendata_atlas/portals/data.everettwa.gov/portal.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/regions.toml",
+  "src/opendata_atlas/portals/registry_overrides.toml",
+  "src/opendata_atlas/portals/validation.json"
+ ],
+ "pack": "data.everettwa.gov",
+ "path_violations": [],
+ "pack_dir": "src/opendata_atlas/portals/data.everettwa.gov",
+ "portal_id": "data.everettwa.gov",
+ "declared_tier": "profiled",
+ "jurisdiction": {
+  "level": "city",
+  "country": "US",
+  "region": "WA"
+ },
+ "timezone": "America/Los_Angeles",
+ "claims": {
+  "by_kind": {
+   "column_timezone": 3,
+   "place_field": 10,
+   "placeholder_share": 1,
+   "region_layer": 2,
+   "unit_of_observation": 1
+  },
+  "reviewed": 7,
+  "with_interpretation_reason_and_probe": 7
+ },
+ "eval_covers_missing": [],
+ "eval_answers": [
+  {
+   "id": "01-delta-last-month",
+   "covers": [
+    "in_area",
+    "relative_date"
+   ],
+   "prompt": "How many police incidents were there in Everett's Delta neighborhood last month?",
+   "expect": "Counts Police Incidents (f6vp-3svh) for the previous calendar month from now_local by `datetimereceived` (September 2026 when run in October 2026). PASS: the answer gives a count for that month in Delta, says which area source it used (the `neighborhood` text value DELTA or the Neighborhoods region `:@computed_region_cx6t_gkq3` = 5, or both), and caveats that the area assignment is partial (unassigned rows, or the two sources disagree). PARTIAL: the right month and a matching count with no caveat on the area assignment, or a caveat with no count. FAIL: a different month, a count from another dataset, or a number that matches neither source. Reference, probed 2026-10-20 for September 2026: 775 by `neighborhood` = 'DELTA', 808 by region 5, of 10,357 incidents citywide; a later run may differ slightly.",
+   "subtype": "success",
+   "total_cost_usd": 0.1823534,
+   "answer": "Everett's police incident data puts Delta at **about 775\u2013808 incidents last month (September 2026)**. The exact number depends on which neighborhood field you count by:\n\n| Neighborhood source | Delta incidents, Sept 2026 |\n|---|---|\n| `neighborhood` column (the name recorded with each incident) | **775** |\n| City Neighborhoods map layer (2019 boundaries, matched by location) | **808** |\n| *Citywide total, for context* | *10,357* |\n\n**Why there are two numbers:** the two fields name a different neighborhood for about 22% of the incidents that both assign. Each also leaves some incidents out: 7.5% are \"Not Assigned\" in the `neighborhood` column, and about 11% have no neighborhood in the map layer. If you need one figure, I'd use 775, since that's the neighborhood recorded with the incident. 808 is what you get using the city's official 2019 boundaries.\n\n**About the data:**\n- These are police incidents: 911 calls, other calls for service, and events officers start themselves, such as traffic stops. They are not crimes.\n- \"Last month\" means September 1\u201330, 2026, Pacific time.\n- Source: Everett's open data portal, \"Police Incidents\" (`f6vp-3svh`).\n\nI can also break Delta's September incidents down by type, or compare them with earlier months."
+  },
+  {
+   "id": "02-westmont-2024",
+   "covers": [
+    "misleading_field"
+   ],
+   "prompt": "How many times did Everett police respond to something in Westmont during 2024?",
+   "expect": "Finds Police Incidents (f6vp-3svh) and counts 2024 by `datetimereceived` in Westmont. The trap: the `neighborhood` text column and the Neighborhoods region disagree widely for Westmont. PASS: the answer gives a 2024 count and says the area assignment is partial in a way tied to the data: it reports both counts, or names the disagreement between the two area sources, or the 'Not Assigned' / unassigned share. PARTIAL: a count from either source with only a generic caveat (for example 'unverified' with no reason). FAIL: one count presented as exact with no caveat on the area, a count from another dataset, or no count. Reference, probed 2026-10-20: 10,583 by `neighborhood` = 'WESTMONT', 6,843 by `:@computed_region_cx6t_gkq3` = 8; 7.5% of all rows are 'Not Assigned' and the sources agree on 78% of rows both assign.",
+   "subtype": "success",
+   "total_cost_usd": 0.140479,
+   "answer": "The number depends on how \"Westmont\" is defined, and the two definitions differ a lot. Everett police logged **10,583 incidents in Westmont in 2024** by the police record's own neighborhood label, but only **6,843** by the city's mapped neighborhood boundaries.\n\n| How \"Westmont\" is defined | Incidents in 2024 |\n|---|---|\n| Neighborhood name recorded with each incident (`neighborhood` = WESTMONT) | **10,583** |\n| City's 2019 neighborhood boundary map, matched to each incident's location | **6,843** |\n\nCitywide there were 130,475 incidents in 2024. I counted from 1 Jan 2024 through 31 Dec 2024, Pacific time, using the city's Police Incidents dataset (`f6vp-3svh`) on data.everettwa.gov.\n\n**Why the two counts differ:**\n- **Recorded neighborhood:** about 7.5% of incidents have \"Not Assigned\" instead of a neighborhood, so some Westmont incidents may be missing from 10,583.\n- **Boundary map:** about 11% of incidents don't fall in any mapped neighborhood. The map is also from 2019.\n- **Disagreement:** when both methods name a neighborhood, they name different ones about 22% of the time. So neither number is clearly the right one. If you want the police department's own view, use 10,583.\n\n**What counts as an incident:** each one is a call for police response or something an officer started themselves, such as a traffic stop. They are not crimes. Every incident is counted once, however many officers responded."
+  },
+  {
+   "id": "03-restaurant-inspections",
+   "covers": [
+    "not_published"
+   ],
+   "prompt": "Show me recent restaurant health inspection results in Everett, WA.",
+   "expect": "PASS: says City of Everett's portal does not publish restaurant or food inspection results, after searching it, and invents no results; it may point elsewhere as a suggestion. PARTIAL: says no inspection data was found but presents an unrelated Everett dataset (such as Everett for Everett Dining Guide or Access to Healthy Food) as a partial substitute without saying it holds no inspection results. FAIL: presents any dataset's rows as inspection results, or invents results. Reference, probed 2026-10-20: searches for 'restaurant inspection' and 'health inspection' return no Everett datasets and no external matches; 'food' returns Access to Healthy Food and Everett for Everett Dining Guide, neither an inspection dataset.",
+   "subtype": "success",
+   "total_cost_usd": 0.08728179999999999,
+   "answer": "The City of Everett's open data portal (data.everettwa.gov) doesn't publish restaurant health inspection results, so I can't show you any.\n\n**What I searched:**\n- \"restaurant health inspection\" and \"food inspection\" found nothing, including federated and external assets.\n- \"restaurant\" found only the **Everett for Everett Dining Guide** (`m267-sbt9`), a directory of local restaurants with no inspection data.\n- \"health\" found only community health measures, such as County Health Rankings and Access to Healthy Food. None are inspection records.\n- I looked for a Snohomish County portal, but none is in the registry this tool can query.\n\n**Why it's missing:** The city doesn't inspect restaurants in Everett. The Snohomish County Health Department (formerly the Snohomish Health District) does, and it publishes results through its own food establishment inspection lookup on its website. That's the place to look. I can't query it from here.\n\nI can show you the Dining Guide dataset, but it has no inspection results."
+  }
+ ],
+ "failures": []
+}

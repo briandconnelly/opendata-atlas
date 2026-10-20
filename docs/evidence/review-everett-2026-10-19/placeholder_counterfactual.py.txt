@@ -1,0 +1,35 @@
+"""Shipped vs counterfactual: does the `placeholders` key on the neighborhood place_field claim
+change describe and query? The counterfactual patches Pack.placeholder_declarations in memory to
+also read place_field claims with placeholders. No file is changed."""
+import asyncio, json, sys
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.portals import model
+
+ORIG = model.Pack.placeholder_declarations if hasattr(model, "Pack") else None
+cls = next(v for v in vars(model).values() if isinstance(v, type) and "placeholder_declarations" in vars(v))
+
+def patched(self, dataset_id, column):
+    return [c for c in self.claims if c.kind in ("placeholder_share", "place_field") and c.placeholders
+            and c.scope.dataset == dataset_id and c.scope.column == column and c.reviewed]
+
+Q = {"portal": "everett", "dataset_id": "f6vp-3svh", "select": ["neighborhood", "count(*) AS n"],
+     "where": "datetimereceived between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+     "group_by": ["neighborhood"], "order_by": ["n DESC"], "page_size": 3}
+
+async def run(label):
+    async with Client(build_server()) as c:
+        d = (await c.call_tool_mcp("atlas_describe_dataset", {"portal": "everett", "dataset_id": "f6vp-3svh", "detail": "full"})).model_dump(mode="json", by_alias=True, exclude_none=True)["structuredContent"]
+        nb = next(p for p in d["place_fields"] if p["column"] == "neighborhood")
+        q = (await c.call_tool_mcp("atlas_query_dataset", Q)).model_dump(mode="json", by_alias=True, exclude_none=True)["structuredContent"]
+    print(f"== {label}")
+    print(" describe neighborhood:", {k: nb.get(k) for k in ("assigned_fraction", "placeholder_values", "value_count", "reliability")})
+    print(" query rows:", q.get("rows"))
+    print(" query warnings:", json.dumps(q.get("warnings"))[:800])
+
+async def main():
+    await run("shipped (as on disk)")
+    cls.placeholder_declarations = patched
+    await run("counterfactual (declaration honored, in memory)")
+
+asyncio.run(main())

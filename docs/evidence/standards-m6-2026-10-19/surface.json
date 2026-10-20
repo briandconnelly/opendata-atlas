@@ -1,0 +1,520 @@
+{
+ "INSTRUCTIONS_chars": 1797,
+ "capabilities_bytes": 10571,
+ "modern": {
+  "tools_list_framed": 24560,
+  "instructions_equal": true,
+  "find_portals_noarg": {
+   "isError": false,
+   "bytes": 1963,
+   "first": [
+    [
+     "data.cityofchicago.org",
+     "City of Chicago",
+     "curated"
+    ],
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated"
+    ],
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ],
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ],
+    [
+     "al-amcc.data.socrata.com",
+     "al-amcc.data.socrata.com",
+     "generic"
+    ],
+    [
+     "albany.data.socrata.com",
+     "City of Albany",
+     "generic"
+    ]
+   ],
+   "keys": [
+    "candidates",
+    "has_more",
+    "next_cursor",
+    "registry_version",
+    "source"
+   ]
+  },
+  "find": {
+   "Everett": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "Everett, WA": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "everett": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "King County": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "King County, WA": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "king-county": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "Seattle": [
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated"
+    ]
+   ],
+   "Cook County": [
+    [
+     "datacatalog.cookcountyil.gov",
+     "Cook County, Illinois",
+     "generic"
+    ],
+    [
+     "performance.cookcountyil.gov",
+     "Cook County Performance",
+     "generic"
+    ],
+    [
+     "cookcounty.data.socrata.com",
+     "cookcounty.data.socrata.com",
+     "generic"
+    ]
+   ],
+   "New Jersey": [
+    [
+     "data.nj.gov",
+     "New Jersey's Open Data Center",
+     "generic"
+    ]
+   ],
+   "City of Albany": [
+    [
+     "albany.data.socrata.com",
+     "City of Albany",
+     "generic"
+    ]
+   ],
+   "open data": [
+    [
+     "cohesiondata.ec.europa.eu",
+     "Cohesion Open Data",
+     "generic"
+    ],
+    [
+     "data.bloomington.in.gov",
+     "City of Bloomington Open Data",
+     "generic"
+    ],
+    [
+     "data.cdp.net",
+     "CDP Open Data Portal",
+     "generic"
+    ]
+   ],
+   "Tyler": [],
+   "Government Financial Reports": [],
+   "Franklin": [],
+   "FranklinForward": [
+    [
+     "performance.franklintn.gov",
+     "FranklinForward: City's Strategic Plan Website",
+     "generic"
+    ]
+   ]
+  },
+  "portals_topic": {
+   "isError": false,
+   "bytes": 930,
+   "entries": [
+    [
+     "data.cityofchicago.org",
+     "City of Chicago",
+     "curated portal, city"
+    ],
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated portal, city"
+    ],
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled portal, city"
+    ],
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled portal, county"
+    ]
+   ]
+  },
+  "portals_item_everett": {
+   "isError": false,
+   "bytes": 1290,
+   "body": {
+    "topic": "portals",
+    "uri": "opendata-atlas://portals/data.everettwa.gov",
+    "title": "City of Everett (data.everettwa.gov)",
+    "summary": "Identity, tier, knowledge by dataset, and guide index for City of Everett.",
+    "version": "0.1.0",
+    "body": "# City of Everett\n\n## Identity\n- id: `data.everettwa.gov`\n- aliases: `everett`\n- public host: data.everettwa.gov\n- jurisdiction: city, US, WA\n- calendar zone: America/Los_Angeles\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- reviewed: `f6vp-3svh` (Police Incidents)\n- profiled: `qvfa-2v26` (no title recorded), `szww-y224` (no title recorded), `w35j-83t3` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 16 `passed`.\n\n## Guides\n- `police-incidents` (f6vp-3svh): Police Incidents. opendata-atlas://portals/data.everettwa.gov/guides/police-incidents\n",
+    "source": {
+     "request_id": "fc59f51cbe354efb",
+     "portal": {
+      "id": "data.everettwa.gov",
+      "alias": "everett",
+      "name": "City of Everett",
+      "tier": "profiled",
+      "timezone": "America/Los_Angeles"
+     },
+     "now_local": "2026-10-19T20:05:19-07:00",
+     "now_weekday": "Monday"
+    }
+   }
+  },
+  "portals_item_king-county": {
+   "isError": false,
+   "bytes": 1087,
+   "body": {
+    "topic": "portals",
+    "uri": "opendata-atlas://portals/data.kingcounty.gov",
+    "title": "King County (data.kingcounty.gov)",
+    "summary": "Identity, tier, knowledge by dataset, and guide index for King County.",
+    "version": "0.1.0",
+    "body": "# King County\n\n## Identity\n- id: `data.kingcounty.gov`\n- aliases: `king-county`\n- public host: data.kingcounty.gov\n- jurisdiction: county, US, WA\n- calendar zone: America/Los_Angeles\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- profiled: `j56h-zgnm` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 2 `passed`.\n\n## Guides\n- No guides for this portal.\n",
+    "source": {
+     "request_id": "0f6fddbe415d444c",
+     "portal": {
+      "id": "data.kingcounty.gov",
+      "alias": "king-county",
+      "name": "King County",
+      "tier": "profiled",
+      "timezone": "America/Los_Angeles"
+     },
+     "now_local": "2026-10-19T20:05:19-07:00",
+     "now_weekday": "Monday"
+    }
+   }
+  },
+  "unknown_tool": {
+   "isError": true,
+   "structuredContent": {
+    "code": "invalid_argument",
+    "message": "No tool by that name on this server.",
+    "details": {
+     "field": "name",
+     "reason": "Unknown tool; call one of `candidates`.",
+     "candidates": [
+      "atlas_find_portals",
+      "atlas_search_datasets",
+      "atlas_describe_dataset",
+      "atlas_query_dataset",
+      "atlas_get_reference"
+     ]
+    },
+    "temporary": false,
+    "repair": {
+     "next_step": "read_capabilities",
+     "tool": "atlas_get_reference",
+     "arguments": {
+      "topic": "capabilities"
+     }
+    },
+    "request_id": "9d8db377f8234138",
+    "retry_after_ms": null
+   }
+  }
+ },
+ "legacy": {
+  "tools_list_framed": 23944,
+  "instructions_equal": true,
+  "find_portals_noarg": {
+   "isError": false,
+   "bytes": 1963,
+   "first": [
+    [
+     "data.cityofchicago.org",
+     "City of Chicago",
+     "curated"
+    ],
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated"
+    ],
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ],
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ],
+    [
+     "al-amcc.data.socrata.com",
+     "al-amcc.data.socrata.com",
+     "generic"
+    ],
+    [
+     "albany.data.socrata.com",
+     "City of Albany",
+     "generic"
+    ]
+   ],
+   "keys": [
+    "candidates",
+    "has_more",
+    "next_cursor",
+    "registry_version",
+    "source"
+   ]
+  },
+  "find": {
+   "Everett": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "Everett, WA": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "everett": [
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled"
+    ]
+   ],
+   "King County": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "King County, WA": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "king-county": [
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled"
+    ]
+   ],
+   "Seattle": [
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated"
+    ]
+   ],
+   "Cook County": [
+    [
+     "datacatalog.cookcountyil.gov",
+     "Cook County, Illinois",
+     "generic"
+    ],
+    [
+     "performance.cookcountyil.gov",
+     "Cook County Performance",
+     "generic"
+    ],
+    [
+     "cookcounty.data.socrata.com",
+     "cookcounty.data.socrata.com",
+     "generic"
+    ]
+   ],
+   "New Jersey": [
+    [
+     "data.nj.gov",
+     "New Jersey's Open Data Center",
+     "generic"
+    ]
+   ],
+   "City of Albany": [
+    [
+     "albany.data.socrata.com",
+     "City of Albany",
+     "generic"
+    ]
+   ],
+   "open data": [
+    [
+     "cohesiondata.ec.europa.eu",
+     "Cohesion Open Data",
+     "generic"
+    ],
+    [
+     "data.bloomington.in.gov",
+     "City of Bloomington Open Data",
+     "generic"
+    ],
+    [
+     "data.cdp.net",
+     "CDP Open Data Portal",
+     "generic"
+    ]
+   ],
+   "Tyler": [],
+   "Government Financial Reports": [],
+   "Franklin": [],
+   "FranklinForward": [
+    [
+     "performance.franklintn.gov",
+     "FranklinForward: City's Strategic Plan Website",
+     "generic"
+    ]
+   ]
+  },
+  "portals_topic": {
+   "isError": false,
+   "bytes": 930,
+   "entries": [
+    [
+     "data.cityofchicago.org",
+     "City of Chicago",
+     "curated portal, city"
+    ],
+    [
+     "data.seattle.gov",
+     "City of Seattle",
+     "curated portal, city"
+    ],
+    [
+     "data.everettwa.gov",
+     "City of Everett",
+     "profiled portal, city"
+    ],
+    [
+     "data.kingcounty.gov",
+     "King County",
+     "profiled portal, county"
+    ]
+   ]
+  },
+  "portals_item_everett": {
+   "isError": false,
+   "bytes": 1290,
+   "body": {
+    "topic": "portals",
+    "uri": "opendata-atlas://portals/data.everettwa.gov",
+    "title": "City of Everett (data.everettwa.gov)",
+    "summary": "Identity, tier, knowledge by dataset, and guide index for City of Everett.",
+    "version": "0.1.0",
+    "body": "# City of Everett\n\n## Identity\n- id: `data.everettwa.gov`\n- aliases: `everett`\n- public host: data.everettwa.gov\n- jurisdiction: city, US, WA\n- calendar zone: America/Los_Angeles\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- reviewed: `f6vp-3svh` (Police Incidents)\n- profiled: `qvfa-2v26` (no title recorded), `szww-y224` (no title recorded), `w35j-83t3` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 16 `passed`.\n\n## Guides\n- `police-incidents` (f6vp-3svh): Police Incidents. opendata-atlas://portals/data.everettwa.gov/guides/police-incidents\n",
+    "source": {
+     "request_id": "87f444cf30b74a56",
+     "portal": {
+      "id": "data.everettwa.gov",
+      "alias": "everett",
+      "name": "City of Everett",
+      "tier": "profiled",
+      "timezone": "America/Los_Angeles"
+     },
+     "now_local": "2026-10-19T20:05:19-07:00",
+     "now_weekday": "Monday"
+    }
+   }
+  },
+  "portals_item_king-county": {
+   "isError": false,
+   "bytes": 1087,
+   "body": {
+    "topic": "portals",
+    "uri": "opendata-atlas://portals/data.kingcounty.gov",
+    "title": "King County (data.kingcounty.gov)",
+    "summary": "Identity, tier, knowledge by dataset, and guide index for King County.",
+    "version": "0.1.0",
+    "body": "# King County\n\n## Identity\n- id: `data.kingcounty.gov`\n- aliases: `king-county`\n- public host: data.kingcounty.gov\n- jurisdiction: county, US, WA\n- calendar zone: America/Los_Angeles\n- tier: `profiled`\n- status: `active`\n\n## Knowledge\nLevels from this portal's pack claims alone, without the live schema. atlas_describe_dataset computes the level against the schema, so its `knowledge` can differ from this list; describe's is the level the server reports.\n- profiled: `j56h-zgnm` (no title recorded)\n- Every other dataset: `none`. Claim `validation`: 2 `passed`.\n\n## Guides\n- No guides for this portal.\n",
+    "source": {
+     "request_id": "5f8dc3fba92b4878",
+     "portal": {
+      "id": "data.kingcounty.gov",
+      "alias": "king-county",
+      "name": "King County",
+      "tier": "profiled",
+      "timezone": "America/Los_Angeles"
+     },
+     "now_local": "2026-10-19T20:05:19-07:00",
+     "now_weekday": "Monday"
+    }
+   }
+  },
+  "unknown_tool": {
+   "isError": true,
+   "structuredContent": {
+    "code": "invalid_argument",
+    "message": "No tool by that name on this server.",
+    "details": {
+     "field": "name",
+     "reason": "Unknown tool; call one of `candidates`.",
+     "candidates": [
+      "atlas_find_portals",
+      "atlas_search_datasets",
+      "atlas_describe_dataset",
+      "atlas_query_dataset",
+      "atlas_get_reference"
+     ]
+    },
+    "temporary": false,
+    "repair": {
+     "next_step": "read_capabilities",
+     "tool": "atlas_get_reference",
+     "arguments": {
+      "topic": "capabilities"
+     }
+    },
+    "request_id": "48625ed41aa54598",
+    "retry_after_ms": null
+   }
+  }
+ }
+}

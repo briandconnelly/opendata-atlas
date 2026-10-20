@@ -1,0 +1,7 @@
+modern base 24560 headroom 16 after icon 80
+source field now_local_weekday + 190
+source field now_weekday + 0
+source field weekday + 140
+F8 lifecycle _meta on 5 tools + 195
+F10 $schema on 5 inputSchemas + 285
+F10 $schema on inputs+outputs + 570

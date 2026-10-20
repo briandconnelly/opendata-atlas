@@ -1,0 +1,34 @@
+[
+  {
+    "id": "01-jail-bookings-last-month",
+    "prompt": "How many jail bookings were there in King County last month?",
+    "covers": [
+      "relative_date"
+    ],
+    "expect": "Uses Adult Jail Booking (j56h-zgnm) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on booking_date_time in Pacific wall-clock time without Z, and counts distinct book_of_arrest_number, since the dataset has one row per charge. PASS: gives the booking count for that month (reference, probed 2026-10-20 for September 2026: 1,388 distinct bookings over 2,888 rows) and says the rows are charges, so bookings are counted by booking number. PARTIAL: the right booking count with no word on the row-per-charge structure, or a month boundary off by one day. FAIL: presents the row count (2,888) as the number of bookings, uses the wrong month, or invents a number."
+  },
+  {
+    "id": "02-still-in-custody",
+    "prompt": "Of the people booked into King County jail over the past year, how many are still in custody, and where are they held?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Uses Adult Jail Booking (j56h-zgnm), a snapshot titled 'as of Oct 2, 2026' that covers bookings from 2025-10-01 (latest release 2026-10-01). The facility column looks like a custody status but is filled on 2,367 rows that have a release date, so custody is read from bookings with no release date. PASS: gives the distinct bookings with no release date (reference, probed 2026-10-20: 1,444 bookings over 6,219 rows; by facility 596 King County Correctional Facility, 446 Maleng Regional Justice Center, 400 Electronic Home Detention, 1 Community Correction Division, 1 blank), and says the figure is as of the early-October 2026 snapshot, not today, and covers only bookings since October 2025. PARTIAL: the right count without the snapshot caveat, or a count from the facility column that says it disagrees with release dates. FAIL: presents a row count (6,219 or 8,584) or the count of rows with a facility as the people in custody with no caveat, presents the figure as current today, or invents a number."
+  },
+  {
+    "id": "03-ld43-2012-republican-president",
+    "prompt": "In the November 2012 general election, how many votes did the Republican presidential ticket get in King County's 43rd Legislative District?",
+    "covers": [
+      "in_area"
+    ],
+    "expect": "Uses 2012 General - Election Results by precinct (u6ig-5qm8), filtered on leg = 43, the presidential race and the Republican ticket's countertype row, summing sumofcount over the district's 207 precincts. PASS: gives 8,747 votes (reference, probed 2026-10-20; the district's Times Counted total for the race is 83,076). PARTIAL: the right count with a wrong or missing statement of which dataset or filter it came from. FAIL: a count from another election, from the whole county, one that sums non-candidate countertype rows (Registered Voters, Times Counted), or an invented number."
+  },
+  {
+    "id": "04-traffic-collisions",
+    "prompt": "How many traffic collisions were there in King County, WA last year?",
+    "covers": [
+      "not_published"
+    ],
+    "expect": "Searches the King County portal (data.kingcounty.gov); on 2026-10-20 searches for 'traffic collision' and 'collision' returned no datasets. PASS: says the King County portal does not publish traffic collision data, gives no collision count, and at most suggests another publisher without inventing a dataset id or figures. PARTIAL: says it found nothing but presents an unverified dataset id or URL as a source. FAIL: answers from an unrelated dataset (such as Adult Jail Booking charges) or invents a collision count."
+  }
+]

@@ -1,0 +1,701 @@
+{
+ "portal": "data.lacity.org",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 10
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 25,
+   "row_count": 1635148
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 13,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 13
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "hbkd-qubn",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.lacity.org&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 15,
+     "searchMillis": [
+      3,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.lacity.org&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "161,211 bytes, over the 65,536-byte cap",
+    "sha256": "7450f1c5485f3343822036180b8cfcb637611f7e7f7ae6b676ff71206629b8e8",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.lacity.org/api/views/hbkd-qubn.json",
+   "status": 200,
+   "body": {
+    "id": "hbkd-qubn",
+    "name": "LADBS-Permits",
+    "assetType": "filter",
+    "attribution": "LADBS",
+    "attributionLink": "https://creativecommons.org/licenses/by/4.0/",
+    "averageRating": 0,
+    "category": "City Infrastructure & Service Requests",
+    "createdAt": 1504465985,
+    "description": "The Department of Building and Safety issues permits for the construction, remodeling, and repair of buildings and structures in the City of Los Angeles.  Permits are categorized into building permits, electrical permits, and mechanical permits (which include plumbing, HVAC systems, fire sprinklers, elevators, and pressure vessels).  Depending on the complexity of a project, a permit may be issued the same day with Express Permit or e-Permit (\"No Plan Check\" category), or a permit may require that the plans be reviewed (\"Plan Check\" category) by a Building and Safety Plan Check personnel.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 7646,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1565727356,
+    "licenseId": "CC_40_BY",
+    "locked": false,
+    "modifyingViewUid": "yv23-pmwf",
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 32138852,
+    "provenance": "community",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1483491114,
+    "publicationGroup": 1515840,
+    "publicationStage": "published",
+    "queryString": "SELECT `pcis_permit`, `permit_type`, `permit_sub_type`, `initiating_office`, `issue_date`, `address_start`, `street_name`, `street_suffix`, `zip_code`, `work_description`, `valuation`, `of_residential_dwelling_units`, `of_stories`, `contractors_business_name`, `contractor_address`, `contractor_city`, `license`, `principal_first_name`, `principal_last_name`, `license_expiration_date`, `applicant_first_name`, `applicant_last_name`, `applicant_business_name`, `zone`, `council_district` ORDER BY `issue_date` ASC NULL LAST",
+    "rowsUpdatedAt": 1684748004,
+    "tableId": 16432300,
+    "totalTimesRated": 0,
+    "viewCount": 29632,
+    "viewLastModified": 1736883743,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 422923273,
+      "name": "PCIS Permit #",
+      "dataTypeName": "text",
+      "description": "This is the permit number assigned by the Plan Check and Inspection System as soon as an application for a permit has been filed.  Before a permit is issued, the number is known as the Application Number.  After the permit is issued, this same number becomes the Permit Number.",
+      "fieldName": "pcis_permit",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 18720462,
+      "width": 134,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923276,
+      "name": "Permit Type",
+      "dataTypeName": "text",
+      "description": "Permit application type.",
+      "fieldName": "permit_type",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 18720463,
+      "width": 96,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923277,
+      "name": "Permit Sub-Type",
+      "dataTypeName": "text",
+      "description": "The permit sub-type determines whether the permit application is for a 1 or 2 family dwelling, a multi-family dwelling, or a commercial structure. ",
+      "fieldName": "permit_sub_type",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 18720464,
+      "width": 113,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923281,
+      "name": "Initiating Office",
+      "dataTypeName": "text",
+      "description": "Office location where the permit application is initiated, not necessarily issued.",
+      "fieldName": "initiating_office",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 18720468,
+      "width": 98,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923282,
+      "name": "Issue Date",
+      "dataTypeName": "calendar_date",
+      "description": "Permit issue date.",
+      "fieldName": "issue_date",
+      "position": 5,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 18720469,
+      "width": 83,
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923283,
+      "name": "Address Start",
+      "dataTypeName": "number",
+      "description": "Beginning house number of property address on permit application. \nExample 1: For \"200 - 200 N Main Ave\", Address Start is 200. \nExample 2: For \"202 1/4 - 204 1/2 N Main St SE\", Address Start is 202. ",
+      "fieldName": "address_start",
+      "position": 6,
+      "renderTypeName": "number",
+      "tableColumnId": 18720470,
+      "width": 86,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 422923288,
+      "name": "Street Name",
+      "dataTypeName": "text",
+      "description": "Street name of property address for permit application.",
+      "fieldName": "street_name",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 18720475,
+      "width": 112,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923289,
+      "name": "Street Suffix",
+      "dataTypeName": "text",
+      "description": "Street suffix of property address for permit application. \nExample 1: For \"200 - 200 Main Ave\", Street Suffix is Ave. \nExample 2: For \"202 1/4 - 204 1/2 N Main St SE\", Street Suffix is St. ",
+      "fieldName": "street_suffix",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 18720476,
+      "width": 50,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923293,
+      "name": "Zip Code",
+      "dataTypeName": "number",
+      "description": "Zip code of property address for permit application.",
+      "fieldName": "zip_code",
+      "position": 9,
+      "renderTypeName": "number",
+      "tableColumnId": 18720480,
+      "width": 79,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923294,
+      "name": "Work Description",
+      "dataTypeName": "text",
+      "description": "Describes the work to be performed under the permit application.",
+      "fieldName": "work_description",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 18720481,
+      "width": 292,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923295,
+      "name": "Valuation",
+      "dataTypeName": "number",
+      "description": "The property/structure valuation amount is used to calculate the building permit fee and all fees calculated as percentage of the building fee.  For all building permit types, except for Grading, the valuation is measured in dollars. For Grading permit applications, the valuation is measured in cubic yards of soil removed or added.",
+      "fieldName": "valuation",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 18720482,
+      "width": 74,
+      "format": {
+       "precisionStyle": "currency",
+       "humane": "false",
+       "currencyStyle": "USD",
+       "precision": "2",
+       "align": "center"
+      }
+     },
+     {
+      "id": 422923297,
+      "name": "# of Residential Dwelling Units",
+      "dataTypeName": "number",
+      "description": "Number of dwelling units for a residential building.",
+      "fieldName": "of_residential_dwelling_units",
+      "position": 12,
+      "renderTypeName": "number",
+      "tableColumnId": 18720484,
+      "width": 101,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "center"
+      }
+     },
+     {
+      "id": 422923299,
+      "name": "# of Stories",
+      "dataTypeName": "number",
+      "description": "Number of stories.",
+      "fieldName": "of_stories",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 18720485,
+      "width": 52,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "center"
+      }
+     },
+     {
+      "id": 422923300,
+      "name": "Contractor's Business Name",
+      "dataTypeName": "text",
+      "description": "If applicable, the contractor's business name.",
+      "fieldName": "contractors_business_name",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 18720486,
+      "width": 201,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923301,
+      "name": "Contractor Address",
+      "dataTypeName": "text",
+      "description": "\"Street address\" portion of contractor's address.",
+      "fieldName": "contractor_address",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 18720487,
+      "width": 176,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923302,
+      "name": "Contractor City",
+      "dataTypeName": "text",
+      "description": "\"City\" portion of contractor's address.",
+      "fieldName": "contractor_city",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 18720488,
+      "width": 105,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923305,
+      "name": "License #",
+      "dataTypeName": "number",
+      "description": "Contractor's license number.",
+      "fieldName": "license",
+      "position": 17,
+      "renderTypeName": "number",
+      "tableColumnId": 18720492,
+      "width": 87,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 422923306,
+      "name": "Principal First Name",
+      "dataTypeName": "text",
+      "description": "First name of the contractor or personnel currently associated with the license.",
+      "fieldName": "principal_first_name",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 18720493,
+      "width": 64,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923308,
+      "name": "Principal Last Name",
+      "dataTypeName": "text",
+      "description": "Last name of the contractor or personnel currently associated with the license.",
+      "fieldName": "principal_last_name",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 18720495,
+      "width": 111,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923309,
+      "name": "License Expiration Date",
+      "dataTypeName": "calendar_date",
+      "description": "Contractor license expiration date.",
+      "fieldName": "license_expiration_date",
+      "position": 20,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 18720496,
+      "width": 103,
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923310,
+      "name": "Applicant First Name",
+      "dataTypeName": "text",
+      "description": "First name of the permit applicant.",
+      "fieldName": "applicant_first_name",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 18720499,
+      "width": 129,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923311,
+      "name": "Applicant Last Name",
+      "dataTypeName": "text",
+      "description": "Last name of the permit applicant.",
+      "fieldName": "applicant_last_name",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 18720500,
+      "width": 129,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923312,
+      "name": "Applicant Business Name",
+      "dataTypeName": "text",
+      "description": "If applicable, permit applicant's business name.",
+      "fieldName": "applicant_business_name",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 18720501,
+      "width": 141,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923316,
+      "name": "Zone",
+      "dataTypeName": "text",
+      "description": "The designated zone of the property or lot that determines the allowed use, maximum height, allowable area, required yards, and any other requirements specific to the property or lot.",
+      "fieldName": "zone",
+      "position": 24,
+      "renderTypeName": "text",
+      "tableColumnId": 18720507,
+      "width": 86,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 422923320,
+      "name": "Council District",
+      "dataTypeName": "text",
+      "description": "The City of Los Angeles council district that has jurisdiction over the property.",
+      "fieldName": "council_district",
+      "position": 25,
+      "renderTypeName": "text",
+      "tableColumnId": 35772909,
+      "width": 64,
+      "format": {
+       "displayStyle": "plain",
+       "align": "center"
+      }
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Creative Commons Attribution 4.0 International",
+     "logoUrl": "images/licenses/cc30by.png",
+     "termsLink": "http://creativecommons.org/licenses/by/4.0/legalcode"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "custom_fields": {
+      "Committed Update Frequency": {
+       "Refresh rate": "Weekly"
+      },
+      "Location Specified": {
+       "Does this data have a Location column? (Yes or No)": "Yes",
+       "What geographic unit is the data collected?": "Latitude/longitude"
+      },
+      "Data Owner": "<identity redacted>"
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "Row",
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "ladbs",
+     "department of building and safety",
+     "building and safety",
+     "building",
+     "safety",
+     "construction services",
+     "construction",
+     "permit",
+     "permit number",
+     "permit type",
+     "occupancy",
+     "sign",
+     "building permit",
+     "building new",
+     "new building",
+     "building alter repair",
+     "repair",
+     "remodel",
+     "building addition",
+     "building demolition",
+     "demolition permit",
+     "demolition",
+     "building relocation",
+     "relocation permit",
+     "relocation",
+     "swimming pool permit",
+     "swimming pool",
+     "spa",
+     "grading permit",
+     "grading",
+     "sign permit",
+     "electrical permit",
+     "electrical",
+     "solar pv permit",
+     "solar photovoltaic",
+     "solar pv",
+     "solar",
+     "photovoltaic",
+     "mechanical permit",
+     "mechanical",
+     "plumbing permit",
+     "plumbing",
+     "hvac permit",
+     "hvac",
+     "heating",
+     "ventilation",
+     "air-conditioning",
+     "air conditioning",
+     "ac",
+     "fire sprinkler permit",
+     "fire sprinkler",
+     "pressure vessel permit",
+     "pressure vessel",
+     "pv",
+     "elevator permit",
+     "elevator",
+     "commercial",
+     "1 or 2 family dwelling",
+     "apartment",
+     "valuation",
+     "plan check",
+     "housing"
+    ],
+    "flags": [
+     "calculatedView",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType",
+     "soqlBasedView"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.lacity.org/resource/hbkd-qubn.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "1635148"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.lacity.org/resource/hbkd-qubn.json?%24select=min%28issue_date%29+AS+lo%2C+max%28issue_date%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2013-01-01T00:00:00.000",
+     "hi": "2023-05-19T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.lacity.org/resource/hbkd-qubn.json?%24select=pcis_permit%2C+permit_type%2C+permit_sub_type%2C+initiating_office%2C+issue_date%2C+address_start%2C+street_name%2C+street_suffix%2C+zip_code%2C+work_description%2C+valuation%2C+of_residential_dwelling_units%2C+of_stories%2C+contractors_business_name%2C+contractor_address%2C+contractor_city%2C+license%2C+principal_first_name%2C+principal_last_name%2C+license_expiration_date%2C+applicant_first_name%2C+applicant_last_name%2C+applicant_business_name%2C+zone%2C+council_district%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address_start",
+     "applicant_first_name",
+     "applicant_last_name",
+     "contractor_address",
+     "contractor_city",
+     "contractors_business_name",
+     "council_district",
+     "initiating_office",
+     "issue_date",
+     "license",
+     "license_expiration_date",
+     "of_stories",
+     "pcis_permit",
+     "permit_sub_type",
+     "permit_type",
+     "principal_first_name",
+     "principal_last_name",
+     "street_name",
+     "street_suffix",
+     "valuation",
+     "work_description",
+     "zip_code",
+     "zone"
+    ],
+    "sha256": "ef19b1d77a392f8afbf4ec6315fbc887a96171a658d22205fd8ddac29715b2a6"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.lacity.org/resource/hbkd-qubn.json?%24select=pcis_permit%2C+permit_type%2C+permit_sub_type%2C+initiating_office%2C+issue_date%2C+address_start%2C+street_name%2C+street_suffix%2C+zip_code%2C+work_description%2C+valuation%2C+of_residential_dwelling_units%2C+of_stories%2C+contractors_business_name%2C+contractor_address%2C+contractor_city%2C+license%2C+principal_first_name%2C+principal_last_name%2C+license_expiration_date%2C+applicant_first_name%2C+applicant_last_name%2C+applicant_business_name%2C+zone%2C+council_district%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-6uxs.th42_ieqe%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "address_start",
+     "applicant_first_name",
+     "applicant_last_name",
+     "contractor_address",
+     "contractor_city",
+     "contractors_business_name",
+     "council_district",
+     "initiating_office",
+     "issue_date",
+     "license",
+     "license_expiration_date",
+     "of_stories",
+     "pcis_permit",
+     "permit_sub_type",
+     "permit_type",
+     "principal_first_name",
+     "principal_last_name",
+     "street_name",
+     "street_suffix",
+     "valuation",
+     "work_description",
+     "zip_code",
+     "zone"
+    ],
+    "sha256": "bdfd999d04ee183d4adf42231fe1777093c44befc2c96a73bef944db9fe2df86"
+   }
+  }
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "portal": "data.honolulu.gov",
+ "branch": "curate/test-2026-10-18",
+ "base": "9418e48947b3db89a00527036929c20ee7b914d9",
+ "curation": {
+  "exit_code": 0,
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 87,
+  "duration_ms": 753923,
+  "total_cost_usd": 3.4674259999999997,
+  "final_message": "I curated data.honolulu.gov and promoted it to `curated`, in one commit (`c1acae5`) on `curate/test-2026-10-18`. `git remote` lists no remote, so no PR was opened; the title and body are below.\n\n**PR title:** feat: add the data.honolulu.gov knowledge pack (curated)\n\n**PR body:**\n\n## Portal\n`data.honolulu.gov`, the City and County of Honolulu's portal. It is now a pack with tier **`curated`**; before this it was `generic`, from the registry only.\n\n## Declared tier and why\n`curated`, because every condition in CONTRIBUTING step 12 holds:\n- Honolulu 311 Reports (`6hui-dvrh`) is `reviewed`, as reported by `atlas_describe_dataset`, and it has a guide (`guides.py`, guide `honolulu-311-2025`).\n- The eval tasks' `covers` include all four kinds: `in_area`, `relative_date`, `misleading_field` and `not_published`.\n- Every task graded PASS in all 3 eval runs (table below).\n- `uv run pytest -q tests/test_tiers.py` passed after the promotion (19 tests).\n\n## Identity\n- `registry_overrides.toml` had no entry for `data.honolulu.gov`, so nothing was deleted there.\n- `jurisdiction` is `level = \"county\"`, `country = \"US\"`, `region = \"HI\"`. It comes from the portal home page footer, https://data.honolulu.gov/: \"&copy; 2026 City and County of Honolulu\". The citation is in `portal.toml`. I chose `county` because the publisher names itself a city and county in one.\n- `timezone` is `Pacific/Honolulu` (Hawaii is in one zone).\n- The second profiler run with the timezone set emitted no `*-timezone` claims. Its notes say \"no spring-forward day in Pacific/Honolulu\", so there were none to copy. The timezone claim on `6hui-dvrh.datecreated` was written by hand (below).\n\n## Dataset reviewed: Honolulu 311 Reports (`6hui-dvrh`)\nIt is the only profiled dataset with both a place field and a time column.\n- **Unit of observation:** one 311 report. 133 rows have 133 distinct `id` values.\n- **Place field:** the computed ZIP region `:@computed_region_7asa_3qps`, reviewed through a new `region_layer` claim on `7asa-3qps` in `regions.toml`.\n  - The layer is \"Zip Codes\": 2010 Census ZIP Code Tabulation Areas, labelled by `zcta5ce10`.\n  - It is set with kind `zip`, reliability `ok` and vintage `2010`.\n  - Every row is assigned, across 22 ZIPs; describe now shows the ZIP labels.\n- **Primary time column `datecreated`:** set to `UTC`. The times are stored as UTC wall-clock, not Honolulu time.\n  - Hourly counts are lowest at UTC hours 11\u201314 (1\u20134 am in Honolulu) and peak at UTC hour 22 (noon in Honolulu).\n  - Only 11 of 133 rows fall in Honolulu's midnight-to-5 am window.\n  - This is asserted with `diurnal_peak` and `share_by_group` checks.\n- **`city` and `zipcode`:** declared `\"\"` placeholders with reliability `unreliable`. Both are empty on all 133 rows.\n- **Coverage:** the dataset runs only from 2025-11-26 to 2025-12-01. The guide says so, and also points to HNL 311 Reports (`jdy7-ftwe`, Sep\u2013Oct 2026, whose `date_created` is text) and Honolulu 311 archive (`pxs8-ci86`, 2011\u20132019).\n- Claims on the other datasets (`7mwf-c3z3`, `jdy7-ftwe`, `yef5-h88r`) stay as profiler observations.\n\n## Review values (step 3)\nThe profiler flagged one value, on claim `7mwf-c3z3-streetnumber-padded`. It is a masked street number, not a person, so **0 claims were deleted**.\n\n## Drift outcomes (11.1)\n`uv run pytest --run-integration -m integration tests/test_drift.py -k data.honolulu.gov`: **13 passed**, 0 failed. `validation.json` gained entries for this portal only.\n\n## Offline gate (11.2)\n- `uv run pytest -q`: 1105 passed, 59 skipped (integration and paid tests).\n- `uv run prek run --all-files`: every hook passed.\n- No other portal's claims failed a check.\n\n## Eval grades (11.3)\n\n| Task | Covers | Run 1 | Run 2 | Run 3 |\n|---|---|---|---|---|\n| 01-311-zip-96815 | in_area | PASS | PASS | PASS |\n| 02-311-last-year | relative_date | PASS | PASS | PASS |\n| 03-311-zipcode-column | misleading_field | PASS | PASS | PASS |\n| 04-311-channel | not_published | PASS | PASS | PASS |\n\n## Knowledge gaps\n- `jdy7-ftwe` (the live 311 feed) is unreviewed, and its `date_created` is free text, so relative-date queries on it can't use date functions.\n- In the eval answers, agents called `jdy7-ftwe` a \"rolling 30-day window\". I did not probe that claim.\n- `pxs8-ci86` (311 archive) was not profiled.\n\n## Engine notes\nNo engine gap required a stop. One behaviour to know about: a reviewed `place_field` claim on a computed-region column makes describe list that column twice in `place_fields` (once as `column`, once as `computed_region`). I avoided it by leaving `6hui-dvrh-:@computed_region_7asa_3qps-fill` as an observation and reviewing the column through the `region_layer` claim.\n\n\ud83e\udd16 Generated with Claude Code",
+  "transcript": "<tmp>/curation.transcript.jsonl"
+ },
+ "checks": {
+  "offline_gate": {
+   "exit_code": 0,
+   "tail": ".........................................                                [100%]\n41 passed in 0.17s\n"
+  },
+  "drift": {
+   "exit_code": 0,
+   "tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.7.0\nrootdir: <tmp>/wt\nconfigfile: pyproject.toml\nplugins: cov-7.1.0, asyncio-1.4.0, platformdirs-4.13.3, anyio-4.15.1\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollected 21 items / 8 deselected / 13 selected\n\ntests/test_drift.py .............                                        [100%]\n\n======================= 13 passed, 8 deselected in 9.08s =======================\n"
+  },
+  "guide_examples": {
+   "exit_code": 0,
+   "examples": [
+    {
+     "guide": "honolulu-311-2025",
+     "question": "Which ZIP code areas had the most 311 reports?",
+     "is_error": false,
+     "code": null
+    },
+    {
+     "guide": "honolulu-311-2025",
+     "question": "What were the most common request types on November 30, 2025, Honolulu time?",
+     "is_error": false,
+     "code": null
+    }
+   ],
+   "stderr_tail": ""
+  },
+  "evals": {
+   "exit_code": 0,
+   "out": "<tmp>/evals"
+  }
+ },
+ "commits": 1,
+ "changed_paths": [
+  "evals/portals/data.honolulu.gov.json",
+  "src/opendata_atlas/portals/data.honolulu.gov/facts/6hui-dvrh.toml",
+  "src/opendata_atlas/portals/data.honolulu.gov/facts/7mwf-c3z3.toml",
+  "src/opendata_atlas/portals/data.honolulu.gov/facts/jdy7-ftwe.toml",
+  "src/opendata_atlas/portals/data.honolulu.gov/facts/yef5-h88r.toml",
+  "src/opendata_atlas/portals/data.honolulu.gov/guides.py",
+  "src/opendata_atlas/portals/data.honolulu.gov/portal.toml",
+  "src/opendata_atlas/portals/data.honolulu.gov/regions.toml",
+  "src/opendata_atlas/portals/validation.json"
+ ],
+ "pack": "data.honolulu.gov",
+ "path_violations": [],
+ "pack_dir": "src/opendata_atlas/portals/data.honolulu.gov",
+ "portal_id": "data.honolulu.gov",
+ "declared_tier": "curated",
+ "jurisdiction": {
+  "level": "county",
+  "country": "US",
+  "region": "HI"
+ },
+ "timezone": "Pacific/Honolulu",
+ "claims": {
+  "by_kind": {
+   "column_timezone": 1,
+   "padded_values": 1,
+   "place_field": 2,
+   "placeholder_share": 7,
+   "region_layer": 1,
+   "unit_of_observation": 1
+  },
+  "reviewed": 5,
+  "with_interpretation_reason_and_probe": 5
+ },
+ "eval_covers_missing": [],
+ "eval_answers": [
+  {
+   "id": "01-311-zip-96815",
+   "covers": [
+    "in_area"
+   ],
+   "prompt": "How many Honolulu 311 reports came from ZIP code 96815 between November 26 and December 1, 2025?",
+   "expect": "PASS: uses Honolulu 311 Reports (6hui-dvrh), filters the computed ZIP region :@computed_region_7asa_3qps on feature 7521 (ZIP 96815), and answers 5. PARTIAL: answers 5 but filters some other way, or gives the right method with a miscount it flags as uncertain. FAIL: filters the empty zipcode column and reports 0, or gives a number other than 5 as fact.",
+   "subtype": "success",
+   "total_cost_usd": 0.1454086,
+   "answer": "**5 reports** came from ZIP code 96815 (Waik\u012bk\u012b area) between November 26 and December 1, 2025, Honolulu time.\n\nHow I got it:\n- **Dataset:** \"Honolulu 311 Reports\" (`6hui-dvrh`) on data.honolulu.gov. It has 133 reports total, created between Nov 26 and Dec 1, 2025, so it covers the period you asked about. It isn't a live feed; the newer \"HNL 311 Reports\" dataset only has September and October 2026.\n- **ZIP filter:** The dataset's own `zipcode` field is blank on every row. Instead I used the ZIP area the portal assigns from each report's map location, based on 2010 Census ZIP boundaries. 96815 is area `7521` there. Every report has one assigned.\n- **Dates:** The timestamps are stored in UTC, so I converted Nov 26 00:00 through Dec 1 23:59:59 Honolulu time (UTC\u221210) to UTC before filtering.\n- **Check:** A breakdown of all reports by ZIP area also shows 96815 with 5 (and the areas add up to 133), so the result matches without the date filter. That makes sense, since the whole dataset falls inside your date range.",
+   "grade": "PASS",
+   "grade_note": "answers 5 from 6hui-dvrh via :@computed_region_7asa_3qps feature 7521",
+   "graded_by": "Task 14 implementer, by hand against expect"
+  },
+  {
+   "id": "02-311-last-year",
+   "covers": [
+    "relative_date"
+   ],
+   "prompt": "How many 311 reports were filed in Honolulu last year?",
+   "expect": "Last year is 2025 (from now_local). PASS: answers 133 from Honolulu 311 Reports (6hui-dvrh) and says the data covers only 2025-11-26 to 2025-12-01, so 133 is not a full-year total; may note HNL 311 Reports (jdy7-ftwe) holds only September-October 2026 and Honolulu 311 archive (pxs8-ci86) only 2011-2019. PARTIAL: answers 133 without the coverage caveat. FAIL: presents any number as Honolulu's full-year 2025 total, answers 0, or uses 2026.",
+   "subtype": "success",
+   "total_cost_usd": 0.12372359999999999,
+   "answer": "I can't give a full-year count for 2025, because Honolulu's open data portal (data.honolulu.gov) doesn't have a full year of 2025 311 data. It only has 133 reports from 2025, and they all fall in the last week of November.\n\n**What the portal has:**\n\n| Dataset | Covers | 2025 reports |\n|---|---|---|\n| Honolulu 311 Reports (`6hui-dvrh`) | Nov 26 \u2013 Dec 1, 2025 only | **133** |\n| HNL 311 Reports (`jdy7-ftwe`, the current feed) | 2026 only (all 2,084 rows) | 0 |\n| Honolulu 311 archive (`pxs8-ci86`) | 2011 \u2013 mid-2019 | 0 |\n\n- **The 133:** I counted every report created in 2025 in Honolulu time (UTC\u221210). They run from Nov 26 to Dec 1, 2025, about six days. That's one snapshot, not the year's total. Most of 2025 just isn't in these datasets, so the real number was almost certainly much higher.\n- **The current feed:** none of its rows mention 2025, while the same filter matches all 2,084 rows for 2026, so the search itself works. Its dates are stored as plain text, so I could only match on the year written in them. It also isn't confirmed whether each row is one report.\n\nFor a true full-year 2025 total, you'd need to ask the City and County of Honolulu directly, since their 311 system has records that aren't on the open data portal. I can also look at those 133 November reports by request type, status or ZIP code.",
+   "grade": "PASS",
+   "grade_note": "133 from 6hui-dvrh with the 2025-11-26..12-01 coverage caveat; not presented as a full-year total",
+   "graded_by": "Task 14 implementer, by hand against expect"
+  },
+  {
+   "id": "03-311-zipcode-column",
+   "covers": [
+    "misleading_field"
+   ],
+   "prompt": "Using Honolulu's 311 Reports dataset (6hui-dvrh), count the reports by the zipcode column.",
+   "expect": "PASS: says zipcode is empty on all 133 rows and groups by :@computed_region_7asa_3qps instead, with ZIP labels; the top area is 96706 (14 reports). PARTIAL: says zipcode is empty but offers no ZIP breakdown, or gives the breakdown without saying zipcode is empty. FAIL: reports a single blank group of 133 as a ZIP result, or invents ZIP counts.",
+   "subtype": "success",
+   "total_cost_usd": 0.09249360000000001,
+   "answer": "The `zipcode` column can't give you this breakdown, because it's blank in all 133 reports. Grouping on it just returns one row: `\"\"` with 133.\n\nYou can get ZIP counts another way. Socrata adds a computed ZIP region (`:@computed_region_7asa_3qps`) based on each report's location, and every report falls in one. The ZIP labels below come from the 2010 Census ZIP Code Tabulation Areas. These are close to postal ZIP codes but not always the same.\n\n| ZIP | Reports |\n|---|---|\n| 96706 | 14 |\n| 96819 | 11 |\n| 96826 | 11 |\n| 96814 | 10 |\n| 96734 | 9 |\n| 96816 | 9 |\n| 96817 | 9 |\n| 96744 | 7 |\n| 96813 | 7 |\n| 96825 | 7 |\n| 96782 | 6 |\n| 96818 | 6 |\n| 96815 | 5 |\n| 96792 | 4 |\n| 96797 | 4 |\n| 96822 | 4 |\n| 96707 | 3 |\n| 96701 | 2 |\n| 96789 | 2 |\n| 96786 | 1 |\n| 96795 | 1 |\n| 96857 | 1 |\n| **Total** | **133** |\n\nThe dataset only covers about five days of reports, from Nov 26 to Dec 1, 2025 (UTC), so these numbers are small.",
+   "grade": "PASS",
+   "grade_note": "says zipcode is empty on all 133 rows, groups by the computed ZIP region with labels; top 96706 = 14",
+   "graded_by": "Task 14 implementer, by hand against expect"
+  },
+  {
+   "id": "04-311-channel",
+   "covers": [
+    "not_published"
+   ],
+   "prompt": "How many Honolulu 311 reports were submitted by phone versus through the app?",
+   "expect": "PASS: says no Honolulu 311 dataset (6hui-dvrh, jdy7-ftwe, pxs8-ci86) has a submission-channel field, gives no phone/app split, and may offer request type or status instead. PARTIAL: says the channel is not published but also guesses one from description text, labelled as a guess. FAIL: gives a phone/app split as fact.",
+   "subtype": "success",
+   "total_cost_usd": 0.1269946,
+   "answer": "I can't answer this from Honolulu's open data. None of its 311 datasets records whether a report came in by phone or through the app.\n\nI checked all three 311 datasets on the City and County of Honolulu portal (data.honolulu.gov):\n\n| Dataset | Coverage | Columns |\n|---|---|---|\n| **HNL 311 Reports** (`jdy7-ftwe`) | 2,084 reports, Sept\u2013Oct 2026 | id, date created, request type, street, city, state, ZIP, status, description |\n| **Honolulu 311 Reports** (`6hui-dvrh`) | 133 reports, Nov 26 \u2013 Dec 1, 2025 | id, created/updated dates, request type, city, ZIP, location, status, description |\n| **Honolulu 311 archive** (`pxs8-ci86`) | 24,375 reports, 2011\u20132019 | id, report type, status, description, created/closed dates, location |\n\nNone of them has a source, channel or intake-method field. Guessing the channel from the free-text descriptions wouldn't be reliable, so I haven't given numbers.\n\nYou could get the figures in two ways:\n- **Ask the city directly.** Honolulu's Department of Customer Services runs 311, and its internal system probably tracks the channel. A records request or an email to the open-data team could get it.\n- **Look for published reports.** The city's 311 annual reports or press releases sometimes give app versus phone percentages.\n\nI can break the 311 data down by request type, status, ZIP code or date range instead.",
+   "grade": "PASS",
+   "grade_note": "says no 311 dataset has a channel field; no split given; offers other breakdowns",
+   "graded_by": "Task 14 implementer, by hand against expect"
+  }
+ ],
+ "failures": [],
+ "agent_eval_runs": {
+  "note": "the curating agent's 3 eval runs (step 11.3); its grades are in curation.final_message (all PASS)",
+  "runs": {
+   "evals-1": {
+    "01-311-zip-96815": {
+     "subtype": "success",
+     "total_cost_usd": 0.1358162
+    },
+    "02-311-last-year": {
+     "subtype": "success",
+     "total_cost_usd": 0.1511872
+    },
+    "03-311-zipcode-column": {
+     "subtype": "success",
+     "total_cost_usd": 0.10050299999999998
+    },
+    "04-311-channel": {
+     "subtype": "success",
+     "total_cost_usd": 0.1365254
+    }
+   },
+   "evals-2": {
+    "01-311-zip-96815": {
+     "subtype": "success",
+     "total_cost_usd": 0.13413640000000002
+    },
+    "02-311-last-year": {
+     "subtype": "success",
+     "total_cost_usd": 0.127728
+    },
+    "03-311-zipcode-column": {
+     "subtype": "success",
+     "total_cost_usd": 0.09176580000000001
+    },
+    "04-311-channel": {
+     "subtype": "success",
+     "total_cost_usd": 0.1336984
+    }
+   },
+   "evals-3": {
+    "01-311-zip-96815": {
+     "subtype": "success",
+     "total_cost_usd": 0.110459
+    },
+    "02-311-last-year": {
+     "subtype": "success",
+     "total_cost_usd": 0.1221936
+    },
+    "03-311-zipcode-column": {
+     "subtype": "success",
+     "total_cost_usd": 0.0895196
+    },
+    "04-311-channel": {
+     "subtype": "success",
+     "total_cost_usd": 0.1400054
+    }
+   }
+  }
+ },
+ "cost_usd": {
+  "curation_session": 3.4674259999999997,
+  "agent_eval_runs": 1.4735,
+  "test_eval_run": 0.4886,
+  "this_run_total": 5.4296,
+  "earlier_runs": [
+   {
+    "run": 1,
+    "commit": "d75bda0",
+    "cost_usd": 0.4238,
+    "outcome": "stopped at its first command: mkdir ../curate-out denied outside the working directory; fixed in 9418e48"
+   }
+  ],
+  "all_runs_total": 5.8534
+ },
+ "run": 2,
+ "command_note": "Run 2 used the claude -p command before ruling 61: without --strict-mcp-config, so the child loaded the user's MCP servers and connectors (outside its allowlist). The test now passes --strict-mcp-config, which restricts MCP servers only (plugins, skills, hooks, user CLAUDE.md and memory still load; connectors unverified). No paid re-run was made.",
+ "engine_findings": [
+  {
+   "finding": "a reviewed place_field claim on a computed-region column was listed twice in describe's place_fields",
+   "status": "fixed after the run (ruling 62)"
+  }
+ ],
+ "predates": "Run 2 predates rulings 63-65: its Ending could call gh pr create, and the agent declared data.honolulu.gov curated itself. Under the current skill it declares at most profiled and proposes curated for a reviewer other than itself to re-grade. The Honolulu pack is not merged."
+}

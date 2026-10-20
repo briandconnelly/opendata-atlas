@@ -1,0 +1,21 @@
+{
+ "url": "https://data.cityofchicago.org/resource/vrxf-vc4k.json?%24select=_feature_id%2C+community%2C+area_numbe&%24where=community+in+%28%22HYDE+PARK%22%2C%22AUSTIN%22%2C%22DOUGLAS%22%29",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "26",
+   "community": "AUSTIN",
+   "area_numbe": "25"
+  },
+  {
+   "_feature_id": "1",
+   "community": "DOUGLAS",
+   "area_numbe": "35"
+  },
+  {
+   "_feature_id": "8",
+   "community": "HYDE PARK",
+   "area_numbe": "41"
+  }
+ ]
+}

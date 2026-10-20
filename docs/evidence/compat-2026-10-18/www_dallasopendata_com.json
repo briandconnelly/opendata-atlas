@@ -1,0 +1,2027 @@
+{
+ "portal": "www.dallasopendata.com",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 8
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 11,
+   "row_count": 126840
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "e7gq-4sah",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=www.dallasopendata.com&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Making Dallas' Streets Safer",
+       "id": "36p8-jfgz",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This story map explains how the Office of Data Analytics and Business Intelligence uses GIS applications to draw on data from numerous city departments and the crowdsourced applications Waze and improve transportation within Dallas.\nThis story map references the applications WAZE Dashboard (arcgis.com) and Traffic Control Permits Dashboard (arcgis.com)",
+       "attribution": "https://gis.dallascityhall.com",
+       "attribution_link": "https://dallasgis.maps.arcgis.com/home/item.html?id=94e6e036770b42f88507d00bc7f34756",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2021-08-10T18:30:31.000Z",
+       "createdAt": "2021-07-26T14:30:43.000Z",
+       "metadata_updated_at": "2021-08-10T18:30:31.000Z",
+       "data_updated_at": "2021-07-26T14:30:43.000Z",
+       "page_views": {
+        "page_views_last_week": 6,
+        "page_views_last_month": 19,
+        "page_views_total": 533,
+        "page_views_last_week_log": 2.807354922057604,
+        "page_views_last_month_log": 4.321928094887363,
+        "page_views_total_log": 9.060695931687555
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2021-07-26T14:36:19.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "GIS",
+       "domain_tags": [
+        "streets",
+        "smarter",
+        "crowd sourcing",
+        "waze",
+        "dallas",
+        "gis",
+        "transportation"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "Geo-Spatial (ArcGIS Link)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "Yes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com",
+       "additional_access_points": [
+        {
+         "urls": {
+          "html": "https://dallasgis.maps.arcgis.com/home/item.html?id=94e6e036770b42f88507d00bc7f34756"
+         },
+         "description": "This story map explains how the Office of Data Analytics and Business Intelligence uses GIS applications to draw on data from numerous city departments and the crowdsourced applications Waze and improve transportation within Dallas.\nThis story map references the applications WAZE Dashboard (arcgis.com) and Traffic Control Permits Dashboard (arcgis.com)",
+         "title": "Making Dallas' Streets Smarter"
+        },
+        {
+         "urls": {
+          "html": "https://dallasgis.maps.arcgis.com/home/item.html?id=d1ee0d06645b49d5a01e3bad3add4c5a"
+         },
+         "description": "Dashboard to show Traffic Control Permits in the ROW, and also show Crowd-Sourced WAZE traffic data\n\nThis is a dashboard for using the WAZE data\n\nTraffic Control Permits associated with a specific street address. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A Traffic Control Permit is required if construction work in or outside the public right-of-way will result in any closure of a traffic lane, blocking of a sidewalk or alley. The authoritative source for permit information is the Right-of-Way Management System.",
+         "title": "WAZE Dashboard"
+        },
+        {
+         "urls": {
+          "html": "https://dallasgis.maps.arcgis.com/home/item.html?id=725bef2567844d099b98ebdd3e5bc26b"
+         },
+         "description": "Traffic Control Permits associated with a specific street address. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A Traffic Control Permit is required if construction work in or outside the public right-of-way will result in any closure of a traffic lane, blocking of a sidewalk or alley. The authoritative source for permit information is the Right-of-Way Management System (https://rowmanagement.dallascityhall.com/Login.aspx).\n\nThe web map that feeds this dashbaord - https://dallasgis.maps.arcgis.com/home/item.html?id=ab4501737a864cdd93f24920bc4098f4\n\nThe hosted feature service that feeds this dashboard - https://dallasgis.maps.arcgis.com/home/item.html?id=725bef2567844d099b98ebdd3e5bc26b\n\n\nDisclaimer\nThe accuracy is not to be taken / used as data produced by a Registered Professional Land Surveyor for the State of Texas. For this level of detail, supervision and certification of the produced data by a Registered Land Surveyor for the State of Texas would be required. \"This product is for informational purposes and may not have been prepared for or be suitable for legal, engineering, or surveying purposes. It does not represent an on-the-ground survey and represents only the approximate relative location of property boundaries.\"\n\n(Texas Government Code § 2051.102)\n\nhttps://gis.dallascityhall.com/documents/COD_DataDisclaimer.pdf\n\n",
+         "title": "Traffic Control Permits Dashboard"
+        }
+       ],
+       "access_points": {
+        "html": "https://dallasgis.maps.arcgis.com/home/item.html?id=94e6e036770b42f88507d00bc7f34756"
+       }
+      },
+      "permalink": "https://www.dallasopendata.com/d/36p8-jfgz",
+      "link": "https://www.dallasopendata.com/GIS/Making-Dallas-Streets-Safer/36p8-jfgz",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 1,
+    "timings": {
+     "serviceMillis": 19,
+     "searchMillis": [
+      2,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=www.dallasopendata.com&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Building Permits",
+       "id": "e7gq-4sah",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "ATTENTION: This permit data set is historical and no longer updated. Active permit tracking has migrated to the: \n<a href=\"https://aca-prod.accela.com/DALLASTX/Login.aspx\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #b45309; font-weight: 600; text-decoration: underline;\">Dallas Accela Citizen Access Portal</a>.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-06-05T17:00:52.000Z",
+       "createdAt": "2019-06-29T23:31:17.000Z",
+       "metadata_updated_at": "2026-06-05T17:00:52.000Z",
+       "data_updated_at": "2020-08-30T09:15:14.000Z",
+       "page_views": {
+        "page_views_last_week": 650,
+        "page_views_last_month": 2118,
+        "page_views_total": 67278,
+        "page_views_last_week_log": 9.346513733165635,
+        "page_views_last_month_log": 11.049167872372172,
+        "page_views_total_log": 16.037868641834503
+       },
+       "columns_name": [
+        "Value",
+        "Permit Number",
+        "Street Address",
+        "Land Use",
+        "Zip Code",
+        "Work Description",
+        "Area",
+        "Contractor",
+        "Mapsco",
+        "Issued Date",
+        "Permit Type"
+       ],
+       "columns_field_name": [
+        "value",
+        "permit_number",
+        "street_address",
+        "land_use",
+        "zip_code",
+        "work_description",
+        "area",
+        "contractor",
+        "mapsco",
+        "issued_date",
+        "permit_type"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {}
+       ],
+       "download_count": 62806,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-04-29T20:34:24.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Services",
+       "domain_tags": [
+        "remodeling",
+        "construction",
+        "contractor",
+        "demolition",
+        "permit",
+        "electrical",
+        "issued date",
+        "mapsco",
+        "permit number",
+        "permit type",
+        "plumbing",
+        "property",
+        "repair",
+        "value",
+        "mechanical",
+        "address",
+        "area",
+        "building"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Additional-Information_Official-Data",
+         "value": "True"
+        },
+        {
+         "key": "Additional-Information_Update-Frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel, CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "Yes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/e7gq-4sah",
+      "link": "https://www.dallasopendata.com/Services/Building-Permits/e7gq-4sah",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "ROW Permits - Lines",
+       "id": "yi5a-ym5z",
+       "resource_name": null,
+       "parent_fxf": [
+        "xd3q-ipis"
+       ],
+       "description": "Right-of-way-permits that span one or more street blocks. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A permit is required to perform any construction work within the public right-of-way or any construction work outside of the public right-of-way that will cut, break, or otherwise damage the public right-of-way. The authoritative source for permit information is the Right-of-Way Management System (https://rowmanagement.dallascityhall.com/Login.aspx).",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "map",
+       "updatedAt": "2026-09-20T04:40:41.000Z",
+       "createdAt": "2026-03-12T14:56:01.000Z",
+       "metadata_updated_at": "2026-09-20T04:40:19.000Z",
+       "data_updated_at": "2026-09-20T04:40:41.000Z",
+       "page_views": {
+        "page_views_last_week": 446,
+        "page_views_last_month": 1907,
+        "page_views_total": 13601,
+        "page_views_last_week_log": 8.804131021183318,
+        "page_views_last_month_log": 10.897845456005511,
+        "page_views_total_log": 13.731531176461942
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 16,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_map",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-03-12T14:56:01.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/yi5a-ym5z",
+      "link": "https://www.dallasopendata.com/dataset/ROW-Permits-Lines/yi5a-ym5z",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "ROW Permits - Points",
+       "id": "xum9-x6px",
+       "resource_name": null,
+       "parent_fxf": [
+        "bw6g-a3ur"
+       ],
+       "description": "Right-of-way permits associated with a specific street address. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A permit is required to perform any construction work within the public right-of-way or any construction work outside of the public right-of-way that will cut, break, or otherwise damage the public right-of-way. The authoritative source for permit information is the Right-of-Way Management System (https://rowmanagement.dallascityhall.com/Login.aspx).",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "map",
+       "updatedAt": "2026-09-20T07:07:25.000Z",
+       "createdAt": "2026-03-12T14:57:18.000Z",
+       "metadata_updated_at": "2026-09-20T07:06:42.000Z",
+       "data_updated_at": "2026-09-20T07:07:25.000Z",
+       "page_views": {
+        "page_views_last_week": 45,
+        "page_views_last_month": 104,
+        "page_views_total": 3865,
+        "page_views_last_week_log": 5.523561956057013,
+        "page_views_last_month_log": 6.714245517666122,
+        "page_views_total_log": 11.916625922211237
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 12,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_map",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-03-12T14:57:18.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/xum9-x6px",
+      "link": "https://www.dallasopendata.com/dataset/ROW-Permits-Points/xum9-x6px",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Permit Points",
+       "id": "6ik7-4gqj",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Residential Permit Activity Points shapefile.\n\nThis dataset in the shapefile format contains geo-located points of permits in the City of Dallas for new construction, renovation, alteration, addition, or reconstruction. These data span July 2015 through June 2017 and were used as a primary dataset to generate the Percent New Construction, and Percent Rehabilitation factors in the MVA.",
+       "attribution": "City of Dallas",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2024-04-10T19:53:42.000Z",
+       "createdAt": "2018-02-09T22:24:44.000Z",
+       "metadata_updated_at": "2024-04-10T19:53:42.000Z",
+       "data_updated_at": "2018-02-09T22:24:49.000Z",
+       "page_views": {
+        "page_views_last_week": 26,
+        "page_views_last_month": 128,
+        "page_views_total": 2087,
+        "page_views_last_week_log": 4.754887502163469,
+        "page_views_last_month_log": 7.011227255423254,
+        "page_views_total_log": 11.027905996569885
+       },
+       "columns_name": [
+        "the_geom",
+        "ACTIVITY",
+        "Units",
+        "YCOORD",
+        "ID_1",
+        "JOBVALUE",
+        "XCOORD",
+        "LU",
+        "ADDRESS",
+        "OBJECTID_1",
+        "ISSUEDATE"
+       ],
+       "columns_field_name": [
+        "the_geom",
+        "activity",
+        "units",
+        "ycoord",
+        "id_1",
+        "jobvalue",
+        "xcoord",
+        "lu",
+        "address",
+        "objectid_1",
+        "issuedate"
+       ],
+       "columns_datatype": [
+        "Point",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Number",
+        "Date"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 234,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2018-02-09T22:24:49.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Economy",
+       "domain_tags": [
+        "analysis",
+        "market",
+        "points",
+        "permit",
+        "value"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Additional-Information_Scope",
+         "value": "Official Data"
+        },
+        {
+         "key": "Additional-Information_Official-Data",
+         "value": "True"
+        },
+        {
+         "key": "Additional-Information_Update-Frequency",
+         "value": ""
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel,CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/6ik7-4gqj",
+      "link": "https://www.dallasopendata.com/Economy/Permit-Points/6ik7-4gqj",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Dallas Market Value Analysis - Permit Points",
+       "id": "xvhy-2xtn",
+       "resource_name": null,
+       "parent_fxf": [
+        "6ik7-4gqj"
+       ],
+       "description": "Residential Permit Activity Points shapefile.\n\nThis dataset in the shapefile format contains geo-located points of permits in the City of Dallas for new construction, renovation, alteration, addition, or reconstruction. These data span July 2015 through June 2017 and were used as a primary dataset to generate the Percent New Construction, and Percent Rehabilitation factors in the MVA.",
+       "attribution": "City of Dallas",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "map",
+       "updatedAt": "2024-04-24T22:38:13.000Z",
+       "createdAt": "2018-02-09T22:24:40.000Z",
+       "metadata_updated_at": "2024-04-24T22:38:13.000Z",
+       "data_updated_at": "2018-02-09T22:24:49.000Z",
+       "page_views": {
+        "page_views_last_week": 44,
+        "page_views_last_month": 158,
+        "page_views_total": 3998,
+        "page_views_last_week_log": 5.491853096329675,
+        "page_views_last_month_log": 7.312882955284356,
+        "page_views_total_log": 11.965423565810129
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 145,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_map",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2018-02-09T22:24:40.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Economy",
+       "domain_tags": [
+        "permit",
+        "points",
+        "market",
+        "value",
+        "analysis"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Additional-Information_Scope",
+         "value": "Official Data"
+        },
+        {
+         "key": "Additional-Information_Official-Data",
+         "value": "True"
+        },
+        {
+         "key": "Additional-Information_Update-Frequency",
+         "value": ""
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel,CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/xvhy-2xtn",
+      "link": "https://www.dallasopendata.com/Economy/Dallas-Market-Value-Analysis-Permit-Points/xvhy-2xtn",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Building Permits for Fiscal Year 2011 - 2012",
+       "id": "azf5-sdcr",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Building permit is needed for work involving structural elements of a building. Permits are not required for certain construction work. Historic or conservation districts have special requirements for work on the exterior of properties.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2021-08-13T16:18:26.000Z",
+       "createdAt": "2020-04-15T17:08:11.000Z",
+       "metadata_updated_at": "2021-08-13T16:18:26.000Z",
+       "data_updated_at": "2020-04-15T17:34:35.000Z",
+       "page_views": {
+        "page_views_last_week": 37,
+        "page_views_last_month": 155,
+        "page_views_total": 3341,
+        "page_views_last_week_log": 5.247927513443585,
+        "page_views_last_month_log": 7.285402218862249,
+        "page_views_total_log": 11.706496018061188
+       },
+       "columns_name": [
+        "Area",
+        "Zip Code",
+        "Value",
+        "Work Description",
+        "Mapsco",
+        "Land Use",
+        "Permit Number",
+        "Permit Type",
+        "Issued Date",
+        "Contractor",
+        "Street Address"
+       ],
+       "columns_field_name": [
+        "area",
+        "zip_code",
+        "value",
+        "work_description",
+        "mapsco",
+        "land_use",
+        "permit_number",
+        "permit_type",
+        "issued_date",
+        "contractor",
+        "street_address"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 1858,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-04-15T17:10:25.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Archive",
+       "domain_tags": [
+        "construction",
+        "address",
+        "barricade",
+        "building",
+        "security system",
+        "tent",
+        "plumbing",
+        "repair",
+        "contractor",
+        "demolition",
+        "electrical",
+        "fence",
+        "issued date",
+        "land use",
+        "mechanical",
+        "permit",
+        "permit number",
+        "permit type",
+        "remodeling",
+        "liquor license"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel, CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/azf5-sdcr",
+      "link": "https://www.dallasopendata.com/Archive/Building-Permits-for-Fiscal-Year-2011-2012/azf5-sdcr",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Building Permits for Fiscal Year 2017 - 2018",
+       "id": "w2uy-zn9f",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Building permit is needed for work involving structural elements of a building. Permits are not required for certain construction work. Historic or conservation districts have special requirements for work on the exterior of properties.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2021-08-13T16:21:08.000Z",
+       "createdAt": "2020-04-15T19:47:49.000Z",
+       "metadata_updated_at": "2021-08-13T16:21:08.000Z",
+       "data_updated_at": "2020-04-15T19:50:48.000Z",
+       "page_views": {
+        "page_views_last_week": 22,
+        "page_views_last_month": 82,
+        "page_views_total": 2491,
+        "page_views_last_week_log": 4.523561956057013,
+        "page_views_last_month_log": 6.375039431346925,
+        "page_views_total_log": 11.283088353024002
+       },
+       "columns_name": [
+        "Permit Number",
+        "Street Address",
+        "Work Description",
+        "Value",
+        "Mapsco",
+        "Contractor",
+        "Area",
+        "Land Use",
+        "Zip Code",
+        "Permit Type",
+        "Issued Date"
+       ],
+       "columns_field_name": [
+        "permit_number",
+        "street_address",
+        "work_description",
+        "value",
+        "mapsco",
+        "contractor",
+        "area",
+        "land_use",
+        "zip_code",
+        "permit_type",
+        "issued_date"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 392,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-04-15T19:50:49.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Services",
+       "domain_tags": [
+        "liquor license",
+        "mapsco",
+        "mechanical",
+        "permit",
+        "permit number",
+        "area",
+        "barricade",
+        "conservation",
+        "fence",
+        "flood control",
+        "issued date",
+        "security system",
+        "tent",
+        "electrical",
+        "address",
+        "value",
+        "demolition",
+        "permit type",
+        "plumbing",
+        "registration",
+        "remodeling",
+        "repair"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel, CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/w2uy-zn9f",
+      "link": "https://www.dallasopendata.com/Services/Building-Permits-for-Fiscal-Year-2017-2018/w2uy-zn9f",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "ROW Permits - Points",
+       "id": "bw6g-a3ur",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Right-of-way permits associated with a specific street address. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A permit is required to perform any construction work within the public right-of-way or any construction work outside of the public right-of-way that will cut, break, or otherwise damage the public right-of-way. The authoritative source for permit information is the Right-of-Way Management System (https://rowmanagement.dallascityhall.com/Login.aspx).",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-09-20T07:07:25.000Z",
+       "createdAt": "2026-03-12T14:57:12.000Z",
+       "metadata_updated_at": "2026-03-12T14:57:15.000Z",
+       "data_updated_at": "2026-09-20T07:07:25.000Z",
+       "page_views": {
+        "page_views_last_week": 22,
+        "page_views_last_month": 85,
+        "page_views_total": 497,
+        "page_views_last_week_log": 4.523561956057013,
+        "page_views_last_month_log": 6.426264754702098,
+        "page_views_total_log": 8.960001932068081
+       },
+       "columns_name": [
+        "WORKDESCRIPTION",
+        "INSPECTION_DISTRICTS",
+        "ROWREASONFORJOB",
+        "ROWIMPROVEMENTREPAIR",
+        "SPECIFICLOCATION",
+        "ROWREQUESTEDSTARTDATE",
+        "APPLICANTNAMESTORED",
+        "APPLICANTCOMPANYNAMESTORED",
+        "ALLCONTRACTORSNAME",
+        "CASEID",
+        "COMPLETEDDATE",
+        "LEGEND",
+        "PERMITTYPE",
+        "ROWISEMERGENCYREPAIR",
+        "STATUSDESCRIPTION",
+        "COMMERCIALORRESIDENTIAL",
+        "CREATEDDATE",
+        "OBJECTID",
+        "JOBID",
+        "ROWESTIMATEDCOMPLETIONDATE",
+        "COUNCIL_DISTRICTS",
+        "LOCATIONNAMES",
+        "the_geom",
+        "Permit Number",
+        "ISSUEDATE",
+        "EXPIRATIONDATE",
+        "WARRANTYEXPIRATION"
+       ],
+       "columns_field_name": [
+        "workdescription",
+        "inspection_districts",
+        "rowreasonforjob",
+        "rowimprovementrepair",
+        "specificlocation",
+        "rowrequestedstartdate",
+        "applicantnamestored",
+        "applicantcompanynamestored",
+        "allcontractorsname",
+        "caseid",
+        "completeddate",
+        "legend",
+        "permittype",
+        "rowisemergencyrepair",
+        "statusdescription",
+        "commercialorresidential",
+        "createddate",
+        "objectid",
+        "jobid",
+        "rowestimatedcompletiondate",
+        "council_districts",
+        "locationnames",
+        "the_geom",
+        "externalfilenum",
+        "issuedate",
+        "expirationdate",
+        "warrantyexpiration"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Date",
+        "Number",
+        "Number",
+        "Date",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Date",
+        "Date",
+        "Date"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 91,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-03-12T14:57:15.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/bw6g-a3ur",
+      "link": "https://www.dallasopendata.com/dataset/ROW-Permits-Points/bw6g-a3ur",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Building Permits for Fiscal Year 2013 - 2014",
+       "id": "fs84-rv8z",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Building permit is needed for work involving structural elements of a building. Permits are not required for certain construction work. Historic or conservation districts have special requirements for work on the exterior of properties.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2021-08-13T16:19:17.000Z",
+       "createdAt": "2020-04-15T19:02:24.000Z",
+       "metadata_updated_at": "2021-08-13T16:19:17.000Z",
+       "data_updated_at": "2020-04-15T19:10:18.000Z",
+       "page_views": {
+        "page_views_last_week": 39,
+        "page_views_last_month": 133,
+        "page_views_total": 1707,
+        "page_views_last_week_log": 5.321928094887363,
+        "page_views_last_month_log": 7.066089190457772,
+        "page_views_total_log": 10.738092259620492
+       },
+       "columns_name": [
+        "Land Use",
+        "Area",
+        "Contractor",
+        "Mapsco",
+        "Issued Date",
+        "Street Address",
+        "Work Description",
+        "Zip Code",
+        "Value",
+        "Permit Type",
+        "Permit Number"
+       ],
+       "columns_field_name": [
+        "land_use",
+        "area",
+        "contractor",
+        "mapsco",
+        "issued_date",
+        "street_address",
+        "work_description",
+        "zip_code",
+        "value",
+        "permit_type",
+        "permit_number"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 270,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-04-15T19:04:14.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Archive",
+       "domain_tags": [
+        "address",
+        "mapsco",
+        "mechanical",
+        "permit",
+        "permit number",
+        "permit type",
+        "value",
+        "tent",
+        "security system",
+        "repair",
+        "remodeling",
+        "registration",
+        "plumbing",
+        "area",
+        "barricade",
+        "building",
+        "construction",
+        "contractor",
+        "demolition",
+        "electrical",
+        "fence",
+        "issued date",
+        "liquor license"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel, CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/fs84-rv8z",
+      "link": "https://www.dallasopendata.com/Archive/Building-Permits-for-Fiscal-Year-2013-2014/fs84-rv8z",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Building Permits for Fiscal Year 2015 - 2016",
+       "id": "rzm4-tcqx",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Building permit is needed for work involving structural elements of a building. Permits are not required for certain construction work. Historic or conservation districts have special requirements for work on the exterior of properties.",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2021-08-13T16:20:14.000Z",
+       "createdAt": "2020-04-15T19:27:58.000Z",
+       "metadata_updated_at": "2021-08-13T16:20:14.000Z",
+       "data_updated_at": "2021-07-29T13:07:42.000Z",
+       "page_views": {
+        "page_views_last_week": 33,
+        "page_views_last_month": 79,
+        "page_views_total": 1165,
+        "page_views_last_week_log": 5.08746284125034,
+        "page_views_last_month_log": 6.321928094887362,
+        "page_views_total_log": 10.187352073200497
+       },
+       "columns_name": [
+        "Zip Code",
+        "Area",
+        "Contractor",
+        "Mapsco",
+        "Permit Type",
+        "Permit Number",
+        "Land Use",
+        "Issued Date",
+        "Value",
+        "Work Description",
+        "Street Address"
+       ],
+       "columns_field_name": [
+        "zip_code",
+        "area",
+        "contractor",
+        "mapsco",
+        "permit_type",
+        "permit_number",
+        "land_use",
+        "issued_date",
+        "value",
+        "work_description",
+        "street_address"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "noCommas": "true"
+        },
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 1306,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-04-15T19:36:33.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Archive",
+       "domain_tags": [
+        "permit type",
+        "permit number",
+        "permit",
+        "mechanical",
+        "mapsco",
+        "liquor license",
+        "issued date",
+        "fence",
+        "electrical",
+        "demolition",
+        "contractor",
+        "remodeling",
+        "construction",
+        "value",
+        "tent",
+        "security system",
+        "plumbing",
+        "barricade",
+        "area",
+        "repair",
+        "building"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Custom-Metadata-Fields_Category",
+         "value": "Services"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Data-Type",
+         "value": "File (Excel, CSV)"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Contact-Email",
+         "value": "<identity redacted>"
+        },
+        {
+         "key": "Custom-Metadata-Fields_Automated-Updates",
+         "value": "No"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/rzm4-tcqx",
+      "link": "https://www.dallasopendata.com/Archive/Building-Permits-for-Fiscal-Year-2015-2016/rzm4-tcqx",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 25,
+    "timings": {
+     "serviceMillis": 21,
+     "searchMillis": [
+      3,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=www.dallasopendata.com&ids=xd3q-ipis&limit=1",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "ROW Permits - Lines",
+       "id": "xd3q-ipis",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Right-of-way-permits that span one or more street blocks. A permit is expected to have only one GIS feature (line or point), but the data may have some anomalies.A permit is required to perform any construction work within the public right-of-way or any construction work outside of the public right-of-way that will cut, break, or otherwise damage the public right-of-way. The authoritative source for permit information is the Right-of-Way Management System (https://rowmanagement.dallascityhall.com/Login.aspx).",
+       "attribution": null,
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-09-20T04:40:41.000Z",
+       "createdAt": "2026-03-12T14:55:56.000Z",
+       "metadata_updated_at": "2026-03-12T14:55:58.000Z",
+       "data_updated_at": "2026-09-20T04:40:41.000Z",
+       "page_views": {
+        "page_views_last_week": 16,
+        "page_views_last_month": 59,
+        "page_views_total": 253,
+        "page_views_last_week_log": 4.08746284125034,
+        "page_views_last_month_log": 5.906890595608519,
+        "page_views_total_log": 7.988684686772166
+       },
+       "columns_name": [
+        "COMPLETEDDATE",
+        "INSPECTION_DISTRICTS",
+        "COUNCIL_DISTRICTS",
+        "ALLCONTRACTORSNAME",
+        "APPLICANTCOMPANYNAMESTORED",
+        "WORKDESCRIPTION",
+        "SPECIFICLOCATION",
+        "ROWIMPROVEMENTREPAIR",
+        "ROWREQUESTEDSTARTDATE",
+        "EXPIRATIONDATE",
+        "ISSUEDATE",
+        "STATUSDESCRIPTION",
+        "COMMERCIALORRESIDENTIAL",
+        "Permit Number",
+        "JOBID",
+        "OBJECTID",
+        "SHAPE.STLength()",
+        "CASEID",
+        "LOCATIONNAMES",
+        "APPLICANTNAMESTORED",
+        "PERMITTYPE",
+        "WARRANTYEXPIRATION",
+        "CREATEDDATE",
+        "ROWESTIMATEDCOMPLETIONDATE",
+        "ROWREASONFORJOB",
+        "LEGEND",
+        "ROWISEMERGENCYREPAIR",
+        "the_geom"
+       ],
+       "columns_field_name": [
+        "completeddate",
+        "inspection_districts",
+        "council_districts",
+        "allcontractorsname",
+        "applicantcompanynamestored",
+        "workdescription",
+        "specificlocation",
+        "rowimprovementrepair",
+        "rowrequestedstartdate",
+        "expirationdate",
+        "issuedate",
+        "statusdescription",
+        "commercialorresidential",
+        "externalfilenum",
+        "jobid",
+        "objectid",
+        "shape_stlength",
+        "caseid",
+        "locationnames",
+        "applicantnamestored",
+        "permittype",
+        "warrantyexpiration",
+        "createddate",
+        "rowestimatedcompletiondate",
+        "rowreasonforjob",
+        "legend",
+        "rowisemergencyrepair",
+        "the_geom"
+       ],
+       "columns_datatype": [
+        "Date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Date",
+        "Date",
+        "Date",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Date",
+        "Date",
+        "Date",
+        "Text",
+        "Number",
+        "Text",
+        "MultiLine"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 47,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-03-12T14:55:58.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "www.dallasopendata.com"
+      },
+      "permalink": "https://www.dallasopendata.com/d/xd3q-ipis",
+      "link": "https://www.dallasopendata.com/dataset/ROW-Permits-Lines/xd3q-ipis",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 1,
+    "timings": {
+     "serviceMillis": 17,
+     "searchMillis": [
+      3,
+      3
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://www.dallasopendata.com/api/views/e7gq-4sah.json",
+   "status": 200,
+   "body": {
+    "id": "e7gq-4sah",
+    "name": "Building Permits",
+    "assetType": "dataset",
+    "averageRating": 0,
+    "category": "Services",
+    "createdAt": 1561851077,
+    "description": "ATTENTION: This permit data set is historical and no longer updated. Active permit tracking has migrated to the: \n<a href=\"https://aca-prod.accela.com/DALLASTX/Login.aspx\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #b45309; font-weight: 600; text-decoration: underline;\">Dallas Accela Citizen Access Portal</a>.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 62806,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 34022867,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1588192464,
+    "publicationGroup": 16319909,
+    "publicationStage": "published",
+    "rowsUpdatedAt": 1598778914,
+    "tableId": 17075578,
+    "totalTimesRated": 0,
+    "viewCount": 67278,
+    "viewLastModified": 1780678852,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 464572183,
+      "name": "Permit Number",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "permit_number",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 83867972,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "126840"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572184,
+      "name": "Permit Type",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "permit_type",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 83380546,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "137"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572194,
+      "name": "Issued Date",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "issued_date",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 100122688,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "940"
+      },
+      "format": {
+       "view": "date"
+      }
+     },
+     {
+      "id": 464572186,
+      "name": "Mapsco",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "mapsco",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 83380548,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "3067"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572187,
+      "name": "Contractor",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "contractor",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 83380549,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "14032"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572188,
+      "name": "Value",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "value",
+      "position": 6,
+      "renderTypeName": "number",
+      "tableColumnId": 83380550,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "19677"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572189,
+      "name": "Area",
+      "dataTypeName": "number",
+      "description": "",
+      "fieldName": "area",
+      "position": 7,
+      "renderTypeName": "number",
+      "tableColumnId": 83380551,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "9718"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572190,
+      "name": "Work Description",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "work_description",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 83380552,
+      "cachedContents": {
+       "non_null": "126838",
+       "null": "2",
+       "count": "126840",
+       "cardinality": "17017"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572191,
+      "name": "Land Use",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "land_use",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 83380553,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "189"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572192,
+      "name": "Street Address",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "street_address",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 83380554,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "76066"
+      },
+      "format": {}
+     },
+     {
+      "id": 464572193,
+      "name": "Zip Code",
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "zip_code",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 83380555,
+      "cachedContents": {
+       "non_null": "126840",
+       "null": "0",
+       "count": "126840",
+       "cardinality": "72"
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "custom_fields": {
+      "Additional Information": {
+       "Update Frequency": "Daily",
+       "Official Data": "True"
+      },
+      "Custom Metadata Fields": {
+       "Contact Email": "<identity redacted>",
+       "Category": "Services",
+       "Data Type": "File (Excel, CSV)",
+       "Automated Updates": "Yes"
+      }
+     },
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ]
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "building",
+     "permit",
+     "electrical",
+     "plumbing",
+     "contractor",
+     "address",
+     "construction",
+     "mechanical",
+     "repair",
+     "demolition",
+     "remodeling",
+     "property",
+     "permit number",
+     "issued date",
+     "mapsco",
+     "value",
+     "area",
+     "permit type"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://www.dallasopendata.com/resource/e7gq-4sah.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "126840"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://www.dallasopendata.com/resource/e7gq-4sah.json?%24select=permit_number%2C+permit_type%2C+issued_date%2C+mapsco%2C+contractor%2C+value%2C+area%2C+work_description%2C+land_use%2C+street_address%2C+zip_code%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "area",
+     "contractor",
+     "issued_date",
+     "land_use",
+     "mapsco",
+     "permit_number",
+     "permit_type",
+     "street_address",
+     "value",
+     "work_description",
+     "zip_code"
+    ],
+    "sha256": "3ef646585fbbe685df85ad6956e511110f5dbda9ff21a1ad82a40496192ddf10"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://www.dallasopendata.com/resource/e7gq-4sah.json?%24select=permit_number%2C+permit_type%2C+issued_date%2C+mapsco%2C+contractor%2C+value%2C+area%2C+work_description%2C+land_use%2C+street_address%2C+zip_code%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-dvab.qyii-tbvk%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "area",
+     "contractor",
+     "issued_date",
+     "land_use",
+     "mapsco",
+     "permit_number",
+     "permit_type",
+     "street_address",
+     "value",
+     "work_description",
+     "zip_code"
+    ],
+    "sha256": "d76c3c352c8ca387d4fc43e9a91b6419f006898341f6534f2485e4be3caa5570"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1902 @@
+{
+ "portal": "data.calgary.ca",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 7
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 30,
+   "row_count": 502129
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 6,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 7
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "c2es-76ed",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 16,
+     "searchMillis": [
+      2,
+      5
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.calgary.ca&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "66,131 bytes, over the 65,536-byte cap",
+    "sha256": "d1f4ac9ae535916df6a2c400d2153efe9cb22e446979bc5c490f153d726c7420",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/api/views/c2es-76ed.json",
+   "status": 200,
+   "body": {
+    "id": "c2es-76ed",
+    "name": "Building Permits",
+    "assetType": "dataset",
+    "attribution": "The City of Calgary",
+    "averageRating": 0,
+    "category": "Business and Economic Activity",
+    "createdAt": 1520383172,
+    "description": "Building permit applications made to The City of Calgary's Planning & Development department. \nFor general requests please contact <email redacted>.\nVisit the Calgary.ca <a href=\"http://www.calgary.ca/PDA/pd/Pages/Permits/Building-permits/Building-permit-process-frequently-asked-questions.aspx\">building permit process FAQ</a> to learn more about The City's building permit process.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 32303,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "SEE_TERMS_OF_USE",
+    "locale": "en_US",
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 40352929,
+    "provenance": "official",
+    "publicationAppendEnabled": true,
+    "publicationDate": 1704912045,
+    "publicationGroup": 14920849,
+    "publicationStage": "published",
+    "rowClass": "",
+    "rowIdentifierColumnId": 588087247,
+    "rowsUpdatedAt": 1792263820,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 19424971,
+    "totalTimesRated": 0,
+    "viewCount": 604108,
+    "viewLastModified": 1792263818,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 588087247,
+      "name": "PermitNum",
+      "dataTypeName": "text",
+      "description": "Unique permit identification number",
+      "fieldName": "permitnum",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 62090409,
+      "width": 93,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087248,
+      "name": "StatusCurrent",
+      "dataTypeName": "text",
+      "description": "Current status of permit",
+      "fieldName": "statuscurrent",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 62090410,
+      "width": 118,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087249,
+      "name": "AppliedDate",
+      "dataTypeName": "calendar_date",
+      "description": "Date the permit was applied for",
+      "fieldName": "applieddate",
+      "position": 3,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 62090411,
+      "width": 80,
+      "format": {
+       "view": "date_ymd",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087250,
+      "name": "IssuedDate",
+      "dataTypeName": "calendar_date",
+      "description": "Date the permit was issued",
+      "fieldName": "issueddate",
+      "position": 4,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 62090412,
+      "width": 71,
+      "format": {
+       "view": "date_ymd",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087251,
+      "name": "CompletedDate",
+      "dataTypeName": "calendar_date",
+      "description": "Date the permit was completed",
+      "fieldName": "completeddate",
+      "position": 5,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 62090413,
+      "width": 79,
+      "format": {
+       "view": "date_ymd",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087252,
+      "name": "PermitType",
+      "dataTypeName": "text",
+      "description": "Type of permit",
+      "fieldName": "permittype",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 62090414,
+      "width": 190,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087253,
+      "name": "PermitTypeMapped",
+      "dataTypeName": "text",
+      "description": "PermitType mapped to standardized BLDS values",
+      "fieldName": "permittypemapped",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 62090415,
+      "width": 104,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087254,
+      "name": "PermitClass",
+      "dataTypeName": "text",
+      "description": "The class or use code of the permit",
+      "fieldName": "permitclass",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 62090416,
+      "width": 232,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087255,
+      "name": "PermitClassGroup",
+      "dataTypeName": "text",
+      "description": "The grouping of permit class or use code",
+      "fieldName": "permitclassgroup",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 62090417,
+      "width": 98,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087256,
+      "name": "PermitClassMapped",
+      "dataTypeName": "text",
+      "description": "The PermitClass mapped to standardized BLDS values",
+      "fieldName": "permitclassmapped",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 62090418,
+      "width": 114,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087257,
+      "name": "WorkClass",
+      "dataTypeName": "text",
+      "description": "The class or type of work associated with the permit ",
+      "fieldName": "workclass",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 62090419,
+      "width": 67,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087258,
+      "name": "WorkClassGroup",
+      "dataTypeName": "text",
+      "description": "The grouping of work class",
+      "fieldName": "workclassgroup",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 62090420,
+      "width": 92,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087259,
+      "name": "WorkClassMapped",
+      "dataTypeName": "text",
+      "description": "WorkClass mapped to standardized BLDS values",
+      "fieldName": "workclassmapped",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 62090421,
+      "width": 97,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087260,
+      "name": "Description",
+      "dataTypeName": "text",
+      "description": "Short description of work permitted",
+      "fieldName": "description",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 62090422,
+      "width": 232,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087262,
+      "name": "ApplicantName",
+      "dataTypeName": "text",
+      "description": "The name of the applicant (companies only) associated with the permit",
+      "fieldName": "applicantname",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 144431073,
+      "format": {}
+     },
+     {
+      "id": 588087264,
+      "name": "ContractorName",
+      "dataTypeName": "text",
+      "description": "The name of contractor associated with the permit",
+      "fieldName": "contractorname",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 62090424,
+      "width": 207,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087265,
+      "name": "HousingUnits",
+      "dataTypeName": "number",
+      "description": "The number of new housing units created",
+      "fieldName": "housingunits",
+      "position": 18,
+      "renderTypeName": "number",
+      "tableColumnId": 62090425,
+      "width": 69,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087266,
+      "name": "EstProjectCost",
+      "dataTypeName": "number",
+      "description": "The estimated construction value associated with the permit",
+      "fieldName": "estprojectcost",
+      "position": 19,
+      "renderTypeName": "number",
+      "tableColumnId": 62090426,
+      "width": 77,
+      "format": {
+       "precisionStyle": "currency",
+       "currencyStyle": "CAD",
+       "noCommas": "false",
+       "precision": "0",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087267,
+      "name": "TotalSqFt",
+      "dataTypeName": "number",
+      "description": "The construction square footage associated with the permit. *only available where PermitType is Single Construction Permit",
+      "fieldName": "totalsqft",
+      "position": 20,
+      "renderTypeName": "number",
+      "tableColumnId": 62090427,
+      "width": 52,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087268,
+      "name": "OriginalAddress",
+      "dataTypeName": "text",
+      "description": "The property address associated with the permit",
+      "fieldName": "originaladdress",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 62090428,
+      "width": 154,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087269,
+      "name": "CommunityCode",
+      "dataTypeName": "text",
+      "description": "The Calgary community code where the permit is located",
+      "fieldName": "communitycode",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 62090429,
+      "width": 89,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087270,
+      "name": "CommunityName",
+      "dataTypeName": "text",
+      "description": "The Calgary community name where the permit is located",
+      "fieldName": "communityname",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 62090430,
+      "width": 178,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087271,
+      "name": "Latitude",
+      "dataTypeName": "number",
+      "description": "The latitude of the permit location",
+      "fieldName": "latitude",
+      "position": 24,
+      "renderTypeName": "number",
+      "tableColumnId": 62090431,
+      "width": 109,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087272,
+      "name": "Longitude",
+      "dataTypeName": "number",
+      "description": "The longitude of the permit location",
+      "fieldName": "longitude",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 62090432,
+      "width": 108,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087274,
+      "name": "LocationCount",
+      "dataTypeName": "number",
+      "description": "The number of locations associated with the permit",
+      "fieldName": "locationcount",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 62090434,
+      "width": 77,
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "right"
+      }
+     },
+     {
+      "id": 588087275,
+      "name": "LocationTypes",
+      "dataTypeName": "text",
+      "description": "The types of locations associated with the permit",
+      "fieldName": "locationtypes",
+      "position": 27,
+      "renderTypeName": "text",
+      "tableColumnId": 62090435,
+      "width": 111,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087276,
+      "name": "LocationAddresses",
+      "dataTypeName": "text",
+      "description": "The addresses of the locations associated with the permit",
+      "fieldName": "locationaddresses",
+      "position": 28,
+      "renderTypeName": "text",
+      "tableColumnId": 62090436,
+      "width": 132,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087277,
+      "name": "LocationsWKT",
+      "dataTypeName": "text",
+      "description": "The latitudes and longitudes of the locations associated with the permit in Well-Known Text format",
+      "fieldName": "locationswkt",
+      "position": 29,
+      "renderTypeName": "text",
+      "tableColumnId": 62090437,
+      "width": 244,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087278,
+      "name": "LocationsGeoJSON",
+      "dataTypeName": "text",
+      "description": "The latitudes and longitudes of the locations associated with the permit in GeoJSON format",
+      "fieldName": "locationsgeojson",
+      "position": 30,
+      "renderTypeName": "text",
+      "tableColumnId": 62090438,
+      "width": 292,
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 588087273,
+      "name": "Point",
+      "dataTypeName": "point",
+      "description": "",
+      "fieldName": "point",
+      "position": 31,
+      "renderTypeName": "point",
+      "tableColumnId": 149502237,
+      "format": {}
+     },
+     {
+      "id": 588087279,
+      "name": "Ward Boundaries 2",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Ward Boundaries' (4b54-tmc4) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_4b54_tmc4",
+      "position": 39,
+      "renderTypeName": "number",
+      "tableColumnId": 149502238,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_4b54-tmc4",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 588087280,
+      "name": "City Quadrants 2",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'City Quadrants' (4a3i-ccfj) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_4a3i_ccfj",
+      "position": 40,
+      "renderTypeName": "number",
+      "tableColumnId": 149502239,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_4a3i-ccfj",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 588087281,
+      "name": "Calgary Communities 2",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Calgary Communities' (kxmf-bzkv) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_kxmf_bzkv",
+      "position": 41,
+      "renderTypeName": "number",
+      "tableColumnId": 149502240,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_kxmf-bzkv",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 588087282,
+      "name": "Ward Boundaries 2017 2",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Ward Boundaries 2017' (p8tp-5dkv) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_p8tp_5dkv",
+      "position": 42,
+      "renderTypeName": "number",
+      "tableColumnId": 149502241,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_p8tp-5dkv",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 588087283,
+      "name": "Community District Boundaries - 2021",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Community District Boundaries - 2021' (qeuu-piif) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_qeuu_piif",
+      "position": 43,
+      "renderTypeName": "number",
+      "tableColumnId": 149502242,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_qeuu-piif",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 588087284,
+      "name": "Ward Boundaries - 2021",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Ward Boundaries - 2021' (xxr9-iwz2) the point in column 'point' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_xxr9_iwz2",
+      "position": 44,
+      "renderTypeName": "number",
+      "tableColumnId": 149502243,
+      "computationStrategy": {
+       "source_columns": [
+        "point"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_xxr9-iwz2",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "See Terms of Use"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "rdfClass": "",
+     "custom_fields": {
+      "License/Attribution": {
+       "License URL": "https://data.calgary.ca/d/Open-Data-Terms/u45n-7awa"
+      },
+      "Data Supplier": {
+       "Organization": "The City of Calgary",
+       "Business Unit": "Dev Business and Bldg Srvc"
+      },
+      "Time/Date": {
+       "Temporal Start Date": "1999-06-22",
+       "Update Frequency": "Daily"
+      },
+      "Geospatial Information": {
+       "Map Projection": "EPSG:4326 WGS84",
+       "Dataset contains geospatial information": "Yes"
+      }
+     },
+     "rowIdentifier": 588087247,
+     "rowLabel": "permit",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "building",
+     "construction",
+     "housing",
+     "real",
+     "estate",
+     "permit"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "502129"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=min%28applieddate%29+AS+lo%2C+max%28applieddate%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1999-06-22T00:00:00.000",
+     "hi": "2026-10-16T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_4b54_tmc4+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_4b54_tmc4&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "11",
+     "n": "73638"
+    },
+    {
+     "v": "4",
+     "n": "67469"
+    },
+    {
+     "v": "3",
+     "n": "43727"
+    },
+    {
+     "v": "7",
+     "n": "43688"
+    },
+    {
+     "v": "6",
+     "n": "38726"
+    },
+    {
+     "v": "14",
+     "n": "33440"
+    },
+    {
+     "v": "13",
+     "n": "33277"
+    },
+    {
+     "v": "10",
+     "n": "32812"
+    },
+    {
+     "v": "1",
+     "n": "30615"
+    },
+    {
+     "v": "8",
+     "n": "28133"
+    },
+    {
+     "v": "5",
+     "n": "25874"
+    },
+    {
+     "v": "9",
+     "n": "19578"
+    },
+    {
+     "v": "2",
+     "n": "15651"
+    },
+    {
+     "v": "12",
+     "n": "14575"
+    },
+    {
+     "n": "926"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_4a3i_ccfj+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_4a3i_ccfj&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "1",
+     "n": "137171"
+    },
+    {
+     "v": "2",
+     "n": "135349"
+    },
+    {
+     "v": "3",
+     "n": "132924"
+    },
+    {
+     "v": "4",
+     "n": "95761"
+    },
+    {
+     "n": "924"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_xxr9_iwz2+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_xxr9_iwz2&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "12",
+     "n": "62828"
+    },
+    {
+     "v": "5",
+     "n": "49864"
+    },
+    {
+     "v": "7",
+     "n": "48377"
+    },
+    {
+     "v": "8",
+     "n": "37981"
+    },
+    {
+     "v": "2",
+     "n": "37948"
+    },
+    {
+     "v": "13",
+     "n": "36703"
+    },
+    {
+     "v": "3",
+     "n": "36237"
+    },
+    {
+     "v": "1",
+     "n": "34686"
+    },
+    {
+     "v": "6",
+     "n": "33705"
+    },
+    {
+     "v": "9",
+     "n": "28332"
+    },
+    {
+     "v": "11",
+     "n": "28324"
+    },
+    {
+     "v": "14",
+     "n": "27801"
+    },
+    {
+     "v": "4",
+     "n": "20399"
+    },
+    {
+     "v": "10",
+     "n": "18020"
+    },
+    {
+     "n": "924"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_p8tp_5dkv+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_p8tp_5dkv&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "8",
+     "n": "65863"
+    },
+    {
+     "v": "1",
+     "n": "49928"
+    },
+    {
+     "v": "7",
+     "n": "44461"
+    },
+    {
+     "v": "10",
+     "n": "37949"
+    },
+    {
+     "v": "2",
+     "n": "37468"
+    },
+    {
+     "v": "6",
+     "n": "36703"
+    },
+    {
+     "v": "12",
+     "n": "35000"
+    },
+    {
+     "v": "9",
+     "n": "34686"
+    },
+    {
+     "v": "14",
+     "n": "31686"
+    },
+    {
+     "v": "5",
+     "n": "30383"
+    },
+    {
+     "v": "11",
+     "n": "30355"
+    },
+    {
+     "v": "13",
+     "n": "29018"
+    },
+    {
+     "v": "4",
+     "n": "19749"
+    },
+    {
+     "v": "3",
+     "n": "17956"
+    },
+    {
+     "n": "924"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_kxmf_bzkv+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_kxmf_bzkv&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "262",
+     "n": "14826"
+    },
+    {
+     "v": "2",
+     "n": "11476"
+    },
+    {
+     "v": "294",
+     "n": "10756"
+    },
+    {
+     "v": "235",
+     "n": "10467"
+    },
+    {
+     "v": "116",
+     "n": "9938"
+    },
+    {
+     "v": "158",
+     "n": "9666"
+    },
+    {
+     "v": "237",
+     "n": "9659"
+    },
+    {
+     "v": "39",
+     "n": "9481"
+    },
+    {
+     "v": "46",
+     "n": "9402"
+    },
+    {
+     "v": "251",
+     "n": "8196"
+    },
+    {
+     "v": "95",
+     "n": "8033"
+    },
+    {
+     "v": "11",
+     "n": "7927"
+    },
+    {
+     "v": "96",
+     "n": "6842"
+    },
+    {
+     "v": "26",
+     "n": "6479"
+    },
+    {
+     "v": "260",
+     "n": "6143"
+    },
+    {
+     "v": "139",
+     "n": "6001"
+    },
+    {
+     "v": "246",
+     "n": "5931"
+    },
+    {
+     "v": "114",
+     "n": "5705"
+    },
+    {
+     "v": "99",
+     "n": "5310"
+    },
+    {
+     "v": "252",
+     "n": "5238"
+    },
+    {
+     "v": "138",
+     "n": "5149"
+    },
+    {
+     "v": "200",
+     "n": "5010"
+    },
+    {
+     "v": "289",
+     "n": "4959"
+    },
+    {
+     "v": "130",
+     "n": "4916"
+    },
+    {
+     "v": "135",
+     "n": "4582"
+    },
+    {
+     "v": "265",
+     "n": "4432"
+    },
+    {
+     "v": "182",
+     "n": "4366"
+    },
+    {
+     "v": "134",
+     "n": "4281"
+    },
+    {
+     "v": "180",
+     "n": "4249"
+    },
+    {
+     "v": "48",
+     "n": "4114"
+    },
+    {
+     "v": "3",
+     "n": "4104"
+    },
+    {
+     "v": "17",
+     "n": "3944"
+    },
+    {
+     "v": "280",
+     "n": "3911"
+    },
+    {
+     "v": "12",
+     "n": "3902"
+    },
+    {
+     "v": "149",
+     "n": "3881"
+    },
+    {
+     "v": "188",
+     "n": "3608"
+    },
+    {
+     "v": "229",
+     "n": "3523"
+    },
+    {
+     "v": "242",
+     "n": "3510"
+    },
+    {
+     "v": "128",
+     "n": "3458"
+    },
+    {
+     "v": "244",
+     "n": "3441"
+    },
+    {
+     "v": "181",
+     "n": "3346"
+    },
+    {
+     "v": "133",
+     "n": "3336"
+    },
+    {
+     "v": "278",
+     "n": "3229"
+    },
+    {
+     "v": "40",
+     "n": "3198"
+    },
+    {
+     "v": "269",
+     "n": "3185"
+    },
+    {
+     "v": "193",
+     "n": "3157"
+    },
+    {
+     "v": "247",
+     "n": "3083"
+    },
+    {
+     "v": "176",
+     "n": "2961"
+    },
+    {
+     "v": "171",
+     "n": "2923"
+    },
+    {
+     "v": "69",
+     "n": "2705"
+    },
+    {
+     "v": "292",
+     "n": "2680"
+    },
+    {
+     "v": "25",
+     "n": "2680"
+    },
+    {
+     "v": "268",
+     "n": "2678"
+    },
+    {
+     "v": "220",
+     "n": "2678"
+    },
+    {
+     "v": "296",
+     "n": "2655"
+    },
+    {
+     "v": "267",
+     "n": "2648"
+    },
+    {
+     "v": "24",
+     "n": "2625"
+    },
+    {
+     "v": "225",
+     "n": "2544"
+    },
+    {
+     "v": "63",
+     "n": "2455"
+    },
+    {
+     "v": "272",
+     "n": "2441"
+    },
+    {
+     "v": "70",
+     "n": "2246"
+    },
+    {
+     "v": "266",
+     "n": "2226"
+    },
+    {
+     "v": "207",
+     "n": "2220"
+    },
+    {
+     "v": "89",
+     "n": "2213"
+    },
+    {
+     "v": "253",
+     "n": "2212"
+    },
+    {
+     "v": "137",
+     "n": "2176"
+    },
+    {
+     "v": "222",
+     "n": "2133"
+    },
+    {
+     "v": "55",
+     "n": "2123"
+    },
+    {
+     "v": "50",
+     "n": "2106"
+    },
+    {
+     "v": "113",
+     "n": "2104"
+    },
+    {
+     "v": "288",
+     "n": "2091"
+    },
+    {
+     "v": "160",
+     "n": "2074"
+    },
+    {
+     "v": "174",
+     "n": "2072"
+    },
+    {
+     "v": "47",
+     "n": "2032"
+    },
+    {
+     "v": "298",
+     "n": "2021"
+    },
+    {
+     "v": "79",
+     "n": "2009"
+    },
+    {
+     "v": "195",
+     "n": "1987"
+    },
+    {
+     "v": "115",
+     "n": "1970"
+    },
+    {
+     "v": "88",
+     "n": "1970"
+    },
+    {
+     "v": "255",
+     "n": "1948"
+    },
+    {
+     "v": "153",
+     "n": "1910"
+    },
+    {
+     "v": "28",
+     "n": "1898"
+    },
+    {
+     "v": "54",
+     "n": "1895"
+    },
+    {
+     "v": "159",
+     "n": "1851"
+    },
+    {
+     "v": "165",
+     "n": "1851"
+    },
+    {
+     "v": "261",
+     "n": "1839"
+    },
+    {
+     "v": "129",
+     "n": "1782"
+    },
+    {
+     "v": "227",
+     "n": "1750"
+    },
+    {
+     "v": "259",
+     "n": "1700"
+    },
+    {
+     "v": "67",
+     "n": "1677"
+    },
+    {
+     "v": "147",
+     "n": "1616"
+    },
+    {
+     "v": "19",
+     "n": "1574"
+    },
+    {
+     "v": "295",
+     "n": "1560"
+    },
+    {
+     "v": "286",
+     "n": "1559"
+    },
+    {
+     "v": "7",
+     "n": "1553"
+    },
+    {
+     "v": "273",
+     "n": "1551"
+    },
+    {
+     "v": "83",
+     "n": "1548"
+    },
+    {
+     "v": "91",
+     "n": "1543"
+    },
+    {
+     "v": "164",
+     "n": "1536"
+    },
+    {
+     "v": "38",
+     "n": "1511"
+    },
+    {
+     "v": "192",
+     "n": "1508"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=%3A%40computed_region_qeuu_piif+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_qeuu_piif&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "130",
+     "n": "14826"
+    },
+    {
+     "v": "86",
+     "n": "11476"
+    },
+    {
+     "v": "146",
+     "n": "10756"
+    },
+    {
+     "v": "219",
+     "n": "10467"
+    },
+    {
+     "v": "209",
+     "n": "9938"
+    },
+    {
+     "v": "199",
+     "n": "9666"
+    },
+    {
+     "v": "161",
+     "n": "9658"
+    },
+    {
+     "v": "252",
+     "n": "9481"
+    },
+    {
+     "v": "218",
+     "n": "9402"
+    },
+    {
+     "v": "19",
+     "n": "8196"
+    },
+    {
+     "v": "285",
+     "n": "8033"
+    },
+    {
+     "v": "204",
+     "n": "7920"
+    },
+    {
+     "v": "47",
+     "n": "6842"
+    },
+    {
+     "v": "63",
+     "n": "6479"
+    },
+    {
+     "v": "122",
+     "n": "6143"
+    },
+    {
+     "v": "217",
+     "n": "6001"
+    },
+    {
+     "v": "212",
+     "n": "5931"
+    },
+    {
+     "v": "178",
+     "n": "5705"
+    },
+    {
+     "v": "155",
+     "n": "5310"
+    },
+    {
+     "v": "38",
+     "n": "5238"
+    },
+    {
+     "v": "229",
+     "n": "5149"
+    },
+    {
+     "v": "303",
+     "n": "5010"
+    },
+    {
+     "v": "255",
+     "n": "4959"
+    },
+    {
+     "v": "216",
+     "n": "4916"
+    },
+    {
+     "v": "308",
+     "n": "4595"
+    },
+    {
+     "v": "23",
+     "n": "4582"
+    },
+    {
+     "v": "129",
+     "n": "4432"
+    },
+    {
+     "v": "115",
+     "n": "4366"
+    },
+    {
+     "v": "21",
+     "n": "4249"
+    },
+    {
+     "v": "109",
+     "n": "4114"
+    },
+    {
+     "v": "174",
+     "n": "4111"
+    },
+    {
+     "v": "71",
+     "n": "3944"
+    },
+    {
+     "v": "113",
+     "n": "3911"
+    },
+    {
+     "v": "202",
+     "n": "3902"
+    },
+    {
+     "v": "279",
+     "n": "3881"
+    },
+    {
+     "v": "13",
+     "n": "3607"
+    },
+    {
+     "v": "159",
+     "n": "3511"
+    },
+    {
+     "v": "182",
+     "n": "3458"
+    },
+    {
+     "v": "145",
+     "n": "3451"
+    },
+    {
+     "v": "37",
+     "n": "3440"
+    },
+    {
+     "v": "228",
+     "n": "3346"
+    },
+    {
+     "v": "48",
+     "n": "3229"
+    },
+    {
+     "v": "183",
+     "n": "3198"
+    },
+    {
+     "v": "27",
+     "n": "3185"
+    },
+    {
+     "v": "198",
+     "n": "3157"
+    },
+    {
+     "v": "215",
+     "n": "3083"
+    },
+    {
+     "v": "208",
+     "n": "3004"
+    },
+    {
+     "v": "15",
+     "n": "2961"
+    },
+    {
+     "v": "150",
+     "n": "2923"
+    },
+    {
+     "v": "97",
+     "n": "2705"
+    },
+    {
+     "v": "62",
+     "n": "2680"
+    },
+    {
+     "v": "225",
+     "n": "2680"
+    },
+    {
+     "v": "191",
+     "n": "2678"
+    },
+    {
+     "v": "195",
+     "n": "2678"
+    },
+    {
+     "v": "94",
+     "n": "2655"
+    },
+    {
+     "v": "190",
+     "n": "2648"
+    },
+    {
+     "v": "246",
+     "n": "2625"
+    },
+    {
+     "v": "210",
+     "n": "2543"
+    },
+    {
+     "v": "163",
+     "n": "2528"
+    },
+    {
+     "v": "81",
+     "n": "2455"
+    },
+    {
+     "v": "76",
+     "n": "2441"
+    },
+    {
+     "v": "134",
+     "n": "2246"
+    },
+    {
+     "v": "189",
+     "n": "2226"
+    },
+    {
+     "v": "91",
+     "n": "2220"
+    },
+    {
+     "v": "243",
+     "n": "2213"
+    },
+    {
+     "v": "142",
+     "n": "2212"
+    },
+    {
+     "v": "261",
+     "n": "2176"
+    },
+    {
+     "v": "105",
+     "n": "2123"
+    },
+    {
+     "v": "18",
+     "n": "2111"
+    },
+    {
+     "v": "286",
+     "n": "2106"
+    },
+    {
+     "v": "42",
+     "n": "2074"
+    },
+    {
+     "v": "151",
+     "n": "2072"
+    },
+    {
+     "v": "192",
+     "n": "2032"
+    },
+    {
+     "v": "96",
+     "n": "2021"
+    },
+    {
+     "v": "181",
+     "n": "2009"
+    },
+    {
+     "v": "12",
+     "n": "1987"
+    },
+    {
+     "v": "244",
+     "n": "1970"
+    },
+    {
+     "v": "227",
+     "n": "1970"
+    },
+    {
+     "v": "24",
+     "n": "1948"
+    },
+    {
+     "v": "254",
+     "n": "1910"
+    },
+    {
+     "v": "248",
+     "n": "1898"
+    },
+    {
+     "v": "104",
+     "n": "1895"
+    },
+    {
+     "v": "53",
+     "n": "1851"
+    },
+    {
+     "v": "120",
+     "n": "1851"
+    },
+    {
+     "v": "123",
+     "n": "1839"
+    },
+    {
+     "v": "262",
+     "n": "1782"
+    },
+    {
+     "v": "237",
+     "n": "1750"
+    },
+    {
+     "v": "121",
+     "n": "1700"
+    },
+    {
+     "v": "100",
+     "n": "1677"
+    },
+    {
+     "v": "200",
+     "n": "1616"
+    },
+    {
+     "v": "160",
+     "n": "1591"
+    },
+    {
+     "v": "274",
+     "n": "1574"
+    },
+    {
+     "v": "93",
+     "n": "1560"
+    },
+    {
+     "v": "214",
+     "n": "1559"
+    },
+    {
+     "v": "33",
+     "n": "1553"
+    },
+    {
+     "v": "88",
+     "n": "1551"
+    },
+    {
+     "v": "253",
+     "n": "1548"
+    },
+    {
+     "v": "282",
+     "n": "1543"
+    },
+    {
+     "v": "144",
+     "n": "1536"
+    },
+    {
+     "v": "299",
+     "n": "1511"
+    },
+    {
+     "v": "10",
+     "n": "1508"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=permitnum%2C+statuscurrent%2C+applieddate%2C+issueddate%2C+completeddate%2C+permittype%2C+permittypemapped%2C+permitclass%2C+permitclassgroup%2C+permitclassmapped%2C+workclass%2C+workclassgroup%2C+workclassmapped%2C+description%2C+applicantname%2C+contractorname%2C+housingunits%2C+estprojectcost%2C+totalsqft%2C+originaladdress%2C+communitycode%2C+communityname%2C+latitude%2C+longitude%2C+locationcount%2C+locationtypes%2C+locationaddresses%2C+locationswkt%2C+locationsgeojson%2C+point%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "applicantname",
+     "applieddate",
+     "communitycode",
+     "communityname",
+     "completeddate",
+     "contractorname",
+     "description",
+     "estprojectcost",
+     "housingunits",
+     "issueddate",
+     "latitude",
+     "locationaddresses",
+     "locationcount",
+     "locationsgeojson",
+     "locationswkt",
+     "locationtypes",
+     "longitude",
+     "originaladdress",
+     "permitclass",
+     "permitclassgroup",
+     "permitclassmapped",
+     "permitnum",
+     "permittype",
+     "permittypemapped",
+     "point",
+     "statuscurrent",
+     "workclass",
+     "workclassgroup",
+     "workclassmapped"
+    ],
+    "sha256": "d2655b0e257ca3cd749a051bbaf1ec1f0ab4ecd4e5640396f43f0c6094f5b5b7"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.calgary.ca/resource/c2es-76ed.json?%24select=permitnum%2C+statuscurrent%2C+applieddate%2C+issueddate%2C+completeddate%2C+permittype%2C+permittypemapped%2C+permitclass%2C+permitclassgroup%2C+permitclassmapped%2C+workclass%2C+workclassgroup%2C+workclassmapped%2C+description%2C+applicantname%2C+contractorname%2C+housingunits%2C+estprojectcost%2C+totalsqft%2C+originaladdress%2C+communitycode%2C+communityname%2C+latitude%2C+longitude%2C+locationcount%2C+locationtypes%2C+locationaddresses%2C+locationswkt%2C+locationsgeojson%2C+point%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-322t.chus.985r%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "applicantname",
+     "applieddate",
+     "communitycode",
+     "communityname",
+     "completeddate",
+     "contractorname",
+     "description",
+     "estprojectcost",
+     "housingunits",
+     "issueddate",
+     "latitude",
+     "locationaddresses",
+     "locationcount",
+     "locationsgeojson",
+     "locationswkt",
+     "locationtypes",
+     "longitude",
+     "originaladdress",
+     "permitclass",
+     "permitclassgroup",
+     "permitclassmapped",
+     "permitnum",
+     "permittype",
+     "permittypemapped",
+     "point",
+     "statuscurrent",
+     "workclass",
+     "workclassgroup",
+     "workclassmapped"
+    ],
+    "sha256": "f28fd334d0eaa3d8920015472107e6b621dd6d36dcba8274a312d79a6ce496ec"
+   }
+  }
+ ]
+}

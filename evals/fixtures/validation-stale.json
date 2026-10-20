@@ -1,0 +1,46 @@
+{
+ "portals": {
+  "data.seattle.gov": {
+   "33kz-ixgy-cad_event_original_time_queued-timezone": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "65db-xm6k-date-timezone": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "kzjm-xkqj-datetime-timezone": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "kzjm-xkqj-unit": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "ppi5-g2bj-beat-place": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "ppi5-g2bj-sector-place": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "tazs-3rd5-beat-place": {
+    "checked_at": "2026-10-18",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "tazs-3rd5-sector-place": {
+    "checked_at": "2026-01-01",
+    "outcome": "passed",
+    "previous_outcome": null
+   }
+  }
+ }
+}

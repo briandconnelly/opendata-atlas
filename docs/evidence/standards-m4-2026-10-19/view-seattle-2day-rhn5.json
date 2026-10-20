@@ -1,0 +1,174 @@
+{
+ "url": "https://data.seattle.gov/api/views/2day-rhn5.json",
+ "status": 200,
+ "name": "2010 Census Tracts",
+ "columns": [
+  {
+   "fieldName": "_feature_id",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "_feature_id_string",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "the_geom",
+   "dataTypeName": "multipolygon",
+   "cachedContents": {}
+  },
+  {
+   "fieldName": "objectid",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "tract",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "tractce10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "geoid10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "name10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "namelsad10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "intptlat10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "intptlon10",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "acres_tota",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "acres_land",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "acres_wate",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "59",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "water",
+   "dataTypeName": "text",
+   "cachedContents": {
+    "cardinality": "2",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "len",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "1",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_leng",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  },
+  {
+   "fieldName": "shape_area",
+   "dataTypeName": "number",
+   "cachedContents": {
+    "cardinality": "136",
+    "non_null": "136",
+    "null": "0"
+   }
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "qvfa-2v26-:@computed_region_psyp_nrnc-fill"
+kind = "place_field"
+scope = {dataset = "qvfa-2v26", column = ":@computed_region_psyp_nrnc"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_psyp_nrnc) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "4,181 of 11,570 rows (0.361) have a value; computed-region layer psyp-nrnc, candidate label column none found."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.31}
+
+[[claim]]
+id = "qvfa-2v26-:@computed_region_cx6t_gkq3-fill"
+kind = "place_field"
+scope = {dataset = "qvfa-2v26", column = ":@computed_region_cx6t_gkq3"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_cx6t_gkq3) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "4,079 of 11,570 rows (0.353) have a value; computed-region layer cx6t-gkq3, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.3}
+
+[[claim]]
+id = "qvfa-2v26-:@computed_region_wamu_3gk7-fill"
+kind = "place_field"
+scope = {dataset = "qvfa-2v26", column = ":@computed_region_wamu_3gk7"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_wamu_3gk7) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "4,181 of 11,570 rows (0.361) have a value; computed-region layer wamu-3gk7, candidate label column `objectid_1`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.31}

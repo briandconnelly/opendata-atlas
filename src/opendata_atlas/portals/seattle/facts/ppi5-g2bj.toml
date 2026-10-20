@@ -1,0 +1,112 @@
+# Seattle facts for `ppi5-g2bj`, converted from the fork's staged constants.
+
+[[claim]]
+id = "ppi5-g2bj-precinct-place"
+kind = "place_field"
+scope = {dataset = "ppi5-g2bj", column = "precinct"}
+interpretation = {kind = "precinct", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. Use of Force `ppi5-g2bj` `precinct`: 9 distinct; `-`, `0`, `X`, `OOJ`."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "ppi5-g2bj-precinct-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ppi5-g2bj", column = "precinct"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. Use of Force `ppi5-g2bj` `precinct`: 9 distinct; `-`, `0`, `X`, `OOJ`."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "ppi5-g2bj-sector-place"
+kind = "place_field"
+scope = {dataset = "ppi5-g2bj", column = "sector"}
+interpretation = {kind = "sector", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. The probe table records no per-column row for this column; the reliability is the fork's PLACE_FIELDS value from the 2026-10-15 probe."
+observed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(sector IS NULL OR sector IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+observed_at = 2026-10-18
+observation = "ph/n 2,728/19,457 (0.1402); docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.assertion]]
+checker = "share_by_group"
+params = {numerator = "ph", denominator = "n", max = 0.17}
+
+[[claim]]
+id = "ppi5-g2bj-sector-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ppi5-g2bj", column = "sector"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "ppi5-g2bj-beat-place"
+kind = "place_field"
+scope = {dataset = "ppi5-g2bj", column = "beat"}
+interpretation = {kind = "beat", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. The probe table records no per-column row for this column; the reliability is the fork's PLACE_FIELDS value from the 2026-10-15 probe."
+observed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(beat IS NULL OR beat IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+observed_at = 2026-10-18
+observation = "ph/n 2,147/19,457 (0.1103); docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.assertion]]
+checker = "share_by_group"
+params = {numerator = "ph", denominator = "n", max = 0.14}
+
+[[claim]]
+id = "ppi5-g2bj-beat-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ppi5-g2bj", column = "beat"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "ppi5-g2bj-unit"
+kind = "unit_of_observation"
+scope = {dataset = "ppi5-g2bj"}
+interpretation = {unit = "subject"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628, \"Units of observation\": \"Verified (milestone 4): SPD Call Data rows are dispatches, SPD Crime Data rows are offenses, and Use of Force rows are subjects.\" The file dates no milestone-4 fact; the milestone 4 outcomes were recorded on 2026-10-15 (seattle-open-data 3b2dda8). `reviewed_at` and `observed_at` were inferred from the date of fork commit 3b2dda8 and are not probe dates."
+observed_at = 2026-10-15

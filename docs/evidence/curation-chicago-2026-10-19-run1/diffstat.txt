@@ -1,0 +1,16 @@
+ docs/decisions.md                                  |   2 +
+ evals/portals/data.cityofchicago.org.json          |  27 ++
+ .../data.cityofchicago.org/facts/22u3-xenr.toml    | 119 +++++++
+ .../data.cityofchicago.org/facts/4ijn-s7e5.toml    |  81 +++++
+ .../data.cityofchicago.org/facts/85ca-t3if.toml    | 183 ++++++++++
+ .../data.cityofchicago.org/facts/i6bp-fvbx.toml    |  33 ++
+ .../data.cityofchicago.org/facts/ijzp-q8t2.toml    | 373 ++++++++++++++++++++
+ .../data.cityofchicago.org/facts/r5kz-chrr.toml    |  81 +++++
+ .../data.cityofchicago.org/facts/s6ha-ppgi.toml    |  81 +++++
+ .../data.cityofchicago.org/facts/ydr8-5enu.toml    |  97 ++++++
+ .../portals/data.cityofchicago.org/guides.py       |  79 +++++
+ .../portals/data.cityofchicago.org/portal.toml     |  18 +
+ .../portals/data.cityofchicago.org/regions.toml    | 174 ++++++++++
+ src/opendata_atlas/portals/registry_overrides.toml |  11 +-
+ src/opendata_atlas/portals/validation.json         | 374 +++++++++++++++++++++
+ 15 files changed, 1724 insertions(+), 9 deletions(-)

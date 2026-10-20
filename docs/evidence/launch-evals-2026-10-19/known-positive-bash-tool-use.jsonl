@@ -1,0 +1,2 @@
+{"type": "system", "subtype": "init", "tools": ["mcp__opendata-atlas__atlas_describe_dataset", "mcp__opendata-atlas__atlas_find_portals", "mcp__opendata-atlas__atlas_get_reference", "mcp__opendata-atlas__atlas_query_dataset", "mcp__opendata-atlas__atlas_search_datasets"], "mcp_servers": [{"name": "opendata-atlas", "status": "connected"}]}
+{"type":"assistant","message":{"content":[{"type":"tool_use","id":"x","name":"Bash","input":{}}]}}

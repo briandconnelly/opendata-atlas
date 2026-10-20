@@ -1,0 +1,7 @@
+ docs/decisions.md                                  |  1 +
+ evals/portals/data.kingcounty.gov.json             | 34 ++++++++++++++++
+ .../data.kingcounty.gov/facts/j56h-zgnm.toml       | 45 ++++++++++++++++++++++
+ .../portals/data.kingcounty.gov/portal.toml        | 21 ++++++++++
+ src/opendata_atlas/portals/registry_overrides.toml | 10 -----
+ src/opendata_atlas/portals/validation.json         | 14 +++++++
+ 6 files changed, 115 insertions(+), 10 deletions(-)

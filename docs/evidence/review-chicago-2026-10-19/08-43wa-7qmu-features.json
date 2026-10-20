@@ -1,0 +1,14 @@
+{
+ "url": "https://data.cityofchicago.org/resource/43wa-7qmu.json?%24select=_feature_id%2C+ward&%24where=_feature_id+in+%281%2C+33%29",
+ "status": 200,
+ "body": [
+  {
+   "_feature_id": "1",
+   "ward": "12"
+  },
+  {
+   "_feature_id": "33",
+   "ward": "5"
+  }
+ ]
+}

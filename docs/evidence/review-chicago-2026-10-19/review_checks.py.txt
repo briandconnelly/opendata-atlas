@@ -1,0 +1,99 @@
+"""Task 5 Step 2 mechanical checks, each preceded by its known positive. Run from the review worktree root."""
+import copy, json, shutil, subprocess, sys, tempfile, tomllib
+from pathlib import Path
+sys.path.insert(0, ".")
+from tests.test_curation_skill import path_violations, claim_summary
+
+BASE = "064d819"
+PACK = "data.cityofchicago.org"
+PD = Path("src/opendata_atlas/portals") / PACK
+OK_EVIDENCE = {"soql_probe", "metadata_probe", "document"}
+
+def git(*a): return subprocess.run(["git", *a], check=True, text=True, capture_output=True).stdout
+
+print("## Path rule")
+print("known positive:", path_violations(["README.md"], PACK))
+changed = git("diff", "--name-only", BASE, "HEAD").split()
+print("changed:", len(changed), "violations:", path_violations(changed, PACK))
+
+def reliability_problems(files):
+    out = []
+    for f in files:
+        for c in tomllib.loads(Path(f).read_text()).get("claim", []):
+            i = c.get("interpretation") or {}
+            reviewed = bool(i) or bool(c.get("placeholders"))
+            if "reliability" in i:
+                if not str(i.get("reason", "")).strip():
+                    out.append((str(f), c["id"], "reliability without reason"))
+                kinds = {e.get("kind") for e in c.get("evidence", [])}
+                if not kinds & OK_EVIDENCE:
+                    out.append((str(f), c["id"], f"reliability without probe/document evidence {kinds}"))
+            if reviewed and c.get("reviewed_by") != "claude":
+                out.append((str(f), c["id"], f"reviewed_by={c.get('reviewed_by')!r}"))
+    return out
+
+print("\n## Evidence for every reliability (rules 1, 18)")
+files = sorted(PD.glob("facts/*.toml")) + [PD / "regions.toml"]
+with tempfile.TemporaryDirectory() as td:
+    src = PD / "facts/ijzp-q8t2.toml"
+    t = src.read_text()
+    old = 'reliability = "partial", reason = "The ward recorded with the report.'
+    assert old in t
+    bad = Path(td) / "kp.toml"
+    # delete the reason: cut from ', reason = "' to the closing '"}' of that interpretation
+    start = t.index(old) + len('reliability = "partial"')
+    end = t.index('"}', start) + 1
+    bad.write_text(t[:start] + t[end:])
+    print("known positive:", reliability_problems([bad]))
+probs = reliability_problems(files)
+print("files:", len(files), "problems:", probs)
+cs = claim_summary(PD); print("claim_summary:", cs)
+n_rel = sum(1 for f in files for c in tomllib.loads(f.read_text()).get("claim", []) if "reliability" in (c.get("interpretation") or {}))
+print("claims setting reliability:", n_rel)
+
+print("\n## Shared-file isolation (ruling 82)")
+def toml_at(rev, p): return tomllib.loads(git("show", f"{rev}:{p}"))
+def json_at(rev, p): return json.loads(git("show", f"{rev}:{p}"))
+RO = "src/opendata_atlas/portals/registry_overrides.toml"
+VJ = "src/opendata_atlas/portals/validation.json"
+def overrides_violations(base, head):
+    keys = set(base) | set(head)
+    return sorted(k for k in keys if k != PACK and base.get(k) != head.get(k))
+def validation_violations(base, head):
+    out = [k for k in set(base) | set(head) if k != "portals" and base.get(k) != head.get(k)]
+    bp, hp = base.get("portals", {}), head.get("portals", {})
+    out += [f"portals[{k}]" for k in set(bp) | set(hp) if k != PACK and bp.get(k) != hp.get(k)]
+    return sorted(out)
+ob, oh = toml_at(BASE, RO), toml_at("HEAD", RO)
+vb, vh = json_at(BASE, VJ), json_at("HEAD", VJ)
+# known positives: one Seattle validation entry's outcome changed; one other override table changed
+kp = copy.deepcopy(vb)
+seattle = kp["portals"]["data.seattle.gov"]
+def flip(o):
+    if isinstance(o, dict):
+        if "outcome" in o: o["outcome"] = "fail" if o["outcome"] != "fail" else "pass"; return True
+        return any(flip(v) for v in o.values())
+    if isinstance(o, list): return any(flip(v) for v in o)
+    return False
+assert flip(seattle)
+print("known positive validation.json:", validation_violations(vb, kp))
+kpo = copy.deepcopy(ob); other = next(k for k in kpo if k != PACK); kpo[other] = dict(kpo[other], name="X")
+print("known positive overrides:", overrides_violations(ob, kpo))
+print("overrides: base has pack table:", PACK in ob, "head has:", PACK in oh, "violations:", overrides_violations(ob, oh))
+print("validation.json top keys base/head:", sorted(vb), sorted(vh))
+print("validation.json: base has pack:", PACK in vb.get("portals", {}), "violations:", validation_violations(vb, vh))
+print("chicago entries in head:", len(vh["portals"].get(PACK, {})) if isinstance(vh["portals"].get(PACK), (dict, list)) else vh["portals"].get(PACK))
+
+print("\n## Guide examples (summary.json)")
+summ = json.loads(Path(sys.argv[1]).read_text())
+def guide_problems(g):
+    out = []
+    if g.get("exit_code") != 0: out.append(f"exit_code={g.get('exit_code')}")
+    ex = g.get("examples") or []
+    if not ex: out.append("no examples")
+    out += [f"is_error: {e.get('question')}" for e in ex if e.get("is_error") is not False]
+    return out
+g = summ["checks"]["guide_examples"]
+kpg = copy.deepcopy(g); kpg["examples"][0]["is_error"] = True
+print("known positive:", guide_problems(kpg))
+print("summary guide_examples problems:", guide_problems(g), "n examples:", len(g["examples"]))

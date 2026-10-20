@@ -1,0 +1,22 @@
+import asyncio, json
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from opendata_atlas.core.reference import INSTRUCTIONS
+from tests.conftest import JSONRPC_FRAME, compact_json, framed_size, wire
+
+async def main():
+    for mode in ("modern", "legacy"):
+        kw = {"mode": "legacy"} if mode == "legacy" else {}
+        async with Client(build_server(), **kw) as c:
+            tl = wire(await c.list_tools_mcp())
+            print(mode, "tools/list framed", framed_size(tl), "unframed", len(compact_json(tl).encode()))
+            if mode == "modern":
+                r = wire(await c.call_tool_mcp("atlas_get_reference", {"topic": "index"}))
+                rest = {k: v for k, v in r.items() if k not in ("structuredContent", "content")}
+                print("modern overhead", len(compact_json(rest).encode()) + len(JSONRPC_FRAME))
+                meta = r.get("_meta")
+                print("_meta stamp bytes", len(compact_json(meta).encode()) if meta else None)
+            icon = c.server_info.icons[0].src if mode=="modern" else None
+            if icon: print("icon src chars", len(icon))
+    print("INSTRUCTIONS chars", len(INSTRUCTIONS))
+asyncio.run(main())

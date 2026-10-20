@@ -1,0 +1,1561 @@
+{
+ "portal": "data.montgomerycountymd.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 10
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 20,
+   "row_count": 187174
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 14,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 14
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "m88u-pqki",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.montgomerycountymd.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 18,
+     "searchMillis": [
+      3,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.montgomerycountymd.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "85,656 bytes, over the 65,536-byte cap",
+    "sha256": "b1d565613b37c684afe311be546fea3c96ff8bbe86f34fa699d0eac9c42c4a91",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/api/views/m88u-pqki.json",
+   "status": 200,
+   "body": {
+    "id": "m88u-pqki",
+    "name": "Residential Permit",
+    "assetType": "dataset",
+    "averageRating": 0,
+    "category": "Licenses/Permits",
+    "createdAt": 1343823471,
+    "description": "Data for all Residential Building Permits issued since 2000, including status and work performed.\r\n\r\nUpdate Frequency:  Daily",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 30082,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "iconUrl": "fileId:g_cj0Ii4vkdQPy9qvUcJN8ru8DPg5QmDmcXy6ySeBOk",
+    "licenseId": "PUBLIC_DOMAIN",
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 39624398,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1685123914,
+    "publicationGroup": 393492,
+    "publicationStage": "published",
+    "rowIdentifierColumnId": 576223247,
+    "rowsUpdatedAt": 1792124278,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 19164000,
+    "totalTimesRated": 0,
+    "viewCount": 44033,
+    "viewLastModified": 1685123914,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 576223247,
+      "name": "Permit Number",
+      "dataTypeName": "text",
+      "description": "Number assigned to uniquely identify permit",
+      "fieldName": "permitno",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 3659618,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "187174",
+       "null": "0",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223248,
+      "name": "Status",
+      "dataTypeName": "text",
+      "description": "Status of permit",
+      "fieldName": "status",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 3659619,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "187174",
+       "null": "0",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223249,
+      "name": "Street Number",
+      "dataTypeName": "text",
+      "description": "Street number of work location",
+      "fieldName": "stno",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 3659629,
+      "width": 148,
+      "cachedContents": {
+       "non_null": "185690",
+       "null": "1484",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223250,
+      "name": "Street Name",
+      "dataTypeName": "text",
+      "description": "Street name of work location",
+      "fieldName": "stname",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 3659631,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "185739",
+       "null": "1435",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223251,
+      "name": "Street Suffix",
+      "dataTypeName": "text",
+      "description": "Street suffix, such as ST (Street), PL (Place), RD (Road)",
+      "fieldName": "suffix",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 3659632,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "185713",
+       "null": "1461",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223252,
+      "name": "Post-direction",
+      "dataTypeName": "text",
+      "description": " Post-direction, if the street name has a direction after the name. For example, University Blvd W",
+      "fieldName": "postdir",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 3659633,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "49",
+       "null": "187125",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223253,
+      "name": "City",
+      "dataTypeName": "text",
+      "description": "City of work location",
+      "fieldName": "city",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 3659634,
+      "width": 148,
+      "cachedContents": {
+       "non_null": "185707",
+       "null": "1467",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223254,
+      "name": "State",
+      "dataTypeName": "text",
+      "description": "State of work location",
+      "fieldName": "state",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 3659635,
+      "width": 160,
+      "cachedContents": {
+       "non_null": "185727",
+       "null": "1447",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223255,
+      "name": "ZIP code",
+      "dataTypeName": "text",
+      "description": "Zip Code of work location",
+      "fieldName": "zip",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 3659636,
+      "width": 136,
+      "cachedContents": {
+       "non_null": "185648",
+       "null": "1526",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223256,
+      "name": "Added Date",
+      "dataTypeName": "calendar_date",
+      "description": "The date that the applicant applied for the permit and the information entered into the database",
+      "fieldName": "addeddate",
+      "position": 10,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 3659620,
+      "width": 208,
+      "cachedContents": {
+       "non_null": "187174",
+       "null": "0",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223257,
+      "name": "Issue Date",
+      "dataTypeName": "calendar_date",
+      "description": "The date that the permit is issued.  When the permit is issued, construction is allowed to commence.  DPS has reviewed the construction plans according to the applicable building and life safety codes and approved the plans",
+      "fieldName": "issueddate",
+      "position": 11,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 3659621,
+      "width": 220,
+      "cachedContents": {
+       "non_null": "178958",
+       "null": "8216",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223258,
+      "name": "Final Date",
+      "dataTypeName": "calendar_date",
+      "description": "The final date indicates the date that construction has been completed and approved by DPS.  The final inspection was conducted that date/time by the DPS inspector and was acceptable",
+      "fieldName": "finaleddate",
+      "position": 12,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 3659622,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "134157",
+       "null": "53017",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223259,
+      "name": "Building Area",
+      "dataTypeName": "number",
+      "description": "The number of square feet for the proposed construction.  For a new home, it is the entire building area.  For an addition or alteration, it represents only the area of the affected space, not the entire structure",
+      "fieldName": "buildingarea",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 3659623,
+      "width": 244,
+      "cachedContents": {
+       "non_null": "184752",
+       "null": "2422",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "false",
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223260,
+      "name": "Declared Valuation",
+      "dataTypeName": "number",
+      "description": "The value or cost of the proposed construction or work as declared by the applicant",
+      "fieldName": "declaredvaluation",
+      "position": 14,
+      "renderTypeName": "number",
+      "tableColumnId": 3659624,
+      "width": 304,
+      "cachedContents": {
+       "non_null": "184293",
+       "null": "2881",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "precisionStyle": "currency",
+       "humane": "false",
+       "currencyStyle": "USD",
+       "precision": "2",
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223261,
+      "name": "Description",
+      "dataTypeName": "text",
+      "description": "Description of planned work",
+      "fieldName": "description",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 3659625,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "162143",
+       "null": "25031",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223262,
+      "name": "Application Type",
+      "dataTypeName": "text",
+      "description": "Type of permit application",
+      "fieldName": "applicationtype",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 3659626,
+      "width": 280,
+      "cachedContents": {
+       "non_null": "187174",
+       "null": "0",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223263,
+      "name": "Work Type",
+      "dataTypeName": "text",
+      "description": "Type of work to be performed",
+      "fieldName": "worktype",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 3659627,
+      "width": 196,
+      "cachedContents": {
+       "non_null": "187167",
+       "null": "7",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223264,
+      "name": "Use Code",
+      "dataTypeName": "text",
+      "description": "Type of structure work will be performed on",
+      "fieldName": "usecode",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 3659628,
+      "width": 184,
+      "cachedContents": {
+       "non_null": "187174",
+       "null": "0",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223265,
+      "name": "Pre-direction",
+      "dataTypeName": "text",
+      "description": "Pre-direction, if the street name has a direction as a prefix. For example, E Jefferson Street",
+      "fieldName": "predir",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 3659630,
+      "width": 172,
+      "cachedContents": {
+       "non_null": "1881",
+       "null": "185293",
+       "count": "187174",
+       "cardinality": "187174"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 576223266,
+      "name": "Location",
+      "dataTypeName": "location",
+      "fieldName": "location",
+      "position": 20,
+      "renderTypeName": "location",
+      "tableColumnId": 12064676,
+      "width": 100,
+      "format": {}
+     },
+     {
+      "id": 576223271,
+      "name": "Council Districts",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_vu5j_pcmz",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 88871685,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_vu5j-pcmz",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223272,
+      "name": "Councils",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_tx5f_5em3",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 88871686,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_tx5f-5em3",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223273,
+      "name": "Communities",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_kbsp_ykn9",
+      "position": 27,
+      "renderTypeName": "number",
+      "tableColumnId": 88871687,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_kbsp-ykn9",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223274,
+      "name": "Zip Codes",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_d7bw_bq6x",
+      "position": 28,
+      "renderTypeName": "number",
+      "tableColumnId": 88871688,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_d7bw-bq6x",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223275,
+      "name": "Municipalities",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_rbt8_3x7n",
+      "position": 29,
+      "renderTypeName": "number",
+      "tableColumnId": 88871689,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_rbt8-3x7n",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223276,
+      "name": "Council Districts_from_i23j_3mj8",
+      "dataTypeName": "number",
+      "fieldName": ":@computed_region_a9cs_3ed7",
+      "position": 30,
+      "renderTypeName": "number",
+      "tableColumnId": 88871690,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_a9cs-3ed7",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223277,
+      "name": "Service Regions",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Service Regions' (r648-kzwt) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_r648_kzwt",
+      "position": 31,
+      "renderTypeName": "number",
+      "tableColumnId": 147040906,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_r648-kzwt",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     },
+     {
+      "id": 576223278,
+      "name": "Council Districts 7",
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'Council Districts 7' (6vgr-duib) the point in column 'location' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_6vgr_duib",
+      "position": 32,
+      "renderTypeName": "number",
+      "tableColumnId": 147051912,
+      "computationStrategy": {
+       "source_columns": [
+        "location"
+       ],
+       "type": "georegion_match_on_point",
+       "parameters": {
+        "region": "_6vgr-duib",
+        "primary_key": "_feature_id"
+       }
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Public Domain"
+    },
+    "metadata": {
+     "thumbnail": {
+      "page": {
+       "filename": "page.png-1092.582.7.100.png",
+       "selection": {
+        "width": 1092,
+        "y1": 100,
+        "y2": 682,
+        "x1": 7,
+        "x2": 1099,
+        "height": 582
+       },
+       "created": true
+      }
+     },
+     "rdfSubject": "0",
+     "custom_fields": {
+      "Dataset Information": {
+       "Departments": "Permitting Services, Department of",
+       "Update Frequency": "Daily"
+      }
+     },
+     "rowIdentifier": 576223247,
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "rowLabel": "",
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "licenses",
+     "permits",
+     "residential"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "187174"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=min%28addeddate%29+AS+lo%2C+max%28addeddate%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "2000-01-03T01:01:17.000",
+     "hi": "2026-10-15T12:10:57.000"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_d7bw_bq6x+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_d7bw_bq6x&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "53",
+     "n": "13354"
+    },
+    {
+     "v": "103",
+     "n": "12299"
+    },
+    {
+     "n": "9266"
+    },
+    {
+     "v": "110",
+     "n": "8809"
+    },
+    {
+     "v": "6",
+     "n": "8261"
+    },
+    {
+     "v": "17",
+     "n": "7683"
+    },
+    {
+     "v": "44",
+     "n": "7444"
+    },
+    {
+     "v": "39",
+     "n": "7250"
+    },
+    {
+     "v": "12",
+     "n": "6976"
+    },
+    {
+     "v": "33",
+     "n": "6777"
+    },
+    {
+     "v": "75",
+     "n": "6522"
+    },
+    {
+     "v": "111",
+     "n": "6401"
+    },
+    {
+     "v": "21",
+     "n": "6241"
+    },
+    {
+     "v": "25",
+     "n": "6236"
+    },
+    {
+     "v": "3065",
+     "n": "5827"
+    },
+    {
+     "v": "36",
+     "n": "5784"
+    },
+    {
+     "v": "58",
+     "n": "5751"
+    },
+    {
+     "v": "100",
+     "n": "5380"
+    },
+    {
+     "v": "107",
+     "n": "5286"
+    },
+    {
+     "v": "29",
+     "n": "5074"
+    },
+    {
+     "v": "3062",
+     "n": "4289"
+    },
+    {
+     "v": "8",
+     "n": "3797"
+    },
+    {
+     "v": "51",
+     "n": "3441"
+    },
+    {
+     "v": "60",
+     "n": "3343"
+    },
+    {
+     "v": "31",
+     "n": "3205"
+    },
+    {
+     "v": "42",
+     "n": "2999"
+    },
+    {
+     "v": "71",
+     "n": "2621"
+    },
+    {
+     "v": "28",
+     "n": "2591"
+    },
+    {
+     "v": "47",
+     "n": "2533"
+    },
+    {
+     "v": "99",
+     "n": "2422"
+    },
+    {
+     "v": "97",
+     "n": "2114"
+    },
+    {
+     "v": "15",
+     "n": "1415"
+    },
+    {
+     "v": "35",
+     "n": "1226"
+    },
+    {
+     "v": "50",
+     "n": "989"
+    },
+    {
+     "v": "102",
+     "n": "894"
+    },
+    {
+     "v": "49",
+     "n": "582"
+    },
+    {
+     "v": "74",
+     "n": "537"
+    },
+    {
+     "v": "24",
+     "n": "394"
+    },
+    {
+     "v": "46",
+     "n": "261"
+    },
+    {
+     "v": "114",
+     "n": "135"
+    },
+    {
+     "v": "30",
+     "n": "128"
+    },
+    {
+     "v": "48",
+     "n": "124"
+    },
+    {
+     "v": "1627",
+     "n": "94"
+    },
+    {
+     "v": "68",
+     "n": "94"
+    },
+    {
+     "v": "1769",
+     "n": "74"
+    },
+    {
+     "v": "77",
+     "n": "73"
+    },
+    {
+     "v": "78",
+     "n": "67"
+    },
+    {
+     "v": "978",
+     "n": "44"
+    },
+    {
+     "v": "930",
+     "n": "26"
+    },
+    {
+     "v": "979",
+     "n": "19"
+    },
+    {
+     "v": "2250",
+     "n": "10"
+    },
+    {
+     "v": "2591",
+     "n": "7"
+    },
+    {
+     "v": "1819",
+     "n": "3"
+    },
+    {
+     "v": "981",
+     "n": "2"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_rbt8_3x7n+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_rbt8_3x7n&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "1",
+     "n": "164745"
+    },
+    {
+     "n": "9337"
+    },
+    {
+     "v": "11",
+     "n": "4053"
+    },
+    {
+     "v": "16",
+     "n": "1721"
+    },
+    {
+     "v": "20",
+     "n": "1541"
+    },
+    {
+     "v": "3",
+     "n": "1065"
+    },
+    {
+     "v": "6",
+     "n": "660"
+    },
+    {
+     "v": "7",
+     "n": "533"
+    },
+    {
+     "v": "14",
+     "n": "481"
+    },
+    {
+     "v": "18",
+     "n": "412"
+    },
+    {
+     "v": "5",
+     "n": "405"
+    },
+    {
+     "v": "15",
+     "n": "398"
+    },
+    {
+     "v": "13",
+     "n": "305"
+    },
+    {
+     "v": "12",
+     "n": "246"
+    },
+    {
+     "v": "24",
+     "n": "230"
+    },
+    {
+     "v": "22",
+     "n": "201"
+    },
+    {
+     "v": "19",
+     "n": "200"
+    },
+    {
+     "v": "21",
+     "n": "163"
+    },
+    {
+     "v": "17",
+     "n": "140"
+    },
+    {
+     "v": "4",
+     "n": "135"
+    },
+    {
+     "v": "8",
+     "n": "58"
+    },
+    {
+     "v": "23",
+     "n": "55"
+    },
+    {
+     "v": "10",
+     "n": "49"
+    },
+    {
+     "v": "2",
+     "n": "38"
+    },
+    {
+     "v": "9",
+     "n": "3"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_kbsp_ykn9+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_kbsp_ykn9&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "12",
+     "n": "21928"
+    },
+    {
+     "v": "50",
+     "n": "12527"
+    },
+    {
+     "v": "20",
+     "n": "10289"
+    },
+    {
+     "v": "39",
+     "n": "9657"
+    },
+    {
+     "n": "9455"
+    },
+    {
+     "v": "5",
+     "n": "8662"
+    },
+    {
+     "v": "58",
+     "n": "6938"
+    },
+    {
+     "v": "15",
+     "n": "6435"
+    },
+    {
+     "v": "23",
+     "n": "5889"
+    },
+    {
+     "v": "36",
+     "n": "5182"
+    },
+    {
+     "v": "24",
+     "n": "5153"
+    },
+    {
+     "v": "61",
+     "n": "4809"
+    },
+    {
+     "v": "19",
+     "n": "4375"
+    },
+    {
+     "v": "22",
+     "n": "4323"
+    },
+    {
+     "v": "7",
+     "n": "4097"
+    },
+    {
+     "v": "4",
+     "n": "4058"
+    },
+    {
+     "v": "42",
+     "n": "3765"
+    },
+    {
+     "v": "26",
+     "n": "3690"
+    },
+    {
+     "v": "46",
+     "n": "3615"
+    },
+    {
+     "v": "51",
+     "n": "3577"
+    },
+    {
+     "v": "38",
+     "n": "3566"
+    },
+    {
+     "v": "53",
+     "n": "3418"
+    },
+    {
+     "v": "16",
+     "n": "3297"
+    },
+    {
+     "v": "28",
+     "n": "2753"
+    },
+    {
+     "v": "18",
+     "n": "2695"
+    },
+    {
+     "v": "8",
+     "n": "2476"
+    },
+    {
+     "v": "17",
+     "n": "2265"
+    },
+    {
+     "v": "34",
+     "n": "2103"
+    },
+    {
+     "v": "13",
+     "n": "2046"
+    },
+    {
+     "v": "30",
+     "n": "2039"
+    },
+    {
+     "v": "10",
+     "n": "1907"
+    },
+    {
+     "v": "29",
+     "n": "1827"
+    },
+    {
+     "v": "59",
+     "n": "1756"
+    },
+    {
+     "v": "35",
+     "n": "1740"
+    },
+    {
+     "v": "1",
+     "n": "1394"
+    },
+    {
+     "v": "6",
+     "n": "1303"
+    },
+    {
+     "v": "55",
+     "n": "1256"
+    },
+    {
+     "v": "60",
+     "n": "1172"
+    },
+    {
+     "v": "56",
+     "n": "843"
+    },
+    {
+     "v": "43",
+     "n": "833"
+    },
+    {
+     "v": "54",
+     "n": "805"
+    },
+    {
+     "v": "3",
+     "n": "793"
+    },
+    {
+     "v": "21",
+     "n": "758"
+    },
+    {
+     "v": "45",
+     "n": "623"
+    },
+    {
+     "v": "48",
+     "n": "533"
+    },
+    {
+     "v": "40",
+     "n": "525"
+    },
+    {
+     "v": "27",
+     "n": "455"
+    },
+    {
+     "v": "25",
+     "n": "433"
+    },
+    {
+     "v": "9",
+     "n": "431"
+    },
+    {
+     "v": "62",
+     "n": "425"
+    },
+    {
+     "v": "14",
+     "n": "414"
+    },
+    {
+     "v": "57",
+     "n": "378"
+    },
+    {
+     "v": "32",
+     "n": "362"
+    },
+    {
+     "v": "44",
+     "n": "308"
+    },
+    {
+     "v": "11",
+     "n": "306"
+    },
+    {
+     "v": "2",
+     "n": "135"
+    },
+    {
+     "v": "33",
+     "n": "111"
+    },
+    {
+     "v": "37",
+     "n": "80"
+    },
+    {
+     "v": "41",
+     "n": "77"
+    },
+    {
+     "v": "52",
+     "n": "62"
+    },
+    {
+     "v": "49",
+     "n": "41"
+    },
+    {
+     "v": "47",
+     "n": "5"
+    },
+    {
+     "v": "31",
+     "n": "1"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_r648_kzwt+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_r648_kzwt&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "5",
+     "n": "57558"
+    },
+    {
+     "v": "3",
+     "n": "47749"
+    },
+    {
+     "v": "4",
+     "n": "41538"
+    },
+    {
+     "v": "2",
+     "n": "15849"
+    },
+    {
+     "v": "1",
+     "n": "15102"
+    },
+    {
+     "n": "9378"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_tx5f_5em3+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_tx5f_5em3&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "1",
+     "n": "57360"
+    },
+    {
+     "v": "2",
+     "n": "41967"
+    },
+    {
+     "v": "4",
+     "n": "35841"
+    },
+    {
+     "v": "5",
+     "n": "30569"
+    },
+    {
+     "v": "3",
+     "n": "12078"
+    },
+    {
+     "n": "9359"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_a9cs_3ed7+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_a9cs_3ed7&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "1",
+     "n": "57360"
+    },
+    {
+     "v": "2",
+     "n": "41967"
+    },
+    {
+     "v": "4",
+     "n": "35841"
+    },
+    {
+     "v": "5",
+     "n": "30569"
+    },
+    {
+     "v": "3",
+     "n": "12078"
+    },
+    {
+     "n": "9359"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_vu5j_pcmz+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_vu5j_pcmz&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "1",
+     "n": "57360"
+    },
+    {
+     "v": "2",
+     "n": "41967"
+    },
+    {
+     "v": "4",
+     "n": "35841"
+    },
+    {
+     "v": "5",
+     "n": "30569"
+    },
+    {
+     "v": "3",
+     "n": "12078"
+    },
+    {
+     "n": "9359"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=%3A%40computed_region_6vgr_duib+AS+v%2C+count%28%2A%29+AS+n&%24group=%3A%40computed_region_6vgr_duib&%24order=n+DESC&%24limit=101",
+   "status": 200,
+   "body": [
+    {
+     "v": "6",
+     "n": "43559"
+    },
+    {
+     "v": "5",
+     "n": "35828"
+    },
+    {
+     "v": "3",
+     "n": "29515"
+    },
+    {
+     "v": "7",
+     "n": "23482"
+    },
+    {
+     "v": "2",
+     "n": "22245"
+    },
+    {
+     "v": "1",
+     "n": "19964"
+    },
+    {
+     "n": "9333"
+    },
+    {
+     "v": "4",
+     "n": "3248"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=permitno%2C+status%2C+stno%2C+stname%2C+suffix%2C+postdir%2C+city%2C+state%2C+zip%2C+addeddate%2C+issueddate%2C+finaleddate%2C+buildingarea%2C+declaredvaluation%2C+description%2C+applicationtype%2C+worktype%2C+usecode%2C+predir%2C+location%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "addeddate",
+     "applicationtype",
+     "buildingarea",
+     "city",
+     "declaredvaluation",
+     "description",
+     "finaleddate",
+     "issueddate",
+     "location",
+     "permitno",
+     "state",
+     "status",
+     "stname",
+     "stno",
+     "suffix",
+     "usecode",
+     "worktype",
+     "zip"
+    ],
+    "sha256": "9abfd28a645f929d3b44fd5f7ab5fdb455642e5e9850c8d8429f152515b9e0eb"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.montgomerycountymd.gov/resource/m88u-pqki.json?%24select=permitno%2C+status%2C+stno%2C+stname%2C+suffix%2C+postdir%2C+city%2C+state%2C+zip%2C+addeddate%2C+issueddate%2C+finaleddate%2C+buildingarea%2C+declaredvaluation%2C+description%2C+applicationtype%2C+worktype%2C+usecode%2C+predir%2C+location%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-sh69-kr6z.skfm%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "addeddate",
+     "applicationtype",
+     "buildingarea",
+     "city",
+     "declaredvaluation",
+     "description",
+     "finaleddate",
+     "issueddate",
+     "location",
+     "permitno",
+     "state",
+     "status",
+     "stname",
+     "stno",
+     "suffix",
+     "usecode",
+     "worktype",
+     "zip"
+    ],
+    "sha256": "33677173937f004d11805eec12e3ea2059557a44713e4e3721caec5fe8a6bb97"
+   }
+  }
+ ]
+}

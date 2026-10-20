@@ -1,0 +1,27 @@
+# Seattle facts for `76t5-zqzr`, converted from the fork's staged constants.
+
+[[claim]]
+id = "76t5-zqzr-originalzip-place"
+kind = "place_field"
+scope = {dataset = "76t5-zqzr", column = "originalzip"}
+interpretation = {kind = "zip", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. Building Permits `76t5-zqzr` `originalzip`: 46 distinct."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "76t5-zqzr-originalzip-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "76t5-zqzr", column = "originalzip"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. Building Permits `76t5-zqzr` `originalzip`: 46 distinct."
+observed_at = 2026-10-15

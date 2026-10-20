@@ -1,0 +1,96 @@
+{
+  "manifest_version": "0.4",
+  "name": "opendata-atlas",
+  "display_name": "Open Data Atlas",
+  "version": "0.1.0",
+  "description": "Agent-friendly access to public Socrata open-data portals",
+  "author": {
+    "name": "Brian Connelly",
+    "email": "bdc@bconnelly.net"
+  },
+  "icon": "icon.png",
+  "icons": [
+    {
+      "src": "icon.png",
+      "size": "512x512"
+    },
+    {
+      "src": "icon-128.png",
+      "size": "128x128"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/briandconnelly/opendata-atlas"
+  },
+  "homepage": "https://github.com/briandconnelly/opendata-atlas",
+  "documentation": "https://github.com/briandconnelly/opendata-atlas#readme",
+  "support": "https://github.com/briandconnelly/opendata-atlas/issues",
+  "license": "MIT",
+  "keywords": [
+    "open-data",
+    "socrata",
+    "soda",
+    "mcp",
+    "agent"
+  ],
+  "server": {
+    "type": "uv",
+    "entry_point": "src/opendata_atlas/mcp/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "--frozen",
+        "--no-dev",
+        "opendata-atlas"
+      ],
+      "env": {
+        "SOCRATA_APP_TOKEN": "${user_config.app_token}"
+      }
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "python": ">=3.13"
+    }
+  },
+  "user_config": {
+    "app_token": {
+      "type": "string",
+      "title": "Socrata app token (optional)",
+      "description": "A Socrata application token raises rate limits. Leave blank to query anonymously. A rejected token is reported, never silently dropped.",
+      "sensitive": true,
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "atlas_find_portals",
+      "description": "Find portals by place name; the portal id it returns goes in every other tool's `portal`."
+    },
+    {
+      "name": "atlas_search_datasets",
+      "description": "Find a portal's datasets by topic. Call when you lack a dataset id."
+    },
+    {
+      "name": "atlas_describe_dataset",
+      "description": "Decide whether and how to query a dataset: columns, live row count, data_coverage (actual time range), place fields for \"in <area>\" questions (with reliability), and geo columns for `near`."
+    },
+    {
+      "name": "atlas_query_dataset",
+      "description": "Run a bounded read or aggregate on one dataset; paging stops at 10,000 rows."
+    },
+    {
+      "name": "atlas_get_reference",
+      "description": "Read the server's reference: capability summary, portals, dataset guides, SoQL help, error catalog, and tier definitions. Call with no arguments for the index."
+    }
+  ]
+}

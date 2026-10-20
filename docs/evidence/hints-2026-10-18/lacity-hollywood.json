@@ -1,0 +1,40 @@
+[
+ {
+  "host": "data.lacity.org",
+  "dataset": "k7nn-b2ep",
+  "query": "SELECT area_name, count(*) AS n WHERE upper(area_name) like '%HOLLYWOOD%' GROUP BY area_name ORDER BY n DESC",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "area_name": "N Hollywood         ",
+    "n": "26723"
+   },
+   {
+    "area_name": "Hollywood           ",
+    "n": "26653"
+   }
+  ]
+ },
+ {
+  "host": "data.lacity.org",
+  "dataset": "k7nn-b2ep",
+  "query": "SELECT count(*) AS n WHERE area_name = 'Hollywood'",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "n": "0"
+   }
+  ]
+ },
+ {
+  "host": "data.lacity.org",
+  "dataset": "k7nn-b2ep",
+  "query": "SELECT count(*) AS n WHERE upper(area_name) like '%O''BRIEN_%'",
+  "observed_at": "2026-10-18",
+  "rows": [
+   {
+    "n": "0"
+   }
+  ]
+ }
+]

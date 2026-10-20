@@ -1,0 +1,9 @@
+# codex exec --help (codex-cli 0.163.0), 2026-10-19: line count and case-insensitive match counts
+lines 118
+--model 1
+--sandbox 1
+--config 1
+budget 0
+cost 0
+usd 0
+spend 0

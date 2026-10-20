@@ -1,0 +1,40 @@
+
+## path rule
+known positive ['README.md'] -> ['README.md']
+11 paths -> []
+
+## evidence
+known positive (neighborhood reason deleted) -> ['f6vp-3svh.toml:f6vp-3svh-neighborhood-place-field: reliability without reason', 'f6vp-3svh.toml:f6vp-3svh-neighborhood-place-field: interpretation without reason']
+pack -> []
+claims setting reliability: 5
+claim_summary -> {'by_kind': {'column_timezone': 3, 'place_field': 10, 'placeholder_share': 1, 'region_layer': 1, 'unit_of_observation': 1}, 'reviewed': 7, 'with_interpretation_reason_and_probe': 7}
+
+## identity
+tier profiled | timezone America/Los_Angeles
+  name: pack='City of Everett' override='City of Everett' equal=True
+  aliases: pack=['everett'] override=['everett'] equal=True
+  place_names: pack=['Everett', 'Everett, WA'] override=['Everett', 'Everett, WA'] equal=True
+  jurisdiction: pack={'level': 'city', 'country': 'US', 'region': 'WA'} override={'level': 'city', 'country': 'US', 'region': 'WA'} equal=True
+  timezone: pack='America/Los_Angeles' override='America/Los_Angeles' equal=True
+override table gone at HEAD: True
+comment lines above [jurisdiction]: 3
+# Moved from registry_overrides.toml (entry 58), which took the name from the portal's own
+# title (html_title "City of Everett Open Data"), country US from geography and region WA from
+# the host everettwa.gov. timezone is the calendar assignment for single-zone Washington.
+
+## isolation: registry_overrides.toml
+known positive (datahub.hhs.gov changed) -> ['data.everettwa.gov', 'datahub.hhs.gov']
+HEAD -> ['data.everettwa.gov']
+
+## isolation: validation.json
+known positive (a Seattle outcome changed) -> ['portals[data.everettwa.gov]', 'portals[data.seattle.gov]']
+HEAD -> ['portals[data.everettwa.gov]']
+everett entries: 16
+
+## eval file
+covers: ['in_area', 'misleading_field', 'not_published', 'relative_date'] missing: []
+01-port-gardner-last-month PASS/PARTIAL/FAIL: True
+02-gang-crimes-2025 PASS/PARTIAL/FAIL: True
+  misleading_field prompt: How many crimes in Everett in 2025 involved gangs? | names: []
+03-restaurant-inspections PASS/PARTIAL/FAIL: True
+datasets named in expects: ['f6vp-3svh', 'szww-y224']

@@ -1,0 +1,797 @@
+[
+  {
+    "portal": "data.seattle.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 9
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 41,
+        "row_count": 193745
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 5,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 5
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "76t5-zqzr",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.sf.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 9
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 55,
+        "row_count": 1297058
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 4,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 4
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "i98e-djp9",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.cityofchicago.org",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 116,
+        "row_count": 850686
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 1,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 1
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "ydr8-5enu",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.cityofnewyork.us",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 9
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 14,
+        "row_count": 19719
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 19,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 15
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "tg4x-b46p",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.kingcounty.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 55,
+        "row_count": 74
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 6,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 5
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "7bee-uw8s",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "datahub.austintexas.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 7
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 68,
+        "row_count": 2380709
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 3,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 3
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "3syk-w9eu",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "www.dallasopendata.com",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 8
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 11,
+        "row_count": 126840
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "e7gq-4sah",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.lacity.org",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 25,
+        "row_count": 1635148
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 13,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 13
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "hbkd-qubn",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.nola.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 42,
+        "row_count": 349082
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 7,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 7
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "rcm3-fn58",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "datacatalog.cookcountyil.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 22,
+        "row_count": 749192
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 12,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 12
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "6yjf-dfxs",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.montgomerycountymd.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 10
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 20,
+        "row_count": 187174
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 14,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 14
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "m88u-pqki",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.wa.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 9
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 8,
+        "row_count": 1235
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "yccr-zbpr",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.ny.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 8
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 10,
+        "row_count": 11837
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 20
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "kb9s-4gzd",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.texas.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 8
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 19,
+        "row_count": 891754
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 15,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 15
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "jrea-zgmq",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.cdc.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 6
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 17,
+        "row_count": 1677927
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 18,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 17
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "9kjw-3miq",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.calgary.ca",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 7
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 30,
+        "row_count": 502129
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 6,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 7
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "c2es-76ed",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "www.datos.gov.co",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 6
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 32,
+        "row_count": 92738
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 9,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 9
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "ch4u-f3i5",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.oregon.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 9
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 7,
+        "row_count": 7
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 7,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "single_page",
+        "kind": "data",
+        "upstream_rows": 7
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "5fni-sp3g",
+        "left_because": "empty or one page"
+      },
+      {
+        "result": 2,
+        "dataset_id": "hi9g-m7ts",
+        "left_because": "empty or one page"
+      },
+      {
+        "result": 3,
+        "dataset_id": "j3rx-7bui",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "data.honolulu.gov",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 5
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 77,
+        "row_count": 432021
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 3,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 3
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "4vab-c87q",
+        "left_because": null
+      }
+    ]
+  },
+  {
+    "portal": "opendata.camden.gov.uk",
+    "steps": {
+      "search": {
+        "outcome": "ok",
+        "kind": "ok",
+        "via": "query",
+        "queryable_results": 6
+      },
+      "describe": {
+        "outcome": "ok",
+        "kind": "ok",
+        "columns": 26,
+        "row_count": 8848
+      },
+      "query_p1": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 6,
+        "truncated": false
+      },
+      "query_p2": {
+        "outcome": "ok",
+        "kind": "ok",
+        "rows": 6
+      },
+      "forced_no_such_column": {
+        "outcome": "ok",
+        "kind": "ok"
+      }
+    },
+    "attempts": [
+      {
+        "result": 1,
+        "dataset_id": "eqq9-intm",
+        "left_because": "empty or one page"
+      },
+      {
+        "result": 2,
+        "dataset_id": "7hiv-3r9k",
+        "left_because": null
+      }
+    ]
+  }
+]

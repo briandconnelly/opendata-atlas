@@ -1,0 +1,124 @@
+{
+ "generated_at": "2026-10-18T20:39:43+00:00",
+ "results": [
+  {
+   "portal": "data.seattle.gov",
+   "claim": "33kz-ixgy-cad_event_original_time_queued-timezone",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "dst_gap",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "hour 2 has 0 rows",
+     "request": "SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2026-03-08T00:00:00' AND cad_event_original_time_queued < '2026-03-09T00:00:00' GROUP BY h"
+    },
+    {
+     "checker": "diurnal_peak",
+     "probe": 1,
+     "outcome": "passed",
+     "detail": "peak hour 12 within 10-14",
+     "request": "SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2025-01-01T00:00:00' AND cad_event_original_time_queued < '2026-01-01T00:00:00' GROUP BY h"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "65db-xm6k-date-timezone",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "dst_gap",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "hour 2 has 0 rows",
+     "request": "SELECT date_extract_hh(date) AS h, sum(fremont_bridge) AS n WHERE date >= '2026-03-08T00:00:00' AND date < '2026-03-09T00:00:00' AND fremont_bridge IS NOT NULL GROUP BY h"
+    },
+    {
+     "checker": "diurnal_peak",
+     "probe": 1,
+     "outcome": "passed",
+     "detail": "peak hour 8 within 6-10",
+     "request": "SELECT date_extract_hh(date) AS h, sum(fremont_bridge) AS n WHERE date >= '2025-01-01T00:00:00' AND date < '2026-01-01T00:00:00' GROUP BY h"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "kzjm-xkqj-datetime-timezone",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "dst_gap",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "hour 2 has 0 rows",
+     "request": "SELECT date_extract_hh(datetime) AS h, count(*) AS n WHERE datetime >= '2026-03-08T00:00:00' AND datetime < '2026-03-09T00:00:00' GROUP BY h"
+    },
+    {
+     "checker": "diurnal_peak",
+     "probe": 1,
+     "outcome": "passed",
+     "detail": "peak hour 16 within 14-18",
+     "request": "SELECT date_extract_hh(datetime) AS h, count(*) AS n WHERE datetime >= '2025-01-01T00:00:00' AND datetime < '2026-01-01T00:00:00' GROUP BY h"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "ppi5-g2bj-sector-place",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "share_by_group",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "1 groups within bounds",
+     "request": "SELECT sum(case(sector IS NULL OR sector IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "ppi5-g2bj-beat-place",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "share_by_group",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "1 groups within bounds",
+     "request": "SELECT sum(case(beat IS NULL OR beat IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "tazs-3rd5-sector-place",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "share_by_group",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "1 groups within bounds",
+     "request": "SELECT sum(case(sector IS NULL OR sector IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+    }
+   ]
+  },
+  {
+   "portal": "data.seattle.gov",
+   "claim": "tazs-3rd5-beat-place",
+   "outcome": "passed",
+   "assertions": [
+    {
+     "checker": "share_by_group",
+     "probe": 0,
+     "outcome": "passed",
+     "detail": "1 groups within bounds",
+     "request": "SELECT sum(case(beat IS NULL OR beat IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n"
+    }
+   ]
+  }
+ ]
+}

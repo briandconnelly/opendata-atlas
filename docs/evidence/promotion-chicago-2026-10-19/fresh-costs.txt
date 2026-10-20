@@ -1,0 +1,10 @@
+evals/results/2026-10-19-m4-chicago-9/none.transcript.jsonl UNRESOLVED: missing
+evals/results/2026-10-19-m4-chicago-1/01-hyde-park-last-month.transcript.jsonl 0.1799792
+evals/results/2026-10-19-m4-chicago-1/02-austin-2001-2003.transcript.jsonl 0.19660740000000002
+evals/results/2026-10-19-m4-chicago-1/03-crimes-yesterday.transcript.jsonl 0.1624438
+evals/results/2026-10-19-m4-chicago-2/01-hyde-park-last-month.transcript.jsonl 0.19320479999999998
+evals/results/2026-10-19-m4-chicago-2/02-austin-2001-2003.transcript.jsonl 0.183276
+evals/results/2026-10-19-m4-chicago-2/03-crimes-yesterday.transcript.jsonl 0.1423486
+evals/results/2026-10-19-m4-chicago-3/01-hyde-park-last-month.transcript.jsonl 0.1237804
+evals/results/2026-10-19-m4-chicago-3/02-austin-2001-2003.transcript.jsonl 0.19026039999999997
+evals/results/2026-10-19-m4-chicago-3/03-crimes-yesterday.transcript.jsonl 0.1494762

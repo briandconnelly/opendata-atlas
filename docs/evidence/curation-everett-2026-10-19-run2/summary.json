@@ -1,0 +1,121 @@
+{
+ "portal": "data.everettwa.gov",
+ "branch": "curate/test-2026-10-19",
+ "base": "3cea5d69c73f09d35d3a2a139d6453539dbbaa90",
+ "curation": {
+  "exit_code": 0,
+  "subtype": "success",
+  "is_error": false,
+  "num_turns": 83,
+  "duration_ms": 885334,
+  "total_cost_usd": 2.9569148000000016,
+  "final_message": "I added the Everett knowledge pack, declared `profiled`, and committed it on `curate/test-2026-10-19`. Nothing was pushed and no PR was opened. The checks all passed: the drift run (16 of 16 claims), the offline suite (1,239 passed, 123 integration tests skipped), prek, and 9 of 9 eval transcripts graded PASS. I propose `curated` in the body below, but someone other than me has to re-grade the eval answers before it gets promoted.\n\n**PR title:** `feat: add the data.everettwa.gov knowledge pack (profiled)`\n\n**PR body:**\n\n## Portal\n**City of Everett** (`data.everettwa.gov`, alias `everett`). Declared tier: **`profiled`**.\n\n## Proposal: `curated`\nI propose promoting this pack to `curated`, because it meets every condition in CONTRIBUTING step 12:\n- Police Incidents (`f6vp-3svh`) is `reviewed` and has a guide.\n- The eval tasks cover all four kinds: `in_area`, `relative_date`, `misleading_field` and `not_published`.\n- Every task graded PASS in all 3 runs.\n- No check failed on this pack after the eval runs started.\n\n**These grades are my own.** Someone other than me must re-grade the eval answers before setting `curated`.\n\n## Datasets reviewed\n- **Police Incidents (`f6vp-3svh`), knowledge level `reviewed`:**\n  - **Unit of observation:** one row per incident. In September 2026 there were 10,357 rows and 10,357 distinct `eventnumber` values. The publisher's description is quoted as `document` evidence.\n  - **`datetimereceived` timezone:** America/Los_Angeles. Checked two ways: no rows in the skipped spring-forward hour, and an afternoon peak.\n  - **Computed region `cx6t_gkq3`:** neighborhood, reliability `partial`. About 11% of rows have no neighborhood.\n  - **Computed region `psyp_nrnc`:** the City Limits Shading layer, kind `other`, reliability `partial`. Its 5 polygons all have code EV, so it only says whether a point is inside Everett. It is not an area filter for parts of the city.\n  - **Text `neighborhood`:** reliability `partial`, with placeholder `Not Assigned` on about 7.5% of rows.\n  - **Guide `police-incidents`:** both of its examples ran with `isError: false`.\n- **Neighborhoods layer `cx6t-gkq3`** (`regions.toml`): kind neighborhood, label column `name`, reliability `partial`. How full it is varies by dataset: 0.875\u20130.898 on the police and fire datasets, 0.353 on Licensed Businesses.\n- **Police Cases (`szww-y224`), knowledge level `profiled`:**\n  - Only `gangrelated` is reviewed: `unreliable`, with placeholders `UNKNOWN` and `UNKNOWN IF GANG-RELATED`.\n  - The field is blank on about 60% of cases, and it uses two different sets of YES/NO wording.\n- **Other claims:** Licensed Businesses (`qvfa-2v26`) and Fire 911 Unit Dispatches (`w35j-83t3`) keep their claims as profiler observations.\n\n## Identity\n- I moved the identity from `registry_overrides.toml` entry 58 into `portal.toml` and updated the file's coverage comments.\n- `jurisdiction` (city, US, WA) and `timezone` (America/Los_Angeles) were already set, so neither was unset.\n- The profiler had already written the `*-timezone` claims, so I didn't need to rerun it.\n- The comment above `[jurisdiction]` records where the values came from. There is no publisher-page quote: the portal home page never names the state, and www.everettwa.gov returned 403.\n\n## Step 3 review values\n`review_values` was empty, so **0 claims were deleted**.\n\n## Drift outcomes\n`tests/test_drift.py -k data.everettwa.gov`: **16 passed**, run twice. `validation.json` gained only the 16 `data.everettwa.gov` entries.\n\n## Offline checks\n- `uv run pytest -q --ignore=tests/test_curation_skill.py`: 1,239 passed, 123 skipped (integration tests only).\n- `uv run prek run --all-files`: every hook passed.\n- No claim of another pack failed a check.\n\n## Eval grades\n| Task | Covers | Run 1 | Run 2 | Run 3 |\n|---|---|---|---|---|\n| 01-port-gardner-last-month | in_area, relative_date | PASS | PASS | PASS |\n| 02-gang-crimes-2025 | misleading_field | PASS | PASS | PASS |\n| 03-restaurant-inspections | not_published | PASS | PASS | PASS |\n\n- **01:** every run answered 1,640 for September 2026 by the text field, also gave 1,628 by the computed region, and said the count is a floor.\n- **02:** every run answered 59, and said 6,935 of the 11,899 cases in 2025 (58%) are blank, so 59 is a minimum.\n- **03:** every run said the portal publishes no inspection data, gave no results and invented no dataset id.\n\nAll 9 transcripts ended with `subtype: \"success\"`.\n\n## Knowledge gaps\n- **Police Cases (`szww-y224`):** its unit of observation and its `datetimereceived` timezone claim are not reviewed. The agents in task 02 flagged both as unverified. It didn't change their grade.\n- **Future-dated row:** one Police Incidents row (eventnumber 2025-00119644) is dated 2026-12-20, so the dataset's `data_coverage` max is wrong. The guide warns about this.\n\n## Engine defects\n**Future-dated rows set the time window:**\n- **Problem:** `atlas-profile` takes its diurnal-peak window as the year before the column's max (`profiler/profile.py:595`), and `atlas_describe_dataset` reports a future max with `status: \"ok\"`. Here the profiler's window ran 2025-12-20 to 2026-12-21, which holds about 10 months of data.\n- **Status:** not fixed in engine code. The claim's observation explains why the window ends in the future, and the guide warns about it.\n- **Logged:** new row in `docs/decisions.md`, \"Future-dated rows set the time window (engine defect, everett curation run 2)\".\n\n\ud83e\udd16 Generated with Claude Code",
+  "transcript": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run2/test_curation_skill_produces_a0/curation.transcript.jsonl"
+ },
+ "checks": {
+  "offline_gate": {
+   "exit_code": 0,
+   "tail": "............................................                             [100%]\n44 passed in 0.26s\n"
+  },
+  "drift": {
+   "exit_code": 0,
+   "tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.13.7, pytest-9.1.1, pluggy-1.7.0\nrootdir: /private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run2/test_curation_skill_produces_a0/wt\nconfigfile: pyproject.toml\nplugins: cov-7.1.0, asyncio-1.4.0, platformdirs-4.13.3, anyio-4.15.1\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollected 86 items / 70 deselected / 16 selected\n\ntests/test_drift.py ................                                     [100%]\n\n====================== 16 passed, 70 deselected in 13.44s ======================\n"
+  },
+  "guide_examples": {
+   "exit_code": 0,
+   "examples": [
+    {
+     "guide": "police-incidents",
+     "question": "What were the most common incident types in September 2026?",
+     "is_error": false,
+     "code": null
+    },
+    {
+     "guide": "police-incidents",
+     "question": "How many incidents were there in each neighborhood in September 2026?",
+     "is_error": false,
+     "code": null
+    }
+   ],
+   "stderr_tail": ""
+  },
+  "evals": {
+   "exit_code": 0,
+   "out": "/private/tmp/claude-501/-Users-bdc-projects-seattle-open-data/eaa96e21-62d3-4c8a-95e9-0767b5ab2bf4/scratchpad/m6/everett-run2/test_curation_skill_produces_a0/evals"
+  }
+ },
+ "commits": 1,
+ "changed_paths": [
+  "docs/decisions.md",
+  "evals/portals/data.everettwa.gov.json",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/f6vp-3svh.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/qvfa-2v26.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/szww-y224.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/facts/w35j-83t3.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/guides.py",
+  "src/opendata_atlas/portals/data.everettwa.gov/portal.toml",
+  "src/opendata_atlas/portals/data.everettwa.gov/regions.toml",
+  "src/opendata_atlas/portals/registry_overrides.toml",
+  "src/opendata_atlas/portals/validation.json"
+ ],
+ "pack": "data.everettwa.gov",
+ "path_violations": [],
+ "pack_dir": "src/opendata_atlas/portals/data.everettwa.gov",
+ "portal_id": "data.everettwa.gov",
+ "declared_tier": "profiled",
+ "jurisdiction": {
+  "level": "city",
+  "country": "US",
+  "region": "WA"
+ },
+ "timezone": "America/Los_Angeles",
+ "claims": {
+  "by_kind": {
+   "column_timezone": 3,
+   "place_field": 10,
+   "placeholder_share": 1,
+   "region_layer": 1,
+   "unit_of_observation": 1
+  },
+  "reviewed": 7,
+  "with_interpretation_reason_and_probe": 7
+ },
+ "eval_covers_missing": [],
+ "eval_answers": [
+  {
+   "id": "01-port-gardner-last-month",
+   "covers": [
+    "in_area",
+    "relative_date"
+   ],
+   "prompt": "How many police incidents were there in Everett's Port Gardner neighborhood last month?",
+   "expect": "Counts Police Incidents (f6vp-3svh) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on datetimereceived in Pacific wall-clock time without Z, in Port Gardner by the text neighborhood = 'PORT GARDNER' or the computed region :@computed_region_cx6t_gkq3 = '10'. PASS: gives the count for that month and field (reference, probed 2026-10-20 for September 2026: 1,640 by neighborhood, 1,628 by the computed region; within 1% counts, since late rows may arrive), and says some incidents have no neighborhood, so the count may be a floor. PARTIAL: the right count with no caveat about unassigned incidents, or a month boundary off by one day. FAIL: the wrong month, a count from :@computed_region_psyp_nrnc (the city-limits layer), a count from another dataset presented as police incidents, or an invented number.",
+   "subtype": "success",
+   "total_cost_usd": 0.1426532,
+   "answer": "In September 2026 (1\u201330 Sept, Pacific time), Everett police logged **1,640 incidents** in the Port Gardner neighborhood. Today is 19 Oct 2026, so \"last month\" means September.\n\n**Treat 1,640 as a minimum.** That month, 617 of Everett's 10,357 incidents (about 6%) have no neighborhood (\"Not Assigned\"). Some of those may have happened in Port Gardner, so the real number could be higher.\n\n- **What's counted:** The source is the City of Everett's open-data portal, dataset \"Police Incidents\" (`f6vp-3svh`). Each row is one incident, from 911 calls and from police-initiated stops like traffic stops. It's not limited to crimes.\n- **A second count is close:** The portal also places each incident on a map of neighborhood boundaries. That method gives 1,628 for Port Gardner, which backs up the main figure.\n- **Possible data error:** The latest date in the dataset is 20 Dec 2026, which is in the future. That suggests a few rows have wrong dates. It doesn't affect the September count, but I can report it to the tool's maintainers if you'd like."
+  },
+  {
+   "id": "02-gang-crimes-2025",
+   "covers": [
+    "misleading_field"
+   ],
+   "prompt": "How many crimes in Everett in 2025 involved gangs?",
+   "expect": "Uses Police Cases (szww-y224) and its gang flag for cases received in 2025. PASS: gives the count of cases marked YES - BELIEVED TO BE GANG-RELATED (reference, probed 2026-10-20: 59 of 11,899 cases in 2025, and no plain YES rows that year), and says the flag is blank on most cases (6,935 of 11,899 in 2025, about 58%) or is unreliable, so the true number is unknown and 59 is a floor. PARTIAL: gives the count with a generic caveat that never ties it to the blank or unknown values, or declines to give a number but explains the gaps in the flag. FAIL: presents the count as the complete number with no caveat, counts blank or unknown rows as not gang-related without saying so, or invents a number.",
+   "subtype": "success",
+   "total_cost_usd": 0.1223938,
+   "answer": "In 2025, **59** Everett Police cases were marked gang-related (\"YES \u2013 BELIEVED TO BE GANG-RELATED\").\n\nI got this from the City of Everett's **Police Cases** dataset (`szww-y224`), counting cases received from Jan 1 through Dec 31, 2025.\n\n**What those 59 cases were:**\n\n| Case type | Count |\n|---|---|\n| Graffiti | 29 |\n| Malicious mischief, misdemeanor | 9 |\n| Misdemeanor assault | 7 |\n| Felony assault | 6 |\n| Burglary | 2 |\n| Robbery | 2 |\n| Weapons violation | 2 |\n| Harassment | 1 |\n| Malicious mischief, felony | 1 |\n\n**How all 11,899 cases from 2025 were marked:**\n- Gang-related: 59\n- Not gang-related: 4,902\n- Unknown if gang-related: 3\n- **Left blank: 6,935 (58%)**\n\n**What could make 59 wrong:**\n- **Most cases have no answer for this question.** More than half of 2025's cases left the gang-related field blank. That means 59 is the lowest the real number could be, not a full count. Some of the blank cases may well have been gang-related.\n- **A row is a case report, not a single crime.** Not every case is a crime (some are welfare checks or abandoned vehicles), and one case could involve more than one offense. All 59 gang-related cases are crimes, though. The data catalog hasn't confirmed exactly what each row stands for.\n- **Time zone:** I assumed the dates are Everett local time (Pacific). That's likely, but the catalog doesn't confirm it.\n\nI can file a knowledge-gap issue with the data catalog about the unconfirmed row meaning and time zone if you'd like."
+  },
+  {
+   "id": "03-restaurant-inspections",
+   "covers": [
+    "not_published"
+   ],
+   "prompt": "Show me recent restaurant health inspection results for Everett, WA.",
+   "expect": "Searches the Everett portal (data.everettwa.gov); on 2026-10-20 searches for 'restaurant inspection' and 'food health inspections' returned no datasets. PASS: says the City of Everett portal does not publish restaurant inspection data, gives no inspection results, and at most suggests another publisher without inventing a dataset id or results. PARTIAL: says it found nothing but presents an unverified dataset id or URL as a source. FAIL: answers from an unrelated dataset (such as Licensed Businesses within the City of Everett) or invents inspection results.",
+   "subtype": "success",
+   "total_cost_usd": 0.0987388,
+   "answer": "I couldn't find restaurant health inspection data for Everett in any portal I can query.\n\n**What I searched:**\n- **City of Everett portal (data.everettwa.gov):** Searches for \"restaurant health inspection\" and \"inspections\" returned nothing. A search for \"food\" did return results, so the search was working. The closest match was the *Everett for Everett Dining Guide* (`m267-sbt9`), which lists restaurants but has no inspection results.\n- **Snohomish County:** The Snohomish County Health Department runs restaurant inspections for Everett, but the county has no portal in this registry.\n- **State of Washington portal (data.wa.gov):** The only inspection dataset is *Asotin County Current Restaurant Inspections*, which covers a different county and was last updated in 2020. There's also a \"Restaurant Inspections\" entry, but it's just a link to the WA Department of Health's page and can't be queried.\n\n**Where to look instead:**\n- Snohomish County Health Department's food safety inspection search (snohd.org, under Food Safety / Restaurant Inspections) covers Everett.\n- The WA DOH restaurant inspections page links to each county's inspection system: https://www.doh.wa.gov/CommunityandEnvironment/Food/RestaurantInspections\n\nThe tool's registry is missing a source for this kind of data, and I can draft a knowledge-gap issue about it if you'd like. If the dining guide would help, I can also pull it up."
+  }
+ ],
+ "failures": []
+}

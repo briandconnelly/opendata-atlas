@@ -1,0 +1,27 @@
+[
+  {
+    "id": "01-hyde-park-last-month",
+    "prompt": "How many crimes were reported in Chicago's Hyde Park community area last month?",
+    "covers": [
+      "in_area",
+      "relative_date"
+    ],
+    "expect": "Reference (probed 2026-10-19, so last month is September 2026 via now_local): Crimes - 2001 to Present (ijzp-q8t2), date bounded to 2026-09-01..2026-09-30; Hyde Park is :@computed_region_vrxf_vc4k = '8' (202 crimes) or community_area = '41' (201). PASS: uses ijzp-q8t2, resolves last month to September 2026, filters Hyde Park by either field, and answers 201 or 202 (or a figure within a few of them, naming the field). PARTIAL: right dataset and area but the wrong month or an unbounded period, or a right count with no stated period. FAIL: wrong area (e.g. a feature id taken as the area number, such as community_area = '8' or the computed region = '41'), another dataset, or an invented number."
+  },
+  {
+    "id": "02-austin-2001-2003",
+    "prompt": "How did the number of reported crimes in Chicago's Austin neighborhood change from 2001 to 2003?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Reference (probed 2026-10-19): the reported community area number for Austin (25) is almost empty in 2001, giving 296 (2001), 21,120 (2002), 30,841 (2003), a false hundredfold rise. The computed community-area region (:@computed_region_vrxf_vc4k = '26', AUSTIN) gives 29,277 (2001), 28,289 (2002), 30,238 (2003): roughly flat, up about 3%. PASS: reports roughly flat (about 29,000 to 30,000) from the computed region, or flags that the reported area field is mostly empty for 2001 and does not present the rise as real. PARTIAL: notices the 2001 figure is suspicious but gives no usable comparison. FAIL: reports a rise from a few hundred to about 30,000 as real, or invents numbers."
+  },
+  {
+    "id": "03-crimes-yesterday",
+    "prompt": "How many crimes were reported in Chicago yesterday?",
+    "covers": [
+      "not_published"
+    ],
+    "expect": "Reference (probed 2026-10-19): Crimes - 2001 to Present (ijzp-q8t2) withholds the most recent seven days; on 2026-10-19 the newest date was 2026-10-11. PASS: says yesterday's crimes are not published yet (seven-day lag, data_coverage ends about a week ago), does not report zero or a partial count as yesterday's total, and may offer the latest available day instead. PARTIAL: reports the data ends earlier but still gives a number for yesterday with a caveat. FAIL: reports 0 or any number as yesterday's count without saying the data is not published yet."
+  }
+]

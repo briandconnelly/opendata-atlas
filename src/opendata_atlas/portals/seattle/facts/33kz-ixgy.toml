@@ -1,0 +1,152 @@
+# Seattle facts for `33kz-ixgy`, converted from the fork's staged constants.
+
+[[claim]]
+id = "33kz-ixgy-dispatch_neighborhood-place"
+kind = "place_field"
+scope = {dataset = "33kz-ixgy", column = "dispatch_neighborhood"}
+interpretation = {kind = "neighborhood", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. SPD Call Data `33kz-ixgy` (11.1M rows) `dispatch_neighborhood`: 61 distinct; `-` 727,487; `UNKNOWN` 31,729; `NULL` (string) 2,371."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_neighborhood-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "33kz-ixgy", column = "dispatch_neighborhood"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. SPD Call Data `33kz-ixgy` (11.1M rows) `dispatch_neighborhood`: 61 distinct; `-` 727,487; `UNKNOWN` 31,729; `NULL` (string) 2,371."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_precinct-place"
+kind = "place_field"
+scope = {dataset = "33kz-ixgy", column = "dispatch_precinct"}
+interpretation = {kind = "precinct", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. SPD Call Data `dispatch_precinct`: 6 distinct; UPPERCASE; `UNKNOWN` 88,989."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_precinct-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "33kz-ixgy", column = "dispatch_precinct"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. SPD Call Data `dispatch_precinct`: 6 distinct; UPPERCASE; `UNKNOWN` 88,989."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_sector-place"
+kind = "place_field"
+scope = {dataset = "33kz-ixgy", column = "dispatch_sector"}
+interpretation = {kind = "sector", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. SPD Call Data `dispatch_sector`: 19 distinct."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_sector-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "33kz-ixgy", column = "dispatch_sector"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. SPD Call Data `dispatch_sector`: 19 distinct."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_beat-place"
+kind = "place_field"
+scope = {dataset = "33kz-ixgy", column = "dispatch_beat"}
+interpretation = {kind = "beat", reliability = "ok"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628 (Verified): the flagship datasets carry text place fields that are fully populated as columns, but often hold placeholder values. SPD Call Data `dispatch_beat`: 158 distinct."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-dispatch_beat-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "33kz-ixgy", column = "dispatch_beat"}
+placeholders = ["", "-", "0", "FK ERROR", "NULL", "OOJ", "UNKNOWN", "X"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "The fork applied its PLACEHOLDER_VALUES vocabulary (seattle-open-data docs/upstream-facts.md@26c6628) to every text place field; declared per column to keep parity. SPD Call Data `dispatch_beat`: 158 distinct."
+observed_at = 2026-10-15
+
+[[claim]]
+id = "33kz-ixgy-cad_event_original_time_queued-timezone"
+kind = "column_timezone"
+scope = {dataset = "33kz-ixgy", column = "cad_event_original_time_queued"}
+interpretation = {timezone = "America/Los_Angeles"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "Spring-forward gap and local diurnal profile matched Pacific wall-clock time when probed 2026-10-16."
+observed_at = 2026-10-16
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2026-03-08T00:00:00' AND cad_event_original_time_queued < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-18
+observation = "No rows at hour 2 on 2026-03-08, the spring-forward date; hours 1 and 3 have 73 and 69; docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2025-01-01T00:00:00' AND cad_event_original_time_queued < '2026-01-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-18
+observation = "Rows peak at hour 12 (34,363 of 572,296) over 2025; all 24 hours populated; docs/evidence/drift-2026-10-18/seattle-probes.json"
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 10, peak_to = 14}
+
+[[claim]]
+id = "33kz-ixgy-unit"
+kind = "unit_of_observation"
+scope = {dataset = "33kz-ixgy"}
+interpretation = {unit = "dispatch"}
+reviewed_by = "claude"
+reviewed_at = 2026-10-15
+
+[[claim.evidence]]
+kind = "manual_observation"
+note = "seattle-open-data docs/upstream-facts.md@26c6628, \"Units of observation\": \"Verified (milestone 4): SPD Call Data rows are dispatches, SPD Crime Data rows are offenses, and Use of Force rows are subjects.\" The file dates no milestone-4 fact; the milestone 4 outcomes were recorded on 2026-10-15 (seattle-open-data 3b2dda8). `reviewed_at` and `observed_at` were inferred from the date of fork commit 3b2dda8 and are not probe dates."
+observed_at = 2026-10-15

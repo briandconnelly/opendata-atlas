@@ -1,0 +1,577 @@
+{
+ "portal": "data.wa.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 9
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 8,
+   "row_count": 1235
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 20
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "yccr-zbpr",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.wa.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Business Lookup",
+       "id": "4wur-kfnr",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The Business Lookup provides public information related to all current active accounts and five years of closed accounts for business licenses, excise tax accounts, and reseller permits issued by the Washington State Department of Revenue (DOR). It allows for search by business name, trade name, owners and officers, reseller permit number, unified business identifier (UBI), license number, street address, city, state, county, and endorsements issued through DOR's Business Licensing Service.",
+       "attribution": "Washington State Department of Revenue",
+       "attribution_link": "https://dor.wa.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2026-05-20T14:40:10.000Z",
+       "createdAt": "2016-04-07T22:24:36.000Z",
+       "metadata_updated_at": "2026-05-20T14:40:10.000Z",
+       "data_updated_at": "2016-04-07T22:24:36.000Z",
+       "page_views": {
+        "page_views_last_week": 1575,
+        "page_views_last_month": 40567,
+        "page_views_total": 105544,
+        "page_views_last_week_log": 10.622051819456377,
+        "page_views_last_month_log": 15.308054559066635,
+        "page_views_total_log": 16.687498709720042
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2016-04-07T22:32:49.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Consumer Protection",
+       "domain_tags": [
+        "corporations",
+        "business registrations",
+        "business owners",
+        "tax accounts",
+        "trade names",
+        "unified business identifiers (ubi)",
+        "business officers",
+        "business names",
+        "business licenses",
+        "businesses",
+        "reseller permits",
+        "companies"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Notes_1.-",
+         "value": "This data set covers all active business license accounts regardless of first issuance date and recently closed business for a five-year window."
+        },
+        {
+         "key": "Temporal_Period-of-Time",
+         "value": "2021-2026"
+        },
+        {
+         "key": "Temporal_Posting-Frequency",
+         "value": "Daily"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.wa.gov",
+       "license": "Public Domain",
+       "additional_access_points": [
+        {
+         "urls": {
+          "HTML": "https://secure.dor.wa.gov/gteunauth/?Link=Lookup"
+         },
+         "description": "Search tool for business lookups. Desktop format for computers with full size browsers.",
+         "title": "BLS Business Lookup"
+        }
+       ],
+       "access_points": {
+        "HTML": "https://secure.dor.wa.gov/gteunauth/?Link=Lookup"
+       }
+      },
+      "permalink": "https://data.wa.gov/d/4wur-kfnr",
+      "link": "https://data.wa.gov/Consumer-Protection/Business-Lookup/4wur-kfnr",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Transient Accommodations (Lodging)",
+       "id": "9vm5-7kxk",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Transient accommodations are facilities that offer three or more lodging units to guests for periods of less than thirty days. Facilities include hotels, motels, bed and breakfasts, resorts, inns, condominiums, crisis shelters, hostels, and retreats. The Washington State Department of Health licenses such facilities and  inspects them to ensure they meet state health and safety standards.",
+       "attribution": "Washington State Department of Health",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "href",
+       "updatedAt": "2025-09-18T23:55:13.000Z",
+       "createdAt": "2018-03-12T23:41:44.000Z",
+       "metadata_updated_at": "2025-09-18T23:55:13.000Z",
+       "data_updated_at": "2018-03-12T23:41:44.000Z",
+       "page_views": {
+        "page_views_last_week": 16,
+        "page_views_last_month": 67,
+        "page_views_total": 1352,
+        "page_views_last_week_log": 4.08746284125034,
+        "page_views_last_month_log": 6.08746284125034,
+        "page_views_total_log": 10.401946123976536
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 0,
+       "provenance": "official",
+       "lens_view_type": "href",
+       "lens_display_type": "href",
+       "locked": false,
+       "backend": "not_a_dataset",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2018-03-12T23:41:44.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "health",
+       "domain_tags": [
+        "housing",
+        "accommodations",
+        "licensing"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Notes_1.-",
+         "value": "The URL reflects the name of the database product used by the state Department of Health (healthspace.com), rather than the agency's domain (doh.wa.gov). The content is authoritative and maintained by the state Department of Health."
+        },
+        {
+         "key": "Notes_2.-",
+         "value": "This database lists licensed facilities, and their address, facility ID, facility type, number of rooms, date of last inspection and recent inspection history. Contact the dataset owner only for clarification questions about this information. For additional information, please make a public records request: https://doh.wa.gov/about-us/public-records"
+        },
+        {
+         "key": "Notes_3.-",
+         "value": "More information about Transient Accommodations licensing: https://doh.wa.gov/licenses-permits-and-certificates/facilities-z/transient-accommodations-hotels-and-motels"
+        },
+        {
+         "key": "Temporal_Period-of-Time",
+         "value": "2018 to present"
+        },
+        {
+         "key": "Temporal_Posting-Frequency",
+         "value": "Weekly"
+        },
+        {
+         "key": "Identification_Originator",
+         "value": "Washington State Department of Health"
+        },
+        {
+         "key": "Identification_Metadata-Language",
+         "value": "English"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.wa.gov",
+       "license": "Open Data Commons Public Domain Dedication and License",
+       "additional_access_points": [
+        {
+         "urls": {
+          "URL": "https://www.healthspace.com/Clients/Washington/State/Web.nsf/module_overview.xsp?module=HotelMotel"
+         },
+         "description": "\nTransient accommodations include apartments, bed and breakfasts, condominiums, crisis shelters, hostels, hotels, inns, motels, resorts, retreats and rustic resorts. ",
+         "title": "Transient Accommodations (Lodging) Facility Search"
+        }
+       ],
+       "access_points": {
+        "URL": "https://www.healthspace.com/Clients/Washington/State/Web.nsf/module_overview.xsp?module=HotelMotel"
+       }
+      },
+      "permalink": "https://data.wa.gov/d/9vm5-7kxk",
+      "link": "https://data.wa.gov/health/Transient-Accommodations-Lodging-/9vm5-7kxk",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 2,
+    "timings": {
+     "serviceMillis": 18,
+     "searchMillis": [
+      2,
+      6
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.wa.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "summarized": "65,666 bytes, over the 65,536-byte cap",
+    "sha256": "a224782f1591a090cd70ea866783e61be93a814846a41d6dd6943be6d0405608",
+    "keys": [
+     "resultSetSize",
+     "results",
+     "timings",
+     "warnings"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.wa.gov/api/views/yccr-zbpr.json",
+   "status": 200,
+   "body": {
+    "id": "yccr-zbpr",
+    "name": "Permit Timeliness - Permit Application Processing Times (Washington State)",
+    "assetType": "filter",
+    "attribution": "Governor's Office for Regulatory Innovation and Assistance (ORIA) (Washington State)",
+    "attributionLink": "https://www.oria.wa.gov/site/alias__oria/696/permit-timeliness.aspx",
+    "averageRating": 0,
+    "category": "Performance Measures",
+    "createdAt": 1569855832,
+    "description": "The Permit Timeliness dataset tracks how long it takes Washington State agencies to process permit applications. In 2014, state law <a href=\"https://app.leg.wa.gov/RCW/default.aspx?cite=43.42A&full=true\">RCW 43.42A</a> was enacted to promote transparency and efficiency by requiring agencies to report permit processing times. Initially, the law covered 136 permits across 13 state agencies. As the program evolved, the number of permits and participating agencies changed.\n\nEach year, agencies reported how long it took to process permit applications during the previous calendar year. This data was collected and published by <a href=\"https://www.oria.wa.gov\">The Governor's Office for Regulatory Innovation and Assistance (ORIA)</a> by March 1st. Alongside the data, progress reports summarized agency-reported information, identified trends in processing times, and described efforts to improve clarity, efficiency, and predictability in regulatory permitting. The final required report under RCW 43.42A was completed in 2020.\n\nTo view the 2020 Permit Timeliness Progress Report, see <a href=\"https://www.oria.wa.gov/ORIA-2020-PermitTimelinessProgressReport.pdf\">https://www.oria.wa.gov/ORIA-2020-PermitTimelinessProgressReport.pdf</a>. For earlier reports, visit <a href=\"https://www.oria.wa.gov/site/alias__oria/696/permit-timeliness.aspx\">https://www.oria.wa.gov/site/alias__oria/696/permit-timeliness.aspx</a>. For detailed permit information and links to agency websites, explore the Regulatory Handbook: <a href=\"https://www.oria.wa.gov/site/alias__oria/403/regulatory-handbook.aspx\">https://www.oria.wa.gov/site/alias__oria/403/regulatory-handbook.aspx</a>.",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 1338,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "licenseId": "PUBLIC_DOMAIN",
+    "locked": false,
+    "modifyingViewUid": "tn3n-uv4s",
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 36563661,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1614367537,
+    "publicationGroup": 10488792,
+    "publicationStage": "published",
+    "queryString": "SELECT\n  `permit_name`,\n  `agency`,\n  `year`,\n  `receipt_to_complete_average`,\n  `receipt_to_complete_maximum`,\n  `complete_to_decision_average`,\n  `complete_to_decision_maximum`,\n  `extra_details`\nWHERE\n  (`receipt_to_complete_average` IS NOT NULL)\n    OR ((`receipt_to_complete_maximum` IS NOT NULL)\n          OR ((`complete_to_decision_average` IS NOT NULL)\n                OR (`complete_to_decision_maximum` IS NOT NULL)))\nORDER BY\n  `year` DESC NULL LAST,\n  `agency` ASC NULL LAST,\n  `permit_name` ASC NULL LAST",
+    "rowClass": "",
+    "rowsUpdatedAt": 1763485495,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 16002005,
+    "totalTimesRated": 0,
+    "viewCount": 31949,
+    "viewLastModified": 1754576966,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 526872337,
+      "name": "Permit_Name",
+      "dataTypeName": "text",
+      "description": "Name of permit or instrument (NOTE: specific permit names may vary)",
+      "fieldName": "permit_name",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 35979800,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "1235",
+       "null": "0",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 526872339,
+      "name": "Agency",
+      "dataTypeName": "text",
+      "description": "Name of reporting agency (NOTE: typically in commonly known/abbreviated form and could vary)",
+      "fieldName": "agency",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 35979802,
+      "width": 246,
+      "cachedContents": {
+       "non_null": "1235",
+       "null": "0",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "align": "left"
+      }
+     },
+     {
+      "id": 526872340,
+      "name": "Year",
+      "dataTypeName": "number",
+      "description": "Reporting year (calendar year)",
+      "fieldName": "year",
+      "position": 3,
+      "renderTypeName": "number",
+      "tableColumnId": 35979803,
+      "width": 106,
+      "cachedContents": {
+       "non_null": "1235",
+       "null": "0",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 526872342,
+      "name": "Receipt_To_Complete_Average_(days)",
+      "dataTypeName": "number",
+      "description": "The average time elapsed [in days] from the initial submission of an application by an entity seeking a permit to the time at which the agency has determined that the application is complete (NOTE: blanks indicate aggregate not available)",
+      "fieldName": "receipt_to_complete_average",
+      "position": 4,
+      "renderTypeName": "number",
+      "tableColumnId": 35979805,
+      "width": 284,
+      "cachedContents": {
+       "non_null": "1226",
+       "null": "9",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "align": "right"
+      }
+     },
+     {
+      "id": 526872343,
+      "name": "Receipt_To_Complete_Maximum_(days)",
+      "dataTypeName": "number",
+      "description": "The maximum time elapsed [in days] from the initial submission of an application by an entity seeking a permit to the time at which the agency has determined that the application is complete (NOTE: blanks indicate aggregate not available)",
+      "fieldName": "receipt_to_complete_maximum",
+      "position": 5,
+      "renderTypeName": "number",
+      "tableColumnId": 35979806,
+      "width": 293,
+      "cachedContents": {
+       "non_null": "1224",
+       "null": "11",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "align": "right"
+      }
+     },
+     {
+      "id": 526872344,
+      "name": "Complete_To_Decision_Average_(days)",
+      "dataTypeName": "number",
+      "description": "The average time elapsed [in days] from receipt of a complete application to the agency's issuance of a decision approving or denying the permit (NOTE: blanks indicate aggregate not available)",
+      "fieldName": "complete_to_decision_average",
+      "position": 6,
+      "renderTypeName": "number",
+      "tableColumnId": 35979807,
+      "width": 289,
+      "cachedContents": {
+       "non_null": "1232",
+       "null": "3",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "align": "right"
+      }
+     },
+     {
+      "id": 526872345,
+      "name": "Complete_To_Decision_Maximum_(days)",
+      "dataTypeName": "number",
+      "description": "The maximum time elapsed [in days] from receipt of a complete application to the agency's issuance of a decision approving or denying the permit (NOTE: blanks indicate aggregate not available)",
+      "fieldName": "complete_to_decision_maximum",
+      "position": 7,
+      "renderTypeName": "number",
+      "tableColumnId": 35979808,
+      "width": 298,
+      "cachedContents": {
+       "non_null": "1232",
+       "null": "3",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "align": "right"
+      }
+     },
+     {
+      "id": 526872354,
+      "name": "Comments",
+      "dataTypeName": "text",
+      "description": "Any pertinent information relative to the data record",
+      "fieldName": "extra_details",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 38829706,
+      "width": 100,
+      "cachedContents": {
+       "non_null": "27",
+       "null": "1208",
+       "count": "1235",
+       "cardinality": "1235"
+      },
+      "format": {
+       "align": "left"
+      }
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Public Domain"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "rdfClass": "",
+     "custom_fields": {
+      "Temporal": {
+       "Posting Frequency": "Annually - March 1",
+       "Period of Time": "2015 - 2024"
+      },
+      "Notes": {
+       "1. ": "The Permit Timeliness dataset tracks how long it takes Washington State agencies to process permit applications. Established by state law in 2014, RCW 43.42A,  (https://app.leg.wa.gov/RCW/default.aspx?cite=43.42A&full=true), the program was designed to improve transparency and efficiency by requiring agencies to report annual processing times. Initially covering 136 permits across 13 agencies, the scope evolved over time. Each year, agencies submitted data for the previous calendar year, which was published by the Governor's Office for Regulatory Innovation and Assistance (ORIA, https://www.oria.wa.gov) by March 1st. In addition to the data, progress reports (https://www.oria.wa.gov/site/alias__oria/400/Publications.aspx#anchor-2914) summarized trends, highlighted agency efforts, and described improvements in regulatory permitting. The final required report was completed in 2020 (https://www.oria.wa.gov/ORIA-2020-PermitTimelinessProgressReport.pdf).",
+       "2. ": "Any questions regarding specific reported timeliness data should be directed to the associated agency.",
+       "3. ": "Permit Timeliness @ ORIA - https://www.oria.wa.gov/site/alias__oria/696/permit-timeliness.aspx",
+       "4. ": "Regulatory Handbook - https://www.oria.wa.gov/site/alias__oria/403/regulatory-handbook.aspx"
+      }
+     },
+     "rowLabel": "Summarized permit application processing times for a specific permit-type reported by a specific state agency for a given calendar year",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "permits",
+     "timeliness",
+     "regulations",
+     "efficiency"
+    ],
+    "flags": [
+     "calculatedView",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType",
+     "soqlBasedView"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "1235"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=permit_name%2C+agency%2C+year%2C+receipt_to_complete_average%2C+receipt_to_complete_maximum%2C+complete_to_decision_average%2C+complete_to_decision_maximum%2C+extra_details%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "agency",
+     "complete_to_decision_average",
+     "complete_to_decision_maximum",
+     "permit_name",
+     "receipt_to_complete_average",
+     "receipt_to_complete_maximum",
+     "year"
+    ],
+    "sha256": "57bf960d459c20435c063f56ad19d0e2cce60ff5dc30cf62f09dbbf25cf54a7d"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.wa.gov/resource/yccr-zbpr.json?%24select=permit_name%2C+agency%2C+year%2C+receipt_to_complete_average%2C+receipt_to_complete_maximum%2C+complete_to_decision_average%2C+complete_to_decision_maximum%2C+extra_details%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-g7x5~ai3j-cgs3%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "agency",
+     "complete_to_decision_average",
+     "complete_to_decision_maximum",
+     "permit_name",
+     "receipt_to_complete_average",
+     "receipt_to_complete_maximum",
+     "year"
+    ],
+    "sha256": "b1da92d9c43513dd69d977e97df32bf930ba1fe6a89dfc7da554ddae228d3bcb"
+   }
+  }
+ ]
+}

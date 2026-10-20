@@ -1,0 +1,23 @@
+# Probe: one /api/views/<layer>.json at a time; keep only the layer name and its columns'
+# fieldName, dataTypeName and cachedContents (cardinality, non_null, null; no top values, which can hold names).
+# No owner or author fields are kept. Usage: python layer_views.py HOST LAYER OUT
+import json, sys, httpx
+host, layer, out = sys.argv[1], sys.argv[2], sys.argv[3]
+r = httpx.get(f"https://{host}/api/views/{layer}.json", timeout=120)
+rec = {"url": str(r.request.url), "status": r.status_code}
+if r.status_code == 200:
+    v = r.json()
+    rec["name"] = v.get("name")
+    cols = []
+    for c in v.get("columns") or []:
+        cc = c.get("cachedContents") or {}
+        cols.append({
+            "fieldName": c.get("fieldName"),
+            "dataTypeName": c.get("dataTypeName"),
+            "cachedContents": {k: cc.get(k) for k in ("cardinality", "non_null", "null") if k in cc},
+        })
+    rec["columns"] = cols
+else:
+    rec["body"] = r.text[:500]
+open(out, "w").write(json.dumps(rec, indent=1) + "\n")
+print(layer, r.status_code, [(c["fieldName"], c["dataTypeName"], c["cachedContents"].get("cardinality")) for c in rec.get("columns", [])])

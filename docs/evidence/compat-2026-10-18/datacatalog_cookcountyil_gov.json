@@ -1,0 +1,2200 @@
+{
+ "portal": "datacatalog.cookcountyil.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 10
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 22,
+   "row_count": 749192
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 12,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 12
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "6yjf-dfxs",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=datacatalog.cookcountyil.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 17,
+     "searchMillis": [
+      2,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=datacatalog.cookcountyil.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Assessor - Permits",
+       "id": "6yjf-dfxs",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Historical permit data submitted by municipalities to the Cook County Assessor's Office.\n\nWhen working with Parcel Index Numbers (PINs) make sure to zero-pad them to 14 digits. Some datasets may lose leading zeros for PINs when downloaded.\n\nAdditional notes:<ul>\n<li>Almost all of the data in this dataset, such as address, estimated date of completion, work description, and permit amount, is data submitted by municipalities to the CCAO. The CCAO verifies or corrects the PIN number, determines whether the work is assessable, updates the status of CCAO workflows (e.g., open or closed), and sets the recheck year.</li>\n\n<li>In addition to permits that are already closed, this dataset includes permits that are <b>currently open or pending</b>. These permits are not final and are subject to change.</li>\n<li>Data will be updated semi-monthly.</li></ul>\n<li>Rows are unique by the combination of \"pin\", \"permit_number\", and \"date_issued\".</li>\n<li>Job codes and improvement codes are not correct in all cases. Consider \"work_description\" to be the canonical description of the work that the permit describes.</li>\n<li>In many past cases permits have been submitted in irreconcilably different formats by different municipalities, or not at all. As such, this dataset does not represent the complete universe of permits in all municipalities, but rather represents the universe of permits that the CCAO knows about.</li>\n<li>Each row represents a parcel and a permit that is associated with that parcel. Permits may be associated with multiple parcels, and parcels may be associated with multiple permits.</li>\n<li>\"date_issued\" is more reliable than \"date_submitted\". Prefer \"date_issued\" when making temporal comparisons between parcels.</li>\n<li>Data for the current tax year may not yet be complete or final.</li>\n\nFor more information on the sourcing of attached data and the preparation of this dataset, see the <a href=\"https://github.com/ccao-data/wiki/blob/master/SOPs/Open-Data.md\">Assessor's Standard Operating Procedures for Open Data</a> on GitHub.\n\n<a href=\"https://datacatalog.cookcountyil.gov/stories/s/gzdr-q7c4\">Read about the Assessor's 2025 Open Data Refresh.</a>",
+       "attribution": "Cook County Assessor's Office",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-15T15:12:49.000Z",
+       "createdAt": "2024-12-06T18:03:41.000Z",
+       "metadata_updated_at": "2026-07-09T18:24:00.000Z",
+       "data_updated_at": "2026-10-15T15:12:49.000Z",
+       "page_views": {
+        "page_views_last_week": 314,
+        "page_views_last_month": 1772,
+        "page_views_total": 16882,
+        "page_views_last_week_log": 8.29920801838728,
+        "page_views_last_month_log": 10.791976820898688,
+        "page_views_total_log": 14.043283663959684
+       },
+       "columns_name": [
+        "improvement_code_4",
+        "township",
+        "pin",
+        "local_permit_number",
+        "work_description",
+        "property_address",
+        "applicant_name",
+        "improvement_code_1",
+        "improvement_code_2",
+        "improvement_code_3",
+        "row_id",
+        "permit_year",
+        "permit_number",
+        "date_issued",
+        "status",
+        "assessable",
+        "amount",
+        "job_code_secondary",
+        "job_code_primary",
+        "mailing_address",
+        "estimated_date_of_completion",
+        "municipality"
+       ],
+       "columns_field_name": [
+        "improvement_code_4",
+        "township",
+        "pin",
+        "local_permit_number",
+        "work_description",
+        "property_address",
+        "applicant_name",
+        "improvement_code_1",
+        "improvement_code_2",
+        "improvement_code_3",
+        "row_id",
+        "year",
+        "permit_number",
+        "date_issued",
+        "status",
+        "assessable",
+        "amount",
+        "job_code_secondary",
+        "job_code_primary",
+        "mailing_address",
+        "estimated_date_of_completion",
+        "municipality"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Type of improvement indicated by permit",
+        "Township name",
+        "Parcel Identification Number (PIN)",
+        "Permit number recorded by reporting municipality",
+        "Short description of permitted work",
+        "Address where permitted work will take place",
+        "Name of permit applicant",
+        "Type of improvement indicated by permit",
+        "Type of improvement indicated by permit",
+        "Type of improvement indicated by permit",
+        "Unique row key API",
+        "Year municipality issued permit to applicant",
+        "Permit number created during permit submission to CCAO",
+        "Date municipality issued permit to applicant",
+        "Status of permit in CCAO's permit workflow",
+        "Whether permitted work will affect property's assessed value",
+        "Amount permitted work is estimated to cost",
+        "Secondary job description",
+        "Primary job description",
+        "Applicant mailing address",
+        "Estimated date permitted work will be complete",
+        "Taxing district name, as seen on Cook County tax bills"
+       ],
+       "columns_format": [
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "noCommas": "true"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {
+         "precisionStyle": "currency",
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {}
+       ],
+       "download_count": 26772,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-02-02T16:41:17.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Property & Taxation",
+       "domain_tags": [
+        "cook county assessor",
+        "property tax"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Department_Publishing-Department",
+         "value": "Data Department"
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Bi-weekly"
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Bi-weekly"
+        },
+        {
+         "key": "Source-Details_Source-System",
+         "value": "iasWorld, Smartfile"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-unit",
+         "value": "Parcel"
+        },
+        {
+         "key": "Detailed-Descriptive_Temporal-coverage",
+         "value": "2000-Present"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-coverage",
+         "value": "Countywide"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/6yjf-dfxs",
+      "link": "https://datacatalog.cookcountyil.gov/Property-Taxation/Assessor-Permits/6yjf-dfxs",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Asbestos & Demolition Permits",
+       "id": "gpmj-6p9q",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This dataset includes all asbestos abatement (including Operations and Maintenance Asbestos Removal Permits) and demolition permits received by the Cook County Department of Environment & Sustainability.\n\nUnder Chapter 30 of the Cook County Code, asbestos abatement permits are required for all asbestos projects. Demolition permits are required if wrecking or removing/disturbing any load-supporting or load-bearing structural member of the building. Commercial, school, and hospital facilities with more than one building must have a separate permit for each building.\n\nData provided is sourced from completed permit applications and may be subject to user error. Please exercise caution and do not consider building-specific information from this dataset to be authoritative. Permit applications that are under review are not included in this dataset.",
+       "attribution": "Department of Environment & Sustainability",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T23:01:03.000Z",
+       "createdAt": "2026-05-28T18:01:50.000Z",
+       "metadata_updated_at": "2026-10-17T23:00:43.000Z",
+       "data_updated_at": "2026-10-17T23:01:03.000Z",
+       "page_views": {
+        "page_views_last_week": 73,
+        "page_views_last_month": 881,
+        "page_views_total": 1227,
+        "page_views_last_week_log": 6.209453365628951,
+        "page_views_last_month_log": 9.784634845557521,
+        "page_views_total_log": 10.26209484537018
+       },
+       "columns_name": [
+        "Contractor",
+        "Permit Number",
+        "Facility Present Use",
+        "Date Permit Expired",
+        "Building Size",
+        "Legacy Permit Number",
+        "Address",
+        "Building Floors",
+        "Facility Type",
+        "Facility Future Use",
+        "Permit Status",
+        "Facility Prior Use",
+        "Project Type",
+        "Project End Date",
+        "City",
+        "Zip Code",
+        "Date Permit Approved",
+        "Project Start Date"
+       ],
+       "columns_field_name": [
+        "contractor",
+        "permit_number",
+        "facility_present",
+        "permit_expired_date",
+        "building_size",
+        "legacy_permit_number",
+        "address",
+        "building_floors",
+        "facility_type",
+        "facility_future",
+        "permit_status",
+        "facility_prior",
+        "project_type",
+        "project_end_date",
+        "city",
+        "zip_code",
+        "permit_approved_date",
+        "project_start_date"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Calendar date"
+       ],
+       "columns_description": [
+        "name of company or contractor performing project work; missing values are attributed to legacy permit application/data collection process",
+        "unique permit number generated by Cook County Department of Environment & Sustainability",
+        "current use of the facility",
+        "date permit expires; some missing or illogical values are attributed to a legacy permit hold process",
+        "size of the building in square feet",
+        "permit number listed on permits issued prior to MM/DD/YYYY; included to allow users to cross-reference records with previously issued permit numbers ",
+        "street address of asbestos abatement or demolition site; missing values are attributed to a legacy data migration",
+        "number of floors in building",
+        "type of building receiving asbestos abatement or demolition services; \"Commercial\" includes residential buildings with 5 or more units and industrial buildings; missing values are attributed to legacy permit application/data collection process",
+        "future use of the facility",
+        "status of the permit following review by the Cook County Department of Environment & Sustainability",
+        "prior use of the facility",
+        "defines project as asbestos abatement or demolition based on permit application ",
+        "date asbestos abatement or demolition project work is set to end; missing or illogical values are due to a legacy permit extension process",
+        "city of asbestos abatement or demolition site; missing values are attributed to a legacy data migration",
+        "zip code of asbestos abatement or demolition site; missing values are attributed to a legacy data migration",
+        "date permit application was approved by Cook County Department of Environment and Sustainability; some missing or illogical values are attributed to a legacy permit extension process",
+        "date asbestos abatement or demolition project work is set to begin; missing or illogical values are attributed to a legacy permit extension process"
+       ],
+       "columns_format": [
+        {},
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true"
+        },
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "view": "date"
+        }
+       ],
+       "download_count": 382,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-05-28T18:02:07.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "abatement",
+        "des"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Metadata_Update-Frequency",
+         "value": "As Needed"
+        },
+        {
+         "key": "Department_Publishing-Department",
+         "value": "Bureau of Technology Data Services"
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Daily"
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Streaming"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Text",
+         "value": "An asbestos removal permit shall be required for all activities including, but not limited to, the cutting, trimming, fitting, stripping, demolition or removal of asbestos-containing material in any quantities hereinafter \"project\") in addition to any demolition permit required by Section 30-961 [et seq.]. A demolition permit shall be required for all demolition affecting any structure including, but not limited to, schools, public and private commercial and industrial structures, residential units, garages, sheds, and utilities."
+        },
+        {
+         "key": "Detailed-Descriptive_Data-notes",
+         "value": "Facility and Building are notated separately because one facility may contain many buildings (each of which requires their own permit)"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-unit",
+         "value": "Street Address"
+        },
+        {
+         "key": "Detailed-Descriptive_Temporal-coverage",
+         "value": "2015-present"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Link",
+         "value": "Asbestos: https://library.municode.com/il/cook_county/codes/code_of_ordinances?nodeId=PTIGEOR_CH30EN_ARTVASRESU_DIV1AS_S30-548ASREPERE;  Demolition: https://library.municode.com/il/cook_county/codes/code_of_ordinances?nodeId=PTIGEOR_CH30EN_ARTVASRESU_DIV2DE_S30-561DEPEREGE"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-coverage",
+         "value": "Cook County without City of Chicago"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance",
+         "value": "Section 30-548; Section 30-561"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/gpmj-6p9q",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Asbestos-Demolition-Permits/gpmj-6p9q",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Environmental Control - Asbestos Removal Permits - 2010",
+       "id": "b4e6-7ck8",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Address and fee information for Asbestos Removal Permits in 2010",
+       "attribution": "Cook County Department of Environmental Control",
+       "attribution_link": "http://www.cookcountygov.com/portal/server.pt/community/environmental_control/291",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T19:44:11.000Z",
+       "createdAt": "2011-09-20T13:54:20.000Z",
+       "metadata_updated_at": "2026-01-27T19:44:11.000Z",
+       "data_updated_at": "2011-09-20T14:02:46.000Z",
+       "page_views": {
+        "page_views_last_week": 14,
+        "page_views_last_month": 52,
+        "page_views_total": 2257,
+        "page_views_last_week_log": 3.9068905956085187,
+        "page_views_last_month_log": 5.7279204545632,
+        "page_views_total_log": 11.140829770773001
+       },
+       "columns_name": [
+        "Building Zip (zip)",
+        "Building City (city)",
+        "Building City (state)",
+        "Building Address (state)",
+        "Building Address",
+        "Building City (address)",
+        "Building Zip (state)",
+        "Building Zip (city)",
+        "Building Address (city)",
+        "Building Zip (address)",
+        "Building City",
+        "Building City (zip)",
+        "Permit Fee",
+        "Building Address (address)",
+        "Building Address (zip)",
+        "Building Zip"
+       ],
+       "columns_field_name": [
+        "building_zip_zip",
+        "building_city_city",
+        "building_city_state",
+        "building_address_state",
+        "building_address",
+        "building_city_address",
+        "building_zip_state",
+        "building_zip_city",
+        "building_address_city",
+        "building_zip_address",
+        "building_city",
+        "building_city_zip",
+        "permit_fee",
+        "building_address_address",
+        "building_address_zip",
+        "building_zip"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Point"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "currency",
+         "currencyStyle": "USD",
+         "precision": "2"
+        },
+        {},
+        {},
+        {}
+       ],
+       "download_count": 4532,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2011-09-20T13:54:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "asbestos removal",
+        "inactive",
+        "buildings hazardous materials",
+        "environmental control",
+        "demolition",
+        "permits"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Metadata_Update-Frequency",
+         "value": "No updates"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/b4e6-7ck8",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Environmental-Control-Asbestos-Removal-Permits-201/b4e6-7ck8",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Environmental Control - Asbestos Removal Permits - 2010",
+       "id": "6biq-7ju6",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "",
+       "attribution": "Cook County Department of Environmental Control",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T19:41:20.000Z",
+       "createdAt": "2011-09-19T22:16:09.000Z",
+       "metadata_updated_at": "2026-01-27T19:41:20.000Z",
+       "data_updated_at": "2011-09-19T22:23:32.000Z",
+       "page_views": {
+        "page_views_last_week": 8,
+        "page_views_last_month": 30,
+        "page_views_total": 1603,
+        "page_views_last_week_log": 3.1699250014423126,
+        "page_views_last_month_log": 4.954196310386876,
+        "page_views_total_log": 10.647458426454921
+       },
+       "columns_name": [
+        "Building City (address)",
+        "ZIP Code (state)",
+        "Building Address (city)",
+        "ZIP Code (address)",
+        "ZIP Code (zip)",
+        "ZIP Code (city)",
+        "Building Address (address)",
+        "Building City",
+        "Building City (city)",
+        "Building Address (zip)",
+        "Building Address",
+        "Building Address (state)",
+        "Filing Fees",
+        "Inspection Fees",
+        "Building City (state)",
+        "ZIP Code",
+        "Building City (zip)"
+       ],
+       "columns_field_name": [
+        "building_city_address",
+        "zip_code_state",
+        "building_address_city",
+        "zip_code_address",
+        "zip_code_zip",
+        "zip_code_city",
+        "building_address_address",
+        "building_city",
+        "building_city_city",
+        "building_address_zip",
+        "building_address",
+        "building_address_state",
+        "filing_fees",
+        "inspection_fees",
+        "building_city_state",
+        "zip_code",
+        "building_city_zip"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Point",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "currency",
+         "currencyStyle": "USD",
+         "precision": "2"
+        },
+        {
+         "precisionStyle": "currency",
+         "currencyStyle": "USD",
+         "precision": "2"
+        },
+        {},
+        {},
+        {}
+       ],
+       "download_count": 2550,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2011-09-19T22:16:09.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "demolition",
+        "permits",
+        "inactive",
+        "environmental control",
+        "buildings hazardous materials",
+        "asbestos removal"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/6biq-7ju6",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Environmental-Control-Asbestos-Removal-Permits-201/6biq-7ju6",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Solid Waste Permits",
+       "id": "9ui4-wwkp",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This dataset includes all Recycling Facility and Clean Construction Demolition Debris (CCDD) Fill Operation permits reviewed by the Cook County Department of Environment & Sustainability.\n\nRecycling facilities include any building or area in which recyclable material is collected, stored, or processed for the purpose of marketing the material for use in the manufacturing process of new, reused, or reconstituted products. It does not include motor vehicle repair shops which store used parts, drop-off centers or compost operations accumulating less than 25 cubic yards of compostable material at a time, or compost operations where compostable material is used exclusively on site.\n\nCCDD fill operations are current or former quarries, mines, or other excavations where clean construction or demolition debris (as defined by Section 3.160(b) of the Illinois Environmental Protection Act) is used as fill material.\n\nData provided is sourced from completed permit applications and may be subject to user error. Please exercise caution and do not consider building-specific information from this dataset to be authoritative. Permit applications that are under review are not included in this dataset.",
+       "attribution": "Department of Environment & Sustainability",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-12T11:00:24.000Z",
+       "createdAt": "2026-05-28T17:59:47.000Z",
+       "metadata_updated_at": "2026-10-12T11:00:23.000Z",
+       "data_updated_at": "2026-10-12T11:00:24.000Z",
+       "page_views": {
+        "page_views_last_week": 20,
+        "page_views_last_month": 165,
+        "page_views_total": 362,
+        "page_views_last_week_log": 4.392317422778761,
+        "page_views_last_month_log": 7.375039431346925,
+        "page_views_total_log": 8.50382573799575
+       },
+       "columns_name": [
+        "Permit Expiration Date",
+        "Facility Class",
+        "City",
+        "Cook County Site Type",
+        "Full Address",
+        "Facility ID",
+        "Zip Code",
+        "Permit Number",
+        "Permit Approval Date",
+        "Facility Name"
+       ],
+       "columns_field_name": [
+        "permit_expiration_date",
+        "facility_class",
+        "city",
+        "county_site_type",
+        "address",
+        "facility_id",
+        "zip_code",
+        "permit_number",
+        "permit_approval_date",
+        "facility_name"
+       ],
+       "columns_datatype": [
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Text"
+       ],
+       "columns_description": [
+        "date that the permit for operations expires",
+        "classification of the facility that defines allowable materials and processing methods; see \"recycling_reference\" attachment for definitions",
+        "city where facility is located",
+        "site type indicating whether the facility is for recycling or CCDD (clean construction and demolition debris) fill operations; \"Closed\" site types indicate the facility is not actively operating",
+        "street address where facility is located",
+        "unique ID assigned to facility by Cook County Department of Environment & Sustainability",
+        "zip code where facility is located",
+        "unique number associated with each permit (including each renewal permit), generated by the County",
+        "date that the permit for operations is approved",
+        "name of facility"
+       ],
+       "columns_format": [
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true"
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true"
+        },
+        {
+         "view": "date"
+        },
+        {}
+       ],
+       "download_count": 323,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-05-28T17:59:55.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "demolition",
+        "debris",
+        "recycling",
+        "ccdd",
+        "des",
+        "disposal"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Metadata_Update-Frequency",
+         "value": "As Needed"
+        },
+        {
+         "key": "Department_Publishing-Department",
+         "value": "Bureau of Technology Data Services"
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Weekly"
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Streaming"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Text",
+         "value": "As of July 1, 2014, no person shall engage in the business of operating a clean construction and demolition debris fill operation within Cook County without having first obtained a permit from the Director. Facilities requiring a permit under this Section shall comply with the provisions of this Division. As of June 1, 2014, no person shall engage in the business of operating a recycling facility within Cook County without having first obtained a written recycling facility permit from the Director. Recycling facilities requiring a permit under this section shall comply with the provisions of this section. A recycling facility permit shall not be required for facilities which also operate as a solid waste facility as defined in this Article."
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-unit",
+         "value": "Street Address"
+        },
+        {
+         "key": "Detailed-Descriptive_Temporal-coverage",
+         "value": "2020-present"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Link",
+         "value": "CCDD: https://library.municode.com/il/cook_county/codes/code_of_ordinances?nodeId=PTIGEOR_CH30EN_ARTVISOWARE_DIV3SOWAFA_S30-828PECLCODEDEFIOP; Recycling: https://library.municode.com/il/cook_county/codes/code_of_ordinances?nodeId=PTIGEOR_CH30EN_ARTVISOWARE_DIV4REFA_S30-858REFAPERE"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-coverage",
+         "value": "Cook County without City of Chicago"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance",
+         "value": "Sec. 30-828; Sec. 30-858"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/9ui4-wwkp",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Solid-Waste-Permits/9ui4-wwkp",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Environmental Control - Asbestos Demolition Permits - 2012 Q3",
+       "id": "qkzq-fgkt",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "From the Department of Environmental Control, a dataset of asbestos demolition permits for 3Q 2012.",
+       "attribution": "Cook County Bureau of Environmental Control",
+       "attribution_link": "http://www.cookcountygov.com/portal/server.pt/community/environmental_control/291",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T19:49:15.000Z",
+       "createdAt": "2012-12-19T03:51:55.000Z",
+       "metadata_updated_at": "2026-01-27T19:49:15.000Z",
+       "data_updated_at": "2014-10-09T21:58:12.000Z",
+       "page_views": {
+        "page_views_last_week": 6,
+        "page_views_last_month": 28,
+        "page_views_total": 1669,
+        "page_views_last_week_log": 2.807354922057604,
+        "page_views_last_month_log": 4.857980995127573,
+        "page_views_total_log": 10.705632387361414
+       },
+       "columns_name": [
+        "Location 1",
+        "Location 1 (city)",
+        "Location 1 (zip)",
+        "Demolition Permit Number",
+        "Permit Issue Date",
+        "Abatement Start Date",
+        "Location 1 (state)",
+        "Permit Fees",
+        "Location 1 (address)",
+        "Abatement End Date",
+        "Type of Building",
+        "Demolition  Contractor"
+       ],
+       "columns_field_name": [
+        "location_1",
+        "location_1_city",
+        "location_1_zip",
+        "demolition_permit_number",
+        "permit_issue_date",
+        "abatement_start_date",
+        "location_1_state",
+        "permit_fees",
+        "location_1_address",
+        "abatement_end_date",
+        "type_of_building",
+        "demolition_contractor"
+       ],
+       "columns_datatype": [
+        "Point",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Number",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 4762,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-06-01T20:47:05.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "inactive"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/qkzq-fgkt",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Environmental-Control-Asbestos-Demolition-Permits-/qkzq-fgkt",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Environmental Control - Asbestos Abatement Permits - 2012 Q3",
+       "id": "erxw-ipht",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "From the Department of Environmental Control, a list of Asbestos Abatement Permits for 3Q 2012.",
+       "attribution": "Cook County Bureau of Environmental Control",
+       "attribution_link": "http://www.cookcountygov.com/portal/server.pt/community/environmental_control/291",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T20:55:11.000Z",
+       "createdAt": "2012-12-19T03:58:38.000Z",
+       "metadata_updated_at": "2026-01-27T20:55:11.000Z",
+       "data_updated_at": "2014-10-09T21:18:59.000Z",
+       "page_views": {
+        "page_views_last_week": 8,
+        "page_views_last_month": 37,
+        "page_views_total": 1249,
+        "page_views_last_week_log": 3.1699250014423126,
+        "page_views_last_month_log": 5.247927513443585,
+        "page_views_total_log": 10.287712379549449
+       },
+       "columns_name": [
+        "Abatement Contractor",
+        "Abatement Start Date",
+        "Inspection Fees",
+        "Permit Issue Date",
+        "Asbestos Abatement  Permit Number",
+        "Location 1 (state)",
+        "Location 1 (city)",
+        "Location 1 (address)",
+        "Location 1",
+        "Abatement End Date",
+        "Filing Fees",
+        "Location 1 (zip)"
+       ],
+       "columns_field_name": [
+        "abatement_contractor",
+        "abatement_start_date",
+        "inspection_fees",
+        "permit_issue_date",
+        "asbestos_abatement_permit_number",
+        "location_1_state",
+        "location_1_city",
+        "location_1_address",
+        "location_1",
+        "abatement_end_date",
+        "filing_fees",
+        "location_1_zip"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Point",
+        "Calendar date",
+        "Number",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 3882,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-06-01T23:29:31.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "inactive"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/erxw-ipht",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Environmental-Control-Asbestos-Abatement-Permits-2/erxw-ipht",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Temporary Rock Crusher Permits",
+       "id": "2nu5-mzu4",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This dataset includes all Temporary Rock Crusher permits approved by the Cook County Department of Environment & Sustainability.\n\nTemporary Rock Crusher permits are required for the reprocessing, storage, transport, and/or final usage of materials generated from construction and/or demolition such as broken concrete, bricks, rock, stone, or paving asphalt. The permits in this dataset are limited to temporary reprocessing activities and don't include equipment registration permits.\n\nData provided is sourced from completed permit applications and may be subject to user error. Please exercise caution. Permit applications that are under review are not included in this dataset.",
+       "attribution": "Department of Environment & Sustainability",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-12T11:00:23.000Z",
+       "createdAt": "2026-05-28T17:57:56.000Z",
+       "metadata_updated_at": "2026-10-12T11:00:22.000Z",
+       "data_updated_at": "2026-10-12T11:00:23.000Z",
+       "page_views": {
+        "page_views_last_week": 20,
+        "page_views_last_month": 109,
+        "page_views_total": 282,
+        "page_views_last_week_log": 4.392317422778761,
+        "page_views_last_month_log": 6.78135971352466,
+        "page_views_total_log": 8.144658242831882
+       },
+       "columns_name": [
+        "Anticipated Start Date",
+        "Facility Type",
+        "Permit Expiration Date",
+        "Facility Name",
+        "City",
+        "Zip",
+        "Anticipated End Date",
+        "Address",
+        "Operator Organization Name",
+        "Anticipated Work Days"
+       ],
+       "columns_field_name": [
+        "anticipated_start_date",
+        "facility_type",
+        "date_permit_expires",
+        "facility_name",
+        "city",
+        "zip",
+        "anticipated_end_date",
+        "address",
+        "operator_organization_name",
+        "anticipated_work_days"
+       ],
+       "columns_datatype": [
+        "Calendar date",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "expected start date of temporary reprocessing activity",
+        "type of facility or site where temporary reprocessing activity is taking place",
+        "date that temporary reprocessing activity permit expires",
+        "name of the site where temporary reprocessing activity is taking place",
+        "city where temporary reprocessing activity is taking place",
+        "zip code where temporary reprocessing activity is taking place",
+        "expected end date of temporary reprocessing activity",
+        "address of site where temporary reprocessing activity is taking place",
+        "name of organization operating reprocessing equipment at site",
+        "days of the week that reprocessing activity is expected to occur"
+       ],
+       "columns_format": [
+        {
+         "view": "date"
+        },
+        {},
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {}
+       ],
+       "download_count": 395,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-05-28T17:57:59.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Environment",
+       "domain_tags": [
+        "construction",
+        "trc",
+        "reprocessing",
+        "demolition",
+        "des"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Metadata_Update-Frequency",
+         "value": "As Needed"
+        },
+        {
+         "key": "Department_Publishing-Department",
+         "value": "Bureau of Technology Data Services"
+        },
+        {
+         "key": "Publishing-Details_Publishing-frequency",
+         "value": "Weekly"
+        },
+        {
+         "key": "Publishing-Details_Data-change-frequency",
+         "value": "Streaming"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Text",
+         "value": "A temporary reprocessing activities permit shall be required for the reprocessing, storage, transport and/or final usage of materials generated from construction and/or demolition."
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-unit",
+         "value": "Street Address"
+        },
+        {
+         "key": "Detailed-Descriptive_Temporal-coverage",
+         "value": "2025-present"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance-Link",
+         "value": "https://library.municode.com/il/cook_county/codes/code_of_ordinances?nodeId=PTIGEOR_CH30EN_ARTIIIAI_DIV2AIPO_SDIISMPAMA_S30-392TEREACPE"
+        },
+        {
+         "key": "Detailed-Descriptive_Geographic-coverage",
+         "value": "Cook County without City of Chicago"
+        },
+        {
+         "key": "Detailed-Descriptive_Ordinance",
+         "value": "Sec. 30-392"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/2nu5-mzu4",
+      "link": "https://datacatalog.cookcountyil.gov/Environment/Temporary-Rock-Crusher-Permits/2nu5-mzu4",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Open Data - BZ - FY2005 - Building, Plumbing, And Electrical Permits Applied For-- Locator",
+       "id": "iiq4-y58u",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Updated 10/14/2011, use for mapping",
+       "attribution": "Cook County Bureau of Economic Development",
+       "attribution_link": null,
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T20:09:17.000Z",
+       "createdAt": "2011-10-14T21:33:00.000Z",
+       "metadata_updated_at": "2026-01-27T20:09:17.000Z",
+       "data_updated_at": "2014-10-27T16:41:37.000Z",
+       "page_views": {
+        "page_views_last_week": 4,
+        "page_views_last_month": 32,
+        "page_views_total": 1280,
+        "page_views_last_week_log": 2.321928094887362,
+        "page_views_last_month_log": 5.044394119358453,
+        "page_views_total_log": 10.323054760341646
+       },
+       "columns_name": [
+        "Totals",
+        "Location 1 (state)",
+        "Fiscal Year",
+        "Location 1",
+        "Location 1 (zip)",
+        "Location 1 (city)",
+        "Plumbing",
+        "Township Name",
+        "Building",
+        "Electrical",
+        "Location 1 (address)"
+       ],
+       "columns_field_name": [
+        "totals",
+        "location_1_state",
+        "fiscal_year",
+        "location_1",
+        "location_1_zip",
+        "location_1_city",
+        "plumbing",
+        "township_name",
+        "building",
+        "electrical",
+        "location_1_address"
+       ],
+       "columns_datatype": [
+        "Number",
+        "Text",
+        "Text",
+        "Point",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Number",
+        "Number",
+        "Text"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "precisionStyle": "standard",
+         "noCommas": "false",
+         "align": "right"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 2823,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-06-13T16:10:21.000Z"
+      },
+      "classification": {
+       "categories": [
+        "infrastructure"
+       ],
+       "tags": [],
+       "domain_category": "Economic Development",
+       "domain_tags": [
+        "inactive"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/iiq4-y58u",
+      "link": "https://datacatalog.cookcountyil.gov/Economic-Development/Open-Data-BZ-FY2005-Building-Plumbing-And-Electric/iiq4-y58u",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Building and Zoning - Building, Plumbing, And Electrical Permits Applied For - Fiscal Year 2005 through part of Fiscal Year 2011",
+       "id": "6myv-3m4t",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "Building, Plumbing, And Electrical Permits Applied For by Township covering Fiscal Year 2005 through part of Fiscal Year 2011. Data last updated September 27, 2011",
+       "attribution": "Cook County Department of Building and Zoning",
+       "attribution_link": "http://www.cookcountyil.gov/BuildingZoning",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-01-27T19:59:57.000Z",
+       "createdAt": "2011-09-27T14:53:15.000Z",
+       "metadata_updated_at": "2026-01-27T19:59:57.000Z",
+       "data_updated_at": "2014-10-09T21:36:24.000Z",
+       "page_views": {
+        "page_views_last_week": 25,
+        "page_views_last_month": 80,
+        "page_views_total": 1623,
+        "page_views_last_week_log": 4.700439718141093,
+        "page_views_last_month_log": 6.339850002884625,
+        "page_views_total_log": 10.665335917185176
+       },
+       "columns_name": [
+        "Township Name",
+        "Fiscal Year",
+        "Building",
+        "Electrical",
+        "Plumbing",
+        "Totals"
+       ],
+       "columns_field_name": [
+        "township_name",
+        "fiscal_year",
+        "building",
+        "electrical",
+        "plumbing",
+        "totals"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Number"
+       ],
+       "columns_description": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 3106,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2014-10-09T21:37:20.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Economic Development",
+       "domain_tags": [
+        "inactive"
+       ],
+       "domain_metadata": []
+      },
+      "metadata": {
+       "domain": "datacatalog.cookcountyil.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://datacatalog.cookcountyil.gov/d/6myv-3m4t",
+      "link": "https://datacatalog.cookcountyil.gov/Economic-Development/Building-and-Zoning-Building-Plumbing-And-Electric/6myv-3m4t",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 13,
+    "timings": {
+     "serviceMillis": 21,
+     "searchMillis": [
+      1,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://datacatalog.cookcountyil.gov/api/views/6yjf-dfxs.json",
+   "status": 200,
+   "body": {
+    "id": "6yjf-dfxs",
+    "name": "Assessor - Permits",
+    "assetType": "dataset",
+    "attribution": "Cook County Assessor's Office",
+    "averageRating": 0,
+    "category": "Property & Taxation",
+    "createdAt": 1733508221,
+    "description": "Historical permit data submitted by municipalities to the Cook County Assessor's Office.\n\nWhen working with Parcel Index Numbers (PINs) make sure to zero-pad them to 14 digits. Some datasets may lose leading zeros for PINs when downloaded.\n\nAdditional notes:<ul>\n<li>Almost all of the data in this dataset, such as address, estimated date of completion, work description, and permit amount, is data submitted by municipalities to the CCAO. The CCAO verifies or corrects the PIN number, determines whether the work is assessable, updates the status of CCAO workflows (e.g., open or closed), and sets the recheck year.</li>\n\n<li>In addition to permits that are already closed, this dataset includes permits that are <b>currently open or pending</b>. These permits are not final and are subject to change.</li>\n<li>Data will be updated semi-monthly.</li></ul>\n<li>Rows are unique by the combination of \"pin\", \"permit_number\", and \"date_issued\".</li>\n<li>Job codes and improvement codes are not correct in all cases. Consider \"work_description\" to be the canonical description of the work that the permit describes.</li>\n<li>In many past cases permits have been submitted in irreconcilably different formats by different municipalities, or not at all. As such, this dataset does not represent the complete universe of permits in all municipalities, but rather represents the universe of permits that the CCAO knows about.</li>\n<li>Each row represents a parcel and a permit that is associated with that parcel. Permits may be associated with multiple parcels, and parcels may be associated with multiple permits.</li>\n<li>\"date_issued\" is more reliable than \"date_submitted\". Prefer \"date_issued\" when making temporal comparisons between parcels.</li>\n<li>Data for the current tax year may not yet be complete or final.</li>\n\nFor more information on the sourcing of attached data and the preparation of this dataset, see the <a href=\"https://github.com/ccao-data/wiki/blob/master/SOPs/Open-Data.md\">Assessor's Standard Operating Procedures for Open Data</a> on GitHub.\n\n<a href=\"https://datacatalog.cookcountyil.gov/stories/s/gzdr-q7c4\">Read about the Assessor's 2025 Open Data Refresh.</a>",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 26772,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 41918391,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1770050477,
+    "publicationGroup": 19710050,
+    "publicationStage": "published",
+    "rowIdentifierColumnId": 625755064,
+    "rowsUpdatedAt": 1792077169,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 20260511,
+    "totalTimesRated": 0,
+    "viewCount": 16882,
+    "viewLastModified": 1783621440,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 625755041,
+      "name": "pin",
+      "dataTypeName": "text",
+      "description": "Parcel Identification Number (PIN)",
+      "fieldName": "pin",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 155810830,
+      "cachedContents": {
+       "non_null": "749192",
+       "null": "0",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755042,
+      "name": "permit_year",
+      "dataTypeName": "number",
+      "description": "Year municipality issued permit to applicant",
+      "fieldName": "year",
+      "position": 2,
+      "renderTypeName": "number",
+      "tableColumnId": 157998701,
+      "cachedContents": {
+       "non_null": "749191",
+       "null": "1",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "noCommas": "true"
+      }
+     },
+     {
+      "id": 625755043,
+      "name": "permit_number",
+      "dataTypeName": "text",
+      "description": "Permit number created during permit submission to CCAO",
+      "fieldName": "permit_number",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 155810831,
+      "cachedContents": {
+       "non_null": "740531",
+       "null": "8661",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755044,
+      "name": "local_permit_number",
+      "dataTypeName": "text",
+      "description": "Permit number recorded by reporting municipality",
+      "fieldName": "local_permit_number",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 155810854,
+      "cachedContents": {
+       "non_null": "746066",
+       "null": "3126",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755045,
+      "name": "date_issued",
+      "dataTypeName": "calendar_date",
+      "description": "Date municipality issued permit to applicant",
+      "fieldName": "date_issued",
+      "position": 5,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 155810833,
+      "cachedContents": {
+       "non_null": "749191",
+       "null": "1",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "view": "date"
+      }
+     },
+     {
+      "id": 625755047,
+      "name": "estimated_date_of_completion",
+      "dataTypeName": "text",
+      "description": "Estimated date permitted work will be complete",
+      "fieldName": "estimated_date_of_completion",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 155810836,
+      "cachedContents": {
+       "non_null": "754",
+       "null": "748438",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755049,
+      "name": "status",
+      "dataTypeName": "text",
+      "description": "Status of permit in CCAO's permit workflow",
+      "fieldName": "status",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 155810839,
+      "cachedContents": {
+       "non_null": "747666",
+       "null": "1526",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755050,
+      "name": "assessable",
+      "dataTypeName": "text",
+      "description": "Whether permitted work will affect property's assessed value",
+      "fieldName": "assessable",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 155810840,
+      "cachedContents": {
+       "non_null": "665839",
+       "null": "83353",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755051,
+      "name": "amount",
+      "dataTypeName": "number",
+      "description": "Amount permitted work is estimated to cost",
+      "fieldName": "amount",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 155810841,
+      "cachedContents": {
+       "non_null": "745952",
+       "null": "3240",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "precisionStyle": "currency",
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755052,
+      "name": "municipality",
+      "dataTypeName": "text",
+      "description": "Taxing district name, as seen on Cook County tax bills",
+      "fieldName": "municipality",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 158219819,
+      "cachedContents": {
+       "non_null": "738934",
+       "null": "10258",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755053,
+      "name": "township",
+      "dataTypeName": "text",
+      "description": "Township name",
+      "fieldName": "township",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 158219821,
+      "cachedContents": {
+       "non_null": "746344",
+       "null": "2848",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755054,
+      "name": "property_address",
+      "dataTypeName": "text",
+      "description": "Address where permitted work will take place",
+      "fieldName": "property_address",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 158219820,
+      "cachedContents": {
+       "non_null": "8113",
+       "null": "741079",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755055,
+      "name": "mailing_address",
+      "dataTypeName": "text",
+      "description": "Applicant mailing address",
+      "fieldName": "mailing_address",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 155810842,
+      "cachedContents": {
+       "non_null": "738886",
+       "null": "10306",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755056,
+      "name": "applicant_name",
+      "dataTypeName": "text",
+      "description": "Name of permit applicant",
+      "fieldName": "applicant_name",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 155810847,
+      "cachedContents": {
+       "non_null": "742273",
+       "null": "6919",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755057,
+      "name": "job_code_primary",
+      "dataTypeName": "text",
+      "description": "Primary job description",
+      "fieldName": "job_code_primary",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 155810851,
+      "cachedContents": {
+       "non_null": "668062",
+       "null": "81130",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755058,
+      "name": "job_code_secondary",
+      "dataTypeName": "text",
+      "description": "Secondary job description",
+      "fieldName": "job_code_secondary",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 155810832,
+      "cachedContents": {
+       "non_null": "2392",
+       "null": "746800",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755059,
+      "name": "work_description",
+      "dataTypeName": "text",
+      "description": "Short description of permitted work",
+      "fieldName": "work_description",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 155810848,
+      "cachedContents": {
+       "non_null": "745500",
+       "null": "3692",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     },
+     {
+      "id": 625755060,
+      "name": "improvement_code_1",
+      "dataTypeName": "text",
+      "description": "Type of improvement indicated by permit",
+      "fieldName": "improvement_code_1",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 155810829,
+      "cachedContents": {
+       "non_null": "670589",
+       "null": "78603",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755061,
+      "name": "improvement_code_2",
+      "dataTypeName": "text",
+      "description": "Type of improvement indicated by permit",
+      "fieldName": "improvement_code_2",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 155810828,
+      "cachedContents": {
+       "non_null": "63794",
+       "null": "685398",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755062,
+      "name": "improvement_code_3",
+      "dataTypeName": "text",
+      "description": "Type of improvement indicated by permit",
+      "fieldName": "improvement_code_3",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 155810853,
+      "cachedContents": {
+       "non_null": "9181",
+       "null": "740011",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755063,
+      "name": "improvement_code_4",
+      "dataTypeName": "text",
+      "description": "Type of improvement indicated by permit",
+      "fieldName": "improvement_code_4",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 155810852,
+      "cachedContents": {
+       "non_null": "1335",
+       "null": "747857",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {
+       "decimalSeparator": ".",
+       "groupSeparator": ","
+      }
+     },
+     {
+      "id": 625755064,
+      "name": "row_id",
+      "dataTypeName": "text",
+      "description": "Unique row key API",
+      "fieldName": "row_id",
+      "position": 24,
+      "renderTypeName": "text",
+      "tableColumnId": 155812614,
+      "cachedContents": {
+       "non_null": "749192",
+       "null": "0",
+       "count": "749192",
+       "cardinality": "749192"
+      },
+      "format": {}
+     }
+    ],
+    "grants": "<identity redacted>",
+    "metadata": {
+     "custom_fields": {
+      "Department": {
+       "Publishing Department": "Data Department"
+      },
+      "Source Details": {
+       "Source System": "iasWorld, Smartfile"
+      },
+      "Detailed Descriptive": {
+       "Temporal coverage": "2000-Present",
+       "Geographic coverage": "Countywide",
+       "Geographic unit": "Parcel"
+      },
+      "Publishing Details": {
+       "Data change frequency": "Bi-weekly",
+       "Publishing frequency": "Bi-weekly"
+      }
+     },
+     "rowIdentifier": 625755064,
+     "rowLabel": "Permit for a parcel",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ]
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "cook county assessor",
+     "property tax"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://datacatalog.cookcountyil.gov/resource/6yjf-dfxs.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "749192"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://datacatalog.cookcountyil.gov/resource/6yjf-dfxs.json?%24select=min%28date_issued%29+AS+lo%2C+max%28date_issued%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1691-04-08T23:09:07.000",
+     "hi": "2210-04-21T23:34:33.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://datacatalog.cookcountyil.gov/resource/6yjf-dfxs.json?%24select=pin%2C+year%2C+permit_number%2C+local_permit_number%2C+date_issued%2C+estimated_date_of_completion%2C+status%2C+assessable%2C+amount%2C+municipality%2C+township%2C+property_address%2C+mailing_address%2C+applicant_name%2C+job_code_primary%2C+job_code_secondary%2C+work_description%2C+improvement_code_1%2C+improvement_code_2%2C+improvement_code_3%2C+improvement_code_4%2C+row_id%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "amount",
+     "applicant_name",
+     "assessable",
+     "date_issued",
+     "improvement_code_1",
+     "improvement_code_2",
+     "job_code_primary",
+     "local_permit_number",
+     "mailing_address",
+     "municipality",
+     "permit_number",
+     "pin",
+     "row_id",
+     "status",
+     "township",
+     "work_description",
+     "year"
+    ],
+    "sha256": "e59d7d6a9193185d56e8ab986c5644fc9d12189c6b7f1f34f80e674fc3ab15ad"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://datacatalog.cookcountyil.gov/resource/6yjf-dfxs.json?%24select=pin%2C+year%2C+permit_number%2C+local_permit_number%2C+date_issued%2C+estimated_date_of_completion%2C+status%2C+assessable%2C+amount%2C+municipality%2C+township%2C+property_address%2C+mailing_address%2C+applicant_name%2C+job_code_primary%2C+job_code_secondary%2C+work_description%2C+improvement_code_1%2C+improvement_code_2%2C+improvement_code_3%2C+improvement_code_4%2C+row_id%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-eicj_nkax~7nuc%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "amount",
+     "applicant_name",
+     "assessable",
+     "date_issued",
+     "improvement_code_1",
+     "improvement_code_2",
+     "job_code_primary",
+     "local_permit_number",
+     "mailing_address",
+     "municipality",
+     "permit_number",
+     "pin",
+     "row_id",
+     "status",
+     "township",
+     "work_description",
+     "year"
+    ],
+    "sha256": "37ff2b440a167c3c1f52acdac3457553cfe6909beb24bfba90e2a1d4992fb8f3"
+   }
+  }
+ ]
+}

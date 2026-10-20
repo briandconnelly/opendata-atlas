@@ -1,0 +1,122 @@
+{
+ "today": "2026-10-20",
+ "pack_levels": {
+  "f6vp-3svh": "reviewed",
+  "qvfa-2v26": "profiled",
+  "szww-y224": "profiled",
+  "w35j-83t3": "profiled"
+ },
+ "pack_levels_2026_10_19": {
+  "f6vp-3svh": "reviewed",
+  "qvfa-2v26": "profiled",
+  "szww-y224": "profiled",
+  "w35j-83t3": "profiled"
+ },
+ "pack_levels_2026_10_20": {
+  "f6vp-3svh": "reviewed",
+  "qvfa-2v26": "profiled",
+  "szww-y224": "profiled",
+  "w35j-83t3": "profiled"
+ },
+ "find": {
+  "Everett": {
+   "isError": false,
+   "ids": [
+    "data.everettwa.gov"
+   ]
+  },
+  "Everett, WA": {
+   "isError": false,
+   "ids": [
+    "data.everettwa.gov"
+   ]
+  },
+  "everett": {
+   "isError": false,
+   "ids": [
+    "data.everettwa.gov"
+   ]
+  },
+  "Seattle": {
+   "isError": false,
+   "ids": [
+    "data.seattle.gov"
+   ]
+  }
+ },
+ "describe": {
+  "f6vp-3svh": {
+   "isError": false,
+   "level": "reviewed",
+   "expected": "reviewed",
+   "match": true,
+   "data_coverage": [
+    {
+     "column": "datetimereceived",
+     "min": "2015-01-01T00:00:04.000",
+     "max": "2026-12-20T10:16:00.000",
+     "origin": "live_query",
+     "status": "ok"
+    }
+   ]
+  },
+  "qvfa-2v26": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true,
+   "data_coverage": [
+    {
+     "column": "issuedate",
+     "min": "1900-01-01T00:00:00.000",
+     "max": "2087-03-16T00:00:00.000",
+     "origin": "live_query",
+     "status": "ok"
+    }
+   ]
+  },
+  "szww-y224": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true,
+   "data_coverage": [
+    {
+     "column": "datetimereceived",
+     "min": "2015-01-01T00:00:04.000",
+     "max": "2026-10-18T15:11:53.000",
+     "origin": "live_query",
+     "status": "ok"
+    }
+   ]
+  },
+  "w35j-83t3": {
+   "isError": false,
+   "level": "profiled",
+   "expected": "profiled",
+   "match": true,
+   "data_coverage": [
+    {
+     "column": "startdatetime",
+     "min": "2015-10-26T13:51:56.000",
+     "max": "2026-08-31T22:23:04.000",
+     "origin": "live_query",
+     "status": "ok"
+    }
+   ]
+  }
+ },
+ "reference_isError": false,
+ "reference_tier_lines": [
+  "- tier: `profiled`"
+ ],
+ "reference_keys": [
+  "body",
+  "source",
+  "summary",
+  "title",
+  "topic",
+  "uri",
+  "version"
+ ]
+}

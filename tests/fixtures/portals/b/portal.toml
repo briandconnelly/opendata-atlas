@@ -1,0 +1,12 @@
+# Test-only portal: responses are hand-written in tests/fixtures/http/isolation_two_portals.json.
+id = "b.example.gov"
+public_host = "b.example.gov"
+catalog_region = "us"
+timezone = "America/Chicago"
+name = "Example Portal B"
+platform = "socrata"
+status = "active"
+tier = "generic"
+
+[catalog_query]
+domains = "b.example.gov"

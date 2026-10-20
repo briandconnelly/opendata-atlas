@@ -1,0 +1,162 @@
+{
+ "a.example.gov/api/views/aaaa-bbbb.json?[]": {
+  "body": {
+   "assetType": "dataset",
+   "columns": [
+    {
+     "dataTypeName": "text",
+     "fieldName": "alpha"
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "region": "_cccc-dddd"
+      }
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_cccc_dddd"
+    }
+   ],
+   "id": "aaaa-bbbb",
+   "name": "Shared id on a.example.gov",
+   "viewType": "tabular"
+  },
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "a.example.gov/resource/aaaa-bbbb.json?[[\"$group\", \":@computed_region_cccc_dddd\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_cccc_dddd AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "2",
+    "v": "1"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "a.example.gov/resource/aaaa-bbbb.json?[[\"$limit\", \"2\"], [\"$order\", \":id\"], [\"$select\", \"alpha, :id\"]]": {
+  "body": [
+   {
+    ":id": "row-1",
+    "alpha": "x1"
+   },
+   {
+    ":id": "row-2",
+    "alpha": "x2"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8",
+   "x-soda2-fields": "[\"alpha\", \":id\"]",
+   "x-soda2-types": "[\"text\", \"text\"]"
+  },
+  "status": 200
+ },
+ "a.example.gov/resource/aaaa-bbbb.json?[[\"$select\", \"count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "2"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "a.example.gov/resource/cccc-dddd.json?[[\"$limit\", \"1\"], [\"$select\", \"_feature_id AS id, name AS label\"], [\"$where\", \"_feature_id IN (1)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "NORTH"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "b.example.gov/api/views/aaaa-bbbb.json?[]": {
+  "body": {
+   "assetType": "dataset",
+   "columns": [
+    {
+     "dataTypeName": "text",
+     "fieldName": "beta"
+    },
+    {
+     "computationStrategy": {
+      "parameters": {
+       "region": "_cccc-dddd"
+      }
+     },
+     "dataTypeName": "number",
+     "fieldName": ":@computed_region_cccc_dddd_b"
+    }
+   ],
+   "id": "aaaa-bbbb",
+   "name": "Shared id on b.example.gov",
+   "viewType": "tabular"
+  },
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "b.example.gov/resource/aaaa-bbbb.json?[[\"$group\", \":@computed_region_cccc_dddd_b\"], [\"$limit\", \"101\"], [\"$order\", \"n DESC\"], [\"$select\", \":@computed_region_cccc_dddd_b AS v, count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "2",
+    "v": "1"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "b.example.gov/resource/aaaa-bbbb.json?[[\"$limit\", \"2\"], [\"$order\", \":id\"], [\"$select\", \"beta, :id\"]]": {
+  "body": [
+   {
+    ":id": "row-1",
+    "beta": "x1"
+   },
+   {
+    ":id": "row-2",
+    "beta": "x2"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8",
+   "x-soda2-fields": "[\"beta\", \":id\"]",
+   "x-soda2-types": "[\"text\", \"text\"]"
+  },
+  "status": 200
+ },
+ "b.example.gov/resource/aaaa-bbbb.json?[[\"$select\", \"count(*) AS n\"]]": {
+  "body": [
+   {
+    "n": "2"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ },
+ "b.example.gov/resource/cccc-dddd.json?[[\"$limit\", \"1\"], [\"$select\", \"_feature_id AS id, name AS label\"], [\"$where\", \"_feature_id IN (1)\"]]": {
+  "body": [
+   {
+    "id": "1",
+    "label": "SOUTH"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json; charset=utf-8"
+  },
+  "status": 200
+ }
+}

@@ -1,0 +1,2 @@
+FAIL docs/evidence/launch-evals-2026-10-19/known-positive-connector-init.jsonl ["tools ['Read', 'mcp__claude_ai_Gmail__search', 'mcp__opendata-atlas__atlas_describe_dataset', 'mcp__opendata-atlas__atlas_find_portals', 'mcp__opendata-atlas__atlas_get_reference', 'mcp__opendata-atlas__atlas_query_dataset', 'mcp__opendata-atlas__atlas_search_datasets']", "servers ['claude.ai Gmail']", 'claude.ai in init']
+FAIL <scratchpad>/m6/task7-everett/fake-tooluse.jsonl ["other tool_use ['Bash']"]

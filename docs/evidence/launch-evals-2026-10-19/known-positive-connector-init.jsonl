@@ -1,0 +1,1 @@
+{"type": "system", "subtype": "init", "tools": ["Read", "mcp__claude_ai_Gmail__search"], "mcp_servers": [{"name": "claude.ai Gmail", "status": "connected"}]}

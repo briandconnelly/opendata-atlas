@@ -1,0 +1,22 @@
+"""resources/list and resources/read under OPENDATA_ATLAS_PORTALS values (offline)."""
+import asyncio, json, os, sys
+from fastmcp import Client
+from opendata_atlas.mcp.server import build_server
+from tests.conftest import wire
+
+async def main():
+    out = {"env": os.environ.get("OPENDATA_ATLAS_PORTALS")}
+    try:
+        async with Client(build_server()) as c:
+            res = wire(await c.list_resources_mcp())
+            out["list_ttlMs"] = res.get("ttlMs"); out["list_cacheScope"] = res.get("cacheScope")
+            for r in res["resources"]:
+                try:
+                    body = wire(await c.read_resource_mcp(r["uri"]))["contents"][0]["text"]
+                    out[r["uri"]] = [r.get("size"), len(body.encode())]
+                except Exception as e:
+                    out[r["uri"]] = [r.get("size"), f"read failed: {type(e).__name__}"]
+    except Exception as e:
+        out["list_failed"] = f"{type(e).__name__}: {str(e)[:200]}"
+    print(json.dumps(out))
+asyncio.run(main())

@@ -1,0 +1,2 @@
+known positive (Everett summary, one is_error: true) -> ['police-incidents: What were the most common incident types in September 2026?: is_error']
+king county summary.json -> ['no examples'] {'exit_code': 0, 'examples': [], 'stderr_tail': ''}

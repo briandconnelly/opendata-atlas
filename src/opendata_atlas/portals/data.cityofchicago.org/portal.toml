@@ -1,0 +1,18 @@
+id = "data.cityofchicago.org"
+aliases = ["chicago"]
+public_host = "data.cityofchicago.org"
+catalog_region = "us"
+name = "City of Chicago"
+place_names = ["Chicago", "Chicago, IL"]
+timezone = "America/Chicago"
+platform = "socrata"
+status = "active"
+tier = "curated"
+
+[catalog_query]
+domains = "data.cityofchicago.org"
+
+[jurisdiction]
+level = "city"
+country = "US"
+region = "IL"

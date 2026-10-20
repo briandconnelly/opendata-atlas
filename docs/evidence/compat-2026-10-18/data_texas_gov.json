@@ -1,0 +1,2469 @@
+{
+ "portal": "data.texas.gov",
+ "steps": {
+  "search": {
+   "outcome": "ok",
+   "kind": "ok",
+   "via": "query",
+   "queryable_results": 8
+  },
+  "describe": {
+   "outcome": "ok",
+   "kind": "ok",
+   "columns": 19,
+   "row_count": 891754
+  },
+  "query_p1": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 15,
+   "truncated": false
+  },
+  "query_p2": {
+   "outcome": "ok",
+   "kind": "ok",
+   "rows": 15
+  },
+  "forced_no_such_column": {
+   "outcome": "ok",
+   "kind": "ok"
+  }
+ },
+ "attempts": [
+  {
+   "result": 1,
+   "dataset_id": "jrea-zgmq",
+   "left_because": null
+  }
+ ],
+ "exchanges": [
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.texas.gov&limit=3&offset=0&q=permits&only=federated_href%2Chref",
+   "status": 200,
+   "body": {
+    "results": [],
+    "resultSetSize": 0,
+    "timings": {
+     "serviceMillis": 14,
+     "searchMillis": [
+      3,
+      4
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "search",
+   "url": "https://api.us.socrata.com/api/catalog/v1?domains=data.texas.gov&limit=10&offset=0&q=permits&only=dataset%2Cfilter%2Cmap%2Cchart",
+   "status": 200,
+   "body": {
+    "results": [
+     {
+      "resource": {
+       "name": "Active Sales Tax Permit Holders",
+       "id": "jrea-zgmq",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This file contains a list of taxpayers who hold an active sales tax permit under Tax Code Chapter 151, Subchapter F.  The file includes taxpayer and outlet information.\r\n\r\nSee https://comptroller.texas.gov/about/policies/privacy.php for more information on our agency’s privacy and security policies",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T10:31:10.000Z",
+       "createdAt": "2017-06-09T16:43:23.000Z",
+       "metadata_updated_at": "2026-06-29T19:30:03.000Z",
+       "data_updated_at": "2026-10-17T10:31:10.000Z",
+       "page_views": {
+        "page_views_last_week": 1921,
+        "page_views_last_month": 8220,
+        "page_views_total": 155790,
+        "page_views_last_week_log": 10.908392620773752,
+        "page_views_last_month_log": 13.005098178239708,
+        "page_views_total_log": 17.2492523661778
+       },
+       "columns_name": [
+        "Outlet Permit Issue Date",
+        "Outlet First Sales Date",
+        "Outlet NAICS Code",
+        "Outlet Address",
+        "Outlet Name",
+        "Taxpayer County Code",
+        "Taxpayer Zip Code",
+        "Taxpayer City",
+        "Taxpayer Number",
+        "Outlet Inside/Outside City Limits Indicator",
+        "Outlet Zip Code",
+        "Taxpayer Organization Type",
+        "Taxpayer Address",
+        "Outlet Number",
+        "Outlet County Code",
+        "Outlet City",
+        "Taxpayer State",
+        "Taxpayer Name",
+        "Outlet State"
+       ],
+       "columns_field_name": [
+        "outlet_permit_issue_date",
+        "outlet_first_sales_date",
+        "outlet_naics_code",
+        "outlet_address",
+        "outlet_name",
+        "taxpayer_county_code",
+        "taxpayer_zip_code",
+        "taxpayer_city",
+        "taxpayer_number",
+        "outlet_inside_outside_city_limits_indicator",
+        "outlet_zip_code",
+        "taxpayer_organization_type",
+        "taxpayer_address",
+        "outlet_number",
+        "outlet_county_code",
+        "outlet_city",
+        "taxpayer_state",
+        "taxpayer_name",
+        "outlet_state"
+       ],
+       "columns_datatype": [
+        "Calendar date",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Date the sales tax permit was issued for the outlet.",
+        "Date the sales tax permit was first liable for reporting sales tax receipts.",
+        "North American Industry Classification Code (see federal website for definitions).",
+        "Physical address of the taxpayer’s business.",
+        "Name of taxpayer's business.",
+        "Identification code of taxpayer's county.",
+        "Zip of taxpayer.",
+        "City of taxpayer.",
+        "A unique number used to identify the taxpayer.",
+        "Whether the outlet is inside or outside of city limits (N/Y).",
+        "Zip code of the taxpayer’s business.",
+        "See record layout for various code definitions.",
+        "Address of taxpayer.",
+        "Combined with taxpayer number, a unique number to identify the outlet.",
+        "Identification code of the county twhere the taxpayer's business is located.",
+        "City of the taxpayer’s business.",
+        "State of taxpayer.",
+        "Name of taxpayer.",
+        "State of the taxpayer’s business."
+       ],
+       "columns_format": [
+        {
+         "view": "date",
+         "align": "left"
+        },
+        {
+         "view": "date",
+         "align": "left"
+        },
+        {
+         "precisionStyle": "standard",
+         "noCommas": "true",
+         "align": "right"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        },
+        {
+         "displayStyle": "plain",
+         "align": "left"
+        }
+       ],
+       "download_count": 325265,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2018-11-08T20:13:42.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Government and Taxes",
+       "domain_tags": [
+        "permit holders",
+        "sales tax"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/jrea-zgmq",
+      "link": "https://data.texas.gov/Government-and-Taxes/Active-Sales-Tax-Permit-Holders/jrea-zgmq",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Collin CAD Building Permits",
+       "id": "82ee-gbj5",
+       "resource_name": "BuildingPermits",
+       "parent_fxf": [],
+       "description": "Collin CAD Building Permits data issued in the most recent three years",
+       "attribution": "Collin Central Appraisal District",
+       "attribution_link": "https://CollinCAD.org",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-18T12:08:29.000Z",
+       "createdAt": "2024-11-05T21:17:33.000Z",
+       "metadata_updated_at": "2026-10-18T12:07:05.000Z",
+       "data_updated_at": "2026-10-18T12:08:29.000Z",
+       "page_views": {
+        "page_views_last_week": 223,
+        "page_views_last_month": 1295,
+        "page_views_total": 15228,
+        "page_views_last_week_log": 7.807354922057604,
+        "page_views_last_month_log": 10.339850002884624,
+        "page_views_total_log": 13.894533591078755
+       },
+       "columns_name": [
+        "situsConcat",
+        "propAbsSubName",
+        "situsUnit",
+        "propAbsSubLot",
+        "propOwnerName",
+        "permitBuilderName",
+        "permitNum",
+        "situsCity",
+        "propLegalDescr",
+        "permitTypeDescr",
+        "permitBldgArea",
+        "permitIssuedBy",
+        "permitIssuedTo",
+        "situsStreetSuffix",
+        "permitTypeCode",
+        "permitSubTypeDescr",
+        "propAbsSubBlock",
+        "situsZip",
+        "situsStreetName",
+        "situsBldgNum",
+        "propMainArea",
+        "propID",
+        "permitValue",
+        "permitID",
+        "permitIssuedDate",
+        "permitSubTypeCode",
+        "dataDate",
+        "situsStreetPrefix",
+        "propResCom",
+        "permitComments",
+        "situsConcatShort"
+       ],
+       "columns_field_name": [
+        "situsconcat",
+        "propabssubname",
+        "situsunit",
+        "propabssublot",
+        "propownername",
+        "permitbuildername",
+        "permitnum",
+        "situscity",
+        "proplegaldescr",
+        "permittypedescr",
+        "permitbldgarea",
+        "permitissuedby",
+        "permitissuedto",
+        "situsstreetsuffix",
+        "permittypecode",
+        "permitsubtypedescr",
+        "propabssubblock",
+        "situszip",
+        "situsstreetname",
+        "situsbldgnum",
+        "propmainarea",
+        "propid",
+        "permitvalue",
+        "permitid",
+        "permitissueddate",
+        "permitsubtypecode",
+        "datadate",
+        "situsstreetprefix",
+        "proprescom",
+        "permitcomments",
+        "situsconcatshort"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Number",
+        "Number",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Situs Address Concatenated",
+        "Property Legal Abstract/Subdivision Name",
+        "Situs Address Unit",
+        "Property Legal Lot/Tract",
+        "Property Current Owner Name",
+        "Permit Builder Name",
+        "Permit Number (assigned by issuer)",
+        "Situs Address City",
+        "Property Legal Description",
+        "Permit Type Description",
+        "Permit Building Area",
+        "Permit Issued By",
+        "Permit Issued To",
+        "Situs Address Street Suffix",
+        "Permit Type Code",
+        "Permit Sub Type Description",
+        "Property Legal Abstract/Subdivision Block",
+        "Situs Address ZipCode",
+        "Situs Address Street Name",
+        "Situs Address Building Number",
+        "Property Current Building Main Area Size",
+        "Property ID",
+        "Permit Value",
+        "Permit ID",
+        "Permit Issue Date",
+        "Permit Sub Type Code",
+        "Data As-Of Date",
+        "Situs Address Street Prefix",
+        "Property Residential/Commercial Indicator",
+        "Permit Comments/Notes",
+        "Situs Address Concatenated (no city, state, zip)"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true",
+         "precision": "0"
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "noCommas": "true",
+         "precision": "0"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "precisionStyle": "standard",
+         "decimalSeparator": ".",
+         "noCommas": "true",
+         "precision": "0"
+        },
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 77189,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2024-11-05T21:35:47.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "ccad",
+        "permits",
+        "collin county",
+        "collin cad"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Collin Central Appraisal District"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Publishing-Information_Update-Frequency",
+         "value": "Daily"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov"
+      },
+      "permalink": "https://data.texas.gov/d/82ee-gbj5",
+      "link": "https://data.texas.gov/dataset/Collin-CAD-Building-Permits/82ee-gbj5",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Tax Assessor-Collector Licenses/Permits Issued",
+       "id": "yqpn-9vyh",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "",
+       "attribution": "Texas Alcoholic Beverage Commission",
+       "attribution_link": "https://www.tabc.texas.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-08T12:04:06.000Z",
+       "createdAt": "2020-07-15T13:30:59.000Z",
+       "metadata_updated_at": "2026-09-15T19:27:23.000Z",
+       "data_updated_at": "2026-10-08T12:04:06.000Z",
+       "page_views": {
+        "page_views_last_week": 48,
+        "page_views_last_month": 266,
+        "page_views_total": 7819,
+        "page_views_last_week_log": 5.614709844115208,
+        "page_views_last_month_log": 8.060695931687555,
+        "page_views_total_log": 12.932952892194715
+       },
+       "columns_name": [
+        "RankPrimary_AIMS",
+        "issue_date",
+        "mail_desc",
+        "enforcement_code",
+        "tac",
+        "LicPrimary_AIMS",
+        "Id",
+        "begin_date",
+        "year",
+        "month_name",
+        "clp",
+        "clp_primary",
+        "liquor_beer",
+        "orig_renew_code",
+        "original_license_date",
+        "print_date",
+        "expiration_date",
+        "trade_name",
+        "person_corp_name",
+        "person_corp_name2",
+        "location_city",
+        "location_desc",
+        "location_desc2",
+        "location_street",
+        "location_zip",
+        "location_str_no",
+        "LicNumber_AIMS",
+        "Rank_AIMS",
+        "late_fee",
+        "permit_fee",
+        "county_code",
+        "city_code",
+        "county_name",
+        "mail_street",
+        "location_state",
+        "temp_receipt_no",
+        "trade_name2",
+        "month_num",
+        "trade_name3",
+        "mail_state",
+        "mail_city",
+        "mail_zip",
+        "audit_code",
+        "surcharge1"
+       ],
+       "columns_field_name": [
+        "rankprimary_aims",
+        "issue_date",
+        "mail_desc",
+        "enforcement_code",
+        "tac",
+        "licprimary_aims",
+        "id",
+        "begin_date",
+        "year",
+        "month_name",
+        "clp",
+        "clp_primary",
+        "liquor_beer",
+        "orig_renew_code",
+        "original_license_date",
+        "print_date",
+        "expiration_date",
+        "trade_name",
+        "person_corp_name",
+        "person_corp_name2",
+        "location_city",
+        "location_desc",
+        "location_desc2",
+        "location_street",
+        "location_zip",
+        "location_str_no",
+        "licnumber_aims",
+        "rank_aims",
+        "late_fee",
+        "permit_fee",
+        "county_code",
+        "city_code",
+        "county_name",
+        "mail_street",
+        "location_state",
+        "temp_receipt_no",
+        "trade_name2",
+        "month_num",
+        "trade_name3",
+        "mail_state",
+        "mail_city",
+        "mail_zip",
+        "audit_code",
+        "surcharge1"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Calendar date",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Calendar date",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Number"
+       ],
+       "columns_description": [
+        "",
+        "Current/last issue date of license/permit (MM/DD/YYYY)",
+        "Additional mailing address information",
+        "Enforcement district in which establishment is located",
+        "Indicator equal to \"TAC\" when city or county can levy a local fee on a permit",
+        "",
+        "Unique identifier",
+        "Date of Report",
+        "Date of Report",
+        "Month Name of Report",
+        "Class and number of license/permit",
+        "Class and number of primary license/permit",
+        "Liquor or beer indicator",
+        "License/Permit last issued as original, renewal or reissue",
+        "Date the license/permit was first issued (MM/DD/YYYY)",
+        "Date license/permit was printed (MM/DD/YYYY)",
+        "Date license/permit no longer active (MM/DD/YYYY)",
+        "Trade name",
+        "Name of person/corporation related to license/permit",
+        "Additional name of person/corporation related to license/permit",
+        "City (or nearest city) where establishment is located",
+        "Additional location address information",
+        "Additional location address information",
+        "Street name where establishment is located",
+        "Zip code where establishment is located",
+        "Street Number where establishment is located",
+        "",
+        "",
+        "Fee assessed when renewal received after expiration date",
+        "Actual fee paid by permittee for a license or permit",
+        "Code for audit district",
+        "Code assigned to all cities which allow liquor to be sold by the drink",
+        "Name of county where establishment is located",
+        "Street address where permittee receives mail",
+        "State where establishment is located",
+        "Number identifying temporary receipt form",
+        "Additional trade name",
+        "Month Number of Report",
+        "Additional trade name",
+        "State where permittee receives mail",
+        "City where permittee receives mail",
+        "Zip code where permittee receives mail",
+        "Code for audit district",
+        "Additional fee"
+       ],
+       "columns_format": [
+        {},
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {
+         "noCommas": "true"
+        },
+        {
+         "view": "date"
+        },
+        {
+         "noCommas": "true"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "view": "date"
+        },
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "currency"
+        },
+        {
+         "precisionStyle": "currency"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "precisionStyle": "currency"
+        }
+       ],
+       "download_count": 17730,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2021-10-08T22:05:17.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "tabc",
+        "texas alcoholic beverage commission",
+        "licenses/permits issued",
+        "alcohol",
+        "tax assessor-collector information"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Alcoholic Beverage Commission"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Publishing-Information_Update-Frequency",
+         "value": "Monthly"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov"
+      },
+      "permalink": "https://data.texas.gov/d/yqpn-9vyh",
+      "link": "https://data.texas.gov/dataset/Tax-Assessor-Collector-Licenses-Permits-Issued/yqpn-9vyh",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Direct Pay Taxpayers with Active Permits",
+       "id": "deed-e7u6",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This file contains a list of entities that have an active direct payment permit for paying Texas sales and use taxes.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T10:48:35.000Z",
+       "createdAt": "2018-08-24T13:27:23.000Z",
+       "metadata_updated_at": "2026-06-29T19:03:45.000Z",
+       "data_updated_at": "2026-10-17T10:48:35.000Z",
+       "page_views": {
+        "page_views_last_week": 53,
+        "page_views_last_month": 210,
+        "page_views_total": 7486,
+        "page_views_last_week_log": 5.754887502163469,
+        "page_views_last_month_log": 7.721099188707186,
+        "page_views_total_log": 12.870172039110212
+       },
+       "columns_name": [
+        "Business Type",
+        "State",
+        "Zip Code",
+        "Taxpayer Number",
+        "City",
+        "County",
+        "NAICS Code",
+        "Begin Date",
+        "Name",
+        "Address"
+       ],
+       "columns_field_name": [
+        "business_type",
+        "state",
+        "zip",
+        "id",
+        "city",
+        "county",
+        "naics_code",
+        "responsibility_begin_date",
+        "name",
+        "address"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Business type of taxpayer",
+        "State of taxpayer",
+        "Zip code of taxpayer",
+        "A unique number to identify the taxpayer.",
+        "City of taxpayer",
+        "County of taxpayer",
+        "NAICS Code of taxpayer",
+        "Date taxpayer became active direct pay taxpayer",
+        "Name of taxpayer",
+        "Address of taxpayer"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {},
+        {}
+       ],
+       "download_count": 6838,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-08-31T13:13:59.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/deed-e7u6",
+      "link": "https://data.texas.gov/dataset/Direct-Pay-Taxpayers-with-Active-Permits/deed-e7u6",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Hotel Tax Permits",
+       "id": "hdzd-884n",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The file contains a list of taxpayers who hold an active hotel permit under Tax Code Chapter 156, HOTEL OCCUPANCY TAX. The file includes taxpayer and outlet information.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T10:42:21.000Z",
+       "createdAt": "2026-04-27T14:28:21.000Z",
+       "metadata_updated_at": "2026-05-28T18:55:49.000Z",
+       "data_updated_at": "2026-10-17T10:42:21.000Z",
+       "page_views": {
+        "page_views_last_week": 108,
+        "page_views_last_month": 520,
+        "page_views_total": 1291,
+        "page_views_last_week_log": 6.768184324776926,
+        "page_views_last_month_log": 9.02513956227851,
+        "page_views_total_log": 10.335390354693926
+       },
+       "columns_name": [
+        "Location Zip Code",
+        "Location Number",
+        "Location County",
+        "Location Name",
+        "Location City",
+        "Out of Business Date",
+        "Taxpayer Number",
+        "Location Jurisdiction",
+        "Local City Annexation",
+        "Location ZIP +4",
+        "Responsibility Begin Date",
+        "Location Address Text",
+        "NAICS Code",
+        "Location Address Number",
+        "Location State"
+       ],
+       "columns_field_name": [
+        "loc_zip",
+        "loc_number",
+        "loc_county",
+        "loc_name",
+        "loc_city",
+        "out_of_business_date",
+        "tp_number",
+        "loc_juris",
+        "loc_city_annex",
+        "loc_zip4",
+        "resp_begin_date",
+        "address_text",
+        "naics",
+        "address_number",
+        "loc_state"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "The location's 5 digit zip code",
+        "Combined with taxpayer number, a unique number to identify the location",
+        "The location's county",
+        "The location's name",
+        "The location's city",
+        "Date the location stopped doing business",
+        "A unique account number which is used to identify the taxpayer's account",
+        "Y = Inside city limits; N = Outside city limits",
+        "Date city annexation became effective",
+        "The location's 4 digit zip +4 code.",
+        "Date the location opened hotel permit",
+        "Location address text",
+        "North American Industry Classification System code to identify type of business",
+        "Location address number",
+        "The location's state"
+       ],
+       "columns_format": [
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "view": "date"
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {}
+       ],
+       "download_count": 264,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-04-27T14:53:46.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Business and Economy"
+        },
+        {
+         "key": "Publishing-Information_Update-Frequency",
+         "value": "Monthly"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/hdzd-884n",
+      "link": "https://data.texas.gov/dataset/Hotel-Tax-Permits/hdzd-884n",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Maquiladora Export-Permitted Taxpayers",
+       "id": "meud-pnzp",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This file contains a list of maquiladora enterprises that currently hold an active maquiladora export permit.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-15T11:24:46.000Z",
+       "createdAt": "2018-08-24T13:39:21.000Z",
+       "metadata_updated_at": "2026-06-29T19:30:22.000Z",
+       "data_updated_at": "2026-10-15T11:24:46.000Z",
+       "page_views": {
+        "page_views_last_week": 12,
+        "page_views_last_month": 62,
+        "page_views_total": 2218,
+        "page_views_last_week_log": 3.700439718141092,
+        "page_views_last_month_log": 5.977279923499917,
+        "page_views_total_log": 11.115693952197011
+       },
+       "columns_name": [
+        "Name",
+        "Taxpayer Number",
+        "Address",
+        "State",
+        "Zip Code",
+        "City"
+       ],
+       "columns_field_name": [
+        "name",
+        "id",
+        "address",
+        "state",
+        "zip",
+        "city"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "Name of taxpayer",
+        "A unique number to identify the taxpayer.",
+        "Address of taxpayer",
+        "State of taxpayer",
+        "Zip code of taxpayer",
+        "City of taxpayer"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 4647,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-08-10T14:34:46.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "See Category Tile",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/meud-pnzp",
+      "link": "https://data.texas.gov/See-Category-Tile/Maquiladora-Export-Permitted-Taxpayers/meud-pnzp",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Mixed Beverage Tax Permits",
+       "id": "8f4g-cpk9",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "The file contains a list of taxpayers who hold an active mixed beverage permit under Tax Code Chapter 183, MIXED BEVERAGE TAXES, Subsection B. The file includes taxpayer and outlet information.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-17T10:36:43.000Z",
+       "createdAt": "2026-04-27T14:58:24.000Z",
+       "metadata_updated_at": "2026-05-28T19:44:46.000Z",
+       "data_updated_at": "2026-10-17T10:36:43.000Z",
+       "page_views": {
+        "page_views_last_week": 90,
+        "page_views_last_month": 311,
+        "page_views_total": 959,
+        "page_views_last_week_log": 6.507794640198696,
+        "page_views_last_month_log": 8.285402218862249,
+        "page_views_total_log": 9.90689059560852
+       },
+       "columns_name": [
+        "Location Address Text",
+        "Location Jurisdiction",
+        "Location State",
+        "Location Number",
+        "Location City",
+        "Taxpayer Number",
+        "Location Name",
+        "Location ZIP +4",
+        "Out of Business Date",
+        "Local City Annexation",
+        "NAICS Code",
+        "Location County",
+        "TABC Permit No.",
+        "Location Address Number",
+        "Responsibility Begin Date",
+        "Location Zip Code",
+        "Sales"
+       ],
+       "columns_field_name": [
+        "address_text",
+        "loc_juris",
+        "loc_state",
+        "loc_number",
+        "loc_city",
+        "tp_number",
+        "loc_name",
+        "loc_zip4",
+        "out_of_business_date",
+        "loc_city_annex",
+        "naics",
+        "loc_county",
+        "tabc_permit_number",
+        "address_number",
+        "resp_begin_date",
+        "loc_zip",
+        "sales_tax_location"
+       ],
+       "columns_datatype": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "The location's street name",
+        "Y = Inside city limits; N = Outside city limits",
+        "The location's state",
+        "Combined with taxpayer number, a unique number to identify the location",
+        "The location's city",
+        "A unique account number which is used to identify the taxpayer's account",
+        "The location's name",
+        "The location's 4 digit zip +4 code",
+        "Date the location stopped doing business",
+        "Date city annexation became effective",
+        "North American Industry Classification System code to identify type of business",
+        "The location's county",
+        "Texas Alcoholic Beverage Commission (TABC) permit number associated with taxpayer",
+        "The location's street number",
+        "Date the location opened mixed beverage permit",
+        "The location's 5 digit zip code",
+        "Indicates if there is a sales tax permit associated with mixed beverage permit"
+       ],
+       "columns_format": [
+        {},
+        {},
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "view": "date"
+        },
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {},
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {
+         "view": "date"
+        },
+        {
+         "decimalSeparator": ".",
+         "groupSeparator": ","
+        },
+        {}
+       ],
+       "download_count": 162,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2026-04-27T15:09:09.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Business and Economy"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/8f4g-cpk9",
+      "link": "https://data.texas.gov/dataset/Mixed-Beverage-Tax-Permits/8f4g-cpk9",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "All Permitted Sales Tax Locations and Local Sales Tax Responsibility",
+       "id": "3kx8-uryv",
+       "resource_name": null,
+       "parent_fxf": [],
+       "description": "This file includes all sales tax outlets, and local tax responsibility, in Texas which have been active during the last four years. Inactive outlets will include an Out-of-Business date.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "dataset",
+       "updatedAt": "2026-10-12T15:54:06.000Z",
+       "createdAt": "2018-10-25T14:35:39.000Z",
+       "metadata_updated_at": "2026-06-29T18:58:34.000Z",
+       "data_updated_at": "2026-10-12T15:54:06.000Z",
+       "page_views": {
+        "page_views_last_week": 421,
+        "page_views_last_month": 1527,
+        "page_views_total": 32414,
+        "page_views_last_week_log": 8.721099188707186,
+        "page_views_last_month_log": 10.57742882803575,
+        "page_views_total_log": 14.984373952468026
+       },
+       "columns_name": [
+        "Permit Date",
+        "Jurisdiction City",
+        "Postal City",
+        "Location State",
+        "Location Zip Code",
+        "Location ZIP +4",
+        "Location County",
+        "NAICS Code",
+        "Inside/Outside City limits",
+        "Taxpayer Address",
+        "Taxpayer Number",
+        "Taxpayer City",
+        "Taxpayer County",
+        "Taxpayer ZIP +4",
+        "Taxpayer Zip Code",
+        "Taxpayer State",
+        "Out of Business Date",
+        "First Sales Date",
+        "Unique Authority ID",
+        "SPD 4 Authority ID",
+        "SPD 3 Authority ID",
+        "SPD 2 Authority ID",
+        "Organization Type",
+        "SPD 1 Authority ID",
+        "County Authority ID ",
+        "Mass Transit Authority 2 ID",
+        "Mass Transit Authority 1 ID",
+        "City Tax Authority ID",
+        "Taxpayer Name",
+        "Location Number",
+        "Location Name",
+        "Location Address Number",
+        "Location Address Text"
+       ],
+       "columns_field_name": [
+        "permit_date",
+        "juris_city",
+        "loc_city",
+        "loc_state",
+        "loc_zip",
+        "loc_zip4",
+        "loc_county",
+        "naics",
+        "loc_juris",
+        "tp_address",
+        "tp_number",
+        "tp_city",
+        "tp_county",
+        "tp_zip4",
+        "tp_zip",
+        "tp_state",
+        "out_of_business_date",
+        "first_sale_date",
+        "unique_taid",
+        "special_purp_dist4_taid",
+        "special_purp_dist3_taid",
+        "special_purp_dist2_taid",
+        "org_type",
+        "special_purp_dist1_taid",
+        "county_taid",
+        "mass_transit_auth2_taid",
+        "mass_transit_auth1_taid",
+        "city_taid",
+        "tp_name",
+        "loc_number",
+        "loc_name",
+        "address_number",
+        "address_text"
+       ],
+       "columns_datatype": [
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Calendar date",
+        "Calendar date",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+       ],
+       "columns_description": [
+        "The date the permit was issued.",
+        "The city associated with the location’s physical address.",
+        "The city associated with the location’s postal address.",
+        "The location's state.",
+        "The location's 5 digit zip code.",
+        "The location's 4 digit zip +4 code.",
+        "The location's county.",
+        "North American Industry Classification System code to identify type of business.",
+        "Y = Inside city limits; N = Outside city limits",
+        "Street number and name or Post Office Box used for mailing purposes.",
+        "A unique account number which is used to identify the taxpayer's account.",
+        "City name used for mailing purposes, i.e. postal city.",
+        "County code for mailing purposes. Only Texas counties will have a code listed.",
+        "Four digit code used for mailing purposes.",
+        "Five digit Zip Code used for mailing purposes.",
+        "State abbreviation used for mailing purposes, i.e. state.",
+        "Date the location stopped doing business.",
+        "Date the location started doing business.",
+        "Unique tax authority code if the location is inside a unique \"combined\" area of taxing city",
+        "Unique tax authority code if the location is inside a 4th taxing special purpose district",
+        "Unique tax authority code if the location is inside a 3rd taxing special purpose district",
+        "Unique tax authority code if the location is inside a 2nd taxing special purpose district.",
+        "Two character code used to identify type of entity.",
+        "Unique tax authority code if the location is inside a taxing special purpose district.",
+        "Unique tax authority code if the location is inside a taxing county",
+        "Unique tax authority code if the location is inside a 2nd transit authority.",
+        "Unique tax authority code if the location is inside a transit authority.",
+        "Unique tax authority code if the location is inside city limits.",
+        "Taxpayer's registered name on the account.",
+        "Combined with taxpayer number, a unique number to identify the location.",
+        "The location's name.",
+        "The location's street number.",
+        "The location's street name."
+       ],
+       "columns_format": [
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+         "view": "date"
+        },
+        {
+         "view": "date"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+       ],
+       "download_count": 237951,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "table",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2023-08-23T21:20:40.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_tags": [
+        "permit holders",
+        "sales tax",
+        "permit"
+       ],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/3kx8-uryv",
+      "link": "https://data.texas.gov/dataset/All-Permitted-Sales-Tax-Locations-and-Local-Sales-/3kx8-uryv",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "Active Sales Tax Permit Holders  -Map",
+       "id": "buhz-urp6",
+       "resource_name": null,
+       "parent_fxf": [
+        "jrea-zgmq"
+       ],
+       "description": "This file contains a list of taxpayers who hold an active sales tax permit under Tax Code Chapter 151, Subchapter F.  The file includes taxpayer and outlet information.\r\n\r\nSee https://comptroller.texas.gov/about/policies/privacy.php for more information on our agency’s privacy and security policies",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov",
+       "contact_email": "<identity redacted>",
+       "type": "map",
+       "updatedAt": "2026-10-17T10:31:10.000Z",
+       "createdAt": "2018-10-25T15:10:12.000Z",
+       "metadata_updated_at": "2026-06-29T19:30:13.000Z",
+       "data_updated_at": "2026-10-17T10:31:10.000Z",
+       "page_views": {
+        "page_views_last_week": 33,
+        "page_views_last_month": 557,
+        "page_views_total": 3211,
+        "page_views_last_week_log": 5.08746284125034,
+        "page_views_last_month_log": 9.124121311829187,
+        "page_views_total_log": 11.649256177517316
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 27,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_map",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2019-11-08T15:56:26.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Government and Taxes",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/buhz-urp6",
+      "link": "https://data.texas.gov/Government-and-Taxes/Active-Sales-Tax-Permit-Holders-Map/buhz-urp6",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     },
+     {
+      "resource": {
+       "name": "All Permitted Sales Tax Locations / by City",
+       "id": "fuxr-itbn",
+       "resource_name": null,
+       "parent_fxf": [
+        "3kx8-uryv"
+       ],
+       "description": "This file includes all sales tax outlets, and local tax responsibility, in Texas which have been active during the last four years. Inactive outlets will include an Out-of-Business date.",
+       "attribution": "Texas Comptroller of Public Accounts",
+       "attribution_link": "https://comptroller.texas.gov/",
+       "contact_email": "<identity redacted>",
+       "type": "chart",
+       "updatedAt": "2026-10-12T15:54:06.000Z",
+       "createdAt": "2019-11-08T17:29:10.000Z",
+       "metadata_updated_at": "2026-06-29T18:52:45.000Z",
+       "data_updated_at": "2026-10-12T15:54:06.000Z",
+       "page_views": {
+        "page_views_last_week": 48,
+        "page_views_last_month": 237,
+        "page_views_total": 2370,
+        "page_views_last_week_log": 5.614709844115208,
+        "page_views_last_month_log": 7.894817763307945,
+        "page_views_total_log": 11.211279947482009
+       },
+       "columns_name": [],
+       "columns_field_name": [],
+       "columns_datatype": [],
+       "columns_description": [],
+       "columns_format": [],
+       "download_count": 17,
+       "provenance": "official",
+       "lens_view_type": "tabular",
+       "lens_display_type": "visualization_canvas_chart",
+       "locked": false,
+       "backend": "nbe",
+       "blob_mime_type": null,
+       "hide_from_data_json": false,
+       "publication_date": "2020-05-26T19:53:22.000Z"
+      },
+      "classification": {
+       "categories": [],
+       "tags": [],
+       "domain_category": "Government and Taxes",
+       "domain_tags": [],
+       "domain_metadata": [
+        {
+         "key": "Microsite_Tags",
+         "value": "Government and Taxes"
+        },
+        {
+         "key": "Microsite_Microsite",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Agency",
+         "value": "Texas Comptroller of Public Accounts"
+        },
+        {
+         "key": "Dataset-Category_Category-Tile",
+         "value": "Government and Taxes"
+        }
+       ]
+      },
+      "metadata": {
+       "domain": "data.texas.gov",
+       "license": "Public Domain"
+      },
+      "permalink": "https://data.texas.gov/d/fuxr-itbn",
+      "link": "https://data.texas.gov/Government-and-Taxes/All-Permitted-Sales-Tax-Locations-by-City/fuxr-itbn",
+      "owner": "<identity redacted>",
+      "creator": "<identity redacted>"
+     }
+    ],
+    "resultSetSize": 134,
+    "timings": {
+     "serviceMillis": 21,
+     "searchMillis": [
+      1,
+      7
+     ]
+    },
+    "warnings": []
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.texas.gov/api/views/jrea-zgmq.json",
+   "status": 200,
+   "body": {
+    "id": "jrea-zgmq",
+    "name": "Active Sales Tax Permit Holders",
+    "assetType": "dataset",
+    "attribution": "Texas Comptroller of Public Accounts",
+    "attributionLink": "https://comptroller.texas.gov",
+    "averageRating": 0,
+    "category": "Government and Taxes",
+    "createdAt": 1497026603,
+    "description": "This file contains a list of taxpayers who hold an active sales tax permit under Tax Code Chapter 151, Subchapter F.  The file includes taxpayer and outlet information.\r\n\r\nSee https://comptroller.texas.gov/about/policies/privacy.php for more information on our agency’s privacy and security policies",
+    "diciBackend": false,
+    "displayType": "table",
+    "downloadCount": 325265,
+    "hideFromCatalog": false,
+    "hideFromDataJson": false,
+    "indexUpdatedAt": 1544054600,
+    "licenseId": "PUBLIC_DOMAIN",
+    "locked": false,
+    "newBackend": true,
+    "numberOfComments": 0,
+    "oid": 30082566,
+    "provenance": "official",
+    "publicationAppendEnabled": false,
+    "publicationDate": 1541708022,
+    "publicationGroup": 14259489,
+    "publicationStage": "published",
+    "rowClass": "",
+    "rowsUpdatedAt": 1792233070,
+    "rowsUpdatedBy": "<identity redacted>",
+    "tableId": 15651485,
+    "totalTimesRated": 0,
+    "viewCount": 155790,
+    "viewLastModified": 1782761403,
+    "viewType": "tabular",
+    "approvals": "<identity redacted>",
+    "clientContext": {
+     "clientContextVariables": [],
+     "inheritedVariables": {}
+    },
+    "columns": [
+     {
+      "id": 382291643,
+      "name": "Taxpayer Number",
+      "dataTypeName": "text",
+      "description": "A unique number used to identify the taxpayer.",
+      "fieldName": "taxpayer_number",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 48780747,
+      "width": 280,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291644,
+      "name": "Taxpayer Name",
+      "dataTypeName": "text",
+      "description": "Name of taxpayer.",
+      "fieldName": "taxpayer_name",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 48780748,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291646,
+      "name": "Taxpayer Address",
+      "dataTypeName": "text",
+      "description": "Address of taxpayer.",
+      "fieldName": "taxpayer_address",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 48780749,
+      "width": 292,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291648,
+      "name": "Taxpayer City",
+      "dataTypeName": "text",
+      "description": "City of taxpayer.",
+      "fieldName": "taxpayer_city",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 48780750,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291649,
+      "name": "Taxpayer State",
+      "dataTypeName": "text",
+      "description": "State of taxpayer.",
+      "fieldName": "taxpayer_state",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 48780751,
+      "width": 268,
+      "cachedContents": {
+       "non_null": "891065",
+       "null": "689",
+       "not_null": "772585",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291651,
+      "name": "Taxpayer Zip Code",
+      "dataTypeName": "text",
+      "description": "Zip of taxpayer.",
+      "fieldName": "taxpayer_zip_code",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 48780752,
+      "width": 304,
+      "cachedContents": {
+       "non_null": "891065",
+       "null": "689",
+       "not_null": "772586",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291652,
+      "name": "Taxpayer County Code",
+      "dataTypeName": "text",
+      "description": "Identification code of taxpayer's county.",
+      "fieldName": "taxpayer_county_code",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 48780753,
+      "width": 340,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291653,
+      "name": "Taxpayer Organization Type",
+      "dataTypeName": "text",
+      "description": "See record layout for various code definitions.",
+      "fieldName": "taxpayer_organization_type",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 48780754,
+      "width": 412,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291654,
+      "name": "Outlet Number",
+      "dataTypeName": "text",
+      "description": "Combined with taxpayer number, a unique number to identify the outlet.",
+      "fieldName": "outlet_number",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 48780755,
+      "width": 256,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291655,
+      "name": "Outlet Name",
+      "dataTypeName": "text",
+      "description": "Name of taxpayer's business.",
+      "fieldName": "outlet_name",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 48780756,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773137",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291656,
+      "name": "Outlet Address",
+      "dataTypeName": "text",
+      "description": "Physical address of the taxpayer’s business.",
+      "fieldName": "outlet_address",
+      "position": 11,
+      "renderTypeName": "text",
+      "tableColumnId": 48780757,
+      "width": 268,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773136",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291657,
+      "name": "Outlet City",
+      "dataTypeName": "text",
+      "description": "City of the taxpayer’s business.",
+      "fieldName": "outlet_city",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 48780758,
+      "width": 232,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773136",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291658,
+      "name": "Outlet State",
+      "dataTypeName": "text",
+      "description": "State of the taxpayer’s business.",
+      "fieldName": "outlet_state",
+      "position": 13,
+      "renderTypeName": "text",
+      "tableColumnId": 48780759,
+      "width": 244,
+      "cachedContents": {
+       "non_null": "891753",
+       "null": "1",
+       "not_null": "773137",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291659,
+      "name": "Outlet Zip Code",
+      "dataTypeName": "text",
+      "description": "Zip code of the taxpayer’s business.",
+      "fieldName": "outlet_zip_code",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 48780760,
+      "width": 280,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291660,
+      "name": "Outlet County Code",
+      "dataTypeName": "text",
+      "description": "Identification code of the county twhere the taxpayer's business is located.",
+      "fieldName": "outlet_county_code",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 48780761,
+      "width": 316,
+      "cachedContents": {
+       "non_null": "891750",
+       "null": "4",
+       "not_null": "773131",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291661,
+      "name": "Outlet NAICS Code",
+      "dataTypeName": "number",
+      "description": "North American Industry Classification Code (see federal website for definitions).",
+      "fieldName": "outlet_naics_code",
+      "position": 16,
+      "renderTypeName": "number",
+      "tableColumnId": 48780762,
+      "width": 304,
+      "cachedContents": {
+       "non_null": "891702",
+       "null": "52",
+       "not_null": "773047",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "precisionStyle": "standard",
+       "noCommas": "true",
+       "align": "right"
+      }
+     },
+     {
+      "id": 382291670,
+      "name": "Outlet Inside/Outside City Limits Indicator",
+      "dataTypeName": "text",
+      "description": "Whether the outlet is inside or outside of city limits (N/Y).",
+      "fieldName": "outlet_inside_outside_city_limits_indicator",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 48780763,
+      "width": 616,
+      "cachedContents": {
+       "non_null": "891738",
+       "null": "16",
+       "not_null": "773137",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "displayStyle": "plain",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291688,
+      "name": "Outlet Permit Issue Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date the sales tax permit was issued for the outlet.",
+      "fieldName": "outlet_permit_issue_date",
+      "position": 18,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 48780764,
+      "width": 388,
+      "cachedContents": {
+       "non_null": "890381",
+       "null": "1373",
+       "not_null": "771322",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     },
+     {
+      "id": 382291689,
+      "name": "Outlet First Sales Date",
+      "dataTypeName": "calendar_date",
+      "description": "Date the sales tax permit was first liable for reporting sales tax receipts.",
+      "fieldName": "outlet_first_sales_date",
+      "position": 19,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 48780765,
+      "width": 376,
+      "cachedContents": {
+       "non_null": "891754",
+       "null": "0",
+       "not_null": "773138",
+       "count": "891754",
+       "cardinality": "891754"
+      },
+      "format": {
+       "view": "date",
+       "align": "left"
+      }
+     }
+    ],
+    "grants": "<identity redacted>",
+    "license": {
+     "name": "Public Domain"
+    },
+    "metadata": {
+     "rdfSubject": "0",
+     "rdfClass": "",
+     "attachments": [
+      {
+       "filename": "Active Sales Tax Permit Record Layout.pdf",
+       "assetId": "c1cf06f3-4a69-4489-b1c7-84de30a269d8",
+       "name": "Active Sales Tax Permit Record Layout.pdf"
+      }
+     ],
+     "custom_fields": {
+      "Dataset Category": {
+       "Agency": "Texas Comptroller of Public Accounts",
+       "Category Tile": "Government and Taxes"
+      },
+      "Microsite": {
+       "Tags": "Government and Taxes",
+       "Microsite": "Texas Comptroller of Public Accounts"
+      }
+     },
+     "rowLabel": "",
+     "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+     ],
+     "renderTypeConfig": {
+      "visible": {
+       "table": true
+      }
+     }
+    },
+    "owner": "<identity redacted>",
+    "query": {},
+    "rights": [
+     "read"
+    ],
+    "tableAuthor": "<identity redacted>",
+    "tags": [
+     "sales tax",
+     "permit holders"
+    ],
+    "flags": [
+     "default",
+     "ownerMayBeContacted",
+     "restorable",
+     "restorePossibleForType"
+    ]
+   }
+  },
+  {
+   "step": "describe",
+   "url": "https://data.texas.gov/resource/jrea-zgmq.json?%24select=count%28%2A%29+AS+n",
+   "status": 200,
+   "body": [
+    {
+     "n": "891754"
+    }
+   ]
+  },
+  {
+   "step": "describe",
+   "url": "https://data.texas.gov/resource/jrea-zgmq.json?%24select=min%28outlet_permit_issue_date%29+AS+lo%2C+max%28outlet_permit_issue_date%29+AS+hi",
+   "status": 200,
+   "body": [
+    {
+     "lo": "1962-09-06T00:00:00.000",
+     "hi": "2026-10-17T00:00:00.000"
+    }
+   ]
+  },
+  {
+   "step": "query_p1",
+   "url": "https://data.texas.gov/resource/jrea-zgmq.json?%24select=taxpayer_number%2C+taxpayer_name%2C+taxpayer_address%2C+taxpayer_city%2C+taxpayer_state%2C+taxpayer_zip_code%2C+taxpayer_county_code%2C+taxpayer_organization_type%2C+outlet_number%2C+outlet_name%2C+outlet_address%2C+outlet_city%2C+outlet_state%2C+outlet_zip_code%2C+outlet_county_code%2C+outlet_naics_code%2C+outlet_inside_outside_city_limits_indicator%2C+outlet_permit_issue_date%2C+outlet_first_sales_date%2C+%3Aid&%24order=%3Aid&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "outlet_address",
+     "outlet_city",
+     "outlet_county_code",
+     "outlet_first_sales_date",
+     "outlet_inside_outside_city_limits_indicator",
+     "outlet_naics_code",
+     "outlet_name",
+     "outlet_number",
+     "outlet_permit_issue_date",
+     "outlet_state",
+     "outlet_zip_code",
+     "taxpayer_address",
+     "taxpayer_city",
+     "taxpayer_county_code",
+     "taxpayer_name",
+     "taxpayer_number",
+     "taxpayer_organization_type",
+     "taxpayer_state",
+     "taxpayer_zip_code"
+    ],
+    "sha256": "479f67ad1077d8f387329d1ae64a9ae0f8a9f281259275d132266e4421aca813"
+   }
+  },
+  {
+   "step": "query_p2",
+   "url": "https://data.texas.gov/resource/jrea-zgmq.json?%24select=taxpayer_number%2C+taxpayer_name%2C+taxpayer_address%2C+taxpayer_city%2C+taxpayer_state%2C+taxpayer_zip_code%2C+taxpayer_county_code%2C+taxpayer_organization_type%2C+outlet_number%2C+outlet_name%2C+outlet_address%2C+outlet_city%2C+outlet_state%2C+outlet_zip_code%2C+outlet_county_code%2C+outlet_naics_code%2C+outlet_inside_outside_city_limits_indicator%2C+outlet_permit_issue_date%2C+outlet_first_sales_date%2C+%3Aid&%24order=%3Aid&%24where=%3Aid+%3E+%27row-kvk6.utit~53vx%27&%24limit=21",
+   "status": 200,
+   "body": {
+    "row_count": 21,
+    "keys": [
+     ":id",
+     "outlet_address",
+     "outlet_city",
+     "outlet_county_code",
+     "outlet_first_sales_date",
+     "outlet_inside_outside_city_limits_indicator",
+     "outlet_naics_code",
+     "outlet_name",
+     "outlet_number",
+     "outlet_permit_issue_date",
+     "outlet_state",
+     "outlet_zip_code",
+     "taxpayer_address",
+     "taxpayer_city",
+     "taxpayer_county_code",
+     "taxpayer_name",
+     "taxpayer_number",
+     "taxpayer_organization_type",
+     "taxpayer_state",
+     "taxpayer_zip_code"
+    ],
+    "sha256": "9c95db116f39c8daa84a4c4e697eff3ab49f4a7bc08a34ef74c0739b19aed1d4"
+   }
+  }
+ ]
+}

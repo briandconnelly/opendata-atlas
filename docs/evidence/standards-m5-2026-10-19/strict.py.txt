@@ -1,0 +1,20 @@
+"""Measure [3.strict-types] options for source.now_weekday against tools/list (modern era)."""
+import asyncio, copy
+from fastmcp import Client
+from opendata_atlas.core.context import WEEKDAYS
+from opendata_atlas.mcp.server import build_server
+from tests.conftest import framed_size, wire
+
+async def main():
+    async with Client(build_server()) as c:
+        tl = wire(await c.list_tools_mcp())
+    base = framed_size(tl)
+    print("modern base", base, "headroom", 24576 - base)
+    for label, schema in (("enum", {"enum": list(WEEKDAYS), "type": "string"}),
+                          ("enum, no type", {"enum": list(WEEKDAYS)}),
+                          ("unchanged (known zero)", {"type": "string"})):
+        t = copy.deepcopy(tl)
+        for tool in t["tools"]:
+            tool["outputSchema"]["properties"]["source"]["properties"]["now_weekday"] = schema
+        print(label, "+", framed_size(t) - base)
+asyncio.run(main())
