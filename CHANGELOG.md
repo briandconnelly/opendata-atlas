@@ -6,6 +6,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
+- README: a Resources section lists the `opendata-atlas://` resources and templates.
 - README: the Install paths (PyPI, `uvx`, the release `.mcpb`) are live now that 0.1.0 is published; the pre-release notes are gone.
 
 ## [0.1.0] - 2026-10-20

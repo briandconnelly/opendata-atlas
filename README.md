@@ -18,6 +18,23 @@ Agent-friendly access to public [Socrata](https://dev.socrata.com/) open-data po
 | `atlas_query_dataset` | Bounded reads and aggregates (SoQL clauses or raw SoQL) |
 | `atlas_get_reference` | Capability summary, SoQL help, portals, guides, error catalog |
 
+## Resources
+
+The reference material is also served as MCP resources, for clients that browse them. Each resource returns the same content as an `atlas_get_reference` call, so a client that never reads resources loses nothing.
+
+| Resource | Contents |
+| --- | --- |
+| `opendata-atlas://reference` | Index of the reference topics |
+| `opendata-atlas://capabilities` | Capability summary: what the server does and does not do, rules, semantics, failures |
+| `opendata-atlas://portals` | Curated and profiled portals (`atlas_find_portals` searches every registered portal) |
+| `opendata-atlas://portals/{portal}` | One portal: identity, tier, knowledge by dataset, guide index |
+| `opendata-atlas://portals/{portal}/guides`, `.../guides/{guide_id}` | A portal's guides, and one guide |
+| `opendata-atlas://soql`, `opendata-atlas://soql/{section_id}` | SoQL reference: syntax, filtering, aggregation, dates, geography, paging |
+| `opendata-atlas://errors`, `opendata-atlas://errors/{section_id}` | Error catalog |
+| `opendata-atlas://contributing` | Tier and knowledge definitions, and how to contribute portal knowledge |
+
+The `{portal}`, `{section_id}` and `{guide_id}` parameters support completion.
+
 ## Choosing a portal
 
 Every data tool takes a required `portal`: a portal id (its hostname, such as `data.seattle.gov`) or an alias (such as `seattle`). Without the id, call `atlas_find_portals` with a place name. It never picks for you: a city and its county are both candidates, told apart by `jurisdiction.level`, and the server's rules tell the agent to ask the user which one they mean unless the request names the level.
