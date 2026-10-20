@@ -221,6 +221,32 @@ def test_cli_fails_in_one_line_on_a_missing_workflow(tmp_path):
     assert "Traceback" not in result.stderr
 
 
+@pytest.mark.skipif(shutil.which("git") is None, reason="needs git for the tag")
+def test_cli_fails_when_the_version_is_already_tagged(version, tmp_path):
+    """A version already released elsewhere must be bumped before the next cut (releasing.md)."""
+    (tmp_path / "scripts").mkdir()
+    shutil.copy2(ROOT / "scripts" / "rehearse_release.py", tmp_path / "scripts")
+    _stage(tmp_path, (ROOT / "CHANGELOG.md").read_text())
+    git = ["git", "-c", "user.name=t", "-c", "user.email=t@example.com"]
+    git += ["-c", "commit.gpgsign=false", "-c", "tag.gpgsign=false"]
+    for args in (
+        ["init", "-q"],
+        ["add", "-A"],
+        ["commit", "-q", "-m", "release"],
+        ["tag", f"v{version}"],
+        ["commit", "-q", "--allow-empty", "-m", "after the release"],
+    ):
+        subprocess.run([*git, *args], cwd=tmp_path, check=True, capture_output=True)
+    result = subprocess.run(
+        [sys.executable, str(tmp_path / "scripts" / "rehearse_release.py")],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert result.stdout.startswith(f"FAIL: v{version} is already tagged")
+
+
 def _copy_tree(dest: Path) -> None:
     skip = shutil.ignore_patterns(
         ".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", "dist"
