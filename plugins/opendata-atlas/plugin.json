@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "opendata-atlas",
+  "version": "0.1.0",
+  "description": "Answer questions with public data from Socrata open-data portals: find a portal and dataset, check what its columns mean, and query it. Adds the opendata-atlas MCP server and the curate-portal skill.",
+  "author": { "name": "Brian Connelly", "url": "https://github.com/briandconnelly" },
+  "homepage": "https://github.com/briandconnelly/opendata-atlas",
+  "repository": "https://github.com/briandconnelly/opendata-atlas",
+  "license": "MIT",
+  "keywords": ["open-data", "socrata", "soda", "mcp", "agent"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Open Data Atlas",
+        "shortDescription": "Answer questions with public data from Socrata open-data portals.",
+        "longDescription": "Open Data Atlas connects Codex to the open-data portals that cities, counties, states and other public agencies publish on Socrata. It finds the right portal and dataset, checks what its columns mean, and answers with counts, trends and records drawn from the data itself. No account or API key is required.",
+        "developerName": "Brian Connelly",
+        "category": "Productivity",
+        "capabilities": ["MCP", "Skills"],
+        "websiteURL": "https://github.com/briandconnelly/opendata-atlas",
+        "defaultPrompt": [
+          "Which open-data portals can you search for Seattle?",
+          "How many crimes were reported in Chicago's Hyde Park community area last month?"
+        ]
+      }
+    }
+  }
+}
