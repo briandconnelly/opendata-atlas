@@ -221,30 +221,48 @@ def test_cli_fails_in_one_line_on_a_missing_workflow(tmp_path):
     assert "Traceback" not in result.stderr
 
 
-@pytest.mark.skipif(shutil.which("git") is None, reason="needs git for the tag")
-def test_cli_fails_when_the_version_is_already_tagged(version, tmp_path):
-    """A version already released elsewhere must be bumped before the next cut (releasing.md)."""
+def _tagged_tree(tmp_path: Path, version: str, *, tag_at_head: bool) -> None:
+    """A minimal git tree whose release commit carries ``v<version>``, maybe with one after it."""
     (tmp_path / "scripts").mkdir()
     shutil.copy2(ROOT / "scripts" / "rehearse_release.py", tmp_path / "scripts")
     _stage(tmp_path, (ROOT / "CHANGELOG.md").read_text())
     git = ["git", "-c", "user.name=t", "-c", "user.email=t@example.com"]
     git += ["-c", "commit.gpgsign=false", "-c", "tag.gpgsign=false"]
-    for args in (
-        ["init", "-q"],
-        ["add", "-A"],
-        ["commit", "-q", "-m", "release"],
-        ["tag", f"v{version}"],
-        ["commit", "-q", "--allow-empty", "-m", "after the release"],
-    ):
+    steps = [["init", "-q"], ["add", "-A"], ["commit", "-q", "-m", "release"]]
+    steps.append(["tag", f"v{version}"])
+    if not tag_at_head:
+        steps.append(["commit", "-q", "--allow-empty", "-m", "after the release"])
+    for args in steps:
         subprocess.run([*git, *args], cwd=tmp_path, check=True, capture_output=True)
-    result = subprocess.run(
-        [sys.executable, str(tmp_path / "scripts" / "rehearse_release.py")],
-        capture_output=True,
-        text=True,
-        check=False,
+
+
+def _run_rehearsal(tmp_path: Path, *args: str) -> subprocess.CompletedProcess[str]:
+    script = tmp_path / "scripts" / "rehearse_release.py"
+    return subprocess.run(
+        [sys.executable, str(script), *args], capture_output=True, text=True, check=False
     )
+
+
+@pytest.mark.skipif(shutil.which("git") is None, reason="needs git for the tag")
+@pytest.mark.parametrize(
+    ("tag_at_head", "args"),
+    [(False, ()), (False, ("--apply",)), (True, ("--apply",))],
+    ids=["tag-behind-head", "tag-behind-head-apply", "tag-at-head-apply"],
+)
+def test_cli_fails_when_the_version_is_already_tagged(version, tmp_path, tag_at_head, args):
+    """A released version must be bumped before the next cut, wherever its tag is (releasing.md)."""
+    _tagged_tree(tmp_path, version, tag_at_head=tag_at_head)
+    result = _run_rehearsal(tmp_path, *args)
     assert result.returncode == 1
     assert result.stdout.startswith(f"FAIL: v{version} is already tagged")
+
+
+@pytest.mark.skipif(shutil.which("git") is None, reason="needs git for the tag")
+def test_cli_still_verifies_a_tagged_head_read_only(version, tmp_path):
+    """Without --apply, a tagged HEAD is checked as the workflow would, not refused as tagged."""
+    _tagged_tree(tmp_path, version, tag_at_head=True)
+    result = _run_rehearsal(tmp_path)
+    assert "already tagged" not in result.stdout
 
 
 def _copy_tree(dest: Path) -> None:

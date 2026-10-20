@@ -149,7 +149,8 @@ def main(argv: list[str] | None = None) -> int:
             or tomllib.loads((REPO_ROOT / "pyproject.toml").read_text())["project"]["version"]
         )
         tag = head_tag()
-        if tag is None and tag_exists(f"v{version}"):
+        # A tagged HEAD may still be verified read-only, but never cut again.
+        if (tag is None or args.apply) and tag_exists(f"v{version}"):
             print(
                 f"FAIL: v{version} is already tagged; bump the version in pyproject.toml, "
                 "then run scripts/gen_manifest.py"
