@@ -29,7 +29,12 @@ HISTORY = "## [seattle-open-data history]"
 DAY = "2026-10-19"
 #: Set in the nested pytest run of `test_suite_passes_after_apply`, so it does not recurse.
 NESTED = "ATLAS_VERSIONING_NESTED"
-needs_awk = pytest.mark.skipif(shutil.which("awk") is None, reason="needs awk, as release.yml does")
+#: release.yml runs these steps with awk on ubuntu-latest; Windows awk (and its CRLF temp files)
+#: is not what they run on, so the tests that run them skip there.
+needs_awk = pytest.mark.skipif(
+    shutil.which("awk") is None or sys.platform == "win32",
+    reason="needs POSIX awk, as release.yml runs on ubuntu-latest",
+)
 
 
 @pytest.fixture(scope="session")
