@@ -4,7 +4,13 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- `atlas-profile --dataset ID` (repeatable) profiles exactly the named datasets instead of the most viewed, so a curator can reach a dataset outside the top N. It cannot be combined with `--datasets`; an id that is not a dataset on the portal exits 6 with the report written and no pack.
+
 ### Changed
+
+- `atlas-profile` timezone observations: the by-hour probe now runs in zones with no spring-forward day (it was skipped, so no claim was drafted); a time column whose max is after today is noted and its window ends today; and when at least 2% of the window's rows are at exactly 00:00:00, the by-hour probe leaves them out and their count is recorded as a third probe, so an unknown-time default no longer reads as an hour-0 peak.
 
 - `king-county` (`data.kingcounty.gov`) is now `curated`: KCSO Offense Reports (`4kmt-kfqf`) is `reviewed`, with its unit of observation (one row per offense; a report can list several), the `city` place field (`partial`: an address's city or community, so `SEATTLE` rows are Metro Transit and unincorporated areas, never Seattle Police data) and `incident_datetime` in Pacific time (about 7% of rows default to 00:00:00), and a guide, `kcso-offense-reports`. `atlas_find_portals` and the `portals` reference report tier `curated`. Eval tasks 01 and 03 in `evals/portals/data.kingcounty.gov.json` are replaced by tasks on the reviewed dataset.
 - The curate-portal skill's and `CONTRIBUTING-portals.md`'s step 11.2 also run `uv run ruff format --check`, which reads the untracked new pack files that `prek run --all-files` skips.

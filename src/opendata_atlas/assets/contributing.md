@@ -44,11 +44,12 @@ A contribution is one pack PR for one portal. Run every step in a clone of the r
 Follow them in order.
 
 1. **Find or register the portal.** Call `atlas_find_portals` with `query` set to the place name or host. If no candidate is the portal, it is not registered: add an entry to `src/opendata_atlas/portals/registry_overrides.toml` in a separate registry PR (the file's comments describe the fields). In that PR, `scripts/build_registry.py` regenerates `src/opendata_atlas/portals/registry.json` from the entries; continue after it merges. The profiler profiles only registered portals.
-2. **Profile it.** Run `uv run atlas-profile <host> --report .curation/report.json`. It writes a draft pack to `src/opendata_atlas/portals/<canonical id>/` (`--out` names another directory) and profiles the 10 most-viewed datasets (`--datasets N` for another count). On a nonzero exit:
+2. **Profile it.** Run `uv run atlas-profile <host> --report .curation/report.json`. It writes a draft pack to `src/opendata_atlas/portals/<canonical id>/` (`--out` names another directory) and profiles the 10 most-viewed datasets (`--datasets N` for another count, or `--dataset <id>`, repeated, to profile exactly the datasets you name). On a nonzero exit:
    - 2: the host is not registered, the `--out` directory exists, or `--out` is missing because the command ran outside the repository root. Fix the argument or run from the root; the profiler never overwrites a pack.
    - 3: catalog identity did not verify. No pack is written; stop, because the registry's identity for the portal needs a fix (a registry PR) before it can be profiled.
    - 4: an upstream request failed before any dataset was profiled. The report's `error` names the step; rerun later.
    - 5: the emitted pack would not load. Nothing is written; stop and report the error as a profiler defect.
+   - 6: a `--dataset` id is not a dataset on this portal. The report's `error` names it; fix the id.
 3. **Check the review values.** The profiler prints every emitted value outside the shared placeholder vocabulary on stderr, under "Review these values before committing; drop any that identify a person", and lists them in the report as `review_values` (`claim_id`, `value`). For each value that identifies a person, delete the `[[claim]]` with that `claim_id` from `facts/<dataset id>.toml`.
 4. **Move the identity into the pack.** `portal.toml` now defines the portal's identity.
    - If `registry_overrides.toml` has an entry for the portal's id, delete it; `scripts/build_registry.py` rejects an override for a pack's id.

@@ -23,6 +23,7 @@ from opendata_atlas.profiler import cli
 from opendata_atlas.profiler.emit import pack_files, render_claims
 from opendata_atlas.profiler.profile import (
     flagships,
+    gap_hour,
     identity_verified,
     observe_text,
     profile_portal,
@@ -84,7 +85,14 @@ class SyntheticPortal:
         extra_columns: tuple[dict[str, Any], ...] = (),
         area_values: tuple[str, ...] = ("Hollywood   ", "Central"),
         layer_columns: list[dict[str, Any]] | None = None,
+        hi: str = "2026-06-30T23:00:00.000",
+        midnight: int = 0,
+        filtered_rows: list[dict[str, str]] | None = None,
     ) -> None:
+        self.hi = hi
+        self.gap_day = date(2026, 3, 8)
+        self.midnight = midnight
+        self.filtered_rows = YEAR if filtered_rows is None else filtered_rows
         self.fail_on = fail_on
         self.layer_columns = layer_columns
         self.extra_columns = extra_columns
@@ -131,7 +139,8 @@ class SyntheticPortal:
                     },
                 ]
             views = {DATASET: 50, EMPTY: None}
-            results = [self._result(d, views.get(d)) for d in self.datasets]
+            ids = request.url.params.get_list("ids")
+            results = [self._result(d, views.get(d)) for d in self.datasets if not ids or d in ids]
             return {"results": results, "resultSetSize": len(results)}
         path = url.path
         if path == f"/api/views/{LAYER}.json":
@@ -162,8 +171,12 @@ class SyntheticPortal:
         if q.startswith("SELECT notes AS v"):
             return [{"v": f"note {i}", "n": "1"} for i in range(101)]
         if q.startswith("SELECT min(occurred)"):
-            return [{"lo": "2024-01-01T00:00:00.000", "hi": "2026-06-30T23:00:00.000"}]
-        if "2026-03-08T00:00:00" in q:
+            return [{"lo": "2024-01-01T00:00:00.000", "hi": self.hi}]
+        if "AS midnight" in q:
+            return [{"n": "1000", "midnight": str(self.midnight)}]
+        if "date_extract_mm(occurred) != 0" in q:
+            return self.filtered_rows
+        if f"{self.gap_day.isoformat()}T00:00:00" in q:
             return self.gap_rows if self.tz_rows else []
         if "date_extract_hh(occurred)" in q:
             return self.year_rows if self.tz_rows else []
@@ -188,10 +201,17 @@ class SyntheticPortal:
         ]
 
 
-async def _profile(portal: SyntheticPortal, entry: RegistryEntry | None = None, datasets=10):
+async def _profile(
+    portal: SyntheticPortal,
+    entry: RegistryEntry | None = None,
+    datasets=10,
+    dataset_ids: list[str] | None = None,
+):
     client = SodaClient(transport=httpx.MockTransport(portal))
     try:
-        return await profile_portal(client, entry or _entry(), datasets=datasets, today=TODAY)
+        return await profile_portal(
+            client, entry or _entry(), datasets=datasets, dataset_ids=dataset_ids, today=TODAY
+        )
     finally:
         await client.aclose()
 
@@ -402,11 +422,89 @@ async def test_null_timezone_portal_skips_timezone_probes():
     assert any("occurred" in n and "timezone" in n for n in notes), notes
 
 
-async def test_no_dst_zone_skips_timezone_probes():
+async def test_no_dst_zone_gets_a_diurnal_only_claim():
+    """A zone with no spring-forward day still gets the by-hour probe, with no dst_gap."""
     portal = SyntheticPortal()
     report, claims = await _profile(portal, _entry(timezone="Pacific/Honolulu"))
-    assert not any(c.kind == "column_timezone" for c in claims)
-    assert any("Pacific/Honolulu" in n for n in report.datasets[0].notes)
+    tz = _by_id(claims)[f"{DATASET}-occurred-timezone"]
+    (day,) = _soql(tz)
+    assert "'2025-06-30T00:00:00'" in day.query
+    assert [(a.checker, a.probe) for a in tz.assertion] == [("diurnal_peak", 0)]
+    assert not any("2026-03-08" in r for r in portal.requests)
+    notes = report.datasets[0].notes
+    assert any("Pacific/Honolulu" in n and "by-hour probe only" in n for n in notes), notes
+
+
+async def test_midnight_defaults_are_left_out_of_the_diurnal_probe():
+    """Many rows at exactly 00:00:00 (an unknown-time default) would fake an hour-0 peak."""
+    portal = SyntheticPortal(
+        year_rows=_hours({h: (500 if h == 0 else 100 if h == 17 else 10) for h in range(24)}),
+        midnight=400,
+    )
+    _, claims = await _profile(portal)
+    tz = _by_id(claims)[f"{DATASET}-occurred-timezone"]
+    _, day, midnight = _soql(tz)
+    assert "date_extract_mm(occurred) != 0" in day.query
+    assert "AS midnight" in midnight.query
+    assert "400 of 1,000" in midnight.observation
+    assert "left out" in day.observation
+    peak = next(a for a in tz.assertion if a.checker == "diurnal_peak")
+    assert (peak.probe, peak.params) == (1, {"peak_from": 15, "peak_to": 19})
+
+
+async def test_few_midnight_rows_keep_the_raw_diurnal_probe():
+    portal = SyntheticPortal(midnight=5)
+    _, claims = await _profile(portal)
+    tz = _by_id(claims)[f"{DATASET}-occurred-timezone"]
+    assert len(_soql(tz)) == 2
+    assert not any("date_extract_mm(occurred) != 0" in r for r in portal.requests)
+
+
+async def test_future_max_ends_the_window_today():
+    """A row dated after today must not move the window past the data (Everett, row 165)."""
+    portal = SyntheticPortal(hi="2026-12-20T00:00:00.000")
+    report, claims = await _profile(portal)
+    _, day = _soql(_by_id(claims)[f"{DATASET}-occurred-timezone"])
+    assert "'2025-10-18T00:00:00'" in day.query
+    assert "'2026-10-19T00:00:00'" in day.query
+    assert any("2026-12-20" in n and "after today" in n for n in report.datasets[0].notes)
+
+
+async def test_dataset_ids_profile_only_the_named_datasets():
+    portal = SyntheticPortal()
+    report, _ = await _profile(portal, dataset_ids=[EMPTY])
+    assert [d.dataset_id for d in report.datasets] == [EMPTY]
+    assert report.error is None
+    assert EMPTY in report.flagship_basis and "--dataset" in report.flagship_basis
+
+
+async def test_repeated_dataset_id_is_profiled_once():
+    """A repeated id would emit duplicate claim ids, which the loader rejects (exit 5)."""
+    report, claims = await _profile(SyntheticPortal(), dataset_ids=[DATASET, DATASET])
+    assert [d.dataset_id for d in report.datasets] == [DATASET]
+    ids = [c.id for c in claims]
+    assert len(ids) == len(set(ids))
+
+
+async def test_midnight_spring_forward_keeps_gap_hour_0():
+    """A zone that springs forward at midnight skips hour 0; it must not become hour 2."""
+    zone = ZoneInfo("America/Santiago")
+    day = spring_forward(zone, date(2024, 1, 1), date(2026, 6, 30))
+    assert day is not None and gap_hour(zone, day) == 0  # known positive: such zones exist
+    portal = SyntheticPortal(gap_rows=_hours({h: 5 for h in range(1, 24)}))
+    portal.gap_day = day
+    _, claims = await _profile(portal, _entry(timezone="America/Santiago"))
+    tz = _by_id(claims)[f"{DATASET}-occurred-timezone"]
+    gap = next(a for a in tz.assertion if a.checker == "dst_gap")
+    assert gap.params == {"gap_hour": 0}
+
+
+async def test_unknown_dataset_id_stops_before_any_dataset():
+    portal = SyntheticPortal()
+    report, claims = await _profile(portal, dataset_ids=[DATASET, "nope-0000"])
+    assert report.error == "datasets: not on this portal: nope-0000"
+    assert report.datasets == []
+    assert claims == []
 
 
 async def test_zero_row_dataset_is_noted():
@@ -641,6 +739,31 @@ def test_existing_out_dir_exits_2(run_cli, tmp_path):
     out.mkdir()
     portal = SyntheticPortal()
     assert run_cli([HOST, "--out", str(out)], portal) == 2
+    assert portal.requests == []
+
+
+def test_cli_dataset_option_profiles_named_datasets(run_cli, tmp_path):
+    out, report = tmp_path / "d", tmp_path / "r.json"
+    argv = [HOST, "--dataset", DATASET, "--out", str(out), "--report", str(report)]
+    assert run_cli(argv, SyntheticPortal()) == 0
+    assert [d["dataset_id"] for d in json.loads(report.read_text())["datasets"]] == [DATASET]
+
+
+def test_cli_unknown_dataset_exits_6(run_cli, tmp_path, capsys):
+    out, report = tmp_path / "d", tmp_path / "r.json"
+    argv = [HOST, "--dataset", "nope-0000", "--out", str(out), "--report", str(report)]
+    assert run_cli(argv, SyntheticPortal()) == 6
+    assert not out.exists()
+    assert json.loads(report.read_text())["error"] == "datasets: not on this portal: nope-0000"
+    assert "nope-0000" in capsys.readouterr().err
+
+
+def test_cli_dataset_and_datasets_are_exclusive(run_cli, tmp_path):
+    portal = SyntheticPortal()
+    argv = [HOST, "--dataset", DATASET, "--datasets", "3", "--out", str(tmp_path / "d")]
+    with pytest.raises(SystemExit) as e:
+        run_cli(argv, portal)
+    assert e.value.code == 2
     assert portal.requests == []
 
 
