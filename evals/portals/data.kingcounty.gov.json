@@ -1,11 +1,12 @@
 [
   {
-    "id": "01-jail-bookings-last-month",
-    "prompt": "How many jail bookings were there in King County last month?",
+    "id": "01-burien-offenses-last-month",
+    "prompt": "How many crimes were reported in Burien, in King County, WA, last month?",
     "covers": [
+      "in_area",
       "relative_date"
     ],
-    "expect": "Uses Adult Jail Booking (j56h-zgnm) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on booking_date_time in Pacific wall-clock time without Z, and counts distinct book_of_arrest_number, since the dataset has one row per charge. PASS: gives the booking count for that month (reference, probed 2026-10-20 for September 2026: 1,388 distinct bookings over 2,888 rows) and says the rows are charges, so bookings are counted by booking number. PARTIAL: the right booking count with no word on the row-per-charge structure, or a month boundary off by one day. FAIL: presents the row count (2,888) as the number of bookings, uses the wrong month, or invents a number."
+    "expect": "Uses KCSO Offense Reports (4kmt-kfqf) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on incident_datetime in Pacific wall-clock time without Z, filtered on city = 'BURIEN'. PASS: gives the count for that month and says whether it counts offenses (rows) or reports (distinct case_number), since one report can list several offenses (reference, probed 2026-10-20 for September 2026: 277 offenses in 242 reports; within 10%, since late reports are still being approved). PARTIAL: the right count with no word on offenses versus reports, or a month boundary off by one day. FAIL: the wrong month, a count for the whole county or another area, a count from another dataset (such as Adult Jail Booking) presented as crimes, or an invented number."
   },
   {
     "id": "02-still-in-custody",
@@ -16,12 +17,12 @@
     "expect": "Uses Adult Jail Booking (j56h-zgnm), a snapshot titled 'as of Oct 2, 2026' that covers bookings from 2025-10-01 (latest release 2026-10-01). The facility column looks like a custody status but is filled on 2,367 rows that have a release date, so custody is read from bookings with no release date. PASS: gives the distinct bookings with no release date (reference, probed 2026-10-20: 1,444 bookings over 6,219 rows; by facility 596 King County Correctional Facility, 446 Maleng Regional Justice Center, 400 Electronic Home Detention, 1 Community Correction Division, 1 blank), and says the figure is as of the early-October 2026 snapshot, not today, and covers only bookings since October 2025. PARTIAL: the right count without the snapshot caveat, or a count from the facility column that says it disagrees with release dates. FAIL: presents a row count (6,219 or 8,584) or the count of rows with a facility as the people in custody with no caveat, presents the figure as current today, or invents a number."
   },
   {
-    "id": "03-ld43-2012-republican-president",
-    "prompt": "In the November 2012 general election, how many votes did the Republican presidential ticket get in King County's 43rd Legislative District?",
+    "id": "03-seattle-crime-county-data",
+    "prompt": "According to King County's open data, how many crimes were reported in Seattle in 2025?",
     "covers": [
-      "in_area"
+      "misleading_field"
     ],
-    "expect": "Uses 2012 General - Election Results by precinct (u6ig-5qm8), filtered on leg = 43, the presidential race and the Republican ticket's countertype row, summing sumofcount over the district's 207 precincts. PASS: gives 8,747 votes (reference, probed 2026-10-20; the district's Times Counted total for the race is 83,076). PARTIAL: the right count with a wrong or missing statement of which dataset or filter it came from. FAIL: a count from another election, from the whole county, one that sums non-candidate countertype rows (Registered Voters, Times Counted), or an invented number."
+    "expect": "The King County portal's crime data is KCSO Offense Reports (4kmt-kfqf), whose city value SEATTLE is an address's postal city: in 2025 it marks 2,055 offense rows (1,887 reports), of which 1,347 are Metro Transit police incidents and 639 are unincorporated precinct 4 areas with Seattle addresses (White Center, Skyway, Boulevard Park), probed 2026-10-20. The Sheriff does not police the City of Seattle, whose crime data is the Seattle Police Department's on data.seattle.gov. PASS: does not present the SEATTLE rows as Seattle's crime count; says they are Sheriff, transit or unincorporated-area offenses with Seattle addresses, and points to Seattle's own portal or police data for Seattle crime (a figure from data.seattle.gov is fine if the answer names it as Seattle Police data). PARTIAL: gives the SEATTLE count with a caveat that it covers only Sheriff's Office reports, but does not say those rows are mostly outside Seattle or on transit; or declines and points to Seattle's data without explaining why the county's rows do not answer. FAIL: presents 2,055, 1,887 or another count filtered on SEATTLE as the number of crimes in Seattle, or invents a number."
   },
   {
     "id": "04-traffic-collisions",

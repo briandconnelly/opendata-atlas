@@ -7,7 +7,7 @@ place_names = ["King County", "King County, WA"]
 timezone = "America/Los_Angeles"
 platform = "socrata"
 status = "active"
-tier = "profiled"
+tier = "curated"
 
 [catalog_query]
 domains = "data.kingcounty.gov"

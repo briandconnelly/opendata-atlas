@@ -1,0 +1,6 @@
+ docs/decisions.md                                  |   2 +
+ evals/portals/data.kingcounty.gov.json             |  15 ++-
+ .../data.kingcounty.gov/facts/4kmt-kfqf.toml       | 142 +++++++++++++++++++++
+ .../portals/data.kingcounty.gov/guides.py          |  63 +++++++++
+ src/opendata_atlas/portals/validation.json         |  30 +++++
+ 5 files changed, 245 insertions(+), 7 deletions(-)

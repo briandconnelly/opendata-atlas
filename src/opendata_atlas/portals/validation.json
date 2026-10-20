@@ -473,6 +473,36 @@
    }
   },
   "data.kingcounty.gov": {
+   "4kmt-kfqf-city-place-field": {
+    "assertion_digest": "703a39cff6df",
+    "checked_at": "2026-10-20",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "4kmt-kfqf-created_at-timezone": {
+    "assertion_digest": "ca18651c915f",
+    "checked_at": "2026-10-20",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "4kmt-kfqf-incident_datetime-timezone": {
+    "assertion_digest": "80d74dbe0063",
+    "checked_at": "2026-10-20",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "4kmt-kfqf-unit-offense": {
+    "assertion_digest": "2a2dc044fdbd",
+    "checked_at": "2026-10-20",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "4kmt-kfqf-updated_at-timezone": {
+    "assertion_digest": "2c76990ac270",
+    "checked_at": "2026-10-20",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
    "j56h-zgnm-booking_date_time-timezone": {
     "assertion_digest": "b2c372b7a71c",
     "checked_at": "2026-10-20",

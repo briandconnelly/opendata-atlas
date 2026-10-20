@@ -1,0 +1,142 @@
+# KCSO Offense Reports: 2020 to Present. Drafted by atlas-profile on 2026-10-20 (top 21
+# flagships, into .curation/); reviewed 2026-10-20.
+
+[[claim]]
+id = "4kmt-kfqf-unit-offense"
+kind = "unit_of_observation"
+scope = {dataset = "4kmt-kfqf"}
+interpretation = {unit = "offense", reason = "One row per offense; a report (case_number) can list several offenses, so count(*) counts offenses and count(distinct case_number) counts reports (about 9% fewer)."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct case_number) AS reports WHERE incident_datetime >= '2025-01-01T00:00:00' AND incident_datetime < '2026-01-01T00:00:00'"
+observed_at = 2026-10-20
+observation = "2025: 20,530 rows and 18,713 distinct case_number values (0.911); every row has a distinct id."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.kingcounty.gov/api/views/4kmt-kfqf.json"
+quote = "Primary key/UID for the overall report. One report can contain multiple offenses."
+observed_at = 2026-10-20
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "reports", denominator = "n", min = 0.85, max = 0.97}
+
+[[claim]]
+id = "4kmt-kfqf-city-place-field"
+kind = "place_field"
+scope = {dataset = "4kmt-kfqf", column = "city"}
+interpretation = {kind = "other", kind_label = "address city or community", reliability = "partial", reason = "The address's city or community name, not the policing jurisdiction. It mixes cities KCSO patrols (99% of BURIEN rows are in patrol districts N1-N6), unincorporated communities (WHITE CENTER, BRYN MAWR-SKYWAY, FAIRWOOD), vague values (UNINCORPORATED KING COUNTY, KING COUNTY) and postal cities: SEATTLE rows are Metro Transit police incidents (districts MT*) and unincorporated precinct 4 areas with Seattle addresses, never Seattle Police data. Good for a city KCSO patrols; never a count for Seattle."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(city) AS filled, count(*) AS n WHERE incident_datetime >= '2020-01-01T00:00:00'"
+observed_at = 2026-10-20
+observation = "161,561 of 161,601 rows since 2020 have a city; over all rows BURIEN (25,337) and SEATTLE (25,081) are the largest values."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://kingcounty.gov/en/dept/sheriff"
+quote = "With over 1200 employees, the King County Sheriff's Office (KCSO) serves the needs of over half million people in unincorporated areas and thirteen contract cities.  KCSO also provides police departments for the Muckleshoot Tribe, Metro and Sound Transit and the King County International Airport."
+observed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, sum(case(starts_with(district, 'MT') OR starts_with(district, 'District MT') OR precinct = '4', 1, true, 0)) AS explained WHERE incident_datetime >= '2025-01-01T00:00:00' AND incident_datetime < '2026-01-01T00:00:00' AND city = 'SEATTLE'"
+observed_at = 2026-10-20
+observation = "2025: 2,055 SEATTLE rows; 1,347 are in Metro Transit districts and 639 in precinct 4 (zips 98146, 98178, 98168: White Center, Skyway, Boulevard Park), 1,986 together (0.966)."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.99}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 1
+params = {numerator = "explained", denominator = "n", min = 0.9}
+
+[[claim]]
+id = "4kmt-kfqf-incident_datetime-timezone"
+kind = "column_timezone"
+scope = {dataset = "4kmt-kfqf", column = "incident_datetime"}
+interpretation = {timezone = "America/Los_Angeles", reason = "Pacific wall-clock time with no offset: no rows in the skipped hour on any spring-forward day 2021-2026, and an afternoon peak. About 7% of rows sit at exactly 00:00:00, a default for an unknown time, which makes hour 0 the largest raw hour."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(incident_datetime) AS h, count(*) AS n WHERE (incident_datetime >= '2021-03-14T00:00:00' AND incident_datetime < '2021-03-15T00:00:00') OR (incident_datetime >= '2022-03-13T00:00:00' AND incident_datetime < '2022-03-14T00:00:00') OR (incident_datetime >= '2023-03-12T00:00:00' AND incident_datetime < '2023-03-13T00:00:00') OR (incident_datetime >= '2024-03-10T00:00:00' AND incident_datetime < '2024-03-11T00:00:00') OR (incident_datetime >= '2025-03-09T00:00:00' AND incident_datetime < '2025-03-10T00:00:00') OR (incident_datetime >= '2026-03-08T00:00:00' AND incident_datetime < '2026-03-09T00:00:00') GROUP BY h"
+observed_at = 2026-10-20
+observation = "Over the six spring-forward days 2021-2026, hour 2 has 0 rows; hours 1 and 3 have 13 and 18."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(incident_datetime) AS h, count(*) AS n WHERE incident_datetime >= '2025-01-01T00:00:00' AND incident_datetime < '2026-01-01T00:00:00' AND (date_extract_hh(incident_datetime) != 0 OR date_extract_mm(incident_datetime) != 0 OR date_extract_ss(incident_datetime) != 0) GROUP BY h"
+observed_at = 2026-10-20
+observation = "2025 without the 1,483 rows at exactly 00:00:00: rows peak at hour 16 (1,164 of 19,047); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 13, peak_to = 17}
+
+[[claim]]
+id = "4kmt-kfqf-created_at-timezone"
+kind = "column_timezone"
+scope = {dataset = "4kmt-kfqf", column = "created_at"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(created_at) AS h, count(*) AS n WHERE created_at >= '2026-03-08T00:00:00' AND created_at < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 3 and 3."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(created_at) AS h, count(*) AS n WHERE created_at >= '2025-10-20T00:00:00' AND created_at < '2026-10-21T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 14 (1,283 of 18,986); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 12, peak_to = 16}
+
+[[claim]]
+id = "4kmt-kfqf-updated_at-timezone"
+kind = "column_timezone"
+scope = {dataset = "4kmt-kfqf", column = "updated_at"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(updated_at) AS h, count(*) AS n WHERE updated_at >= '2026-03-08T00:00:00' AND updated_at < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 0 and 0."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(updated_at) AS h, count(*) AS n WHERE updated_at >= '2025-10-20T00:00:00' AND updated_at < '2026-10-21T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 15 (3,478 of 26,935); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 13, peak_to = 17}
