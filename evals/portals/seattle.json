@@ -16,6 +16,13 @@
       "in_area",
       "relative_date"
     ],
+    "targets": {
+      "dataset": "kzjm-xkqj",
+      "place": [
+        ":@computed_region_ru88_fbhk"
+      ],
+      "time": "datetime"
+    },
     "expect": "Uses the MCPP computed region (value 8) for September 2026 via now_local; states whether North Capitol Hill is included; notes most calls are medical."
   },
   {

@@ -6,6 +6,14 @@
       "in_area",
       "relative_date"
     ],
+    "targets": {
+      "dataset": "ijzp-q8t2",
+      "place": [
+        ":@computed_region_vrxf_vc4k",
+        "community_area"
+      ],
+      "time": "date"
+    },
     "expect": "Reference (probed 2026-10-19, so last month is September 2026 via now_local): Crimes - 2001 to Present (ijzp-q8t2), date bounded to 2026-09-01..2026-09-30; Hyde Park is :@computed_region_vrxf_vc4k = '8' (202 crimes) or community_area = '41' (201). PASS: uses ijzp-q8t2, resolves last month to September 2026, filters Hyde Park by either field, and answers 201 or 202 (or a figure within a few of them, naming the field). PARTIAL: right dataset and area but the wrong month or an unbounded period, or a right count with no stated period. FAIL: wrong area (e.g. a feature id taken as the area number, such as community_area = '8' or the computed region = '41'), another dataset, or an invented number."
   },
   {

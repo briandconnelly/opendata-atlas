@@ -6,6 +6,13 @@
       "in_area",
       "relative_date"
     ],
+    "targets": {
+      "dataset": "4kmt-kfqf",
+      "place": [
+        "city"
+      ],
+      "time": "incident_datetime"
+    },
     "expect": "Uses KCSO Offense Reports (4kmt-kfqf) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on incident_datetime in Pacific wall-clock time without Z, filtered on city = 'BURIEN'. PASS: gives the count for that month and says whether it counts offenses (rows) or reports (distinct case_number), since one report can list several offenses (reference, probed 2026-10-20 for September 2026: 277 offenses in 242 reports; within 10%, since late reports are still being approved). PARTIAL: the right count with no word on offenses versus reports, or a month boundary off by one day. FAIL: the wrong month, a count for the whole county or another area, a count from another dataset (such as Adult Jail Booking) presented as crimes, or an invented number."
   },
   {

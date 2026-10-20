@@ -6,6 +6,14 @@
       "in_area",
       "relative_date"
     ],
+    "targets": {
+      "dataset": "f6vp-3svh",
+      "place": [
+        "neighborhood",
+        ":@computed_region_cx6t_gkq3"
+      ],
+      "time": "datetimereceived"
+    },
     "expect": "Counts Police Incidents (f6vp-3svh) for the previous calendar month from now_local (September 2026 for a run in October 2026), bounded on datetimereceived in Pacific wall-clock time without Z, in Port Gardner by the text neighborhood = 'PORT GARDNER' or the computed region :@computed_region_cx6t_gkq3 = '10'. PASS: gives the count for that month and field (reference, probed 2026-10-20 for September 2026: 1,640 by neighborhood, 1,628 by the computed region; within 1% counts, since late rows may arrive), and says some incidents have no neighborhood, so the count may be a floor. PARTIAL: the right count with no caveat about unassigned incidents, or a month boundary off by one day. FAIL: the wrong month, a count from :@computed_region_psyp_nrnc (the city-limits layer), a count from another dataset presented as police incidents, or an invented number."
   },
   {
