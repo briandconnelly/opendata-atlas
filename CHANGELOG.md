@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
+- README rewritten as an introduction for new users: example questions, install requirements and client setup tips, portals and data quality in plain terms, limitations, an allowlist example, and the `opendata-atlas://` resources and templates. It corrects the knowledge levels' description: a dataset short of `reviewed` can still hold reviewed claims.
+- Running from source, the development commands and the release pointer move to a new `CONTRIBUTING.md`.
 - README: the Install paths (PyPI, `uvx`, the release `.mcpb`) are live now that 0.1.0 is published; the pre-release notes are gone.
 
 ## [0.1.0] - 2026-10-20

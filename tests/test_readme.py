@@ -1,4 +1,5 @@
-"""README's "Try it locally" commands are the ones `scripts/smoke_test.py` verified."""
+"""CONTRIBUTING's "Try it locally" commands are the ones `scripts/smoke_test.py` verified, and the
+README names the curated portals."""
 
 from __future__ import annotations
 
@@ -22,9 +23,9 @@ def _smoke():
 
 
 def _section() -> str:
-    text = (ROOT / "README.md").read_text()
+    text = (ROOT / "CONTRIBUTING.md").read_text()
     match = re.search(r"^## Try it locally\n(.*?)(?=^## )", text, re.S | re.M)
-    assert match, "README has a '## Try it locally' section"
+    assert match, "CONTRIBUTING has a '## Try it locally' section"
     return match.group(1)
 
 
@@ -33,7 +34,7 @@ def _blocks(lang: str) -> list[str]:
 
 
 def _argv(command: str, args: list[str]) -> list[str]:
-    """The command line, with path separators as the README writes them (`/`, on Windows too)."""
+    """The command line, with path separators as CONTRIBUTING writes them (`/`, on Windows too)."""
     return [command, *(a.replace("\\", "/") for a in args)]
 
 
