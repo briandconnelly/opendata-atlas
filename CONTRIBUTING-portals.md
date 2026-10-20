@@ -53,7 +53,7 @@ Follow them in order.
    - 5: the emitted pack would not load. Nothing is written; stop and report the error as a profiler defect.
    - 6: a `--dataset` id is not a dataset on this portal. The report's `error` names it; fix the id.
 3. **Check the review values.** The profiler prints every emitted value outside the shared placeholder vocabulary on stderr, under "Review these values before committing; drop any that identify a person", and lists them in the report as `review_values` (`claim_id`, `value`). For each value that identifies a person, delete the `[[claim]]` with that `claim_id` from `facts/<dataset id>.toml`.
-   - To improve a portal that already has a pack, profile into a new directory (`--out .curation/profile`, or `--dataset <id> --out .curation/<id>` for one dataset), screen it as step 3 says, and copy only the claims you will review into the existing pack, keeping its other claims.
+   - To improve a portal that already has a pack (the directory whose `portal.toml` has the portal's `id`, which need not be the directory's name: Seattle's is `seattle/`), profile into a new directory (`--out .curation/profile`, or `--dataset <id> --out .curation/<id>` for one dataset), screen it as step 3 says, and copy only the claims you will review into the existing pack, keeping its other claims.
 4. **Move the identity into the pack.** `portal.toml` now defines the portal's identity. For an existing pack, change only what is missing.
    - If `registry_overrides.toml` has an entry for the portal's id, delete it; `scripts/build_registry.py` rejects an override for a pack's id.
    - The profiler copies the registry's tier. Set `tier = "profiled"`.

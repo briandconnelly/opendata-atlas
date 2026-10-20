@@ -171,6 +171,15 @@ def test_in_area_target_on_an_unreviewed_column_violates(tmp_path):
     assert "in_area" in violations[0] and "`address`" in violations[0]
 
 
+def test_in_area_target_reviewed_only_for_its_timezone_violates(tmp_path):
+    """A reviewed timezone claim does not make `datetime` a reviewed place field."""
+    pack = _copy_seattle(tmp_path)
+    evals = _seattle_tasks_with(tmp_path, place=["datetime"])
+    violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
+    assert len(violations) == 1, violations
+    assert "in_area" in violations[0] and "`datetime`" in violations[0]
+
+
 def test_relative_date_target_without_a_reviewed_timezone_violates(tmp_path):
     pack = _copy_seattle(tmp_path)
     evals = _seattle_tasks_with(tmp_path, time="type")

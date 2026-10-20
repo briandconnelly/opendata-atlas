@@ -172,13 +172,32 @@ def outcome_failures(
         missing = [tid for tid in task_ids if not (wt / run / f"{tid}.transcript.jsonl").is_file()]
         if missing:
             out.append(f"{run}: no transcript for {missing}")
+    if (problem := served_failure(wt)) is not None:
+        out.append(problem)
+    return out
+
+
+def served_failure(wt: Path) -> str | None:
+    """`served-check.json` (skill step 6) must list each reviewed claim with `matches: true`."""
     try:
         served = json.loads((wt / SERVED_CHECK).read_text(encoding="utf-8"))
     except (OSError, ValueError):
         served = None
     if not (isinstance(served, list) and served):
-        out.append(f"{SERVED_CHECK}: missing or not a non-empty list (skill step 6)")
-    return out
+        return f"{SERVED_CHECK}: missing or not a non-empty list (skill step 6)"
+    unmatched = [
+        e.get("claim_id") if isinstance(e, dict) else e
+        for e in served
+        if not (isinstance(e, dict) and e.get("matches") is True)
+    ]
+    return f"{SERVED_CHECK}: claims not served as reviewed: {unmatched}" if unmatched else None
+
+
+def uncommitted_failure(porcelain: str) -> str | None:
+    """`git status --porcelain` over the pack and its eval file: anything listed is not in the
+    commit, so the digest and the checks would read a pack the branch does not hold."""
+    lines = [line for line in porcelain.splitlines() if line.strip()]
+    return f"pack or eval file changes left out of the commit: {lines}" if lines else None
 
 
 def path_violations(paths: list[str], pack: str) -> list[str]:
@@ -195,10 +214,14 @@ def path_violations(paths: list[str], pack: str) -> list[str]:
 
 def tier_failure(tier: object, base_tier: object = None) -> str | None:
     """The curating agent never raises a tier to `curated` (ruling 64, skill rule 3); a
-    reviewer promotes. An existing pack keeps the tier it had at `base_tier`."""
-    if tier in ("generic", "profiled") or tier == base_tier:
+    reviewer promotes. An existing pack keeps exactly the tier it had at `base_tier`."""
+    if base_tier is not None:
+        if tier == base_tier:
+            return None
+        return f"declared tier {tier!r}; an existing pack keeps its tier {base_tier!r}"
+    if tier in ("generic", "profiled"):
         return None
-    return f"declared tier {tier!r} (base {base_tier!r}); the curating agent never raises it"
+    return f"declared tier {tier!r}; a new pack declares at most `profiled`"
 
 
 def result_event(transcript: Path) -> dict[str, Any]:
@@ -403,6 +426,54 @@ def _answer(task: dict[str, Any], transcript: Path) -> dict[str, Any]:
     }
 
 
+def _check_pack(
+    wt: Path,
+    pack: str,
+    base: str,
+    outcome: object,
+    env: dict,
+    summary: dict,
+    failures: list[str],
+    evals_out: Path,
+) -> None:
+    """Step 5: the pack's identity and tier, the commit, the outcome, the gates and evals."""
+    pack_dir = wt / PORTALS / pack
+    identity = tomllib.loads((pack_dir / "portal.toml").read_text(encoding="utf-8"))
+    summary.update(
+        pack_dir=f"{PORTALS}/{pack}",
+        portal_id=identity["id"],
+        declared_tier=identity.get("tier"),
+        jurisdiction=identity.get("jurisdiction"),
+        timezone=identity.get("timezone"),
+        claims=claim_summary(pack_dir),
+    )
+    try:
+        base_toml = _git("show", f"{base}:{PORTALS}/{pack}/portal.toml")
+        base_tier = tomllib.loads(base_toml).get("tier")
+    except subprocess.CalledProcessError:
+        base_tier = None  # a new pack
+    if (problem := tier_failure(identity.get("tier"), base_tier)) is not None:
+        failures.append(problem)
+    eval_file = wt / "evals" / "portals" / f"{pack}.json"
+    tasks = json.loads(eval_file.read_text()) if eval_file.is_file() else []
+    status = _git(
+        "status", "--porcelain", "--", f"{PORTALS}/{pack}", f"evals/portals/{pack}.json", cwd=wt
+    )
+    if (problem := uncommitted_failure(status)) is not None:
+        failures.append(problem)
+    failures += outcome_failures(
+        outcome,
+        pack=pack,
+        digest_now=pack_digest(wt, pack),
+        wt=wt,
+        task_ids=[t["id"] for t in tasks],
+    )
+    completed = isinstance(outcome, dict) and outcome.get("outcome") == "completed"
+    _gates(wt, pack_dir, identity["id"], env, summary, failures, full=completed)
+    if completed:
+        _evals(wt, pack, evals_out, env, summary, failures)
+
+
 @pytest.mark.skipif(os.environ.get(RUN_VAR) != "1", reason=f"paid; set {RUN_VAR}=1 to run")
 def test_curation_skill_produces_a_passing_pack(tmp_path):
     env = child_env(os.environ)
@@ -433,42 +504,16 @@ def test_curation_skill_produces_a_passing_pack(tmp_path):
     if no_change:  # 4. An existing pack, nothing new to review: no commit (skill step 5).
         commits = int(_git("rev-list", "--count", f"{base}..{branch}").strip())
         has_pack = (ROOT / PORTALS / str(outcome.get("pack")) / "portal.toml").is_file()
-        if commits or not has_pack or not str(outcome.get("reason") or "").strip():
-            failures.append(f"no_change needs no commit, an existing pack and a reason: {outcome}")
+        if commits or not has_pack:
+            failures.append(f"no_change needs no commit and an existing pack: {outcome}")
+        failures += outcome_failures(
+            outcome, pack=str(outcome.get("pack")), digest_now="", wt=wt, task_ids=[]
+        )
         pack = None
     else:
         pack = _branch(wt, base, branch, summary, failures)  # 4.
     if pack is not None:  # 5.
-        pack_dir = wt / PORTALS / pack
-        identity = tomllib.loads((pack_dir / "portal.toml").read_text(encoding="utf-8"))
-        summary.update(
-            pack_dir=f"{PORTALS}/{pack}",
-            portal_id=identity["id"],
-            declared_tier=identity.get("tier"),
-            jurisdiction=identity.get("jurisdiction"),
-            timezone=identity.get("timezone"),
-            claims=claim_summary(pack_dir),
-        )
-        try:
-            base_toml = _git("show", f"{base}:{PORTALS}/{pack}/portal.toml")
-            base_tier = tomllib.loads(base_toml).get("tier")
-        except subprocess.CalledProcessError:
-            base_tier = None  # a new pack
-        if (problem := tier_failure(identity.get("tier"), base_tier)) is not None:
-            failures.append(problem)
-        eval_file = wt / "evals" / "portals" / f"{pack}.json"
-        tasks = json.loads(eval_file.read_text()) if eval_file.is_file() else []
-        failures += outcome_failures(
-            outcome,
-            pack=pack,
-            digest_now=pack_digest(wt, pack),
-            wt=wt,
-            task_ids=[t["id"] for t in tasks],
-        )
-        completed = isinstance(outcome, dict) and outcome.get("outcome") == "completed"
-        _gates(wt, pack_dir, identity["id"], env, summary, failures, full=completed)
-        if completed:
-            _evals(wt, pack, tmp_path / "evals", env, summary, failures)
+        _check_pack(wt, pack, base, outcome, env, summary, failures, tmp_path / "evals")
 
     summary["failures"] = failures  # 6. Written whether or not the run passed.
     evidence = os.environ.get("ATLAS_CURATION_EVIDENCE")

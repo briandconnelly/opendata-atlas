@@ -17,6 +17,7 @@ from tests.test_curation_skill import (
     outcome_failures,
     path_violations,
     tier_failure,
+    uncommitted_failure,
 )
 
 PACK = "data.example.gov"
@@ -79,6 +80,30 @@ def test_completed_without_the_served_check_is_flagged(tmp_path):
     (tmp_path / SERVED_CHECK).unlink()
     (failure,) = _check(_completed(), tmp_path)
     assert SERVED_CHECK in failure
+
+
+def test_served_check_with_an_unmatched_claim_is_flagged(tmp_path):
+    _healthy(tmp_path)
+    served = [{"claim_id": "a", "matches": True}, {"claim_id": "b", "matches": False}]
+    (tmp_path / SERVED_CHECK).write_text(json.dumps(served))
+    (failure,) = _check(_completed(), tmp_path)
+    assert "not served as reviewed" in failure and "'b'" in failure
+
+
+def test_no_change_that_made_eval_runs_is_flagged(tmp_path):
+    no_change = {"outcome": "no_change", "pack": PACK, "reason": "no new dataset in the bound"}
+    assert _check(no_change, tmp_path) == []
+    _healthy(tmp_path, runs=EVAL_RUNS[:1])
+    (failure,) = _check(no_change, tmp_path)
+    assert "eval runs were made" in failure
+
+
+def test_uncommitted_pack_changes_are_flagged():
+    assert uncommitted_failure("") is None
+    problem = uncommitted_failure(
+        " M src/opendata_atlas/portals/x/guides.py\n?? evals/portals/x.json\n"
+    )
+    assert problem is not None and "guides.py" in problem and "x.json" in problem
 
 
 def test_blocked_run_that_made_eval_runs_is_flagged(tmp_path):
@@ -186,3 +211,9 @@ def test_tier_check_allows_at_most_profiled():
 def test_tier_check_lets_an_existing_pack_keep_its_tier():
     """Re-curating a curated pack (King County, 2026-10-20) neither raises nor lowers it."""
     assert tier_failure("curated", "curated") is None
+
+
+def test_tier_check_rejects_lowering_an_existing_pack():
+    """The tier is the reviewer's to change (skill step 12)."""
+    assert tier_failure("profiled", "curated") is not None
+    assert tier_failure("profiled", "profiled") is None

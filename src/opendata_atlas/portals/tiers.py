@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING
 
-from opendata_atlas.portals.knowledge import column_knowledge, pack_levels, timezone_reviewed
+from opendata_atlas.portals.knowledge import pack_levels, place_reviewed, timezone_reviewed
 
 if TYPE_CHECKING:
     from datetime import date
@@ -73,15 +73,14 @@ def _target_violations(portal: PortalContext, path: Path, tier: str, today: date
                     if isinstance(col, str) and col.startswith(_REGION_PREFIX)
                     else None
                 )
-                known = (
-                    column_knowledge(portal, dataset, col, layer_id=layer, today=today)
-                    if isinstance(dataset, str) and isinstance(col, str)
-                    else None
-                )
-                if known is None or known.level != "reviewed":
+                if not (
+                    isinstance(dataset, str)
+                    and isinstance(col, str)
+                    and place_reviewed(portal, dataset, col, layer, today)
+                ):
                     out.append(
                         f"{tier}: task {tid} covers in_area, but place target `{col}` on "
-                        f"`{dataset}` has no reviewed claim"
+                        f"`{dataset}` has no reviewed place claim"
                     )
         if "relative_date" in covers:
             col = targets.get("time")

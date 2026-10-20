@@ -61,6 +61,17 @@ def timezone_reviewed(portal: PortalContext, dataset_id: str, column: str, today
     )
 
 
+def place_reviewed(
+    portal: PortalContext, dataset_id: str, column: str, layer_id: str | None, today: date
+) -> bool:
+    """A place interpretation covers the column: its own `place_field` claim, or, for a
+    computed-region column, its layer's `region_layer` claim, reviewed and not degraded."""
+    claims = [portal.pack.place_fields(dataset_id).get(column)]
+    if layer_id:
+        claims.append(portal.pack.region_layer(layer_id))
+    return any(c is not None and _effective(portal, c, today) for c in claims)
+
+
 def _covering(
     portal: PortalContext, dataset_id: str, column: str, layer_id: str | None
 ) -> list[Claim]:
