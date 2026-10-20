@@ -33,7 +33,8 @@ def _blocks(lang: str) -> list[str]:
 
 
 def _argv(command: str, args: list[str]) -> list[str]:
-    return [command, *args]
+    """The command line, with path separators as the README writes them (`/`, on Windows too)."""
+    return [command, *(a.replace("\\", "/") for a in args)]
 
 
 def test_try_it_locally_matches_smoke():

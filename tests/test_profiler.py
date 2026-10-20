@@ -674,7 +674,7 @@ def test_cli_refuses_a_pack_that_does_not_load(run_cli, tmp_path, monkeypatch, c
     out = tmp_path / "draft"
     assert run_cli([HOST, "--out", str(out)], SyntheticPortal()) == cli.EXIT_INVALID_PACK
     err = capsys.readouterr().err
-    assert f"facts/{DATASET}.toml" in err
+    assert f"facts/{DATASET}.toml" in err.replace("\\", "/")  # `\` on Windows
     assert not out.exists()
     assert list(tmp_path.iterdir()) == [], "no temporary directory is left behind"
 
