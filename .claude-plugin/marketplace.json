@@ -1,0 +1,12 @@
+{
+  "name": "opendata-atlas",
+  "owner": { "name": "Brian Connelly", "url": "https://github.com/briandconnelly" },
+  "description": "The opendata-atlas plugin, published from its own repository.",
+  "plugins": [
+    {
+      "name": "opendata-atlas",
+      "source": "./plugins/opendata-atlas",
+      "description": "Public data from Socrata open-data portals. Runs a local MCP server (uvx opendata-atlas, from PyPI) that reads public Socrata portals over HTTPS; adds the curate-portal skill. No hooks, LSP servers or bin/."
+    }
+  ]
+}

@@ -29,15 +29,29 @@ You need an MCP client that can start a local server, such as Claude Desktop, Cl
 
 **Claude Desktop:** download `opendata-atlas-<version>.mcpb` from the [latest release](https://github.com/briandconnelly/opendata-atlas/releases/latest) and open it with Claude Desktop.
 
-**Claude Code:**
+**Claude Code**, as a plugin:
+
+```bash
+claude plugin marketplace add briandconnelly/opendata-atlas
+claude plugin install opendata-atlas@opendata-atlas
+```
+
+**Codex**, as a plugin:
+
+```bash
+codex plugin marketplace add briandconnelly/opendata-atlas
+codex plugin add opendata-atlas@opendata-atlas
+```
+
+The plugin adds the server, pinned to the latest release, and the `curate-portal` skill, which contributors use in a clone of this repository to add a portal ([CONTRIBUTING-portals.md](CONTRIBUTING-portals.md)). The skill follows the clone's own `skills/curate-portal/SKILL.md`, so a run uses the instructions you have checked out, and does nothing outside a clone. Codex starts it only when you name it (`$curate-portal`). To pick up a new release, run `claude plugin update opendata-atlas@opendata-atlas` or `codex plugin marketplace upgrade opendata-atlas`.
+
+To add only the server instead, in Claude Code:
 
 ```bash
 claude mcp add opendata-atlas -- uvx opendata-atlas
 ```
 
-This makes the server available to you in the current project. To use it in every project, add `--scope user` after `add`.
-
-**Codex:**
+This makes the server available to you in the current project. To use it in every project, add `--scope user` after `add`. In Codex:
 
 ```bash
 codex mcp add opendata-atlas -- uvx opendata-atlas
@@ -76,7 +90,7 @@ To check the connection, ask your assistant "Which open-data portals can you sea
 
 No configuration is required. Two optional environment variables change the defaults:
 
-- `SOCRATA_APP_TOKEN`: a [Socrata application token](https://dev.socrata.com/docs/app-tokens.html), for example `claude mcp add opendata-atlas -e SOCRATA_APP_TOKEN=... -- uvx opendata-atlas`. The bundle asks for it in Claude Desktop's settings. If a portal rejects the token, the server reports `app_token_rejected` rather than silently dropping it. A token may not be accepted by every portal.
+- `SOCRATA_APP_TOKEN`: a [Socrata application token](https://dev.socrata.com/docs/app-tokens.html), for example `claude mcp add opendata-atlas -e SOCRATA_APP_TOKEN=... -- uvx opendata-atlas`. The bundle asks for it in Claude Desktop's settings. The Claude Code plugin passes `SOCRATA_APP_TOKEN` and `OPENDATA_ATLAS_PORTALS` through from the environment Claude Code starts in; the Codex plugin passes neither. To set them in Codex, remove the plugin first (`codex plugin remove opendata-atlas@opendata-atlas`), then add the server with `codex mcp add opendata-atlas -e SOCRATA_APP_TOKEN=... -- uvx opendata-atlas`; with both installed, the plugin's server keeps running with no token and no allowlist. If a portal rejects the token, the server reports `app_token_rejected` rather than silently dropping it. A token may not be accepted by every portal.
 - `OPENDATA_ATLAS_PORTALS`: limits the server to the portals you list, by id or alias, separated by commas (for example, `seattle,chicago`). Any other portal fails with `portal_not_enabled`. Names that match no portal are ignored, so a list in which nothing matches blocks every portal. Unset or blank, every registered portal is served.
 
 ## Tools and reference
