@@ -28,7 +28,7 @@ A claim is reviewed when it carries an `interpretation`, or, for `placeholder_sh
 - Staleness acts at runtime: the server degrades stale claims as above, by its own clock. The tests run at a pinned date, so `tests/test_tiers.py` never sees a review go stale. A drift run gives each claim it checks a new `checked_at`.
 
 ## Contribution path
-A contribution is one pack PR for one portal. Run every step in a clone of the repository, from its root. `<host>` is the portal's canonical id, alias or public host. `<pack>` is the pack directory's name: the profiler's `--out` directory, by default the canonical id. An agent can follow this path with the `curate-portal` skill, `skills/curate-portal/SKILL.md` in the repository.
+A contribution is one pack PR for one portal. Run every step in a clone of the repository, from its root. `<host>` is the portal's canonical id, alias or public host. `<pack>` is the pack directory's name: the profiler's `--out` directory, by default the canonical id. An agent can follow this path with the `curate-portal` skill, `skills/curate-portal/SKILL.md` in the repository. Codex starts the skill only when you name it (`$curate-portal curate <host>`).
 
 ### Rules
 - A pack PR must change only `src/opendata_atlas/portals/<pack>/`, `evals/portals/<pack>.json`, `src/opendata_atlas/portals/registry_overrides.toml` and `src/opendata_atlas/portals/validation.json`.

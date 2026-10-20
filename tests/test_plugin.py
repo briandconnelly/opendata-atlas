@@ -6,9 +6,11 @@ import json
 import tomllib
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "opendata-atlas"
-SKILL = "skills/curate-portal/SKILL.md"
+SKILL = "skills/curate-portal"
 #: Each catalog, by the tool that reads it.
 CATALOGS = {
     "claude-code": ROOT / ".claude-plugin" / "marketplace.json",
@@ -31,11 +33,24 @@ def _version() -> str:
     ]
 
 
+def _tree(root: Path) -> dict[str, bytes]:
+    return {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+
+
 def test_plugin_skill_matches_repository_skill():
-    assert (PLUGIN / SKILL).read_bytes() == (ROOT / SKILL).read_bytes(), (
+    repository = _tree(ROOT / SKILL)
+    assert {"SKILL.md", "agents/openai.yaml"} <= set(repository), "known positive"
+    assert _tree(PLUGIN / SKILL) == repository, (
         f"plugins/opendata-atlas/{SKILL} differs from {SKILL}: edit the repository copy, "
-        f"then copy it (cp {SKILL} plugins/opendata-atlas/{SKILL})"
+        f"then copy it (cp -R {SKILL}/. plugins/opendata-atlas/{SKILL}/)"
     )
+
+
+def test_codex_starts_curate_portal_only_when_named():
+    """It commits and can start paid eval runs, so Codex must not pick it on its own."""
+    config = yaml.safe_load((ROOT / SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8"))
+    assert config["policy"]["allow_implicit_invocation"] is False
+    assert "$curate-portal" in config["interface"]["default_prompt"]
 
 
 def test_plugin_ships_only_the_curate_portal_skill():
