@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- README: the Install paths (PyPI, `uvx`, the release `.mcpb`) are live now that 0.1.0 is published; the pre-release notes are gone.
+
 ## [0.1.0] - 2026-10-20
 
 First release of opendata-atlas, to ship as 0.1.0. This is a new server, forked from seattle-open-data 0.2.0 at 26c6628, not a new version of seattle-open-data, which stays published under its own name. Its version line starts at 0.1.0; seattle-open-data's history is kept below for reference.

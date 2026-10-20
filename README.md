@@ -6,7 +6,7 @@
 
 Agent-friendly access to public [Socrata](https://dev.socrata.com/) open-data portals, as an [MCP](https://modelcontextprotocol.io/) server. It is read-only: it reads public datasets through each portal's SODA API and writes nothing.
 
-**Status: preview.** Nothing is published yet; until the first release, run the server from a checkout ([Try it locally](#try-it-locally)). The server holds a registry of public Socrata portals; `atlas_find_portals` lists them. Three portals are curated: Seattle (`seattle`), Chicago (`chicago`) and City of Everett (`everett`).
+**Status: preview.** Version 0.1.0 is on [PyPI](https://pypi.org/project/opendata-atlas/) and in [GitHub Releases](https://github.com/briandconnelly/opendata-atlas/releases/latest). The server holds a registry of public Socrata portals; `atlas_find_portals` lists them. Three portals are curated: Seattle (`seattle`), Chicago (`chicago`) and City of Everett (`everett`).
 
 ## Tools
 
@@ -28,7 +28,7 @@ Portals are tiered (`generic`, `profiled`, `curated`), but the tier never vouche
 
 ## Install
 
-These paths work after the first release, which has not happened yet; until then, use [Try it locally](#try-it-locally). The server runs over stdio. The `uvx` commands below need [uv](https://docs.astral.sh/uv/).
+The server runs over stdio. The `uvx` commands below need [uv](https://docs.astral.sh/uv/).
 
 **Claude Desktop:** download `opendata-atlas-<version>.mcpb` from the [latest release](https://github.com/briandconnelly/opendata-atlas/releases/latest) and open it with Claude Desktop.
 
@@ -56,7 +56,7 @@ codex mcp add opendata-atlas -- uvx opendata-atlas
 
 ## Try it locally
 
-Three ways to run the server before it is published, each from a checkout and each over stdio. Each needs [uv](https://docs.astral.sh/uv/); path (c) also needs the `mcpb` CLI (`npm install -g @anthropic-ai/mcpb`). Replace `/path/to/opendata-atlas` with the absolute path of your checkout.
+Three ways to run the server from a checkout, each over stdio. Each needs [uv](https://docs.astral.sh/uv/); path (c) also needs the `mcpb` CLI (`npm install -g @anthropic-ai/mcpb`). Replace `/path/to/opendata-atlas` with the absolute path of your checkout.
 
 By default (`--scope local`), `claude mcp add` makes the server available only to you, in the current project. To use it in every project, add `--scope user`. For Claude Desktop, merge the snippet's `opendata-atlas` entry into `mcpServers` in `claude_desktop_config.json` (on macOS, `~/Library/Application Support/Claude/claude_desktop_config.json`), then restart Claude Desktop. If Claude Desktop cannot find `uv` or `uvx`, set `command` to the absolute path that `which uv` or `which uvx` prints.
 
@@ -133,7 +133,7 @@ To build the MCPB bundle locally: `make mcpb` (needs the `mcpb` CLI; see [Try it
 
 ## Release
 
-Tag `vX.Y.Z` after bumping the version: the release workflow builds and smoke-tests the wheel, sdist, and `.mcpb`, publishes to PyPI after maintainer approval, and attaches all three to a GitHub Release. See [docs/releasing.md](docs/releasing.md) for the steps. Before the first release, work through [docs/release-checklist.md](docs/release-checklist.md): the one-time setup, the TestPyPI rehearsal and the maintainer's open decisions.
+Tag `vX.Y.Z` after bumping the version: the release workflow builds and smoke-tests the wheel, sdist, and `.mcpb`, publishes to PyPI after maintainer approval, and attaches all three to a GitHub Release. See [docs/releasing.md](docs/releasing.md) for the steps. The first release, 0.1.0, followed [docs/release-checklist.md](docs/release-checklist.md), which records the one-time setup and the TestPyPI rehearsal.
 
 The documentation is this README and the files in [`docs/`](docs/), as they stand in the repository; there is no hosted docs site.
 
