@@ -23,6 +23,7 @@ from opendata_atlas.profiler import cli
 from opendata_atlas.profiler.emit import pack_files, render_claims
 from opendata_atlas.profiler.profile import (
     flagships,
+    gap_hour,
     identity_verified,
     observe_text,
     profile_portal,
@@ -89,6 +90,7 @@ class SyntheticPortal:
         filtered_rows: list[dict[str, str]] | None = None,
     ) -> None:
         self.hi = hi
+        self.gap_day = date(2026, 3, 8)
         self.midnight = midnight
         self.filtered_rows = YEAR if filtered_rows is None else filtered_rows
         self.fail_on = fail_on
@@ -174,7 +176,7 @@ class SyntheticPortal:
             return [{"n": "1000", "midnight": str(self.midnight)}]
         if "date_extract_mm(occurred) != 0" in q:
             return self.filtered_rows
-        if "2026-03-08T00:00:00" in q:
+        if f"{self.gap_day.isoformat()}T00:00:00" in q:
             return self.gap_rows if self.tz_rows else []
         if "date_extract_hh(occurred)" in q:
             return self.year_rows if self.tz_rows else []
@@ -474,6 +476,27 @@ async def test_dataset_ids_profile_only_the_named_datasets():
     assert [d.dataset_id for d in report.datasets] == [EMPTY]
     assert report.error is None
     assert EMPTY in report.flagship_basis and "--dataset" in report.flagship_basis
+
+
+async def test_repeated_dataset_id_is_profiled_once():
+    """A repeated id would emit duplicate claim ids, which the loader rejects (exit 5)."""
+    report, claims = await _profile(SyntheticPortal(), dataset_ids=[DATASET, DATASET])
+    assert [d.dataset_id for d in report.datasets] == [DATASET]
+    ids = [c.id for c in claims]
+    assert len(ids) == len(set(ids))
+
+
+async def test_midnight_spring_forward_keeps_gap_hour_0():
+    """A zone that springs forward at midnight skips hour 0; it must not become hour 2."""
+    zone = ZoneInfo("America/Santiago")
+    day = spring_forward(zone, date(2024, 1, 1), date(2026, 6, 30))
+    assert day is not None and gap_hour(zone, day) == 0  # known positive: such zones exist
+    portal = SyntheticPortal(gap_rows=_hours({h: 5 for h in range(1, 24)}))
+    portal.gap_day = day
+    _, claims = await _profile(portal, _entry(timezone="America/Santiago"))
+    tz = _by_id(claims)[f"{DATASET}-occurred-timezone"]
+    gap = next(a for a in tz.assertion if a.checker == "dst_gap")
+    assert gap.params == {"gap_hour": 0}
 
 
 async def test_unknown_dataset_id_stops_before_any_dataset():

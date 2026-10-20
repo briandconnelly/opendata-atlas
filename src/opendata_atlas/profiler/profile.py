@@ -482,7 +482,9 @@ async def _flagships(
 async def _requested(
     client: SodaClient, portal: PortalContext, entry: RegistryEntry, ids: list[str]
 ) -> tuple[list[dict], str, list[str]]:
-    """The datasets named by `--dataset`, in the order given, and the ids not on this portal."""
+    """The datasets named by `--dataset`, in the order given (a repeated id once), and the ids
+    not on this portal."""
+    ids = list(dict.fromkeys(ids))
     params = {**entry.identity.catalog_query, "only": "dataset", "ids": ids, "limit": len(ids)}
     results = _results(await client.get_json(_discovery(entry), params, portal=portal))
     own = {
@@ -681,7 +683,7 @@ class _Dataset:
             gap,
             (day_query, day_rows),
             self.today,
-            gap_hour=hour or 2,
+            gap_hour=2 if hour is None else hour,
             midnight=midnight,
         )
         if claim is None:
