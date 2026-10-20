@@ -78,7 +78,7 @@ The PR body names the portal, the outcome, the declared tier, whether you propos
 
 ### Tool calls
 
-The steps call the opendata-atlas tools. When they are not connected as MCP tools, call each one in-process, from the repository root, with its arguments as one JSON argument:
+The steps call the opendata-atlas tools. Call each one in-process, from the repository root, with its arguments as one JSON argument, even when opendata-atlas tools are connected as MCP tools: a connected server, such as the one the opendata-atlas plugin adds, runs an installed release, which reads its own packs, not the ones you are editing.
 
 ```
 uv run python -c 'import asyncio, json, sys

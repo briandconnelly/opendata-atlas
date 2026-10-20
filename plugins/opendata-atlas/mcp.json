@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "opendata-atlas": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["opendata-atlas==0.1.0"]
+    }
+  }
+}
