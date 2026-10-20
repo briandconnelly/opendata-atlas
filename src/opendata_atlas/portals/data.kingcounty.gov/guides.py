@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from opendata_atlas.core.guides import Example, Guide
 
-SEPT_2026 = "incident_datetime >= '2026-09-01T00:00:00' AND incident_datetime < '2026-10-01T00:00:00'"
+SEPT_2026 = (
+    "incident_datetime >= '2026-09-01T00:00:00' AND incident_datetime < '2026-10-01T00:00:00'"
+)
 
 
 GUIDES: tuple[Guide, ...] = (
