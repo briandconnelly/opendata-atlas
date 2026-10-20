@@ -6,6 +6,7 @@ from __future__ import annotations
 import copy
 import os
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -181,6 +182,10 @@ esac
 """
 
 
+#: drift.yml runs on ubuntu-latest; its bash steps run here with a stub `gh` on a POSIX PATH.
+POSIX_ONLY = pytest.mark.skipif(sys.platform == "win32", reason="drift.yml runs on ubuntu-latest")
+
+
 def _run_loop(drift, tmp_path, listing: str, *, list_fails: bool = False, work=None):
     """Run the issue loop's shell with a stub `gh`; return the stub's calls.
 
@@ -218,6 +223,7 @@ def _run_loop(drift, tmp_path, listing: str, *, list_fails: bool = False, work=N
     return proc.returncode, (log.read_text().splitlines() if log.exists() else [])
 
 
+@POSIX_ONLY
 def test_issue_loop_comments_on_a_match_and_creates_otherwise(drift, tmp_path):
     listing = (
         '[{"number": 7, "title": "Drift: a.example"},'
@@ -235,6 +241,7 @@ def test_issue_loop_comments_on_a_match_and_creates_otherwise(drift, tmp_path):
     assert sum(c.startswith("issue create") for c in calls) == 1
 
 
+@POSIX_ONLY
 def test_issue_loop_fails_closed_when_listing_fails(drift, tmp_path):
     """A failed `gh issue list` must stop the step, not open a duplicate issue."""
     returncode, calls = _run_loop(drift, tmp_path, "[]", list_fails=True)
@@ -244,6 +251,7 @@ def test_issue_loop_fails_closed_when_listing_fails(drift, tmp_path):
     assert not any(c.startswith("issue comment") for c in calls)
 
 
+@POSIX_ONLY
 def test_a_run_that_fails_before_any_claim_opens_an_issue(drift, tmp_path):
     """Final review M-8, offline: no drift report (a collection-time PackError) still ends in
     a `Drift: run failed` issue, through the workflow's own body and loop steps."""

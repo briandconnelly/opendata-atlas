@@ -1,0 +1,3 @@
+# Check out text files with LF on every platform: several tests compare bytes
+# (the served CONTRIBUTING copy, the icon size, release.yml extracts).
+* text=auto eol=lf
