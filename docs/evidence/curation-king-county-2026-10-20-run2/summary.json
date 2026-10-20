@@ -1,0 +1,123 @@
+{
+ "pack": "data.kingcounty.gov",
+ "date": "2026-10-20",
+ "curated_by": "claude (interactive session following skills/curate-portal/SKILL.md)",
+ "commit": "471a035 (curate/data.kingcounty.gov, declared profiled)",
+ "profiler": "uv run atlas-profile data.kingcounty.gov --datasets 21 --out .curation/kc-21; only facts for 4kmt-kfqf copied",
+ "dataset_reviewed": "4kmt-kfqf",
+ "claims_by_kind": {
+  "unit_of_observation": 1,
+  "place_field": 1,
+  "column_timezone": 5
+ },
+ "claims_reviewed": 3,
+ "checks": {
+  "drift_11_1": "7 passed (exit 0), before and after step 11.3",
+  "offline_11_2": "pytest 1251 passed; prek passed before 11.3; after 11.3 ruff check and ty passed, ruff format --check failed on guides.py:7 (untracked file that prek skipped)",
+  "guide_examples": "2 of 2 isError false"
+ },
+ "step3_deletions": 0,
+ "eval_runs": [
+  {
+   "run": 1,
+   "tasks": [
+    {
+     "id": "01-burien-offenses-last-month",
+     "subtype": "success",
+     "cost_usd": 0.1714,
+     "grade": "PASS",
+     "answer": "In September 2026, the King County Sheriff's Office recorded **277 offenses in Burien, across 242 reports**.\n\n- **Offenses vs. reports:** Each row in the data is one offense, and a single report can list several. So \"how many crimes\" can mean 277 offenses or 242 reports.\n- **How I picked Burien:** The dataset only has an address-city field, not a jurisdiction field, so I matched on `city = 'BURIEN'`. That's the only spelling of Burien in last month's data. The portal's notes say this field works for cities the Sheriff patrols under contract, which includes Burien. In September, 272 of the 277 offenses were in Burien's patrol districts (N1–N6). The other 5 were in districts L1, L4 and K7, which may be addresses that are mislabeled or near the city line.\n- **Time window:** I counted from Sept 1 to Sept 30, 2026, Pacific time, by when the incident happened. Reports filed later can still add to last month's numbers, so the count may go up a little.\n- **Source:** \"KCSO Offense Reports: 2020 to Present\" (`4kmt-kfqf`) on data.kingcounty.gov, which was updated today. It only covers Sheriff's Office reports, not other agencies like the Port of Seattle Police.\n\nI can break the count down by offense type if that's useful."
+    },
+    {
+     "id": "02-still-in-custody",
+     "subtype": "success",
+     "cost_usd": 0.1655,
+     "grade": "PASS",
+     "answer": "**About 1,444 bookings (roughly 1,443 people) from the past year have no release date. 1,042 of them are in the two jails and 400 are on electronic home detention.** That count is as of the dataset's snapshot on **Oct 2, 2026**, not today.\n\nWhere those 1,444 unreleased bookings are:\n\n| Current facility | Bookings |\n|---|---|\n| King County Correctional Facility (downtown Seattle) | 596 |\n| Maleng Regional Justice Center (Kent) | 446 |\n| Electronic Home Detention | 400 |\n| Community Correction Division | 1 |\n| (no facility listed) | 1 |\n| **Total** | **1,444** |\n\nElectronic home detention is still custody, but those people aren't physically in jail.\n\n**How I got this.** The source is King County's \"Adult Jail Booking\" dataset (`j56h-zgnm`). It covers bookings from Oct 1, 2025 to Sep 30, 2026 and was last updated Oct 2, 2026. \"Still in custody\" means the booking has no release date.\n- **Each row is a charge, not a person.** There are 6,219 unreleased charge rows, and one booking had 21. I counted distinct booking numbers instead. Every booking's charges all had the same release status, and each booking was listed at one facility, so the counts add up exactly.\n- **People vs. bookings.** The dataset has no person ID. Matching on first, middle and last name gives 1,443 people, so about one person has two open bookings. Treat that number as approximate.\n\n**Caveats:**\n- **Out of date.** The data stops 18 days ago. Anyone released or booked since Oct 2 isn't reflected, and bookings from Oct 1–20, 2026 aren't in the data at all.\n- **Unconfirmed meanings.** The atlas hasn't reviewed what each row stands for, what time zone the timestamps use, or what `current_facility` means. I'm assuming they're Pacific time and that `current_facility` is where the person is held now. One oddity: 905 bookings that *were* released still list a facility, so the field may not always be cleared on release.\n\nThe atlas has no guide for this dataset yet. If you want, I can draft a knowledge-gap issue covering the per-charge rows, the missing person ID and the `current_facility` behavior."
+    },
+    {
+     "id": "03-seattle-crime-county-data",
+     "subtype": "success",
+     "cost_usd": 0.1088,
+     "grade": "PASS",
+     "answer": "King County's open data portal can't tell you how many crimes were reported in Seattle in 2025, so I didn't produce a number.\n\n**Why:** The only crime dataset on the King County portal is **KCSO Offense Reports: 2020 to Present** (`4kmt-kfqf`). It covers only incidents handled by the King County Sheriff's Office: unincorporated areas, the 13 cities that contract with KCSO for police, Metro and Sound Transit, the Muckleshoot Tribe and King County International Airport. The Seattle Police Department handles crime in Seattle, and its reports aren't in this dataset.\n\nThe dataset does have a `city = 'SEATTLE'` value, but filtering on it would give a misleading answer. That field is the city in the mailing address, not who has jurisdiction. The \"SEATTLE\" rows are mostly Metro Transit police incidents plus unincorporated areas that have Seattle addresses, not Seattle Police data. The dataset's reviewed notes say that value should never be treated as Seattle's crime count.\n\n**Where the answer is:** The City of Seattle portal (`data.seattle.gov`) is also available here and is the right source for Seattle Police crime data. Want me to get the 2025 count from it? If so, should I count offenses or reports? One report can list several offenses, so the two numbers differ."
+    },
+    {
+     "id": "04-traffic-collisions",
+     "subtype": "success",
+     "cost_usd": 0.0878,
+     "grade": "PASS",
+     "answer": "I couldn't answer this from King County's open data portal (data.kingcounty.gov), because the county doesn't seem to publish traffic collision data there.\n\n**What I searched:**\n- **Keywords:** \"traffic collisions,\" \"crash,\" \"accident\" and \"collision.\" The only match was \"COVID-19 Impact on Daily Traffic,\" which is an external link to traffic volumes, not crashes.\n- **Transportation & Roads category:** it contains no datasets I can query.\n- **Sheriff's Office data:** the closest dataset is \"KCSO Offense Reports: 2020 to Present.\" It records crimes, not collisions, and only where the Sheriff's Office responds (unincorporated areas and contract cities). Counting from it would give the wrong answer, so I didn't.\n\n**Where the numbers are likely published:**\n- **WSDOT Crash Data Portal:** Washington's official statewide crash records, which you can filter by county. This is the best source for a countywide total.\n- **City portals:** for example, Seattle's open data portal has an SDOT Collisions dataset, but it only covers Seattle.\n\nIf Seattle's numbers would help, I can check whether its portal is in the registry and run the count for last year (2025)."
+    }
+   ]
+  },
+  {
+   "run": 2,
+   "tasks": [
+    {
+     "id": "01-burien-offenses-last-month",
+     "subtype": "success",
+     "cost_usd": 0.1786,
+     "grade": "PASS",
+     "answer": "Last month (September 2026), the King County Sheriff's Office recorded **277 offenses across 242 reports** in Burien.\n\n- **Offenses vs. reports:** One report can list several offenses. The 277 counts each offense separately; the 242 counts each report (case) once.\n- **Source and filter:** This is the KCSO Offense Reports dataset (`4kmt-kfqf`) on data.kingcounty.gov. I counted rows with `city = 'BURIEN'` and an incident date from Sept 1 up to but not including Oct 1, 2026, Pacific time. A broader search for any city value containing \"BURIEN\" found no other spellings.\n- **What \"city\" means here:** The field holds the address's city, not the police jurisdiction. The dataset's notes say it works for cities KCSO patrols, and 99% of Burien rows fall in Burien's patrol districts (N1–N6). Burien contracts with KCSO for policing, so this should cover nearly all of its reported crime. A few incidents could still be coded to a different city name.\n- **The number may still rise:** About 6% of a month's offenses are reported after the month ends. Reports can also be pulled and re-added while they're being re-approved, so September's totals may still change.\n- **Dates:** I counted by when the offense happened, not when it was reported."
+    },
+    {
+     "id": "02-still-in-custody",
+     "subtype": "success",
+     "cost_usd": 0.1922,
+     "grade": "PARTIAL",
+     "answer": "About **1,470 people** booked into King County jail between Oct 1, 2025 and Sep 30, 2026 were still in custody on Oct 2, 2026. That's out of about 14,200 people booked in that period, or roughly 10%. Most are held in the county's two jails, and about 400 are on electronic home detention.\n\n| Current facility | Bookings | People (approx.) |\n|---|---:|---:|\n| King County Correctional Facility (downtown Seattle) | 1,083 | 619 |\n| Maleng Regional Justice Center (Kent) | 644 | 448 |\n| Electronic Home Detention | 618 | 401 |\n| Community Correction Division | 3 | 1 |\n| **Total** | **2,348** | **~1,468** |\n\nOf the 1,468, about 1,067 are physically in one of the two jails.\n\n**How I counted:**\n- **The data stops on Oct 2.** I used King County's \"Adult Jail Booking\" dataset (`j56h-zgnm`), which was last updated on Oct 2, 2026. \"Still in custody\" means as of that day, not today (Oct 20). Its bookings cover Oct 1, 2025 to Sep 30, 2026, so \"the past year\" here starts about three weeks earlier than a year back from today.\n- **Rows are charges, not people.** The file has about 39,900 rows but only 17,897 bookings, because one booking can have several charges. I counted each booking once using its booking number. The dataset's documentation doesn't confirm what a row is; I worked that out from the data.\n- **The people counts are estimates.** The dataset has no person ID, so I counted distinct first, middle and last name combinations. Two different people with the same name would be counted as one, and spelling differences would split one person into two. One person appears under two facilities, which is why the rows add up to 1,469 but the total is 1,468.\n- **What counts as \"in custody\":** a booking that still has a current facility listed. Every booking falls in exactly one facility or none. Some of these bookings have a release date on some of their charges but not others, so I counted the facility field rather than the release date. One booking with no facility listed still has a charge with no release date; I left it out.\n- **Unchecked assumptions:** the dataset doesn't say which time zone its timestamps use. I also assumed that a filled-in \"current facility\" means the person is currently held, and the documentation doesn't confirm that either.\n\nThese gaps (what a row is, the time zone, what \"current facility\" means) could be logged as a knowledge-gap issue for this dataset in opendata-atlas. Want me to write one up?"
+    },
+    {
+     "id": "03-seattle-crime-county-data",
+     "subtype": "success",
+     "cost_usd": 0.1133,
+     "grade": "PASS",
+     "answer": "King County's open data doesn't include Seattle's crime count, so I didn't give a number.\n\n**Why:** King County's only crime dataset is **KCSO Offense Reports: 2020 to Present** (`4kmt-kfqf`). It only covers incidents handled by the King County Sheriff's Office: unincorporated King County, the 13 cities that contract with KCSO, Metro and Sound Transit, the Muckleshoot Tribe and King County International Airport. Seattle has its own police department, and those reports aren't in this dataset.\n\nThe dataset does have a `city` column with a `SEATTLE` value, but it shouldn't be read as Seattle's crime count. That column holds the address's mailing city, not the police jurisdiction. The `SEATTLE` rows are Metro Transit police incidents and unincorporated areas that happen to have Seattle addresses. They're a small, unrepresentative slice, and the dataset's guide says not to use them for this question.\n\n**What would answer it:** The City of Seattle's portal (`data.seattle.gov`) is also available here and publishes Seattle Police Department crime data. I can look up the 2025 total there if you'd like. I'd tell you whether it counts individual offenses or reports, and which time zone and dates I used.\n\nIf you meant crime that KCSO handles, I can also count 2025 offenses and reports for unincorporated King County or a contract city like Burien."
+    },
+    {
+     "id": "04-traffic-collisions",
+     "subtype": "success",
+     "cost_usd": 0.096,
+     "grade": "PASS",
+     "answer": "I couldn't find this number. King County's open data portal (data.kingcounty.gov) doesn't seem to publish traffic collision data, so I can't give you a count for last year (2025).\n\n**What I searched:**\n- **\"traffic collisions,\" \"crash,\" \"accident\":** none of these matched a dataset you can query. The only traffic-related results were two links to outside pages: \"COVID-19 Impact on Daily Traffic\" (last updated 2021) and the Metro Trip Planner. Neither has crash records.\n- **\"Transportation & Roads\" category:** no datasets you can query.\n- **Sheriff data:** the closest dataset is *KCSO Offense Reports: 2020 to Present* (`4kmt-kfqf`). It lists crimes reported to the King County Sheriff's Office, not traffic collisions. It also only covers areas the Sheriff's Office polices, not cities with their own police like Seattle or Bellevue. So I didn't use it as a stand-in.\n\n**Where the data probably is:**\n- **WSDOT:** the Washington State Department of Transportation publishes statewide crash data that can be filtered by county. It's the most likely source for a true countywide total.\n- **City portals:** Seattle publishes an SDOT collisions dataset on data.seattle.gov, but it only covers Seattle. I can check whether that portal is available here and count Seattle's 2025 collisions, if a city-only number helps."
+    }
+   ]
+  },
+  {
+   "run": 3,
+   "tasks": [
+    {
+     "id": "01-burien-offenses-last-month",
+     "subtype": "success",
+     "cost_usd": 0.177,
+     "grade": "PASS",
+     "answer": "In **September 2026**, the King County Sheriff's Office (KCSO) recorded **277 offenses in Burien, across 242 reports**.\n\n- **Offenses vs. reports:** Each row in the data is one offense, and a single report (case number) can list several offenses. That's why there are 277 offenses but only 242 reports.\n- **Time range:** \"Last month\" means September 1–30, 2026, Pacific time, counted by the date each offense happened. The portal's clock reads 2026-10-20.\n- **How Burien is picked out:** The count uses the dataset's address-city field, where `city = 'BURIEN'`. That field gives the city in the address, not which police agency covered the area, so the tool marks it as only partly reliable. It works well for Burien, though: Burien pays KCSO for its police service, and 99% of rows marked Burien fall in Burien's KCSO patrol districts (N1–N6). I checked for other spellings of Burien in the field and found none.\n- **The number may rise:** About 6% of a month's offenses are reported after the month ends, and the publisher temporarily removes reports while they're re-approved. Expect the September count to change a little.\n- **Source:** KCSO Offense Reports: 2020 to Present (`4kmt-kfqf`) on data.kingcounty.gov.\n\nIf you want, I can break this down by offense type or compare it with earlier months."
+    },
+    {
+     "id": "02-still-in-custody",
+     "subtype": "success",
+     "cost_usd": 0.1472,
+     "grade": "PASS",
+     "answer": "About **1,444 bookings were still open** as of October 2, 2026, which is the date of King County's latest data snapshot. That is roughly 1,440 people. All of the figures below come from that snapshot, not from today (Oct 20, 2026).\n\n**Where they're held** (bookings with no release date):\n\n| Current facility | Bookings |\n|---|---|\n| King County Correctional Facility (downtown Seattle) | 596 |\n| Maleng Regional Justice Center (Kent) | 446 |\n| Electronic Home Detention | 400 |\n| Community Correction Division | 1 |\n| No facility recorded | 1 |\n| **Total** | **1,444** |\n\nOnly about 1,040 are physically in a jail building. The 400 on Electronic Home Detention are still in custody but are at home.\n\n**What the numbers cover:**\n- **Source:** the county's Department of Adult and Juvenile Detention dataset \"Adult Jail Booking\" (`j56h-zgnm`) on data.kingcounty.gov.\n- **Time window:** it covers bookings from Oct 1, 2025 to Sep 30, 2026, which is 17,897 bookings in total. The title says \"to Sep 2,\" but the data runs to Sep 30. Bookings from Oct 1–20, 2026 and any releases after Oct 2 are not included, so the current count is likely different.\n- **Bookings vs. people:** the dataset has one row per charge, so I counted unique booking numbers. The 1,444 open bookings match 1,439 unique first-and-last-name pairs, so a few people probably have more than one open booking. There's no person ID, so the exact number of people can't be confirmed.\n- **How I defined \"still in custody\":** a booking with no release date. Each booking's charges were either all released or all still open, so no booking was counted twice.\n- **Facility field:** 905 released bookings still list a facility. That suggests the field shows the last place someone was held, not only where they are now. The tool hasn't reviewed what this field means, and it hasn't confirmed what one row represents or which timezone the timestamps use.\n\nI can open a knowledge-gap issue for those unreviewed points if you'd like."
+    },
+    {
+     "id": "03-seattle-crime-county-data",
+     "subtype": "success",
+     "cost_usd": 0.1071,
+     "grade": "PASS",
+     "answer": "King County's open data can't tell you how many crimes were reported in Seattle in 2025, so I haven't given a number.\n\nThe only crime dataset on data.kingcounty.gov that I can query is **KCSO Offense Reports: 2020 to Present** (`4kmt-kfqf`). It comes from the King County Sheriff's Office, which doesn't police Seattle. The Seattle Police Department does. The dataset has a `city` column, but it holds the address's postal city, not which agency handled the incident. Rows marked `SEATTLE` are:\n\n- incidents handled by Metro Transit police, and\n- incidents in unincorporated parts of the county, like White Center, that have Seattle mailing addresses.\n\nNone of them come from the Seattle Police Department. If I filtered on `city = 'SEATTLE'`, you'd get a small number that looks like Seattle's crime count but isn't. The dataset's notes say directly that this column can never give a count for Seattle.\n\nThe other match is the Prosecuting Attorney's dashboard, which is only an external link I can't query. It also covers only felony cases filed in King County Superior Court, not all reported crimes.\n\nTo get a real answer, I'd use the **City of Seattle portal (data.seattle.gov)**, which is in the registry and publishes the Seattle Police Department's crime data. Do you want me to get the 2025 count from there? If so, tell me whether you want offenses or reports, since one report can list several offenses, or I can give you both."
+    },
+    {
+     "id": "04-traffic-collisions",
+     "subtype": "success",
+     "cost_usd": 0.1036,
+     "grade": "PASS",
+     "answer": "I couldn't find a count of traffic collisions in King County, WA for 2025. The county's open data portal (data.kingcounty.gov) doesn't appear to publish a collision dataset.\n\n- **Searches:** I searched the portal for \"traffic collisions,\" \"collision,\" \"crash\" and \"accident,\" including external links. Only one result came back, a 2021 link titled \"COVID-19 Impact on Daily Traffic.\" It points to an external page and isn't collision data.\n- **Transportation & Roads category:** It has no datasets I can query.\n- **Closest dataset:** \"KCSO Offense Reports: 2020 to Present\" (`4kmt-kfqf`) is the Sheriff's Office crime report data. It isn't a collision dataset, and it only covers areas the Sheriff's Office polices, not cities like Seattle or Bellevue. I didn't use it because it would have given you a different number than the one you asked for.\n\n**Where to look instead:**\n- **WSDOT's Crash Data Portal** has statewide police-reported crashes and can be filtered to King County. It's the standard source for this.\n- **Seattle's portal (data.seattle.gov)** publishes SDOT collision data, but only for the city.\n\nI can check the Seattle portal if a Seattle-only count would help."
+    }
+   ]
+  }
+ ],
+ "eval_cost_usd": 1.65,
+ "promotion": "maintainer accepted the curating agent's grades (decisions row 'King County promoted to curated')"
+}

@@ -6,6 +6,9 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
+- `king-county` (`data.kingcounty.gov`) is now `curated`: KCSO Offense Reports (`4kmt-kfqf`) is `reviewed`, with its unit of observation (one row per offense; a report can list several), the `city` place field (`partial`: an address's city or community, so `SEATTLE` rows are Metro Transit and unincorporated areas, never Seattle Police data) and `incident_datetime` in Pacific time (about 7% of rows default to 00:00:00), and a guide, `kcso-offense-reports`. `atlas_find_portals` and the `portals` reference report tier `curated`. Eval tasks 01 and 03 in `evals/portals/data.kingcounty.gov.json` are replaced by tasks on the reviewed dataset.
+- The curate-portal skill's and `CONTRIBUTING-portals.md`'s step 11.2 also run `uv run ruff format --check`, which reads the untracked new pack files that `prek run --all-files` skips.
+
 - README rewritten as an introduction for new users: example questions, install requirements and client setup tips, portals and data quality in plain terms, limitations, an allowlist example, and the `opendata-atlas://` resources and templates. It corrects the knowledge levels' description: a dataset short of `reviewed` can still hold reviewed claims.
 - Running from source, the development commands and the release pointer move to a new `CONTRIBUTING.md`.
 - README: the Install paths (PyPI, `uvx`, the release `.mcpb`) are live now that 0.1.0 is published; the pre-release notes are gone.
