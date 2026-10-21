@@ -19,15 +19,16 @@
 # - 1-51: the 50 largest portals by catalog_size on 2026-10-18, after the eligibility rules
 #   (summary.json `top50_by_catalog_size`), which include the required Cook County. 16 was
 #   Chicago, now defined by its pack; 51, data.nj.gov, joined the 50 in its place (milestone 6).
+#   37 was Los Angeles, now defined by its pack.
 # - 52-57: generated names that the milestone 6 review rejected or renamed
 #   (docs/evidence/registry-names-2026-10-20/review.md); they set `name` only.
 # - 58-59: Everett and King County, added for curation (milestone 6). Both are now defined by
 #   their packs, so neither entry remains.
-# data.seattle.gov, data.cityofchicago.org, data.everettwa.gov and data.kingcounty.gov are
-# defined by their packs (portal.toml) and have no override.
+# data.seattle.gov, data.cityofchicago.org, data.everettwa.gov, data.kingcounty.gov and
+# data.lacity.org are defined by their packs (portal.toml) and have no override.
 #
 # Aliases: give them only to portals being curated or profiled. So far: Chicago (milestone 2),
-# and Everett and King County (milestone 6), each now in its pack.
+# Everett and King County (milestone 6), and Los Angeles, each now in its pack.
 
 # 1. titles.json["datahub.hhs.gov"]: site_title="Tyler Data & Insights", site_company="HHS Data Hub", html_title="HHS Data Hub"
 # national portal: no timezone
@@ -317,14 +318,6 @@ name = "Open Calgary"
 place_names = ["Calgary"]
 jurisdiction = { level = "other", country = "CA", region = "AB" }
 timezone = "America/Edmonton"
-
-# 37. titles.json["data.lacity.org"]: site_title="Los Angeles - Open Data Portal", site_company="City of Los Angeles", html_title="DataLA: Information, Insights, and Analysis from the City of Angels | Los Angeles Open Data Portal"
-# source: country US, region CA: geography (the named place lies there), not the title
-["data.lacity.org"]
-name = "City of Los Angeles"
-place_names = ["Los Angeles"]
-jurisdiction = { level = "city", country = "US", region = "CA" }
-timezone = "America/Los_Angeles"
 
 # 38. titles.json["opendata.camden.gov.uk"]: site_title="Open Data Portal", site_company="London Borough of Camden", html_title="Camden Council | Open Data | Open Data Portal"
 # a London borough is none of city/county/region/state: level other; region GB-CMD

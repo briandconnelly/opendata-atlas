@@ -1,0 +1,43 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "2nrs-mtv8-vict_sex-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "2nrs-mtv8", column = "vict_sex"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT vict_sex AS v, count(*) AS n GROUP BY vict_sex ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-20
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 97,753 of 1,004,894 rows (0.097); \"-\" 1 of 1,004,894 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "-", count = "n"}
+
+[[claim]]
+id = "2nrs-mtv8-vict_descent-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "2nrs-mtv8", column = "vict_descent"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT vict_descent AS v, count(*) AS n GROUP BY vict_descent ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-20
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 106,661 of 1,004,894 rows (0.106); \"-\" 2 of 1,004,894 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "-", count = "n"}
