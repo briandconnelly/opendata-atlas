@@ -11,8 +11,8 @@
   },
   {
     "id": "28-generic-text-place",
-    "prompt": "How many crimes were reported in the Hollywood neighborhood of Los Angeles in September 2026?",
-    "expect": "Uses LAPD NIBRS Offenses (k7nn-b2ep on generic portal data.lacity.org; text place column area_name, no computed-region columns). Follows the exploratory path: groups area_name, then filters on the returned value (live group-by on 2026-10-18 returned 'Hollywood' space-padded, about 1,000 rows for September 2026 by date_rptd (as of 2026-10-18); an unpadded 'Hollywood' filter returns 0), not 'N Hollywood'. Says the field is unverified (area_name is an LAPD area, not a reviewed neighborhood boundary)."
+    "prompt": "Using LAPD's 2020 to 2024 crime data, how many crimes were reported in the Hollywood neighborhood of Los Angeles in September 2023?",
+    "expect": "Uses Crime Data from 2020 to 2024 (2nrs-mtv8 on data.lacity.org, an unreviewed dataset at level profiled: text place column area_name, no computed-region columns, no reviewed place field). Follows the exploratory path: groups or inspects area_name, then filters on the returned value 'Hollywood' (probed 2026-10-20: 961 rows by date_rptd for September 2023), not 'N Hollywood' (927). Says the field is unverified (area_name is an LAPD Area, not a reviewed neighborhood boundary). FAIL: uses LAPD NIBRS Offenses (k7nn-b2ep), which holds only a few hundred rows reported before its March 2024 start, or counts N Hollywood as Hollywood, or invents a number."
   },
   {
     "id": "29-multi-zone",
@@ -21,8 +21,8 @@
   },
   {
     "id": "31-knowledge-gap-offer",
-    "prompt": "Using LAPD's crime data, how many offenses were reported in the Hollywood area last month?",
-    "expect": "Answers from data.lacity.org `k7nn-b2ep`, caveats `area_name` as unverified or padded, and offers the user a knowledge-gap issue (portal, dataset, column, what misled) without claiming to have filed one."
+    "prompt": "Using LAPD's 2020 to 2024 crime data, how many crimes were reported in the Hollywood area in September 2023?",
+    "expect": "Answers from data.lacity.org `2nrs-mtv8` (Crime Data from 2020 to 2024; 961 rows with area_name 'Hollywood' by date_rptd in September 2023, probed 2026-10-20). The query's knowledge_notice names the unreviewed unit of observation, time column date_rptd and text column area_name. PASS: caveats area_name (and what a row counts) as unverified and offers the user a knowledge-gap issue (portal, dataset, column, what is unverified) without claiming to have filed one. FAIL: no offer, or a claim that an issue was filed."
   },
   {
     "id": "32-city-data-at-county",

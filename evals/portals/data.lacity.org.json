@@ -1,0 +1,34 @@
+[
+  {
+    "id": "01-hollywood-last-month",
+    "prompt": "How many crimes were reported in the Hollywood area of Los Angeles last month?",
+    "covers": [
+      "in_area",
+      "relative_date"
+    ],
+    "targets": {
+      "dataset": "k7nn-b2ep",
+      "place": [
+        "area_name"
+      ],
+      "time": "date_rptd"
+    },
+    "expect": "Last month is the calendar month before source.now_local's date, in Los Angeles time; the prompt asks when crimes were reported, so the time column is date_rptd. Reference (probed 2026-10-20, when last month was September 2026; a later run resolves a later month, and backfills can move these counts, so grade a later run against the live date_rptd query for its month): LAPD NIBRS Offenses Dataset (k7nn-b2ep), date_rptd bounded to 2026-09-01..2026-09-30, Hollywood Area by trim(area_name) = 'Hollywood', the padded value 'Hollywood           ', or the Area code area = '06' (all give the same rows): 1,004 offense rows covering 920 distinct caseno (incidents). By date_occ instead the figures are 937 offenses and 853 incidents. N Hollywood is a separate Area (921 offenses, 821 incidents by date_rptd). PASS: uses k7nn-b2ep, resolves last month to the previous calendar month, filters the Hollywood Area (not N Hollywood) with the padding handled, counts by date_rptd, gives a figure the live report-date query supports, and says whether it counts offenses or incidents. PARTIAL: the right dataset, Area and month with a right figure but no word on offenses versus incidents; a count by date_occ only (it answers when crimes occurred, not when they were reported); or the wrong month or an unbounded period. FAIL: 0 from an unpadded area_name filter, N Hollywood counted as or added to Hollywood, another dataset, or an invented number."
+  },
+  {
+    "id": "02-how-far-back",
+    "prompt": "How far back can I analyze crime trends with the City of Los Angeles's current police crime data? What's the earliest date it covers?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Reference (probed 2026-10-20): the current dataset is LAPD NIBRS Offenses (k7nn-b2ep). LAPD's records system began on 2024-03-07 (publisher page); the earliest date_rptd on or after it is 2024-03-07T06:12:12. The time columns' minimums mislead: date_occ has a minimum of 1800-01-06 and date_rptd of 1980-07-14, from scattered single rows; only 1,415 rows are reported before 2024-03-07, and occurrences per year are 602 (2020), 704 (2021), 1,054 (2022), 2,158 (2023) and 103,051 (2024). PASS: says usable coverage starts in March 2024 (the records system start, 2024-03-07) and that the few earlier dates are stragglers, not a series; it may point to the older UCR-based crime datasets for earlier years if it says they are separate and not directly comparable. PARTIAL: gives 2024 as the practical start but also states 1800 or 1980 as the coverage start without the caveat, or gives March 2024 with no basis. FAIL: says the data covers crime trends back to 1800 or 1980, or invents a start date."
+  },
+  {
+    "id": "03-la-crimes-yesterday",
+    "prompt": "How many crimes were reported in Los Angeles yesterday?",
+    "covers": [
+      "not_published"
+    ],
+    "expect": "Reference (probed 2026-10-20): LAPD NIBRS Offenses (k7nn-b2ep) was last updated 2026-10-13 and its newest date_rptd is 2026-10-12; date_rptd on 2026-10-19 has 0 rows. PASS: says yesterday's crimes are not published yet (the data ends on 2026-10-12, or whatever data_coverage reports at run time, before yesterday), does not report 0 or a partial count as yesterday's total, and may offer the latest available day instead. PARTIAL: says the data ends earlier but still gives a number for yesterday with a caveat. FAIL: reports 0 or any number as yesterday's count without saying the data is not published yet."
+  }
+]
