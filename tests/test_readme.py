@@ -11,7 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CHECKOUT = Path("/path/to/opendata-atlas")
-WHEEL = Path("/path/to/dist/opendata_atlas-0.1.0-py3-none-any.whl")
+VERSION = json.loads((ROOT / "manifest.json").read_text())["version"]
+WHEEL = Path(f"/path/to/dist/opendata_atlas-{VERSION}-py3-none-any.whl")
 
 
 def _smoke():

@@ -3,373 +3,373 @@
   "data.cityofchicago.org": {
    "22u3-xenr-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "01d9d9e9eca7",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "1863429e1ac9",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "ea6cd4f9db45",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "b5552bb0928d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-:@computed_region_rpca_8um6-fill": {
     "assertion_digest": "dd5fcb4c6336",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "14594dc56e6a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "22u3-xenr-violation_last_modified_date-timezone": {
     "assertion_digest": "431cbddf7a47",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4ijn-s7e5-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "b7345d87bc5e",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4ijn-s7e5-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "86a04f648ff0",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4ijn-s7e5-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "84bded7c361a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4ijn-s7e5-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "d1126e8c65bc",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4ijn-s7e5-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "8c4644a6bfaf",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-:@computed_region_rpca_8um6-fill": {
     "assertion_digest": "02e5dd126a68",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-crash_date-timezone": {
     "assertion_digest": "dad092239b89",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
-    "previous_outcome": "passed"
+    "previous_outcome": "inconclusive"
    },
    "85ca-t3if-date_police_notified-timezone": {
     "assertion_digest": "3976227da60f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-device_condition-placeholders": {
     "assertion_digest": "52731471f86f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-lighting_condition-placeholders": {
     "assertion_digest": "397bbd6dbf60",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-road_defect-placeholders": {
     "assertion_digest": "16991b8f4283",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-roadway_surface_cond-placeholders": {
     "assertion_digest": "653dbac0f67d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-traffic_control_device-placeholders": {
     "assertion_digest": "c12f2f23cbea",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-trafficway_type-placeholders": {
     "assertion_digest": "05d152e7ea37",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "85ca-t3if-weather_condition-placeholders": {
     "assertion_digest": "9d7312726ecf",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "i6bp-fvbx-suffix-padded": {
     "assertion_digest": "d562a9dbb483",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "i6bp-fvbx-suffix_direction-padded": {
     "assertion_digest": "e07923fda11f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "f2c16060d089",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "3a8d99242a09",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_8hcu_yrd4-fill": {
     "assertion_digest": "18152132386f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "270300eeacfc",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "adaad14d844f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_d3ds_rm58-fill": {
     "assertion_digest": "38a2321d2275",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_d9mm_jgwp-fill": {
     "assertion_digest": "5dd46617b2cf",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_rpca_8um6-fill": {
     "assertion_digest": "d4c3f55fff55",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "38454fd81807",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-community_area-place-field": {
     "assertion_digest": "92387f3ed264",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-community_area-placeholders": {
     "assertion_digest": "c996f8a6f51d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-date-timezone": {
     "assertion_digest": "af9bee6fbf2a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ijzp-q8t2-ward-place-field": {
     "assertion_digest": "900018c40700",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r5kz-chrr-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "07e4879839f9",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r5kz-chrr-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "eb218d2b108e",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r5kz-chrr-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "458b6d7edd9c",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r5kz-chrr-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "5a6f7d3c61d5",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r5kz-chrr-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "65fc2eac1a90",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-43wa-7qmu": {
     "assertion_digest": "eefbaf117976",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-6mkv-f3dw": {
     "assertion_digest": "9781b90b4b2e",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-8hcu-yrd4": {
     "assertion_digest": "f29ebbe5f2fc",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-awaf-s7ux": {
     "assertion_digest": "70ce519688b4",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-bdys-3d7i": {
     "assertion_digest": "7bd1d85c387a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-d3ds-rm58": {
     "assertion_digest": "bd9874ddf475",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-d9mm-jgwp": {
     "assertion_digest": "5e8e826ebafa",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-rpca-8um6": {
     "assertion_digest": "49e9874aa9ce",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-vrxf-vc4k": {
     "assertion_digest": "7710e804e68d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "s6ha-ppgi-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "ff27b594a0a4",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "s6ha-ppgi-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "055a516bf445",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "s6ha-ppgi-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "60be233de42d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "s6ha-ppgi-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "9595a52f90d8",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "s6ha-ppgi-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "34ad49ac94ba",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_43wa_7qmu-fill": {
     "assertion_digest": "79fc1f19c0ea",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_6mkv_f3dw-fill": {
     "assertion_digest": "d06961acae0a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_awaf_s7ux-fill": {
     "assertion_digest": "1807548ab849",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_bdys_3d7i-fill": {
     "assertion_digest": "952dcebfaf8f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_rpca_8um6-fill": {
     "assertion_digest": "bdedf0fa4b1c",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ydr8-5enu-:@computed_region_vrxf_vc4k-fill": {
     "assertion_digest": "1a79c095c727",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    }
@@ -377,97 +377,97 @@
   "data.everettwa.gov": {
    "f6vp-3svh-:@computed_region_cx6t_gkq3-fill": {
     "assertion_digest": "3f2a1afb7715",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "f6vp-3svh-:@computed_region_psyp_nrnc-fill": {
     "assertion_digest": "9673efbcae25",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "f6vp-3svh-datetimereceived-timezone": {
     "assertion_digest": "ef67a6748ef0",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "f6vp-3svh-neighborhood-place-field": {
     "assertion_digest": "20de8e88840d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "f6vp-3svh-unit-incident": {
     "assertion_digest": "e36eea31053a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "qvfa-2v26-:@computed_region_cx6t_gkq3-fill": {
     "assertion_digest": "016a35c9cba4",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "qvfa-2v26-:@computed_region_psyp_nrnc-fill": {
     "assertion_digest": "cabb15658d6a",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "qvfa-2v26-:@computed_region_wamu_3gk7-fill": {
     "assertion_digest": "83a01305f5e4",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "region-cx6t-gkq3": {
     "assertion_digest": "7f88d62bcb2b",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "szww-y224-:@computed_region_cx6t_gkq3-fill": {
     "assertion_digest": "c7d741b2668d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "szww-y224-:@computed_region_psyp_nrnc-fill": {
     "assertion_digest": "e587ad838b50",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "szww-y224-datetimereceived-timezone": {
     "assertion_digest": "869053486af2",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "szww-y224-gangrelated-placeholders": {
     "assertion_digest": "895019430183",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "w35j-83t3-:@computed_region_cx6t_gkq3-fill": {
     "assertion_digest": "790896c487a2",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "w35j-83t3-:@computed_region_psyp_nrnc-fill": {
     "assertion_digest": "d27f439f7f2e",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "w35j-83t3-startdatetime-timezone": {
     "assertion_digest": "d1a29507eafd",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    }
@@ -475,43 +475,273 @@
   "data.kingcounty.gov": {
    "4kmt-kfqf-city-place-field": {
     "assertion_digest": "703a39cff6df",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4kmt-kfqf-created_at-timezone": {
     "assertion_digest": "ca18651c915f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4kmt-kfqf-incident_datetime-timezone": {
     "assertion_digest": "80d74dbe0063",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4kmt-kfqf-unit-offense": {
     "assertion_digest": "2a2dc044fdbd",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "4kmt-kfqf-updated_at-timezone": {
     "assertion_digest": "2c76990ac270",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "j56h-zgnm-booking_date_time-timezone": {
     "assertion_digest": "b2c372b7a71c",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "j56h-zgnm-release_date_time-timezone": {
     "assertion_digest": "d2bc4b757fdc",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   }
+  },
+  "data.lacity.org": {
+   "2nrs-mtv8-vict_descent-placeholders": {
+    "assertion_digest": "e585dbb319b3",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "2nrs-mtv8-vict_sex-placeholders": {
+    "assertion_digest": "ca9287c99d55",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "63jg-8b9z-vict_descent-placeholders": {
+    "assertion_digest": "f01bf7fed26e",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "63jg-8b9z-vict_sex-placeholders": {
+    "assertion_digest": "0bec042d6f3d",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_2dna_qi2s-fill": {
+    "assertion_digest": "75c6fd7c0019",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_k96s_3jcv-fill": {
+    "assertion_digest": "3bcb4d1d20eb",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_kqwf_mjcx-fill": {
+    "assertion_digest": "8fe514de6b0a",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_qz3q_ghft-fill": {
+    "assertion_digest": "5d73172414c0",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_tatf_ua23-fill": {
+    "assertion_digest": "8b32b8ec23a8",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "6rrh-rzua-:@computed_region_ur2y_g4cx-fill": {
+    "assertion_digest": "e3241f0c01b4",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_2dna_qi2s-fill": {
+    "assertion_digest": "a8f3827d46e3",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_k96s_3jcv-fill": {
+    "assertion_digest": "bb69b5525e73",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_kqwf_mjcx-fill": {
+    "assertion_digest": "8f760b259619",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_qz3q_ghft-fill": {
+    "assertion_digest": "17c0c4fe5d5e",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_tatf_ua23-fill": {
+    "assertion_digest": "188ed7d42fe9",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-:@computed_region_ur2y_g4cx-fill": {
+    "assertion_digest": "c39053c1a028",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-vict_descent-placeholders": {
+    "assertion_digest": "d2a9b095cda3",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "d5tf-ez2w-vict_sex-placeholders": {
+    "assertion_digest": "5a3490d67f8d",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "hf3r-utnq-bidpost-timezone": {
+    "assertion_digest": "e2fc006846ea",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k7nn-b2ep-area_name-padded": {
+    "assertion_digest": "9de65f87c1af",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k7nn-b2ep-area_name-place-field": {
+    "assertion_digest": "5b65a312b3b6",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k7nn-b2ep-date_occ-timezone": {
+    "assertion_digest": "fd79589733ab",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k7nn-b2ep-date_rptd-timezone": {
+    "assertion_digest": "d4a7471ce056",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k7nn-b2ep-unit-offense": {
+    "assertion_digest": "f13affd6d990",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_2dna_qi2s-fill": {
+    "assertion_digest": "fbc1f2e047b0",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_k96s_3jcv-fill": {
+    "assertion_digest": "234f50b303b0",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_kqwf_mjcx-fill": {
+    "assertion_digest": "f9c3cb4463e1",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_qz3q_ghft-fill": {
+    "assertion_digest": "15a68eb7709f",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_tatf_ua23-fill": {
+    "assertion_digest": "a4049d088978",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "r4uk-afju-:@computed_region_ur2y_g4cx-fill": {
+    "assertion_digest": "28b7d5194425",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_2dna_qi2s-fill": {
+    "assertion_digest": "ee3241bf1680",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_k96s_3jcv-fill": {
+    "assertion_digest": "38a728517fd6",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_kqwf_mjcx-fill": {
+    "assertion_digest": "e2fd80fd7874",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_qz3q_ghft-fill": {
+    "assertion_digest": "a021a3e7dbd9",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_tatf_ua23-fill": {
+    "assertion_digest": "bf92fc683005",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-:@computed_region_ur2y_g4cx-fill": {
+    "assertion_digest": "a5e7891f2b88",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-age-placeholders": {
+    "assertion_digest": "1ed7bc023b9c",
+    "checked_at": "2026-10-21",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "yru6-6re4-descent_cd-placeholders": {
+    "assertion_digest": "ebdefe3e176c",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    }
@@ -519,49 +749,49 @@
   "data.seattle.gov": {
    "33kz-ixgy-cad_event_original_time_queued-timezone": {
     "assertion_digest": "0175333aebb5",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
-    "previous_outcome": "passed"
+    "previous_outcome": "inconclusive"
    },
    "65db-xm6k-date-timezone": {
     "assertion_digest": "56fedfe66d7e",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "kzjm-xkqj-datetime-timezone": {
     "assertion_digest": "a0edf123f3dc",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "kzjm-xkqj-unit": {
     "assertion_digest": "7e42aa3c9ab3",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ppi5-g2bj-beat-place": {
     "assertion_digest": "d19117f73d95",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "ppi5-g2bj-sector-place": {
     "assertion_digest": "09d4d58ad93f",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "tazs-3rd5-beat-place": {
     "assertion_digest": "e5891cf4ac82",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "tazs-3rd5-sector-place": {
     "assertion_digest": "bbb4d5395e9d",
-    "checked_at": "2026-10-20",
+    "checked_at": "2026-10-21",
     "outcome": "passed",
     "previous_outcome": "passed"
    }

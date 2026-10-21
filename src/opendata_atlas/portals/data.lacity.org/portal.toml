@@ -1,0 +1,21 @@
+id = "data.lacity.org"
+aliases = ["los-angeles"]
+public_host = "data.lacity.org"
+catalog_region = "us"
+name = "City of Los Angeles"
+place_names = ["Los Angeles"]
+timezone = "America/Los_Angeles"
+platform = "socrata"
+status = "active"
+tier = "profiled"
+
+[catalog_query]
+domains = "data.lacity.org"
+
+# Moved from registry_overrides.toml (entry 37), which took the name from the portal's own
+# title (site_company "City of Los Angeles"), and country US and region CA from geography.
+# timezone is the calendar assignment for single-zone California.
+[jurisdiction]
+level = "city"
+country = "US"
+region = "CA"

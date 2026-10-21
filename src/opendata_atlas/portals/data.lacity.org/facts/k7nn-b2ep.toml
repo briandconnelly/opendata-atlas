@@ -1,0 +1,151 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "k7nn-b2ep-area_name-padded"
+kind = "padded_values"
+scope = {dataset = "k7nn-b2ep", column = "area_name"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT area_name AS v, count(*) AS n GROUP BY area_name ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-20
+observation = "21 of 21 groups have leading or trailing whitespace, 498,741 of 498,741 rows (1.000); most common \"Central             \" has 41,329 rows."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "Central             ", count = "n"}
+
+[[claim]]
+id = "k7nn-b2ep-date_rptd-timezone"
+kind = "column_timezone"
+scope = {dataset = "k7nn-b2ep", column = "date_rptd"}
+interpretation = {timezone = "America/Los_Angeles", reason = "Local wall-clock time with no offset: no rows at 02:00 on the 2026 spring-forward day, and counts peak mid-afternoon (hour 14). Only 105 of 218,578 rows in the last year are stamped exactly 00:00, so midnight is not a default here. 7,940 of 498,741 rows (0.016) have no date_rptd and drop out of any date filter on it; 1,415 rows are dated before the records system began on 2024-03-07 (back to 1980), so counts before 2024-03-07 are not comparable."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_rptd) AS h, count(*) AS n WHERE date_rptd >= '2026-03-08T00:00:00' AND date_rptd < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 15 and 12."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_rptd) AS h, count(*) AS n WHERE date_rptd >= '2025-10-12T00:00:00' AND date_rptd < '2026-10-13T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 14 (15,152 of 218,578); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 12, peak_to = 16}
+
+[[claim]]
+id = "k7nn-b2ep-date_occ-timezone"
+kind = "column_timezone"
+scope = {dataset = "k7nn-b2ep", column = "date_occ"}
+interpretation = {timezone = "America/Los_Angeles", reason = "Local wall-clock time as entered: the time part repeats the text column time_occ ('1421' is 14:21), and counts peak late afternoon (hour 17). 7 rows at 02:00 on the 2026 spring-forward day, an hour local clocks skip, show these are hand-entered clock times, not instants. 5,560 of 218,962 rows (0.025) in the last year are at exactly 00:00:00, which may be a default for an unknown time of day; the date part still holds. 6,982 rows occurred before 2024, some on implausible single dates back to 1800-01-06, so the column's minimum is not the start of the data."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_occ) AS h, count(*) AS n WHERE date_occ >= '2026-03-08T00:00:00' AND date_occ < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 7 rows; hours 1 and 3 have 24 and 31."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(date_occ) AS h, count(*) AS n WHERE date_occ >= '2025-10-03T00:00:00' AND date_occ < '2026-10-04T00:00:00' AND (date_extract_hh(date_occ) != 0 OR date_extract_mm(date_occ) != 0 OR date_extract_ss(date_occ) != 0) GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 17 (12,403 of 213,402); 24 of 24 hours populated. Rows at exactly 00:00:00 are left out (next probe)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, sum(case(date_extract_hh(date_occ) = 0 AND date_extract_mm(date_occ) = 0 AND date_extract_ss(date_occ) = 0, 1, true, 0)) AS midnight WHERE date_occ >= '2025-10-03T00:00:00' AND date_occ < '2026-10-04T00:00:00'"
+observed_at = 2026-10-20
+observation = "5,560 of 218,962 rows (0.025) in the window are at exactly 00:00:00, which may be a default for an unknown time."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n WHERE date_occ < '2024-01-01T00:00:00'"
+observed_at = 2026-10-20
+observation = "6,982 rows; the earliest dates (1800-01-06, 1800-07-31, 1826-04-18) each hold 1 row."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_occ, time_occ LIMIT 5"
+observed_at = 2026-10-20
+observation = "In each of the 5 rows the hour and minute of date_occ equal time_occ (for example 2025-05-15T14:21:00 with '1421')."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 15, peak_to = 19}
+
+[[claim]]
+id = "k7nn-b2ep-unit-offense"
+kind = "unit_of_observation"
+scope = {dataset = "k7nn-b2ep"}
+interpretation = {unit = "NIBRS offense", reason = "One row per offense, not per incident: uniquenibrno (case number, NIBRS code and offense sequence) is unique on every row, and 498,741 rows cover 448,064 distinct caseno values. Count distinct caseno for incidents."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct uniquenibrno) AS u, count(distinct caseno) AS cases"
+observed_at = 2026-10-20
+observation = "498,741 rows, 498,741 distinct uniquenibrno, 448,064 distinct caseno."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/d/k7nn-b2ep"
+quote = "NIBRS captures more detailed information per incident than the previous Uniform Crime Reporting (UCR) system, which may result in higher counts because multiple offenses within a single incident are reported individually."
+observed_at = 2026-10-20
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "u", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "k7nn-b2ep-area_name-place-field"
+kind = "place_field"
+scope = {dataset = "k7nn-b2ep", column = "area_name"}
+interpretation = {kind = "police_district", kind_label = "LAPD geographic Area", reliability = "ok", reason = "The 21 LAPD geographic Areas (codes 01-21 in `area`), filled on every row. Not neighborhoods: 'Hollywood' and 'N Hollywood' are separate Areas. Every value is right-padded with spaces to 20 characters, so area_name = 'Hollywood' matches nothing; filter with trim(area_name) = 'Hollywood' or a value a group_by returns."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-20
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(area_name) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "498,741 of 498,741 rows (1.000) have a value."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT area, area_name, count(*) AS n GROUP BY area, area_name ORDER BY area LIMIT 50"
+observed_at = 2026-10-20
+observation = "21 groups, one area_name per area code 01-21 (01 Central through 21 Topanga), each padded to 20 characters."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n WHERE trim(area_name) = 'Hollywood'"
+observed_at = 2026-10-20
+observation = "26,653 rows; the same filter without trim() returns 0."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.99}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 1
+params = {column = "area_name", value = "Hollywood           ", count = "n"}

@@ -1,0 +1,129 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_qz3q_ghft-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_qz3q_ghft"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_qz3q_ghft) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,319,559 of 1,320,817 rows (0.999) have a value; computed-region layer qz3q-ghft, candidate label column `zcta5ce10`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.94}
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_k96s_3jcv-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_k96s_3jcv"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_k96s_3jcv) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,308,460 of 1,320,817 rows (0.991) have a value; computed-region layer k96s-3jcv, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.94}
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_tatf_ua23-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_tatf_ua23"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_tatf_ua23) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,314,732 of 1,320,817 rows (0.995) have a value; computed-region layer tatf-ua23, candidate label column `cnsld`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.94}
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_ur2y_g4cx-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_ur2y_g4cx"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_ur2y_g4cx) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "456,974 of 1,320,817 rows (0.346) have a value; computed-region layer ur2y-g4cx, candidate label column `spa_nm`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.29}
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_kqwf_mjcx-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_kqwf_mjcx"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_kqwf_mjcx) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,310,640 of 1,320,817 rows (0.992) have a value; computed-region layer kqwf-mjcx, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.94}
+
+[[claim]]
+id = "yru6-6re4-:@computed_region_2dna_qi2s-fill"
+kind = "place_field"
+scope = {dataset = "yru6-6re4", column = ":@computed_region_2dna_qi2s"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_2dna_qi2s) AS filled, count(*) AS n"
+observed_at = 2026-10-20
+observation = "1,268,633 of 1,320,817 rows (0.960) have a value; computed-region layer 2dna-qi2s, candidate label column `name`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.91}
+
+[[claim]]
+id = "yru6-6re4-age-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "yru6-6re4", column = "age"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT age AS v, count(*) AS n GROUP BY age ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-20
+observation = "Groups include shared-vocabulary placeholder values: \"0\" 972 of 1,320,817 rows (0.001)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "0", count = "n"}
+
+[[claim]]
+id = "yru6-6re4-descent_cd-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "yru6-6re4", column = "descent_cd"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT descent_cd AS v, count(*) AS n GROUP BY descent_cd ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-20
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 112 of 1,320,817 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}

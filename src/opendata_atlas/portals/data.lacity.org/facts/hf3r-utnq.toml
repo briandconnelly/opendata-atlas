@@ -1,0 +1,29 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "hf3r-utnq-bidpost-timezone"
+kind = "column_timezone"
+scope = {dataset = "hf3r-utnq", column = "bidpost"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(bidpost) AS h, count(*) AS n WHERE bidpost >= '2026-03-08T00:00:00' AND bidpost < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 0 and 0."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(bidpost) AS h, count(*) AS n WHERE bidpost >= '2025-10-20T00:00:00' AND bidpost < '2026-10-21T00:00:00' AND (date_extract_hh(bidpost) != 0 OR date_extract_mm(bidpost) != 0 OR date_extract_ss(bidpost) != 0) GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 14 (21 of 157); 20 of 24 hours populated. Rows at exactly 00:00:00 are left out (next probe)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, sum(case(date_extract_hh(bidpost) = 0 AND date_extract_mm(bidpost) = 0 AND date_extract_ss(bidpost) = 0, 1, true, 0)) AS midnight WHERE bidpost >= '2025-10-20T00:00:00' AND bidpost < '2026-10-21T00:00:00'"
+observed_at = 2026-10-20
+observation = "8 of 165 rows (0.048) in the window are at exactly 00:00:00, which may be a default for an unknown time."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 12, peak_to = 16}

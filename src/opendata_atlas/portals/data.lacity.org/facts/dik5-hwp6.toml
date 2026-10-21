@@ -1,0 +1,12 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "dik5-hwp6-dataexportdatetime-timezone"
+kind = "column_timezone"
+scope = {dataset = "dik5-hwp6", column = "dataexportdatetime"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(dataexportdatetime) AS h, count(*) AS n WHERE dataexportdatetime >= '2024-05-01T00:00:00' AND dataexportdatetime < '2024-05-02T00:00:00' GROUP BY h"
+observed_at = 2026-10-20
+observation = "Rows peak at hour 19 (11 of 11); 1 of 24 hours populated."
