@@ -2,7 +2,7 @@
   "mcpServers": {
     "opendata-atlas": {
       "command": "uvx",
-      "args": ["opendata-atlas==0.1.0"],
+      "args": ["opendata-atlas==0.2.0"],
       "env": {
         "SOCRATA_APP_TOKEN": "${SOCRATA_APP_TOKEN:-}",
         "OPENDATA_ATLAS_PORTALS": "${OPENDATA_ATLAS_PORTALS:-}"
