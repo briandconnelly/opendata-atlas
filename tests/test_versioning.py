@@ -26,6 +26,8 @@ ROOT = Path(__file__).resolve().parent.parent
 #: release.yml's "latest released section" pattern.
 RELEASED = re.compile(r"^## \[(\d+\.\d+\.\d+[^\]]*)\]", re.M)
 HISTORY = "## [seattle-open-data history]"
+#: The first release, whose section states the fork.
+FIRST = "0.1.0"
 DAY = "2026-10-19"
 #: Set in the nested pytest run of `test_suite_passes_after_apply`, so it does not recurse.
 NESTED = "ATLAS_VERSIONING_NESTED"
@@ -92,6 +94,12 @@ def release_section(text: str) -> str:
     return text.split(heading, 1)[1].split("\n## ", 1)[0]
 
 
+def first_release_section(text: str) -> str:
+    """The `## [0.1.0]` section, or `## [Unreleased]` before 0.1.0 was cut."""
+    heading = f"## [{FIRST}]" if f"## [{FIRST}]" in text else "## [Unreleased]"
+    return text.split(heading, 1)[1].split("\n## ", 1)[0]
+
+
 async def test_served_version_is_the_package_version():
     pyproject = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"]
     async with Client(build_server(), mode="legacy") as client:
@@ -103,7 +111,7 @@ async def test_served_version_is_the_package_version():
 
 @pytest.mark.parametrize("state", ["uncut", "cut"])
 def test_changelog_states_the_fork(states, state):
-    section = release_section(states[state])
+    section = first_release_section(states[state])
     assert "new server" in section
     assert "forked from seattle-open-data 0.2.0 at 26c6628" in section
     assert "`seattle_data_*` to `atlas_*`" in section
@@ -129,7 +137,7 @@ def test_release_notes_stop_before_parent_history(rehearsal, workflow, version, 
         text=True,
         check=True,
     ).stdout
-    assert "forked from seattle-open-data 0.2.0 at 26c6628" in notes
+    assert notes.strip() == release_section(states["cut"]).split("\n", 1)[1].strip()
     history = states["cut"].split(HISTORY, 1)[1]
     assert "seattle-open-data 0.2.0 - 2026-10-16" in history
     for leaked in (
@@ -158,15 +166,16 @@ def test_uncut_changelog_fails_the_workflow_check(rehearsal, workflow, version, 
         check=False,
     )
     assert result.returncode == 1
-    assert "latest CHANGELOG version None" in result.stdout
+    assert "latest CHANGELOG version" in result.stdout
+    assert f"!= pyproject version {version!r}" in result.stdout
 
 
 @needs_awk
-def test_rehearsal_passes_on_a_cut_copy(rehearsal, version, tmp_path):
+def test_rehearsal_passes_on_a_cut_copy(rehearsal, version, states, tmp_path):
     before = (ROOT / "CHANGELOG.md").read_bytes()
     result = rehearsal.rehearse(ROOT, version, DAY, tmp_path)
     assert result.ok, result.check_output
-    assert "forked from seattle-open-data 0.2.0 at 26c6628" in result.notes
+    assert release_section(states["cut"]).split("\n", 1)[1].strip() in result.notes
     assert "seattle-open-data history" not in result.notes
     assert (ROOT / "CHANGELOG.md").read_bytes() == before
 

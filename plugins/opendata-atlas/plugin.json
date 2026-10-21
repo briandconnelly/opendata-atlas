@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "opendata-atlas",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Answer questions with public data from Socrata open-data portals: find a portal and dataset, check what its columns mean, and query it. Adds the opendata-atlas MCP server and the curate-portal skill.",
   "author": { "name": "Brian Connelly", "url": "https://github.com/briandconnelly" },
   "homepage": "https://github.com/briandconnelly/opendata-atlas",
