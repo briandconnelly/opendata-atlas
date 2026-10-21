@@ -82,8 +82,8 @@
    "85ca-t3if-crash_date-timezone": {
     "assertion_digest": "dad092239b89",
     "checked_at": "2026-10-21",
-    "outcome": "inconclusive",
-    "previous_outcome": "passed"
+    "outcome": "passed",
+    "previous_outcome": "inconclusive"
    },
    "85ca-t3if-date_police_notified-timezone": {
     "assertion_digest": "3976227da60f",
@@ -750,8 +750,8 @@
    "33kz-ixgy-cad_event_original_time_queued-timezone": {
     "assertion_digest": "0175333aebb5",
     "checked_at": "2026-10-21",
-    "outcome": "inconclusive",
-    "previous_outcome": "passed"
+    "outcome": "passed",
+    "previous_outcome": "inconclusive"
    },
    "65db-xm6k-date-timezone": {
     "assertion_digest": "56fedfe66d7e",
