@@ -110,6 +110,14 @@ All **Verified** 2026-10-18 (UTC) with `scripts/build_registry.py` (sequential G
 - (review) data.seattle.gov and data.lacity.org accept a select `AS` alias in `$where`. Not re-run by Claude; the milestone 2 Task 8 reviewer ran it. The column pre-check therefore treats an alias as in scope in every clause.
 - (review) data.seattle.gov accepts double-quoted string literals (`type = "Aid Response"`) and spaced `::` casts (`type :: text`). Not re-run by Claude.
 
+## Keyword column names (2026-10-25)
+
+`curl` GETs to `/resource/<id>.json`, no token, each run once (#18).
+
+- Verified: on data.lacity.org `k7nn-b2ep`, `$select=group,caseno&$limit=1` answers `query.compiler.malformed` ("Expected one of `BY', `WHERE', ... but got `GROUP'"); `` $select=`group`,caseno `` returns `[{"group":"A","caseno":"25163991"}]`, keyed by the bare name.
+- Verified: on the same dataset, `` $select=`group` AS v, count(*) AS n&$group=`group`&$order=n DESC `` returns A 426,321, B 56,580 and null 15,840 rows, and `` min(`date_rptd`), max(`date_rptd`) `` returns 1980-07-14T16:45:00.000 and 2026-10-12T15:44:16.000.
+- Verified: `` $select=`:id` `` returns a `:id` row on data.seattle.gov `kzjm-xkqj`, data.cityofchicago.org `ijzp-q8t2` and data.kingcounty.gov `j56h-zgnm`.
+
 ## Text equality on padded values (milestone 3 Task 7, 2026-10-18)
 
 Two queries on LAPD NIBRS Offenses `k7nn-b2ep`, data.lacity.org, each run once through `SodaClient.soql` (`$query`, no token), one after another. Rows: `docs/evidence/hints-2026-10-18/lacity-hollywood.json`.

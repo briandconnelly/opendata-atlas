@@ -47,6 +47,7 @@ from opendata_atlas.core.models import (
     UnitOfObservation,
 )
 from opendata_atlas.core.reference import guide_uri
+from opendata_atlas.core.soql import identifier
 from opendata_atlas.core.text import clean, html_to_text, strip_control
 from opendata_atlas.portals import freshness
 from opendata_atlas.portals.knowledge import (
@@ -633,7 +634,9 @@ async def _min_max(
     client: SodaClient, portal: PortalContext, dataset_id: str, column: str
 ) -> dict[str, Any]:
     rows = await client.soql(
-        portal, dataset_id, {"$select": f"min({column}) AS lo, max({column}) AS hi"}
+        portal,
+        dataset_id,
+        {"$select": f"min({identifier(column)}) AS lo, max({identifier(column)}) AS hi"},
     )
     if len(rows) != 1:
         raise shape_error("Expected one min/max row.")
@@ -647,8 +650,8 @@ async def _value_groups(
         portal,
         dataset_id,
         {
-            "$select": f"{column} AS v, count(*) AS n",
-            "$group": column,
+            "$select": f"{identifier(column)} AS v, count(*) AS n",
+            "$group": identifier(column),
             "$order": "n DESC",
             "$limit": _MAX_VALUES + 1,
         },
@@ -662,7 +665,7 @@ async def _sample(
     columns: list[dict[str, Any]],
     limit: int,
 ) -> list[dict[str, Any]]:
-    select = ",".join(c["fieldName"] for c in columns)
+    select = ",".join(identifier(c["fieldName"]) for c in columns)
     return await client.soql(portal, dataset_id, {"$select": select, "$limit": limit})
 
 
@@ -696,13 +699,14 @@ async def _region_labels(
                 if (label := cache.region_labels.get((portal.id, layer, i))) is not None
             }
             missing = [i for i in ids if i not in names]
+            label_column = identifier(spec["label_column"])
             if missing:
                 try:
                     rows = await client.soql(
                         portal,
                         layer,
                         {
-                            "$select": f"_feature_id AS id, {spec['label_column']} AS label",
+                            "$select": f"_feature_id AS id, {label_column} AS label",
                             "$where": f"_feature_id IN ({','.join(missing)})",
                             "$limit": len(missing),
                         },
