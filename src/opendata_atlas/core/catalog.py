@@ -11,6 +11,7 @@ from urllib.parse import urlsplit, urlunsplit
 import anyio
 
 from opendata_atlas.constants import (
+    CATALOG_RESULT_CAP,
     DATASET_ID_PATTERN,
     SEARCH_EXTERNAL_LIMIT,
     SEARCH_EXTERNAL_TIMEOUT_SECONDS,
@@ -163,7 +164,8 @@ async def search(
 
     params: dict[str, Any] = {
         **portal.identity.catalog_query,
-        "limit": page_size,
+        # A page resumed mid-way (#17) must not ask past the cap, which upstream rejects.
+        "limit": min(page_size, CATALOG_RESULT_CAP - offset),
         "offset": offset,
     }
     if query:
@@ -227,6 +229,12 @@ async def search(
             dropped += external.dropped
     result.foreign_results_dropped = dropped or None
     _fit_page(result, paging)
+    if not result.has_more and total >= CATALOG_RESULT_CAP:
+        result.truncated = True
+        result.truncation_hint = (
+            f"The catalog pages at most {CATALOG_RESULT_CAP:,} results, so more may exist; "
+            "narrow with query or category."
+        )
     return result
 
 

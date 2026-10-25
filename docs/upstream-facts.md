@@ -110,6 +110,14 @@ All **Verified** 2026-10-18 (UTC) with `scripts/build_registry.py` (sequential G
 - (review) data.seattle.gov and data.lacity.org accept a select `AS` alias in `$where`. Not re-run by Claude; the milestone 2 Task 8 reviewer ran it. The column pre-check therefore treats an alias as in scope in every clause.
 - (review) data.seattle.gov accepts double-quoted string literals (`type = "Aid Response"`) and spaced `::` casts (`type :: text`). Not re-run by Claude.
 
+## Catalog result cap per portal (2026-10-25)
+
+`curl` GETs to `https://api.us.socrata.com/api/catalog/v1?domains=www.datos.gov.co`, no token, each run once (#24).
+
+- Verified: `limit=0`, with or without `only=dataset,filter,map,chart`, answers `resultSetSize: 10000`; the registry also records `catalog_size` 10000 for www.datos.gov.co and datahub.hhs.gov. A domain-filtered count is capped like the unfiltered one above.
+- Verified: `order=page_views_total&limit=10&offset=9990` returns 10 results; `offset=10000` answers "Sum of `offset` and `limit` cannot exceed 10000. Please use the deep scrolling API".
+- Verified: with the same parameters, `resultSetSize` is 2716 for data.cityofnewyork.us and 1819 for data.cityofchicago.org, under the cap.
+
 ## Keyword column names (2026-10-25)
 
 `curl` GETs to `/resource/<id>.json`, no token, each run once (#18).
