@@ -27,6 +27,9 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from opendata_atlas.core.portals import find_portals
+from opendata_atlas.portals.model import Claim
+from opendata_atlas.portals.registry import load_registry
 from opendata_atlas.portals.tiers import COVERS
 
 if TYPE_CHECKING:
@@ -141,13 +144,19 @@ def codex_command(portal: str, wt: Path, git_dir: Path, last_message: Path) -> l
 
 
 def outcome_failures(
-    outcome: object, *, pack: str, digest_now: str, wt: Path, task_ids: list[str]
+    outcome: object,
+    *,
+    pack: str,
+    digest_now: str,
+    wt: Path,
+    task_ids: list[str],
+    reviewed: list[str],
 ) -> list[str]:
     """What `.curation/outcome.json` gets wrong against the branch and the worktree.
 
     `completed` must record the digest the committed pack still has (rule 13), all 3 eval runs
     with a transcript per task (an unhealthy one is a FAIL grade, not a skill failure), and the
-    served check; the other outcomes a `reason` and no eval run (rule 12)."""
+    served check covering `reviewed`; the other outcomes a `reason` and no eval run (rule 12)."""
     if not isinstance(outcome, dict):
         return ["outcome.json: missing or not an object"]
     state = outcome.get("outcome")
@@ -172,25 +181,94 @@ def outcome_failures(
         missing = [tid for tid in task_ids if not (wt / run / f"{tid}.transcript.jsonl").is_file()]
         if missing:
             out.append(f"{run}: no transcript for {missing}")
-    if (problem := served_failure(wt)) is not None:
-        out.append(problem)
+    out += served_failures(wt, reviewed)
     return out
 
 
-def served_failure(wt: Path) -> str | None:
-    """`served-check.json` (skill step 6) must list each reviewed claim with `matches: true`."""
+#: One served-check entry (skill step 6).
+SERVED_KEYS = frozenset({"claim_id", "expected", "served", "matches"})
+
+
+def served_failures(wt: Path, reviewed: list[str]) -> list[str]:
+    """`served-check.json` (skill step 6) lists each claim in `reviewed`, every entry as
+    `{claim_id, expected, served, matches}` with `matches: true` (#28)."""
     try:
         served = json.loads((wt / SERVED_CHECK).read_text(encoding="utf-8"))
     except (OSError, ValueError):
         served = None
     if not (isinstance(served, list) and served):
-        return f"{SERVED_CHECK}: missing or not a non-empty list (skill step 6)"
-    unmatched = [
-        e.get("claim_id") if isinstance(e, dict) else e
+        return [f"{SERVED_CHECK}: missing or not a non-empty list (skill step 6)"]
+    out = []
+    malformed = [
+        e
         for e in served
-        if not (isinstance(e, dict) and e.get("matches") is True)
+        if not (
+            isinstance(e, dict)
+            and e.keys() >= SERVED_KEYS
+            and isinstance(e["claim_id"], str)
+            and e["claim_id"]
+        )
     ]
-    return f"{SERVED_CHECK}: claims not served as reviewed: {unmatched}" if unmatched else None
+    if malformed:
+        out.append(f"{SERVED_CHECK}: entries without {sorted(SERVED_KEYS)}: {malformed}")
+    entries = [e for e in served if e not in malformed]
+    unmatched = [e["claim_id"] for e in entries if e["matches"] is not True]
+    if unmatched:
+        out.append(f"{SERVED_CHECK}: claims not served as reviewed: {unmatched}")
+    missing = sorted(set(reviewed) - {e["claim_id"] for e in entries})
+    if missing:
+        out.append(f"{SERVED_CHECK}: reviewed claims with no entry: {missing}")
+    return out
+
+
+def reviewed_claims(texts: list[str]) -> dict[str, dict[str, Any]]:
+    """Reviewed claims by id, from pack TOML texts: `Claim.reviewed`, so a placeholder
+    declaration without `reviewed_by` and `reviewed_at` is an observation."""
+    return {
+        raw["id"]: raw
+        for text in texts
+        for raw in tomllib.loads(text).get("claim", [])
+        if Claim.model_validate(raw).reviewed
+    }
+
+
+def changed_reviewed(now: list[str], base: list[str]) -> list[str]:
+    """Ids of reviewed claims the run added or changed: what the served check must cover."""
+    before = reviewed_claims(base)
+    return sorted(i for i, claim in reviewed_claims(now).items() if before.get(i) != claim)
+
+
+def requested_ids(portal: str) -> set[str]:
+    """The portal ids `portal` names, as skill step 1 finds them: an id or alias, else the
+    `atlas_find_portals` candidates for it as a place name ("Chicago, IL")."""
+    registry = load_registry()
+    if (entry := registry.by_alias(portal)) is not None:
+        return {entry.identity.id}
+    found = find_portals(
+        registry, query=portal, level=None, country=None, tier=None, page_size=50, cursor=None
+    )
+    return {c.id for c in found.candidates}
+
+
+def no_change_failures(
+    outcome: dict[str, Any], *, commits: int, porcelain: str, pack_id: str | None, portal: str
+) -> list[str]:
+    """`no_change` (skill step 5): no commit, an existing pack for the requested portal, and a
+    worktree with nothing changed outside the ignored `.curation/` (#29)."""
+    out = []
+    if commits:
+        out.append(f"no_change, but the branch has {commits} commit(s)")
+    if pack_id is None:
+        out.append(f"no_change names no existing pack: {outcome.get('pack')!r}")
+    else:
+        requested = requested_ids(portal)
+        if not requested:
+            out.append(f"no_change: {portal!r} matches no registered portal")
+        elif pack_id not in requested:
+            out.append(f"no_change names pack {pack_id!r}, but {portal!r} is {sorted(requested)}")
+    if changed := [line for line in porcelain.splitlines() if line.strip()]:
+        out.append(f"no_change, but the worktree has changes: {changed}")
+    return out
 
 
 def uncommitted_failure(porcelain: str) -> str | None:
@@ -426,6 +504,17 @@ def _answer(task: dict[str, Any], transcript: Path) -> dict[str, Any]:
     }
 
 
+def _pack_texts(pack: str, *, cwd: Path = ROOT, ref: str | None = None) -> list[str]:
+    """The pack's claim files (`facts/*.toml`, `regions.toml`): in `cwd`, or at git `ref`."""
+    if ref is None:
+        pack_dir = cwd / PORTALS / pack
+        paths = [*sorted((pack_dir / "facts").glob("*.toml")), pack_dir / "regions.toml"]
+        return [p.read_text(encoding="utf-8") for p in paths if p.is_file()]
+    listed = _git("ls-tree", "-r", "--name-only", ref, "--", f"{PORTALS}/{pack}").splitlines()
+    claim_files = [p for p in listed if "/facts/" in p or p.endswith("/regions.toml")]
+    return [_git("show", f"{ref}:{p}") for p in claim_files if p.endswith(".toml")]
+
+
 def _check_pack(
     wt: Path,
     pack: str,
@@ -467,6 +556,7 @@ def _check_pack(
         digest_now=pack_digest(wt, pack),
         wt=wt,
         task_ids=[t["id"] for t in tasks],
+        reviewed=changed_reviewed(_pack_texts(pack, cwd=wt), _pack_texts(pack, ref=base)),
     )
     completed = isinstance(outcome, dict) and outcome.get("outcome") == "completed"
     _gates(wt, pack_dir, identity["id"], env, summary, failures, full=completed)
@@ -502,12 +592,17 @@ def test_curation_skill_produces_a_passing_pack(tmp_path):
     summary["outcome"] = outcome
     no_change = isinstance(outcome, dict) and outcome.get("outcome") == "no_change"
     if no_change:  # 4. An existing pack, nothing new to review: no commit (skill step 5).
-        commits = int(_git("rev-list", "--count", f"{base}..{branch}").strip())
-        has_pack = (ROOT / PORTALS / str(outcome.get("pack")) / "portal.toml").is_file()
-        if commits or not has_pack:
-            failures.append(f"no_change needs no commit and an existing pack: {outcome}")
+        assert isinstance(outcome, dict)
+        toml = ROOT / PORTALS / str(outcome.get("pack")) / "portal.toml"
+        failures += no_change_failures(
+            outcome,
+            commits=int(_git("rev-list", "--count", f"{base}..{branch}").strip()),
+            porcelain=_git("status", "--porcelain", "--untracked-files=all", cwd=wt),
+            pack_id=tomllib.loads(toml.read_text())["id"] if toml.is_file() else None,
+            portal=PORTAL,
+        )
         failures += outcome_failures(
-            outcome, pack=str(outcome.get("pack")), digest_now="", wt=wt, task_ids=[]
+            outcome, pack=str(outcome.get("pack")), digest_now="", wt=wt, task_ids=[], reviewed=[]
         )
         pack = None
     else:

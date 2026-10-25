@@ -1,6 +1,8 @@
 """Summarize eval transcripts: tool calls, error codes, cost, and the final answer.
 
 Usage: python evals/report.py <out_dir> [--answers]
+A session that used any tool other than the server's (a shell command, a file edit, a web
+search) is flagged: its answer may not come from the server. Exits 1 when any session is.
 """
 
 from __future__ import annotations
@@ -11,19 +13,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PREFIX = "mcp__opendata-atlas__"
+#: The MCP server name `evals/run.py` gives Codex (`mcp_servers.opendata_atlas`).
+CODEX_SERVER = "opendata_atlas"
+#: Codex items that are not tool use.
+CODEX_NOT_TOOLS = frozenset({"agent_message", "reasoning", "todo_list", "error"})
 
 
 def summarize(path: Path) -> dict:
     events = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
     if any(e.get("type") == "thread.started" for e in events):
         return _summarize_codex(events)
-    calls, results = [], {}
+    calls, results, foreign = [], {}, []
     for event in events:
         message = event.get("message") or {}
         for block in message.get("content") or []:
             if not isinstance(block, dict):
                 continue
-            if block.get("type") == "tool_use":
+            if block.get("type") == "tool_use" and not block["name"].startswith(PREFIX):
+                foreign.append(block["name"])
+            elif block.get("type") == "tool_use":
                 calls.append(
                     (block["id"], block["name"].removeprefix(PREFIX), block.get("input", {}))
                 )
@@ -41,6 +49,7 @@ def summarize(path: Path) -> dict:
     final = next((e for e in reversed(events) if e.get("type") == "result"), {})
     return {
         "calls": [(name, results.get(call_id), args) for call_id, name, args in calls],
+        "foreign": foreign,
         "cost": final.get("total_cost_usd"),
         "turns": final.get("num_turns"),
         "answer": final.get("result", ""),
@@ -50,10 +59,20 @@ def summarize(path: Path) -> dict:
 def _summarize_codex(events: list[dict]) -> dict:
     """Codex `exec --json`: tool calls are mcp_tool_call items; usage is tokens, not dollars."""
     items = [e["item"] for e in events if e.get("type") == "item.completed" and e.get("item")]
+    # No recorded Codex transcript pins `server`, so only a call naming another server is foreign.
+    ours = [
+        i
+        for i in items
+        if i.get("type") == "mcp_tool_call" and i.get("server", CODEX_SERVER) == CODEX_SERVER
+    ]
     calls = [
         (str(item.get("tool")), _codex_error_code(item), item.get("arguments") or {})
+        for item in ours
+    ]
+    foreign = [
+        str(item.get("type")) if item.get("type") != "mcp_tool_call" else str(item.get("server"))
         for item in items
-        if item.get("type") == "mcp_tool_call"
+        if item not in ours and item.get("type") not in CODEX_NOT_TOOLS
     ]
     messages = [item.get("text", "") for item in items if item.get("type") == "agent_message"]
     failure = next((e for e in events if e.get("type") == "turn.failed"), None)
@@ -61,6 +80,7 @@ def _summarize_codex(events: list[dict]) -> dict:
         messages.append(f"[run failed: {(failure.get('error') or {}).get('message')}]")
     return {
         "calls": calls,
+        "foreign": foreign,
         "cost": None,
         "turns": sum(1 for e in events if e.get("type") == "turn.completed"),
         "answer": messages[-1] if messages else "",
@@ -90,6 +110,7 @@ def main() -> None:
     files = [ROOT / "evals" / "tasks.json", *sorted((ROOT / "evals" / "portals").glob("*.json"))]
     tasks = [task for path in files for task in json.loads(path.read_text())]
     total: float | None = 0.0
+    flagged = []
     for task in tasks:
         path = out / f"{task['id']}.transcript.jsonl"
         if not path.exists():
@@ -102,9 +123,14 @@ def main() -> None:
         print(f"expect: {task['expect']}")
         for name, code, args in s["calls"]:
             print(f"  - {name}{' -> ' + code if code else ''}  {json.dumps(args)[:180]}")
+        if s["foreign"]:
+            flagged.append(task["id"])
+            print(f"  ! not the server's tools, so not evidence: {sorted(set(s['foreign']))}")
         if show_answers:
             print("answer:\n" + s["answer"].strip()[:1800])
     print(f"\ntotal cost {_dollars(total)}")
+    if flagged:
+        sys.exit(f"sessions that used other tools: {', '.join(flagged)}")
 
 
 def _dollars(cost: float | None) -> str:

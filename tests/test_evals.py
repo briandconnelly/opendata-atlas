@@ -9,6 +9,7 @@ from __future__ import annotations
 import importlib.util
 import itertools
 import json
+import tomllib
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -263,3 +264,93 @@ def test_bad_arguments_print_usage_and_exit_2(monkeypatch, capsys, no_launch, ar
     assert _main(monkeypatch, *argv) == 2
     assert "Usage: python evals/run.py" in capsys.readouterr().err
     assert list(no_launch.iterdir()) == [], "a usage error created no output directory"
+
+
+# --- session outcomes and tool isolation (#26, #27) ---------------------------------
+
+_rspec = importlib.util.spec_from_file_location("eval_report", EVALS / "report.py")
+assert _rspec is not None
+assert _rspec.loader is not None
+eval_report = importlib.util.module_from_spec(_rspec)
+_rspec.loader.exec_module(eval_report)
+
+
+def _fake_sessions(monkeypatch: pytest.MonkeyPatch, codes: dict[str, int]) -> list[Path]:
+    """Every launch returns its task's code from `codes`; records each session's cwd."""
+    cwds: list[Path] = []
+
+    def call(command: list[str], **kwargs: Any) -> int:
+        cwds.append(Path(kwargs["cwd"]))
+        return next(code for task_id, code in codes.items() if f"prompt-{task_id}" in command)
+
+    monkeypatch.setattr(eval_run.subprocess, "call", call)
+    tasks = [{"id": i, "prompt": f"prompt-{i}", "expect": "e"} for i in codes]
+    monkeypatch.setattr(eval_run, "load_tasks", lambda portal: tasks)
+    return cwds
+
+
+def test_a_failed_session_fails_the_run(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
+    _fake_sessions(monkeypatch, {"ok": 0, "bad": 17})
+    assert _main(monkeypatch, str(tmp_path)) == 1
+
+
+def test_all_sessions_ok_exits_0(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
+    _fake_sessions(monkeypatch, {"a": 0, "b": 0})
+    monkeypatch.setattr(eval_run.sys, "argv", ["evals/run.py", str(tmp_path)])
+    eval_run.main()
+
+
+def test_codex_sessions_run_in_empty_directories(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):
+    monkeypatch.setenv("CODEX_HOME", str(tmp_path / "user-codex"))
+    (tmp_path / "user-codex").mkdir()
+    cwds = _fake_sessions(monkeypatch, {"a": 0, "b": 0})
+    monkeypatch.setattr(eval_run.sys, "argv", ["evals/run.py", "--host", "codex", str(tmp_path)])
+    eval_run.main()
+    assert len(set(cwds)) == 2
+    assert all(c.parent == tmp_path / "sessions" and not any(c.iterdir()) for c in cwds)
+
+
+def test_codex_home_turns_off_built_in_tools(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    monkeypatch.setenv("CODEX_HOME", str(tmp_path / "user-codex"))
+    (tmp_path / "user-codex").mkdir()
+    config = tomllib.loads((eval_run.codex_home(tmp_path) / "config.toml").read_text())
+    assert config["web_search"] == "disabled"
+    for feature in ("apps", "shell_tool", "unified_exec", "browser_use", "computer_use"):
+        assert config["features"][feature] is False
+
+
+def _transcript(tmp_path: Path, events: list[dict[str, Any]]) -> Path:
+    path = tmp_path / "t.transcript.jsonl"
+    path.write_text("\n".join(json.dumps(e) for e in events) + "\n")
+    return path
+
+
+def _claude_tool(name: str) -> dict[str, Any]:
+    block = {"type": "tool_use", "id": "1", "name": name, "input": {}}
+    return {"type": "assistant", "message": {"content": [block]}}
+
+
+def test_report_flags_a_claude_tool_that_is_not_the_servers(tmp_path: Path):
+    events = [_claude_tool("mcp__opendata-atlas__atlas_find_portals"), _claude_tool("Bash")]
+    s = eval_report.summarize(_transcript(tmp_path, events))
+    assert [c[0] for c in s["calls"]] == ["atlas_find_portals"]
+    assert s["foreign"] == ["Bash"]
+
+
+def test_report_flags_codex_commands_and_other_servers(tmp_path: Path):
+    def item(**kw: Any) -> dict[str, Any]:
+        return {"type": "item.completed", "item": kw}
+
+    events = [
+        {"type": "thread.started"},
+        item(type="reasoning", text="..."),
+        item(type="mcp_tool_call", server="opendata_atlas", tool="atlas_find_portals"),
+        item(type="mcp_tool_call", tool="atlas_query_dataset"),
+        item(type="command_execution", command="cat evals/tasks.json"),
+        item(type="mcp_tool_call", server="other", tool="x"),
+        item(type="agent_message", text="answer"),
+    ]
+    s = eval_report.summarize(_transcript(tmp_path, events))
+    assert [c[0] for c in s["calls"]] == ["atlas_find_portals", "atlas_query_dataset"]
+    assert s["foreign"] == ["command_execution", "other"]
+    assert s["answer"] == "answer"
