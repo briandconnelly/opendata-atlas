@@ -15,6 +15,17 @@ from opendata_atlas.core.errors import AtlasError, ErrorCode, ErrorDetails, Repa
 CLAUSE_ARGS = ("select", "where", "group_by", "having", "order_by", "search_text", "near")
 
 
+def _read(item_id: str, alternative: str) -> Repair:
+    """A combination error's repair (#19): the SoQL reference section that states the rule, and
+    the fix in `alternative`. Never a row call, which would run a query the agent did not send."""
+    return Repair(
+        next_step=f"read_{item_id}",
+        tool="atlas_get_reference",
+        arguments={"topic": "soql", "item_id": item_id},
+        alternative=alternative,
+    )
+
+
 def _provided(args: dict[str, Any]) -> list[str]:
     return [name for name, value in args.items() if value is not None]
 
@@ -40,12 +51,16 @@ def check_continuation(
         return
     extra = sorted(set(_provided(args)) - allowed - {key})
     if extra:
+        keep = ", ".join(sorted(allowed | {key}))
         _reject(
             extra,
-            f"A {key} continues the original query; send only "
-            + ", ".join(sorted(allowed | {key}))
-            + ".",
+            f"A {key} continues the original query; send only {keep}.",
             tool=tool,
+            repair=_read(
+                "paging",
+                f"Resend with only {keep}, dropping {', '.join(extra)}; or, for a new query, "
+                f"send those arguments without {key}.",
+            ),
         )
 
 
@@ -76,17 +91,34 @@ def check_query(args: dict[str, Any]) -> None:
     mode = args.get("mode") or "clauses"
     if mode == "soql":
         if args.get("soql") is None:
-            _reject(["soql"], "mode='soql' requires soql.", tool=tool)
+            _reject(
+                ["soql"],
+                "mode='soql' requires soql.",
+                tool=tool,
+                repair=_read(
+                    "syntax", "Add the full SoQL statement as soql, or drop mode for clauses."
+                ),
+            )
         clauses = [name for name in CLAUSE_ARGS if args.get(name) is not None]
         if clauses:
             _reject(
                 clauses,
                 "mode='soql' runs soql verbatim; clause arguments are not allowed.",
                 tool=tool,
+                repair=_read(
+                    "syntax",
+                    f"Write {', '.join(clauses)} into the soql statement, or drop mode and soql "
+                    "to use clause arguments.",
+                ),
             )
         return
     if args.get("soql") is not None:
-        _reject(["soql"], "soql requires mode='soql'.", tool=tool)
+        _reject(
+            ["soql"],
+            "soql requires mode='soql'.",
+            tool=tool,
+            repair=_read("syntax", "Add mode='soql' and send no clause arguments."),
+        )
     # Measured as a cursor stores the clauses, so the cap also bounds the cursor (≤ 6 KiB).
     present = {n: _plain(args[n]) for n in CLAUSE_ARGS if args.get(n) is not None}
     if len(cursors.dump(present)) > QUERY_TEXT_MAX_BYTES:
@@ -94,6 +126,10 @@ def check_query(args: dict[str, Any]) -> None:
             list(present),
             f"Clause arguments exceed {QUERY_TEXT_MAX_BYTES} bytes in total, measured as JSON.",
             tool=tool,
+            repair=_read(
+                "filtering",
+                "Shorten the clauses: select fewer columns, or replace long OR chains with IN.",
+            ),
         )
 
 

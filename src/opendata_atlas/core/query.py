@@ -75,8 +75,9 @@ _DOTTED = re.compile(
 #: Aggregates whose bare name may be the implicit alias upstream gives an unaliased call.
 _IMPLICIT_ALIASES = frozenset({"count", "sum", "avg", "min", "max"})
 _BACKTICKED = re.compile(r"`[^`]*`")
-#: A backtick identifier or string literal, in one pass so neither opens the other.
-_QUOTED = re.compile(r"`[^`]*`|'(?:[^']|'')*'")
+#: A backtick identifier or a string literal in single or double quotes (both are accepted
+#: upstream, docs/upstream-facts.md), in one pass so none opens inside another.
+_QUOTED = re.compile(r"`[^`]*`|'(?:[^']|'')*'|\"(?:[^\"]|\"\")*\"")
 _ALIAS_DECLARATION = re.compile(r"\bas\s+(`[^`]*`|[A-Za-z_]\w*)", re.IGNORECASE)
 #: A select item's trailing `AS <alias>`.
 _TRAILING_ALIAS = re.compile(r"\s+as\s+(`[^`]*`|[A-Za-z_]\w*)\s*$", re.IGNORECASE)
@@ -255,7 +256,7 @@ async def _run_clauses(
     stream = await client.stream_rows(portal, dataset_id, params, max_rows=fetch + 1)
     names, types = _visible(stream, plan["hidden"])
     rows = [_row(r, names) for r in stream.rows[:fetch]]
-    used = _referenced(*_written(clauses, where))
+    used = _canonical(_referenced(*_written(clauses, where)), columns)
     text_filters = _text_filters(
         clauses.get("where") or "",
         columns,
@@ -337,6 +338,14 @@ def _matched_nothing(rows: list[dict[str, Any]], clauses: dict[str, Any]) -> boo
     return False
 
 
+def _mask(span: str) -> str:
+    if span.startswith("`"):
+        return span
+    if span.startswith('"'):
+        return " " * len(span)
+    return "'" + " " * (len(span) - 2) + "'"
+
+
 def _hints(
     portal_id: str, dataset_id: str, clauses: dict[str, Any], columns: list[dict[str, Any]]
 ) -> list[Repair]:
@@ -347,13 +356,9 @@ def _hints(
     """
     where = clauses.get("where") or ""
     texts = {str(c["fieldName"]) for c in columns if c.get("dataTypeName") == "text"}
-    # Blank string contents, keeping offsets, so text inside a literal is never a filter.
-    masked = _QUOTED.sub(
-        lambda m: (
-            m.group() if m.group().startswith("`") else "'" + " " * (len(m.group()) - 2) + "'"
-        ),
-        where,
-    )
+    # Blank string contents, keeping offsets, so text inside a literal is never a filter. A
+    # double-quoted literal is blanked whole: the hint's single-quoted `like` cannot carry it.
+    masked = _QUOTED.sub(lambda m: _mask(m.group()), where)
     aliases = {
         a.strip("`").lower()
         for a in _ALIAS_DECLARATION.findall(" ".join(clauses.get("select") or []))
@@ -530,7 +535,7 @@ async def _run_soql(
     stream = await client.stream_rows(portal, dataset_id, params, max_rows=page_size)
     names, types = _visible(stream, set())
     rows = [_row(r, names) for r in stream.rows]
-    used = _referenced(*_soql_reads(soql))
+    used = _canonical(_referenced(*_soql_reads(soql)), columns)
     text_filters = _text_filters(
         _soql_where(soql),
         columns,
@@ -743,12 +748,23 @@ def _text_filters(
     sources = _alias_sources(select)
     grouped: set[str] = set()
     for name in _names(_unquote(group_by)):
-        grouped |= _referenced(sources[name], "") if name in sources else {name}
-    return sorted((_referenced(where, "") | grouped) & texts)
+        source = sources.get(name.lower())
+        grouped |= _referenced(source, "") if source is not None else {name}
+    return sorted(_canonical(_referenced(where, "") | grouped, columns) & texts)
+
+
+def _canonical(names: set[str], columns: list[dict[str, Any]]) -> set[str]:
+    """Names as the schema spells them: SoQL field names are case-insensitive, as the column
+    pre-check treats them, so `CREATED_AT` reads `created_at` (#20)."""
+    spelled = {
+        str(c["fieldName"]).lower(): str(c["fieldName"]) for c in columns if c.get("fieldName")
+    }
+    return {spelled.get(name.lower(), name) for name in names}
 
 
 def _alias_sources(select: str) -> dict[str, str]:
-    """Each alias select declares (`<expr> AS <alias>`), mapped to its expression."""
+    """Each alias select declares (`<expr> AS <alias>`), lowercased as SoQL compares names,
+    mapped to its expression."""
     items, depth, start, text = [], 0, 0, _unquote(select)
     for i, char in enumerate(text):
         depth += {"(": 1, ")": -1}.get(char, 0)
@@ -760,7 +776,7 @@ def _alias_sources(select: str) -> dict[str, str]:
     for item in items:
         match = _TRAILING_ALIAS.search(item)
         if match:
-            sources[match.group(1).strip("`")] = item[: match.start()]
+            sources[match.group(1).strip("`").lower()] = item[: match.start()]
     return sources
 
 
@@ -776,8 +792,11 @@ def _referenced(direct: str, aliased: str) -> set[str]:
     declared as an alias: `precinct AS neighborhood` then `order_by neighborhood` reads precinct.
     """
     direct, aliased = _unquote(direct), _unquote(aliased)
-    aliases = {a.strip("`") for a in _ALIAS_DECLARATION.findall(direct)}
-    return _names(_ALIAS_DECLARATION.sub(" ", direct)) | (_names(aliased) - aliases)
+    # Case-insensitive, as the column pre-check compares names: `ORDER BY NEIGHBORHOOD` after
+    # `precinct AS neighborhood` names the alias, not the column (Copilot on #42).
+    aliases = {a.strip("`").lower() for a in _ALIAS_DECLARATION.findall(direct)}
+    named = {n for n in _names(aliased) if n.lower() not in aliases}
+    return _names(_ALIAS_DECLARATION.sub(" ", direct)) | named
 
 
 def _warnings(used: set[str], places: list[dict[str, Any]]) -> list[CoverageWarning]:

@@ -187,7 +187,6 @@ async def atlas_search_datasets(
     also returns up to 3 external_matches, which cannot.
     Illustrative example: {"portal": "example-city", "query": "fire 911"}. Typically 1-3 s.
     """
-    context = resolve_portal(portal)
     arguments.check_search(
         {
             "portal": portal,
@@ -201,7 +200,7 @@ async def atlas_search_datasets(
     )
     result = await catalog.search(
         get_client(),
-        context,
+        resolve_portal(portal),
         query=query,
         asset_scope=asset_scope or "tabular",
         category=category,
@@ -349,12 +348,10 @@ async def atlas_query_dataset(
     "select": ["type", "count(*) AS n"], "group_by": ["type"], "order_by": ["n DESC"]}.
     Typically 1-5 s; fails with query_timeout after 30 s.
     """
-    given = dict(locals())
-    context = resolve_portal(portal)
-    arguments.check_query(given)
+    arguments.check_query(dict(locals()))
     result = await query.run(
         get_client(),
-        context,
+        resolve_portal(portal),
         dataset_id=dataset_id,
         mode=mode or "clauses",
         clauses={

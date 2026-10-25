@@ -11,6 +11,7 @@ from opendata_atlas.core.errors import AtlasError, ErrorCode
 from opendata_atlas.portals import resolve
 from opendata_atlas.portals.registry import Registry, RegistryEntry, load_registry
 from opendata_atlas.portals.resolve import resolve_portal
+from tests.conftest import wire
 
 ALLOWLIST_ENV = "OPENDATA_ATLAS_PORTALS"
 CHICAGO = "data.cityofchicago.org"
@@ -163,3 +164,20 @@ def test_emitted_text_matches_the_documented_example(monkeypatch, code):
     assert wire["message"] == example["message"]
     assert wire["repair"]["alternative"] == example["repair"]["alternative"]
     assert wire["details"]["reason"] == example["details"]["reason"]
+
+
+@pytest.mark.parametrize(
+    ("tool", "args"),
+    [
+        ("atlas_search_datasets", {"cursor": "x", "query": "fire"}),
+        (
+            "atlas_describe_dataset",
+            {"dataset_id": "abcd-1234", "column_cursor": "x", "sample_rows": 1},
+        ),
+        ("atlas_query_dataset", {"dataset_id": "abcd-1234", "soql": "SELECT *"}),
+    ],
+)
+async def test_argument_combinations_are_checked_before_the_portal(client, tool, args):
+    """#23: every data tool reports a bad combination before resolving `portal`."""
+    result = wire(await client.call_tool_mcp(tool, {"portal": "nowhere-land", **args}))
+    assert result["structuredContent"]["code"] == "invalid_argument"
