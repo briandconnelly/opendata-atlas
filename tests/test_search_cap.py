@@ -7,8 +7,13 @@ from typing import Any
 import httpx
 
 from opendata_atlas.constants import CATALOG_RESULT_CAP
+from opendata_atlas.core import catalog
 from opendata_atlas.core import cursor as cursors
+from opendata_atlas.core.budget import wire_size
 from opendata_atlas.core.http import SodaClient, set_client
+from opendata_atlas.core.models import SearchResult
+from tests.conftest import wire
+from tests.test_budget import wire_measure
 from tests.test_search_evidence import body, item, search
 
 
@@ -63,3 +68,34 @@ async def test_a_resumed_page_never_asks_past_the_cap(client, tools_list):
     assert sent[-1]["limit"] == "7"
     assert len(out["datasets"]) == 7
     assert out["truncated"] is True
+
+
+async def test_the_cap_fields_count_toward_the_budget(client, monkeypatch):
+    """Copilot on #45: a last page that fits only without the cap fields is cut short, and the
+    page that then ends the listing carries them within the limit."""
+    sent: list[dict[str, str]] = []
+    _serve(25_000, sent)
+    args: dict[str, Any] = {"portal": "seattle", "cursor": _cursor_at(9_990, 10)}
+    unlimited = wire(await client.call_tool_mcp("atlas_search_datasets", args))["structuredContent"]
+    assert unlimited["truncated"] is True and len(unlimited["datasets"]) == 10
+    bare = {k: v for k, v in unlimited.items() if k not in ("truncated", "truncation_hint")}
+    limit = wire_size(SearchResult.model_validate(bare)) + 10
+    monkeypatch.setattr(catalog, "RESULT_LIMIT", limit)
+
+    page = wire(await client.call_tool_mcp("atlas_search_datasets", args))
+    out = page["structuredContent"]
+    assert page["isError"] is False, out
+    assert wire_measure(page) <= limit
+    assert out["has_more"] is True and "truncated" not in out
+    seen = len(out["datasets"])
+    while out["has_more"]:
+        page = wire(
+            await client.call_tool_mcp(
+                "atlas_search_datasets", {"portal": "seattle", "cursor": out["next_cursor"]}
+            )
+        )
+        assert wire_measure(page) <= limit
+        out = page["structuredContent"]
+        seen += len(out["datasets"])
+    assert out["truncated"] is True
+    assert seen == 10
