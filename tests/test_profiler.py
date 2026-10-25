@@ -168,6 +168,8 @@ class SyntheticPortal:
             return [{"v": first, "n": "600"}, {"v": second, "n": "400"}]
         if q.startswith("SELECT zone AS v"):
             return [{"v": "A", "n": "700"}, {"v": "-", "n": "300"}]
+        if q.startswith("SELECT `group` AS v"):
+            return [{"v": "A", "n": "900"}, {"v": "B", "n": "100"}]
         if q.startswith("SELECT notes AS v"):
             return [{"v": f"note {i}", "n": "1"} for i in range(101)]
         if q.startswith("SELECT min(occurred)"):
@@ -522,6 +524,14 @@ async def test_noncategorical_text_column_is_skipped():
     report, claims = await _profile(SyntheticPortal())
     assert not any(c.scope.column == "notes" for c in claims)
     assert any(n.startswith("notes:") and "100" in n for n in report.datasets[0].notes)
+
+
+async def test_keyword_column_probe_is_quoted():
+    """#18: LAPD's `group` column failed this probe unquoted (docs/decisions.md)."""
+    portal = SyntheticPortal(extra_columns=({"fieldName": "group", "dataTypeName": "text"},))
+    await _profile(portal)
+    queries = [httpx.URL(u).params.get("$query", "") for u in portal.requests]
+    assert any(q.startswith("SELECT `group` AS v, count(*) AS n GROUP BY `group`") for q in queries)
 
 
 def test_observe_text_ignores_more_than_100_groups():

@@ -564,7 +564,7 @@ Two modes in atlas_query_dataset:
 - clauses (default): `select`, `where`, `group_by`, `having`, `order_by`, `search_text`, `near`. Each is a SoQL fragment; the server assembles and pages the query.
 - soql: one full SoQL statement in `soql`, run verbatim and not paged.
 
-Quoting: strings in single quotes (`type = 'Aid Response'`); double a quote to escape it. Column names are API field names from atlas_describe_dataset, not display names.
+Quoting: strings in single quotes (`type = 'Aid Response'`); double a quote to escape it. Column names are API field names from atlas_describe_dataset, not display names; backtick one named like a keyword (`` `group` ``), or upstream rejects the query.
 Errors: an unknown column returns `no_such_column`; any other `query.soql.*` rejection returns `soql_syntax_error` with the upstream code and, when given, the position.""",
     ),
     Document(

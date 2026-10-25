@@ -39,6 +39,7 @@ from opendata_atlas.core.models import (
     QueryResult,
     ResultColumn,
 )
+from opendata_atlas.core.soql import identifier
 from opendata_atlas.core.text import strip_control
 from opendata_atlas.portals import freshness
 from opendata_atlas.portals.knowledge import knowledge_notice
@@ -404,7 +405,9 @@ def _plan(
     places: list[dict[str, Any]],
 ) -> dict[str, Any]:
     types: dict[str, Any] = {str(c.get("fieldName")): c.get("dataTypeName") for c in columns}
-    select = list(clauses.get("select") or [n for n in types if n and not n.startswith(":")])
+    select = list(
+        clauses.get("select") or [identifier(n) for n in types if n and not n.startswith(":")]
+    )
     group_by = list(clauses.get("group_by") or [])
     order_by = list(clauses.get("order_by") or [])
     distinct = bool(select) and select[0].strip().lower().startswith("distinct ")
@@ -502,7 +505,7 @@ def _within_circle(
             ),
         )
     return (
-        f"within_circle({column}, {float(near['latitude'])!r}, "
+        f"within_circle({identifier(column)}, {float(near['latitude'])!r}, "
         f"{float(near['longitude'])!r}, {float(near['radius_m'])!r})"
     )
 

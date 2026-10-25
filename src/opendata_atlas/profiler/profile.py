@@ -20,6 +20,7 @@ from pydantic import BaseModel
 from opendata_atlas.constants import TIME_TYPES
 from opendata_atlas.core.errors import AtlasError
 from opendata_atlas.core.http import shape_error
+from opendata_atlas.core.soql import identifier
 from opendata_atlas.portals.checkers import CHECKERS, CheckerName, run_check
 from opendata_atlas.portals.knowledge import SHARED_PLACEHOLDERS
 from opendata_atlas.portals.model import Assertion, Claim, Scope, SoqlProbe
@@ -555,7 +556,7 @@ class _Dataset:
             col, layer = c["fieldName"], str(region).lstrip("_")
             if layer not in layer_labels:
                 layer_labels[layer] = await self.label_column(layer)
-            query = f"SELECT count({col}) AS filled, count(*) AS n"
+            query = f"SELECT count({identifier(col)}) AS filled, count(*) AS n"
             rows = await self.rows(query, col)
             if rows is not None:
                 self.claims.append(
@@ -587,8 +588,9 @@ class _Dataset:
                 f"{MAX_TEXT_COLUMNS} not probed."
             )
         for col in text[:MAX_TEXT_COLUMNS]:
+            q = identifier(col)
             query = (
-                f"SELECT {col} AS v, count(*) AS n GROUP BY {col} ORDER BY n DESC "
+                f"SELECT {q} AS v, count(*) AS n GROUP BY {q} ORDER BY n DESC "
                 f"LIMIT {MAX_GROUPS + 1}"
             )
             rows = await self.rows(query, col)
@@ -619,7 +621,8 @@ class _Dataset:
 
     async def window(self, col: str) -> tuple[date, date] | None:
         """The column's min and max dates, the max capped at today; None, noted, if unusable."""
-        rows = await self.rows(f"SELECT min({col}) AS lo, max({col}) AS hi", col)
+        q = identifier(col)
+        rows = await self.rows(f"SELECT min({q}) AS lo, max({q}) AS hi", col)
         if rows is None:
             return None
         row = rows[0] if len(rows) == 1 else {}
@@ -651,14 +654,15 @@ class _Dataset:
                 f"{col}: no spring-forward day in {zone.key} between {lo} and {hi}; "
                 "by-hour probe only."
             )
-        by_hour = f"SELECT date_extract_hh({col}) AS h, count(*) AS n WHERE"
+        q = identifier(col)
+        by_hour = f"SELECT date_extract_hh({q}) AS h, count(*) AS n WHERE"
         start = max(hi - timedelta(days=365), lo)
-        window = f"{col} >= '{_ts(start)}' AND {col} < '{_ts(hi + timedelta(days=1))}'"
+        window = f"{q} >= '{_ts(start)}' AND {q} < '{_ts(hi + timedelta(days=1))}'"
         day_query = f"{by_hour} {window} GROUP BY h"
         gap: tuple[str, list[dict]] | None = None
         if day is not None:
             gap_query = (
-                f"{by_hour} {col} >= '{_ts(day)}' AND {col} < '{_ts(day + timedelta(days=1))}' "
+                f"{by_hour} {q} >= '{_ts(day)}' AND {q} < '{_ts(day + timedelta(days=1))}' "
                 "GROUP BY h"
             )
             if (gap_rows := await self.rows(gap_query, col)) is None:
@@ -672,8 +676,8 @@ class _Dataset:
         midnight = await self.midnight(col, window)
         if midnight is not None:
             day_query = (
-                f"{by_hour} {window} AND (date_extract_hh({col}) != 0 OR "
-                f"date_extract_mm({col}) != 0 OR date_extract_ss({col}) != 0) GROUP BY h"
+                f"{by_hour} {window} AND (date_extract_hh({q}) != 0 OR "
+                f"date_extract_mm({q}) != 0 OR date_extract_ss({q}) != 0) GROUP BY h"
             )
             if (day_rows := await self.rows(day_query, col)) is None:
                 return
@@ -693,9 +697,10 @@ class _Dataset:
 
     async def midnight(self, col: str, window: str) -> tuple[str, float, float] | None:
         """(query, rows, rows at exactly 00:00:00) when those rows reach `MIDNIGHT_MIN_SHARE`."""
+        q = identifier(col)
         query = (
-            f"SELECT count(*) AS n, sum(case(date_extract_hh({col}) = 0 AND "
-            f"date_extract_mm({col}) = 0 AND date_extract_ss({col}) = 0, 1, true, 0)) AS midnight "
+            f"SELECT count(*) AS n, sum(case(date_extract_hh({q}) = 0 AND "
+            f"date_extract_mm({q}) = 0 AND date_extract_ss({q}) = 0, 1, true, 0)) AS midnight "
             f"WHERE {window}"
         )
         rows = await self.rows(query, col)

@@ -16,8 +16,9 @@ from opendata_atlas.constants import (
     SEARCH_EXTERNAL_TIMEOUT_SECONDS,
 )
 from opendata_atlas.core import cursor as cursors
+from opendata_atlas.core.budget import RESULT_LIMIT, fit, wire_size
 from opendata_atlas.core.context import make_source
-from opendata_atlas.core.errors import AtlasError, Repair
+from opendata_atlas.core.errors import AtlasError, ErrorCode, Repair
 from opendata_atlas.core.http import shape_error
 from opendata_atlas.core.models import (
     DatasetSummary,
@@ -31,6 +32,8 @@ from opendata_atlas.core.reference import guide_uri
 from opendata_atlas.core.text import clean, html_to_text
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from opendata_atlas.core.http import SodaClient
     from opendata_atlas.portals.model import PortalContext
 
@@ -189,26 +192,18 @@ async def search(
 
     folded, parents_dropped = await _fold(client, portal, results, detail, already=set(earlier))
     datasets = [summary for summary, _, _ in folded]
+    position = {id(entry): i for i, entry in enumerate(upstream)}
     # Paging follows what the catalog returned, foreign entries included.
-    next_offset = offset + len(upstream)
-    has_more = bool(upstream) and next_offset < total
-    next_cursor = (
-        cursors.encode(
-            "search",
-            {
-                "q": query,
-                "scope": asset_scope,
-                "cat": category,
-                "off": next_offset,
-                "ps": page_size,
-                # Folded map views can repeat a dataset from an earlier page; remember recent ids.
-                "seen": [*earlier, *(d.dataset_id for d in datasets)][-_SEEN_CAP:],
-            },
-            portal_id=portal.id,
-        )
-        if has_more
-        else None
+    paging = _Pager(
+        state={"q": query, "scope": asset_scope, "cat": category, "ps": page_size},
+        portal_id=portal.id,
+        earlier=earlier,
+        datasets=datasets,
+        resume=[offset, *(offset + position[id(item)] + 1 for _, item, _ in folded)],
+        end=offset + len(upstream),
+        more_after_page=bool(upstream) and offset + len(upstream) < total,
     )
+    has_more, next_cursor = paging(len(datasets))
     result = SearchResult(
         datasets=datasets,
         has_more=has_more,
@@ -231,7 +226,37 @@ async def search(
         if result.external_matches is not None:
             dropped += external.dropped
     result.foreign_results_dropped = dropped or None
+    _fit_page(result, paging)
     return result
+
+
+def _fit_page(result: SearchResult, paging: Callable[[int], tuple[bool, str | None]]) -> None:
+    """Fit the result to the byte budget (#17): keep the most leading datasets that fit, and
+    when the external leads leave room for none, or overflow alone, drop their descriptions.
+
+    A summary is bounded (title 200, description 1000 characters), so one dataset beside three
+    description-less leads always fits; a page cut short continues from `paging`'s cursor.
+    """
+    if wire_size(result) <= RESULT_LIMIT:
+        return
+    datasets, evidence = result.datasets, result.match_evidence
+
+    def settle(count: int) -> None:
+        result.datasets = datasets[:count]
+        if evidence is not None:
+            result.match_evidence = evidence[:count]
+        result.has_more, result.next_cursor = paging(count)
+
+    for compact in (False, True):
+        if compact and result.external_matches:
+            result.external_matches = [
+                lead.model_copy(update={"description": None}) for lead in result.external_matches
+            ]
+        kept = fit(len(datasets), settle, lambda: wire_size(result))
+        if wire_size(result) <= RESULT_LIMIT and (kept or not datasets):
+            return
+    # A defect, not a caller error: never serve an empty page whose cursor never advances.
+    raise AtlasError(ErrorCode.INTERNAL_ERROR, "A single search result exceeds the result budget.")
 
 
 def _attach_discovery(
@@ -259,6 +284,36 @@ def _attach_discovery(
             result.external_search_status = "unavailable"
     if first_page and terms and not any(e.matched_terms for e in result.match_evidence):
         result.suggestion = _suggest(portal_id, portal_name, query, asset_scope, category)
+
+
+@dataclass
+class _Pager:
+    """The continuation of a page that keeps its first `kept` datasets."""
+
+    state: dict[str, Any]
+    portal_id: str
+    earlier: list[str]
+    datasets: list[DatasetSummary]
+    #: `resume[k]` is the catalog offset just after the entry behind the k-th dataset.
+    resume: list[int]
+    #: The catalog offset just after the whole upstream page.
+    end: int
+    more_after_page: bool
+
+    def __call__(self, kept: int) -> tuple[bool, str | None]:
+        if kept < len(self.datasets):
+            next_offset = self.resume[kept]
+        elif self.more_after_page:
+            next_offset = self.end
+        else:
+            return False, None
+        state = {
+            **self.state,
+            "off": next_offset,
+            # Folded map views can repeat a dataset from an earlier page; remember recent ids.
+            "seen": [*self.earlier, *(d.dataset_id for d in self.datasets[:kept])][-_SEEN_CAP:],
+        }
+        return True, cursors.encode("search", state, portal_id=self.portal_id)
 
 
 @dataclass
