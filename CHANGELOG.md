@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Changed
+
+- Eval and curation harness: `evals/run.py` exits 1 when any session exits nonzero (#26). Codex eval sessions run in an empty per-task directory with the built-in tools that config can turn off turned off, and `evals/report.py` flags, and exits 1 for, any session that used a tool other than the server's; codex-cli 0.164.0 keeps `unified_exec` on, so that flag is what keeps a Codex run honest (#27). `tests/test_curation_skill.py` requires a full `{claim_id, expected, served, matches}` served-check entry for every reviewed claim a run added or changed (#28), and a `no_change` run to leave the worktree clean and name the requested portal's pack (#29). The contribution path (reference topic `contributing`) and the curate-portal skill grade such sessions FAIL.
+
 ### Fixed
 
 - `atlas_search_datasets` results now fit the per-result byte budget: a page whose summaries would exceed it keeps the leading datasets that fit, with `has_more: true` and a cursor that continues after them, and `external_matches` drop their descriptions when they would leave room for no dataset (#17). A full-detail page of 50 could reach about 137 KB. No tool schema change.

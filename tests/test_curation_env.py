@@ -11,9 +11,11 @@ from tests.test_curation_skill import (
     EVAL_RUNS,
     RUN_VAR,
     SERVED_CHECK,
+    changed_reviewed,
     child_env,
     claude_command,
     codex_command,
+    no_change_failures,
     outcome_failures,
     path_violations,
     tier_failure,
@@ -23,6 +25,11 @@ from tests.test_curation_skill import (
 PACK = "data.example.gov"
 DIGEST = "sha256:aaaa"
 TASKS = ["01-a", "02-b"]
+REVIEWED = ["a", "b"]
+
+
+def _entry(claim_id: str, matches: bool = True) -> dict:
+    return {"claim_id": claim_id, "expected": "x", "served": "x", "matches": matches}
 
 
 def _healthy(wt: Path, runs=EVAL_RUNS, tasks=TASKS) -> None:
@@ -31,7 +38,7 @@ def _healthy(wt: Path, runs=EVAL_RUNS, tasks=TASKS) -> None:
         for tid in tasks:
             event = {"type": "result", "subtype": "success", "result": "an answer"}
             (wt / run / f"{tid}.transcript.jsonl").write_text(json.dumps(event) + "\n")
-    (wt / SERVED_CHECK).write_text(json.dumps([{"column": "city", "matches": True}]))
+    (wt / SERVED_CHECK).write_text(json.dumps([_entry(i) for i in REVIEWED]))
 
 
 def _completed(**over) -> dict:
@@ -39,7 +46,9 @@ def _completed(**over) -> dict:
 
 
 def _check(outcome, wt: Path) -> list[str]:
-    return outcome_failures(outcome, pack=PACK, digest_now=DIGEST, wt=wt, task_ids=TASKS)
+    return outcome_failures(
+        outcome, pack=PACK, digest_now=DIGEST, wt=wt, task_ids=TASKS, reviewed=REVIEWED
+    )
 
 
 def test_completed_outcome_with_its_evidence_passes(tmp_path):
@@ -84,7 +93,7 @@ def test_completed_without_the_served_check_is_flagged(tmp_path):
 
 def test_served_check_with_an_unmatched_claim_is_flagged(tmp_path):
     _healthy(tmp_path)
-    served = [{"claim_id": "a", "matches": True}, {"claim_id": "b", "matches": False}]
+    served = [_entry("a"), _entry("b", matches=False)]
     (tmp_path / SERVED_CHECK).write_text(json.dumps(served))
     (failure,) = _check(_completed(), tmp_path)
     assert "not served as reviewed" in failure and "'b'" in failure
@@ -217,3 +226,68 @@ def test_tier_check_rejects_lowering_an_existing_pack():
     """The tier is the reviewer's to change (skill step 12)."""
     assert tier_failure("profiled", "curated") is not None
     assert tier_failure("profiled", "profiled") is None
+
+
+def test_served_check_of_bare_matches_is_flagged(tmp_path):
+    """#28: `[{"matches": true}]` used to pass."""
+    _healthy(tmp_path)
+    (tmp_path / SERVED_CHECK).write_text(json.dumps([{"matches": True}]))
+    failures = _check(_completed(), tmp_path)
+    assert any("entries without" in f for f in failures)
+    assert any("reviewed claims with no entry: ['a', 'b']" in f for f in failures)
+
+
+def test_served_check_missing_a_reviewed_claim_is_flagged(tmp_path):
+    _healthy(tmp_path)
+    (tmp_path / SERVED_CHECK).write_text(json.dumps([_entry("a")]))
+    (failure,) = _check(_completed(), tmp_path)
+    assert failure.endswith("reviewed claims with no entry: ['b']")
+
+
+def _claims(*claims: str) -> str:
+    return "".join(f'[[claim]]\nid = "{c}"\n{body}\n' for c, body in (x.split("|") for x in claims))
+
+
+def test_changed_reviewed_lists_only_added_or_changed_reviewed_claims():
+    base = [_claims("old|interpretation = {kind = 'a'}", "draft|kind = 'x'")]
+    now = [
+        _claims(
+            "old|interpretation = {kind = 'a'}",
+            "draft|interpretation = {kind = 'b'}",
+            "new|placeholders = ['-']",
+            "observed|kind = 'y'",
+        )
+    ]
+    assert changed_reviewed(now, base) == ["draft", "new"]
+
+
+def test_no_change_with_a_clean_worktree_passes():
+    outcome = {"outcome": "no_change", "pack": "seattle"}
+    assert (
+        no_change_failures(
+            outcome, commits=0, porcelain="", pack_id="data.seattle.gov", portal="seattle"
+        )
+        == []
+    )
+
+
+def test_no_change_with_worktree_changes_is_flagged():
+    """#29: tracked edits with no commit used to pass."""
+    outcome = {"outcome": "no_change", "pack": "seattle"}
+    (failure,) = no_change_failures(
+        outcome,
+        commits=0,
+        porcelain=" M src/opendata_atlas/core/query.py\n",
+        pack_id="data.seattle.gov",
+        portal="seattle",
+    )
+    assert "worktree has changes" in failure and "query.py" in failure
+
+
+def test_no_change_for_another_portals_pack_is_flagged():
+    outcome = {"outcome": "no_change", "pack": "seattle"}
+    failures = no_change_failures(
+        outcome, commits=1, porcelain="", pack_id="data.seattle.gov", portal="chicago"
+    )
+    assert any("1 commit" in f for f in failures)
+    assert any("'chicago' is 'data.cityofchicago.org'" in f for f in failures)

@@ -9,11 +9,15 @@ without it, the cross-portal tasks in `evals/tasks.json` run.
 A task's optional `server_args` are appended to the capture server's arguments.
 Claude runs with `--tools ""`, which removes every built-in tool so the agent can only call the
 server's MCP tools (`--allowedTools` alone pre-approves tools but does not restrict the agent).
-Codex is restricted by a clean CODEX_HOME.
+Codex runs with a clean CODEX_HOME that turns off apps, web search, the shell tool, browser,
+computer use and image viewing, in an empty working directory. `unified_exec` stays on whatever
+the config says (`codex features list`, codex-cli 0.164.0), so Codex can still run commands:
+`evals/report.py` flags any call that is not one of the server's tools, and such a run is not
+evidence.
 Claude sessions are capped at $1 each with `--max-budget-usd`. Codex sessions are not capped:
 `codex exec` has no budget option.
 Writes <id>.transcript.jsonl (the host's JSON event stream), <id>.capture.jsonl (server view),
-and <id>.stderr.txt.
+and <id>.stderr.txt. Exits 1 when any session exits nonzero.
 """
 
 from __future__ import annotations
@@ -35,6 +39,19 @@ TOOLS = ",".join(
         "query_dataset",
         "get_reference",
     )
+)
+
+
+#: Built-in Codex tools a session must not use. `unified_exec` is listed although
+#: codex-cli 0.164.0 keeps it on, so a later CLI that honors it closes the gap.
+CODEX_FEATURES_OFF = (
+    "apps",
+    "shell_tool",
+    "unified_exec",
+    "browser_use",
+    "in_app_browser",
+    "computer_use",
+    "view_image",
 )
 
 
@@ -67,7 +84,8 @@ def capture_args(task: dict, capture: Path) -> list[str]:
     ]
 
 
-def run(task: dict, out: Path, host: str) -> None:
+def run(task: dict, out: Path, host: str) -> int:
+    """One session; returns the host's exit code."""
     capture = out / f"{task['id']}.capture.jsonl"
     capture.unlink(missing_ok=True)
     args = capture_args(task, capture)
@@ -78,9 +96,23 @@ def run(task: dict, out: Path, host: str) -> None:
         (out / f"{task['id']}.stderr.txt").open("w") as stderr,
     ):
         code = subprocess.call(
-            command, cwd=out, stdin=subprocess.DEVNULL, stdout=stdout, stderr=stderr, env=env
+            command,
+            cwd=session_dir(out, task) if host == "codex" else out,
+            stdin=subprocess.DEVNULL,
+            stdout=stdout,
+            stderr=stderr,
+            env=env,
         )
     print(f"{task['id']}: exit {code}", flush=True)
+    return code
+
+
+def session_dir(out: Path, task: dict) -> Path:
+    """An empty working directory, so a session that can run commands has no pointer to the
+    other tasks' transcripts in `out`."""
+    path = out / "sessions" / task["id"]
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 def claude_command(task: dict, args: list[str], out: Path) -> list[str]:
@@ -109,8 +141,8 @@ def claude_command(task: dict, args: list[str], out: Path) -> list[str]:
 
 
 def codex_home(out: Path) -> Path:
-    """A clean CODEX_HOME: the user's login and model, but none of their MCP servers,
-    apps, hooks, or web search, so answers can only come from this server."""
+    """A clean CODEX_HOME: the user's login and model, but none of their MCP servers, apps,
+    hooks or web search, and the built-in tools that config can turn off turned off."""
     home = out / "codex-home"
     home.mkdir(exist_ok=True)
     user = Path(os.environ.get("CODEX_HOME", Path.home() / ".codex"))
@@ -125,7 +157,8 @@ def codex_home(out: Path) -> Path:
         for key in ("model", "model_reasoning_effort")
         if key in settings
     ]
-    lines += ['web_search = "disabled"', "", "[features]", "apps = false"]
+    lines += ['web_search = "disabled"', "", "[features]"]
+    lines += [f"{feature} = false" for feature in CODEX_FEATURES_OFF]
     (home / "config.toml").write_text("\n".join(lines) + "\n")
     return home
 
@@ -192,9 +225,13 @@ def main() -> None:
     if unknown:
         sys.exit(f"unknown task ids for this file: {unknown}")
     out.mkdir(parents=True, exist_ok=True)
-    for task in tasks:
-        if not wanted or task["id"] in wanted:
-            run(task, out, host)
+    failed = [
+        task["id"]
+        for task in tasks
+        if (not wanted or task["id"] in wanted) and run(task, out, host) != 0
+    ]
+    if failed:
+        sys.exit(f"sessions exited nonzero: {', '.join(failed)}")
 
 
 if __name__ == "__main__":
