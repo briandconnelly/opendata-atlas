@@ -27,6 +27,8 @@ from typing import TYPE_CHECKING, Any
 
 import pytest
 
+from opendata_atlas.core.portals import find_portals
+from opendata_atlas.portals.model import Claim
 from opendata_atlas.portals.registry import load_registry
 from opendata_atlas.portals.tiers import COVERS
 
@@ -220,12 +222,13 @@ def served_failures(wt: Path, reviewed: list[str]) -> list[str]:
 
 
 def reviewed_claims(texts: list[str]) -> dict[str, dict[str, Any]]:
-    """Claims with an interpretation or declared placeholders, by id, from pack TOML texts."""
+    """Reviewed claims by id, from pack TOML texts: `Claim.reviewed`, so a placeholder
+    declaration without `reviewed_by` and `reviewed_at` is an observation."""
     return {
-        claim["id"]: claim
+        raw["id"]: raw
         for text in texts
-        for claim in tomllib.loads(text).get("claim", [])
-        if claim.get("interpretation") or claim.get("placeholders")
+        for raw in tomllib.loads(text).get("claim", [])
+        if Claim.model_validate(raw).reviewed
     }
 
 
@@ -233,6 +236,18 @@ def changed_reviewed(now: list[str], base: list[str]) -> list[str]:
     """Ids of reviewed claims the run added or changed: what the served check must cover."""
     before = reviewed_claims(base)
     return sorted(i for i, claim in reviewed_claims(now).items() if before.get(i) != claim)
+
+
+def requested_ids(portal: str) -> set[str]:
+    """The portal ids `portal` names, as skill step 1 finds them: an id or alias, else the
+    `atlas_find_portals` candidates for it as a place name ("Chicago, IL")."""
+    registry = load_registry()
+    if (entry := registry.by_alias(portal)) is not None:
+        return {entry.identity.id}
+    found = find_portals(
+        registry, query=portal, level=None, country=None, tier=None, page_size=50, cursor=None
+    )
+    return {c.id for c in found.candidates}
 
 
 def no_change_failures(
@@ -246,11 +261,11 @@ def no_change_failures(
     if pack_id is None:
         out.append(f"no_change names no existing pack: {outcome.get('pack')!r}")
     else:
-        requested = load_registry().by_alias(portal)
-        if requested is not None and requested.identity.id != pack_id:
-            out.append(
-                f"no_change names pack {pack_id!r}, but {portal!r} is {requested.identity.id!r}"
-            )
+        requested = requested_ids(portal)
+        if not requested:
+            out.append(f"no_change: {portal!r} matches no registered portal")
+        elif pack_id not in requested:
+            out.append(f"no_change names pack {pack_id!r}, but {portal!r} is {sorted(requested)}")
     if changed := [line for line in porcelain.splitlines() if line.strip()]:
         out.append(f"no_change, but the worktree has changes: {changed}")
     return out

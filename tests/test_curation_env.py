@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
+
+import pytest
 
 from tests.test_curation_skill import (
     ALLOWED_TOOLS,
@@ -244,21 +247,29 @@ def test_served_check_missing_a_reviewed_claim_is_flagged(tmp_path):
     assert failure.endswith("reviewed claims with no entry: ['b']")
 
 
-def _claims(*claims: str) -> str:
-    return "".join(f'[[claim]]\nid = "{c}"\n{body}\n' for c, body in (x.split("|") for x in claims))
+EXAMPLES = Path(__file__).resolve().parents[1] / "docs" / "pack-examples"
+PLACE = (EXAMPLES / "place_field.toml").read_text()
+PLACEHOLDER = (EXAMPLES / "placeholder_share.toml").read_text()
+PLACEHOLDER_ID = "crime-neighborhood-pre2017-placeholder"
+
+
+def _unreviewed(text: str, claim_id: str) -> str:
+    """The claim as the profiler drafts it: no interpretation, no review metadata."""
+    drafted = re.sub(r"^(interpretation|reviewed_by|reviewed_at) = .*\n", "", text, flags=re.M)
+    return drafted.replace(PLACEHOLDER_ID, claim_id)
 
 
 def test_changed_reviewed_lists_only_added_or_changed_reviewed_claims():
-    base = [_claims("old|interpretation = {kind = 'a'}", "draft|kind = 'x'")]
-    now = [
-        _claims(
-            "old|interpretation = {kind = 'a'}",
-            "draft|interpretation = {kind = 'b'}",
-            "new|placeholders = ['-']",
-            "observed|kind = 'y'",
-        )
-    ]
-    assert changed_reviewed(now, base) == ["draft", "new"]
+    changed_place = PLACE.replace('reason = "', 'reason = "Revised. ', 1)
+    assert changed_place != PLACE
+    now = [changed_place, PLACEHOLDER, _unreviewed(PLACEHOLDER, "drafted-placeholder")]
+    assert changed_reviewed(now, [PLACE]) == ["crime-neighborhood-place-field", PLACEHOLDER_ID]
+    assert changed_reviewed([PLACE, PLACEHOLDER], [PLACE, PLACEHOLDER]) == []
+
+
+def test_unreviewed_placeholder_declarations_need_no_served_entry():
+    """Copilot on #41: `Claim.reviewed` needs review metadata beside the placeholders."""
+    assert changed_reviewed([_unreviewed(PLACEHOLDER, "drafted")], []) == []
 
 
 def test_no_change_with_a_clean_worktree_passes():
@@ -284,10 +295,36 @@ def test_no_change_with_worktree_changes_is_flagged():
     assert "worktree has changes" in failure and "query.py" in failure
 
 
+@pytest.mark.parametrize("portal", ["seattle", "data.seattle.gov", "Seattle", "Seattle, WA"])
+def test_no_change_resolves_the_portal_as_step_1_does(portal):
+    outcome = {"outcome": "no_change", "pack": "data.seattle.gov"}
+    failures = no_change_failures(
+        outcome, commits=0, porcelain="", pack_id="data.seattle.gov", portal=portal
+    )
+    assert failures == []
+
+
+def test_no_change_for_another_place_names_pack_is_flagged():
+    """Copilot on #41: a place name used to skip the identity check."""
+    outcome = {"outcome": "no_change", "pack": "data.seattle.gov"}
+    (failure,) = no_change_failures(
+        outcome, commits=0, porcelain="", pack_id="data.seattle.gov", portal="Chicago, IL"
+    )
+    assert "['data.cityofchicago.org']" in failure
+
+
+def test_no_change_for_an_unknown_portal_is_flagged():
+    outcome = {"outcome": "no_change", "pack": "data.seattle.gov"}
+    (failure,) = no_change_failures(
+        outcome, commits=0, porcelain="", pack_id="data.seattle.gov", portal="Atlantis"
+    )
+    assert "matches no registered portal" in failure
+
+
 def test_no_change_for_another_portals_pack_is_flagged():
     outcome = {"outcome": "no_change", "pack": "seattle"}
     failures = no_change_failures(
         outcome, commits=1, porcelain="", pack_id="data.seattle.gov", portal="chicago"
     )
     assert any("1 commit" in f for f in failures)
-    assert any("'chicago' is 'data.cityofchicago.org'" in f for f in failures)
+    assert any("'chicago' is ['data.cityofchicago.org']" in f for f in failures)
