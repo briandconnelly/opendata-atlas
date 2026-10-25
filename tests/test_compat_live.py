@@ -40,6 +40,7 @@ import pytest
 
 from opendata_atlas.core.http import SodaClient, set_client
 from opendata_atlas.portals.registry import load_registry
+from opendata_atlas.portals.resolve import _pack_dirs
 from tests.conftest import wire
 from tests.http_fixtures import scrubber
 
@@ -229,7 +230,7 @@ def evidence_dir(request, tmp_path_factory) -> Path:
     configured = os.environ.get("COMPAT_EVIDENCE_DIR")
     path = Path(configured) if configured else tmp_path_factory.mktemp("compat")
     selected = [i for i in request.session.items if i.name.startswith("test_portal_compat[")]
-    if len(selected) != len(SAMPLE):
+    if len(selected) != len(PORTALS):
         path = path / "partial"  # never overwrite a full run's evidence with a subset
     path.mkdir(parents=True, exist_ok=True)
     return path
@@ -447,7 +448,11 @@ def test_sample_is_in_registry():
     assert [p for p in SAMPLE if p not in entries] == []
 
 
-@pytest.mark.parametrize("portal", SAMPLE)
+#: The sample plus every portal with a pack, so a newly curated portal has its case (#36).
+PORTALS = [*SAMPLE, *sorted(set(_pack_dirs()) - set(SAMPLE))]
+
+
+@pytest.mark.parametrize("portal", PORTALS)
 async def test_portal_compat(portal, client, spy, evidence_dir, table):
     row = Row(portal)
     table.append(row)
