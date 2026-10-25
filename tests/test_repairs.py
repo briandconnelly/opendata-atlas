@@ -113,6 +113,38 @@ EMITTED_CASES = [
     ("atlas_get_reference", {"topic": "soql", "cursor": GUIDES_CURSOR}),
     ("atlas_get_reference", {"topic": "guides", "portal": "seattle", "cursor": SOQL_CURSOR}),
     ("atlas_get_reference", {"topic": "soql", "item_id": "dates", "cursor": SOQL_CURSOR}),
+    # Argument combinations (#19): each repair reads the reference section with the rule.
+    (
+        "atlas_query_dataset",
+        {"portal": "seattle", "dataset_id": "kzjm-xkqj", "cursor": "x", "where": "a = 1"},
+    ),
+    ("atlas_query_dataset", {"portal": "seattle", "dataset_id": "kzjm-xkqj", "soql": "SELECT *"}),
+    ("atlas_query_dataset", {"portal": "seattle", "dataset_id": "kzjm-xkqj", "mode": "soql"}),
+    (
+        "atlas_query_dataset",
+        {
+            "portal": "seattle",
+            "dataset_id": "kzjm-xkqj",
+            "mode": "soql",
+            "soql": "SELECT *",
+            "where": "a = 1",
+        },
+    ),
+    (
+        "atlas_query_dataset",
+        {
+            "portal": "seattle",
+            "dataset_id": "kzjm-xkqj",
+            "where": " OR ".join(["a = 1"] * 300),
+            "having": " OR ".join(["n = 1"] * 300),
+        },
+    ),
+    (
+        "atlas_describe_dataset",
+        {"portal": "seattle", "dataset_id": "kzjm-xkqj", "column_cursor": "x", "sample_rows": 1},
+    ),
+    ("atlas_search_datasets", {"portal": "seattle", "cursor": "x", "query": "fire"}),
+    ("atlas_find_portals", {"cursor": "x", "query": "Seattle"}),
     # A tool name this server does not have (milestone 6 standards review).
     ("atlas_get_dataset_metadata", {"dataset_id": "kzjm-xkqj"}),
 ]

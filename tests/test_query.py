@@ -966,3 +966,45 @@ def test_negated_equality_gets_no_hint(where):
 def test_not_as_part_of_an_operator_still_hints(where):
     hints = query._hints(SEATTLE_CONTEXT.id, HINTED, {"where": where}, _HINT_COLUMNS)
     assert [h.arguments["group_by"][0] for h in hints] == ["area_name"]
+
+
+# --- name scans match the pre-check's syntax (#20) ------------------------------------
+
+COLUMNS = [
+    {"fieldName": "neighborhood", "dataTypeName": "text"},
+    {"fieldName": "type", "dataTypeName": "text"},
+    {"fieldName": "created_at", "dataTypeName": "floating_timestamp"},
+]
+
+
+@pytest.mark.parametrize(
+    ("where", "warns"),
+    [
+        ("neighborhood = 'Ballard'", True),
+        ("NEIGHBORHOOD = 'Ballard'", True),
+        ("Neighborhood IS NOT NULL", True),
+        ("type = 'neighborhood'", False),
+        ('type = "neighborhood"', False),
+        ('type = "it""s neighborhood"', False),
+    ],
+)
+def test_warning_scan_is_case_insensitive_and_skips_strings(where, warns):
+    used = query._canonical(query._referenced(where, ""), COLUMNS)
+    assert bool(query._warnings(used, PARTIAL)) is warns
+
+
+def test_canonical_spells_names_as_the_schema_does():
+    assert query._canonical({"CREATED_AT", "Type", "n"}, COLUMNS) == {"created_at", "type", "n"}
+
+
+def test_text_filters_are_case_insensitive():
+    assert query._text_filters("NEIGHBORHOOD = 'x' AND created_at > '2026'", COLUMNS) == [
+        "neighborhood"
+    ]
+
+
+def test_double_quoted_literal_gets_no_hint():
+    """The hint's single-quoted `like` cannot carry a double-quoted literal such as O'Brien."""
+    clauses = {"where": "type = \"O'Brien\" AND neighborhood = 'Ballard'"}
+    hints = query._hints("data.seattle.gov", "aaaa-bbbb", clauses, COLUMNS)
+    assert [h.arguments["group_by"] for h in hints] == [["neighborhood"]]
