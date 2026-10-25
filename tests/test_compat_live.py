@@ -18,8 +18,8 @@ then xfails with the reason. Any other failure is an *engine* failure and fails 
 
 Every upstream exchange is saved per portal under `COMPAT_EVIDENCE_DIR` (default: a pytest
 temporary directory), with `outcomes.json` and `outcomes.md` for the run; a run of fewer than all
-`PORTALS` (the sample plus every pack's portal) writes to its `partial/` subdirectory instead. Saved bodies keep no personal data:
-see `_saved_body`. To record:
+`PORTALS` (the sample plus every pack's portal) writes to its `partial/` subdirectory instead.
+Saved bodies keep no personal data: see `_saved_body`. To record:
 `COMPAT_EVIDENCE_DIR=docs/evidence/compat-2026-10-18 uv run pytest --run-integration -m
 integration tests/test_compat_live.py -v`.
 """
