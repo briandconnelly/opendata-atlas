@@ -3,7 +3,12 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from opendata_atlas.core.guides import Example, Guide
+
+#: When this pack's guide figures were probed (its docstring).
+OBSERVED = date(2026, 10, 15)
 
 SEPT_2026 = "'2026-09-01T00:00:00' and '2026-09-30T23:59:59'"
 
@@ -56,6 +61,7 @@ No text neighborhood field. Use the computed-region columns from `atlas_describe
             'When a "fire calls" count spans all response types, say it covers every dispatch, most of them medical.',
             "Never use `:@computed_region_cyqu_gs94` or `:@computed_region_2day_rhn5` for counts.",
         ),
+        observed_at=OBSERVED,
     ),
     Guide(
         "spd-calls",
@@ -112,6 +118,7 @@ These are calls for service, not reported offenses.
             "Aggregate rows rather than listing them.",
             "For reported offenses, use SPD Crime Data (`tazs-3rd5`) instead.",
         ),
+        observed_at=OBSERVED,
     ),
     Guide(
         "spd-crime",
@@ -161,6 +168,7 @@ One offense. A report (`report_number`) can contain several offenses: 1,568,385 
             "Always bound the date column to the period you mean: `offense_date` for when offenses occurred, `report_date_time` for when they were reported.",
             "For trends that include years before 2017, use precinct, sector, or beat, never `neighborhood`.",
         ),
+        observed_at=OBSERVED,
     ),
     Guide(
         "building-permits",
@@ -212,6 +220,7 @@ One permit (`permitnum`). Filter views such as Issued Building Permits (`8tqq-u7
                 },
             ),
         ),
+        observed_at=OBSERVED,
     ),
     Guide(
         "fremont-bridge",
@@ -262,6 +271,7 @@ One hour. `fremont_bridge` is the total for both sidewalks; it counts bikes and 
             "Report `fremont_bridge` (the total) unless the user asks for a split; when you split, say the sidewalk labels are ambiguous.",
             'Check `data_coverage` before answering "this month"; never report a missing month as zero riders.',
         ),
+        observed_at=OBSERVED,
     ),
     Guide(
         "use-of-force",
@@ -298,6 +308,7 @@ One subject in one use-of-force incident (`uniqueid`). 19,451 rows cover 18,444 
             ),
         ),
         rules=("Count incidents with `count(distinct incident_num)`.",),
+        observed_at=OBSERVED,
     ),
     Guide(
         "road-weather",
@@ -327,5 +338,6 @@ The publisher says the dataset holds only the most recent 48 hours and updates h
             "Always check `data_coverage` and tell the user how old the readings are.",
             "Never present the readings as current conditions.",
         ),
+        observed_at=OBSERVED,
     ),
 )

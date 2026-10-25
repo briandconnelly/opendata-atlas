@@ -345,7 +345,7 @@ _PACKS = Path(__file__).resolve().parent.parent / "src/opendata_atlas/portals"
 @pytest.mark.parametrize("layer", sorted(_LAYER_LABELS))
 def test_expected_label_is_the_packs_unless_noted(layer):
     """The expectations above are the reviewed packs' label columns, but for two."""
-    pack = {"chicago": "data.cityofchicago.org", "seattle": "seattle"}[layer.split("-")[0]]
+    pack = {"chicago": "data.cityofchicago.org", "seattle": "data.seattle.gov"}[layer.split("-")[0]]
     claim = load_portal(_PACKS / pack).pack.region_layer(layer.split("-", 1)[1])
     assert claim is not None and claim.interpretation is not None
     expected = _PACK_DIFFERS.get(layer, _LAYER_LABELS[layer])

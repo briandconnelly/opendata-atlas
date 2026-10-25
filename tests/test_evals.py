@@ -116,12 +116,14 @@ def test_server_args_paths_exist():
 
 
 def test_seattle_file_holds_the_seattle_tasks():
-    ids = _ids(EVALS / "portals" / "seattle.json")
+    ids = _ids(EVALS / "portals" / "data.seattle.gov.json")
     prefixes = [i.split("-", 1)[0] for i in ids]
     assert prefixes == [f"{n:02d}" for n in range(1, 25)] + ["27", "30"]
     assert "27-unreviewed-on-curated" in ids
     assert "30-stale-claim" in ids
-    tasks = {t["id"].split("-", 1)[0]: t for t in _tasks(EVALS / "portals" / "seattle.json")}
+    tasks = {
+        t["id"].split("-", 1)[0]: t for t in _tasks(EVALS / "portals" / "data.seattle.gov.json")
+    }
     covers = {n: t["covers"] for n, t in tasks.items() if "covers" in t}
     assert covers == {
         "03": ["in_area", "relative_date"],
@@ -140,8 +142,8 @@ def test_cross_portal_file():
 
 def test_load_tasks_reads_the_portal_file_or_the_cross_portal_file():
     assert [t["id"] for t in eval_run.load_tasks(None)] == _ids(CROSS)
-    assert [t["id"] for t in eval_run.load_tasks("seattle")] == _ids(
-        EVALS / "portals" / "seattle.json"
+    assert [t["id"] for t in eval_run.load_tasks("data.seattle.gov")] == _ids(
+        EVALS / "portals" / "data.seattle.gov.json"
     )
     with pytest.raises(SystemExit, match="no-such-portal"):
         eval_run.load_tasks("no-such-portal")
@@ -179,7 +181,7 @@ def test_set_override_replaces_the_cached_default(tmp_path: Path):
 
 
 def test_claude_command_restricts_tools(tmp_path: Path):
-    task = next(t for t in eval_run.load_tasks("seattle") if t["id"] == "30-stale-claim")
+    task = next(t for t in eval_run.load_tasks("data.seattle.gov") if t["id"] == "30-stale-claim")
     capture = tmp_path / "30.capture.jsonl"
     args = eval_run.capture_args(task, capture)
     assert args[-len(task["server_args"]) :] == task["server_args"]
@@ -255,7 +257,7 @@ def test_help_prints_usage_and_exits_0(monkeypatch, capsys, no_launch, argv):
         ("out", "--bogus"),
         ("--portal", "seattle", "--host", "codex", "out"),
         (),
-        ("--portal", "seattle"),
+        ("--portal", "data.seattle.gov"),
         ("--host",),
         ("--host", "claude", "--portal"),
     ],

@@ -1,6 +1,6 @@
 """The engine (`core/`) and the MCP layer (`mcp/`) hold no Seattle literals.
 
-Portal facts and Seattle text live only in the pack, `portals/seattle/`.
+Portal facts and Seattle text live only in the pack, `portals/data.seattle.gov/`.
 """
 
 from __future__ import annotations

@@ -204,8 +204,8 @@ def test_path_rule_allows_the_pack_paths_and_flags_others():
     ]
     assert path_violations(allowed, pack) == []
     foreign = [
-        "src/opendata_atlas/portals/seattle/guides.py",
-        "evals/portals/seattle.json",
+        "src/opendata_atlas/portals/data.seattle.gov/guides.py",
+        "evals/portals/data.seattle.gov.json",
         "src/opendata_atlas/portals/tiers.py",
         f"src/opendata_atlas/portals/{pack}x/portal.toml",
     ]

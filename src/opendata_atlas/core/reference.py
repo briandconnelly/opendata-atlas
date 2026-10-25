@@ -18,6 +18,7 @@ from opendata_atlas.constants import (
     URI_SCHEME,
 )
 from opendata_atlas.core.errors import ErrorCode, ErrorEnvelope
+from opendata_atlas.portals import freshness
 from opendata_atlas.portals.resolve import PORTAL_ERROR_TEXT
 
 if TYPE_CHECKING:
@@ -691,7 +692,7 @@ _TOPICS: dict[str, Topic] = {
 def topics(portal: PortalContext | None) -> dict[str, Topic]:
     """Every reference topic as served for `portal`; guides come from its pack (none without)."""
     guides = tuple(
-        Document(g.guide_id, g.title, g.description, g.render(), g.dataset_id)
+        Document(g.guide_id, g.title, g.description, g.render(freshness.today()), g.dataset_id)
         for g in (portal.guides if portal is not None else ())
     )
     return {

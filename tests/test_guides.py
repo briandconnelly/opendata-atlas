@@ -4,12 +4,16 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date
 
 import jsonschema
 import pytest
 
 from opendata_atlas.core import arguments
 from opendata_atlas.core.describe import served_evidence
+from opendata_atlas.core.guides import Guide
+from opendata_atlas.portals import freshness
+from opendata_atlas.portals.loader import load_portal
 from opendata_atlas.portals.resolve import _pack_dirs, resolve_portal
 from tests.conftest import SEATTLE_CONTEXT, wire
 
@@ -93,7 +97,8 @@ async def test_guide_reachable_by_tool_and_resource(client, guide):
     resource = await client.read_resource(
         f"opendata-atlas://portals/seattle/guides/{guide.guide_id}"
     )
-    assert tool["structuredContent"]["body"] == resource[0].text == guide.render()
+    expected = guide.render(freshness.today())
+    assert tool["structuredContent"]["body"] == resource[0].text == expected
     assert guide.dataset_id in resource[0].text
 
 
@@ -146,3 +151,33 @@ async def test_search_links_guide(client, soda):
     )["structuredContent"]
     fire = next(d for d in out["datasets"] if d["dataset_id"] == "kzjm-xkqj")
     assert fire["guide_uri"] == "opendata-atlas://portals/data.seattle.gov/guides/fire-911"
+
+
+ALL_GUIDES = [g for d in _pack_dirs().values() for g in load_portal(d).guides]
+
+
+@pytest.mark.parametrize("guide", ALL_GUIDES, ids=lambda g: g.guide_id)
+def test_every_shipped_guide_records_when_its_figures_were_observed(guide):
+    """#21: guide figures are dated, like claim evidence."""
+    assert guide.observed_at is not None
+    assert f"Figures observed {guide.observed_at.isoformat()}" in guide.render(freshness.today())
+
+
+def _guide(observed_at: date | None) -> Guide:
+    return Guide("g", "abcd-1234", "Title", "Desc", "Body.", (), observed_at=observed_at)
+
+
+def test_a_fresh_guide_says_when_its_figures_were_observed():
+    text = _guide(date(2026, 10, 20)).render(date(2026, 11, 1))
+    assert "Figures observed 2026-10-20; counts and recent dates change with the data." in text
+
+
+def test_a_guide_past_the_staleness_window_asks_for_a_recheck():
+    observed = date(2026, 1, 1)
+    text = _guide(observed).render(date(2026, 1, 1).replace(year=2027))
+    assert "over 180 days ago: re-check counts and date ranges with a query" in text
+    assert "over 180" not in _guide(observed).render(date(2026, 6, 30))
+
+
+def test_a_guide_without_a_date_renders_as_before():
+    assert _guide(None).render(date(2026, 11, 1)).startswith("# Title (`abcd-1234`)\n\nBody.")

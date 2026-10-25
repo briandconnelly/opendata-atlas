@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from opendata_atlas.core.guides import Example, Guide
+
+#: When this pack's guide figures were probed (its docstring).
+OBSERVED = date(2026, 10, 20)
 
 SEPT_2026 = "'2026-09-01T00:00:00' and '2026-09-30T23:59:59'"
 
@@ -60,5 +65,6 @@ One police incident (`eventnumber`), whether a 911 call or officer-initiated act
             "Never use `:@computed_region_psyp_nrnc` as an area filter within Everett.",
             "For reported crimes, use Police Cases (`szww-y224`) and say which you used.",
         ),
+        observed_at=OBSERVED,
     ),
 )

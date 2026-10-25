@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from opendata_atlas.core.guides import Example, Guide
+
+#: When this pack's guide figures were probed (its docstring).
+OBSERVED = date(2026, 10, 20)
 
 SEPT_2026 = (
     "incident_datetime >= '2026-09-01T00:00:00' AND incident_datetime < '2026-10-01T00:00:00'"
@@ -61,5 +66,6 @@ KCSO's own page says it serves "unincorporated areas and thirteen contract citie
             "Never present `city = 'SEATTLE'` as Seattle's crime.",
             "Say recent months may still grow as late reports are approved.",
         ),
+        observed_at=OBSERVED,
     ),
 )

@@ -20,7 +20,7 @@ if TYPE_CHECKING:
 
 __all__ = ["PORTALS_DIR", "SEATTLE", "PackError", "load_identity", "load_portal"]
 
-SEATTLE = PORTALS_DIR / "seattle"
+SEATTLE = PORTALS_DIR / "data.seattle.gov"
 
 
 def _read_toml(path: Path) -> dict[str, Any]:

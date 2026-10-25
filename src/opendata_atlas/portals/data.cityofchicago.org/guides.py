@@ -3,7 +3,12 @@ each example was run once with `atlas_query_dataset` on that date."""
 
 from __future__ import annotations
 
+from datetime import date
+
 from opendata_atlas.core.guides import Example, Guide
+
+#: When this pack's guide figures were probed (its docstring).
+OBSERVED = date(2026, 10, 19)
 
 SEPT_2026 = "'2026-09-01T00:00:00' and '2026-09-30T23:59:59'"
 
@@ -75,5 +80,6 @@ One reported crime incident, except homicides, which have one row per victim: si
             "Never use `:@computed_region_awaf_s7ux` for counts; for current wards use `:@computed_region_8hcu_yrd4`.",
             "Count homicide victims with `count(*)` and homicide cases with `count(distinct case_number)`.",
         ),
+        observed_at=OBSERVED,
     ),
 )

@@ -33,7 +33,7 @@ def _registry_only_violations(registry: Registry, pack_ids: set[str]) -> list[st
 
 
 def _copy_seattle(tmp_path: Path) -> Path:
-    pack = tmp_path / "packs" / "seattle"
+    pack = tmp_path / "packs" / "data.seattle.gov"
     shutil.copytree(SEATTLE, pack, ignore=shutil.ignore_patterns("__pycache__"))
     return pack
 
@@ -72,11 +72,11 @@ def test_curated_without_eval_coverage_violates(tmp_path, dropped):
     pack = _copy_seattle(tmp_path)
     evals = tmp_path / "evals"
     evals.mkdir()
-    tasks = json.loads((EVALS_DIR / "seattle.json").read_text())
+    tasks = json.loads((EVALS_DIR / "data.seattle.gov.json").read_text())
     for task in tasks:
         if "covers" in task:
             task["covers"] = [c for c in task["covers"] if c != dropped]
-    (evals / "seattle.json").write_text(json.dumps(tasks))
+    (evals / "data.seattle.gov.json").write_text(json.dumps(tasks))
     violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
     assert len(violations) == 1
     assert violations[0].startswith("curated:") and f"`{dropped}`" in violations[0]
@@ -88,17 +88,17 @@ def test_curated_without_eval_file_violates(tmp_path):
     empty.mkdir()
     violations = tier_violations(load_portal(pack), pack, empty, today=freshness.today())
     assert len(violations) == 1
-    assert violations[0].startswith("curated:") and "seattle.json" in violations[0]
+    assert violations[0].startswith("curated:") and "data.seattle.gov.json" in violations[0]
 
 
 def test_curated_with_unreadable_eval_file_violates(tmp_path):
     pack = _copy_seattle(tmp_path)
     evals = tmp_path / "evals"
     evals.mkdir()
-    (evals / "seattle.json").write_text("{not json")
+    (evals / "data.seattle.gov.json").write_text("{not json")
     violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
     assert len(violations) == 1
-    assert violations[0].startswith("curated:") and "seattle.json" in violations[0]
+    assert violations[0].startswith("curated:") and "data.seattle.gov.json" in violations[0]
 
 
 @pytest.mark.parametrize(
@@ -119,10 +119,12 @@ def test_curated_with_malformed_eval_tasks_violates(tmp_path, tasks):
     pack = _copy_seattle(tmp_path)
     evals = tmp_path / "evals"
     evals.mkdir()
-    (evals / "seattle.json").write_text(json.dumps(tasks))
+    (evals / "data.seattle.gov.json").write_text(json.dumps(tasks))
     violations = tier_violations(load_portal(pack), pack, evals, today=freshness.today())
     assert len(violations) == 1
-    assert violations[0].startswith("curated: cannot read eval tasks seattle.json"), violations
+    assert violations[0].startswith("curated: cannot read eval tasks data.seattle.gov.json"), (
+        violations
+    )
 
 
 def test_curated_with_only_stale_reviews_violates(tmp_path):
@@ -157,10 +159,10 @@ def _seattle_tasks_with(tmp_path: Path, **targets: object) -> Path:
     """Seattle's eval file with task 03's `targets` replaced, in a fresh evals directory."""
     evals = tmp_path / "evals"
     evals.mkdir()
-    tasks = json.loads((EVALS_DIR / "seattle.json").read_text())
+    tasks = json.loads((EVALS_DIR / "data.seattle.gov.json").read_text())
     (task,) = [t for t in tasks if "in_area" in t.get("covers", [])]
     task["targets"] = {**task["targets"], **targets}
-    (evals / "seattle.json").write_text(json.dumps(tasks))
+    (evals / "data.seattle.gov.json").write_text(json.dumps(tasks))
     return evals
 
 

@@ -72,7 +72,7 @@ def test_bundle_allowlist_admits_every_runtime_file():
         "assets/contributing.md",
         "portals/registry.json",
         "portals/registry_overrides.toml",
-        "portals/seattle/portal.toml",
+        "portals/data.seattle.gov/portal.toml",
         # Final review M-2: without it every asserted claim reads unchecked, never stale.
         "portals/validation.json",
     ):
@@ -82,7 +82,7 @@ def test_bundle_allowlist_admits_every_runtime_file():
 
 
 #: The packs this release ships; each must reach every artifact.
-PACKS = ("seattle", "data.cityofchicago.org")
+PACKS = ("data.seattle.gov", "data.cityofchicago.org")
 #: Names no shipped archive may hold: test fixtures, evals, curation working files.
 NOT_SHIPPED = ("tests/", "fixtures/", "evals/", ".curation/")
 
@@ -131,5 +131,5 @@ def test_bundle_requires_a_new_pack_without_a_script_edit(tmp_path):
     required = bundle.required_files(tmp_path)
     assert f"{bundle.RUNTIME_TREE}/portals/data.example.gov/portal.toml" in required
     assert not any("no-toml" in name for name in required)
-    assert f"{bundle.RUNTIME_TREE}/portals/seattle/portal.toml" not in required
+    assert f"{bundle.RUNTIME_TREE}/portals/data.seattle.gov/portal.toml" not in required
     assert set(bundle.required_files(ROOT / bundle.RUNTIME_TREE)) == set(bundle.REQUIRED)
