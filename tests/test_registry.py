@@ -631,3 +631,17 @@ def _name_problems(registry: Registry) -> list[str]:
 
 def test_shipped_names_are_not_generic():
     assert _name_problems(load_registry()) == []
+
+
+def test_registry_reads_pack_identities_without_loading_packs(monkeypatch):
+    """#38: claims and guides load on first resolution, not with the registry."""
+    from opendata_atlas.portals import registry as registry_module
+
+    def no_full_load(*args, **kwargs):
+        raise AssertionError("load_registry loaded a whole pack")
+
+    monkeypatch.setattr(registry_module, "load_portal", no_full_load)
+    fresh = registry_module.load_registry(
+        registry_module.REGISTRY_PATH, registry_module.PORTALS_DIR
+    )
+    assert "seattle" in fresh.entries["data.seattle.gov"].identity.aliases

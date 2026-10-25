@@ -201,7 +201,8 @@ Head rule: when either is unknown and the question uses a relative date, the age
 ## Engine isolation
 
 Every engine call takes an immutable `PortalContext` (canonical id, current identity record, loaded pack, validation state). Nothing in the engine reads module-level portal constants.
-- Schema cache and its invalidation: keyed by (portal id, dataset id).
+- Schema cache and its invalidation: keyed by (portal id, dataset id). Concurrent fetches of one schema share one upstream request; a failed or cancelled fetch is not shared, so each waiter fetches under its own deadline (#37).
+- The registry reads each pack's `portal.toml` identity only (`loader.load_identity`); a pack's claims and guides load on its first resolution (#38).
 - Region-label cache: keyed by (portal id, layer id, feature id).
 - Fact and guide lookups: through the portal's `PortalContext`.
 - Per-host concurrency limits: per `public_host`.
@@ -249,6 +250,7 @@ Five tools. The four `seattle-open-data` tools keep their inputs, outputs, deadl
      - the equality may be negated: a `NOT` before it that is not part of `IS NOT`, `NOT IN`, `NOT LIKE`, `NOT ILIKE`, `NOT BETWEEN` or `NOT NULL`;
      - `where` reads an alias declared in `select`, which the repair's `select` would not declare;
      - the repair's clause arguments would exceed the 4,096-byte clause cap.
+   - Describe's coverage probe is one `min`/`max` request per coverage column, run beside the count and the sample (#39: kept, see decisions.md).
    - `alternative` echoes at most 80 characters of the literal. Trailing hints are dropped if the page would exceed the result budget.
    - Each hint has `next_step: "inspect_text_values"` (its symbolic code) and calls `atlas_query_dataset` with `select [col, "count(*) AS n"]`, `group_by [col]` and `order_by ["n DESC"]`. Its `where` is the original with only that match replaced by `upper(col) like '%LITERAL%'`: the literal is trimmed and upper-cased, doubled quotes are kept, and every other filter stays. `near` and `search_text` are carried over when set.
    - The column is the repair's `group_by[0]`. `alternative` is the message: "No rows matched `<col>` = '<literal>'; its values may be padded or differ in case, so filter on a value this grouping returns."

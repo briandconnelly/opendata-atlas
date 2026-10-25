@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from functools import cache
 from typing import TYPE_CHECKING
 
-from opendata_atlas.portals.loader import PORTALS_DIR, PackError, load_portal
+from opendata_atlas.portals.loader import PORTALS_DIR, PackError, load_identity, load_portal
 
 # _Strict is shared within the portals package.
 from opendata_atlas.portals.model import Pack, PortalContext, PortalIdentity, _Strict
@@ -74,7 +74,8 @@ def _read(path: Path, packs_dir: Path) -> Registry:
             raise PackError(f"{path}: duplicate portal id {e.identity.id!r}")
         entries[e.identity.id] = e
     for pack_toml in sorted(packs_dir.glob("*/portal.toml")):
-        identity = load_portal(pack_toml.parent).identity
+        # Identity only: claims and guides load when the portal is first resolved (#38).
+        identity = load_identity(pack_toml.parent)
         old = entries.get(identity.id)
         entries[identity.id] = RegistryEntry(
             identity=identity,

@@ -18,7 +18,7 @@ if TYPE_CHECKING:
 
     from opendata_atlas.portals.validation import ValidationFile
 
-__all__ = ["PORTALS_DIR", "SEATTLE", "PackError", "load_portal"]
+__all__ = ["PORTALS_DIR", "SEATTLE", "PackError", "load_identity", "load_portal"]
 
 SEATTLE = PORTALS_DIR / "seattle"
 
@@ -51,13 +51,18 @@ def _load_guides(path: Path, identity_id: str) -> tuple[Guide, ...]:
     return guides
 
 
+def load_identity(directory: Path) -> PortalIdentity:
+    """The pack's `portal.toml` alone: what the registry needs, without claims or guides (#38)."""
+    portal_path = directory / "portal.toml"
+    return validate_file(PortalIdentity, _read_toml(portal_path), portal_path)
+
+
 def load_portal(directory: Path, *, validation: ValidationFile | None = None) -> PortalContext:
     """The pack in `directory`, with its portal's entries from `validation`.
 
     `validation` None reads the shipped `validation.json` (`load_validation()`).
     """
-    portal_path = directory / "portal.toml"
-    identity = validate_file(PortalIdentity, _read_toml(portal_path), portal_path)
+    identity = load_identity(directory)
 
     claims: list[Claim] = []
     files = [directory / "regions.toml", *sorted((directory / "facts").glob("*.toml"))]
