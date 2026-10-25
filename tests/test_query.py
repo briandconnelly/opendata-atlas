@@ -1008,3 +1008,36 @@ def test_double_quoted_literal_gets_no_hint():
     clauses = {"where": "type = \"O'Brien\" AND neighborhood = 'Ballard'"}
     hints = query._hints("data.seattle.gov", "aaaa-bbbb", clauses, COLUMNS)
     assert [h.arguments["group_by"] for h in hints] == [["neighborhood"]]
+
+
+ALIASED = [
+    {"fieldName": "neighborhood", "dataTypeName": "text"},
+    {"fieldName": "precinct", "dataTypeName": "text"},
+]
+
+
+@pytest.mark.parametrize(
+    "clauses",
+    [
+        {"select": ["precinct AS neighborhood"], "order_by": ["NEIGHBORHOOD"]},
+        {"select": ["precinct AS Neighborhood"], "group_by": ["neighborhood"]},
+        {"select": ["precinct AS `NEIGHBORHOOD`"], "having": "neighborhood > 'a'"},
+    ],
+)
+def test_alias_matching_is_case_insensitive(clauses):
+    """Copilot on #42: a mixed-case alias reference names the alias, not the column."""
+    direct, aliased = query._written(clauses, [])
+    assert query._canonical(query._referenced(direct, aliased), ALIASED) == {"precinct"}
+
+
+def test_raw_soql_alias_matching_is_case_insensitive():
+    soql = "SELECT precinct AS Neighborhood ORDER BY NEIGHBORHOOD"
+    used = query._canonical(query._referenced(*query._soql_reads(soql)), ALIASED)
+    assert used == {"precinct"}
+
+
+def test_grouped_alias_text_filter_is_case_insensitive():
+    filters = query._text_filters(
+        "", ALIASED, group_by="NEIGHBORHOOD", select="precinct AS neighborhood"
+    )
+    assert filters == ["precinct"]

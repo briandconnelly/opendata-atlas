@@ -748,7 +748,8 @@ def _text_filters(
     sources = _alias_sources(select)
     grouped: set[str] = set()
     for name in _names(_unquote(group_by)):
-        grouped |= _referenced(sources[name], "") if name in sources else {name}
+        source = sources.get(name.lower())
+        grouped |= _referenced(source, "") if source is not None else {name}
     return sorted(_canonical(_referenced(where, "") | grouped, columns) & texts)
 
 
@@ -762,7 +763,8 @@ def _canonical(names: set[str], columns: list[dict[str, Any]]) -> set[str]:
 
 
 def _alias_sources(select: str) -> dict[str, str]:
-    """Each alias select declares (`<expr> AS <alias>`), mapped to its expression."""
+    """Each alias select declares (`<expr> AS <alias>`), lowercased as SoQL compares names,
+    mapped to its expression."""
     items, depth, start, text = [], 0, 0, _unquote(select)
     for i, char in enumerate(text):
         depth += {"(": 1, ")": -1}.get(char, 0)
@@ -774,7 +776,7 @@ def _alias_sources(select: str) -> dict[str, str]:
     for item in items:
         match = _TRAILING_ALIAS.search(item)
         if match:
-            sources[match.group(1).strip("`")] = item[: match.start()]
+            sources[match.group(1).strip("`").lower()] = item[: match.start()]
     return sources
 
 
@@ -790,8 +792,11 @@ def _referenced(direct: str, aliased: str) -> set[str]:
     declared as an alias: `precinct AS neighborhood` then `order_by neighborhood` reads precinct.
     """
     direct, aliased = _unquote(direct), _unquote(aliased)
-    aliases = {a.strip("`") for a in _ALIAS_DECLARATION.findall(direct)}
-    return _names(_ALIAS_DECLARATION.sub(" ", direct)) | (_names(aliased) - aliases)
+    # Case-insensitive, as the column pre-check compares names: `ORDER BY NEIGHBORHOOD` after
+    # `precinct AS neighborhood` names the alias, not the column (Copilot on #42).
+    aliases = {a.strip("`").lower() for a in _ALIAS_DECLARATION.findall(direct)}
+    named = {n for n in _names(aliased) if n.lower() not in aliases}
+    return _names(_ALIAS_DECLARATION.sub(" ", direct)) | named
 
 
 def _warnings(used: set[str], places: list[dict[str, Any]]) -> list[CoverageWarning]:
