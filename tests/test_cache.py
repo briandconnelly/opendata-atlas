@@ -222,3 +222,5 @@ async def test_a_cancelled_leader_does_not_strand_waiters():
         client.release.set()
     assert results == [{"id": "aaaa-bbbb", "columns": []}]
     assert client.calls == 2
+    # Copilot on #44: the waiter's own fetch is cached for the query that follows.
+    assert cache.views.get(("data.seattle.gov", "aaaa-bbbb")) == {"id": "aaaa-bbbb", "columns": []}

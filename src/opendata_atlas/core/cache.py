@@ -103,7 +103,10 @@ async def fresh_view(client: SodaClient, portal: PortalContext, dataset_id: str)
         await flight.done.wait()
         if flight.view is not None:
             return flight.view
-        return await client.view(portal, dataset_id)
+        # Not coalesced again, but cached, so the query that follows reads this schema.
+        view = await client.view(portal, dataset_id)
+        views.put(key, view)
+        return view
     flight = _flights[key] = _Flight()
     try:
         flight.view = await client.view(portal, dataset_id)
