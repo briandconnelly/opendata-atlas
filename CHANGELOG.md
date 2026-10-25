@@ -7,6 +7,7 @@ All notable changes to this project are documented here. The format follows [Kee
 ### Changed
 
 - Eval and curation harness: `evals/run.py` exits 1 when any session exits nonzero (#26). Codex eval sessions run in an empty per-task directory with the built-in tools that config can turn off turned off, and `evals/report.py` flags, and exits 1 for, any session that used a tool other than the server's; codex-cli 0.164.0 keeps `unified_exec` on, so that flag is what keeps a Codex run honest (#27). `tests/test_curation_skill.py` requires a full `{claim_id, expected, served, matches}` served-check entry for every reviewed claim a run added or changed (#28), and a `no_change` run to leave the worktree clean and name the requested portal's pack (#29). The contribution path (reference topic `contributing`) and the curate-portal skill grade such sessions FAIL.
+- Tool surface: output schemas no longer carry `default` values or a `type` beside `enum` or `const`, which already fix the value (#25). `tests/snapshots/tools_list.json` is regenerated; `tools/list` is 23,910 bytes on the modern wire (it was 24,560 of the 24,576-byte budget). Input schemas and every result are unchanged.
 
 ### Fixed
 

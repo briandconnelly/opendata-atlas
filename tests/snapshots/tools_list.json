@@ -94,8 +94,7 @@
                         "state",
                         "national",
                         "other"
-                      ],
-                      "type": "string"
+                      ]
                     },
                     "region": {
                       "type": "string"
@@ -113,8 +112,7 @@
                     "name",
                     "place_name",
                     "host"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "name": {
                   "type": "string"
@@ -124,8 +122,7 @@
                     "generic",
                     "profiled",
                     "curated"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "timezone": {
                   "type": "string"
@@ -160,8 +157,7 @@
                 "enum": [
                   "multi_zone",
                   "unknown"
-                ],
-                "type": "string"
+                ]
               },
               "now_weekday": {
                 "type": "string"
@@ -183,8 +179,7 @@
                       "generic",
                       "profiled",
                       "curated"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "timezone": {
                     "type": "string"
@@ -322,8 +317,7 @@
                     "external",
                     "unsupported",
                     "unknown"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "title": {
                   "type": "string"
@@ -377,8 +371,7 @@
                     "external",
                     "unsupported",
                     "unknown"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "title": {
                   "type": "string"
@@ -402,8 +395,7 @@
             "enum": [
               "completed",
               "unavailable"
-            ],
-            "type": "string"
+            ]
           },
           "foreign_results_dropped": {
             "type": "integer"
@@ -426,8 +418,7 @@
                       "tags",
                       "columns",
                       "description"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "type": "array"
                 },
@@ -470,8 +461,7 @@
                 "enum": [
                   "multi_zone",
                   "unknown"
-                ],
-                "type": "string"
+                ]
               },
               "now_weekday": {
                 "type": "string"
@@ -493,8 +483,7 @@
                       "generic",
                       "profiled",
                       "curated"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "timezone": {
                     "type": "string"
@@ -629,8 +618,7 @@
                         "none",
                         "profiled",
                         "reviewed"
-                      ],
-                      "type": "string"
+                      ]
                     },
                     "validation": {
                       "enum": [
@@ -639,8 +627,7 @@
                         "stale",
                         "contradicted",
                         "inconclusive"
-                      ],
-                      "type": "string"
+                      ]
                     }
                   },
                   "required": [
@@ -662,9 +649,7 @@
                       "type": "integer"
                     },
                     "origin": {
-                      "const": "cached_metadata",
-                      "default": "cached_metadata",
-                      "type": "string"
+                      "const": "cached_metadata"
                     },
                     "smallest": {
                       "type": "string"
@@ -711,17 +696,14 @@
                   "enum": [
                     "live_query",
                     "cached_metadata"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "status": {
-                  "default": "ok",
                   "enum": [
                     "ok",
                     "timeout",
                     "unavailable"
-                  ],
-                  "type": "string"
+                  ]
                 }
               },
               "required": [
@@ -807,8 +789,7 @@
                   "none",
                   "profiled",
                   "reviewed"
-                ],
-                "type": "string"
+                ]
               },
               "validation": {
                 "enum": [
@@ -817,8 +798,7 @@
                   "stale",
                   "contradicted",
                   "inconclusive"
-                ],
-                "type": "string"
+                ]
               }
             },
             "required": [
@@ -881,8 +861,7 @@
                     "police_district",
                     "school_district",
                     "other"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "kind_label": {
                   "type": "string"
@@ -927,8 +906,7 @@
                     "partial",
                     "unreliable",
                     "unknown"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "reliability_reason": {
                   "type": "string"
@@ -937,20 +915,17 @@
                   "enum": [
                     "column",
                     "computed_region"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "stats_status": {
                   "enum": [
                     "ok",
                     "timeout",
                     "unavailable"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "validation": {
-                  "const": "stale",
-                  "type": "string"
+                  "const": "stale"
                 },
                 "value_count": {
                   "type": "integer"
@@ -991,8 +966,7 @@
               "external",
               "unsupported",
               "unknown"
-            ],
-            "type": "string"
+            ]
           },
           "row_count": {
             "additionalProperties": false,
@@ -1001,17 +975,14 @@
                 "enum": [
                   "live_query",
                   "cached_metadata"
-                ],
-                "type": "string"
+                ]
               },
               "status": {
-                "default": "ok",
                 "enum": [
                   "ok",
                   "timeout",
                   "unavailable"
-                ],
-                "type": "string"
+                ]
               },
               "value": {
                 "type": "integer"
@@ -1036,8 +1007,7 @@
                 "enum": [
                   "multi_zone",
                   "unknown"
-                ],
-                "type": "string"
+                ]
               },
               "now_weekday": {
                 "type": "string"
@@ -1059,8 +1029,7 @@
                       "generic",
                       "profiled",
                       "curated"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "timezone": {
                     "type": "string"
@@ -1105,8 +1074,7 @@
                   "type": "string"
                 },
                 "validation": {
-                  "const": "stale",
-                  "type": "string"
+                  "const": "stale"
                 }
               },
               "required": [
@@ -1330,8 +1298,7 @@
               "stable",
               "best_effort",
               "single_page"
-            ],
-            "type": "string"
+            ]
           },
           "coverage_warnings": {
             "items": {
@@ -1349,12 +1316,10 @@
                     "partial",
                     "unreliable",
                     "unknown"
-                  ],
-                  "type": "string"
+                  ]
                 },
                 "validation": {
-                  "const": "stale",
-                  "type": "string"
+                  "const": "stale"
                 }
               },
               "required": [
@@ -1417,8 +1382,7 @@
                   "none",
                   "profiled",
                   "reviewed"
-                ],
-                "type": "string"
+                ]
               },
               "message": {
                 "type": "string"
@@ -1459,8 +1423,7 @@
                 "enum": [
                   "multi_zone",
                   "unknown"
-                ],
-                "type": "string"
+                ]
               },
               "now_weekday": {
                 "type": "string"
@@ -1482,8 +1445,7 @@
                       "generic",
                       "profiled",
                       "curated"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "timezone": {
                     "type": "string"
@@ -1631,8 +1593,7 @@
                 "enum": [
                   "multi_zone",
                   "unknown"
-                ],
-                "type": "string"
+                ]
               },
               "now_weekday": {
                 "type": "string"
@@ -1654,8 +1615,7 @@
                       "generic",
                       "profiled",
                       "curated"
-                    ],
-                    "type": "string"
+                    ]
                   },
                   "timezone": {
                     "type": "string"
