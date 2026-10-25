@@ -18,7 +18,7 @@ then xfails with the reason. Any other failure is an *engine* failure and fails 
 
 Every upstream exchange is saved per portal under `COMPAT_EVIDENCE_DIR` (default: a pytest
 temporary directory), with `outcomes.json` and `outcomes.md` for the run; a run of fewer than all
-`SAMPLE` portals writes to its `partial/` subdirectory instead. Saved bodies keep no personal data:
+`PORTALS` (the sample plus every pack's portal) writes to its `partial/` subdirectory instead. Saved bodies keep no personal data:
 see `_saved_body`. To record:
 `COMPAT_EVIDENCE_DIR=docs/evidence/compat-2026-10-18 uv run pytest --run-integration -m
 integration tests/test_compat_live.py -v`.
@@ -467,7 +467,7 @@ async def test_portal_compat(portal, client, spy, evidence_dir, table):
 
 def test_run_is_not_vacuous(table):
     """Ruling 26: a run that exercised too little fails, whatever each portal's verdict."""
-    assert len(table) == len(SAMPLE), f"{len(table)} portals recorded, not {len(SAMPLE)}"
+    assert len(table) == len(PORTALS), f"{len(table)} portals recorded, not {len(PORTALS)}"
     fully_ok = sum(r.fully_ok for r in table)
     xfailed = sum(bool(r.data) and not r.engine for r in table)
     page_two = sum(r.steps.get("query_p2", {}).get("kind") == "ok" for r in table)
