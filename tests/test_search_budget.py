@@ -5,12 +5,14 @@ from __future__ import annotations
 from typing import Any
 
 import httpx
+import pytest
 
+from opendata_atlas.core import catalog
 from opendata_atlas.core.budget import RESULT_LIMIT
 from opendata_atlas.core.http import SodaClient, set_client
 from tests.conftest import wire
 from tests.test_budget import wire_measure
-from tests.test_search_evidence import TOOL, body, item, search
+from tests.test_search_evidence import TOOL, Catalog, body, install, item, search
 
 TOTAL = 60
 #: Long enough that 50 full-detail summaries are several times the budget.
@@ -77,3 +79,43 @@ async def test_summary_page_within_budget_is_untouched(client, tools_list):
     out = await search(client, tools_list, {"portal": "seattle", "query": "trees", "page_size": 5})
     assert [d["dataset_id"] for d in out["datasets"]] == [f"aaaa-{i:04d}" for i in range(5)]
     assert out["has_more"] is True
+
+
+#: 1,000 four-byte characters, the most a full-detail description holds.
+WIDE = "\U0001f333" * 1_000
+
+
+def _leads() -> list[dict[str, Any]]:
+    return [item(f"cccc-{i:04d}", f"Tree map {i}", "href", description=WIDE) for i in range(3)]
+
+
+async def _fits(client, args: dict[str, Any]) -> dict[str, Any]:
+    received = wire(await client.call_tool_mcp(TOOL, args))
+    assert received["isError"] is False, received["structuredContent"]
+    assert wire_measure(received) <= RESULT_LIMIT
+    return received["structuredContent"]
+
+
+async def test_wide_external_leads_alone_fit_the_budget(client):
+    install(Catalog([], external=_leads()))
+    out = await _fits(client, {"portal": "seattle", "query": "trees", "detail": "full"})
+    assert out["datasets"] == []
+    assert [e["dataset_id"] for e in out["external_matches"]] == [f"cccc-{i:04d}" for i in range(3)]
+
+
+async def test_wide_external_leads_leave_room_for_a_dataset(client):
+    primary = [item(f"aaaa-{i:04d}", f"Trees {i}", description=WIDE) for i in range(10)]
+    install(Catalog(primary, external=_leads(), total=10))
+    out = await _fits(client, {"portal": "seattle", "query": "trees", "detail": "full"})
+    assert len(out["datasets"]) >= 1
+    assert out["has_more"] is True
+    assert len(out["external_matches"]) == 3
+
+
+async def test_result_that_cannot_fit_is_internal_error(client, monkeypatch: pytest.MonkeyPatch):
+    """Never an oversized page, nor an empty page whose cursor does not advance."""
+    monkeypatch.setattr(catalog, "RESULT_LIMIT", 1)
+    install(Catalog([item("aaaa-0001", "Trees")]))
+    result = wire(await client.call_tool_mcp(TOOL, {"portal": "seattle", "query": "trees"}))
+    assert result["isError"] is True
+    assert result["structuredContent"]["code"] == "internal_error"

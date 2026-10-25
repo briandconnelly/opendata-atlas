@@ -18,7 +18,7 @@ from opendata_atlas.constants import (
 from opendata_atlas.core import cursor as cursors
 from opendata_atlas.core.budget import RESULT_LIMIT, fit, wire_size
 from opendata_atlas.core.context import make_source
-from opendata_atlas.core.errors import AtlasError, Repair
+from opendata_atlas.core.errors import AtlasError, ErrorCode, Repair
 from opendata_atlas.core.http import shape_error
 from opendata_atlas.core.models import (
     DatasetSummary,
@@ -199,7 +199,7 @@ async def search(
         portal_id=portal.id,
         earlier=earlier,
         datasets=datasets,
-        resume=[offset + position[id(item)] + 1 for _, item, _ in folded],
+        resume=[offset, *(offset + position[id(item)] + 1 for _, item, _ in folded)],
         end=offset + len(upstream),
         more_after_page=bool(upstream) and offset + len(upstream) < total,
     )
@@ -231,10 +231,11 @@ async def search(
 
 
 def _fit_page(result: SearchResult, paging: Callable[[int], tuple[bool, str | None]]) -> None:
-    """Keep the most leading datasets whose whole result fits the byte budget (#17).
+    """Fit the result to the byte budget (#17): keep the most leading datasets that fit, and
+    when the external leads leave room for none, or overflow alone, drop their descriptions.
 
-    One summary is bounded (title 200, description 1000 characters), so at least one always
-    fits; a page cut short continues from the cursor `paging` builds for what it kept.
+    A summary is bounded (title 200, description 1000 characters), so one dataset beside three
+    description-less leads always fits; a page cut short continues from `paging`'s cursor.
     """
     if wire_size(result) <= RESULT_LIMIT:
         return
@@ -246,8 +247,16 @@ def _fit_page(result: SearchResult, paging: Callable[[int], tuple[bool, str | No
             result.match_evidence = evidence[:count]
         result.has_more, result.next_cursor = paging(count)
 
-    if fit(len(datasets), settle, lambda: wire_size(result)) == 0 and datasets:
-        settle(1)
+    for compact in (False, True):
+        if compact and result.external_matches:
+            result.external_matches = [
+                lead.model_copy(update={"description": None}) for lead in result.external_matches
+            ]
+        kept = fit(len(datasets), settle, lambda: wire_size(result))
+        if wire_size(result) <= RESULT_LIMIT and (kept or not datasets):
+            return
+    # A defect, not a caller error: never serve an empty page whose cursor never advances.
+    raise AtlasError(ErrorCode.INTERNAL_ERROR, "A single search result exceeds the result budget.")
 
 
 def _attach_discovery(
@@ -285,7 +294,7 @@ class _Pager:
     portal_id: str
     earlier: list[str]
     datasets: list[DatasetSummary]
-    #: The catalog offset just after each dataset's own entry.
+    #: `resume[k]` is the catalog offset just after the entry behind the k-th dataset.
     resume: list[int]
     #: The catalog offset just after the whole upstream page.
     end: int
@@ -293,7 +302,7 @@ class _Pager:
 
     def __call__(self, kept: int) -> tuple[bool, str | None]:
         if kept < len(self.datasets):
-            next_offset = self.resume[kept - 1]
+            next_offset = self.resume[kept]
         elif self.more_after_page:
             next_offset = self.end
         else:

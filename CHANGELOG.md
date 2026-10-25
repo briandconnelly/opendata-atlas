@@ -6,7 +6,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Fixed
 
-- `atlas_search_datasets` results now fit the per-result byte budget: a page whose summaries would exceed it keeps the leading datasets that fit, with `has_more: true` and a cursor that continues after them (#17). A full-detail page of 50 could reach about 137 KB. No tool schema change.
+- `atlas_search_datasets` results now fit the per-result byte budget: a page whose summaries would exceed it keeps the leading datasets that fit, with `has_more: true` and a cursor that continues after them, and `external_matches` drop their descriptions when they would leave room for no dataset (#17). A full-detail page of 50 could reach about 137 KB. No tool schema change.
 - A column named like a SoQL keyword, such as LAPD NIBRS Offenses' `group`, no longer breaks the SoQL the server writes itself: the default projection (a query with no `select`), `near`, describe's probes and `atlas-profile`'s probes backtick-quote such names (#18). The SoQL `syntax` reference topic now says to backtick them in clauses you write. No tool schema change.
 
 ## [0.2.0] - 2026-10-21
