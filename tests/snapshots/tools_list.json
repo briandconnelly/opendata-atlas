@@ -531,6 +531,12 @@
               "arguments"
             ],
             "type": "object"
+          },
+          "truncated": {
+            "type": "boolean"
+          },
+          "truncation_hint": {
+            "type": "string"
           }
         },
         "required": [

@@ -11,6 +11,7 @@ from urllib.parse import urlsplit, urlunsplit
 import anyio
 
 from opendata_atlas.constants import (
+    CATALOG_RESULT_CAP,
     DATASET_ID_PATTERN,
     SEARCH_EXTERNAL_LIMIT,
     SEARCH_EXTERNAL_TIMEOUT_SECONDS,
@@ -163,7 +164,8 @@ async def search(
 
     params: dict[str, Any] = {
         **portal.identity.catalog_query,
-        "limit": page_size,
+        # A page resumed mid-way (#17) must not ask past the cap, which upstream rejects.
+        "limit": min(page_size, CATALOG_RESULT_CAP - offset),
         "offset": offset,
     }
     if query:
@@ -226,6 +228,13 @@ async def search(
         if result.external_matches is not None:
             dropped += external.dropped
     result.foreign_results_dropped = dropped or None
+    if not result.has_more and total >= CATALOG_RESULT_CAP:
+        # Set before fitting, so the budget counts it; a page the fit cuts short drops it.
+        result.truncated = True
+        result.truncation_hint = (
+            f"The catalog pages at most {CATALOG_RESULT_CAP:,} results, so more may exist; "
+            "narrow with query or category."
+        )
     _fit_page(result, paging)
     return result
 
@@ -240,19 +249,22 @@ def _fit_page(result: SearchResult, paging: Callable[[int], tuple[bool, str | No
     if wire_size(result) <= RESULT_LIMIT:
         return
     datasets, evidence = result.datasets, result.match_evidence
+    capped = (result.truncated, result.truncation_hint)
 
     def settle(count: int) -> None:
         result.datasets = datasets[:count]
         if evidence is not None:
             result.match_evidence = evidence[:count]
         result.has_more, result.next_cursor = paging(count)
+        # The cap is reached only on the page that ends the listing (#24).
+        result.truncated, result.truncation_hint = (None, None) if result.has_more else capped
 
     for compact in (False, True):
         if compact and result.external_matches:
             result.external_matches = [
                 lead.model_copy(update={"description": None}) for lead in result.external_matches
             ]
-        kept = fit(len(datasets), settle, lambda: wire_size(result))
+        kept = fit(len(datasets), settle, lambda: wire_size(result), limit=RESULT_LIMIT)
         if wire_size(result) <= RESULT_LIMIT and (kept or not datasets):
             return
     # A defect, not a caller error: never serve an empty page whose cursor never advances.

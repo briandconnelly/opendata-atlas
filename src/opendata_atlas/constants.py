@@ -46,6 +46,10 @@ DESCRIBE_AGGREGATE_TIMEOUT_SECONDS = 10.0
 #: The external-asset lookup beside a tabular search is optional; it must not stall the search.
 SEARCH_EXTERNAL_TIMEOUT_SECONDS = 5.0
 SEARCH_EXTERNAL_LIMIT = 3
+#: The Discovery API counts and pages at most this many results per query, a domain-filtered
+#: one included: `resultSetSize` reads 10000 and `offset + limit` above it is rejected
+#: (probed on www.datos.gov.co 2026-10-25, #24).
+CATALOG_RESULT_CAP = 10_000
 UPSTREAM_MAX_BYTES = 8 * 1024 * 1024
 #: Concurrent requests to one upstream host; keeps one busy portal from starving the others.
 PER_HOST_CONCURRENCY = 4

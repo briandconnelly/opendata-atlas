@@ -97,6 +97,9 @@ class SearchResult(Open):
     suggestion: Repair | None = None
     #: Entries from another portal's domain, removed from `datasets` and `external_matches`.
     foreign_results_dropped: int | None = None
+    #: Paging ended at the catalog's result cap, not at the end of the matches (#24).
+    truncated: bool | None = None
+    truncation_hint: str | None = None
     source: Source
 
 
