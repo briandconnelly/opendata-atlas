@@ -8,7 +8,10 @@ can serve the same dataset or layer id with different contents.
 from __future__ import annotations
 
 import time
+from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
+
+import anyio
 
 from opendata_atlas.constants import (
     REGION_LABEL_CACHE_MAX,
@@ -70,16 +73,48 @@ region_labels: TtlCache[tuple[str, str, str], str] = TtlCache(
 )
 
 
+@dataclass
+class _Flight:
+    """One view fetch in progress; callers that arrive meanwhile wait for it (#37)."""
+
+    done: anyio.Event = field(default_factory=anyio.Event)
+    view: dict[str, Any] | None = None
+
+
+#: `(portal_id, dataset_id)` to the fetch in progress, if any.
+_flights: dict[tuple[str, str], _Flight] = {}
+
+
 async def cached_view(client: SodaClient, portal: PortalContext, dataset_id: str) -> dict[str, Any]:
     view = views.get((portal.id, dataset_id))
     return view if view is not None else await fresh_view(client, portal, dataset_id)
 
 
 async def fresh_view(client: SodaClient, portal: PortalContext, dataset_id: str) -> dict[str, Any]:
-    """Fetch the schema and store it, so the query that usually follows reuses it."""
-    view = await client.view(portal, dataset_id)
-    views.put((portal.id, dataset_id), view)
-    return view
+    """Fetch the schema and store it, so the query that usually follows reuses it.
+
+    Concurrent calls for one dataset share one upstream request; a fetch that started before
+    the call is as fresh as one it would start. A failed or cancelled fetch is not shared: each
+    waiter then fetches for itself, so it gets its own error under its own deadline.
+    """
+    key = (portal.id, dataset_id)
+    flight = _flights.get(key)
+    if flight is not None:
+        await flight.done.wait()
+        if flight.view is not None:
+            return flight.view
+        # Not coalesced again, but cached, so the query that follows reads this schema.
+        view = await client.view(portal, dataset_id)
+        views.put(key, view)
+        return view
+    flight = _flights[key] = _Flight()
+    try:
+        flight.view = await client.view(portal, dataset_id)
+        views.put(key, flight.view)
+        return flight.view
+    finally:
+        del _flights[key]
+        flight.done.set()
 
 
 def clear() -> None:

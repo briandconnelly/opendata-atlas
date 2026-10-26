@@ -2,11 +2,14 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 import anyio
 import pytest
 
 from opendata_atlas.core import cache, describe
 from opendata_atlas.core.cache import TtlCache
+from opendata_atlas.core.errors import AtlasError, ErrorCode
 from opendata_atlas.core.http import SodaClient, set_client
 from tests.conftest import SEATTLE_CONTEXT, wire
 from tests.http_fixtures import Replay
@@ -139,3 +142,85 @@ def test_ttl_cache_expires_and_evicts(monkeypatch):
     now[0] = 10.0
     assert entries.get("a") is None, "entries expire at the TTL"
     assert len(entries) == 1
+
+
+class _SlowViews:
+    """A client whose `view` waits for `release`, counting calls; fails while `fail` is set."""
+
+    def __init__(self) -> None:
+        self.calls = 0
+        self.release = anyio.Event()
+        self.fail = False
+
+    async def view(self, portal, dataset_id):
+        self.calls += 1
+        await self.release.wait()
+        if self.fail:
+            raise AtlasError(ErrorCode.UPSTREAM_UNAVAILABLE, "down")
+        return {"id": dataset_id, "columns": []}
+
+
+async def _concurrently(client: _SlowViews, n: int) -> list[Any]:
+    out: list[Any] = []
+
+    async def one() -> None:
+        try:
+            out.append(await cache.cached_view(client, SEATTLE_CONTEXT, "aaaa-bbbb"))  # ty: ignore[invalid-argument-type]
+        except AtlasError as exc:
+            out.append(exc)
+
+    async with anyio.create_task_group() as tg:
+        for _ in range(n):
+            tg.start_soon(one)
+        await anyio.sleep(0.01)
+        client.release.set()
+    return out
+
+
+async def test_concurrent_misses_share_one_fetch():
+    """#37: four simultaneous reads used to make four upstream calls."""
+    cache.clear()
+    client = _SlowViews()
+    views = await _concurrently(client, 4)
+    assert client.calls == 1
+    assert all(v == {"id": "aaaa-bbbb", "columns": []} for v in views)
+    assert ("data.seattle.gov", "aaaa-bbbb") in cache.views
+
+
+async def test_a_failed_fetch_is_not_shared():
+    """Each waiter fetches for itself after the leader fails, so it gets its own error."""
+    cache.clear()
+    client = _SlowViews()
+    client.fail = True
+    errors = await _concurrently(client, 3)
+    assert client.calls == 3
+    assert all(isinstance(e, AtlasError) for e in errors)
+    assert len({id(e) for e in errors}) == 3
+
+
+async def test_a_cancelled_leader_does_not_strand_waiters():
+    """A leader cancelled by its own deadline wakes its waiters, which then fetch themselves."""
+    cache.clear()
+    client = _SlowViews()
+    scope = anyio.CancelScope()
+    results: list[Any] = []
+
+    async def leader() -> None:
+        with scope:
+            await cache.cached_view(client, SEATTLE_CONTEXT, "aaaa-bbbb")  # ty: ignore[invalid-argument-type]
+
+    async def waiter() -> None:
+        results.append(await cache.cached_view(client, SEATTLE_CONTEXT, "aaaa-bbbb"))  # ty: ignore[invalid-argument-type]
+
+    async with anyio.create_task_group() as tg:
+        tg.start_soon(leader)
+        await anyio.sleep(0.01)
+        tg.start_soon(waiter)
+        await anyio.sleep(0.01)
+        scope.cancel()
+        await anyio.sleep(0.01)
+        client.release.set()
+    assert results == [{"id": "aaaa-bbbb", "columns": []}]
+    assert client.calls == 2
+    # Copilot on #44: the waiter's own fetch is cached for the query that follows.
+    assert cache.views.get(("data.seattle.gov", "aaaa-bbbb")) == {"id": "aaaa-bbbb", "columns": []}
