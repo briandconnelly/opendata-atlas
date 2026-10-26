@@ -1,5 +1,6 @@
-"""Headless run of the curate-portal skill (docs/design.md, Curation runbook). Paid and opt-in.
+"""Headless run of the curate-portal skill (docs/knowledge-tooling.md, Curation runbook).
 
+Paid and opt-in.
 Runs only with `ATLAS_RUN_CURATION=1` and `--run-integration -m integration`, so neither the weekly
 live run nor the drift run starts it. `ATLAS_CURATION_PORTAL` picks the portal (default
 `data.honolulu.gov`); `ATLAS_CURATION_HOST` the curating agent, `claude` (default) or `codex`;
@@ -122,7 +123,8 @@ def codex_command(portal: str, wt: Path, git_dir: Path, last_message: Path) -> l
     """`codex exec` in the worktree: writes confined to it and to the repository's git directory
     (a worktree's commits land there), network on for the profiler and the drift run, and no
     approval prompts. `~/.claude` is writable too, for the Claude Code eval sessions the agent
-    starts (step 11.3). `codex exec` has no budget option (docs/decisions.md, ruling 74)."""
+    starts (step 11.3). `codex exec` has no budget option (docs/decisions/log-2026-10.md,
+    ruling 74)."""
     return [
         "codex",
         "exec",

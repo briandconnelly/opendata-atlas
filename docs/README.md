@@ -5,7 +5,8 @@
 These describe the project as it is. When they disagree with anything under History, they win.
 
 - [design.md](design.md): the design and contract. The authority for how the server behaves.
-- [decisions.md](decisions.md): the log of design decisions, oldest first. A row records why something changed; `design.md` holds the result.
+- [knowledge-tooling.md](knowledge-tooling.md): the part of the design that builds portal knowledge: profiler, drift checks, contribution path, curation runbook, per-portal evals, knowledge-gap reports.
+- [decisions.md](decisions.md): the log of design decisions, oldest first. A row records why something changed; `design.md` holds the result. Rows through 2026-10-25 are in [decisions/log-2026-10.md](decisions/log-2026-10.md).
 - [upstream-facts.md](upstream-facts.md): probed facts about Socrata that the design depends on.
 - [releasing.md](releasing.md): how to cut a release.
 - [pack-examples/](pack-examples/): one example claim per claim kind, for writing knowledge packs.

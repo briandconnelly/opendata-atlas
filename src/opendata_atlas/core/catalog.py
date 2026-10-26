@@ -61,7 +61,8 @@ _RESTART = Repair(
 #: Asks the catalog for federated and external links only (probed 2026-10-16).
 _EXTERNAL_ONLY = "federated_href,href"
 
-#: Grammatical words only; domain synonyms are deliberately out of scope (docs/decisions.md).
+#: Grammatical words only; domain synonyms are deliberately out of scope
+#: (docs/decisions/log-2026-10.md).
 _STOPWORDS = frozenset(
     {"a", "an", "and", "at", "by", "for", "from", "in", "of", "on", "or", "the", "to", "with"}
 )

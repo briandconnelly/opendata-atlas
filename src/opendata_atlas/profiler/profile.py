@@ -1,4 +1,4 @@
-"""Profile a portal into draft claims (docs/design.md: The profiler).
+"""Profile a portal into draft claims (docs/knowledge-tooling.md: The profiler).
 
 Every claim is an observation: evidence, and an assertion only where the checker passes on the
 profiler's own probe rows. The profiler never writes an interpretation, a reliability, a

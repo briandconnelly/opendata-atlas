@@ -1,7 +1,7 @@
 """`atlas-profile <host> [--datasets N | --dataset ID ...] [--out DIR] [--report PATH]`.
 
-Writes a draft pack. A developer CLI, not an MCP tool (docs/design.md: The profiler). Exit
-codes: 0 written; 2 a usage error (unknown host, `--out` exists or is missing, `--datasets`
+Writes a draft pack. A developer CLI, not an MCP tool (docs/knowledge-tooling.md: The profiler).
+Exit codes: 0 written; 2 a usage error (unknown host, `--out` exists or is missing, `--datasets`
 with `--dataset`); 3 the catalog identity did not verify; 4 identity, the asset mix or the
 flagships failed upstream; 5 the rendered pack did not load; 6 a `--dataset` id is not on the
 portal. For 3 to 6 the report is written and no pack is.

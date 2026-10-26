@@ -6,8 +6,8 @@ Writes `<out>/<portal id>.md` for each portal with a `contradicted` or `inconclu
 `<out>/titles.tsv` (`portal id<TAB>title`). A report that is missing or unreadable means the run
 failed before any claim ran (a pack that fails to load at collection, say): then the one issue
 is `Drift: run failed`, in `<out>/drift-run.md`, linking `--run-url` when given.
-`.github/workflows/drift.yml` opens or updates the issues from those files. docs/design.md:
-Drift checks.
+`.github/workflows/drift.yml` opens or updates the issues from those files.
+docs/knowledge-tooling.md: Drift checks.
 """
 
 from __future__ import annotations
