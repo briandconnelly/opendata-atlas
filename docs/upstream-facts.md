@@ -1,6 +1,6 @@
 # Upstream facts
 
-Probed facts about Socrata that the design depends on. Seattle-specific facts live in `seattle-open-data/docs/upstream-facts.md` (at the fork revision 26c6628) and, as claims, in the Seattle pack (`src/opendata_atlas/portals/seattle/`).
+Probed facts about Socrata that the design depends on. Seattle-specific facts live in `seattle-open-data/docs/upstream-facts.md` (at the fork revision 26c6628) and, as claims, in the Seattle pack (`src/opendata_atlas/portals/data.seattle.gov/`).
 
 Labels: **Verified** (run live by Claude, 2026-10-16 unless stated), **(review)** (reported by a reviewer, not re-run), **(brief)** (from research). Never add a fact you did not probe.
 

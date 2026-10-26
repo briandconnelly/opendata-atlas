@@ -14,6 +14,8 @@ DOCS = [
     "CONTRIBUTING-portals.md",
     "skills/curate-portal/SKILL.md",
     "docs/releasing.md",
+    "docs/design.md",
+    "docs/upstream-facts.md",
 ]
 #: A backticked path from the repository root; placeholders (`<pack>`) and globs are skipped.
 _PATH = re.compile(r"`((?:src|tests|evals|scripts|skills|docs|plugins)/[^`<>*\s]+)`")
