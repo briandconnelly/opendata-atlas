@@ -1,7 +1,7 @@
 """Milestone 3 Task 12: per-portal eval task files and the eval runner.
 
-`docs/design.md` Per-portal eval tasks and Evals are the spec. Tasks live in
-`evals/portals/<pack dir>.json` (one portal's tasks) and `evals/tasks.json` (cross-portal).
+`docs/knowledge-tooling.md` Per-portal eval tasks and `docs/design.md` Evals are the spec. Tasks
+live in `evals/portals/<pack dir>.json` (one portal's tasks) and `evals/tasks.json` (cross-portal).
 """
 
 from __future__ import annotations

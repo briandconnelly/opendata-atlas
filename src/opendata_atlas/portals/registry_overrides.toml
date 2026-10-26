@@ -12,7 +12,7 @@
 # from that name; where the title does not say city or county the level is "other".
 # `jurisdiction.region` is the ISO 3166-2 subdivision code without the country prefix.
 # `timezone` is a calendar assignment for a single-zone jurisdiction, not an upstream fact
-# (docs/decisions.md); it is omitted (null) for multi-zone states, national and supranational
+# (docs/decisions/log-2026-10.md); it is omitted (null) for multi-zone states, national and supranational
 # portals, and portals without a jurisdiction.
 #
 # Coverage:

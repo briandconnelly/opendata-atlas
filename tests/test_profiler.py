@@ -527,7 +527,7 @@ async def test_noncategorical_text_column_is_skipped():
 
 
 async def test_keyword_column_probe_is_quoted():
-    """#18: LAPD's `group` column failed this probe unquoted (docs/decisions.md)."""
+    """#18: LAPD's `group` column failed this probe unquoted (docs/decisions/log-2026-10.md)."""
     portal = SyntheticPortal(extra_columns=({"fieldName": "group", "dataTypeName": "text"},))
     await _profile(portal)
     queries = [httpx.URL(u).params.get("$query", "") for u in portal.requests]

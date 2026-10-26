@@ -4,7 +4,7 @@ Canonical instructions for humans and agents working in this repo. `CLAUDE.md` p
 
 ## What this is
 
-An agent-friendly MCP server for Socrata open-data portals, forked from `seattle-open-data`. Every data tool takes a required `portal`, resolved against the generated registry (`src/opendata_atlas/portals/registry.json`) and the knowledge packs; Seattle's pack is `src/opendata_atlas/portals/data.seattle.gov/`. The current design is in `docs/design.md`, probed upstream facts in `docs/upstream-facts.md`, and the decision log in `docs/decisions.md`; the contract standard is the `agent-friendly-mcp` skill, cited by rule id (e.g. `[6.repair-object]`).
+An agent-friendly MCP server for Socrata open-data portals, forked from `seattle-open-data`. Every data tool takes a required `portal`, resolved against the generated registry (`src/opendata_atlas/portals/registry.json`) and the knowledge packs; Seattle's pack is `src/opendata_atlas/portals/data.seattle.gov/`. The current design is in `docs/design.md` (knowledge tooling in `docs/knowledge-tooling.md`), probed upstream facts in `docs/upstream-facts.md`, and the decision log in `docs/decisions.md`; the contract standard is the `agent-friendly-mcp` skill, cited by rule id (e.g. `[6.repair-object]`).
 
 ## Toolchain
 

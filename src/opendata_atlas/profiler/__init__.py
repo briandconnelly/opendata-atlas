@@ -1,1 +1,1 @@
-"""The atlas-profile draft-pack profiler (docs/design.md: The profiler)."""
+"""The atlas-profile draft-pack profiler (docs/knowledge-tooling.md: The profiler)."""

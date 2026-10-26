@@ -1,7 +1,7 @@
 """The drift run: re-run every pack assertion live and merge the outcomes into validation.json.
 
-docs/design.md: Drift checks. `tests/test_drift.py` drives it; `tests/conftest.py` writes the
-merged file at the end of the session.
+docs/knowledge-tooling.md: Drift checks. `tests/test_drift.py` drives it; `tests/conftest.py`
+writes the merged file at the end of the session.
 """
 
 from __future__ import annotations

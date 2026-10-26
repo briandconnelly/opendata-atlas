@@ -17,7 +17,8 @@ if TYPE_CHECKING:
 
     from opendata_atlas.portals.model import PortalContext
 
-#: The four kinds of eval task a curated portal's file must cover (design: Per-portal eval tasks).
+#: The four kinds of eval task a curated portal's file must cover
+#: (docs/knowledge-tooling.md: Per-portal eval tasks).
 COVERS = ("in_area", "relative_date", "misleading_field", "not_published")
 _REGION_PREFIX = ":@computed_region_"
 

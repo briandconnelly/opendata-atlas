@@ -15,6 +15,7 @@ DOCS = [
     "skills/curate-portal/SKILL.md",
     "docs/releasing.md",
     "docs/design.md",
+    "docs/knowledge-tooling.md",
     "docs/upstream-facts.md",
 ]
 #: A backticked path from the repository root; placeholders (`<pack>`) and globs are skipped.
