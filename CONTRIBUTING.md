@@ -62,7 +62,7 @@ uv run pytest --run-integration -m integration            # live tests against S
 The evals run agent sessions against the server. Each task is a paid session, so run them only when the maintainer asks (see [AGENTS.md](AGENTS.md)). `uv run python evals/run.py --help` is free and shows the options; a run and its report look like this:
 
 ```bash
-uv run python evals/run.py --host claude --portal seattle evals-out
+uv run python evals/run.py --host claude --portal data.seattle.gov evals-out
 uv run python evals/report.py evals-out --answers
 ```
 

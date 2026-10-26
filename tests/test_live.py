@@ -5,9 +5,12 @@ from __future__ import annotations
 import pytest
 
 from opendata_atlas.core.http import SodaClient, set_client
+from opendata_atlas.portals.loader import load_portal
+from opendata_atlas.portals.resolve import _pack_dirs
 from tests.conftest import SEATTLE_CONTEXT, wire
 
-GUIDES = SEATTLE_CONTEXT.guides
+#: Every pack's guides: each example must still return rows (#21).
+GUIDES = [g for d in _pack_dirs().values() for g in load_portal(d).guides]
 
 pytestmark = pytest.mark.integration
 

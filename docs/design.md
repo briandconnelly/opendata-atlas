@@ -104,7 +104,7 @@ src/opendata_atlas/portals/<alias-or-id>/
   portal.toml        # identity overrides (name, aliases, timezone, ...)
   regions.toml       # portal-level claims, such as computed-region layers any dataset may use
   facts/<dataset_id>.toml
-  guides.py          # GUIDES: a tuple of `core.guides.Guide`
+  guides.py          # GUIDES: a tuple of `core.guides.Guide`, each with `observed_at`
 ```
 
 Portals with no pack exist only in the generated `src/opendata_atlas/portals/registry.json`.
@@ -397,7 +397,7 @@ The profiler never writes an interpretation, reliability, or tier. A reviewer do
 
 ### Drift checks
 
-- `uv run pytest --run-integration -m integration` runs every assertion in every pack, and regenerates `validation.json`. The same session runs Seattle's guide examples (`tests/test_live.py`); no test runs another pack's guide examples, so the curation test runs a new pack's examples itself and the contribution path (step 8) runs them by hand.
+- `uv run pytest --run-integration -m integration` runs every assertion in every pack, and regenerates `validation.json`. The same session runs every pack's guide examples (`tests/test_live.py`, #21), and each must return rows; the curation test also runs a new pack's examples itself, and the contribution path (step 8) runs them by hand. Each guide records `observed_at`, the date its figures were probed; a served guide opens with it, and past `STALE_AFTER_DAYS` (180) asks the agent to re-check counts and date ranges with a query before quoting them.
   - `tests/test_drift.py::test_claim_still_holds` has one case per asserted claim, with id `<portal id>:<claim id>`. `src/opendata_atlas/portals/drift.py` lists those claims from every pack directory that has a `portal.toml`.
   - Each case runs, once and in order, each probe its assertions name. A `soql_probe` is sent as `$query` to the claim's dataset (or layer). A `metadata_probe` path is read on the portal's public host. Requests go through `SodaClient`, one at a time.
   - Each case stashes its result and fails unless the claim `passed`. A case whose check raises an unexpected error stashes an `inconclusive` result (detail: the exception type and message) before it fails, so the merge never keeps an older outcome as current. At session end, `tests/conftest.py` writes the `--drift-report` file first, then merges the stashed results into `validation.json` (see Merge and prune), whether or not any case failed. A malformed `validation.json` or a pack that fails to load makes that merge fail loudly, naming the file, after the report is written. `validation.json` is replaced atomically (a sibling temp file, then `replace()`).
@@ -453,7 +453,7 @@ Task files:
 - `covers` names which of the four kinds above a task is: `in_area`, `relative_date`, `misleading_field`, `not_published`. The tier test reads it to check that a portal's file covers all four.
 - `server_args` are appended to the capture server's arguments. The only one is `--validation PATH`, a repository path to a fixture validation file served in place of the shipped `validation.json` (e.g. `evals/fixtures/validation-stale.json`). It is for evals only; the product has no configuration for the validation path.
 - Tasks that span portals or test portal choice live in `evals/tasks.json`.
-- `evals/run.py --portal <id>` runs `evals/portals/<id>.json`, where `<id>` is the pack directory name (`seattle`); without `--portal` it runs `evals/tasks.json`.
+- `evals/run.py --portal <id>` runs `evals/portals/<id>.json`, where `<id>` is the pack directory name, the portal id (`data.seattle.gov`); without `--portal` it runs `evals/tasks.json`.
 - *(Claude's call)* Seattle's file holds tasks 01–24, `27-unreviewed-on-curated` and `30-stale-claim`; the cross-portal file holds 25, 26, 28, 29 and `31-knowledge-gap-offer`.
 
 **Promotion to `curated` requires the portal's eval tasks to pass** under the promotion rule (Contribution path: every task PASS in at least 2 of 3 runs and FAIL in at most 1), in addition to the reviewed dataset, guide, and smoke test. An eval failure is read first as a knowledge gap (a missing or wrong claim) and only then as an engine bug.

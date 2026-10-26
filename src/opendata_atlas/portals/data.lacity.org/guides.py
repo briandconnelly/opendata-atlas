@@ -3,7 +3,12 @@
 
 from __future__ import annotations
 
+from datetime import date
+
 from opendata_atlas.core.guides import Example, Guide
+
+#: When this pack's guide figures were probed (its docstring).
+OBSERVED = date(2026, 10, 20)
 
 SEPT_2026 = "'2026-09-01T00:00:00' and '2026-09-30T23:59:59'"
 
@@ -68,5 +73,6 @@ One NIBRS offense, not one incident: an incident with several offenses has sever
             "Say whether a count is offenses (rows) or incidents (distinct caseno).",
             "Compare area_name with trim() or a padded value a group_by returns, never an unpadded literal.",
         ),
+        observed_at=OBSERVED,
     ),
 )
