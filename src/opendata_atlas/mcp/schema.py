@@ -40,3 +40,29 @@ def compact_schema(schema: Any) -> Any:
             merged = {k: v for k, v in out.items() if k != "anyOf"}
             return {**non_null[0], **merged}
     return out
+
+
+def compact_output_schema(schema: Any) -> Any:
+    """`compact_schema`, then drop what a result schema never uses (#25): `default`, which only
+    describes omitted input, and `type` beside `enum` or `const`, which already fix the value.
+
+    Input schemas keep both: a planner reads `type` when it writes arguments.
+    """
+    return _trim_output(compact_schema(schema))
+
+
+def _trim_output(schema: Any) -> Any:
+    if isinstance(schema, list):
+        return [_trim_output(item) for item in schema]
+    if not isinstance(schema, dict):
+        return schema
+    pinned = "enum" in schema or "const" in schema
+    out: dict[str, Any] = {}
+    for key, value in schema.items():
+        if key == "default" or (key == "type" and pinned):
+            continue
+        if key in ("properties", "$defs", "patternProperties"):
+            out[key] = {name: _trim_output(sub) for name, sub in value.items()}
+        else:
+            out[key] = _trim_output(value)
+    return out

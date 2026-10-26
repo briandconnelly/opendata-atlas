@@ -34,7 +34,7 @@ from opendata_atlas.core.models import (
     SearchResult,
 )
 from opendata_atlas.mcp.result import success
-from opendata_atlas.mcp.schema import compact_schema
+from opendata_atlas.mcp.schema import compact_output_schema, compact_schema
 from opendata_atlas.portals.registry import load_registry
 from opendata_atlas.portals.resolve import resolve_portal
 
@@ -422,7 +422,7 @@ def register_tools(mcp: FastMCP) -> None:
         tool = FunctionTool.from_function(
             fn,
             annotations=hints,
-            output_schema=compact_schema(output_model.model_json_schema()),
+            output_schema=compact_output_schema(output_model.model_json_schema()),
         )
         tool.parameters = compact_schema(tool.parameters)
         mcp.add_tool(tool)
