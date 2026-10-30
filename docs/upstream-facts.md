@@ -203,3 +203,11 @@ All **Verified** 2026-10-18 (UTC). Raw outputs are in `docs/evidence/profile-202
 One SoQL query on Fire 911 `kzjm-xkqj` (`/resource/kzjm-xkqj.json`, no token), grouping 2026-10-11 to 2026-10-17 by `date_trunc_ymd(datetime)` and `date_extract_dow(datetime)`. Command and rows: `docs/evidence/standards-m5-2026-10-19/dow-probe.sh.txt` and `dow-probe.json`.
 
 - Verified: `date_extract_dow` returns 0 for Sunday through 6 for Saturday, as a JSON string (`"0"`). Each of the 7 days matched its calendar weekday (2026-10-11, a Sunday, is `"0"`). Python's `date.weekday()` numbers Monday 0, so the two conventions differ by one day. The capability rule on weekdays and the `dates` topic give this numbering.
+
+## Drift issues #49-#51 re-probed (2026-10-29)
+
+Each request from the drift run of 2026-10-26 was re-run with `curl` (no token), one at a time, after 2026-10-30T00:00Z.
+
+- Verified: data.cityofchicago.org `/api/views/d9mm-jgwp.json` answers HTTP 200 in 0.6 s with `name` "Police Districts" and `rowsUpdatedAt` 1472851094 (2016-09-02). The run's `query_timeout` (#49) did not recur; the claim is unchanged.
+- Verified: SPD Call Data `33kz-ixgy`, rows by hour of `cad_event_original_time_queued` over 2025, took 84.5 s on its first request and 1.8 s on a repeat, so an uncached run exceeds the 30 s upstream timeout (#51). Counts were unchanged (peak hour 12, 34,363 rows). The same query over 2025-07-01 to 2025-10-01 took 0.9 s on its first request and peaks at hour 12 (8,980 of 151,848 rows), all 24 hours populated; the claim's `diurnal_peak` probe now uses that window.
+- Verified: data.lacity.org `hf3r-utnq` is "RAMP Open Bid Opportunities", 236 rows from 2019-08-16 to 2026-10-29T22:56:33. Over the claim's fixed window (2025-10-20 to 2026-10-21) it now has 94 rows, against 165 on 2026-10-20; the non-midnight rows by hour fill 18 hours and peak at hour 19 (18 rows), outside the claim's 12-16 (#50). Over all rows, the non-midnight peak is hour 18 (34 rows). At 00:24Z on 2026-10-30 the latest `bidpost` was 2026-10-29T22:56:33, which is in the past only if the column is UTC; whether `bidpost` is UTC, or some postings are dated ahead, was not established. The unreviewed `hf3r-utnq-bidpost-timezone` claim was removed: a fixed-window check cannot stay stable on a dataset whose closed bids drop out.
