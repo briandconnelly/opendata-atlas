@@ -17,6 +17,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Fixed
 
+- Drift issues: the data.lacity.org pack drops its unreviewed `bidpost` timezone claim on RAMP Open Bid Opportunities `hf3r-utnq`, whose rows leave the dataset when bids close, so its fixed-window check stopped holding (#50); and Seattle's SPD Call Data timezone claim checks its diurnal peak over one quarter of 2025, not all of it, whose uncached query outran the 30 s timeout (#51).
 - Invalid argument combinations (a cursor sent with other arguments, `soql` without `mode: "soql"`, clause arguments with `mode: "soql"`, clauses over 4,096 bytes) now carry a `repair` that reads the SoQL reference section stating the rule, with an `alternative` naming the fix (#19). `atlas_search_datasets` and `atlas_query_dataset` now check argument combinations before resolving `portal`, like the other tools (#23).
 - `coverage_warnings` and `knowledge_notice` read column names case-insensitively (`CREATED_AT` is `created_at`, as the column check already did) and ignore text inside double-quoted string literals (#20).
 - `atlas_search_datasets` results now fit the per-result byte budget: a page whose summaries would exceed it keeps the leading datasets that fit, with `has_more: true` and a cursor that continues after them, and `external_matches` drop their descriptions when they would leave room for no dataset (#17). A full-detail page of 50 could reach about 137 KB. No tool schema change.

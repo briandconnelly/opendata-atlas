@@ -105,6 +105,112 @@
   },
   "status": 200
  },
+ "data.seattle.gov/resource/33kz-ixgy.json?[[\"$query\", \"SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2025-07-01T00:00:00' AND cad_event_original_time_queued < '2025-10-01T00:00:00' GROUP BY h\"]]": {
+  "body": [
+   {
+    "h": "18",
+    "n": "7272"
+   },
+   {
+    "h": "19",
+    "n": "7177"
+   },
+   {
+    "h": "8",
+    "n": "6250"
+   },
+   {
+    "h": "7",
+    "n": "5196"
+   },
+   {
+    "h": "9",
+    "n": "6827"
+   },
+   {
+    "h": "3",
+    "n": "2950"
+   },
+   {
+    "h": "16",
+    "n": "8008"
+   },
+   {
+    "h": "17",
+    "n": "7737"
+   },
+   {
+    "h": "6",
+    "n": "3833"
+   },
+   {
+    "h": "5",
+    "n": "3417"
+   },
+   {
+    "h": "12",
+    "n": "8980"
+   },
+   {
+    "h": "15",
+    "n": "8242"
+   },
+   {
+    "h": "10",
+    "n": "6985"
+   },
+   {
+    "h": "22",
+    "n": "6891"
+   },
+   {
+    "h": "4",
+    "n": "2905"
+   },
+   {
+    "h": "11",
+    "n": "7772"
+   },
+   {
+    "h": "0",
+    "n": "5408"
+   },
+   {
+    "h": "21",
+    "n": "7260"
+   },
+   {
+    "h": "1",
+    "n": "4507"
+   },
+   {
+    "h": "14",
+    "n": "7966"
+   },
+   {
+    "h": "23",
+    "n": "6082"
+   },
+   {
+    "h": "13",
+    "n": "8416"
+   },
+   {
+    "h": "20",
+    "n": "7651"
+   },
+   {
+    "h": "2",
+    "n": "4116"
+   }
+  ],
+  "headers": {
+   "content-type": "application/json;charset=utf-8",
+   "x-soda2-fields": "[\"h\",\"n\"]",
+   "x-soda2-types": "[\"number\",\"number\"]"
+  },
+  "status": 200
+ },
  "data.seattle.gov/resource/33kz-ixgy.json?[[\"$query\", \"SELECT date_extract_hh(cad_event_original_time_queued) AS h, count(*) AS n WHERE cad_event_original_time_queued >= '2026-03-08T00:00:00' AND cad_event_original_time_queued < '2026-03-09T00:00:00' GROUP BY h\"]]": {
   "body": [
    {
@@ -626,8 +732,8 @@
  "data.seattle.gov/resource/kzjm-xkqj.json?[[\"$query\", \"SELECT date_extract_y(datetime) AS y, sum(case(type IN ('Aid Response', 'Aid Response Yellow', 'Medic Response', 'Medic Response, 7 per Rule', 'Automatic Medical Alarm'), 1, true, 0)) AS med, count(*) AS n WHERE datetime >= '2020-01-01T00:00:00' GROUP BY y\"]]": {
   "body": [
    {
-    "med": "59487",
-    "n": "89973",
+    "med": "61776",
+    "n": "93559",
     "y": "2026"
    },
    {
@@ -671,8 +777,8 @@
  "data.seattle.gov/resource/ppi5-g2bj.json?[[\"$query\", \"SELECT sum(case(beat IS NULL OR beat IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n\"]]": {
   "body": [
    {
-    "n": "19457",
-    "ph": "2147"
+    "n": "19502",
+    "ph": "2192"
    }
   ],
   "headers": {
@@ -685,8 +791,8 @@
  "data.seattle.gov/resource/ppi5-g2bj.json?[[\"$query\", \"SELECT sum(case(sector IS NULL OR sector IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n\"]]": {
   "body": [
    {
-    "n": "19457",
-    "ph": "2728"
+    "n": "19502",
+    "ph": "2773"
    }
   ],
   "headers": {
@@ -699,8 +805,8 @@
  "data.seattle.gov/resource/tazs-3rd5.json?[[\"$query\", \"SELECT sum(case(beat IS NULL OR beat IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n\"]]": {
   "body": [
    {
-    "n": "1568849",
-    "ph": "11387"
+    "n": "1570704",
+    "ph": "11389"
    }
   ],
   "headers": {
@@ -713,8 +819,8 @@
  "data.seattle.gov/resource/tazs-3rd5.json?[[\"$query\", \"SELECT sum(case(sector IS NULL OR sector IN ('', '-', '0', 'FK ERROR', 'NULL', 'OOJ', 'UNKNOWN', 'X'), 1, true, 0)) AS ph, count(*) AS n\"]]": {
   "body": [
    {
-    "n": "1568849",
-    "ph": "11379"
+    "n": "1570704",
+    "ph": "11382"
    }
   ],
   "headers": {

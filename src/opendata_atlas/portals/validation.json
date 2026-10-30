@@ -748,10 +748,10 @@
   },
   "data.seattle.gov": {
    "33kz-ixgy-cad_event_original_time_queued-timezone": {
-    "assertion_digest": "0175333aebb5",
-    "checked_at": "2026-10-21",
+    "assertion_digest": "8792ec8ba071",
+    "checked_at": "2026-10-30",
     "outcome": "passed",
-    "previous_outcome": "inconclusive"
+    "previous_outcome": "passed"
    },
    "65db-xm6k-date-timezone": {
     "assertion_digest": "56fedfe66d7e",
