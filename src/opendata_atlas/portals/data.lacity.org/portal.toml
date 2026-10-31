@@ -1,5 +1,5 @@
 id = "data.lacity.org"
-aliases = ["los-angeles"]
+aliases = ["los-angeles", "la"]
 public_host = "data.lacity.org"
 catalog_region = "us"
 name = "City of Los Angeles"

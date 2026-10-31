@@ -70,12 +70,20 @@ def test_contributing_names_every_step():
     assert "is not published in this release" not in CONTRIBUTING
 
 
-def test_contributing_fits_budget():
-    result = reference_service.read(None, "contributing", None)
-    assert result.body == CONTRIBUTING
-    size = payload_size(result)
-    assert size >= len(CONTRIBUTING.encode()), "the measure counts the body"
-    assert size <= RESULT_LIMIT, f"topic contributing is {size} bytes; limit {RESULT_LIMIT}"
+def test_contributing_sections_cover_the_document_and_fit():
+    """#62: every `## ` section is one item, in order, and each fits the result budget."""
+    index = reference_service.read(None, "contributing", None)
+    assert index.entries is not None
+    bodies = [
+        reference_service.read(None, "contributing", e.item_id).body or "" for e in index.entries
+    ]
+    preamble = CONTRIBUTING.split("\n## ", 1)[0].rstrip("\n")
+    assert "\n\n".join([preamble, *bodies]) + "\n" == CONTRIBUTING
+    for entry, body in zip(index.entries, bodies, strict=True):
+        result = reference_service.read(None, "contributing", entry.item_id)
+        size = payload_size(result)
+        assert size >= len(body.encode()), "the measure counts the body"
+        assert size <= RESULT_LIMIT, f"contributing/{entry.item_id} is {size} bytes"
 
 
 def test_named_skill_exists():

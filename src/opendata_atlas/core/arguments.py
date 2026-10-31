@@ -134,7 +134,8 @@ def check_query(args: dict[str, Any]) -> None:
 
 
 def check_reference(args: dict[str, Any]) -> None:
-    """`portal` only with topic guides, which requires it; item_id only on topics with items."""
+    """`portal` only with topic guides, which requires it, and topic portals, where it names
+    the item; item_id only on topics with items."""
     tool = "atlas_get_reference"
     topic = args.get("topic") or "index"
     list_topics = Repair(next_step="list_topics", tool=tool, arguments={})
@@ -146,17 +147,25 @@ def check_reference(args: dict[str, Any]) -> None:
             tool=tool,
             repair=list_topics,
         )
-    if topic != "guides" and has_portal:
-        reason = (
-            "Topic 'portals' takes the portal id or alias in item_id, not portal."
-            if topic == "portals"
-            else f"Only topic 'guides' takes portal; omit it for topic '{topic}'."
+    if topic == "portals" and has_portal and args.get("item_id") is not None:
+        _reject(
+            ["portal", "item_id"],
+            "Topic 'portals' names its portal once: in item_id or in portal, not both.",
+            tool=tool,
+            repair=Repair(next_step="list_items", tool=tool, arguments={"topic": "portals"}),
         )
-        _reject(["portal"], reason, tool=tool, repair=list_topics)
-    if args.get("item_id") is not None and topic in ("index", "capabilities", "contributing"):
+    if topic not in ("guides", "portals") and has_portal:
+        _reject(
+            ["portal"],
+            f"Only topics 'guides' and 'portals' take portal; omit it for topic '{topic}'.",
+            tool=tool,
+            repair=list_topics,
+        )
+    if args.get("item_id") is not None and topic in ("index", "capabilities"):
         _reject(
             ["topic", "item_id"],
-            f"Topic '{topic}' has no items; item_id needs portals, guides, soql, or errors.",
+            f"Topic '{topic}' has no items; item_id needs portals, guides, soql, errors, or "
+            "contributing.",
             tool=tool,
             repair=list_topics,
         )

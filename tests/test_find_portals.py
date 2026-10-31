@@ -530,3 +530,11 @@ async def test_two_thousand_portals_fit_the_modern_wire(
             break
         args = {"cursor": out["next_cursor"], "page_size": 50}
     assert len(seen) == len(set(seen)) == 2000
+
+
+@pytest.mark.parametrize("query", ["LA", "la", "Los Angeles"])
+async def test_la_finds_los_angeles(client, query):
+    """#73: "LA" is the Los Angeles pack's alias, so the abbreviation finds the city portal."""
+    result = wire(await client.call_tool_mcp("atlas_find_portals", {"query": query}))
+    ids = [c["id"] for c in result["structuredContent"]["candidates"]]
+    assert ids[0] == "data.lacity.org", ids
