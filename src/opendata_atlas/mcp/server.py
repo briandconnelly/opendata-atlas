@@ -184,6 +184,9 @@ def build_server() -> FastMCP:
         middleware=[EnvelopeMiddleware()],
         cache_ttl=CACHE_TTL_SECONDS,
         cache_scope="public",
+        # Output schemas publish a repeated object once as a local `$ref` (#66); `register_tools`
+        # inlines every input schema itself, and no resource template has a `$ref`.
+        dereference_schemas=False,
     )
     register_tools(mcp)
     register_resources(mcp)

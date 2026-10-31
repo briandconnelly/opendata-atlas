@@ -71,3 +71,35 @@ def test_published_output_schemas_carry_no_default_or_pinned_type(tools_list):
 
     for tool in tools_list["tools"]:
         walk(tool["outputSchema"])
+
+
+def test_share_repeated_defs_counts_nested_uses_and_keeps_siblings():
+    """A definition nested in one that is inlined counts each time its parent appears, and a
+    `$ref`'s sibling keywords (pydantic puts `description` there) survive inlining."""
+    from fastmcp.utilities.json_schema import dereference_refs
+
+    from opendata_atlas.mcp.schema import share_repeated_defs
+
+    leaf = {"type": "object", "properties": {"v": {"type": "string"}}}
+    schema = {
+        "type": "object",
+        "properties": {
+            # Parent is used once, so it is inlined, but it holds Leaf twice.
+            "parent": {"$ref": "#/$defs/Parent", "description": "kept"},
+            "once": {"$ref": "#/$defs/Once"},
+        },
+        "$defs": {
+            "Parent": {
+                "type": "object",
+                "properties": {"a": {"$ref": "#/$defs/Leaf"}, "b": {"$ref": "#/$defs/Leaf"}},
+            },
+            "Leaf": leaf,
+            "Once": {"type": "object", "properties": {"x": {"type": "integer"}}},
+        },
+    }
+    shared = share_repeated_defs(schema)
+    assert set(shared["$defs"]) == {"Leaf"}
+    assert shared["properties"]["parent"]["description"] == "kept"
+    assert shared["properties"]["parent"]["properties"]["a"] == {"$ref": "#/$defs/Leaf"}
+    assert "$ref" not in shared["properties"]["once"]
+    assert dereference_refs(shared) == dereference_refs(schema)
