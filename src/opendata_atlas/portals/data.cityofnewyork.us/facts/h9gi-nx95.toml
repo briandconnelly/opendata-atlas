@@ -1,0 +1,17 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "h9gi-nx95-vehicle_type_code_5-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "h9gi-nx95", column = "vehicle_type_code_5"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT vehicle_type_code_5 AS v, count(*) AS n GROUP BY vehicle_type_code_5 ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"UNKNOWN\" 94 of 2,301,644 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "UNKNOWN", count = "n"}

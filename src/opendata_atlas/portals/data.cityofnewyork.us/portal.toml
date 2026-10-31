@@ -1,0 +1,21 @@
+id = "data.cityofnewyork.us"
+aliases = []
+public_host = "data.cityofnewyork.us"
+catalog_region = "us"
+name = "NYC Open Data"
+place_names = ["NYC", "New York City", "New York"]
+timezone = "America/New_York"
+platform = "socrata"
+status = "active"
+tier = "profiled"
+
+[catalog_query]
+domains = "data.cityofnewyork.us"
+
+# Moved from registry_overrides.toml (entry 7), which took the name from the portal's own
+# title (site_title "NYC Open Data"), and country US and region NY from geography.
+# timezone is the calendar assignment for single-zone New York.
+[jurisdiction]
+level = "city"
+country = "US"
+region = "NY"

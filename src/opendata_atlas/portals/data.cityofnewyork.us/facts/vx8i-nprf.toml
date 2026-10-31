@@ -1,0 +1,27 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "vx8i-nprf-mi-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "vx8i-nprf", column = "mi"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT mi AS v, count(*) AS n GROUP BY mi ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 424 of 407,176 rows (0.001); \"-\" 7 of 407,176 rows (0.000); \"0\" 2 of 407,176 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "-", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "0", count = "n"}

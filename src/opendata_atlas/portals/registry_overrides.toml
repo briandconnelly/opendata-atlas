@@ -76,15 +76,6 @@ timezone = "America/New_York"
 # every title field is the vendor default; no name, place or jurisdiction recorded
 ["data.bayareametro.gov"]
 
-# 7. titles.json["data.cityofnewyork.us"]: site_title="NYC Open Data", site_company="NYC Open Data", html_title="Explore data about NYC - NYC Open Data"
-# place names: the title's "NYC" is New York City; "New York" also matches the state portal (milestone 2 final review)
-# source: country US, region NY: geography (the named place lies there), not the title
-["data.cityofnewyork.us"]
-name = "NYC Open Data"
-place_names = ["NYC", "New York City", "New York"]
-jurisdiction = { level = "city", country = "US", region = "NY" }
-timezone = "America/New_York"
-
 # 8. titles.json["open.piercecountywa.gov"]: site_title="Tyler Data & Insights", site_company="Tyler Data & Insights", html_title="Open Pierce County"
 # region from host piercecountywa.gov
 # source: country US: geography (the named place lies there), not the title; region WA: host piercecountywa.gov

@@ -1,0 +1,27 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "a9md-ynri-mi-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "a9md-ynri", column = "mi"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT mi AS v, count(*) AS n GROUP BY mi ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 5,723 of 6,822,285 rows (0.001); \"-\" 43 of 6,822,285 rows (0.000); \"0\" 5 of 6,822,285 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "-", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "0", count = "n"}

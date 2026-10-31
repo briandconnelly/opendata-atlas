@@ -1,0 +1,27 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "k397-673e-mid_init-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "k397-673e", column = "mid_init"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT mid_init AS v, count(*) AS n GROUP BY mid_init ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 4,556 of 7,337,410 rows (0.001); \"-\" 177 of 7,337,410 rows (0.000); \"0\" 53 of 7,337,410 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "-", count = "n"}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "0", count = "n"}

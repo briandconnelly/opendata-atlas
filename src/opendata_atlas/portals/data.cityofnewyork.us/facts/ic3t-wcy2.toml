@@ -1,0 +1,17 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "ic3t-wcy2-job_status-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ic3t-wcy2", column = "job_status"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT job_status AS v, count(*) AS n GROUP BY job_status ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 1,855,969 of 3,093,065 rows (0.600)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}

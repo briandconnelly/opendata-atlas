@@ -374,6 +374,122 @@
     "previous_outcome": "passed"
    }
   },
+  "data.cityofnewyork.us": {
+   "a9md-ynri-mi-placeholders": {
+    "assertion_digest": "67cf1620b32d",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-:@computed_region_92fq_4b7q-fill": {
+    "assertion_digest": "520e446d927b",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-:@computed_region_sbqj_enih-fill": {
+    "assertion_digest": "bbf0903bb992",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-:@computed_region_yeji_bk3q-fill": {
+    "assertion_digest": "2d3e3378bf9e",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-borough-place-field": {
+    "assertion_digest": "fa4be854aa5d",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-closed_date-timezone": {
+    "assertion_digest": "3d870a94b760",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-council_district-place-field": {
+    "assertion_digest": "256767c1b5ab",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-created_date-timezone": {
+    "assertion_digest": "144ac22bf8de",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-due_date-timezone": {
+    "assertion_digest": "24e852015a36",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "erm2-nwe9-unit": {
+    "assertion_digest": "9191173693f7",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "h9gi-nx95-vehicle_type_code_5-placeholders": {
+    "assertion_digest": "605b40fc4690",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "ic3t-wcy2-job_status-placeholders": {
+    "assertion_digest": "fc3843d33ba2",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "ipu4-2q9a-self_cert-placeholders": {
+    "assertion_digest": "6fa84c318edf",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "k397-673e-mid_init-placeholders": {
+    "assertion_digest": "d890993de4e8",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "region-92fq-4b7q": {
+    "assertion_digest": "663554afd711",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "region-f5dn-yrer": {
+    "assertion_digest": "fe5065d1f0da",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "region-sbqj-enih": {
+    "assertion_digest": "43cce55e58f3",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "region-yeji-bk3q": {
+    "assertion_digest": "7f91691ce56a",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   },
+   "vx8i-nprf-mi-placeholders": {
+    "assertion_digest": "461059bbdbd0",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": "passed"
+   }
+  },
   "data.everettwa.gov": {
    "f6vp-3svh-:@computed_region_cx6t_gkq3-fill": {
     "assertion_digest": "3f2a1afb7715",

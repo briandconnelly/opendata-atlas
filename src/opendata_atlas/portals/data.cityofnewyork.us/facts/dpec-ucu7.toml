@@ -1,0 +1,12 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "dpec-ucu7-lastupdate-timezone"
+kind = "column_timezone"
+scope = {dataset = "dpec-ucu7", column = "lastupdate"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(lastupdate) AS h, count(*) AS n WHERE lastupdate >= '2026-10-31T00:00:00' AND lastupdate < '2026-11-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "Rows peak at hour 11 (3,546 of 3,546); 1 of 24 hours populated."
