@@ -28,7 +28,7 @@ claude mcp add opendata-atlas -- uv run --directory /path/to/opendata-atlas --fr
 **(b) From a built wheel.** Run `uv build` in the checkout; it writes the wheel and sdist to `dist/`. Replace `/path/to/dist` with the absolute path of that `dist/` directory.
 
 ```bash
-claude mcp add opendata-atlas -- uvx --from /path/to/dist/opendata_atlas-0.2.0-py3-none-any.whl opendata-atlas
+claude mcp add opendata-atlas -- uvx --from /path/to/dist/opendata_atlas-0.3.0-py3-none-any.whl opendata-atlas
 ```
 
 ```json
@@ -36,15 +36,15 @@ claude mcp add opendata-atlas -- uvx --from /path/to/dist/opendata_atlas-0.2.0-p
   "mcpServers": {
     "opendata-atlas": {
       "command": "uvx",
-      "args": ["--from", "/path/to/dist/opendata_atlas-0.2.0-py3-none-any.whl", "opendata-atlas"]
+      "args": ["--from", "/path/to/dist/opendata_atlas-0.3.0-py3-none-any.whl", "opendata-atlas"]
     }
   }
 }
 ```
 
-**(c) From the bundle (Claude Desktop only).** Run `make mcpb` in the checkout. Open `dist/opendata-atlas-0.2.0.mcpb` with Claude Desktop and follow its install prompt. The app token setting is optional: leave it blank to run without one.
+**(c) From the bundle (Claude Desktop only).** Run `make mcpb` in the checkout. Open `dist/opendata-atlas-0.3.0.mcpb` with Claude Desktop and follow its install prompt. The app token setting is optional: leave it blank to run without one.
 
-To check a path without a client, run `scripts/smoke_test.py` from the checkout. It starts the server the same way and checks offline that it answers: `uv run python scripts/smoke_test.py --checkout .` for (a); after (b)'s `uv build`, `--uvx dist/opendata_atlas-0.2.0-py3-none-any.whl`; after (c)'s `make mcpb`, `--bundle dist/opendata-atlas-0.2.0.mcpb`. Add `--live` for one free live call to Seattle's portal.
+To check a path without a client, run `scripts/smoke_test.py` from the checkout. It starts the server the same way and checks offline that it answers: `uv run python scripts/smoke_test.py --checkout .` for (a); after (b)'s `uv build`, `--uvx dist/opendata_atlas-0.3.0-py3-none-any.whl`; after (c)'s `make mcpb`, `--bundle dist/opendata-atlas-0.3.0.mcpb`. Add `--live` for one free live call to Seattle's portal.
 
 ## Develop
 
