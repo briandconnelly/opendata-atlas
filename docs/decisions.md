@@ -15,3 +15,4 @@ Add a row for each design change, oldest first. Keep each cell to a sentence or 
 | Topic | Before | After | Source |
 | --- | --- | --- | --- |
 | Agent-facing doc size (2026-10-25, project review) | `design.md` was 95 KB and this log 176 KB, with rows up to 3,454 characters (#35) | `design.md`'s Building knowledge section moved to `knowledge-tooling.md`; the log moved to `decisions/log-2026-10.md`, only relative links adjusted; new rows stay short | Project review (Claude and Codex), maintainer's choice of a lossless split, 2026-10-25 |
+| Bounded validation feedback (2026-10-30) | Unknown keys appeared as published fields; field lists and failure results had no size guard | Unknown keys appear only in bounded reason text; feedback caps paths at 20 and names at 128 characters, reports omissions, and oversized failures keep the minimal envelope | #58 |

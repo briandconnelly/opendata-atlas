@@ -13,6 +13,7 @@ from typing import TYPE_CHECKING, Any, Literal
 import anyio
 
 from opendata_atlas.constants import (
+    DATASET_ID_PATTERN,
     DESCRIBE_AGGREGATE_TIMEOUT_SECONDS,
     DESCRIBE_DEADLINE_SECONDS,
     GEO_TYPES,
@@ -442,7 +443,11 @@ def require_queryable(view: dict[str, Any], dataset_id: str, portal_id: str) -> 
     if queryability(asset_type) == "supported" and view.get("viewType") == "tabular":
         return
     parent = view.get("modifyingViewUid")
-    if view.get("viewType") == "tabular" and parent:
+    if (
+        view.get("viewType") == "tabular"
+        and isinstance(parent, str)
+        and re.fullmatch(DATASET_ID_PATTERN, parent)
+    ):
         repair = Repair(
             next_step="describe_parent",
             tool="atlas_describe_dataset",

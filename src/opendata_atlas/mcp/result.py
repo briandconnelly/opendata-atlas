@@ -11,6 +11,8 @@ from typing import TYPE_CHECKING, Any
 from fastmcp.tools import ToolResult
 from mcp.types import TextContent
 
+from opendata_atlas.core.budget import RESULT_LIMIT
+
 if TYPE_CHECKING:
     from pydantic import BaseModel
 
@@ -31,4 +33,18 @@ def success(model: BaseModel) -> ToolResult:
 
 
 def failure(envelope: ErrorEnvelope) -> ToolResult:
-    return _result(envelope.to_wire(), is_error=True)
+    payload = envelope.to_wire()
+    result = _result(payload, is_error=True)
+    wire = {
+        "content": [item.model_dump(mode="json", exclude_none=True) for item in result.content],
+        "structuredContent": payload,
+        "isError": True,
+    }
+    if len(json.dumps(wire, ensure_ascii=False, separators=(",", ":")).encode()) > RESULT_LIMIT:
+        payload = {
+            key: value
+            for key, value in payload.items()
+            if key in {"code", "message", "temporary", "retry_after_ms", "request_id"}
+        }
+        return _result(payload, is_error=True)
+    return result
