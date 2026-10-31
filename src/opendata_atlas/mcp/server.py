@@ -68,14 +68,16 @@ def _find(exc: BaseException, kind: type[BaseException]) -> Any:
     return None
 
 
-def _to_error(exc: BaseException, tool: str) -> AtlasError:
+def _to_error(exc: BaseException, tool: str, arguments: dict[str, Any] | None) -> AtlasError:
     if (domain := _find(exc, AtlasError)) is not None:
         return domain
     # FastMCP raises its own ValidationError, caused by pydantic's, only for argument
     # validation. Pydantic errors from a handler body arrive wrapped in ToolError: server bugs.
     if isinstance(exc, FastMCPValidationError) and isinstance(exc.__cause__, ValidationError):
         return from_validation_errors(
-            exc.__cause__.errors(include_url=False, include_input=False), tool=tool
+            exc.__cause__.errors(include_url=False, include_input=False),
+            tool=tool,
+            arguments=arguments,
         )
     logger.exception("unexpected failure in %s", tool)
     return AtlasError(ErrorCode.INTERNAL_ERROR, "The server failed unexpectedly.")
@@ -115,7 +117,7 @@ class EnvelopeMiddleware(Middleware):
                 tools = await ctx.fastmcp.list_tools(run_middleware=False) if ctx else []
                 error = _unknown_tool([t.name for t in tools] or None)
             else:
-                error = _to_error(exc, tool)
+                error = _to_error(exc, tool, context.message.arguments)
             envelope = error.envelope
             envelope.request_id = request_id
             logger.info("request_id=%s tool=%s code=%s", request_id, tool, envelope.code.value)
