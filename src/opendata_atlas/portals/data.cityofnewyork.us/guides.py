@@ -31,7 +31,7 @@ One 311 service request directed to a city agency. In September 2026, 323,632 ro
 ## Area filters
 - `borough`: upper-case names (`BROOKLYN`, `QUEENS`, `BRONX`, `MANHATTAN`, `STATEN ISLAND`); 0.2% of rows say `Unspecified`.
 - `council_district`: two-digit text, `'01'` to `'51'`. `council_district = '1'` matches nothing; use `'01'`.
-- Computed-region columns hold the layer's feature id, not the district number; `atlas_describe_dataset` with `detail: "full"` lists each feature's label:
+- Computed-region columns hold the layer's feature id, not the district number; `atlas_describe_dataset` with `detail: "full"` lists each feature's label (in `layer_features` when its stats time out):
   - `:@computed_region_yeji_bk3q`: boroughs (Brooklyn is `2`).
   - `:@computed_region_sbqj_enih`: police precincts (precinct 5 is `2`).
   - `:@computed_region_f5dn_yrer`: community districts, labelled by 3-digit code (Manhattan CD 12, code 112, is `47`).
