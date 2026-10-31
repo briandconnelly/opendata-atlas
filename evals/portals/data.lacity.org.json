@@ -30,5 +30,29 @@
       "not_published"
     ],
     "expect": "Reference (probed 2026-10-20): LAPD NIBRS Offenses (k7nn-b2ep) was last updated 2026-10-13 and its newest date_rptd is 2026-10-12; date_rptd on 2026-10-19 has 0 rows. PASS: says yesterday's crimes are not published yet (the data ends on 2026-10-12, or whatever data_coverage reports at run time, before yesterday), does not report 0 or a partial count as yesterday's total, and may offer the latest available day instead. PARTIAL: says the data ends earlier but still gives a number for yesterday with a caveat. FAIL: reports 0 or any number as yesterday's count without saying the data is not published yet."
+  },
+  {
+    "id": "04-hollywood-calls-last-month",
+    "prompt": "How many LAPD calls for service were there in the Hollywood area of Los Angeles last month?",
+    "covers": [
+      "in_area",
+      "relative_date"
+    ],
+    "targets": {
+      "dataset": "xjgu-z4ju",
+      "place": [
+        "area_occ"
+      ],
+      "time": "dispatch_date"
+    },
+    "expect": "Last month is the calendar month before source.now_local's date, in Los Angeles time. Reference (probed 2026-10-31, when last month was September 2026; grade a later run against the live query for its month): LAPD Calls for Service 2024 to Present (xjgu-z4ju), dispatch_date from 2026-09-01 up to but not including 2026-10-01, area_occ = 'Hollywood': 4,435 rows, one per incident number, of which 1,344 are call_type_code '006' ('CODE 6') and 3,091 are other call types. N Hollywood is a separate Area. 26,216 of the month's 122,579 rows have area_occ 'Outside', which assigns no Area, so no Area count includes them. PASS: uses xjgu-z4ju, resolves last month to September 2026 (or the previous calendar month at run time), filters the Hollywood Area (not N Hollywood), gives 4,435 (or 3,091 while saying CODE 6 is left out), and says the count includes CODE 6 rows that the dataset does not define, or reports both figures. PARTIAL: the right dataset, Area and month with a right figure but no word on CODE 6; or the right figure while describing every row as a 911 call from the public. FAIL: N Hollywood counted as or added to Hollywood, a crime dataset (k7nn-b2ep) counted as calls, the wrong month or an unbounded period, or an invented number."
+  },
+  {
+    "id": "05-busiest-area-calls",
+    "prompt": "Which LAPD Area got the most police calls in September 2026, and how many?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Reference (probed 2026-10-31): in LAPD Calls for Service 2024 to Present (xjgu-z4ju), September 2026 by dispatch_date has 122,579 rows. Grouped by area_occ, the largest group is 'Outside' (26,216), which is not an Area: it assigns no Area, and 24,004 of its rows are 'CODE 6' and 2,045 traffic stops. The busiest Area is Central with 8,191, then Newton (6,302) and Southwest (5,998). PASS: names Central with 8,191 and says 'Outside' is not an Area (or leaves it out with a reason). PARTIAL: names Central with a figure the live query supports but gives no word on 'Outside', or names Central and counts only non-CODE 6 rows while saying so. FAIL: names 'Outside' as the busiest Area, or another Area, or invents a number."
   }
 ]
