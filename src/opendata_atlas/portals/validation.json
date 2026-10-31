@@ -635,229 +635,247 @@
   "data.lacity.org": {
    "2nrs-mtv8-vict_descent-placeholders": {
     "assertion_digest": "e585dbb319b3",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "2nrs-mtv8-vict_sex-placeholders": {
     "assertion_digest": "ca9287c99d55",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "63jg-8b9z-vict_descent-placeholders": {
     "assertion_digest": "f01bf7fed26e",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "63jg-8b9z-vict_sex-placeholders": {
     "assertion_digest": "0bec042d6f3d",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "75c6fd7c0019",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_k96s_3jcv-fill": {
     "assertion_digest": "3bcb4d1d20eb",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_kqwf_mjcx-fill": {
     "assertion_digest": "8fe514de6b0a",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_qz3q_ghft-fill": {
     "assertion_digest": "5d73172414c0",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_tatf_ua23-fill": {
     "assertion_digest": "8b32b8ec23a8",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "6rrh-rzua-:@computed_region_ur2y_g4cx-fill": {
     "assertion_digest": "e3241f0c01b4",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "a8f3827d46e3",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_k96s_3jcv-fill": {
     "assertion_digest": "bb69b5525e73",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_kqwf_mjcx-fill": {
     "assertion_digest": "8f760b259619",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_qz3q_ghft-fill": {
     "assertion_digest": "17c0c4fe5d5e",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_tatf_ua23-fill": {
     "assertion_digest": "188ed7d42fe9",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-:@computed_region_ur2y_g4cx-fill": {
     "assertion_digest": "c39053c1a028",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-vict_descent-placeholders": {
     "assertion_digest": "d2a9b095cda3",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "d5tf-ez2w-vict_sex-placeholders": {
     "assertion_digest": "5a3490d67f8d",
-    "checked_at": "2026-10-21",
-    "outcome": "passed",
-    "previous_outcome": "passed"
-   },
-   "hf3r-utnq-bidpost-timezone": {
-    "assertion_digest": "e2fc006846ea",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "k7nn-b2ep-area_name-padded": {
     "assertion_digest": "9de65f87c1af",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "k7nn-b2ep-area_name-place-field": {
     "assertion_digest": "5b65a312b3b6",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "k7nn-b2ep-date_occ-timezone": {
     "assertion_digest": "fd79589733ab",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "k7nn-b2ep-date_rptd-timezone": {
     "assertion_digest": "d4a7471ce056",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "k7nn-b2ep-unit-offense": {
     "assertion_digest": "f13affd6d990",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "fbc1f2e047b0",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_k96s_3jcv-fill": {
     "assertion_digest": "234f50b303b0",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_kqwf_mjcx-fill": {
     "assertion_digest": "f9c3cb4463e1",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_qz3q_ghft-fill": {
     "assertion_digest": "15a68eb7709f",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_tatf_ua23-fill": {
     "assertion_digest": "a4049d088978",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "r4uk-afju-:@computed_region_ur2y_g4cx-fill": {
     "assertion_digest": "28b7d5194425",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
+   "xjgu-z4ju-area_occ-place-field": {
+    "assertion_digest": "1b35952c2085",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "xjgu-z4ju-dispatch_date-timezone": {
+    "assertion_digest": "3939a6db8def",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "xjgu-z4ju-rpt_dist-place-field": {
+    "assertion_digest": "f4f3ad8188ab",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "xjgu-z4ju-unit-call": {
+    "assertion_digest": "fd5ee755e5b9",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
    "yru6-6re4-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "ee3241bf1680",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_k96s_3jcv-fill": {
     "assertion_digest": "38a728517fd6",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_kqwf_mjcx-fill": {
     "assertion_digest": "e2fd80fd7874",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_qz3q_ghft-fill": {
     "assertion_digest": "a021a3e7dbd9",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_tatf_ua23-fill": {
     "assertion_digest": "bf92fc683005",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_ur2y_g4cx-fill": {
     "assertion_digest": "a5e7891f2b88",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-age-placeholders": {
     "assertion_digest": "1ed7bc023b9c",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    },
    "yru6-6re4-descent_cd-placeholders": {
     "assertion_digest": "ebdefe3e176c",
-    "checked_at": "2026-10-21",
+    "checked_at": "2026-10-31",
     "outcome": "passed",
     "previous_outcome": "passed"
    }

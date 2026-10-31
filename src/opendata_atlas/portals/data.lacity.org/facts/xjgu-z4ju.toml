@@ -1,0 +1,151 @@
+# LAPD Calls for Service 2024 to Present. The profiler emitted no claims (2026-10-31: every
+# text column but area_occ has more than 100 groups, and dispatch_date is date-only), so
+# these were written by hand from the probes they cite. Probes are windowed so the drift
+# run stays well inside the query timeout on 4.2 million rows (#81).
+
+[[claim]]
+id = "xjgu-z4ju-unit-call"
+kind = "unit_of_observation"
+scope = {dataset = "xjgu-z4ju"}
+interpretation = {unit = "call for service incident", reason = "One row per LAPD incident number: incident_number is unique on every row (4,227,209 rows, 4,227,209 distinct). Rows are not only calls from the public: the most common call type, call_type_code '006' (call_type_text 'CODE 6'), is 56,561 of 122,579 rows (0.461) dispatched in September 2026, and traffic stops ('902 TRAFFIC STOP') are the next most common. No column says how a call was received, and the publisher does not define the call codes."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct incident_number) AS u WHERE dispatch_date >= '2026-09-24T00:00:00' AND dispatch_date < '2026-10-01T00:00:00'"
+observed_at = 2026-10-31
+observation = "28,783 rows, 28,783 distinct incident_number; over the whole dataset, 4,227,209 rows and 4,227,209 distinct."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, sum(case(call_type_code = '006', 1, true, 0)) AS code6 WHERE dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00'"
+observed_at = 2026-10-31
+observation = "56,561 of 122,579 rows (0.461) have call_type_code '006' ('CODE 6'); '902 TRAFFIC STOP' is next with 9,761."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/d/xjgu-z4ju"
+quote = "This dataset reflects calls for service incidents in the City of Los Angeles from 2024 to the present."
+observed_at = 2026-10-31
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "u", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "xjgu-z4ju-dispatch_date-timezone"
+kind = "column_timezone"
+scope = {dataset = "xjgu-z4ju", column = "dispatch_date"}
+interpretation = {timezone = "America/Los_Angeles", reason = "A Los Angeles calendar date with no time part; the time of day is the separate text column dispatch_time ('HH:MM:SS', filled on every row), read on the same wall clock: on the 2025 and 2026 spring-forward days no row has an 02 hour, and on the 2025 fall-back day hour 01 holds 215 rows against 110 and 118 either side. Order by dispatch_date then dispatch_time for recency. The newest day is partial: on 2026-10-31 the max dispatch_date was 2026-10-24 with 8 rows, all before 00:26, against 3,118 to 4,592 a day the 10 days before; the publisher states a weekly refresh."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT substring(dispatch_time, 1, 2) AS h, count(*) AS n WHERE dispatch_date = '2026-03-08T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the 2026 spring-forward day, no rows at hour 02; hours 01 and 03 have 147 and 136."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT substring(dispatch_time, 1, 2) AS h, count(*) AS n WHERE dispatch_date = '2025-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the 2025 spring-forward day, no rows at hour 02; hours 01 and 03 have 164 and 111."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT substring(dispatch_time, 1, 2) AS h, count(*) AS n WHERE dispatch_date = '2025-11-02T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the 2025 fall-back day, hour 01, which occurs twice, has 215 rows; hours 00 and 02 have 110 and 118."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT dispatch_date, count(*) AS n, max(dispatch_time) AS last WHERE dispatch_date >= '2026-10-14T00:00:00' GROUP BY dispatch_date ORDER BY dispatch_date"
+observed_at = 2026-10-31
+observation = "2026-10-14 to 2026-10-23 have 3,118 to 4,592 rows each, the last near 23:59; 2026-10-24 has 8 rows, the last at 00:25:37."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/api/views/xjgu-z4ju.json"
+quote = "\"Refresh rate\" : \"Weekly\""
+observed_at = 2026-10-31
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 0
+params = {gap_hour = 2}
+
+[[claim.assertion]]
+checker = "dst_gap"
+probe = 1
+params = {gap_hour = 2}
+
+[[claim]]
+id = "xjgu-z4ju-area_occ-place-field"
+kind = "place_field"
+scope = {dataset = "xjgu-z4ju", column = "area_occ"}
+interpretation = {kind = "police_district", kind_label = "LAPD geographic Area", reliability = "partial", reason = "The 21 LAPD geographic Areas by name, unpadded (area_occ = 'Hollywood' matches), plus 'Outside', which assigns no Area: 951,745 of 4,227,209 rows (0.225), and 26,216 of 122,579 (0.214) in September 2026, of which 24,004 are 'CODE 6' and 2,045 traffic stops. The publisher does not define 'Outside'. Not neighborhoods: 'Hollywood' and 'N Hollywood' are separate Areas. An Area count leaves out the 'Outside' rows."}
+placeholders = ["Outside"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(area_occ = 'Outside', 1, true, 0)) AS ph, count(area_occ) AS filled, count(*) AS n WHERE dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00'"
+observed_at = 2026-10-31
+observation = "26,216 of 122,579 rows (0.214) are 'Outside'; every row has a value."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT area_occ AS v, count(*) AS n WHERE dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00' GROUP BY area_occ ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "22 groups: 'Outside' (26,216), then the 21 Areas from Central (8,191) to Topanga (3,311); Hollywood has 4,435."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT call_type_text AS t, count(*) AS n WHERE area_occ = 'Outside' AND dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00' GROUP BY t ORDER BY n DESC LIMIT 8"
+observed_at = 2026-10-31
+observation = "Of the 26,216 'Outside' rows, 24,004 are 'CODE 6' and 2,045 '902 TRAFFIC STOP'."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "ph", denominator = "n", max = 0.3}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 1
+params = {column = "v", value = "Hollywood", count = "n"}
+
+[[claim]]
+id = "xjgu-z4ju-rpt_dist-place-field"
+kind = "place_field"
+scope = {dataset = "xjgu-z4ju", column = "rpt_dist"}
+interpretation = {kind = "other", kind_label = "LAPD reporting district", reliability = "partial", reason = "A four-character reporting district number with leading zeros (such as '0155'), text, so filter it as a quoted string. It is empty on exactly the rows whose area_occ is 'Outside' (951,745 of 4,227,209), so it covers 0.786 of September 2026's rows."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(rpt_dist) AS filled, count(*) AS n WHERE dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00'"
+observed_at = 2026-10-31
+observation = "96,363 of 122,579 rows (0.786) have a value."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT area_occ = 'Outside' AS outside, count(rpt_dist) AS filled, count(*) AS n WHERE dispatch_date >= '2026-09-01T00:00:00' AND dispatch_date < '2026-10-01T00:00:00' GROUP BY outside"
+observed_at = 2026-10-31
+observation = "Rows not 'Outside': 96,363 of 96,363 filled; 'Outside' rows: 0 of 26,216. Over the whole dataset, 0 of 951,745 and 3,275,464 of 3,275,464."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT length(rpt_dist) AS len, count(*) AS n WHERE rpt_dist IS NOT NULL GROUP BY len"
+observed_at = 2026-10-31
+observation = "All 3,275,464 non-empty values are 4 characters long."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.73}

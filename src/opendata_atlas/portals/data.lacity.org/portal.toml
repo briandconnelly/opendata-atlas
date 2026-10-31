@@ -7,7 +7,7 @@ place_names = ["Los Angeles"]
 timezone = "America/Los_Angeles"
 platform = "socrata"
 status = "active"
-tier = "profiled"
+tier = "curated"
 
 [catalog_query]
 domains = "data.lacity.org"
