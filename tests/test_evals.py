@@ -268,6 +268,18 @@ def test_bad_arguments_print_usage_and_exit_2(monkeypatch, capsys, no_launch, ar
     assert list(no_launch.iterdir()) == [], "a usage error created no output directory"
 
 
+def test_existing_transcript_is_never_overwritten(monkeypatch, capsys, no_launch):
+    """#70: a second run into the same <out_dir> exits 2 before any session starts."""
+    out = no_launch / "evals-1"
+    out.mkdir()
+    task = eval_run.load_tasks("data.seattle.gov")[0]["id"]
+    transcript = out / f"{task}.transcript.jsonl"
+    transcript.write_text("earlier evidence\n")
+    assert _main(monkeypatch, "--portal", "data.seattle.gov", str(out), task) == 2
+    assert "already holds transcripts" in capsys.readouterr().err
+    assert transcript.read_text() == "earlier evidence\n"
+
+
 # --- session outcomes and tool isolation (#26, #27) ---------------------------------
 
 _rspec = importlib.util.spec_from_file_location("eval_report", EVALS / "report.py")

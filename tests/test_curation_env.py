@@ -11,21 +11,29 @@ import pytest
 from tests.test_curation_skill import (
     ALLOWED_TOOLS,
     CLAUDE_HOME,
-    EVAL_RUNS,
+    COMPAT_OUTCOMES,
+    COMPAT_STEPS,
+    OUTCOMES,
     RUN_VAR,
     SERVED_CHECK,
     changed_reviewed,
     child_env,
     claude_command,
     codex_command,
+    compat_failures,
+    dropped_claims,
     no_change_failures,
     outcome_failures,
     path_violations,
+    recorded_runs,
+    stopped_failures,
     tier_failure,
     uncommitted_failure,
 )
 
 PACK = "data.example.gov"
+#: Skill step 11.3's run directory: `.curation/<pack>-<UTC date>-<n>/evals-<k>` (#70).
+EVAL_RUNS = tuple(f".curation/{PACK}-2026-10-30-1/evals-{k}" for k in (1, 2, 3))
 DIGEST = "sha256:aaaa"
 TASKS = ["01-a", "02-b"]
 REVIEWED = ["a", "b"]
@@ -45,7 +53,13 @@ def _healthy(wt: Path, runs=EVAL_RUNS, tasks=TASKS) -> None:
 
 
 def _completed(**over) -> dict:
-    return {"outcome": "completed", "pack": PACK, "pack_digest": DIGEST, **over}
+    return {
+        "outcome": "completed",
+        "pack": PACK,
+        "pack_digest": DIGEST,
+        "eval_runs": list(EVAL_RUNS),
+        **over,
+    }
 
 
 def _check(outcome, wt: Path) -> list[str]:
@@ -200,10 +214,11 @@ def test_path_rule_allows_the_pack_paths_and_flags_others():
         f"evals/portals/{pack}.json",
         "src/opendata_atlas/portals/registry_overrides.toml",
         "src/opendata_atlas/portals/validation.json",
-        "docs/decisions.md",
+        "CHANGELOG.md",
     ]
     assert path_violations(allowed, pack) == []
     foreign = [
+        "docs/decisions.md",
         "src/opendata_atlas/portals/data.seattle.gov/guides.py",
         "evals/portals/data.seattle.gov.json",
         "src/opendata_atlas/portals/tiers.py",
@@ -328,3 +343,112 @@ def test_no_change_for_another_portals_pack_is_flagged():
     )
     assert any("1 commit" in f for f in failures)
     assert any("'chicago' is ['data.cityofchicago.org']" in f for f in failures)
+
+
+# --- #67 to #70: compatibility case, merged facts, stop outcomes, eval run directories ---
+
+
+def test_completed_needs_three_recorded_eval_runs(tmp_path):
+    """#70: the runs live where outcome.json says, so a rerun cannot overwrite them."""
+    _healthy(tmp_path)
+    for bad in (None, EVAL_RUNS[:2], [EVAL_RUNS[0]] * 3, ["/tmp/evals-1", *EVAL_RUNS[1:]]):
+        (failure,) = _check(_completed(eval_runs=bad), tmp_path)
+        assert "eval_runs" in failure, bad
+    assert recorded_runs(_completed()) == list(EVAL_RUNS)
+    assert recorded_runs(_completed(eval_runs=[".curation/../x", *EVAL_RUNS[1:]])) is None
+
+
+def test_eval_runs_anywhere_under_curation_count_as_made(tmp_path):
+    blocked = {"outcome": "blocked_engine", "pack": PACK, "reason": "engine gap"}
+    (tmp_path / ".curation" / f"{PACK}-2026-10-30-2" / "evals-1").mkdir(parents=True)
+    (failure,) = _check(blocked, tmp_path)
+    assert "eval runs were made" in failure
+
+
+def _compat(wt: Path, portal: str, **steps: str) -> None:
+    kinds = {s: steps.get(s, "ok") for s in COMPAT_STEPS}
+    row = {"portal": portal, "steps": {s: {"outcome": k, "kind": k} for s, k in kinds.items()}}
+    (wt / COMPAT_OUTCOMES).parent.mkdir(parents=True, exist_ok=True)
+    (wt / COMPAT_OUTCOMES).write_text(json.dumps([row]))
+
+
+def _check_compat(wt: Path, message: str | None = None) -> list[str]:
+    return outcome_failures(
+        _completed(),
+        pack=PACK,
+        digest_now=DIGEST,
+        wt=wt,
+        task_ids=TASKS,
+        reviewed=REVIEWED,
+        portal_id=PACK,
+        final_message=message,
+    )
+
+
+def test_compat_case_must_pass_for_a_completed_run(tmp_path):
+    """#67: a completed run records the compatibility case; it must pass to propose curated."""
+    _healthy(tmp_path)
+    (failure,) = _check_compat(tmp_path)
+    assert "missing or unreadable" in failure
+    _compat(tmp_path, PACK)
+    assert _check_compat(tmp_path) == []
+    _compat(tmp_path, PACK, query_p2="transient")
+    assert "query_p2" in compat_failures(tmp_path, PACK, proposes=True)[0]
+    assert compat_failures(tmp_path, PACK, proposes=False) == [], "reported, not proposed"
+    (failure,) = _check_compat(tmp_path, "I propose `curated`: every task passed.")
+    assert "curated is proposed" in failure
+    declining = "The compatibility case failed, so I do not propose curated."
+    assert _check_compat(tmp_path, declining) == []
+    assert "no row" in compat_failures(tmp_path, "data.other.gov")[0]
+
+
+def test_dropped_claims_names_base_claims_the_run_removed():
+    """#68: copying a profiler facts file over an existing one drops its reviewed claims."""
+    base = ['[[claim]]\nid = "a"\n\n[[claim]]\nid = "b"\n']
+    assert (
+        dropped_claims(['[[claim]]\nid = "a"\n[[claim]]\nid = "b"\n[[claim]]\nid = "c"\n'], base)
+        == []
+    )
+    assert dropped_claims(['[[claim]]\nid = "a"\n[[claim]]\nid = "c"\n'], base) == ["b"]
+    named = "Removed claim b: its drift check was contradicted."
+    assert dropped_claims(['[[claim]]\nid = "a"\n'], base, named=named) == []
+
+
+@pytest.mark.parametrize(
+    "state", ["preflight_failed", "not_registered", "needs_input", "profiler_failed"]
+)
+def test_stop_outcomes_need_a_reason_no_commit_and_a_clean_worktree(tmp_path, state):
+    """#69: every stop goes through the Ending, so each has an outcome."""
+    assert state in OUTCOMES
+    outcome = {"outcome": state, "pack": None, "reason": "why it stopped"}
+    assert _check_stop(outcome, tmp_path) == []
+    assert stopped_failures(outcome, commits=0, porcelain="") == []
+    assert "commit" in stopped_failures(outcome, commits=1, porcelain="")[0]
+    assert "worktree" in stopped_failures(outcome, commits=0, porcelain="?? x\n")[0]
+    assert "needs a reason" in _check_stop({"outcome": state, "pack": None}, tmp_path)[0]
+
+
+def _check_stop(outcome, wt: Path) -> list[str]:
+    return outcome_failures(outcome, pack=None, digest_now="", wt=wt, task_ids=[], reviewed=[])
+
+
+def test_allowlist_permits_the_preflight_and_compat_commands():
+    """Skill steps 0 and 11.1 run these as written; the headless session must allow them."""
+    for rule in (
+        "Bash(uv --version)",
+        "Bash(git rev-parse:*)",
+        "Bash(claude --version)",
+        "Bash(COMPAT_EVIDENCE_DIR=.curation/compat uv run:*)",
+    ):
+        assert rule in ALLOWED_TOOLS, rule
+
+
+def test_skill_names_the_compat_command_as_contributing_does():
+    root = Path(__file__).resolve().parent.parent
+    skill = (root / "skills/curate-portal/SKILL.md").read_text(encoding="utf-8")
+    contributing = (root / "CONTRIBUTING-portals.md").read_text(encoding="utf-8")
+    command = re.search(r"`(COMPAT_EVIDENCE_DIR=[^`]+)`", contributing)
+    assert command is not None
+    assert f"`{command.group(1)}`" in skill
+    for state in OUTCOMES:
+        assert f"`{state}`" in skill, state
