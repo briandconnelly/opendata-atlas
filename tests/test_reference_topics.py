@@ -229,8 +229,10 @@ async def test_portals_takes_portal_as_item_id(client):
     """#61: topic portals reads the portal named in `portal` as if it were `item_id`."""
     by_portal = (await ref(client, topic="portals", portal="seattle"))["structuredContent"]
     by_item = (await ref(client, topic="portals", item_id="seattle"))["structuredContent"]
-    by_portal["source"].pop("request_id")
-    by_item["source"].pop("request_id")
+    # Per call: the request id, and the clock, which can tick between the two calls.
+    for out in (by_portal, by_item):
+        for key in ("request_id", "now_local", "now_weekday"):
+            out["source"].pop(key, None)
     assert by_portal == by_item
     assert by_portal["source"]["portal"]["id"] == SEATTLE
 
