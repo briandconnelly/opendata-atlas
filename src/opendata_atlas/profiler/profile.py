@@ -22,7 +22,7 @@ from opendata_atlas.core.errors import AtlasError
 from opendata_atlas.core.http import shape_error
 from opendata_atlas.core.soql import identifier
 from opendata_atlas.portals.checkers import CHECKERS, CheckerName, run_check
-from opendata_atlas.portals.knowledge import SHARED_PLACEHOLDERS
+from opendata_atlas.portals.knowledge import SHARED_PLACEHOLDERS, primary_time
 from opendata_atlas.portals.model import Assertion, Claim, Scope, SoqlProbe
 from opendata_atlas.portals.registry import context_for
 
@@ -40,6 +40,12 @@ MAX_TEXT_COLUMNS = 20
 MAX_GROUPS = 100
 #: Time-typed columns probed per dataset, in schema order.
 MAX_TIME_COLUMNS = 3
+#: At a million rows, full-table share and year-long hourly scans risk the query timeout.
+#: Bound these probes while retaining a month of fill data and a full weekly diurnal cycle.
+LARGE_DATASET_ROWS = 1_000_000
+LARGE_FILL_DAYS = 30
+LARGE_DIURNAL_DAYS = 7
+
 #: The place-field fill assertion sits this far below the observed share.
 FILL_MARGIN = 0.05
 #: The diurnal-peak assertion's window around the observed peak hour.
@@ -513,6 +519,9 @@ class _Dataset:
         self.client, self.portal, self.id, self.today = client, portal, dataset_id, today
         self.claims: list[Claim] = []
         self.notes: list[str] = []
+        self.large = False
+        self.fill_where = ""
+        self.windows: dict[str, tuple[date, date] | None] = {}
 
     async def rows(self, query: str, what: str, dataset: str | None = None) -> list[dict] | None:
         try:
@@ -544,6 +553,16 @@ class _Dataset:
         if n == 0:
             self.notes.append("Dataset has 0 rows; no column probes run.")
             return
+        self.large = n >= LARGE_DATASET_ROWS
+        if self.large:
+            time_columns = [c["fieldName"] for c in columns if c.get("dataTypeName") in TIME_TYPES]
+            primary = primary_time(self.portal, self.id, time_columns, today=self.today)
+            if primary and (bounds := await self.window(primary[0])) is not None:
+                lo, hi = bounds
+                end = hi + timedelta(days=1)
+                start = max(end - timedelta(days=LARGE_FILL_DAYS), lo)
+                q = identifier(primary[0])
+                self.fill_where = f" WHERE {q} >= '{_ts(start)}' AND {q} < '{_ts(end)}'"
         await self.regions(columns, layer_labels)
         await self.texts(columns)
         await self.times(columns)
@@ -556,7 +575,7 @@ class _Dataset:
             col, layer = c["fieldName"], str(region).lstrip("_")
             if layer not in layer_labels:
                 layer_labels[layer] = await self.label_column(layer)
-            query = f"SELECT count({identifier(col)}) AS filled, count(*) AS n"
+            query = f"SELECT count({identifier(col)}) AS filled, count(*) AS n{self.fill_where}"
             rows = await self.rows(query, col)
             if rows is not None:
                 self.claims.append(
@@ -590,7 +609,7 @@ class _Dataset:
         for col in text[:MAX_TEXT_COLUMNS]:
             q = identifier(col)
             query = (
-                f"SELECT {q} AS v, count(*) AS n GROUP BY {q} ORDER BY n DESC "
+                f"SELECT {q} AS v, count(*) AS n{self.fill_where} GROUP BY {q} ORDER BY n DESC "
                 f"LIMIT {MAX_GROUPS + 1}"
             )
             rows = await self.rows(query, col)
@@ -620,6 +639,12 @@ class _Dataset:
             await self.time(col, ZoneInfo(zone_name))
 
     async def window(self, col: str) -> tuple[date, date] | None:
+        """Reuse each column's bounds for fill/share and timezone probes."""
+        if col not in self.windows:
+            self.windows[col] = await self._window(col)
+        return self.windows[col]
+
+    async def _window(self, col: str) -> tuple[date, date] | None:
         """The column's min and max dates, the max capped at today; None, noted, if unusable."""
         q = identifier(col)
         rows = await self.rows(f"SELECT min({q}) AS lo, max({q}) AS hi", col)
@@ -656,7 +681,10 @@ class _Dataset:
             )
         q = identifier(col)
         by_hour = f"SELECT date_extract_hh({q}) AS h, count(*) AS n WHERE"
-        start = max(hi - timedelta(days=365), lo)
+        start = max(
+            hi + timedelta(days=1 - LARGE_DIURNAL_DAYS) if self.large else hi - timedelta(days=365),
+            lo,
+        )
         window = f"{q} >= '{_ts(start)}' AND {q} < '{_ts(hi + timedelta(days=1))}'"
         day_query = f"{by_hour} {window} GROUP BY h"
         gap: tuple[str, list[dict]] | None = None
