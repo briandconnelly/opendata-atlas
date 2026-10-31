@@ -119,9 +119,7 @@ def test_hints_rule_is_a_capability_rule():
 
 def test_cursor_restart_rule_defers_to_a_continuation_repair():
     rules = _section(CAPABILITIES, "Rules")
-    rule = next(line for line in rules.splitlines() if "`invalid_cursor`" in line)
-    assert "`continue_paging`" in rule
-    assert rule.index("`continue_paging`") < rule.index("first-page call"), rule
+    assert rules.index("`continue_paging`") < rules.index("first-page call")
 
 
 # --- S-4..S-6 (Task 10 carry): the ## Knowledge gaps section -----------------------------
@@ -168,15 +166,20 @@ def test_hints_semantics_name_the_trigger_and_its_exceptions():
 
 
 def test_cursor_rule_follows_every_repair_before_restarting():
-    """No cursor error leaves the head rule 'Follow repair' and this rule naming two calls."""
-    rule = next(
-        line for line in _section(CAPABILITIES, "Rules").splitlines() if "`invalid_cursor`" in line
-    )
-    assert "follow the repair" in rule
-    for step in ("`continue_paging`", "`list_items`", "`read_paging`"):
+    """No cursor error leaves the head rule 'Follow repair' and these rules naming two calls.
+
+    #65 split the rule so each obligation is checkable alone; their order is kept."""
+    lines = _section(CAPABILITIES, "Rules").splitlines()
+    first = next(i for i, line in enumerate(lines) if "`invalid_cursor`" in line)
+    assert lines[first].endswith("follow the repair.")
+    rules = lines[first : first + 4]
+    for step, rule in zip(
+        ("`continue_paging`", "`read_paging`"), (rules[1], rules[2]), strict=True
+    ):
         assert step in rule, step
-    assert rule.index("follow the repair") < rule.index("first-page call")
-    assert rule.index("`read_paging`") < rule.index("first-page call")
+    assert "`list_items`" in rules[1]
+    assert "first-page call" in rules[2]
+    assert rules[3] == "- Never restart a paged call with fewer arguments than its first page."
 
 
 def test_knowledge_gaps_names_the_tracker_without_a_report_to_fragment():

@@ -30,7 +30,7 @@ async def test_instructions_reach_the_client_with_the_tracker(client):
     """Ruling 23: the head rule points at ## Defects, which holds the URL and what to include."""
     assert client.instructions == INSTRUCTIONS
     rule = next(rule for rule in _instruction_rules() if "capabilities ## Defects" in rule)
-    assert rule.startswith("- Offer the user a defect")
+    assert rule.startswith("- If a result meets") and rule.endswith("offer the user an issue.")
     assert "- Never file an issue unasked." in _instruction_rules()
     defects = _section(CAPABILITIES, "Defects")
     assert ISSUES_URL in defects

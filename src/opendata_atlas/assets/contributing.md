@@ -1,6 +1,6 @@
 # Contributing portal knowledge
 
-Definitions for reading `tier` and `knowledge`, and the path for contributing a portal's knowledge pack. This file is `CONTRIBUTING-portals.md` in the repository; the server serves the same text as reference topic `contributing`.
+Definitions for reading `tier` and `knowledge`, and the path for contributing a portal's knowledge pack. This file is `CONTRIBUTING-portals.md` in the repository; the server serves the same text, one item per section (`tiers`, `levels`, `validation`, `path`), as reference topic `contributing`.
 
 ## Portal tiers
 A portal's `tier` summarizes it for discovery and contribution. It never stands in for dataset knowledge: an unreviewed dataset on a `curated` portal reports `none`.

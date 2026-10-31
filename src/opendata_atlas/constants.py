@@ -6,6 +6,9 @@ SERVER_NAME = "opendata-atlas"
 SERVER_TITLE = "Open Data Atlas"
 TOOL_PREFIX = "atlas_"
 URI_SCHEME = "opendata-atlas"
+#: Every tool, resource and template's `_meta`: its stability tier on its own discovery
+#: record [9.tier-metadata]. The capability summary's Stability line states the same tier.
+LIFECYCLE_META = {"opendata-atlas/lifecycle": {"stability": "preview"}}
 
 #: A portal id or alias as callers pass it (either case); no surrounding whitespace.
 PORTAL_PATTERN = r"^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$"
