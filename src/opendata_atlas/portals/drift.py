@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, date, datetime
 from typing import TYPE_CHECKING, Any
 
-from opendata_atlas.core.errors import AtlasError
+from opendata_atlas.core.errors import AtlasError, ErrorCode
 from opendata_atlas.portals.checkers import Outcome, run_check
 from opendata_atlas.portals.loader import PORTALS_DIR, load_portal
 from opendata_atlas.portals.model import SoqlProbe
@@ -55,25 +55,33 @@ def asserted_claims(packs_dir: Path = PORTALS_DIR) -> list[tuple[PortalContext, 
 
 
 async def check_claim(client: SodaClient, portal: PortalContext, claim: Claim) -> ClaimResult:
-    """Run each probe the claim's assertions name, once and in order, then every assertion."""
+    """Run named probes in order, retrying temporary query timeouts once, then assertions."""
     probes = claim.probes
     answers: dict[int, tuple[Any, str | None]] = {}
     for index in sorted({a.probe for a in claim.assertion}):
         probe = probes[index]
-        try:
-            if isinstance(probe, SoqlProbe):
-                dataset = claim.scope.dataset or claim.scope.layer
-                if dataset is None:
-                    answers[index] = (None, "claim scope names no dataset or layer")
+        for attempt in range(2):
+            try:
+                if isinstance(probe, SoqlProbe):
+                    dataset = claim.scope.dataset or claim.scope.layer
+                    if dataset is None:
+                        answers[index] = (None, "claim scope names no dataset or layer")
+                        break
+                    data = await client.soql(portal, dataset, {"$query": probe.query})
+                else:
+                    url = f"https://{portal.identity.public_host}{probe.path}"
+                    data = await client.get_json(url, portal=portal)
+            except AtlasError as e:
+                if (
+                    attempt == 0
+                    and e.envelope.temporary
+                    and e.envelope.code == ErrorCode.QUERY_TIMEOUT
+                ):
                     continue
-                data = await client.soql(portal, dataset, {"$query": probe.query})
+                answers[index] = (None, str(e.envelope.code))
             else:
-                url = f"https://{portal.identity.public_host}{probe.path}"
-                data = await client.get_json(url, portal=portal)
-        except AtlasError as e:
-            answers[index] = (None, str(e.envelope.code))
-        else:
-            answers[index] = (data, None)
+                answers[index] = (data, None)
+            break
 
     results: list[AssertionResult] = []
     for a in claim.assertion:

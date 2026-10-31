@@ -22,6 +22,7 @@ from opendata_atlas.portals.validation import ValidationFile
 from opendata_atlas.profiler import cli
 from opendata_atlas.profiler.emit import pack_files, render_claims
 from opendata_atlas.profiler.profile import (
+    LARGE_DATASET_ROWS,
     flagships,
     gap_hour,
     identity_verified,
@@ -87,8 +88,12 @@ class SyntheticPortal:
         layer_columns: list[dict[str, Any]] | None = None,
         hi: str = "2026-06-30T23:00:00.000",
         midnight: int = 0,
+        row_count: int = 1000,
+        time_column: bool = True,
         filtered_rows: list[dict[str, str]] | None = None,
     ) -> None:
+        self.row_count = row_count
+        self.time_column = time_column
         self.hi = hi
         self.gap_day = date(2026, 3, 8)
         self.midnight = midnight
@@ -160,7 +165,7 @@ class SyntheticPortal:
         if path == f"/resource/{EMPTY}.json":
             return [{"n": "0"}]
         if q == "SELECT count(*) AS n":
-            return [{"n": "1000"}]
+            return [{"n": str(self.row_count)}]
         if q.startswith(f"SELECT count({REGION_COL})"):
             return [{"filled": "900", "n": "1000"}]
         if q.startswith("SELECT area_name AS v"):
@@ -198,7 +203,11 @@ class SyntheticPortal:
                     "parameters": {"region": f"_{LAYER}", "primary_key": "_feature_id"},
                 },
             },
-            {"fieldName": "occurred", "dataTypeName": "floating_timestamp"},
+            *(
+                [{"fieldName": "occurred", "dataTypeName": "floating_timestamp"}]
+                if self.time_column
+                else []
+            ),
             *self.extra_columns,
         ]
 
@@ -279,6 +288,50 @@ async def test_emitted_assertions_pass_on_their_own_probe():
             )
             result = run_check(a.checker, a.typed_params, handler(request))
             assert result.outcome == "passed", (c.id, a.checker, result.detail)
+
+
+@pytest.mark.parametrize("row_count", [LARGE_DATASET_ROWS - 1, LARGE_DATASET_ROWS, 23_000_000])
+async def test_large_dataset_bounds_fill_share_and_diurnal_probes(row_count):
+    portal = SyntheticPortal(row_count=row_count, midnight=400)
+    _, claims = await _profile(portal)
+    by_id = _by_id(claims)
+    fill = _soql(by_id[f"{DATASET}-{REGION_COL}-fill"])[0].query
+    text = _soql(by_id[f"{DATASET}-zone-placeholders"])[0].query
+    gap, day, midnight = _soql(by_id[f"{DATASET}-occurred-timezone"])
+    if row_count >= LARGE_DATASET_ROWS:
+        for query in (fill, text):
+            assert " WHERE occurred >= '2026-06-01T00:00:00'" in query
+            assert "AND occurred < '2026-07-01T00:00:00'" in query
+        for query in (day.query, midnight.query):
+            assert "occurred >= '2026-06-24T00:00:00'" in query
+            assert "occurred < '2026-07-01T00:00:00'" in query
+    else:
+        assert " WHERE " not in fill and " WHERE " not in text
+        assert "'2025-06-30T00:00:00'" in day.query
+    assert "'2026-03-08T00:00:00'" in gap.query, "DST probe still checks the transition day"
+    queries = [httpx.URL(url).params.get("$query", "") for url in portal.requests]
+    assert sum(q.startswith("SELECT min(occurred)") for q in queries) == 1
+
+
+@pytest.mark.parametrize(("time_column", "hi"), [(False, "2026-06-30"), (True, "unreadable")])
+async def test_large_dataset_without_usable_time_keeps_unbounded_fill_and_share(time_column, hi):
+    _, claims = await _profile(
+        SyntheticPortal(row_count=LARGE_DATASET_ROWS, time_column=time_column, hi=hi)
+    )
+    for claim in claims:
+        assert all(" WHERE " not in probe.query for probe in _soql(claim))
+    assert any(c.kind == "place_field" for c in claims)
+    assert not any(c.kind == "column_timezone" for c in claims)
+
+
+async def test_large_dataset_future_max_keeps_existing_today_cap():
+    _, claims = await _profile(SyntheticPortal(row_count=LARGE_DATASET_ROWS, hi="2026-12-20"))
+    by_id = _by_id(claims)
+    fill = _soql(by_id[f"{DATASET}-{REGION_COL}-fill"])[0].query
+    _, day = _soql(by_id[f"{DATASET}-occurred-timezone"])
+    assert "'2026-09-19T00:00:00'" in fill
+    assert "'2026-10-12T00:00:00'" in day.query
+    assert "'2026-10-19T00:00:00'" in fill and "'2026-10-19T00:00:00'" in day.query
 
 
 async def test_padded_values_claim():

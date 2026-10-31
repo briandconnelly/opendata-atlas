@@ -11,6 +11,7 @@ import httpx
 import pytest
 
 from opendata_atlas.core.describe import served_evidence
+from opendata_atlas.core.errors import AtlasError, ErrorCode
 from opendata_atlas.core.http import SodaClient, get_client
 from opendata_atlas.portals.drift import (
     AssertionResult,
@@ -224,6 +225,56 @@ async def test_probe_failure_is_inconclusive():
     assert len(seen) == 2
     assert seen[0].startswith("https://data.seattle.gov/resource/abcd-1234.json?")
     assert seen[1] == "https://data.seattle.gov/api/views/abcd-1234.json"
+
+
+@pytest.mark.parametrize("metadata", [False, True])
+@pytest.mark.parametrize(
+    ("failures", "attempts", "outcome", "detail"),
+    [
+        ([(ErrorCode.QUERY_TIMEOUT, True)], 2, "passed", None),
+        ([(ErrorCode.QUERY_TIMEOUT, True)] * 2, 2, "inconclusive", "query_timeout"),
+        ([(ErrorCode.QUERY_TIMEOUT, False)], 1, "inconclusive", "query_timeout"),
+        ([(ErrorCode.UPSTREAM_UNAVAILABLE, True)], 1, "inconclusive", "upstream_unavailable"),
+        ([(ErrorCode.RATE_LIMITED, True)], 1, "inconclusive", "rate_limited"),
+        (
+            [(ErrorCode.QUERY_TIMEOUT, True), (ErrorCode.DATASET_NOT_FOUND, False)],
+            2,
+            "inconclusive",
+            "dataset_not_found",
+        ),
+    ],
+)
+async def test_probe_retries_only_temporary_query_timeout(
+    metadata, failures, attempts, outcome, detail
+):
+    seen = []
+
+    def answer(request: httpx.Request) -> httpx.Response:
+        is_metadata = "/api/views/" in request.url.path
+        if is_metadata == metadata:
+            seen.append(str(request.url))
+            if len(seen) <= len(failures):
+                code, temporary = failures[len(seen) - 1]
+                raise AtlasError(code, "synthetic failure", temporary=temporary)
+        body = (
+            {"id": "abcd-1234"}
+            if is_metadata
+            else [{"h": str(h), "n": "200" if h == 1 else "10"} for h in range(24) if h != 2]
+        )
+        return httpx.Response(200, json=body)
+
+    client = SodaClient(transport=httpx.MockTransport(answer))
+    try:
+        result = await check_claim(client, SEATTLE_CONTEXT, _probe_claim())
+    finally:
+        await client.aclose()
+    assert len(seen) == attempts
+    assert len(set(seen)) == 1, "retry must replay the same probe, shared by its assertions"
+    assert result.outcome == outcome
+    affected = [a for a in result.assertions if a.probe == int(metadata)]
+    assert all(a.outcome == outcome for a in affected)
+    if detail:
+        assert all(a.detail == detail for a in affected)
 
 
 def test_report_json_shape():
