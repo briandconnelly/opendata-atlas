@@ -6,7 +6,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Added
 
-- The `data.cityofnewyork.us` (NYC Open Data) knowledge pack, made by the curate-portal skill and declared `profiled`, with 311 Service Requests from 2020 to Present (`erm2-nwe9`) `reviewed`: one row per service request, the `borough` and two-digit `council_district` place fields, New York wall-clock `created_date`, and the portal's four computed-region layers (boroughs, police precincts, community districts, and 2015 council districts, `partial`), whose values are feature ids rather than district numbers. Guide `nyc-311`. No tool schema change.
+- The `data.cityofnewyork.us` (NYC Open Data) knowledge pack, made by the curate-portal skill and promoted to `curated` on the maintainer's acceptance of the curating agent's eval grades (11 PASS, 1 PARTIAL across 3 runs), with 311 Service Requests from 2020 to Present (`erm2-nwe9`) `reviewed`: one row per service request, the `borough` and two-digit `council_district` place fields, New York wall-clock `created_date`, and the portal's four computed-region layers (boroughs, police precincts, community districts, and 2015 council districts, `partial`), whose values are feature ids rather than district numbers. Guide `nyc-311`. No tool schema change.
 
 ### Changed
 

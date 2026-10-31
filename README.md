@@ -9,7 +9,7 @@ Let your AI assistant answer questions with public government data. opendata-atl
 
 It is an [MCP](https://modelcontextprotocol.io/) server, the standard way to give AI assistants new tools. It only reads public data and never changes anything on a portal.
 
-**Status: preview.** Version 0.2.0 is on [PyPI](https://pypi.org/project/opendata-atlas/) and in [GitHub Releases](https://github.com/briandconnelly/opendata-atlas/releases/latest). Your assistant can search every portal in the server's registry of public Socrata portals. Four portals are curated: Seattle (`seattle`), Chicago (`chicago`), City of Everett (`everett`) and King County (`king-county`).
+**Status: preview.** Version 0.2.0 is on [PyPI](https://pypi.org/project/opendata-atlas/) and in [GitHub Releases](https://github.com/briandconnelly/opendata-atlas/releases/latest). Your assistant can search every portal in the server's registry of public Socrata portals. Five portals are curated: Seattle (`seattle`), Chicago (`chicago`), City of Everett (`everett`), King County (`king-county`) and NYC Open Data (`data.cityofnewyork.us`).
 
 ## What you can ask
 

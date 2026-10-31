@@ -7,7 +7,7 @@ place_names = ["NYC", "New York City", "New York"]
 timezone = "America/New_York"
 platform = "socrata"
 status = "active"
-tier = "profiled"
+tier = "curated"
 
 [catalog_query]
 domains = "data.cityofnewyork.us"
