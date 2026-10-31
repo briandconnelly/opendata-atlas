@@ -17,7 +17,8 @@ evidence.
 Claude sessions are capped at $1 each with `--max-budget-usd`. Codex sessions are not capped:
 `codex exec` has no budget option.
 Writes <id>.transcript.jsonl (the host's JSON event stream), <id>.capture.jsonl (server view),
-and <id>.stderr.txt. Exits 1 when any session exits nonzero.
+and <id>.stderr.txt. Exits 1 when any session exits nonzero. Exits 2, before any session, when
+<out_dir> already holds a transcript for a task it would run: each run needs a new <out_dir>.
 """
 
 from __future__ import annotations
@@ -224,12 +225,17 @@ def main() -> None:
     unknown = sorted(wanted - {task["id"] for task in tasks})
     if unknown:
         sys.exit(f"unknown task ids for this file: {unknown}")
+    selected = [task for task in tasks if not wanted or task["id"] in wanted]
+    existing = [t["id"] for t in selected if (out / f"{t['id']}.transcript.jsonl").exists()]
+    if existing:
+        print(
+            f"evals/run.py: {out} already holds transcripts for {', '.join(existing)}; "
+            "use a new <out_dir> so an earlier run's evidence is kept",
+            file=sys.stderr,
+        )
+        sys.exit(2)
     out.mkdir(parents=True, exist_ok=True)
-    failed = [
-        task["id"]
-        for task in tasks
-        if (not wanted or task["id"] in wanted) and run(task, out, host) != 0
-    ]
+    failed = [task["id"] for task in selected if run(task, out, host) != 0]
     if failed:
         sys.exit(f"sessions exited nonzero: {', '.join(failed)}")
 

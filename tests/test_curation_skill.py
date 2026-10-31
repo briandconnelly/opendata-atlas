@@ -45,14 +45,32 @@ RUN_VAR = "ATLAS_RUN_CURATION"
 TIMEOUT_S = 3 * 60 * 60
 ALLOWED_TOOLS = (
     "Read,Edit,Write,Glob,Grep,Bash(uv run:*),Bash(git add:*),Bash(git commit:*),"
-    "Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(ls:*),Bash(mkdir:*)"
+    "Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(ls:*),Bash(mkdir:*),"
+    # Skill step 0's preflight and step 11.1's compatibility case, as the skill writes them.
+    "Bash(uv --version),Bash(git rev-parse:*),Bash(claude --version),"
+    "Bash(COMPAT_EVIDENCE_DIR=.curation/compat uv run:*)"
 )
 PORTALS = "src/opendata_atlas/portals"
 PROMPT = "Curate {portal} by following skills/curate-portal/SKILL.md."
 #: The agent's ending states (skill, Ending): only `completed` makes eval runs.
-OUTCOMES = ("completed", "profiled_without_review", "blocked_engine", "no_change")
-EVAL_RUNS = (".curation/evals-1", ".curation/evals-2", ".curation/evals-3")
+OUTCOMES = (
+    "completed",
+    "profiled_without_review",
+    "blocked_engine",
+    "no_change",
+    "preflight_failed",
+    "not_registered",
+    "needs_input",
+    "profiler_failed",
+)
+#: Outcomes that stop at Ending step 2: no commit and nothing changed (#69).
+UNCOMMITTED = ("no_change", "preflight_failed", "not_registered", "needs_input", "profiler_failed")
+#: Every eval run the agent makes lives in its own `<run directory>/evals-<k>` (skill step 11.3).
+EVAL_RUN_GLOB = "**/evals-*"
 SERVED_CHECK = ".curation/served-check.json"
+#: The compatibility case's table for a partial run (skill step 11.1, #67).
+COMPAT_OUTCOMES = ".curation/compat/partial/outcomes.json"
+COMPAT_STEPS = ("search", "describe", "query_p1", "query_p2", "forced_no_such_column")
 CLAUDE_HOME = Path.home() / ".claude"
 
 _spec = importlib.util.spec_from_file_location("pack_digest", ROOT / "scripts" / "pack_digest.py")
@@ -145,20 +163,40 @@ def codex_command(portal: str, wt: Path, git_dir: Path, last_message: Path) -> l
     ]
 
 
+def eval_run_dirs(wt: Path) -> list[str]:
+    """Every eval run directory under `.curation/`, relative to the worktree."""
+    root = wt / ".curation"
+    return sorted(str(p.relative_to(wt)) for p in root.glob(EVAL_RUN_GLOB) if p.is_dir())
+
+
+def recorded_runs(outcome: dict[str, Any]) -> list[str] | None:
+    """`eval_runs` from outcome.json when it is 3 distinct paths under `.curation/`, else None."""
+    runs = outcome.get("eval_runs")
+    if not (isinstance(runs, list) and len(runs) == 3 and len(set(runs)) == 3):
+        return None
+    ok = all(
+        isinstance(r, str) and r.startswith(".curation/") and ".." not in Path(r).parts
+        for r in runs
+    )
+    return runs if ok else None
+
+
 def outcome_failures(
     outcome: object,
     *,
-    pack: str,
+    pack: str | None,
     digest_now: str,
     wt: Path,
     task_ids: list[str],
     reviewed: list[str],
+    portal_id: str | None = None,
 ) -> list[str]:
     """What `.curation/outcome.json` gets wrong against the branch and the worktree.
 
-    `completed` must record the digest the committed pack still has (rule 13), all 3 eval runs
-    with a transcript per task (an unhealthy one is a FAIL grade, not a skill failure), and the
-    served check covering `reviewed`; the other outcomes a `reason` and no eval run (rule 12)."""
+    `completed` must record the digest the committed pack still has (rule 13), its 3
+    `eval_runs` with a transcript per task (an unhealthy one is a FAIL grade, not a skill
+    failure), the served check covering `reviewed`, and the compatibility case passing for
+    `portal_id`; the other outcomes a `reason` and no eval run (rule 12)."""
     if not isinstance(outcome, dict):
         return ["outcome.json: missing or not an object"]
     state = outcome.get("outcome")
@@ -167,7 +205,7 @@ def outcome_failures(
     out = []
     if outcome.get("pack") != pack:
         out.append(f"outcome.json: pack {outcome.get('pack')!r}, but the branch adds {pack!r}")
-    made = [d for d in EVAL_RUNS if (wt / d).exists()]
+    made = eval_run_dirs(wt)
     if state != "completed":
         if not (isinstance(outcome.get("reason"), str) and outcome["reason"].strip()):
             out.append(f"outcome.json: {state} needs a reason")
@@ -179,12 +217,43 @@ def outcome_failures(
             f"outcome.json: pack_digest {outcome.get('pack_digest')!r} recorded at step 11.3, "
             f"but the committed pack is {digest_now}: the pack changed after the eval runs began"
         )
-    for run in EVAL_RUNS:
+    runs = recorded_runs(outcome)
+    if runs is None:
+        out.append(
+            f"outcome.json: eval_runs {outcome.get('eval_runs')!r} is not 3 distinct paths "
+            "under .curation/ (skill step 11.3)"
+        )
+        runs = []
+    for run in runs:
         missing = [tid for tid in task_ids if not (wt / run / f"{tid}.transcript.jsonl").is_file()]
         if missing:
             out.append(f"{run}: no transcript for {missing}")
     out += served_failures(wt, reviewed)
+    if portal_id is not None:
+        out += compat_failures(wt, portal_id)
     return out
+
+
+def compat_failures(wt: Path, portal_id: str) -> list[str]:
+    """Skill step 11.1's compatibility case: every step `ok` for the portal (#67)."""
+    try:
+        rows = json.loads((wt / COMPAT_OUTCOMES).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return [f"{COMPAT_OUTCOMES}: missing or unreadable (skill step 11.1)"]
+    row = (
+        next((r for r in rows if isinstance(r, dict) and r.get("portal") == portal_id), None)
+        if isinstance(rows, list)
+        else None
+    )
+    if row is None:
+        return [f"{COMPAT_OUTCOMES}: no row for {portal_id}"]
+    steps = row.get("steps") if isinstance(row.get("steps"), dict) else {}
+    bad = [
+        s
+        for s in COMPAT_STEPS
+        if not (isinstance(steps.get(s), dict) and steps[s].get("kind") == "ok")
+    ]
+    return [f"{COMPAT_OUTCOMES}: {portal_id} steps not ok: {bad}"] if bad else []
 
 
 #: One served-check entry (skill step 6).
@@ -234,6 +303,18 @@ def reviewed_claims(texts: list[str]) -> dict[str, dict[str, Any]]:
     }
 
 
+def dropped_claims(now: list[str], base: list[str]) -> list[str]:
+    """Ids of claims the base pack held that the run's pack no longer holds (skill rule 31,
+    #68): a facts file copied over an existing one drops them."""
+    held = {raw["id"] for text in now for raw in tomllib.loads(text).get("claim", [])}
+    return sorted(
+        raw["id"]
+        for text in base
+        for raw in tomllib.loads(text).get("claim", [])
+        if raw["id"] not in held
+    )
+
+
 def changed_reviewed(now: list[str], base: list[str]) -> list[str]:
     """Ids of reviewed claims the run added or changed: what the served check must cover."""
     before = reviewed_claims(base)
@@ -252,14 +333,24 @@ def requested_ids(portal: str) -> set[str]:
     return {c.id for c in found.candidates}
 
 
+def stopped_failures(outcome: dict[str, Any], *, commits: int, porcelain: str) -> list[str]:
+    """An outcome that stops at Ending step 2 (#69): no commit, and a worktree with nothing
+    changed outside the ignored `.curation/`."""
+    state = outcome.get("outcome")
+    out = []
+    if commits:
+        out.append(f"{state}, but the branch has {commits} commit(s)")
+    if changed := [line for line in porcelain.splitlines() if line.strip()]:
+        out.append(f"{state}, but the worktree has changes: {changed}")
+    return out
+
+
 def no_change_failures(
     outcome: dict[str, Any], *, commits: int, porcelain: str, pack_id: str | None, portal: str
 ) -> list[str]:
     """`no_change` (skill step 5): no commit, an existing pack for the requested portal, and a
     worktree with nothing changed outside the ignored `.curation/` (#29)."""
-    out = []
-    if commits:
-        out.append(f"no_change, but the branch has {commits} commit(s)")
+    out = stopped_failures(outcome, commits=commits, porcelain=porcelain)
     if pack_id is None:
         out.append(f"no_change names no existing pack: {outcome.get('pack')!r}")
     else:
@@ -268,8 +359,6 @@ def no_change_failures(
             out.append(f"no_change: {portal!r} matches no registered portal")
         elif pack_id not in requested:
             out.append(f"no_change names pack {pack_id!r}, but {portal!r} is {sorted(requested)}")
-    if changed := [line for line in porcelain.splitlines() if line.strip()]:
-        out.append(f"no_change, but the worktree has changes: {changed}")
     return out
 
 
@@ -281,13 +370,13 @@ def uncommitted_failure(porcelain: str) -> str | None:
 
 
 def path_violations(paths: list[str], pack: str) -> list[str]:
-    """Changed paths outside the path rule (CONTRIBUTING-portals.md, Rules) plus
-    `docs/decisions.md`, where the skill logs every engine defect it finds (its rule 7)."""
+    """Changed paths outside the path rule (CONTRIBUTING-portals.md, Rules), which includes
+    the pack PR's one-line `CHANGELOG.md` entry (skill Ending step 4, #71)."""
     allowed = {
         f"evals/portals/{pack}.json",
         f"{PORTALS}/registry_overrides.toml",
         f"{PORTALS}/validation.json",
-        "docs/decisions.md",
+        "CHANGELOG.md",
     }
     return [p for p in paths if p not in allowed and not p.startswith(f"{PORTALS}/{pack}/")]
 
@@ -552,13 +641,17 @@ def _check_pack(
     )
     if (problem := uncommitted_failure(status)) is not None:
         failures.append(problem)
+    now, before = _pack_texts(pack, cwd=wt), _pack_texts(pack, ref=base)
+    if dropped := dropped_claims(now, before):
+        failures.append(f"claims the base pack held are missing: {dropped}")
     failures += outcome_failures(
         outcome,
         pack=pack,
         digest_now=pack_digest(wt, pack),
         wt=wt,
         task_ids=[t["id"] for t in tasks],
-        reviewed=changed_reviewed(_pack_texts(pack, cwd=wt), _pack_texts(pack, ref=base)),
+        reviewed=changed_reviewed(now, before),
+        portal_id=identity["id"],
     )
     completed = isinstance(outcome, dict) and outcome.get("outcome") == "completed"
     _gates(wt, pack_dir, identity["id"], env, summary, failures, full=completed)
@@ -592,19 +685,24 @@ def test_curation_skill_produces_a_passing_pack(tmp_path):
     except (OSError, ValueError):
         outcome = None
     summary["outcome"] = outcome
-    no_change = isinstance(outcome, dict) and outcome.get("outcome") == "no_change"
-    if no_change:  # 4. An existing pack, nothing new to review: no commit (skill step 5).
+    stopped = isinstance(outcome, dict) and outcome.get("outcome") in UNCOMMITTED
+    if stopped:  # 4. Stopped at Ending step 2: no commit (skill steps 0 to 2 and 5).
         assert isinstance(outcome, dict)
-        toml = ROOT / PORTALS / str(outcome.get("pack")) / "portal.toml"
-        failures += no_change_failures(
-            outcome,
-            commits=int(_git("rev-list", "--count", f"{base}..{branch}").strip()),
-            porcelain=_git("status", "--porcelain", "--untracked-files=all", cwd=wt),
-            pack_id=tomllib.loads(toml.read_text())["id"] if toml.is_file() else None,
-            portal=PORTAL,
-        )
+        commits = int(_git("rev-list", "--count", f"{base}..{branch}").strip())
+        porcelain = _git("status", "--porcelain", "--untracked-files=all", cwd=wt)
+        if outcome.get("outcome") == "no_change":
+            toml = ROOT / PORTALS / str(outcome.get("pack")) / "portal.toml"
+            failures += no_change_failures(
+                outcome,
+                commits=commits,
+                porcelain=porcelain,
+                pack_id=tomllib.loads(toml.read_text())["id"] if toml.is_file() else None,
+                portal=PORTAL,
+            )
+        else:
+            failures += stopped_failures(outcome, commits=commits, porcelain=porcelain)
         failures += outcome_failures(
-            outcome, pack=str(outcome.get("pack")), digest_now="", wt=wt, task_ids=[], reviewed=[]
+            outcome, pack=outcome.get("pack"), digest_now="", wt=wt, task_ids=[], reviewed=[]
         )
         pack = None
     else:
