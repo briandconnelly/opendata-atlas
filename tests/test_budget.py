@@ -243,3 +243,45 @@ async def test_candidate_over_the_limit_is_internal_error(client, monkeypatch: p
     envelope = result["structuredContent"]
     assert envelope["code"] == "internal_error"
     assert envelope["message"] == "A single portal candidate exceeds the result budget."
+
+
+@pytest.mark.parametrize("reason", ["x" * 12_000, "漢" * 4_000, '"' * 6_000])
+def test_oversized_failure_keeps_only_minimal_envelope(reason):
+    import json
+
+    from opendata_atlas.core.errors import AtlasError, ErrorCode, ErrorDetails, Repair
+    from opendata_atlas.mcp.result import failure
+
+    envelope = AtlasError(
+        ErrorCode.UPSTREAM_UNAVAILABLE,
+        "The upstream service failed to answer.",
+        details=ErrorDetails(reason=reason),
+        retry_after_ms=7000,
+        repair=Repair(next_step="find_portal", tool="atlas_find_portals", arguments={}),
+    ).envelope
+    envelope.request_id = "request-123"
+    result = failure(envelope)
+    payload = result.structured_content
+    assert payload == {
+        "code": "upstream_unavailable",
+        "message": envelope.message,
+        "temporary": True,
+        "retry_after_ms": 7000,
+        "request_id": "request-123",
+    }
+    from mcp.types import TextContent
+
+    content = result.content[0]
+    assert isinstance(content, TextContent)
+    text = content.text
+    assert json.loads(text) == payload
+    assert (
+        wire_measure(
+            {
+                "content": [{"type": "text", "text": text}],
+                "structuredContent": payload,
+                "isError": True,
+            }
+        )
+        <= RESULT_LIMIT
+    )

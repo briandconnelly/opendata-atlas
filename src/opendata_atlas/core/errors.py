@@ -136,7 +136,11 @@ def _soql_position(body: dict[str, Any]) -> dict[str, int] | None:
         position = source.get("position") if isinstance(source, dict) else None
     if not isinstance(position, dict):
         return None
-    out = {k: int(v) for k, v in position.items() if k in _POSITION_KEYS and str(v).isdigit()}
+    out = {
+        k: parsed
+        for k, v in position.items()
+        if k in _POSITION_KEYS and (parsed := _nonnegative_int(v)) is not None
+    }
     return out or None
 
 
@@ -156,14 +160,24 @@ def _soql_code(body: dict[str, Any]) -> str | None:
         if value is not None and value.startswith("query.soql."):
             return value
     match = _SOQL_CODE.search(str(body.get("message", "")))
-    return match.group(0) if match else None
+    return _symbolic(match.group(0)) if match else None
+
+
+def _nonnegative_int(value: Any) -> int | None:
+    raw = str(value).strip()
+    if not raw.isascii() or not raw.isdecimal():
+        return None
+    try:
+        return int(raw)
+    except ValueError:
+        # Python also rejects decimal strings beyond its integer conversion limit.
+        return None
 
 
 def _retry_after_ms(headers: dict[str, str]) -> int | None:
     raw = next((v for k, v in headers.items() if k.lower() == "retry-after"), None)
-    if raw is None or not raw.strip().isdigit():
-        return None
-    return int(raw.strip()) * 1000
+    seconds = _nonnegative_int(raw)
+    return seconds * 1000 if seconds is not None else None
 
 
 def is_app_token_rejection(body: dict[str, Any] | None) -> bool:
@@ -199,34 +213,6 @@ def map_upstream_error(  # noqa: PLR0911 - one return per upstream failure class
     """
     body = body or {}
     headers = headers or {}
-
-    soql_code = _soql_code(body) if endpoint == "resource" else None
-    if soql_code is not None:
-        if soql_code.endswith("no-such-column"):
-            return AtlasError(
-                ErrorCode.NO_SUCH_COLUMN,
-                "A referenced column does not exist in this dataset.",
-                details=ErrorDetails(
-                    reason="Use API field names from the dataset schema.",
-                    upstream_code=soql_code,
-                    position=_soql_position(body),
-                ),
-                repair=describe_repair(portal_id, dataset_id, "inspect_columns", detail="full"),
-            )
-        return AtlasError(
-            ErrorCode.SOQL_SYNTAX_ERROR,
-            "The upstream service rejected the query.",
-            details=ErrorDetails(
-                reason="Check the query against the SoQL reference.",
-                upstream_code=soql_code,
-                position=_soql_position(body),
-            ),
-            repair=Repair(
-                next_step="read_syntax",
-                tool="atlas_get_reference",
-                arguments={"topic": "soql", "item_id": "syntax"},
-            ),
-        )
 
     upstream_code = _symbolic(body.get("code"))
     if status == 403:
@@ -290,6 +276,34 @@ def map_upstream_error(  # noqa: PLR0911 - one return per upstream failure class
             details=ErrorDetails(reason=f"Upstream HTTP {status}.", upstream_code=upstream_code),
             retry_after_ms=_retry_after_ms(headers),
         )
+    soql_code = _soql_code(body) if endpoint == "resource" and 400 <= status < 500 else None
+    if soql_code is not None:
+        if soql_code.endswith("no-such-column"):
+            return AtlasError(
+                ErrorCode.NO_SUCH_COLUMN,
+                "A referenced column does not exist in this dataset.",
+                details=ErrorDetails(
+                    reason="Use API field names from the dataset schema.",
+                    upstream_code=soql_code,
+                    position=_soql_position(body),
+                ),
+                repair=describe_repair(portal_id, dataset_id, "inspect_columns", detail="full"),
+            )
+        return AtlasError(
+            ErrorCode.SOQL_SYNTAX_ERROR,
+            "The upstream service rejected the query.",
+            details=ErrorDetails(
+                reason="Check the query against the SoQL reference.",
+                upstream_code=soql_code,
+                position=_soql_position(body),
+            ),
+            repair=Repair(
+                next_step="read_syntax",
+                tool="atlas_get_reference",
+                arguments={"topic": "soql", "item_id": "syntax"},
+            ),
+        )
+
     return AtlasError(
         ErrorCode.INVALID_ARGUMENT,
         "The upstream service rejected the request.",
@@ -314,32 +328,77 @@ def describe_repair(
 # --------------------------------------------------------------------------
 
 
-def from_validation_errors(errors: Sequence[Mapping[str, Any]], *, tool: str) -> AtlasError:
-    """Build `invalid_argument` from pydantic's `ValidationError.errors()`.
+_VALIDATION_FIELDS_LIMIT = 20
+_VALIDATION_NAME_LIMIT = 128
 
-    Received values are never echoed in `details.value`: any parameter can carry a
-    mispasted secret, and the error catalog discloses this policy [6.offending-value].
-    `details.field` is a published property path (`near.radius_m`) [6.details-field].
+
+def from_validation_errors(
+    errors: Sequence[Mapping[str, Any]],
+    *,
+    tool: str,
+    arguments: Mapping[str, Any] | None = None,
+) -> AtlasError:
+    """Build bounded feedback from pydantic's ValidationError.errors().
+
+    Received values are never echoed. Only published property paths belong in
+    details.field(s); unknown keys appear only in the bounded reason.
     """
     fields: list[str] = []
     reasons: list[str] = []
+    omitted_fields = 0
     for err in errors:
         loc = [str(p) for p in err.get("loc", ()) if not isinstance(p, int)]
-        path = ".".join(loc) or "arguments"
-        if path not in fields:
+        path = ".".join(loc)
+        unknown = err.get("type") in {"unexpected_keyword_argument", "extra_forbidden"}
+        if path and not unknown and path not in fields:
             fields.append(path)
-        reasons.append(f"{path}: {err.get('msg', 'invalid')}")
-    details = ErrorDetails(reason="; ".join(reasons)[:500])
-    if len(fields) == 1:
-        details.field = fields[0]
-    else:
-        details.fields = fields
+        if len(reasons) < _VALIDATION_FIELDS_LIMIT:
+            name = path[:_VALIDATION_NAME_LIMIT] or "arguments"
+            message = "Unknown argument" if unknown else err.get("msg", "invalid")
+            reasons.append(f"{name}: {message}")
+    published = []
+    for path in fields:
+        if len(path) <= _VALIDATION_NAME_LIMIT and len(published) < _VALIDATION_FIELDS_LIMIT:
+            published.append(path)
+        else:
+            omitted_fields += 1
+    suffix = ""
+    if omitted_fields:
+        suffix += f"; {omitted_fields} fields omitted"
+    if len(errors) > len(reasons):
+        suffix += f"; {len(errors) - len(reasons)} additional errors omitted"
+    details = ErrorDetails(reason="; ".join(reasons)[: 500 - len(suffix)] + suffix)
+    if len(published) == 1:
+        details.field = published[0]
+    elif published:
+        details.fields = published
     return AtlasError(
         ErrorCode.INVALID_ARGUMENT,
         f"Invalid arguments for {tool}.",
         details=details,
-        # A malformed `portal` is most often a place name; the portal search finds its id.
-        repair=_FIND_PORTAL if details.field == "portal" else None,
+        repair=_validation_repair(fields, arguments),
+    )
+
+
+def _validation_repair(fields: list[str], arguments: Mapping[str, Any] | None) -> Repair | None:
+    if "portal" in fields:
+        return _FIND_PORTAL
+    if "dataset_id" not in fields or arguments is None or "portal" not in arguments:
+        return None
+    # resolve imports this module; defer the import to avoid a cycle.
+    from opendata_atlas.portals.resolve import resolve_portal  # noqa: PLC0415
+
+    portal = arguments["portal"]
+    if not isinstance(portal, str):
+        return _FIND_PORTAL
+    try:
+        canonical = resolve_portal(portal).id
+    except AtlasError:
+        return _FIND_PORTAL
+    return Repair(
+        next_step="browse",
+        tool="atlas_search_datasets",
+        arguments={"portal": canonical},
     )
 
 
