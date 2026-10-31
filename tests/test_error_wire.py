@@ -96,8 +96,8 @@ async def test_malformed_portal_repairs_to_find_portals(client, input_schemas, t
     assert "Chicago" not in json.dumps(envelope), "received values are never echoed"
 
 
-async def test_unknown_argument_is_named(client):
-    """The one case where details.field is not a published parameter: it names the stray key."""
+async def test_unknown_argument_is_named(client, input_schemas):
+    """Unknown keys belong in reason, never in published parameter paths."""
     result = wire(
         await client.call_tool_mcp(
             "atlas_query_dataset", {"portal": "seattle", "dataset_id": "kzjm-xkqj", "limit": 5}
@@ -106,8 +106,10 @@ async def test_unknown_argument_is_named(client):
     envelope = result["structuredContent"]
     assert result["isError"] is True
     assert envelope["code"] == "invalid_argument"
-    assert envelope["details"]["field"] == "limit"
-    jsonschema.validate(envelope, ENVELOPE_SCHEMA)
+    assert "field" not in envelope["details"]
+    assert "fields" not in envelope["details"]
+    assert "limit" in envelope["details"]["reason"]
+    assert_tool_envelope(result, input_schemas["atlas_query_dataset"])
 
 
 @pytest.mark.parametrize("mode", ["modern", "legacy"])
@@ -222,3 +224,55 @@ async def test_resource_failure_uses_jsonrpc_carrier(client, uri, code):
     assert data["temporary"] is False and data["retry_after_ms"] is None
     assert data["resource_uri"] == uri
     assert data["request_id"]
+
+
+@pytest.mark.parametrize("portal", ["seattle", "data.seattle.gov"])
+async def test_invalid_dataset_repairs_to_browse(client, input_schemas, portal):
+    envelope = assert_tool_envelope(
+        wire(
+            await client.call_tool_mcp(
+                "atlas_query_dataset", {"portal": portal, "dataset_id": "rejected-value"}
+            )
+        ),
+        input_schemas["atlas_query_dataset"],
+    )
+    assert envelope["details"]["field"] == "dataset_id"
+    assert envelope["repair"] == {
+        "next_step": "browse",
+        "tool": "atlas_search_datasets",
+        "arguments": {"portal": "data.seattle.gov"},
+    }
+    assert "rejected-value" not in json.dumps(envelope)
+
+
+@pytest.mark.parametrize("portal", ["unknown.example", "Unknown Place", 123])
+async def test_invalid_dataset_with_unresolved_portal_repairs_to_find(
+    client, input_schemas, portal
+):
+    envelope = assert_tool_envelope(
+        wire(
+            await client.call_tool_mcp(
+                "atlas_describe_dataset", {"portal": portal, "dataset_id": "rejected-value"}
+            )
+        ),
+        input_schemas["atlas_describe_dataset"],
+    )
+    assert envelope["repair"]["next_step"] == "find_portal"
+    assert envelope["repair"]["arguments"] == {}
+    assert "rejected-value" not in json.dumps(envelope)
+
+
+async def test_many_unknown_arguments_fit_result_budget(client, input_schemas):
+    from opendata_atlas.core.budget import RESULT_LIMIT
+    from tests.test_budget import wire_measure
+
+    args = {f"unknown_{i}_" + "x" * 1000: "rejected-value" for i in range(1100)}
+    result = wire(await client.call_tool_mcp("atlas_find_portals", args))
+    envelope = assert_tool_envelope(result, input_schemas["atlas_find_portals"])
+    assert wire_measure(result) <= RESULT_LIMIT
+    assert "field" not in envelope["details"]
+    assert "fields" not in envelope["details"]
+    assert len(envelope["details"]["reason"]) <= 500
+    assert "1080 additional errors omitted" in envelope["details"]["reason"]
+    assert "x" * 129 not in envelope["details"]["reason"]
+    assert "rejected-value" not in json.dumps(envelope)

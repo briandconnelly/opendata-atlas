@@ -7,6 +7,8 @@ from __future__ import annotations
 
 from typing import Any
 
+import pytest
+
 from opendata_atlas.core.errors import map_upstream_error
 
 PORTAL = {"portal_id": "data.seattle.gov", "portal_name": "City of Seattle"}
@@ -112,3 +114,62 @@ def test_non_temporary_never_carries_delay():
     err = mapped(403, {}, {"Retry-After": "5"})
     assert err["temporary"] is False
     assert err["retry_after_ms"] is None
+
+
+@pytest.mark.parametrize(
+    ("status", "body", "headers", "expected", "temporary", "delay"),
+    [
+        (
+            429,
+            {"errorCode": "query.soql.type-mismatch"},
+            {"Retry-After": "7"},
+            "rate_limited",
+            True,
+            7000,
+        ),
+        (503, {"code": "query.soql.no-such-column"}, {}, "upstream_unavailable", True, None),
+        (
+            403,
+            {"message": "Invalid app_token specified: query.soql.x"},
+            {},
+            "app_token_rejected",
+            False,
+            None,
+        ),
+    ],
+)
+def test_http_status_wins_over_soql_code(status, body, headers, expected, temporary, delay):
+    err = mapped(status, body, headers, token_configured=True)
+    assert err["code"] == expected
+    assert err["temporary"] is temporary
+    assert err["retry_after_ms"] == delay
+
+
+@pytest.mark.parametrize("status", [302, 404])
+def test_soql_diagnostics_only_apply_to_query_rejections(status):
+    assert mapped(status, {"code": "query.soql.no-such-column"})["code"] != "no_such_column"
+
+
+@pytest.mark.parametrize("endpoint", ["views", "catalog"])
+def test_soql_diagnostics_only_apply_to_resource_endpoint(endpoint):
+    err = mapped(400, {"code": "query.soql.no-such-column"}, endpoint=endpoint)
+    assert err["code"] == "invalid_argument"
+
+
+def test_message_code_is_bounded():
+    err = mapped(400, {"message": "query.soql." + "a" * 3000})
+    assert err["code"] == "invalid_argument"
+    assert "upstream_code" not in err["details"]
+
+
+@pytest.mark.parametrize("value", ["²", "\u0661", "9" * 5000])
+def test_malformed_optional_numbers_are_ignored(value):
+    err = mapped(
+        400,
+        {"code": "query.soql.invalid", "position": {"line": value, "column": "8"}},
+    )
+    assert err["code"] == "soql_syntax_error"
+    assert err["details"]["position"] == {"column": 8}
+    limited = mapped(429, headers={"Retry-After": value})
+    assert limited["code"] == "rate_limited"
+    assert limited["retry_after_ms"] is None

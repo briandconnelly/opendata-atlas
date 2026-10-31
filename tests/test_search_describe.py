@@ -341,6 +341,33 @@ async def test_describe_federated_and_map_views(client, soda):
     assert view["repair"]["arguments"] == {"portal": "data.seattle.gov", "dataset_id": "76t5-zqzr"}
 
 
+@pytest.mark.parametrize("parent", ["not-an-id", {"id": "76t5-zqzr"}, 123])
+async def test_bad_parent_id_repairs_to_find_tabular(client, parent):
+    import httpx
+
+    from opendata_atlas.core.http import SodaClient, set_client
+
+    view = {
+        "id": "5rc4-5s78",
+        "viewType": "tabular",
+        "assetType": "map",
+        "modifyingViewUid": parent,
+    }
+    set_client(
+        SodaClient(transport=httpx.MockTransport(lambda request: httpx.Response(200, json=view)))
+    )
+    result = await call(
+        client, "atlas_describe_dataset", {"portal": "seattle", "dataset_id": "5rc4-5s78"}
+    )
+    envelope = result["structuredContent"]
+    assert envelope["code"] == "dataset_not_queryable"
+    assert envelope["repair"]["next_step"] == "find_tabular"
+    assert envelope["repair"]["arguments"] == {
+        "portal": "data.seattle.gov",
+        "asset_scope": "tabular",
+    }
+
+
 @pytest.mark.soda_fixture("describe_missing")
 async def test_describe_missing_dataset(client, soda):
     result = await call(

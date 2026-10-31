@@ -321,11 +321,17 @@ New codes:
 
 `portal_not_found` never echoes the caller's value. The three portal codes carry `details.field`: `portal` on the data tools, on reference topic `portals` whichever of `item_id` or `portal` carried it, `uri` on a resource. On a resource every code names `uri`, the one parameter of `resources/read` [6.details-field], including `reference_not_found`, whose tool form names `item_id`. On a resource they are JSON-RPC `-32602` (resource not found, `[6.jsonrpc-code-allocation]`) with `error.data.machine_code` set to the code, and `resource_uri` is the URI template (`opendata-atlas://portals/{portal}/guides`), since the URI itself holds the caller's value.
 
+HTTP 403 (including configured app-token rejection), 429 and 5xx take precedence over SoQL codes in the response body. SoQL diagnostics apply only to resource-endpoint 4xx query rejections after the status-specific cases. Symbolic upstream codes are limited to 64 characters; malformed optional positions and Retry-After values are ignored.
+
 A host that is down, times out, or returns 5xx stays `upstream_unavailable` (temporary), as in `seattle-open-data`. No new code for it.
 
 A `tools/call` naming no tool of this server is `invalid_argument` (temporary false), the code for a malformed call, never `internal_error`, which the capability summary counts as a server defect. `details.field` is `name`, the `tools/call` parameter, and `details.candidates` lists the server's tool names; the received name is not echoed [6.offending-value]. The repair is `read_capabilities`: `atlas_get_reference({topic: "capabilities"})`. No new code. *(Claude's call, milestone 6 standards review.)*
 
 `dataset_not_found`'s `alternative` names the portal that was queried and says the id may belong to another portal.
+
+**Framework validation.** `details.field` and `details.fields` name only published parameter paths; unknown keys appear in `reason`, never as parameter paths. Feedback includes at most 20 paths of at most 128 characters each (longer paths are omitted rather than renamed), with bounded unknown key names and a 500-character reason that reports omitted counts. A failing `portal` repairs to `atlas_find_portals({})`. A failing `dataset_id` with a resolvable sibling `portal` repairs to `browse`: `atlas_search_datasets({portal: <canonical id>})`; an unresolvable sibling portal repairs to `find_portal`. Rejected values never enter these repairs. A `describe_parent` repair requires a parent matching the dataset-id pattern; otherwise it uses `find_tabular`.
+
+**Failure budget.** Tool failures are measured with both `structuredContent` and its serialized text copy. An envelope above `RESULT_LIMIT` falls back to `code`, `message`, `temporary`, `retry_after_ms` and `request_id`, omitting optional diagnostics and repair.
 
 **Argument combinations** (`core/arguments.py`) are `invalid_argument` with a repair that reads the reference section stating the rule, never a row call (#19): a cursor sent with other arguments reads `soql/paging` (`read_paging`), with an `alternative` naming the arguments to keep and drop; a `mode`/`soql` mismatch reads `soql/syntax` (`read_syntax`); clauses over 4,096 bytes read `soql/filtering`. Every data tool checks combinations before it resolves `portal`, so the same bad call fails the same way on every tool (#23).
 
