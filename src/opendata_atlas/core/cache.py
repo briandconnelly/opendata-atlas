@@ -71,6 +71,10 @@ views: TtlCache[tuple[str, str], dict[str, Any]] = TtlCache(VIEW_TTL_SECONDS, VI
 region_labels: TtlCache[tuple[str, str, str], str] = TtlCache(
     REGION_LABEL_TTL_SECONDS, REGION_LABEL_CACHE_MAX
 )
+#: `(portal_id, layer_id)` to the layer's whole feature id to label map (#80).
+region_layers: TtlCache[tuple[str, str], dict[str, str]] = TtlCache(
+    REGION_LABEL_TTL_SECONDS, REGION_LABEL_CACHE_MAX
+)
 
 
 @dataclass
@@ -120,3 +124,4 @@ async def fresh_view(client: SodaClient, portal: PortalContext, dataset_id: str)
 def clear() -> None:
     views.clear()
     region_labels.clear()
+    region_layers.clear()

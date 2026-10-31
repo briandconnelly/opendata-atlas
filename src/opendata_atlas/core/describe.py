@@ -680,14 +680,24 @@ async def _region_labels(
     places: list[dict[str, Any]],
     place_stats: dict[str, _Outcome],
 ) -> dict[str, dict[str, str]]:
-    """Map each computed-region column's feature ids to labels, for layers with few used values."""
+    """Map each computed-region column's feature ids to labels, for layers with few used values.
+
+    When a column's stats did not come back, the map is the layer's own, read from the layer
+    (#80): it is small, and the labels need no dataset query.
+    """
     labels: dict[str, dict[str, str]] = {}
     with anyio.move_on_after(_LABEL_FETCH_TIMEOUT):
         for spec in places:
             if spec["source"] != "computed_region" or not spec.get("label_column"):
                 continue
             groups = place_stats[spec["column"]]
-            if groups.status != "ok" or len(groups.value) > _MAX_VALUES:
+            if groups.status != "ok":
+                labels[spec["column"]] = {}
+                layer_map = await _layer_labels(client, portal, spec)
+                if layer_map is not None:
+                    labels[spec["column"]] = layer_map
+                continue
+            if len(groups.value) > _MAX_VALUES:
                 continue
             ids = sorted(
                 {str(r["v"]) for r in groups.value if str(r.get("v", "")).isdigit()}, key=int
@@ -727,6 +737,41 @@ async def _region_labels(
                     cache.region_labels.put((portal.id, layer, feature), label)
             labels[spec["column"]] = names
     return labels
+
+
+async def _layer_labels(
+    client: SodaClient, portal: PortalContext, spec: dict[str, Any]
+) -> dict[str, str] | None:
+    """The region layer's whole feature id to label map; None when it failed or is too large."""
+    layer = spec["layer_id"]
+    cached = cache.region_layers.get((portal.id, layer))
+    if cached is not None:
+        return cached
+    try:
+        rows = await client.soql(
+            portal,
+            layer,
+            {
+                "$select": f"_feature_id AS id, {identifier(spec['label_column'])} AS label",
+                "$order": "_feature_id",
+                "$limit": _MAX_VALUES + 1,
+            },
+        )
+    except AtlasError as exc:
+        if exc.envelope.code in _ACTIONABLE:
+            raise
+        return None
+    if len(rows) > _MAX_VALUES:
+        return None
+    names = {
+        str(r["id"]): clean(str(r.get("label", "")), limit=100) or ""
+        for r in rows
+        if str(r.get("id", "")).isdigit()
+    }
+    for feature, label in names.items():
+        cache.region_labels.put((portal.id, layer, feature), label)
+    cache.region_layers.put((portal.id, layer), names)
+    return names
 
 
 def _row_count(outcome: _Outcome, columns: list[dict[str, Any]]) -> RowCount:
@@ -827,6 +872,16 @@ def _place_field(
     field.boundary_vintage = spec.get("vintage")
     if groups.status != "ok":
         field.stats_status = groups.status
+        if spec["column"] in labels:
+            names = labels[spec["column"]]
+            field.labels_available = bool(names)
+            field.layer_features = (
+                sorted(
+                    (PlaceValue(label=label, value=feature) for feature, label in names.items()),
+                    key=lambda v: v.label,
+                )
+                or None
+            )
         return field
     field.stats_status = "ok"
     placeholders = [

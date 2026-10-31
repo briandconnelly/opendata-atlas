@@ -187,6 +187,12 @@ class PlaceField(Closed):
     layer_id: str | None = None
     label_column: str | None = None
     labels_available: bool | None = None
+    layer_features: list[PlaceValue] | None = Field(
+        default=None,
+        description="Every feature of the region layer as label and feature id, read from the "
+        "layer itself when stats_status is not ok and values are missing; not which features "
+        "rows use.",
+    )
     boundary_vintage: str | None = None
     stats_status: Literal["ok", "timeout", "unavailable"] | None = None
 

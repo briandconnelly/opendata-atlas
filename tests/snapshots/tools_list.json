@@ -600,6 +600,22 @@
             ],
             "type": "object"
           },
+          "PlaceValue": {
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "value"
+            ],
+            "type": "object"
+          },
           "PlaceholderValue": {
             "additionalProperties": false,
             "properties": {
@@ -828,6 +844,13 @@
                 "labels_available": {
                   "type": "boolean"
                 },
+                "layer_features": {
+                  "description": "Every feature of the region layer as label and feature id, read from the layer itself when stats_status is not ok and values are missing; not which features rows use.",
+                  "items": {
+                    "$ref": "#/$defs/PlaceValue"
+                  },
+                  "type": "array"
+                },
                 "layer_id": {
                   "type": "string"
                 },
@@ -875,20 +898,7 @@
                 },
                 "values": {
                   "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "label": {
-                        "type": "string"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "label",
-                      "value"
-                    ],
-                    "type": "object"
+                    "$ref": "#/$defs/PlaceValue"
                   },
                   "type": "array"
                 }

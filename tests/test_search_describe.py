@@ -173,6 +173,56 @@ async def test_describe_full_resolves_region_labels(client, tools_list, soda):
     assert council["reliability"] == "unreliable"
 
 
+_MCPP_LAYER = [{"id": "8", "label": "CAPITOL HILL"}, {"id": "44", "label": "NORTH CAPITOL HILL"}]
+
+
+@pytest.mark.soda_fixture(
+    "describe_fire_full",
+    overrides={
+        '"$group", ":@computed_region_ru88_fbhk"': "timeout",
+        '"$order", "_feature_id"': (200, _MCPP_LAYER),
+    },
+)
+async def test_describe_serves_layer_labels_when_stats_time_out(client, tools_list, soda):
+    """#80: a region column's labels come from its layer even when its stats query fails."""
+    args = {"portal": "seattle", "dataset_id": "kzjm-xkqj", "detail": "full", "column_query": "x"}
+    out = ok(
+        await call(client, "atlas_describe_dataset", args), tools_list, "atlas_describe_dataset"
+    )
+    mcpp = next(p for p in out["place_fields"] if p["column"] == ":@computed_region_ru88_fbhk")
+    assert mcpp["stats_status"] == "timeout" and "values" not in mcpp
+    assert mcpp["labels_available"] is True
+    assert mcpp["layer_features"] == [
+        {"label": "CAPITOL HILL", "value": "8"},
+        {"label": "NORTH CAPITOL HILL", "value": "44"},
+    ]
+    others = [p for p in out["place_fields"] if p["column"] != mcpp["column"]]
+    assert all("layer_features" not in p for p in others), "stats that succeed keep values"
+
+    soda.requests.clear()
+    again = ok(
+        await call(client, "atlas_describe_dataset", args), tools_list, "atlas_describe_dataset"
+    )
+    assert not [r for r in soda.requests if "_feature_id" in r], "the layer map is cached"
+    assert again["place_fields"] == out["place_fields"]
+
+
+@pytest.mark.soda_fixture(
+    "describe_fire_full",
+    overrides={
+        '"$group", ":@computed_region_ru88_fbhk"': "timeout",
+        '"$order", "_feature_id"': (500, {"message": "unavailable"}),
+    },
+)
+async def test_describe_reports_missing_layer_labels_when_stats_time_out(client, tools_list, soda):
+    args = {"portal": "seattle", "dataset_id": "kzjm-xkqj", "detail": "full", "column_query": "x"}
+    out = ok(
+        await call(client, "atlas_describe_dataset", args), tools_list, "atlas_describe_dataset"
+    )
+    mcpp = next(p for p in out["place_fields"] if p["column"] == ":@computed_region_ru88_fbhk")
+    assert mcpp["labels_available"] is False and "layer_features" not in mcpp
+
+
 @pytest.mark.soda_fixture("describe_crime_full")
 async def test_describe_reports_placeholder_share(client, tools_list, soda):
     out = ok(

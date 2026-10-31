@@ -77,7 +77,10 @@ async def test_forbidden_during_describe_is_reported(client, soda):
     assert result["structuredContent"]["code"] == "upstream_forbidden"
 
 
-@pytest.mark.soda_fixture("describe_fire_full", overrides={"AS v": (503, {"message": "down"})})
+@pytest.mark.soda_fixture(
+    "describe_fire_full",
+    overrides={"AS v": (503, {"message": "down"}), "AS label": (503, {"message": "down"})},
+)
 async def test_failed_place_stats_are_unavailable_not_timeout(client, soda):
     args = {"portal": "seattle", "dataset_id": "kzjm-xkqj", "detail": "full", "column_query": "zzz"}
     out = wire(await client.call_tool_mcp("atlas_describe_dataset", args))["structuredContent"]
