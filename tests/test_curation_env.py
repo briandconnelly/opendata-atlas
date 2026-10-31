@@ -372,16 +372,33 @@ def _compat(wt: Path, portal: str, **steps: str) -> None:
     (wt / COMPAT_OUTCOMES).write_text(json.dumps([row]))
 
 
+def _check_compat(wt: Path, message: str | None = None) -> list[str]:
+    return outcome_failures(
+        _completed(),
+        pack=PACK,
+        digest_now=DIGEST,
+        wt=wt,
+        task_ids=TASKS,
+        reviewed=REVIEWED,
+        portal_id=PACK,
+        final_message=message,
+    )
+
+
 def test_compat_case_must_pass_for_a_completed_run(tmp_path):
-    """#67: the compatibility case is a promotion condition, so a completed run records it."""
+    """#67: a completed run records the compatibility case; it must pass to propose curated."""
     _healthy(tmp_path)
-    check = {"pack": PACK, "digest_now": DIGEST, "task_ids": TASKS, "reviewed": REVIEWED}
-    (failure,) = outcome_failures(_completed(), wt=tmp_path, portal_id=PACK, **check)
+    (failure,) = _check_compat(tmp_path)
     assert "missing or unreadable" in failure
     _compat(tmp_path, PACK)
-    assert outcome_failures(_completed(), wt=tmp_path, portal_id=PACK, **check) == []
+    assert _check_compat(tmp_path) == []
     _compat(tmp_path, PACK, query_p2="transient")
-    assert "query_p2" in compat_failures(tmp_path, PACK)[0]
+    assert "query_p2" in compat_failures(tmp_path, PACK, proposes=True)[0]
+    assert compat_failures(tmp_path, PACK, proposes=False) == [], "reported, not proposed"
+    (failure,) = _check_compat(tmp_path, "I propose `curated`: every task passed.")
+    assert "curated is proposed" in failure
+    declining = "The compatibility case failed, so I do not propose curated."
+    assert _check_compat(tmp_path, declining) == []
     assert "no row" in compat_failures(tmp_path, "data.other.gov")[0]
 
 
@@ -393,6 +410,8 @@ def test_dropped_claims_names_base_claims_the_run_removed():
         == []
     )
     assert dropped_claims(['[[claim]]\nid = "a"\n[[claim]]\nid = "c"\n'], base) == ["b"]
+    named = "Removed claim b: its drift check was contradicted."
+    assert dropped_claims(['[[claim]]\nid = "a"\n'], base, named=named) == []
 
 
 @pytest.mark.parametrize(

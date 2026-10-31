@@ -19,6 +19,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import re
 import subprocess
 import tomllib
 from collections import Counter
@@ -190,6 +191,7 @@ def outcome_failures(
     task_ids: list[str],
     reviewed: list[str],
     portal_id: str | None = None,
+    final_message: str | None = None,
 ) -> list[str]:
     """What `.curation/outcome.json` gets wrong against the branch and the worktree.
 
@@ -230,12 +232,22 @@ def outcome_failures(
             out.append(f"{run}: no transcript for {missing}")
     out += served_failures(wt, reviewed)
     if portal_id is not None:
-        out += compat_failures(wt, portal_id)
+        out += compat_failures(wt, portal_id, proposes=proposes_curated(final_message))
     return out
 
 
-def compat_failures(wt: Path, portal_id: str) -> list[str]:
-    """Skill step 11.1's compatibility case: every step `ok` for the portal (#67)."""
+def proposes_curated(message: str | None) -> bool:
+    """Whether the final message proposes `curated` (skill step 12), not declines to."""
+    text = message or ""
+    if re.search(r"\b(?:not|never|cannot|can't|don't|do not)\s+propos\w*\s+`?curated", text, re.I):
+        return False
+    return re.search(r"\bpropos\w*\s+`?curated", text, re.I) is not None
+
+
+def compat_failures(wt: Path, portal_id: str, *, proposes: bool = True) -> list[str]:
+    """Skill step 11.1's compatibility case (#67): its evidence must exist for the portal, and
+    every step must be `ok` when the run `proposes` `curated` (step 12). A failure the run
+    reports without proposing is the skill's documented path, not a harness failure."""
     try:
         rows = json.loads((wt / COMPAT_OUTCOMES).read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -253,7 +265,9 @@ def compat_failures(wt: Path, portal_id: str) -> list[str]:
         for s in COMPAT_STEPS
         if not (isinstance(steps.get(s), dict) and steps[s].get("kind") == "ok")
     ]
-    return [f"{COMPAT_OUTCOMES}: {portal_id} steps not ok: {bad}"] if bad else []
+    if bad and proposes:
+        return [f"{COMPAT_OUTCOMES}: {portal_id} steps not ok, yet curated is proposed: {bad}"]
+    return []
 
 
 #: One served-check entry (skill step 6).
@@ -303,15 +317,16 @@ def reviewed_claims(texts: list[str]) -> dict[str, dict[str, Any]]:
     }
 
 
-def dropped_claims(now: list[str], base: list[str]) -> list[str]:
-    """Ids of claims the base pack held that the run's pack no longer holds (skill rule 31,
-    #68): a facts file copied over an existing one drops them."""
+def dropped_claims(now: list[str], base: list[str], *, named: str | None = None) -> list[str]:
+    """Ids of claims the base pack held that the run's pack no longer holds and the final
+    message does not name (skill rule 31, #68): a facts file copied over an existing one drops
+    them silently, while step 11.1 may remove a failing claim the PR body names."""
     held = {raw["id"] for text in now for raw in tomllib.loads(text).get("claim", [])}
     return sorted(
         raw["id"]
         for text in base
         for raw in tomllib.loads(text).get("claim", [])
-        if raw["id"] not in held
+        if raw["id"] not in held and raw["id"] not in (named or "")
     )
 
 
@@ -615,6 +630,7 @@ def _check_pack(
     summary: dict,
     failures: list[str],
     evals_out: Path,
+    final_message: str | None = None,
 ) -> None:
     """Step 5: the pack's identity and tier, the commit, the outcome, the gates and evals."""
     pack_dir = wt / PORTALS / pack
@@ -642,8 +658,8 @@ def _check_pack(
     if (problem := uncommitted_failure(status)) is not None:
         failures.append(problem)
     now, before = _pack_texts(pack, cwd=wt), _pack_texts(pack, ref=base)
-    if dropped := dropped_claims(now, before):
-        failures.append(f"claims the base pack held are missing: {dropped}")
+    if dropped := dropped_claims(now, before, named=final_message):
+        failures.append(f"claims the base pack held are missing and unnamed: {dropped}")
     failures += outcome_failures(
         outcome,
         pack=pack,
@@ -652,6 +668,7 @@ def _check_pack(
         task_ids=[t["id"] for t in tasks],
         reviewed=changed_reviewed(now, before),
         portal_id=identity["id"],
+        final_message=final_message,
     )
     completed = isinstance(outcome, dict) and outcome.get("outcome") == "completed"
     _gates(wt, pack_dir, identity["id"], env, summary, failures, full=completed)
@@ -708,7 +725,17 @@ def test_curation_skill_produces_a_passing_pack(tmp_path):
     else:
         pack = _branch(wt, base, branch, summary, failures)  # 4.
     if pack is not None:  # 5.
-        _check_pack(wt, pack, base, outcome, env, summary, failures, tmp_path / "evals")
+        _check_pack(
+            wt,
+            pack,
+            base,
+            outcome,
+            env,
+            summary,
+            failures,
+            tmp_path / "evals",
+            final_message=curation.get("final_message"),
+        )
 
     summary["failures"] = failures  # 6. Written whether or not the run passed.
     evidence = os.environ.get("ATLAS_CURATION_EVIDENCE")
