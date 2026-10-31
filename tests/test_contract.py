@@ -137,3 +137,22 @@ def test_output_schemas_share_only_repeated_objects(tools_list):
             assert _refs(body) == [], (tool["name"], name)
         shared += len(defs)
     assert shared, "known positive: some output object is shared"
+
+
+def test_shared_output_schemas_expand_to_the_inlined_schema():
+    """#66: sharing a repeated object changes bytes, never meaning. Each tool's served output
+    schema, expanded, equals its model's schema inlined before compaction."""
+    from fastmcp.utilities.json_schema import dereference_refs
+
+    from opendata_atlas.mcp.schema import compact_output_schema
+    from opendata_atlas.mcp.tools import _TOOLS
+
+    shared = 0
+    for _fn, _title, model, _hints in _TOOLS:
+        raw = model.model_json_schema()
+        served = compact_output_schema(raw)
+        shared += len(served.get("$defs", {}))
+        inlined = compact_output_schema(dereference_refs(raw))
+        assert "$defs" not in inlined and _refs(inlined) == [], model.__name__
+        assert dereference_refs(served) == inlined, model.__name__
+    assert shared, "known positive: some model has a repeated object"
