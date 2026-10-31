@@ -10,6 +10,7 @@ from typing import TYPE_CHECKING, Annotated, Any, Literal
 # FastMCP resolves return annotations at registration, so this stays a runtime import.
 from fastmcp.tools import ToolResult  # noqa: TC002
 from fastmcp.tools.function_tool import FunctionTool
+from fastmcp.utilities.json_schema import dereference_refs
 from mcp.types import ToolAnnotations
 from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
@@ -435,5 +436,7 @@ def register_tools(mcp: FastMCP) -> None:
             annotations=hints,
             output_schema=compact_output_schema(output_model.model_json_schema()),
         )
-        tool.parameters = compact_schema(tool.parameters)
+        # The server turns FastMCP's serve-time dereferencing off so output schemas keep their
+        # shared `$defs` (#66); input schemas are inlined here instead [3.portable-schema].
+        tool.parameters = compact_schema(dereference_refs(tool.parameters))
         mcp.add_tool(tool)

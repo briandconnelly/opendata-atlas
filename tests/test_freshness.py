@@ -16,6 +16,7 @@ from typing import TYPE_CHECKING, Any
 
 import httpx
 import pytest
+from fastmcp.utilities.json_schema import dereference_refs
 
 from opendata_atlas.core import describe, query
 from opendata_atlas.core.http import SodaClient
@@ -447,7 +448,8 @@ async def test_stale_only_fields_publish_only_stale(tools_list):
     found = {
         path: schema
         for tool in tools_list["tools"]
-        for path, schema in walk(tool.get("outputSchema", {}), tool["name"])
+        # Shared `$defs` (#66) are expanded, so each field is read at the path it is served at.
+        for path, schema in walk(dereference_refs(tool.get("outputSchema", {})), tool["name"])
     }
     assert len(found) == 3, found
     for path, schema in found.items():

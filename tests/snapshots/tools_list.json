@@ -287,113 +287,70 @@
       },
       "name": "atlas_search_datasets",
       "outputSchema": {
+        "$defs": {
+          "DatasetSummary": {
+            "additionalProperties": false,
+            "properties": {
+              "asset_type": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "dataset_id": {
+                "type": "string"
+              },
+              "derived_from": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "external_url": {
+                "type": "string"
+              },
+              "guide_uri": {
+                "type": "string"
+              },
+              "portal_url": {
+                "type": "string"
+              },
+              "queryability": {
+                "enum": [
+                  "supported",
+                  "external",
+                  "unsupported",
+                  "unknown"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "updated_at": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "dataset_id",
+              "title",
+              "asset_type",
+              "queryability",
+              "portal_url"
+            ],
+            "type": "object"
+          }
+        },
         "additionalProperties": true,
         "properties": {
           "datasets": {
             "items": {
-              "additionalProperties": false,
-              "properties": {
-                "asset_type": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "dataset_id": {
-                  "type": "string"
-                },
-                "derived_from": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "external_url": {
-                  "type": "string"
-                },
-                "guide_uri": {
-                  "type": "string"
-                },
-                "portal_url": {
-                  "type": "string"
-                },
-                "queryability": {
-                  "enum": [
-                    "supported",
-                    "external",
-                    "unsupported",
-                    "unknown"
-                  ]
-                },
-                "title": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "dataset_id",
-                "title",
-                "asset_type",
-                "queryability",
-                "portal_url"
-              ],
-              "type": "object"
+              "$ref": "#/$defs/DatasetSummary"
             },
             "type": "array"
           },
           "external_matches": {
             "items": {
-              "additionalProperties": false,
-              "properties": {
-                "asset_type": {
-                  "type": "string"
-                },
-                "category": {
-                  "type": "string"
-                },
-                "dataset_id": {
-                  "type": "string"
-                },
-                "derived_from": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "external_url": {
-                  "type": "string"
-                },
-                "guide_uri": {
-                  "type": "string"
-                },
-                "portal_url": {
-                  "type": "string"
-                },
-                "queryability": {
-                  "enum": [
-                    "supported",
-                    "external",
-                    "unsupported",
-                    "unknown"
-                  ]
-                },
-                "title": {
-                  "type": "string"
-                },
-                "updated_at": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "dataset_id",
-                "title",
-                "asset_type",
-                "queryability",
-                "portal_url"
-              ],
-              "type": "object"
+              "$ref": "#/$defs/DatasetSummary"
             },
             "type": "array"
           },
@@ -615,6 +572,51 @@
       },
       "name": "atlas_describe_dataset",
       "outputSchema": {
+        "$defs": {
+          "Knowledge": {
+            "additionalProperties": false,
+            "description": "Level none (nothing recorded), profiled (observations only) or reviewed (interpretations).",
+            "properties": {
+              "level": {
+                "enum": [
+                  "none",
+                  "profiled",
+                  "reviewed"
+                ]
+              },
+              "validation": {
+                "enum": [
+                  "unchecked",
+                  "passed",
+                  "stale",
+                  "contradicted",
+                  "inconclusive"
+                ]
+              }
+            },
+            "required": [
+              "level",
+              "validation"
+            ],
+            "type": "object"
+          },
+          "PlaceholderValue": {
+            "additionalProperties": false,
+            "properties": {
+              "rows": {
+                "type": "integer"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "rows"
+            ],
+            "type": "object"
+          }
+        },
         "additionalProperties": true,
         "properties": {
           "columns": {
@@ -625,31 +627,7 @@
                   "type": "string"
                 },
                 "knowledge": {
-                  "additionalProperties": false,
-                  "description": "Level none (nothing recorded), profiled (observations only) or reviewed (interpretations).",
-                  "properties": {
-                    "level": {
-                      "enum": [
-                        "none",
-                        "profiled",
-                        "reviewed"
-                      ]
-                    },
-                    "validation": {
-                      "enum": [
-                        "unchecked",
-                        "passed",
-                        "stale",
-                        "contradicted",
-                        "inconclusive"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "level",
-                    "validation"
-                  ],
-                  "type": "object"
+                  "$ref": "#/$defs/Knowledge"
                 },
                 "name": {
                   "type": "string"
@@ -796,31 +774,7 @@
             "type": "boolean"
           },
           "knowledge": {
-            "additionalProperties": false,
-            "description": "Level none (nothing recorded), profiled (observations only) or reviewed (interpretations).",
-            "properties": {
-              "level": {
-                "enum": [
-                  "none",
-                  "profiled",
-                  "reviewed"
-                ]
-              },
-              "validation": {
-                "enum": [
-                  "unchecked",
-                  "passed",
-                  "stale",
-                  "contradicted",
-                  "inconclusive"
-                ]
-              }
-            },
-            "required": [
-              "level",
-              "validation"
-            ],
-            "type": "object"
+            "$ref": "#/$defs/Knowledge"
           },
           "next_column_cursor": {
             "description": "Send as column_cursor for the next columns; omitted on the last.",
@@ -839,20 +793,7 @@
                 "candidate_placeholders": {
                   "description": "Common placeholder values found here but not declared; still counted in values and assigned_fraction.",
                   "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "rows": {
-                        "type": "integer"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "value",
-                      "rows"
-                    ],
-                    "type": "object"
+                    "$ref": "#/$defs/PlaceholderValue"
                   },
                   "type": "array"
                 },
@@ -898,20 +839,7 @@
                 },
                 "placeholder_values": {
                   "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "rows": {
-                        "type": "integer"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "value",
-                      "rows"
-                    ],
-                    "type": "object"
+                    "$ref": "#/$defs/PlaceholderValue"
                   },
                   "type": "array"
                 },
