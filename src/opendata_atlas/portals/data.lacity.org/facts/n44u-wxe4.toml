@@ -1,0 +1,77 @@
+# LAFD Response Metrics - Raw Data. Written by hand on 2026-10-31 from the probes and the
+# publisher's column descriptions cited below. The dataset has no date-typed column, so it has
+# no primary time column; each probe is bounded to one year or quarter by incident number.
+
+[[claim]]
+id = "n44u-wxe4-unit-dispatch"
+kind = "unit_of_observation"
+scope = {dataset = "n44u-wxe4"}
+interpretation = {unit = "unit dispatch", reason = "One row per LAFD resource (engine, ambulance, truck) dispatched to an incident, not per call or per incident: 2025 has 838,520 rows over 238,992 distinct randomized_incident_number values, about 3.5 units each. Count distinct randomized_incident_number for incidents. There is no date column: the publisher codes the year and quarter into the first six digits of randomized_incident_number (202501... is 2025, first quarter), which runs from the first quarter of 2016 to the fourth quarter of 2025. The *_gmt columns are text times of day in GMT with no date (rows are fewest at hours 11 to 13 GMT, 3 to 5 a.m. Pacific in winter), so a response time across midnight GMT cannot be computed from them alone. The publisher says the data is emergency incidents only, yet 31,738 of 2025's rows have emergency_dispatch_code 'Non-Emergency'. There is no call type and no location beyond first_in_district, so this is not 911 call data. Last updated 2026-02-10 with a quarterly refresh."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct randomized_incident_number) AS incidents WHERE randomized_incident_number >= 202500000000 AND randomized_incident_number < 202600000000"
+observed_at = 2026-10-31
+observation = "838,520 rows over 238,992 distinct incident numbers in 2025."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT floor(randomized_incident_number / 1000000) AS yq, count(*) AS n GROUP BY yq ORDER BY yq"
+observed_at = 2026-10-31
+observation = "40 groups, 201601 to 202504, each with 183,577 to 234,366 rows."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT substring(incident_creation_time_gmt, 1, 2) AS h, count(*) AS n WHERE randomized_incident_number >= 202501000000 AND randomized_incident_number < 202502000000 GROUP BY h ORDER BY n DESC"
+observed_at = 2026-10-31
+observation = "Fewest rows at hours 11, 12 and 13 (4,430 to 4,686); most at 18 to 02 (over 10,900 each)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT emergency_dispatch_code AS v, count(*) AS n, count(distinct randomized_incident_number) AS incidents WHERE randomized_incident_number >= 202500000000 AND randomized_incident_number < 202600000000 GROUP BY v"
+observed_at = 2026-10-31
+observation = "Emergency: 806,782 rows (236,205 incidents); Non-Emergency: 31,738 rows (25,438 incidents)."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/api/views/n44u-wxe4.json"
+quote = "This number is generated with the year and quarter indicator with a six digits randomized number attached, i.e. – 201301345785, this number means it is in the year 2013 in the first quarter."
+observed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/api/views/n44u-wxe4.json"
+quote = "The number assigned to each resource in the order in which it is dispatched to the incident."
+observed_at = 2026-10-31
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "incidents", denominator = "n", max = 0.5}
+
+[[claim]]
+id = "n44u-wxe4-first_in_district-place-field"
+kind = "place_field"
+scope = {dataset = "n44u-wxe4", column = "first_in_district"}
+interpretation = {kind = "other", kind_label = "LAFD fire station first-in district", reliability = "ok", reason = "The fire station district where the incident occurred, as a station number (a number column: filter first_in_district = 9, not '9'). 108 districts in the first quarter of 2025, filled on 203,917 of 203,936 rows. Not an LAPD Area or a neighborhood."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(first_in_district) AS filled, count(*) AS n, count(distinct first_in_district) AS d WHERE randomized_incident_number >= 202501000000 AND randomized_incident_number < 202502000000"
+observed_at = 2026-10-31
+observation = "203,917 of 203,936 rows (0.9999) have a value; 108 distinct districts."
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.lacity.org/api/views/n44u-wxe4.json"
+quote = "The location where the incident occurred in terms of a Fire Station district."
+observed_at = 2026-10-31
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.99}

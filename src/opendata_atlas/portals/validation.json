@@ -771,6 +771,18 @@
     "outcome": "passed",
     "previous_outcome": "passed"
    },
+   "n44u-wxe4-first_in_district-place-field": {
+    "assertion_digest": "113c35edb1f2",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
+   "n44u-wxe4-unit-dispatch": {
+    "assertion_digest": "9f8fdc226e55",
+    "checked_at": "2026-10-31",
+    "outcome": "passed",
+    "previous_outcome": null
+   },
    "r4uk-afju-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "fbc1f2e047b0",
     "checked_at": "2026-10-31",
@@ -811,25 +823,25 @@
     "assertion_digest": "1b35952c2085",
     "checked_at": "2026-10-31",
     "outcome": "passed",
-    "previous_outcome": null
+    "previous_outcome": "passed"
    },
    "xjgu-z4ju-dispatch_date-timezone": {
     "assertion_digest": "3939a6db8def",
     "checked_at": "2026-10-31",
     "outcome": "passed",
-    "previous_outcome": null
+    "previous_outcome": "passed"
    },
    "xjgu-z4ju-rpt_dist-place-field": {
     "assertion_digest": "f4f3ad8188ab",
     "checked_at": "2026-10-31",
     "outcome": "passed",
-    "previous_outcome": null
+    "previous_outcome": "passed"
    },
    "xjgu-z4ju-unit-call": {
     "assertion_digest": "fd5ee755e5b9",
     "checked_at": "2026-10-31",
     "outcome": "passed",
-    "previous_outcome": null
+    "previous_outcome": "passed"
    },
    "yru6-6re4-:@computed_region_2dna_qi2s-fill": {
     "assertion_digest": "ee3241bf1680",

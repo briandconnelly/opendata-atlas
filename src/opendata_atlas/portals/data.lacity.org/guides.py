@@ -138,4 +138,57 @@ One LAPD incident number (`incident_number` is unique on every row; 4,227,209 ro
         ),
         observed_at=CALLS_OBSERVED,
     ),
+    Guide(
+        "lafd-response",
+        "n44u-wxe4",
+        "LAFD Response Metrics - Raw Data",
+        "LAFD unit dispatches by fire station district, 2016 to 2025, with GMT times of day but no dates; not 911 call data.",
+        """
+## What a row is
+One LAFD resource (engine, ambulance, truck) dispatched to an incident, not a call and not an incident: 2025 has 838,520 rows over 238,992 distinct `randomized_incident_number` values. Count distinct `randomized_incident_number` for incidents. There is no call type and no location but the fire station district, so this is not 911 call data; LAPD calls are in `xjgu-z4ju`.
+
+## Time
+- There is no date column. The first six digits of `randomized_incident_number` are the year and quarter (`202501...` is 2025, first quarter), so filter a year or quarter with a number range: `randomized_incident_number >= 202500000000 AND randomized_incident_number < 202600000000` for 2025. `floor(randomized_incident_number / 1000000)` groups by quarter.
+- The data runs from the first quarter of 2016 to the fourth quarter of 2025 (183,577 to 234,366 rows a quarter). The publisher states a quarterly refresh; it was last updated on 2026-02-10, so 2026 is not published yet.
+- `incident_creation_time_gmt`, `time_of_dispatch_gmt`, `en_route_time_gmt` and `on_scene_time_gmt` are text times of day ('08:02:34.382509') in GMT, with no date, so an hour of day in Los Angeles needs the GMT offset and a span across midnight GMT cannot be computed from them alone.
+
+## Other fields
+- `first_in_district`: the fire station district where the incident occurred, as a station number (a number column: `first_in_district = 9`). 108 districts in the first quarter of 2025; district 9 had the most rows (7,957).
+- `emergency_dispatch_code`: the publisher says the data is emergency incidents only, yet 31,738 of 2025's rows are 'Non-Emergency'.
+- `unit_type`, `dispatch_status`, `dispatch_sequence` and `ppe_level` are unreviewed.
+""",
+        (
+            Example(
+                "How many LAFD incidents and unit dispatches were there in 2025?",
+                {
+                    "portal": "los-angeles",
+                    "dataset_id": "n44u-wxe4",
+                    "select": [
+                        "count(*) AS dispatches",
+                        "count(distinct randomized_incident_number) AS incidents",
+                    ],
+                    "where": "randomized_incident_number >= 202500000000 AND randomized_incident_number < 202600000000",
+                },
+            ),
+            Example(
+                "How many unit dispatches were there each quarter?",
+                {
+                    "portal": "los-angeles",
+                    "dataset_id": "n44u-wxe4",
+                    "select": [
+                        "floor(randomized_incident_number / 1000000) AS year_quarter",
+                        "count(*) AS dispatches",
+                    ],
+                    "group_by": ["year_quarter"],
+                    "order_by": ["year_quarter"],
+                    "page_size": 50,
+                },
+            ),
+        ),
+        rules=(
+            "Say whether a count is unit dispatches (rows) or incidents (distinct randomized_incident_number).",
+            "Never call this dataset 911 calls.",
+        ),
+        observed_at=CALLS_OBSERVED,
+    ),
 )

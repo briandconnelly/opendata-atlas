@@ -54,5 +54,13 @@
       "misleading_field"
     ],
     "expect": "Reference (probed 2026-10-31): in LAPD Calls for Service 2024 to Present (xjgu-z4ju), September 2026 by dispatch_date has 122,579 rows. Grouped by area_occ, the largest group is 'Outside' (26,216), which is not an Area: it assigns no Area, and 24,004 of its rows are 'CODE 6' and 2,045 traffic stops. The busiest Area is Central with 8,191, then Newton (6,302) and Southwest (5,998). PASS: names Central with 8,191 and says 'Outside' is not an Area (or leaves it out with a reason). PARTIAL: names Central with a figure the live query supports but gives no word on 'Outside', or names Central and counts only non-CODE 6 rows while saying so. FAIL: names 'Outside' as the busiest Area, or another Area, or invents a number."
+  },
+  {
+    "id": "06-lafd-responses-2025",
+    "prompt": "How many emergencies did the Los Angeles Fire Department respond to in 2025?",
+    "covers": [
+      "misleading_field"
+    ],
+    "expect": "Reference (probed 2026-10-31): LAFD Response Metrics - Raw Data (n44u-wxe4) has one row per LAFD unit dispatched, not per incident, and no date column; the year is the first four digits of randomized_incident_number. 2025 (randomized_incident_number from 202500000000 up to but not including 202600000000): 838,520 rows over 238,992 distinct incident numbers. 31,738 of those rows are emergency_dispatch_code 'Non-Emergency' (25,438 incidents), and 806,782 are 'Emergency' (236,205 incidents); an incident can hold both codes. PASS: gives 238,992 incidents (or 236,205 counting only rows coded 'Emergency', saying so), says rows are unit dispatches and that 838,520 is not the number of incidents, and filters 2025 by the incident number. PARTIAL: the right incident count without saying rows are dispatches, or the right figures while calling them 911 calls. FAIL: reports 838,520 (or any row count) as the number of emergencies or responses to incidents, uses another dataset (such as LAPD calls) as fire responses, says 2025 is not published, or invents a number."
   }
 ]
