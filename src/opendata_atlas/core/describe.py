@@ -275,22 +275,36 @@ async def _describe(
         else None,
         source=make_source(portal, retrieved=True),
     )
-    _page_columns(
-        result,
-        columns,
-        offset=offset,
-        state={"ds": dataset_id, "q": column_query, "d": detail, "f": fingerprint},
-        portal=portal,
-        too_large=lambda even_one: _too_large(
-            portal.id,
-            dataset_id,
-            column_query=column_query,
-            detail=detail,
-            sample_rows=sample_rows,
-            even_one=even_one,
-            continued=column_cursor is not None,
-        ),
+    # Fallback layer maps give way, largest first, before the result is too large (#80).
+    shed = sorted(
+        (p for p in result.place_fields if p.layer_features),
+        key=lambda p: len(p.layer_features or []),
     )
+    while True:
+        try:
+            _page_columns(
+                result,
+                columns,
+                offset=offset,
+                state={"ds": dataset_id, "q": column_query, "d": detail, "f": fingerprint},
+                portal=portal,
+                too_large=lambda even_one: _too_large(
+                    portal.id,
+                    dataset_id,
+                    column_query=column_query,
+                    detail=detail,
+                    sample_rows=sample_rows,
+                    even_one=even_one,
+                    continued=column_cursor is not None,
+                ),
+            )
+        except AtlasError as exc:
+            if exc.envelope.code != ErrorCode.DESCRIBE_TOO_LARGE or not shed:
+                raise
+            field = shed.pop()
+            field.layer_features, field.labels_available = None, False
+            continue
+        break
     return result
 
 

@@ -207,6 +207,31 @@ async def test_describe_serves_layer_labels_when_stats_time_out(client, tools_li
     assert again["place_fields"] == out["place_fields"]
 
 
+_BIG_LAYER = [{"id": str(i), "label": f"NEIGHBORHOOD {i:03d}"} for i in range(1, 61)]
+
+
+@pytest.mark.soda_fixture(
+    "describe_fire_full",
+    overrides={
+        '"$group", ":@computed_region_ru88_fbhk"': "timeout",
+        '"$order", "_feature_id"': (200, _BIG_LAYER),
+    },
+)
+async def test_layer_features_give_way_to_the_result_budget(client, tools_list, soda, monkeypatch):
+    """#80 review: the fallback map is dropped, not the whole describe, near the budget."""
+    args = {"portal": "seattle", "dataset_id": "kzjm-xkqj", "detail": "full", "column_query": "x"}
+    out = ok(
+        await call(client, "atlas_describe_dataset", args), tools_list, "atlas_describe_dataset"
+    )
+    size = len(json.dumps(out, ensure_ascii=False, separators=(",", ":")).encode())
+    monkeypatch.setattr(describe, "RESULT_LIMIT", size - 200)
+    out = ok(
+        await call(client, "atlas_describe_dataset", args), tools_list, "atlas_describe_dataset"
+    )
+    mcpp = next(p for p in out["place_fields"] if p["column"] == ":@computed_region_ru88_fbhk")
+    assert "layer_features" not in mcpp and mcpp["labels_available"] is False
+
+
 @pytest.mark.soda_fixture(
     "describe_fire_full",
     overrides={

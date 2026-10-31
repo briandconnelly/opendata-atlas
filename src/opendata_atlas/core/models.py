@@ -189,9 +189,9 @@ class PlaceField(Closed):
     labels_available: bool | None = None
     layer_features: list[PlaceValue] | None = Field(
         default=None,
-        description="Every feature of the region layer as label and feature id, read from the "
-        "layer itself when stats_status is not ok and values are missing; not which features "
-        "rows use.",
+        description="When stats_status is not ok: every feature of the region layer as label "
+        "and feature id, read from the layer; not which features rows use. Omitted for a layer "
+        "of over 100 features or when the result budget is short.",
     )
     boundary_vintage: str | None = None
     stats_status: Literal["ok", "timeout", "unavailable"] | None = None

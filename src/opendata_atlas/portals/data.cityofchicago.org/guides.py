@@ -37,7 +37,7 @@ One reported crime incident, except homicides, which have one row per victim: si
   - `:@computed_region_vrxf_vc4k`: the 77 community areas. Feature ids are not area numbers: HYDE PARK is `8`, DOUGLAS is `1`.
   - `:@computed_region_d9mm_jgwp`: police districts.
   - `:@computed_region_43wa_7qmu` (2015-2023 wards) and `:@computed_region_awaf_s7ux` (2003-2015 wards) are superseded boundaries.
-- `atlas_describe_dataset` with `detail: "full"` lists each region's values with labels.
+- `atlas_describe_dataset` with `detail: "full"` lists each region's values with labels (`layer_features` when its stats time out).
 """,
         (
             Example(
