@@ -17,6 +17,7 @@ from opendata_atlas.constants import (
     COUNTRY_PATTERN,
     DATASET_ID_PATTERN,
     FIND_PORTALS_PAGE_SIZE_MAX,
+    LIFECYCLE_META,
     PORTAL_PATTERN,
     QUERY_PAGE_SIZE_MAX,
     QUERY_TEXT_MAX_BYTES,
@@ -69,8 +70,8 @@ DescribeDetail = Annotated[
 QueryDetail = Annotated[
     Detail | None,
     Field(
-        description="summary (default) or full: adds query_url and download_url "
-        "(CSV of all matching rows)."
+        description="summary (default) or full: adds query_url and, in clauses mode, "
+        "download_url (CSV of all matching rows)."
     ),
 ]
 Cursor = Annotated[
@@ -171,7 +172,8 @@ async def atlas_search_datasets(
         Field(
             min_length=1,
             max_length=100,
-            description="Exact category name, e.g. Public Safety; omit for all.",
+            description="Exact category name, as in a result's category, e.g. Public Safety; "
+            "omit for all.",
         ),
     ] = None,
     page_size: Annotated[
@@ -343,7 +345,9 @@ async def atlas_query_dataset(
 
     For counts and breakdowns, use count(*) with group_by, not row paging.
     With cursor, send only portal, dataset_id, cursor, and optionally page_size or detail.
-    For all rows, give the user download_url (detail="full") instead of paging.
+    For all rows, give the user download_url (clauses mode, detail="full") instead of paging.
+    Honor coverage_warnings and knowledge_notice in the answer; take relative dates from
+    source.now_local.
     Illustrative example: {"portal": "example-city", "dataset_id": "abcd-1234",
     "select": ["type", "count(*) AS n"], "group_by": ["type"], "order_by": ["n DESC"]}.
     Typically 1-5 s; fails with query_timeout after 30 s.
@@ -391,7 +395,8 @@ async def atlas_get_reference(
         str | None,
         Field(
             pattern=PORTAL_PATTERN,
-            description="Portal id or alias. Required for topic guides; rejected on other topics.",
+            description="Portal id or alias. Required for topic guides; for topic portals, "
+            "the same as item_id; rejected on other topics.",
         ),
     ] = None,
     cursor: Cursor = None,
@@ -399,28 +404,34 @@ async def atlas_get_reference(
     """Read the server's reference: capability summary, portals, dataset guides, SoQL help,
     error catalog, and tier definitions. Call with no arguments for the index.
 
+    If your client did not show you the server instructions, read topic capabilities before
+    your first query.
     Example: {"topic": "soql", "item_id": "dates"}.
     With cursor, repeat only topic and, for guides, portal.
     """
     arguments.check_reference(locals())
     context = resolve_portal(portal) if portal is not None else None
+    if topic == "portals" and context is not None:
+        context, item_id = None, context.id
     result = reference_service.read(context, topic or "index", item_id, cursor=cursor)
     return success(result)
 
 
-_TOOLS: tuple[tuple[Any, type[BaseModel], ToolAnnotations], ...] = (
-    (atlas_find_portals, FindPortalsResult, _READ_ONLY_CLOSED),
-    (atlas_search_datasets, SearchResult, _READ_ONLY_OPEN),
-    (atlas_describe_dataset, DescribeResult, _READ_ONLY_OPEN),
-    (atlas_query_dataset, QueryResult, _READ_ONLY_OPEN),
-    (atlas_get_reference, ReferenceResult, _READ_ONLY_CLOSED),
+_TOOLS: tuple[tuple[Any, str, type[BaseModel], ToolAnnotations], ...] = (
+    (atlas_find_portals, "Find portals", FindPortalsResult, _READ_ONLY_CLOSED),
+    (atlas_search_datasets, "Search datasets", SearchResult, _READ_ONLY_OPEN),
+    (atlas_describe_dataset, "Describe dataset", DescribeResult, _READ_ONLY_OPEN),
+    (atlas_query_dataset, "Query dataset", QueryResult, _READ_ONLY_OPEN),
+    (atlas_get_reference, "Read reference", ReferenceResult, _READ_ONLY_CLOSED),
 )
 
 
 def register_tools(mcp: FastMCP) -> None:
-    for fn, output_model, hints in _TOOLS:
+    for fn, title, output_model, hints in _TOOLS:
         tool = FunctionTool.from_function(
             fn,
+            title=title,
+            meta=LIFECYCLE_META,
             annotations=hints,
             output_schema=compact_output_schema(output_model.model_json_schema()),
         )

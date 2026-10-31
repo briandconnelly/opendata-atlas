@@ -212,8 +212,7 @@ async def test_guides_topic_requires_portal(client):
         {"topic": "soql", "item_id": "dates"},
         {"topic": "errors"},
         {"topic": "contributing"},
-        {"topic": "portals"},
-        {"topic": "portals", "item_id": "seattle"},
+        {"topic": "contributing", "item_id": "tiers"},
     ],
 )
 async def test_portal_is_rejected_on_every_other_topic(client, args):
@@ -224,32 +223,71 @@ async def test_portal_is_rejected_on_every_other_topic(client, args):
     assert envelope["details"]["field"] == "portal"
     assert envelope["repair"]["arguments"] == {}
     assert raw not in json.dumps(result)
-    if args.get("topic") == "portals":
-        assert "item_id" in envelope["details"]["reason"]
+
+
+async def test_portals_takes_portal_as_item_id(client):
+    """#61: topic portals reads the portal named in `portal` as if it were `item_id`."""
+    by_portal = (await ref(client, topic="portals", portal="seattle"))["structuredContent"]
+    by_item = (await ref(client, topic="portals", item_id="seattle"))["structuredContent"]
+    by_portal["source"].pop("request_id")
+    by_item["source"].pop("request_id")
+    assert by_portal == by_item
+    assert by_portal["source"]["portal"]["id"] == SEATTLE
+
+
+async def test_portals_rejects_portal_with_item_id(client):
+    raw = "secret-looking-portal-value"
+    result = await ref(client, topic="portals", portal="seattle", item_id=raw)
+    envelope = result["structuredContent"]
+    assert envelope["code"] == "invalid_argument"
+    assert envelope["details"]["fields"] == ["portal", "item_id"]
+    assert envelope["repair"]["arguments"] == {"topic": "portals"}
+    assert raw not in json.dumps(result)
+
+
+async def test_portals_portal_failure_names_portal(client):
+    raw = "nowhere-portal-zz"
+    result = await ref(client, topic="portals", portal=raw)
+    envelope = result["structuredContent"]
+    assert envelope["code"] == "portal_not_found"
+    assert envelope["details"]["field"] == "portal"
+    assert raw not in json.dumps(result)
 
 
 async def test_contributing_topic_defines_tiers_and_levels(client):
-    result = (await ref(client, topic="contributing"))["structuredContent"]
-    assert result["uri"] == "opendata-atlas://contributing"
-    assert "portal" not in result["source"]
-    body = result["body"]
-    for word in ("generic", "profiled", "curated", "none", "reviewed"):
-        assert f"`{word}`" in body
-    assert '"unchecked"' in body
-    assert "uv run atlas-profile <host>" in body, "the contribution path (Task 13)"
-    assert (await client.read_resource("opendata-atlas://contributing"))[0].text == body
+    """#62: the contributing topic is sectioned, so a tier lookup reads one short section."""
+    index = (await ref(client, topic="contributing"))["structuredContent"]
+    assert index["uri"] == "opendata-atlas://contributing"
+    assert "portal" not in index["source"]
+    assert [e["item_id"] for e in index["entries"]] == ["tiers", "levels", "validation", "path"]
+    bodies = {}
+    for entry in index["entries"]:
+        item = (await ref(client, topic="contributing", item_id=entry["item_id"]))[
+            "structuredContent"
+        ]
+        assert item["uri"] == f"opendata-atlas://contributing/{entry['item_id']}"
+        bodies[entry["item_id"]] = item["body"]
+    for word in ("generic", "profiled", "curated"):
+        assert f"`{word}`" in bodies["tiers"]
+    for word in ("none", "profiled", "reviewed"):
+        assert f"`{word}`" in bodies["levels"]
+    assert '"unchecked"' in bodies["validation"]
+    assert "uv run atlas-profile <host>" in bodies["path"], "the contribution path (Task 13)"
+    assert len(bodies["tiers"].encode()) < 2_000
 
 
-async def test_contributing_has_no_items(client):
+async def test_contributing_unknown_item_lists_sections(client):
     envelope = (await ref(client, topic="contributing", item_id="x"))["structuredContent"]
-    assert envelope["code"] == "invalid_argument"
-    assert envelope["repair"]["arguments"] == {}
+    assert envelope["code"] == "reference_not_found"
+    assert envelope["details"]["candidates"] == ["tiers", "levels", "validation", "path"]
+    assert envelope["repair"]["arguments"] == {"topic": "contributing"}
 
 
 def test_reference_portal_parameter_description(input_schemas):
     portal = input_schemas["atlas_get_reference"]["properties"]["portal"]
     assert portal["description"] == (
-        "Portal id or alias. Required for topic guides; rejected on other topics."
+        "Portal id or alias. Required for topic guides; for topic portals, the same as "
+        "item_id; rejected on other topics."
     )
     topic = input_schemas["atlas_get_reference"]["properties"]["topic"]
     assert set(topic["enum"]) == {
@@ -308,6 +346,10 @@ FALLBACKS = [
         {"topic": "guides", "portal": SEATTLE, "item_id": GUIDE_IDS[0]},
     ),
     ("opendata-atlas://contributing", {"topic": "contributing"}),
+    (
+        "opendata-atlas://contributing/{section_id}",
+        {"topic": "contributing", "item_id": "tiers"},
+    ),
 ]
 
 
@@ -335,7 +377,7 @@ async def test_every_resource_has_a_tool_fallback(client):
         )
         text = (await client.read_resource(uri))[0].text
         tool = (await ref(client, **args))["structuredContent"]
-        if "item_id" in args or args.get("topic") in ("capabilities", "contributing"):
+        if "item_id" in args or args.get("topic") == "capabilities":
             assert text == tool["body"], uri
         else:
             tool.pop("source")
@@ -464,9 +506,8 @@ def test_instructions_fit_the_ruling_23_limit():
     assert len(INSTRUCTIONS) <= INSTRUCTIONS_MAX_CHARS, len(INSTRUCTIONS)
 
 
-RULE = (
-    "Offer the user a defect or knowledge-gap issue (capabilities ## Defects, ## Knowledge gaps)."
-)
+#: #65: the trigger is in the rule itself, so it does not read as unconditional.
+RULE = "If a result meets capabilities ## Defects or ## Knowledge gaps, offer the user an issue."
 
 
 def test_defect_head_rule_is_short_and_details_stay_in_defects():

@@ -4,6 +4,9 @@
       "_meta": {
         "fastmcp": {
           "tags": []
+        },
+        "opendata-atlas/lifecycle": {
+          "stability": "preview"
         }
       },
       "annotations": {
@@ -213,12 +216,15 @@
         ],
         "type": "object"
       },
-      "title": "Atlas Find Portals"
+      "title": "Find portals"
     },
     {
       "_meta": {
         "fastmcp": {
           "tags": []
+        },
+        "opendata-atlas/lifecycle": {
+          "stability": "preview"
         }
       },
       "annotations": {
@@ -238,7 +244,7 @@
             "type": "string"
           },
           "category": {
-            "description": "Exact category name, e.g. Public Safety; omit for all.",
+            "description": "Exact category name, as in a result's category, e.g. Public Safety; omit for all.",
             "maxLength": 100,
             "minLength": 1,
             "type": "string"
@@ -546,12 +552,15 @@
         ],
         "type": "object"
       },
-      "title": "Atlas Search Datasets"
+      "title": "Search datasets"
     },
     {
       "_meta": {
         "fastmcp": {
           "tags": []
+        },
+        "opendata-atlas/lifecycle": {
+          "stability": "preview"
         }
       },
       "annotations": {
@@ -1128,19 +1137,22 @@
         ],
         "type": "object"
       },
-      "title": "Atlas Describe Dataset"
+      "title": "Describe dataset"
     },
     {
       "_meta": {
         "fastmcp": {
           "tags": []
+        },
+        "opendata-atlas/lifecycle": {
+          "stability": "preview"
         }
       },
       "annotations": {
         "openWorldHint": true,
         "readOnlyHint": true
       },
-      "description": "Run a bounded read or aggregate on one dataset; paging stops at 10,000 rows.\n\nFor counts and breakdowns, use count(*) with group_by, not row paging.\nWith cursor, send only portal, dataset_id, cursor, and optionally page_size or detail.\nFor all rows, give the user download_url (detail=\"full\") instead of paging.\nIllustrative example: {\"portal\": \"example-city\", \"dataset_id\": \"abcd-1234\",\n\"select\": [\"type\", \"count(*) AS n\"], \"group_by\": [\"type\"], \"order_by\": [\"n DESC\"]}.\nTypically 1-5 s; fails with query_timeout after 30 s.",
+      "description": "Run a bounded read or aggregate on one dataset; paging stops at 10,000 rows.\n\nFor counts and breakdowns, use count(*) with group_by, not row paging.\nWith cursor, send only portal, dataset_id, cursor, and optionally page_size or detail.\nFor all rows, give the user download_url (clauses mode, detail=\"full\") instead of paging.\nHonor coverage_warnings and knowledge_notice in the answer; take relative dates from\nsource.now_local.\nIllustrative example: {\"portal\": \"example-city\", \"dataset_id\": \"abcd-1234\",\n\"select\": [\"type\", \"count(*) AS n\"], \"group_by\": [\"type\"], \"order_by\": [\"n DESC\"]}.\nTypically 1-5 s; fails with query_timeout after 30 s.",
       "inputSchema": {
         "additionalProperties": false,
         "properties": {
@@ -1155,7 +1167,7 @@
             "type": "string"
           },
           "detail": {
-            "description": "summary (default) or full: adds query_url and download_url (CSV of all matching rows).",
+            "description": "summary (default) or full: adds query_url and, in clauses mode, download_url (CSV of all matching rows).",
             "enum": [
               "summary",
               "full"
@@ -1498,19 +1510,22 @@
         ],
         "type": "object"
       },
-      "title": "Atlas Query Dataset"
+      "title": "Query dataset"
     },
     {
       "_meta": {
         "fastmcp": {
           "tags": []
+        },
+        "opendata-atlas/lifecycle": {
+          "stability": "preview"
         }
       },
       "annotations": {
         "openWorldHint": false,
         "readOnlyHint": true
       },
-      "description": "Read the server's reference: capability summary, portals, dataset guides, SoQL help,\nerror catalog, and tier definitions. Call with no arguments for the index.\n\nExample: {\"topic\": \"soql\", \"item_id\": \"dates\"}.\nWith cursor, repeat only topic and, for guides, portal.",
+      "description": "Read the server's reference: capability summary, portals, dataset guides, SoQL help,\nerror catalog, and tier definitions. Call with no arguments for the index.\n\nIf your client did not show you the server instructions, read topic capabilities before\nyour first query.\nExample: {\"topic\": \"soql\", \"item_id\": \"dates\"}.\nWith cursor, repeat only topic and, for guides, portal.",
       "inputSchema": {
         "additionalProperties": false,
         "properties": {
@@ -1526,7 +1541,7 @@
             "type": "string"
           },
           "portal": {
-            "description": "Portal id or alias. Required for topic guides; rejected on other topics.",
+            "description": "Portal id or alias. Required for topic guides; for topic portals, the same as item_id; rejected on other topics.",
             "pattern": "^[A-Za-z0-9][A-Za-z0-9.-]{1,99}$",
             "type": "string"
           },
@@ -1672,7 +1687,7 @@
         ],
         "type": "object"
       },
-      "title": "Atlas Get Reference"
+      "title": "Read reference"
     }
   ]
 }

@@ -116,7 +116,7 @@ The same reference material is also served as MCP resources, for clients that br
 | `opendata-atlas://portals/{portal}/guides`, `.../guides/{guide_id}` | A portal's guides, and one guide |
 | `opendata-atlas://soql`, `opendata-atlas://soql/{section_id}` | SoQL reference: syntax, filtering, aggregation, dates, geography, paging |
 | `opendata-atlas://errors`, `opendata-atlas://errors/{section_id}` | Error catalog |
-| `opendata-atlas://contributing` | Tier and knowledge definitions, and how to contribute portal knowledge |
+| `opendata-atlas://contributing`, `opendata-atlas://contributing/{section_id}` | Tier, knowledge-level and validation definitions, and how to contribute portal knowledge |
 
 The `{portal}`, `{section_id}` and `{guide_id}` parameters support completion.
 

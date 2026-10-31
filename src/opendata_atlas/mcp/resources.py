@@ -12,10 +12,10 @@ from typing import TYPE_CHECKING, Any
 from fastmcp.resources import FunctionResource
 from mcp.types import Completion, ResourceTemplateReference
 
-from opendata_atlas.constants import URI_SCHEME
+from opendata_atlas.constants import LIFECYCLE_META, URI_SCHEME
 from opendata_atlas.core import reference_service
 from opendata_atlas.core.errors import AtlasError
-from opendata_atlas.core.reference import CAPABILITIES, CONTRIBUTING, topics
+from opendata_atlas.core.reference import CAPABILITIES, topics
 from opendata_atlas.portals.registry import load_registry
 from opendata_atlas.portals.resolve import allowed_ids, resolve_portal
 
@@ -56,7 +56,9 @@ _GUIDE_URI = f"{_GUIDES_URI}/{{guide_id}}"
 _PORTAL_TEMPLATES = frozenset({_PORTAL_URI, _GUIDES_URI, _GUIDE_URI})
 
 
-_SECTION_URIS = {f"{URI_SCHEME}://{topic}/{{section_id}}": topic for topic in ("soql", "errors")}
+_SECTION_URIS = {
+    f"{URI_SCHEME}://{topic}/{{section_id}}": topic for topic in ("soql", "errors", "contributing")
+}
 #: The protocol's cap on one completion response; `total` and `hasMore` report the rest.
 COMPLETION_MAX = 100
 
@@ -149,14 +151,12 @@ def register_resources(mcp: FastMCP) -> None:
                 title=title,
                 description=description,
                 mime_type=mime_type,
+                meta=LIFECYCLE_META,
             )
         )
 
     def capabilities() -> str:
         return CAPABILITIES
-
-    def contributing() -> str:
-        return CONTRIBUTING
 
     add_static(
         f"{URI_SCHEME}://capabilities",
@@ -165,15 +165,6 @@ def register_resources(mcp: FastMCP) -> None:
         "What the server does and does not do, binding rules, and failure carriers. Read first.",
         "text/markdown",
         capabilities,
-    )
-    add_static(
-        f"{URI_SCHEME}://contributing",
-        "contributing",
-        "Contributing portal knowledge",
-        "What portal tiers and dataset knowledge levels mean, and how to contribute a portal's "
-        "pack.",
-        "text/markdown",
-        contributing,
     )
     for topic, title, description in (
         (
@@ -196,6 +187,12 @@ def register_resources(mcp: FastMCP) -> None:
             "Error catalog index",
             "The error envelope, codes by tool, and authentication repair.",
         ),
+        (
+            "contributing",
+            "Contributing index",
+            "Sections defining portal tiers, knowledge levels and validation, and the path for "
+            "contributing a portal's pack.",
+        ),
     ):
         add_static(
             f"{URI_SCHEME}://{topic}",
@@ -212,6 +209,7 @@ def register_resources(mcp: FastMCP) -> None:
         title="SoQL reference section",
         description="One SoQL section; ids are listed at opendata-atlas://soql.",
         mime_type="text/markdown",
+        meta=LIFECYCLE_META,
     )
     def soql_section(section_id: str) -> str:
         return _item(None, "soql", section_id)
@@ -222,9 +220,21 @@ def register_resources(mcp: FastMCP) -> None:
         title="Error catalog section",
         description="One error-catalog section: envelope, codes, or authentication.",
         mime_type="text/markdown",
+        meta=LIFECYCLE_META,
     )
     def errors_section(section_id: str) -> str:
         return _item(None, "errors", section_id)
+
+    @mcp.resource(
+        f"{URI_SCHEME}://contributing/{{section_id}}",
+        name="contributing-section",
+        title="Contributing section",
+        description="One section of the contributing document: tiers, levels, validation, or path.",
+        mime_type="text/markdown",
+        meta=LIFECYCLE_META,
+    )
+    def contributing_section(section_id: str) -> str:
+        return _item(None, "contributing", section_id)
 
     @mcp.resource(
         _PORTAL_URI,
@@ -233,6 +243,7 @@ def register_resources(mcp: FastMCP) -> None:
         description="Identity, tier, knowledge by dataset, and guide index; "
         "{portal} is a portal id or alias.",
         mime_type="text/markdown",
+        meta=LIFECYCLE_META,
     )
     def portal_summary(portal: str) -> str:
         _resolve(portal, _PORTAL_URI)
@@ -244,6 +255,7 @@ def register_resources(mcp: FastMCP) -> None:
         title="Dataset guide index",
         description="A portal's dataset guides; {portal} is a portal id or alias.",
         mime_type="application/json",
+        meta=LIFECYCLE_META,
     )
     def guides_index(portal: str) -> str:
         return _topic_index(_resolve(portal, _GUIDES_URI), "guides")
@@ -254,6 +266,7 @@ def register_resources(mcp: FastMCP) -> None:
         title="Dataset guide",
         description="One dataset guide; ids are listed at opendata-atlas://portals/{portal}/guides.",
         mime_type="text/markdown",
+        meta=LIFECYCLE_META,
     )
     def guide(portal: str, guide_id: str) -> str:
         return _item(_resolve(portal, _GUIDE_URI), "guides", guide_id)

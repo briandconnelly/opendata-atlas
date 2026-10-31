@@ -15,7 +15,6 @@ from opendata_atlas.core.models import ReferenceEntry, ReferenceResult
 from opendata_atlas.core.reference import (
     CAPABILITIES,
     CONTENT_VERSION,
-    CONTRIBUTING,
     guide_uri,
     portal_uri,
     topic_uri,
@@ -33,7 +32,7 @@ if TYPE_CHECKING:
 
 _TOOL = "atlas_get_reference"
 #: Topics read as one body, with no items.
-_BODIES = {"capabilities": CAPABILITIES, "contributing": CONTRIBUTING}
+_BODIES = {"capabilities": CAPABILITIES}
 #: Tiers the portal index lists; every portal is reachable by atlas_find_portals.
 _INDEXED_TIERS = ("curated", "profiled")
 _CURSOR_KIND = "reference"
