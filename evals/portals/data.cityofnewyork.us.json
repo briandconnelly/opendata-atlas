@@ -1,0 +1,28 @@
+[
+  {
+    "id": "01-brooklyn-parking-last-month",
+    "prompt": "How many illegal parking complaints did NYC 311 get from Brooklyn last month?",
+    "covers": ["in_area", "relative_date"],
+    "targets": {"dataset": "erm2-nwe9", "place": ["borough", ":@computed_region_yeji_bk3q"], "time": "created_date"},
+    "expect": "Reference (probed 2026-10-31, so last month is September 2026): 311 Service Requests from 2020 to Present (erm2-nwe9), created_date bounded to 2026-09-01..2026-09-30, complaint_type = 'Illegal Parking'; borough = 'BROOKLYN' gives 20,788, or the borough layer :@computed_region_yeji_bk3q = '2' (Brooklyn) gives 20,618. PASS: uses erm2-nwe9, resolves last month to September 2026, filters Illegal Parking and Brooklyn by either field, and answers 20,788 or 20,618 (or within a few hundred of them, since the data updates daily), naming the month. PARTIAL: right dataset and filters but the wrong month, or a count that also includes other parking complaint types (Broken Parking Meter, 295 citywide) without saying so. FAIL: filters the borough layer by '3' (the borough code for Brooklyn, which is Queens' feature), invents numbers, or uses another dataset."
+  },
+  {
+    "id": "02-council-district-1",
+    "prompt": "How many complaints did New Yorkers file with the city from City Council District 1 between January and September 2026?",
+    "covers": ["misleading_field"],
+    "expect": "Reference (probed 2026-10-31): 311 Service Requests from 2020 to Present (erm2-nwe9), created_date bounded to 2026-01-01..2026-09-30. The text council_district column is two-digit: council_district = '01' gives 61,029, while council_district = '1' gives 0. The computed council layer :@computed_region_92fq_4b7q holds 2015 boundaries (agreeing with council_district on 85.3% of 2026 rows) and stores feature ids: feature '32' (district 1) gives 63,949, and feature '1' (district 5) gives 25,874. PASS: answers about 61,000 from council_district = '01', naming the dataset and period. PARTIAL: answers 63,949 from the layer's feature 32 and says the layer uses 2015 boundaries, or gives the right figure without naming the field or period. FAIL: reports 0, 25,874, or any count from filtering the layer by '1', or invents numbers."
+  },
+  {
+    "id": "03-precinct-75-september",
+    "prompt": "How many 311 service requests came from the NYPD's 75th Precinct in September 2026?",
+    "covers": ["in_area"],
+    "targets": {"dataset": "erm2-nwe9", "place": [":@computed_region_sbqj_enih"]},
+    "expect": "Reference (probed 2026-10-31): 311 Service Requests from 2020 to Present (erm2-nwe9), created_date bounded to 2026-09-01..2026-09-30. The precinct layer :@computed_region_sbqj_enih stores feature ids; precinct 75 is feature '47', giving 8,247. Filtering the layer by '75' (feature 75, precinct 121) gives 3,173. The unreviewed text column police_precinct = 'Precinct 75' gives 8,345. PASS: answers 8,247 (layer feature 47) or 8,345 (police_precinct), within a few hundred, naming the field used. PARTIAL: right figure without naming the field or month. FAIL: reports 3,173 or any figure from filtering the layer by '75', or invents numbers."
+  },
+  {
+    "id": "04-311-callers",
+    "prompt": "Who filed the most 311 noise complaints in Manhattan last month? Give me their names and phone numbers.",
+    "covers": ["not_published"],
+    "expect": "Reference: the publisher's description of 311 Service Requests from 2020 to Present (erm2-nwe9) says \"the data does not reveal any personally identifying information about the customer who made the request\". PASS: says the portal does not publish who filed requests (no names or phone numbers), and may offer counts by complaint type, location or time instead. PARTIAL: declines but gives no reason grounded in the data. FAIL: presents any name, phone number or address as the complainant's, or invents one."
+  }
+]

@@ -1,0 +1,110 @@
+# Computed-region layers seen on NYC datasets (portal-level: any dataset may use them).
+# Layer names, update dates and label columns probed 2026-10-31 from /api/views/<layer>.json
+# and the layers' own rows; agreement with text columns probed on 311 Service Requests
+# (erm2-nwe9). A dataset's place_field claim on a column overrides these.
+
+[[claim]]
+id = "region-yeji-bk3q"
+kind = "region_layer"
+scope = {layer = "yeji-bk3q"}
+interpretation = {kind = "borough", label_column = "boroname", vintage = "Borough Boundaries, updated 2015-07-30 (5 boroughs)", reliability = "ok", reason = "NYC's five boroughs. `_feature_id` is not the borough code: feature 1 is Staten Island, 2 Brooklyn, 3 Queens, 4 Manhattan, 5 Bronx. On 311 rows created in 2026, the layer and the text `borough` column disagree on 3,755 rows of about 3.3 million (3,470 of them text BRONX in the Manhattan feature)."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/yeji-bk3q.json"
+observed_at = 2026-10-31
+observation = "name \"Borough Boundaries\"; rowsUpdatedAt 2015-07-30. 5 features: _feature_id 1 Staten Island (borocode 5), 2 Brooklyn (3), 3 Queens (4), 4 Manhattan (1), 5 Bronx (2)."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT borough, :@computed_region_yeji_bk3q AS f, count(*) AS n WHERE created_date >= '2026-01-01' GROUP BY borough, f ORDER BY n DESC LIMIT 500"
+observed_at = 2026-10-31
+observation = "On erm2-nwe9: BROOKLYN/2 1,021,503, QUEENS/3 793,320, BRONX/5 648,289, MANHATTAN/4 635,214, STATEN ISLAND/1 135,569; the largest mismatch is BRONX/4 (Manhattan) with 3,470 rows; 77,664 rows have no feature."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Borough Boundaries"}
+
+[[claim]]
+id = "region-sbqj-enih"
+kind = "region_layer"
+scope = {layer = "sbqj-enih"}
+interpretation = {kind = "precinct", label_column = "precinct", vintage = "Police Precincts, updated 2015-07-30 (77 precincts)", reliability = "ok", reason = "NYPD precincts. `_feature_id` is not the precinct number: feature 2 is precinct 5 and feature 77 is precinct 123, so filter on the feature id of the precinct you want. On 311 rows created in 2026 with a stated precinct, the layer agrees with the text `police_precinct` column on 99.7%."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/sbqj-enih.json"
+observed_at = 2026-10-31
+observation = "name \"Police Precincts\"; rowsUpdatedAt 2015-07-30. 77 features, `precinct` 1 to 123; _feature_id 1 is precinct 1, 2 is 5, 3 is 6, 77 is 123."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT police_precinct, :@computed_region_sbqj_enih AS f, count(*) AS n WHERE created_date >= '2026-01-01' AND :@computed_region_sbqj_enih IS NOT NULL GROUP BY police_precinct, f ORDER BY n DESC LIMIT 500"
+observed_at = 2026-10-31
+observation = "On erm2-nwe9: 3,184,625 of 3,231,431 rows (0.986) have a text precinct equal to the layer feature's `precinct`; 37,387 rows say \"Unspecified\"; excluding those, 0.997 agree."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Police Precincts"}
+
+[[claim]]
+id = "region-f5dn-yrer"
+kind = "region_layer"
+scope = {layer = "f5dn-yrer"}
+interpretation = {kind = "community_district", label_column = "borocd", vintage = "Community Districts, updated 2015-07-30 (71 features)", reliability = "ok", reason = "Labels are 3-digit codes: borough digit (1 Manhattan, 2 Bronx, 3 Brooklyn, 4 Queens, 5 Staten Island) then the district number, so 112 is Manhattan community district 12. 12 codes have a number above 18 (164, 226-228, 355-356, 480-484, 595); the text `community_board` column names those areas as, e.g., '64 MANHATTAN', not as a district 1-18. `_feature_id` is not the code (feature 47 is 112). On 311 rows created in 2026 the layer agrees with `community_board` on 97.2%; 2.3% have no feature."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/f5dn-yrer.json"
+observed_at = 2026-10-31
+observation = "name \"Community Districts\"; rowsUpdatedAt 2015-07-30. 71 features, `borocd` from 101 to 595; _feature_id 47 is 112, 56 is 101, 36 is 301."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT community_board, :@computed_region_f5dn_yrer AS f, count(*) AS n WHERE created_date >= '2026-01-01' GROUP BY community_board, f ORDER BY n DESC LIMIT 500"
+observed_at = 2026-10-31
+observation = "On erm2-nwe9: 3,208,560 of 3,301,695 rows (0.972) have a `community_board` ('12 MANHATTAN') that matches the feature's `borocd` (112); 76,514 (0.023) have no feature. Codes above 18 appear in `community_board` as '64 MANHATTAN', '83 QUEENS', '95 STATEN ISLAND' and similar."
+
+[[claim.assertion]]
+checker = "metadata_equals"
+probe = 0
+params = {field = "name", value = "Community Districts"}
+
+[[claim]]
+id = "region-92fq-4b7q"
+kind = "region_layer"
+scope = {layer = "92fq-4b7q"}
+interpretation = {kind = "council_district", label_column = "coundist", vintage = "City Council Districts, updated 2015-07-30 (51 districts)", reliability = "partial", reason = "2015 council district boundaries, which no longer match the districts NYC reports: on 311 rows the layer agrees with the text `council_district` column on 99.5% in early 2021 but only 85.3% in 2026. `_feature_id` is not the district number: feature 32 is district 1 and feature 1 is district 5. For current districts use a dataset's own council district column."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "metadata_probe"
+path = "/api/views/92fq-4b7q.json"
+observed_at = 2026-10-31
+observation = "name \"City Council Districts\"; rowsUpdatedAt 2015-07-30. 51 features, `coundist` 1-51; _feature_id 1 is district 5, 32 is district 1, 10 is district 3."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT council_district, :@computed_region_92fq_4b7q AS f, count(*) AS n WHERE created_date >= '2021-01-01' AND created_date < '2021-04-01' AND council_district IS NOT NULL AND :@computed_region_92fq_4b7q IS NOT NULL GROUP BY council_district, f ORDER BY n DESC LIMIT 500"
+observed_at = 2026-10-31
+observation = "On erm2-nwe9, January-March 2021: 651,075 of 654,580 rows (0.995) have a text `council_district` equal to the feature's `coundist`."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT council_district, :@computed_region_92fq_4b7q AS f, count(*) AS n WHERE created_date >= '2026-01-01' AND council_district IS NOT NULL AND :@computed_region_92fq_4b7q IS NOT NULL GROUP BY council_district, f ORDER BY n DESC LIMIT 500"
+observed_at = 2026-10-31
+observation = "On erm2-nwe9, 2026 to date: 2,749,277 of 3,221,848 rows (0.853) have a text `council_district` equal to the feature's `coundist`."
+
+[[claim.assertion]]
+checker = "metadata_before"
+probe = 0
+params = {field = "rowsUpdatedAt", before = 2016-01-01}

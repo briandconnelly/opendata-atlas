@@ -1,0 +1,17 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "ipu4-2q9a-self_cert-placeholders"
+kind = "placeholder_share"
+scope = {dataset = "ipu4-2q9a", column = "self_cert"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT self_cert AS v, count(*) AS n GROUP BY self_cert ORDER BY n DESC LIMIT 101"
+observed_at = 2026-10-31
+observation = "Groups include shared-vocabulary placeholder values: \"X\" 4 of 3,991,183 rows (0.000)."
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 0
+params = {column = "v", value = "X", count = "n"}

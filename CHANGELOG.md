@@ -4,6 +4,10 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ## [Unreleased]
 
+### Added
+
+- The `data.cityofnewyork.us` (NYC Open Data) knowledge pack, made by the curate-portal skill and declared `profiled`, with 311 Service Requests from 2020 to Present (`erm2-nwe9`) `reviewed`: one row per service request, the `borough` and two-digit `council_district` place fields, New York wall-clock `created_date`, and the portal's four computed-region layers (boroughs, police precincts, community districts, and 2015 council districts, `partial`), whose values are feature ids rather than district numbers. Guide `nyc-311`. No tool schema change.
+
 ### Changed
 
 - Tool surface: an output schema publishes an object it uses more than once as a local `$defs` entry referenced by `$ref` (`atlas_search_datasets`' dataset summary; `atlas_describe_dataset`'s knowledge and placeholder rows) instead of repeating it; expanded, every schema is unchanged, and input schemas stay fully inlined (#66). `tests/snapshots/tools_list.json` is regenerated; `tools/list` is 23,788 of its 24,576 bytes (it was 24,515).

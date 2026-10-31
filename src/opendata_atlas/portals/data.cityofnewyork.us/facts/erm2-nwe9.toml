@@ -1,0 +1,215 @@
+# Draft from atlas-profile: observations only. A reviewer adds interpretations.
+
+[[claim]]
+id = "erm2-nwe9-:@computed_region_yeji_bk3q-fill"
+kind = "place_field"
+scope = {dataset = "erm2-nwe9", column = ":@computed_region_yeji_bk3q"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_yeji_bk3q) AS filled, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: 74,504 of 75,776 rows (0.983) have a value (September 2026, 0.982; the whole table, 0.981, a query that times out under the drift run); computed-region layer yeji-bk3q, candidate label column `boroname`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "erm2-nwe9-:@computed_region_sbqj_enih-fill"
+kind = "place_field"
+scope = {dataset = "erm2-nwe9", column = ":@computed_region_sbqj_enih"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_sbqj_enih) AS filled, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: 74,504 of 75,776 rows (0.983) have a value (September 2026, 0.982; the whole table, 0.981, a query that times out under the drift run); computed-region layer sbqj-enih, candidate label column `precinct`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "erm2-nwe9-:@computed_region_92fq_4b7q-fill"
+kind = "place_field"
+scope = {dataset = "erm2-nwe9", column = ":@computed_region_92fq_4b7q"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(:@computed_region_92fq_4b7q) AS filled, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: 74,504 of 75,776 rows (0.983) have a value (September 2026, 0.982; the whole table, 0.981, a query that times out under the drift run); computed-region layer 92fq-4b7q, candidate label column `coundist`."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.93}
+
+[[claim]]
+id = "erm2-nwe9-created_date-timezone"
+kind = "column_timezone"
+scope = {dataset = "erm2-nwe9", column = "created_date"}
+interpretation = {timezone = "America/New_York", reason = "New York wall-clock time with no offset: requests peak in late morning (10:00 over the last year, 11:00 in September 2026) with all 24 hours populated, and on the 2026-03-08 spring-forward day the skipped 02:00 hour holds 1 row against 330 and 228 either side. Only 3,407 of 3,966,469 rows (0.001) in that year are at exactly 00:00:00, so midnight is not a default for an unknown time. The newest value, 2026-10-30T02:52:29, is not after the probe date."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(created_date) AS h, count(*) AS n WHERE created_date >= '2026-03-08T00:00:00' AND created_date < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the spring-forward day probed, hour 2 has 1 rows; hours 1 and 3 have 330 and 228."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(created_date) AS h, count(*) AS n WHERE created_date >= '2026-09-24T00:00:00' AND created_date < '2026-10-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: rows peak at hour 11 (4,911 of 75,776), with 818 at hour 3; 24 of 24 hours populated. September 2026 also peaks at hour 11 (19,835 of 323,632). Over 2025-10-30..2026-10-30 they peak at hour 10 (240,883 of 3,979,415), a query that times out under the drift run."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 8, peak_to = 12}
+
+[[claim]]
+id = "erm2-nwe9-closed_date-timezone"
+kind = "column_timezone"
+scope = {dataset = "erm2-nwe9", column = "closed_date"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(closed_date) AS h, count(*) AS n WHERE closed_date >= '2026-03-08T00:00:00' AND closed_date < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the spring-forward day probed, hour 2 has 12 rows; hours 1 and 3 have 322 and 234."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(closed_date) AS h, count(*) AS n WHERE closed_date >= '2026-09-24T00:00:00' AND closed_date < '2026-10-01T00:00:00' AND (date_extract_hh(closed_date) != 0 OR date_extract_mm(closed_date) != 0 OR date_extract_ss(closed_date) != 0) GROUP BY h"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: rows peak at hour 13 (4,944 of 71,484); 24 of 24 hours populated. Rows at exactly 00:00:00 are left out (next probe). Over 2025-10-31..2026-10-31 they peak at hour 13 (230,663 of 3,746,771), a query that times out under the drift run."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, sum(case(date_extract_hh(closed_date) = 0 AND date_extract_mm(closed_date) = 0 AND date_extract_ss(closed_date) = 0, 1, true, 0)) AS midnight WHERE closed_date >= '2025-10-31T00:00:00' AND closed_date < '2026-11-01T00:00:00'"
+observed_at = 2026-10-31
+observation = "138,622 of 3,885,393 rows (0.036) in the window are at exactly 00:00:00, which may be a default for an unknown time."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 11, peak_to = 15}
+
+[[claim]]
+id = "erm2-nwe9-due_date-timezone"
+kind = "column_timezone"
+scope = {dataset = "erm2-nwe9", column = "due_date"}
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(due_date) AS h, count(*) AS n WHERE due_date >= '2026-03-08T00:00:00' AND due_date < '2026-03-09T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "On the spring-forward day probed, hour 2 has 0 rows; hours 1 and 3 have 0 and 0."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT date_extract_hh(due_date) AS h, count(*) AS n WHERE due_date >= '2025-10-31T00:00:00' AND due_date < '2026-11-01T00:00:00' GROUP BY h"
+observed_at = 2026-10-31
+observation = "Rows peak at hour 6 (3,320 of 15,328); 24 of 24 hours populated."
+
+[[claim.assertion]]
+checker = "diurnal_peak"
+probe = 1
+params = {peak_from = 4, peak_to = 8}
+
+[[claim]]
+id = "erm2-nwe9-unit"
+kind = "unit_of_observation"
+scope = {dataset = "erm2-nwe9"}
+interpretation = {unit = "service_request", reason = "One row per 311 service request directed to a city agency; `unique_key` was distinct on every row probed (September 2026: 323,632 rows, 323,632 keys), so count(*) counts requests. Requests from 2010-2019 are in a separate dataset, 76ig-c548."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.cityofnewyork.us/api/views/erm2-nwe9.json"
+quote = "Each row of data contains information about the service request, including complaint type, responding agency, and geographic location."
+observed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "document"
+url = "https://data.cityofnewyork.us/api/views/erm2-nwe9.json"
+quote = "For data from 2010-2019 see: https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-2019/76ig-c548/about_data"
+observed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(*) AS n, count(distinct unique_key) AS keys WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: 75,776 rows and 75,776 distinct unique_key values. All of September 2026: 323,632 rows and 323,632 keys."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "keys", denominator = "n", min = 0.99}
+
+[[claim]]
+id = "erm2-nwe9-borough-place-field"
+kind = "place_field"
+scope = {dataset = "erm2-nwe9", column = "borough"}
+interpretation = {kind = "borough", reliability = "ok", reason = "Upper-case borough names (BROOKLYN, QUEENS, BRONX, MANHATTAN, STATEN ISLAND); 41,294 of 22,984,954 rows (0.002) say 'Unspecified' and 38,433 are null."}
+placeholders = ["Unspecified"]
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT sum(case(borough = 'Unspecified', 1, true, 0)) AS ph, count(borough) AS filled, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: ph 121, filled 75,776, n 75,776: 0.002 of rows are 'Unspecified', none null. Over the whole table (22,984,954 rows, a query that times out under the drift run) 41,294 are 'Unspecified' and 38,433 null."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "ph", denominator = "n", max = 0.02}
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.97}
+
+[[claim]]
+id = "erm2-nwe9-council_district-place-field"
+kind = "place_field"
+scope = {dataset = "erm2-nwe9", column = "council_district"}
+interpretation = {kind = "council_district", reliability = "ok", reason = "The council district NYC reports for the request, as two-digit text '01' to '51': filter with council_district = '01', since '1' matches no rows. 3,223,222 of 3,315,553 rows created in 2026 (0.972) are filled; September 2026, 0.977. The 2015 council layer (92fq-4b7q) disagrees with it on 14.7% of 2026 rows."}
+reviewed_by = "claude"
+reviewed_at = 2026-10-31
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT count(council_district) AS filled, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59'"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: 74,070 of 75,776 rows (0.977) have a value."
+
+[[claim.evidence]]
+kind = "soql_probe"
+query = "SELECT council_district, count(*) AS n WHERE created_date between '2026-09-24T00:00:00' and '2026-09-30T23:59:59' AND council_district IN ('01', '1') GROUP BY council_district"
+observed_at = 2026-10-31
+observation = "2026-09-24..30: '01' matches 1,755 rows; '1' matches none. Over the whole table '01' matches 457,816."
+
+[[claim.assertion]]
+checker = "share_by_group"
+probe = 0
+params = {numerator = "filled", denominator = "n", min = 0.9}
+
+[[claim.assertion]]
+checker = "value_present"
+probe = 1
+params = {column = "council_district", value = "01", count = "n"}
+
+[[claim.assertion]]
+checker = "value_absent"
+probe = 1
+params = {column = "council_district", value = "1"}
