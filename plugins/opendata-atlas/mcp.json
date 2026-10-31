@@ -4,7 +4,7 @@
     "opendata-atlas": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["opendata-atlas==0.2.0"]
+      "args": ["opendata-atlas==0.3.0"]
     }
   }
 }
