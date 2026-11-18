@@ -224,7 +224,7 @@ def _advertise_fixed_surface(mcp: FastMCP) -> None:
         }
         return capabilities.model_copy(update={"extensions": extensions or None})
 
-    low_level.get_capabilities = without_ui  # ty: ignore[invalid-assignment]
+    low_level.get_capabilities = without_ui
 
 
 def main() -> None:
