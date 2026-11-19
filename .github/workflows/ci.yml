@@ -52,6 +52,9 @@ jobs:
       - name: Type check (ty)
         run: uv run ty check
 
+      - name: Workflow lint and audit (actionlint, zizmor)
+        run: uv run prek run actionlint zizmor --all-files
+
       - name: MCPB manifest in sync
         run: uv run python scripts/gen_manifest.py --check
 
