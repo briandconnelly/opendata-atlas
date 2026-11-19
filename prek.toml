@@ -72,3 +72,20 @@ entry = "uv run pytest -x -q"
 pass_filenames = false
 files = "\\.py$"
 stages = ["pre-push"]
+
+# --------------------------------------------------------------------------
+# GitHub Actions — lint (actionlint) and security audit (zizmor)
+# --------------------------------------------------------------------------
+[[repos]]
+repo = "https://github.com/rhysd/actionlint"
+rev = "v1.7.12"
+hooks = [
+  { id = "actionlint" },
+]
+
+[[repos]]
+repo = "https://github.com/zizmorcore/zizmor-pre-commit"
+rev = "v1.32.0"
+hooks = [
+  { id = "zizmor" },
+]

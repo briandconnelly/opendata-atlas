@@ -1,0 +1,8 @@
+rules:
+  # mcpb is pinned to an exact version and only used to pack the bundle.
+  adhoc-packages:
+    ignore:
+      - build.yml:43
+  # Keep the long-standing ./ path for the reusable build workflow.
+  self-repository:
+    disable: true
